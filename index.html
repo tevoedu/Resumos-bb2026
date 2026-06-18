@@ -75,7 +75,7 @@
         }
 
         /* ============================================================
-           SCROLLBAR PERSONALIZADO
+           SCROLLBAR PERSONALIZADO (SIDEBAR)
            ============================================================ */
         ::-webkit-scrollbar {
             width: 5px;
@@ -1415,10 +1415,57 @@
                 }
             });
 
-            // Iframe: evento de carregamento
+            // ============================================================
+            // IFRAME: CARREGAMENTO E INJEÇÃO DE ESTILOS DA SCROLLBAR
+            // ============================================================
             $resumeIframe.addEventListener('load', function() {
+                // Remove o loader e marca como carregado
                 $iframeLoader.classList.remove('visible');
                 $resumeIframe.classList.add('loaded');
+
+                // --- INJEÇÃO DE CSS PARA ESTILIZAR A SCROLLBAR DENTRO DO IFRAME ---
+                try {
+                    // Tenta acessar o documento do iframe (mesma origem)
+                    const iframeDoc = $resumeIframe.contentDocument || $resumeIframe.contentWindow?.document;
+                    if (iframeDoc) {
+                        // Verifica se o estilo já foi injetado para não duplicar
+                        if (!iframeDoc.getElementById('hub-scrollbar-style')) {
+                            const style = iframeDoc.createElement('style');
+                            style.id = 'hub-scrollbar-style';
+                            // Estilos que combinam com o tema escuro do Hub
+                            style.textContent = `
+                                /* Scrollbar para WebKit (Chrome, Edge, Safari) */
+                                ::-webkit-scrollbar {
+                                    width: 7px;
+                                    height: 7px;
+                                }
+                                ::-webkit-scrollbar-track {
+                                    background: #141428;
+                                    border-radius: 6px;
+                                }
+                                ::-webkit-scrollbar-thumb {
+                                    background: #3a3a58;
+                                    border-radius: 6px;
+                                    transition: background 0.2s ease;
+                                }
+                                ::-webkit-scrollbar-thumb:hover {
+                                    background: #7c3aed;
+                                }
+                                /* Scrollbar para Firefox */
+                                * {
+                                    scrollbar-width: thin;
+                                    scrollbar-color: #3a3a58 #141428;
+                                }
+                            `;
+                            // Insere no <head> do iframe
+                            iframeDoc.head.appendChild(style);
+                            console.log('✅ Estilos de scrollbar injetados no iframe.');
+                        }
+                    }
+                } catch (e) {
+                    // Se não for possível acessar (cross-origin), ignora silenciosamente
+                    console.log('ℹ️ Não foi possível injetar estilos de scrollbar no iframe (cross-origin ou restrição).');
+                }
             });
 
             // Iframe: tratamento de erro
