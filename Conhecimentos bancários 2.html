@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila de Conhecimentos Bancários para Concursos</title>
+    <style>
+        :root {
+            --bg: #1a1d23;
+            --bg-card: #21242c;
+            --bg-elevated: #272b34;
+            --bg-highlight: #2a2e38;
+            --text: #d6d4ce;
+            --text-secondary: #b0ada5;
+            --text-muted: #8a877e;
+            --gold: #d4a853;
+            --gold-light: #e8c878;
+            --gold-dark: #b8923a;
+            --accent: #c9953e;
+            --amber: #d4a040;
+            --info-bg: #1c2735;
+            --info-border: #2e5070;
+            --info-icon: #5b9bd5;
+            --tip-bg: #1c2820;
+            --tip-border: #3a5c3a;
+            --tip-icon: #6bba6b;
+            --warn-bg: #2a2218;
+            --warn-border: #6b4e2a;
+            --warn-icon: #d4a040;
+            --important-bg: #281c23;
+            --important-border: #6b2e45;
+            --important-icon: #d4657e;
+            --table-hdr: #282c35;
+            --table-row: #23262e;
+            --table-row-alt: #262932;
+            --table-border: #363940;
+            --divider: #33363e;
+            --highlight-marker: rgba(180, 140, 60, 0.28);
+            --highlight-strong: rgba(190, 145, 55, 0.40);
+            --code-bg: #262a33;
+            --quote-border: #b8923a;
+            --quote-bg: #1f222a;
+            --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+            --font-main: 'Segoe UI', 'Georgia', 'Noto Serif', 'Palatino Linotype', 'Book Antiqua', 'Palatino', serif;
+            --font-heading: 'Segoe UI', 'Georgia', 'Trebuchet MS', 'Lucida Sans', sans-serif;
+            --font-mono: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --max-width: 820px;
+            --line-height: 1.78;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 17px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-main);
+            line-height: var(--line-height);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            justify-content: center;
+            padding: 0 16px 60px 16px;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            width: 100%;
+            max-width: var(--max-width);
+            padding-top: 32px;
+        }
+
+        /* HEADER */
+        .main-header {
+            text-align: center;
+            padding: 40px 28px 36px;
+            margin-bottom: 36px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--divider);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+        .main-header .header-icon {
+            display: block;
+            margin: 0 auto 14px;
+        }
+        .main-header h1 {
+            font-family: var(--font-heading);
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: -0.3px;
+            line-height: 1.25;
+            margin-bottom: 6px;
+        }
+        .main-header .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            letter-spacing: 0.2px;
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 28px 26px 22px;
+            margin-bottom: 36px;
+            border: 1px solid var(--divider);
+            box-shadow: var(--card-shadow);
+        }
+        .toc h2 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.2px;
+        }
+        .toc h2 svg {
+            flex-shrink: 0;
+        }
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .toc ol li {
+            counter-increment: toc-counter;
+            position: relative;
+            padding-left: 36px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .toc ol li::before {
+            content: counter(toc-counter);
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 26px;
+            height: 26px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--table-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: var(--font-heading);
+        }
+        .toc ol li a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+            border-bottom: 1px dotted transparent;
+        }
+        .toc ol li a:hover {
+            color: var(--gold-light);
+            border-bottom-color: var(--gold-dark);
+        }
+
+        /* SECTION HEADINGS */
+        .chapter {
+            margin-bottom: 48px;
+            scroll-margin-top: 24px;
+        }
+        .chapter-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--divider);
+            position: relative;
+        }
+        .chapter-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            border-radius: 1px;
+        }
+        .chapter-header .ch-num {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold);
+            background: var(--bg-elevated);
+            padding: 5px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.6px;
+            white-space: nowrap;
+            border: 1px solid var(--table-border);
+        }
+        .chapter-header h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: -0.3px;
+            line-height: 1.25;
+        }
+        h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #dac07a;
+            margin: 30px 0 12px;
+            letter-spacing: -0.2px;
+            padding-left: 8px;
+            border-left: 3px solid var(--gold-dark);
+        }
+        h4 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #c9b878;
+            margin: 22px 0 8px;
+            letter-spacing: -0.1px;
+        }
+        h5 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #bfae6e;
+            margin: 16px 0 6px;
+        }
+
+        /* PARAGRAPHS */
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        /* STRONG & EMPHASIS */
+        strong {
+            color: #e8d5a3;
+            font-weight: 650;
+        }
+        em {
+            color: #c9b878;
+            font-style: italic;
+        }
+
+        /* HIGHLIGHTER */
+        .marker {
+            background: var(--highlight-marker);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        .marker-strong {
+            background: var(--highlight-strong);
+            padding: 3px 7px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        /* LINKS */
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--gold-dark);
+            transition: all 0.2s;
+        }
+        a:hover {
+            color: var(--gold-light);
+            border-bottom-color: var(--gold-light);
+        }
+
+        /* DIVIDERS */
+        .section-divider {
+            border: none;
+            height: 1px;
+            background: var(--divider);
+            margin: 28px 0;
+            position: relative;
+        }
+        .section-divider.ornament {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+            border: none;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 20px 22px;
+            margin: 16px 0;
+            border: 1px solid var(--table-border);
+            box-shadow: var(--card-shadow);
+        }
+        .card.concept-card {
+            border-left: 4px solid var(--gold-dark);
+            background: var(--bg-elevated);
+        }
+        .card.concept-card h5 {
+            margin-top: 0;
+            color: var(--gold-light);
+        }
+
+        /* INFO BOXES */
+        .info-box,
+        .tip-box,
+        .warn-box,
+        .important-box {
+            border-radius: var(--radius-md);
+            padding: 18px 20px 16px;
+            margin: 18px 0;
+            position: relative;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            border: 1px solid;
+            box-shadow: var(--card-shadow);
+        }
+        .info-box svg,
+        .tip-box svg,
+        .warn-box svg,
+        .important-box svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .info-box .box-content,
+        .tip-box .box-content,
+        .warn-box .box-content,
+        .important-box .box-content {
+            flex: 1;
+        }
+        .info-box .box-content p:last-child,
+        .tip-box .box-content p:last-child,
+        .warn-box .box-content p:last-child,
+        .important-box .box-content p:last-child {
+            margin-bottom: 0;
+        }
+        .info-box {
+            background: var(--info-bg);
+            border-color: var(--info-border);
+        }
+        .info-box .box-label {
+            color: var(--info-icon);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 4px;
+        }
+        .tip-box {
+            background: var(--tip-bg);
+            border-color: var(--tip-border);
+        }
+        .tip-box .box-label {
+            color: var(--tip-icon);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 4px;
+        }
+        .warn-box {
+            background: var(--warn-bg);
+            border-color: var(--warn-border);
+        }
+        .warn-box .box-label {
+            color: var(--warn-icon);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 4px;
+        }
+        .important-box {
+            background: var(--important-bg);
+            border-color: var(--important-border);
+        }
+        .important-box .box-label {
+            color: var(--important-icon);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 4px;
+        }
+
+        /* CALLOUT */
+        .callout {
+            background: var(--bg-elevated);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin: 16px 0;
+            border: 1px dashed var(--gold-dark);
+            font-style: italic;
+            color: #c9b878;
+        }
+
+        /* BLOCKQUOTE */
+        blockquote {
+            border-left: 4px solid var(--quote-border);
+            background: var(--quote-bg);
+            margin: 16px 0;
+            padding: 14px 18px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-style: italic;
+            color: #c5bfaa;
+        }
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        /* STUDY CASE */
+        .study-case {
+            background: var(--bg-elevated);
+            border-radius: var(--radius-md);
+            padding: 20px 22px;
+            margin: 18px 0;
+            border: 1px solid var(--table-border);
+            border-left: 4px solid #5b9bd5;
+        }
+        .study-case .case-label {
+            font-weight: 700;
+            color: #5b9bd5;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            margin-bottom: 6px;
+        }
+
+        /* TABLES */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 18px 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--table-border);
+            box-shadow: var(--card-shadow);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 600px;
+        }
+        thead th {
+            background: var(--table-hdr);
+            color: var(--gold-light);
+            font-weight: 700;
+            padding: 12px 14px;
+            text-align: left;
+            border-bottom: 2px solid var(--table-border);
+            font-family: var(--font-heading);
+            letter-spacing: 0.3px;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+        }
+        tbody td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--table-border);
+            vertical-align: top;
+        }
+        tbody tr {
+            background: var(--table-row);
+        }
+        tbody tr:nth-child(even) {
+            background: var(--table-row-alt);
+        }
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        tbody td:first-child {
+            font-weight: 600;
+            color: #d8d4c8;
+        }
+
+        /* LISTS */
+        ul,
+        ol {
+            margin: 10px 0 14px 20px;
+        }
+        ul li,
+        ol li {
+            margin-bottom: 6px;
+            padding-left: 4px;
+        }
+        ul {
+            list-style-type: none;
+        }
+        ul li::before {
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: var(--gold-dark);
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-left: -20px;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+        }
+        ul li {
+            padding-left: 8px;
+        }
+        ol {
+            list-style-type: decimal;
+        }
+        ol li::marker {
+            color: var(--gold);
+            font-weight: 700;
+            font-family: var(--font-heading);
+        }
+
+        /* CODE / MONO */
+        code {
+            background: var(--code-bg);
+            color: #e2c078;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            border: 1px solid var(--table-border);
+        }
+
+        /* FLOWCHART SVG CONTAINER */
+        .diagram-container {
+            background: var(--bg-elevated);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            border: 1px solid var(--table-border);
+            overflow-x: auto;
+            box-shadow: var(--card-shadow);
+        }
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* MIND MAP STYLE */
+        .mindmap-block {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            margin: 14px 0;
+            border: 1px solid var(--table-border);
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            color: #c8c4b6;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* TAG / BADGE */
+        .tag {
+            display: inline-block;
+            background: var(--bg-elevated);
+            color: var(--gold);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 14px;
+            border: 1px solid var(--table-border);
+            letter-spacing: 0.4px;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            html {
+                font-size: 15px;
+            }
+            .main-header {
+                padding: 24px 16px 22px;
+            }
+            .main-header h1 {
+                font-size: 1.4rem;
+            }
+            .chapter-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            .chapter-header h2 {
+                font-size: 1.25rem;
+            }
+            h3 {
+                font-size: 1.05rem;
+            }
+            .info-box,
+            .tip-box,
+            .warn-box,
+            .important-box {
+                flex-direction: column;
+                gap: 8px;
+                padding: 14px 15px 12px;
+            }
+            table {
+                font-size: 0.78rem;
+            }
+            thead th,
+            tbody td {
+                padding: 8px 10px;
+            }
+            .toc ol li {
+                font-size: 0.85rem;
+                padding-left: 30px;
+            }
+        }
+        @media (min-width: 601px) and (max-width: 900px) {
+            html {
+                font-size: 16px;
+            }
+            .page-wrapper {
+                padding: 0 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- HEADER -->
+        <header class="main-header">
+            <svg class="header-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <rect x="4" y="8" width="40" height="32" rx="5" fill="none" stroke="#d4a853" stroke-width="2.5"/>
+                <line x1="14" y1="18" x2="34" y2="18" stroke="#d4a853" stroke-width="2" stroke-linecap="round"/>
+                <line x1="14" y1="24" x2="30" y2="24" stroke="#d4a853" stroke-width="2" stroke-linecap="round"/>
+                <line x1="14" y1="30" x2="26" y2="30" stroke="#d4a853" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="37" cy="30" r="5" fill="#d4a853" opacity="0.5"/>
+            </svg>
+            <h1>APOSTILA DE CONHECIMENTOS BANCÁRIOS PARA CONCURSOS</h1>
+            <p class="subtitle">Material completo, aprofundado e otimizado para estudo prolongado em tablet</p>
+        </header>
+
+        <!-- TABLE OF CONTENTS -->
+        <nav class="toc" aria-label="Sumário">
+            <h2>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="16" rx="3" stroke="#d4a853" stroke-width="2" fill="none"/>
+                    <line x1="7" y1="9" x2="17" y2="9" stroke="#d4a853" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="7" y1="13" x2="15" y2="13" stroke="#d4a853" stroke-width="1.8" stroke-linecap="round"/>
+                    <line x1="7" y1="17" x2="13" y2="17" stroke="#d4a853" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                SUMÁRIO
+            </h2>
+            <ol>
+                <li><a href="#cap1">Produtos e Serviços Bancários: Contas, PIX e Capitalização</a></li>
+                <li><a href="#cap2">Política Monetária e Instrumentos de Liquidez</a></li>
+                <li><a href="#cap3">Inovação e Atualidades: Startups, Fintechs e Edtechs</a></li>
+                <li><a href="#cap4">Atendimento ao Cliente e Processo de Vendas</a></li>
+                <li><a href="#cap5">Governança Corporativa e Responsabilidade Socioambiental</a></li>
+                <li><a href="#cap6">Hierarquia Normativa e Fontes do Direito Bancário</a></li>
+                <li><a href="#cap7">Legislação Aplicada à Rotina Bancária (Visão Geral)</a></li>
+                <li><a href="#cap8">Mapas Mentais e Macetes para Revisão</a></li>
+                <li><a href="#cap9">Questões Comentadas e Gabaritos Interpretativos</a></li>
+            </ol>
+        </nav>
+
+        <!-- CHAPTER 1 -->
+        <section class="chapter" id="cap1">
+            <div class="chapter-header">
+                <span class="ch-num">CAPÍTULO 1</span>
+                <h2>PRODUTOS E SERVIÇOS BANCÁRIOS: CONTAS, PIX E CAPITALIZAÇÃO</h2>
+            </div>
+
+            <h3>1.1 Contas Bancárias: Estrutura, Classificação e Abertura</h3>
+            <p>O ponto de partida da relação entre o cliente e a instituição financeira é a conta bancária. Para o futuro escriturário ou agente comercial, compreender a natureza jurídica e operacional de cada tipo de conta é condição indispensável não apenas para a aprovação em prova, mas para a atuação segura no dia a dia da agência. A banca <strong>Cesgranrio</strong>, em especial, explora com frequência a distinção entre os regimes de titularidade e as modalidades de depósito, exigindo do candidato precisão conceitual e capacidade de identificar erros sutis nas alternativas.</p>
+
+            <h4>1.1.1 Conta Individual vs. Conta Conjunta</h4>
+            <p><strong>Conta Individual</strong> é aquela que pertence a uma única pessoa, seja física ou jurídica. Toda a movimentação — saques, transferências, aplicações, encerramento — é realizada exclusivamente pelo titular ou por seus representantes legais legalmente constituídos. No caso de pessoa jurídica, a conta permanece vinculada ao CNPJ, e a movimentação é feita pelos sócios ou administradores designados no contrato social, nunca por um "dono" informal.</p>
+            <p><strong>Conta Conjunta</strong> é aberta em nome de duas ou mais pessoas físicas. Embora a legislação não imponha um limite máximo de titulares, a prática bancária geralmente admite até quatro ou cinco. O ponto crítico, recorrente em prova, é a distinção entre os dois regimes possíveis:</p>
+            <ul>
+                <li><strong>Conta Conjunta Solidária (ou "e/ou"):</strong> qualquer titular pode movimentar a totalidade dos recursos isoladamente, sem anuência dos demais. Basta a assinatura de um.</li>
+                <li><strong>Conta Conjunta Não Solidária (ou "e"):</strong> todos os titulares devem assinar conjuntamente para qualquer movimentação. É a modalidade que confere maior controle, mas menor agilidade.</li>
+            </ul>
+            <p>Na prática da agência, o escriturário deve orientar o cliente sobre essa diferença no ato da abertura, pois as implicações patrimoniais e sucessórias são relevantes. Um caso comum: casais que desejam conta conjunta solidária para facilitar o pagamento de contas domésticas. Contudo, se houver separação ou falecimento de um titular, os recursos podem ser integralmente movimentados pelo outro, o que exige cautela e clareza na contratação.</p>
+
+            <div class="important-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#d4657e" stroke-width="2" fill="none"/><line x1="11" y1="6" x2="11" y2="13" stroke="#d4657e" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="16" r="1.3" fill="#d4657e"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Pegadinha de Banca</p>
+                    <p>A <strong>Cesgranrio</strong> costuma afirmar que <em>"conta conjunta é aquela em que dois ou mais titulares podem movimentar apenas em conjunto"</em>. Isso está <span class="marker-strong">incorreto</span>, pois desconsidera a existência da modalidade solidária. Fique atento também à impossibilidade de conta conjunta para pessoas jurídicas; ela é exclusiva para pessoas físicas.</p>
+                </div>
+            </div>
+
+            <h4>1.1.2 Documentação para Abertura de Conta</h4>
+            <p>O processo de abertura de conta é regido pelas normas de <strong>"Conheça seu Cliente" (KYC)</strong> e prevenção à lavagem de dinheiro (PLD), exigindo identificação completa e qualificação financeira. Para o concurso, é fundamental memorizar o que se exige para cada tipo de cliente.</p>
+
+            <p><strong>Pessoa Física:</strong></p>
+            <ul>
+                <li>Documento de identificação oficial com foto (RG, CNH, carteira de trabalho, passaporte, etc.)</li>
+                <li>CPF (indispensável; a conta não pode ser aberta apenas com RG)</li>
+                <li>Comprovante de residência recente (últimos 60 a 90 dias, dependendo da política do banco)</li>
+                <li>Comprovante de renda (holerite, declaração de IR, extrato bancário) — a exigência decorre da necessidade de enquadramento em políticas de crédito e limites, bem como da PLD.</li>
+                <li>Em alguns casos, comprovante de estado civil e profissão.</li>
+            </ul>
+
+            <p><strong>Pessoa Jurídica:</strong></p>
+            <ul>
+                <li>Razão social completa</li>
+                <li>Nome fantasia (se houver)</li>
+                <li>Atividade principal (CNAE) — informação essencial para análise de risco e compliance</li>
+                <li>Forma de constituição (sociedade limitada, anônima, EIRELI, etc.)</li>
+                <li>Data de constituição (constante do contrato social ou estatuto)</li>
+                <li>Cartão CNPJ</li>
+                <li>Documentos dos sócios e administradores (mesmos documentos de pessoa física)</li>
+                <li>Contrato social ou estatuto consolidado e atas de eleição de administradores</li>
+            </ul>
+
+            <div class="warn-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><polygon points="11,2 21,19 1,19" stroke="#d4a040" stroke-width="2" fill="none" stroke-linejoin="round"/><line x1="11" y1="9" x2="11" y2="14" stroke="#d4a040" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="16.8" r="1.3" fill="#d4a040"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Erro Comum em Prova</p>
+                    <p>Afirmar que pessoa jurídica exige comprovante de residência dos sócios, mas <strong>não</strong> a atividade principal. Na verdade, a <span class="marker">atividade principal é um dos dados centrais</span> para abertura de conta PJ, pois determina o perfil de risco da empresa. A Cesgranrio já explorou essa troca de informações em questões de múltipla escolha.</p>
+                </div>
+            </div>
+
+            <h4>1.1.3 Conta Corrente vs. Conta Poupança: Natureza Jurídica e Remuneração</h4>
+            <p>A diferenciação entre <strong>Conta Corrente</strong> (depósito à vista) e <strong>Conta Poupança</strong> (depósito de poupança) está entre os tópicos mais elementares, porém mais mal interpretados em concursos. A confusão decorre do uso coloquial do termo "conta corrente" para designar qualquer conta de movimentação, inclusive a poupança. Tecnicamente, porém, são institutos distintos.</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Conta Corrente (Depósito à Vista)</th>
+                            <th>Conta Poupança (Depósito de Poupança)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Natureza</td>
+                            <td>Depósito à vista</td>
+                            <td>Depósito de poupança</td>
+                        </tr>
+                        <tr>
+                            <td>Remuneração</td>
+                            <td>Não há remuneração automática; os recursos não rendem juros enquanto parados</td>
+                            <td>Remuneração por juros (TR + 0,5% ao mês ou 70% da Selic)</td>
+                        </tr>
+                        <tr>
+                            <td>Liquidez</td>
+                            <td>Imediata, sem qualquer restrição</td>
+                            <td>Imediata, mas há regra de aniversário para fins de rendimento</td>
+                        </tr>
+                        <tr>
+                            <td>Movimentação</td>
+                            <td>Cheque, cartão de débito, DOC, TED, PIX</td>
+                            <td>Cartão de débito, saque, transferência, PIX (sem cheque)</td>
+                        </tr>
+                        <tr>
+                            <td>Regulação principal</td>
+                            <td>Resolução CMN nº 4.753/2019 (contas de depósito à vista)</td>
+                            <td>Lei nº 8.177/91, Resolução CMN nº 4.534/2016</td>
+                        </tr>
+                        <tr>
+                            <td>Titularidade</td>
+                            <td>PF e PJ</td>
+                            <td>Apenas PF (poupança para PJ não existe, salvo exceções específicas como entidades sem fins lucrativos)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>No dia a dia da agência, o escriturário frequentemente lida com clientes que mantêm recursos parados em conta corrente sem se darem conta de que não há rentabilidade. Um dos papéis do agente comercial é identificar essa oportunidade e sugerir a aplicação em poupança ou outros produtos de investimento, sempre respeitando o perfil do cliente.</p>
+
+            <div class="important-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#d4657e" stroke-width="2" fill="none"/><line x1="11" y1="6" x2="11" y2="13" stroke="#d4657e" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="16" r="1.3" fill="#d4657e"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Pegadinha Cesgranrio</p>
+                    <p>A banca adora afirmar que <em>"a conta poupança é um tipo de depósito à vista"</em>. Isso é <span class="marker-strong">falso</span>. Poupança é depósito de poupança, modalidade distinta, com regramento próprio e remuneração garantida por lei. O depósito à vista é a conta corrente, que <strong>não pode ser remunerada</strong> por força do artigo 1º da Lei nº 4.595/64 (exceto contas especiais como a conta-salário, que tem regramento próprio).</p>
+                </div>
+            </div>
+
+            <h4>1.1.4 Estudo de Caso: Abertura de Conta para Diferentes Perfis</h4>
+            <p>Imagine que você, recém-aprovado como escriturário, recebe três clientes em sequência:</p>
+
+            <div class="study-case">
+                <p class="case-label">Estudo de Caso</p>
+                <p><strong>1. Dona Maria, pensionista, 68 anos:</strong> deseja abrir uma conta para receber sua aposentadoria e fazer pequenas economias. Você deve solicitar RG, CPF, comprovante de residência e extrato do INSS. Orienta que a conta corrente será isenta de tarifas para serviços essenciais (Resolução CMN nº 3.919/2010) e sugere a abertura de poupança vinculada para aplicar o excedente. O Estatuto do Idoso (Lei nº 10.741/2003) garante prioridade no atendimento, mas não impõe modelo de conta diferenciado.</p>
+                <p><strong>2. Startup de tecnologia, constituída há 3 meses como Ltda:</strong> o sócio deseja conta PJ. Você solicita contrato social, CNPJ, documentos dos sócios e questiona o CNAE principal (provavelmente desenvolvimento de software). Explica que o banco analisará o perfil de risco da empresa e que, para atividades de alto risco, poderão ser exigidas garantias adicionais. Aqui entra a distinção entre fintechs e edtechs, que veremos adiante.</p>
+                <p><strong>3. Casal jovem:</strong> quer abrir conta conjunta. Você explica as diferenças entre solidária e não solidária, com exemplos práticos. O casal opta pela solidária, mas você registra em ficha cadastral a assinatura de ambos e colhe a opção por escrito, mitigando riscos futuros.</p>
+            </div>
+
+            <hr class="section-divider ornament">
+
+            <h3>1.2 O PIX: Infraestrutura, Obrigatoriedade e Segurança</h3>
+            <p>O PIX, lançado pelo Banco Central em novembro de 2020, revolucionou o sistema de pagamentos brasileiro. Mais do que uma nova modalidade de transferência, trata-se de um <strong>arranjo de pagamento integrante do Sistema de Pagamentos Brasileiro (SPB)</strong>, com características técnicas e normativas que o tornam tema certo em concursos bancários.</p>
+
+            <h4>1.2.1 Funcionamento Básico</h4>
+            <p>O PIX permite transferências e pagamentos <strong>24 horas por dia, sete dias por semana</strong>, com liquidação em tempo real. Ou seja, os recursos saem da conta do pagador e entram na conta do recebedor em poucos segundos, independentemente do horário, fim de semana ou feriado. Isso difere radicalmente da TED, limitada ao horário comercial, e do DOC, que só liquida no dia útil seguinte.</p>
+
+            <p><strong>Características técnicas essenciais:</strong></p>
+            <ul>
+                <li>As transações são liquidadas em tempo real, uma a uma, sem processo de compensação em lote.</li>
+                <li>Os dados trafegam criptografados pela <strong>Rede do Sistema Financeiro Nacional (RSFN)</strong>, a mesma infraestrutura segura que interliga todas as instituições financeiras ao Banco Central.</li>
+                <li>O armazenamento das informações é feito de forma criptografada pelo <strong>Banco Central do Brasil (BCB)</strong>, que atua como operador central do ecossistema.</li>
+                <li>Há notificação imediata tanto para pagador quanto para recebedor, via aplicativo.</li>
+            </ul>
+
+            <h4>1.2.2 Adesão Obrigatória e Facultativa ao PIX</h4>
+            <p>Um ponto de confusão — e de questões literais de prova — é a regra de adesão das instituições financeiras ao PIX. A <strong>Resolução BCB nº 1/2020</strong> estabeleceu:</p>
+            <ul>
+                <li><strong>Instituições com mais de 500 mil contas ativas:</strong> adesão <span class="marker-strong">obrigatória</span>.</li>
+                <li><strong>Instituições com menos de 500 mil contas ativas:</strong> adesão <span class="marker">facultativa</span>, mas podem solicitar adesão voluntariamente a qualquer tempo.</li>
+            </ul>
+
+            <div class="warn-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><polygon points="11,2 21,19 1,19" stroke="#d4a040" stroke-width="2" fill="none" stroke-linejoin="round"/><line x1="11" y1="9" x2="11" y2="14" stroke="#d4a040" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="16.8" r="1.3" fill="#d4a040"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Falsa Afirmação Típica de Prova</p>
+                    <p><em>"Somente instituições com mais de 500 mil contas ativas podem oferecer PIX."</em> <strong>Falso</strong>, pois instituições menores podem aderir de forma voluntária. O número de 500 mil contas é o divisor entre obrigatoriedade e facultatividade, não um requisito de entrada.</p>
+                </div>
+            </div>
+
+            <p>Na prática da agência, o PIX virou ferramenta de atração de clientes. O escriturário deve saber orientar sobre limites transacionais (que podem ser personalizados pelo cliente), prevenção de fraudes (jamais realizar PIX sob pressão de telefonemas suspeitos) e a funcionalidade de chaves PIX (CPF, e-mail, celular, chave aleatória), sempre alertando que o cadastramento de chaves é feito exclusivamente pelos canais oficiais.</p>
+
+            <h4>1.2.3 Segurança e Prevenção a Fraudes</h4>
+            <p>Embora o PIX utilize criptografia e a robusta RSFN, a vulnerabilidade está no fator humano. O escriturário deve estar apto a orientar:</p>
+            <ul>
+                <li>Nunca compartilhar códigos de autenticação.</li>
+                <li>Verificar sempre os dados do recebedor antes de confirmar a transação.</li>
+                <li>Ativar os mecanismos de limites e horários disponíveis no aplicativo.</li>
+                <li>Em caso de suspeita de fraude, comunicar imediatamente o banco e registrar boletim de ocorrência, pois o <strong>Mecanismo Especial de Devolução (MED)</strong> pode ser acionado em situações de fraude comprovada.</li>
+            </ul>
+
+            <hr class="section-divider ornament">
+
+            <h3>1.3 Títulos de Capitalização: Estrutura, Rentabilidade e Tributação</h3>
+            <p>Títulos de capitalização são produtos paradoxais: amplamente comercializados, mas de rentabilidade extremamente limitada. Compreender sua mecânica é fundamental tanto para o concurso quanto para a conduta ética do agente comercial, que deve deixar claro ao cliente que <span class="marker-strong">capitalização não é investimento</span>.</p>
+
+            <h4>1.3.1 Estrutura do Título</h4>
+            <p>O valor pago pelo cliente é dividido em três cotas, conforme regulamentação da <strong>SUSEP</strong> (Superintendência de Seguros Privados), autarquia que fiscaliza o produto:</p>
+            <ul>
+                <li><strong>Cota de Capitalização:</strong> percentual que efetivamente constitui a provisão matemática para resgate futuro. É a parcela que o cliente "poupa".</li>
+                <li><strong>Cota de Sorteio:</strong> destinada a custear os sorteios de prêmios. É um custo perdido; não compõe o saldo resgatável.</li>
+                <li><strong>Cota de Carregamento:</strong> cobre despesas administrativas, comissões e lucro da sociedade de capitalização.</li>
+            </ul>
+            <p>Por essa estrutura, o valor resgatado ao final do plano é <strong>inferior ao total aportado</strong>, o que aniquila a ideia de rentabilidade real. Não há juros ou correção monetária significativa; o resgate, quando muito, devolve um percentual da cota de capitalização atualizado por índice muito baixo.</p>
+
+            <h4>1.3.2 Características Relevantes para Prova</h4>
+            <ul>
+                <li><strong>Não há rentabilidade significativa:</strong> o resgate é, na maioria dos casos, inferior ao valor total pago.</li>
+                <li><strong>Liquidez:</strong> baixa. O resgate antecipado sofre penalidades, podendo gerar perda de parte da cota de capitalização.</li>
+                <li><strong>Garantia de integralidade:</strong> não existe. O produto não garante o retorno integral dos valores pagos em qualquer cenário.</li>
+                <li><strong>Isenção de taxas:</strong> não há. A cota de carregamento justamente desconta taxas administrativas.</li>
+                <li><strong>Tributação:</strong>
+                    <ul>
+                        <li>Ganho de capital (diferença entre valor resgatado e pago, quando houver): <strong>IR de 20%</strong> na fonte.</li>
+                        <li>Prêmios de sorteio: <strong>IR de 30%</strong> na fonte.</li>
+                        <li>Não há incidência de <strong>IOF</strong>, pois não é considerado investimento de curto prazo.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="important-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#d4657e" stroke-width="2" fill="none"/><line x1="11" y1="6" x2="11" y2="13" stroke="#d4657e" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="16" r="1.3" fill="#d4657e"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Pegadinha Cesgranrio</p>
+                    <p>A banca pode afirmar que <em>"títulos de capitalização garantem rentabilidade real ao investidor"</em> — <strong>Falso</strong>. Ou <em>"o resgate antecipado é isento de perdas"</em> — <strong>Falso também</strong>. Ou ainda <em>"são produtos de alta liquidez"</em> — <strong>Absolutamente falso</strong>.</p>
+                </div>
+            </div>
+
+            <h4>1.3.3 Aplicação Prática e Conduta Ética</h4>
+            <p>No balcão da agência, o escriturário deve evitar vender capitalização como se fosse investimento. Trata-se de um produto de conveniência e participação em sorteios, adequado apenas para quem entende e aceita a baixa rentabilidade. A <strong>venda casada</strong> (condicionar a liberação de crédito à compra de título de capitalização) é prática abusiva vedada pelo Código de Defesa do Consumidor e pelas normas do Banco Central.</p>
+
+            <div class="study-case">
+                <p class="case-label">Estudo de Caso</p>
+                <p>Seu gerente pede que você ofereça capitalização a todos os clientes que procuram empréstimo consignado. Você deve lembrar que a <strong>Resolução CMN nº 4.294/2013</strong> veda a exigência de aquisição de qualquer produto ou serviço como condição para concessão de crédito. A orientação correta é oferecer o título de forma autônoma, destacando suas características, sem qualquer vinculação ao crédito.</p>
+            </div>
+        </section>
+
+        <hr class="section-divider ornament">
+
+        <!-- CHAPTER 2 -->
+        <section class="chapter" id="cap2">
+            <div class="chapter-header">
+                <span class="ch-num">CAPÍTULO 2</span>
+                <h2>POLÍTICA MONETÁRIA E INSTRUMENTOS DE LIQUIDEZ</h2>
+            </div>
+
+            <h3>2.1 A Taxa Selic e o Mercado de Reservas Bancárias</h3>
+            <p>A Taxa Selic é o centro nervoso da política monetária brasileira. Diariamente, o <strong>Banco Central do Brasil (BCB)</strong> atua no mercado de reservas bancárias para manter a taxa de juros efetiva (Selic Over) próxima da meta definida pelo <strong>Comitê de Política Monetária (Copom)</strong>. Para o concurso, é crucial dominar não apenas o conceito, mas sobretudo os instrumentos pelos quais o BCB ajusta a liquidez: operações de mercado aberto (open market), depósitos compulsórios, redesconto bancário e, muito especialmente, as operações compromissadas.</p>
+
+            <h4>2.1.1 Selic Over e Selic Meta</h4>
+            <ul>
+                <li><strong>Selic Meta:</strong> definida pelo Copom, é a referência para toda a estrutura a termo de taxas de juros.</li>
+                <li><strong>Selic Over:</strong> taxa efetiva das operações de curtíssimo prazo (1 dia útil) lastreadas em títulos públicos federais. É a taxa que o BCB persegue no dia a dia, por meio de injeção ou enxugamento de liquidez.</li>
+            </ul>
+            <p>Na prática bancária, a Selic Over influencia diretamente a rentabilidade de produtos como o CDB pós-fixado, fundos DI e LCI/LCA indexadas ao CDI (que acompanha a Selic). Quando o gerente explica a um cliente que um fundo rende "100% do CDI", está falando, em termos práticos, de uma rentabilidade muito próxima à Selic.</p>
+
+            <h3>2.2 Instrumentos de Política Monetária: Conceitos e Pegadinhas</h3>
+
+            <h4>2.2.1 Operações Compromissadas</h4>
+            <p>São o principal instrumento de ajuste fino de liquidez no curtíssimo prazo. Consistem na <strong>compra (ou venda) de títulos públicos federais com compromisso de revenda (ou recompra) em data pré-estabelecida</strong>. Diferem, portanto, das operações definitivas de mercado aberto.</p>
+            <ul>
+                <li>O BCB, quando quer <strong>enxugar liquidez</strong>, vende títulos com compromisso de recompra (operação compromissada de venda). A instituição financeira entrega dinheiro e recebe títulos; no vencimento, o BCB recompra os títulos, devolvendo o dinheiro com juros.</li>
+                <li>Quando quer <strong>injetar liquidez</strong>, o BCB faz o inverso: compra títulos com compromisso de revenda.</li>
+            </ul>
+            <p><strong>Característica fundamental:</strong> os títulos <span class="marker-strong">não saem da carteira do BCB para sempre</span>; há um compromisso de retorno. Por isso, <strong>não se incorporam permanentemente à carteira da instituição</strong>. Esse é um detalhe sutil e recorrente em provas: a alternativa falsa dirá que <em>"nas operações compromissadas, os títulos são incorporados definitivamente à carteira do comprador"</em>. Errado. Isso só ocorre em operações definitivas (open market propriamente dito).</p>
+
+            <div class="tip-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#6bba6b" stroke-width="2" fill="none"/><line x1="11" y1="5" x2="11" y2="12" stroke="#6bba6b" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="15" x2="11" y2="16.5" stroke="#6bba6b" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Macete</p>
+                    <p><strong>Compromissada = compromisso de devolver.</strong> Pense: "eu te vendo, mas depois compro de volta". Curto prazo, títulos não mudam de dono no final.</p>
+                </div>
+            </div>
+
+            <h4>2.2.2 Open Market (Mercado Aberto – Operações Definitivas)</h4>
+            <p>São operações de <strong>compra e venda definitiva</strong> de títulos públicos. Ao contrário das compromissadas, a transação é perene: o título muda de propriedade de forma definitiva. É o instrumento clássico para controle da liquidez estrutural, enquanto as compromissadas atuam no curtíssimo prazo.</p>
+            <p><strong>Confusão frequente:</strong> candidatos trocam open market por compulsório ou redesconto. Grave: open market = compra e venda definitiva de títulos. Compulsório = recolhimento obrigatório sobre depósitos. Redesconto = assistência de liquidez.</p>
+
+            <h4>2.2.3 Depósito Compulsório</h4>
+            <p>Percentual dos depósitos à vista, de poupança e a prazo que os bancos devem recolher junto ao Banco Central. Seu objetivo é <strong>restringir a liquidez</strong> do sistema e reduzir o multiplicador bancário. Quanto maior o compulsório, menos dinheiro os bancos podem emprestar.</p>
+
+            <div class="warn-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><polygon points="11,2 21,19 1,19" stroke="#d4a040" stroke-width="2" fill="none" stroke-linejoin="round"/><line x1="11" y1="9" x2="11" y2="14" stroke="#d4a040" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="16.8" r="1.3" fill="#d4a040"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Erro Clássico de Prova</p>
+                    <p>Afirmar que o compulsório <em>"melhora o fluxo monetário"</em> ou <em>"influencia juros de longo prazo"</em>. Na verdade, ele <strong>contrai</strong> o fluxo monetário e seu efeito é sobre juros de curto prazo (liquidez imediata). A Cesgranrio costuma inverter esses conceitos.</p>
+                </div>
+            </div>
+
+            <h4>2.2.4 Redesconto Bancário</h4>
+            <p>Conhecido como <strong>"assistência financeira de liquidez"</strong>, é o empréstimo do Banco Central a instituições financeiras que enfrentam problemas momentâneos de caixa. <strong>Não tem relação com gastos públicos</strong> (questão de política fiscal), mas sim com a saúde do sistema bancário.</p>
+
+            <div class="important-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#d4657e" stroke-width="2" fill="none"/><line x1="11" y1="6" x2="11" y2="13" stroke="#d4657e" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="16" r="1.3" fill="#d4657e"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Pegadinha</p>
+                    <p>A alternativa que vincula redesconto a financiamento de gastos do governo é <strong>sempre incorreta</strong>. O foco é a liquidez dos bancos, e a taxa cobrada (taxa de redesconto) é <strong>punitiva</strong>, para desestimular o uso frequente.</p>
+                </div>
+            </div>
+
+            <h4>2.2.5 Quadro-Resumo Comparativo</h4>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Instrumento</th>
+                            <th>Natureza</th>
+                            <th>Prazo Típico</th>
+                            <th>Efeito na Liquidez</th>
+                            <th>Observação Chave</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Operações Compromissadas</td>
+                            <td>Compra/venda com compromisso de devolução</td>
+                            <td>Curtíssimo (1 dia, overnight)</td>
+                            <td>Ajuste fino, temporário</td>
+                            <td>Títulos retornam à carteira; não são definitivos</td>
+                        </tr>
+                        <tr>
+                            <td>Open Market (Operações Definitivas)</td>
+                            <td>Compra/venda definitiva de títulos</td>
+                            <td>Curto / médio prazo</td>
+                            <td>Estrutural</td>
+                            <td>Títulos mudam de propriedade definitivamente</td>
+                        </tr>
+                        <tr>
+                            <td>Depósito Compulsório</td>
+                            <td>Recolhimento obrigatório sobre depósitos</td>
+                            <td>Enquanto durar a exigibilidade</td>
+                            <td>Contracionista</td>
+                            <td>Afeta juros de curto prazo, restringe multiplicador</td>
+                        </tr>
+                        <tr>
+                            <td>Redesconto</td>
+                            <td>Empréstimo do BCB a bancos</td>
+                            <td>Emergencial, curto prazo</td>
+                            <td>Fornece liquidez pontual</td>
+                            <td>Foco na liquidez bancária, não no gasto público</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tip-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#6bba6b" stroke-width="2" fill="none"/><line x1="11" y1="5" x2="11" y2="12" stroke="#6bba6b" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="15" x2="11" y2="16.5" stroke="#6bba6b" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Dica de Memorização</p>
+                    <p>Palavras-chave: <strong>Compromissada</strong> = temporário; <strong>Open market</strong> = definitivo; <strong>Compulsório</strong> = recolhimento; <strong>Redesconto</strong> = socorro a banco.</p>
+                </div>
+            </div>
+
+            <h3>2.3 Aplicação Prática no Dia a Dia Bancário</h3>
+            <p>Por que um escriturário precisa entender instrumentos de política monetária? Porque isso afeta diretamente os produtos que ele oferece.</p>
+            <ul>
+                <li>Quando o Copom eleva a Selic, a taxa de juros dos empréstimos sobe, mas a rentabilidade dos investimentos em renda fixa também. O cliente que estava pensando em financiar um veículo pode desistir ao ver a simulação do CET. Cabe ao agente saber explicar o cenário macro.</li>
+                <li>O compulsório mais alto reduz a oferta de crédito. Em períodos de restrição, o banco pode endurecer a análise de risco. O escriturário, ao receber um cliente com restrição leve, deve ter em mente que o momento econômico pode influenciar a aprovação.</li>
+            </ul>
+
+            <div class="study-case">
+                <p class="case-label">Estudo de Caso</p>
+                <p>Imagine que o Copom eleva a Selic em 1 ponto percentual. No dia seguinte, a mesa de operações do banco ajusta as taxas de CDB e LCI. Um cliente procura a agência perguntando por que o financiamento imobiliário que ele havia pré-aprovado ficou mais caro. Você explica que o indexador (TR + taxa fixa) pode ter sido revisto, e que o aumento da Selic impacta o custo de captação do banco, que é repassado ao crédito. Essa contextualização é o que diferencia o profissional tecnicamente preparado.</p>
+            </div>
+        </section>
+
+        <hr class="section-divider ornament">
+
+        <!-- CHAPTER 3 -->
+        <section class="chapter" id="cap3">
+            <div class="chapter-header">
+                <span class="ch-num">CAPÍTULO 3</span>
+                <h2>INOVAÇÃO E ATUALIDADES: STARTUPS, FINTECHS E EDTECHS</h2>
+            </div>
+
+            <h3>3.1 Startups: Conceito e Características Essenciais</h3>
+            <p>O termo "startup" entrou definitivamente no vocabulário do mercado financeiro, especialmente com o advento do open banking e das fintechs. Para fins de concurso, startup é definida como <strong>empresa de base tecnológica, em fase inicial de desenvolvimento, que busca um modelo de negócio repetível e escalável, atuando em ambiente de extrema incerteza e alto risco</strong>.</p>
+
+            <div class="card concept-card">
+                <h5>Características Cobradas em Prova</h5>
+                <ul>
+                    <li><strong>Alto risco</strong>, especialmente no início, pela ausência de validação do modelo de negócio.</li>
+                    <li><strong>Necessidade de grandes investimentos</strong> para escalar rapidamente (venture capital, private equity).</li>
+                    <li><strong>Equipe enxuta</strong> no começo, não grandes estruturas. Ao contrário de grandes corporações, a startup começa com poucos funcionários e processos enxutos.</li>
+                    <li><strong>Potencial de crescimento exponencial</strong>, mas também alta taxa de mortalidade.</li>
+                </ul>
+            </div>
+
+            <div class="warn-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><polygon points="11,2 21,19 1,19" stroke="#d4a040" stroke-width="2" fill="none" stroke-linejoin="round"/><line x1="11" y1="9" x2="11" y2="14" stroke="#d4a040" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="16.8" r="1.3" fill="#d4a040"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Erro Típico de Alternativa</p>
+                    <p><em>"Startups são empresas de grande porte com equipes robustas."</em> <strong>Totalmente falso.</strong> O estágio inicial pressupõe estrutura mínima.</p>
+                </div>
+            </div>
+
+            <h3>3.2 Fintechs e Edtechs: Setores Verticais de Atuação</h3>
+            <p>Dentro do universo das startups, a nomenclatura designa o setor de atuação. Esse detalhe é frequentemente explorado em provas para verificar se o candidato diferencia as categorias.</p>
+            <ul>
+                <li><strong>Fintech:</strong> startup voltada para o <strong>mercado financeiro</strong>. Exemplos: bancos digitais, plataformas de pagamento, crédito peer-to-peer, robo-advisors, insurtechs (seguros), regtechs (compliance). O prefixo "fin" remete a "financial".</li>
+                <li><strong>Edtech:</strong> startup voltada para a <strong>educação</strong>. Exemplos: plataformas de ensino a distância, sistemas de gestão escolar, aplicativos de idiomas. O prefixo "ed" remete a "education".</li>
+            </ul>
+
+            <div class="tip-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#6bba6b" stroke-width="2" fill="none"/><line x1="11" y1="5" x2="11" y2="12" stroke="#6bba6b" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="15" x2="11" y2="16.5" stroke="#6bba6b" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Associação Mental</p>
+                    <p><strong>fin</strong> = financial, <strong>ed</strong> = education. Não confundir com healthtech (saúde), agtech (agronegócio), etc.</p>
+                </div>
+            </div>
+
+            <p><strong>Contexto bancário:</strong> para o escriturário, a ascensão das fintechs significa concorrência, mas também parcerias. Muitos bancos tradicionais adquirem ou se associam a fintechs para oferecer serviços digitais. Entender esse ecossistema é importante para o discurso comercial moderno: ao conversar com um jovem empreendedor, o gerente pode mencionar soluções de banking as a service, maquininhas integradas, APIs abertas — tudo proporcionado pela inovação fintech.</p>
+        </section>
+
+        <hr class="section-divider ornament">
+
+        <!-- CHAPTER 4 -->
+        <section class="chapter" id="cap4">
+            <div class="chapter-header">
+                <span class="ch-num">CAPÍTULO 4</span>
+                <h2>ATENDIMENTO AO CLIENTE E PROCESSO DE VENDAS</h2>
+            </div>
+
+            <h3>4.1 Atendimento a Clientes em Situação de Conflito</h3>
+            <p>A rotina bancária não é feita apenas de operações técnicas. O escriturário está na linha de frente do atendimento, e enfrentará, inevitavelmente, clientes irritados, frustrados ou que fazem acusações contra a instituição. A postura adequada não é apenas uma questão de educação, mas de compliance, mitigação de riscos de imagem e fidelização.</p>
+
+            <h4>4.1.1 O Protocolo CORRETO</h4>
+            <p>Diante de um cliente que chega exaltado, a conduta esperada e testada em concursos segue um fluxo de <strong>escuta ativa, empatia e foco na solução:</strong></p>
+            <ol>
+                <li><strong>Manter a calma e a compostura profissional</strong> – Não elevar o tom, não revidar, não se justificar agressivamente.</li>
+                <li><strong>Ouvir atentamente, sem interromper</strong> – Permitir que o cliente externe toda sua insatisfação. Muitas vezes, a simples descarga emocional reduz a tensão.</li>
+                <li><strong>Demonstrar empatia genuína</strong> – Frases como "Eu entendo sua frustração" ou "Compreendo como isso deve ter sido inconveniente" ajudam a validar o sentimento, sem necessariamente concordar com acusações infundadas.</li>
+                <li><strong>Buscar entender o ponto de vista do cliente</strong> – Fazer perguntas abertas: "Pode me explicar exatamente o que aconteceu?".</li>
+                <li><strong>Oferecer soluções dentro das regras</strong> – Apresentar o que é possível fazer, sempre respeitando políticas de compliance, segurança e alçadas. Não prometer o impossível.</li>
+                <li><strong>Se necessário, escalar ao supervisor</strong>, mas nunca transferir o problema abruptamente, sem antes tentar resolver o que está ao alcance.</li>
+            </ol>
+
+            <!-- Flowchart SVG -->
+            <div class="diagram-container">
+                <svg width="720" height="200" viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" aria-label="Fluxograma do Protocolo de Atendimento">
+                    <defs>
+                        <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                            <polygon points="0 0, 8 3, 0 6" fill="#d4a853"/>
+                        </marker>
+                    </defs>
+                    <rect x="5" y="60" width="100" height="44" rx="8" fill="#21242c" stroke="#d4a853" stroke-width="1.6"/>
+                    <text x="55" y="78" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">1. Manter</text>
+                    <text x="55" y="93" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">a calma</text>
+                    <line x1="105" y1="82" x2="128" y2="82" stroke="#d4a853" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+                    <rect x="130" y="60" width="100" height="44" rx="8" fill="#21242c" stroke="#d4a853" stroke-width="1.6"/>
+                    <text x="180" y="78" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">2. Ouvir</text>
+                    <text x="180" y="93" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">sem interromper</text>
+                    <line x1="230" y1="82" x2="253" y2="82" stroke="#d4a853" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+                    <rect x="255" y="60" width="100" height="44" rx="8" fill="#21242c" stroke="#d4a853" stroke-width="1.6"/>
+                    <text x="305" y="78" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">3. Demonstrar</text>
+                    <text x="305" y="93" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">empatia</text>
+                    <line x1="355" y1="82" x2="378" y2="82" stroke="#d4a853" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+                    <rect x="380" y="60" width="100" height="44" rx="8" fill="#21242c" stroke="#d4a853" stroke-width="1.6"/>
+                    <text x="430" y="78" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">4. Entender</text>
+                    <text x="430" y="93" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">o ponto de vista</text>
+                    <line x1="480" y1="82" x2="503" y2="82" stroke="#d4a853" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+                    <rect x="505" y="60" width="100" height="44" rx="8" fill="#21242c" stroke="#d4a853" stroke-width="1.6"/>
+                    <text x="555" y="78" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">5. Oferecer</text>
+                    <text x="555" y="93" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">solução viável</text>
+                    <line x1="605" y1="82" x2="628" y2="82" stroke="#d4a853" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+                    <rect x="630" y="60" width="85" height="44" rx="8" fill="#21242c" stroke="#d4a853" stroke-width="1.6"/>
+                    <text x="672" y="78" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">6. Escalar</text>
+                    <text x="672" y="93" text-anchor="middle" fill="#d8d6d0" font-size="11" font-weight="600">se necessário</text>
+
+                    <text x="360" y="145" text-anchor="middle" fill="#8a877e" font-size="10" font-style="italic">Fluxo: Protocolo CORRETO de Atendimento ao Cliente Irritado</text>
+                </svg>
+            </div>
+
+            <h4>4.1.2 O que NÃO Fazer (Erros Clássicos de Prova)</h4>
+            <ul>
+                <li><strong>Interromper</strong> o cliente ou rebater acusações de imediato.</li>
+                <li><strong>Concordar com tudo</strong> apenas para acalmar, criando expectativas que não podem ser atendidas.</li>
+                <li><strong>Transferir imediatamente</strong> ao supervisor, demonstrando desinteresse ou incapacidade.</li>
+                <li><strong>Ignorar acusações graves</strong>, especialmente se envolverem suspeita de fraude ou violação de direitos do consumidor.</li>
+                <li><strong>Resolver a qualquer custo</strong>, violando normas internas. No banco, há regras de segurança e alçadas decisórias que limitam o poder do escriturário.</li>
+            </ul>
+
+            <div class="study-case">
+                <p class="case-label">Estudo de Caso</p>
+                <p>Um cliente idoso chega à agência aos gritos, afirmando que o banco "roubou" seu dinheiro porque a fatura do cartão de crédito veio com encargos elevados. A postura correta: convidá-lo a sentar em local reservado, ouvir a queixa, puxar o extrato, identificar que o atraso no pagamento gerou juros e multa, explicar calmamente a composição do débito e, dentro do possível, simular uma negociação de parcelamento. Se o cliente persistir em acusações infundadas, acionar o gerente, sempre mantendo a urbanidade. A Cesgranrio valoriza a sequência: <strong>calma → escuta → empatia → solução viável</strong>.</p>
+            </div>
+
+            <h3>4.2 O Processo de Venda Pessoal e a Metodologia SPIN</h3>
+            <p>Vender produtos bancários não é empurrar o que o banco quer, mas sim identificar necessidades e oferecer soluções. A prova da Cesgranrio explora a distinção entre as etapas do processo de venda pessoal, exigindo do candidato conhecimento fino da metodologia, frequentemente baseada no modelo <strong>SPIN</strong> ou variações.</p>
+
+            <h4>4.2.1 Etapas Clássicas da Venda</h4>
+            <ol>
+                <li><strong>Prospecção:</strong> identificação de potenciais clientes (leads).</li>
+                <li><strong>Pré-abordagem:</strong> planejamento; o vendedor estuda o perfil do cliente antes do contato.</li>
+                <li><strong>Abordagem:</strong> primeiro contato; quebra-gelo, estabelecimento de rapport.</li>
+                <li><strong>Determinação de Necessidades (Investigação):</strong> é o coração da venda consultiva. Aqui se aplicam as perguntas SPIN.</li>
+                <li><strong>Apresentação do Produto/Solução:</strong> vincula os benefícios do produto às necessidades identificadas.</li>
+                <li><strong>Tratamento de Objeções:</strong> responde a dúvidas, medos e resistências.</li>
+                <li><strong>Fechamento (Aquisição de Compromisso):</strong> solicitação do pedido, assinatura do contrato.</li>
+                <li><strong>Acompanhamento (Pós-venda):</strong> manutenção do relacionamento, fidelização.</li>
+            </ol>
+
+            <!-- Timeline SVG -->
+            <div class="diagram-container">
+                <svg width="740" height="160" viewBox="0 0 740 160" xmlns="http://www.w3.org/2000/svg" aria-label="Linha do Tempo das Etapas de Venda">
+                    <line x1="30" y1="55" x2="715" y2="55" stroke="#33363e" stroke-width="3"/>
+                    <circle cx="55" cy="55" r="9" fill="#21242c" stroke="#d4a853" stroke-width="2.2"/>
+                    <text x="55" y="40" text-anchor="middle" fill="#d4a853" font-size="9" font-weight="700">1</text>
+                    <text x="55" y="80" text-anchor="middle" fill="#b0ada5" font-size="10">Prospecção</text>
+
+                    <circle cx="150" cy="55" r="9" fill="#21242c" stroke="#d4a853" stroke-width="2.2"/>
+                    <text x="150" y="40" text-anchor="middle" fill="#d4a853" font-size="9" font-weight="700">2</text>
+                    <text x="150" y="80" text-anchor="middle" fill="#b0ada5" font-size="10">Pré-abordagem</text>
+
+                    <circle cx="248" cy="55" r="9" fill="#21242c" stroke="#d4a853" stroke-width="2.2"/>
+                    <text x="248" y="40" text-anchor="middle" fill="#d4a853" font-size="9" font-weight="700">3</text>
+                    <text x="248" y="80" text-anchor="middle" fill="#b0ada5" font-size="10">Abordagem</text>
+
+                    <circle cx="355" cy="55" r="12" fill="#2a2218" stroke="#e8c878" stroke-width="2.8"/>
+                    <text x="355" y="38" text-anchor="middle" fill="#e8c878" font-size="9" font-weight="700">4</text>
+                    <text x="355" y="82" text-anchor="middle" fill="#e8c878" font-size="10" font-weight="700">Determinação de</text>
+                    <text x="355" y="96" text-anchor="middle" fill="#e8c878" font-size="10" font-weight="700">Necessidades</text>
+
+                    <circle cx="462" cy="55" r="9" fill="#21242c" stroke="#d4a853" stroke-width="2.2"/>
+                    <text x="462" y="40" text-anchor="middle" fill="#d4a853" font-size="9" font-weight="700">5</text>
+                    <text x="462" y="80" text-anchor="middle" fill="#b0ada5" font-size="10">Apresentação</text>
+
+                    <circle cx="560" cy="55" r="9" fill="#21242c" stroke="#d4a853" stroke-width="2.2"/>
+                    <text x="560" y="40" text-anchor="middle" fill="#d4a853" font-size="9" font-weight="700">6</text>
+                    <text x="560" y="80" text-anchor="middle" fill="#b0ada5" font-size="10">Objeções</text>
+
+                    <circle cx="645" cy="55" r="9" fill="#21242c" stroke="#d4a853" stroke-width="2.2"/>
+                    <text x="645" y="40" text-anchor="middle" fill="#d4a853" font-size="9" font-weight="700">7</text>
+                    <text x="645" y="80" text-anchor="middle" fill="#b0ada5" font-size="10">Fechamento</text>
+
+                    <circle cx="718" cy="55" r="9" fill="#21242c" stroke="#6bba6b" stroke-width="2.2"/>
+                    <text x="718" y="40" text-anchor="middle" fill="#6bba6b" font-size="9" font-weight="700">8</text>
+                    <text x="718" y="80" text-anchor="middle" fill="#6bba6b" font-size="10">Pós-venda</text>
+
+                    <text x="370" y="135" text-anchor="middle" fill="#8a877e" font-size="10" font-style="italic">Etapa 4 (destacada): coração da venda consultiva — perguntas SPIN</text>
+                </svg>
+            </div>
+
+            <h4>4.2.2 A Etapa de Determinação de Necessidades (Gabarito Frequente)</h4>
+            <p>As questões costumam descrever um diálogo e perguntar a qual etapa pertence. A chave está no tipo de pergunta:</p>
+            <ul>
+                <li>"Qual sua situação atual?"</li>
+                <li>"Como você usa atualmente o serviço?"</li>
+                <li>"Que problemas você tem enfrentado?"</li>
+                <li>"Qual seria o valor de resolver esse problema?"</li>
+            </ul>
+            <p>Essas são as perguntas do modelo <strong>SPIN</strong> (Situation, Problem, Implication, Need-payoff), todas ligadas à <strong>determinação de necessidades</strong>. Não se trata de abordagem (primeiro contato social), nem de fechamento (aquisição de compromisso), e muito menos de pós-venda (acompanhamento).</p>
+
+            <div class="tip-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#6bba6b" stroke-width="2" fill="none"/><line x1="11" y1="5" x2="11" y2="12" stroke="#6bba6b" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="15" x2="11" y2="16.5" stroke="#6bba6b" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Macete</p>
+                    <p>Se as perguntas visam entender o cenário, o problema e o impacto da solução → é <strong>determinação de necessidades</strong>. Se o vendedor já está apresentando o produto, é apresentação. Se está lidando com "mas é muito caro", é tratamento de objeções. Se pede a assinatura, é fechamento.</p>
+                </div>
+            </div>
+
+            <h4>4.2.3 Diferenciação Fina entre Etapas</h4>
+            <ul>
+                <li><strong>Pré-abordagem vs. Abordagem:</strong> Pré é antes do contato; abordagem é o início do contato.</li>
+                <li><strong>Determinação de necessidades vs. Apresentação:</strong> na primeira, o vendedor pergunta e ouve; na segunda, ele fala e mostra.</li>
+                <li><strong>Fechamento vs. Acompanhamento:</strong> fechamento é o ato da venda; acompanhamento é depois, para garantir satisfação e gerar novas oportunidades.</li>
+            </ul>
+
+            <p><strong>Cenário de agência:</strong> Um cliente entra pedindo um empréstimo. O escriturário, em vez de apenas simular, pergunta: "Qual a finalidade do recurso? Você já tem outros financiamentos? O que aconteceria se não conseguisse esse valor agora?". Essas perguntas revelam necessidades profundas e possibilitam a oferta do produto mais adequado (consignado, crédito pessoal, CDC, etc.), às vezes até evitando um superendividamento. Essa postura é valorizada pelo Banco Central e pelo Código de Defesa do Consumidor, que preveem o dever de informação e aconselhamento responsável.</p>
+        </section>
+
+        <hr class="section-divider ornament">
+
+        <!-- CHAPTER 5 -->
+        <section class="chapter" id="cap5">
+            <div class="chapter-header">
+                <span class="ch-num">CAPÍTULO 5</span>
+                <h2>GOVERNANÇA CORPORATIVA E RESPONSABILIDADE SOCIOAMBIENTAL</h2>
+            </div>
+
+            <h3>5.1 A PRSAC do Banco Central: Integração de Riscos Sociais, Ambientais e Climáticos</h3>
+            <p>A <strong>Resolução BCB nº 387, de 2023</strong>, instituiu a <strong>Política de Responsabilidade Social, Ambiental e Climática (PRSAC)</strong> do Banco Central do Brasil. É um normativo que transcende a mera declaração de princípios e estabelece diretrizes concretas para a atuação da autarquia. Para o concurseiro, o foco deve estar na literalidade e nas exclusões de escopo.</p>
+
+            <h4>5.1.1 Diretriz Central</h4>
+            <p>A diretriz mais abrangente e correta estabelece que o BCB deve <strong>consolidar a dimensão social, ambiental e climática no monitoramento dos riscos organizacionais e estratégicos</strong>. Ou seja, não se trata de uma atuação paralela ou filantrópica, mas da incorporação dessas dimensões à gestão de riscos internos e à regulação do Sistema Financeiro Nacional.</p>
+
+            <h4>5.1.2 Erros Comuns nas Alternativas</h4>
+            <ul>
+                <li><strong>Uso de "somente":</strong> qualquer alternativa que restringir a atuação a "somente" um pilar (social, ambiental ou climático) está errada. A PRSAC é integrada e multidimensional.</li>
+                <li><strong>Foco exclusivo em ações externas:</strong> a política abrange a governança interna do BCB e a regulação do SFN, não se limitando a "apoiar políticas privadas" ou a "promover ações externas genéricas".</li>
+                <li><strong>Confusão com responsabilidade socioambiental das instituições financeiras:</strong> a PRSAC do BCB não se confunde com a exigência de que os bancos tenham suas próprias políticas de responsabilidade socioambiental (Resolução CMN nº 4.327/2014), embora ambas estejam interligadas. A PRSAC do BCB é a política da própria autarquia.</li>
+            </ul>
+
+            <p><strong>Aplicação prática:</strong> quando o BCB exige que os bancos monitorem riscos climáticos em suas carteiras de crédito (por exemplo, exposição a setores de alto impacto ambiental), ele está, na prática, integrando a dimensão climática à supervisão do SFN, exatamente como preconiza a PRSAC.</p>
+
+            <h3>5.2 Princípios da PRSAC no BANPARÁ e a Exigência de Sustentabilidade</h3>
+            <p>Questões envolvendo bancos estaduais (como o BANPARÁ) podem trazer princípios adaptados, mas sempre alinhados ao arcabouço regulatório federal. Os princípios comuns incluem:</p>
+            <ul>
+                <li><strong>Comunicação ética e transparente</strong> com as partes interessadas (stakeholders).</li>
+                <li><strong>Incorporação de valores ESG</strong> (Ambiental, Social e Governança) nas atividades, operações e produtos.</li>
+                <li><strong>Relevância e Proporcionalidade:</strong> a gestão do risco socioambiental deve ser adequada ao nível de exposição da instituição.</li>
+                <li><strong>Compatibilidade com a natureza e complexidade do negócio.</strong></li>
+            </ul>
+
+            <div class="important-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#d4657e" stroke-width="2" fill="none"/><line x1="11" y1="6" x2="11" y2="13" stroke="#d4657e" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="16" r="1.3" fill="#d4657e"/></svg>
+                <div class="box-content">
+                    <p class="box-label">O que NÃO é princípio (exceção em prova)</p>
+                    <p>A <strong>promoção da inovação e oportunidades negociais independentemente da sustentabilidade</strong>. A PRSAC e as políticas dela decorrentes exigem que inovação e sustentabilidade caminhem juntas; não se admite buscar lucro ou inovação a qualquer custo, ignorando impactos socioambientais. O desenvolvimento de novos produtos deve considerar riscos ESG desde a concepção.</p>
+                </div>
+            </div>
+
+            <div class="study-case">
+                <p class="case-label">Estudo de Caso</p>
+                <p>O BANPARÁ pretende lançar uma linha de crédito rural para pequenos produtores. Pela PRSAC, o banco deve avaliar não apenas a viabilidade financeira, mas também os impactos ambientais da atividade financiada (desmatamento, uso de agrotóxicos), as condições sociais dos trabalhadores e a governança da cadeia produtiva. A inovação na linha de crédito (taxas diferenciadas, prazo alongado) deve estar atrelada a critérios de sustentabilidade, e não dissociada deles.</p>
+            </div>
+        </section>
+
+        <hr class="section-divider ornament">
+
+        <!-- CHAPTER 6 -->
+        <section class="chapter" id="cap6">
+            <div class="chapter-header">
+                <span class="ch-num">CAPÍTULO 6</span>
+                <h2>HIERARQUIA NORMATIVA E FONTES DO DIREITO BANCÁRIO</h2>
+            </div>
+
+            <h3>6.1 O Papel de Cada Normativo no Dia a Dia da Agência</h3>
+            <p>Compreender quem regula o quê é essencial para interpretar questões que cobram a literalidade da lei e a competência dos órgãos. A Cesgranrio frequentemente troca atribuições do CMN e do Bacen nas alternativas.</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Órgão / Normativo</th>
+                            <th>Atribuição Principal</th>
+                            <th>Exemplo Prático</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lei (Congresso Nacional)</td>
+                            <td>Cria regras gerais sobre o SFN, crimes financeiros, sigilo, CDC</td>
+                            <td>Lei nº 4.595/64 (SFN), Lei Complementar nº 105/01 (Sigilo), Lei nº 9.613/98 (Lavagem), Lei nº 8.078/90 (CDC)</td>
+                        </tr>
+                        <tr>
+                            <td>Conselho Monetário Nacional (CMN)</td>
+                            <td>Órgão normativo máximo do SFN; define políticas monetária, cambial, de crédito; regulamenta o funcionamento das instituições financeiras</td>
+                            <td>Resolução CMN nº 3.919/10 (tarifas bancárias)</td>
+                        </tr>
+                        <tr>
+                            <td>Banco Central do Brasil (BCB)</td>
+                            <td>Executa as políticas do CMN; fiscaliza as instituições; normatiza em caráter complementar</td>
+                            <td>Circular BCB nº 3.978/20 (PLD), Resolução BCB nº 1/20 (PIX)</td>
+                        </tr>
+                        <tr>
+                            <td>Conselho de Recursos do SFN (CRSFN)</td>
+                            <td>Julga recursos de penalidades aplicadas pelo BCB</td>
+                            <td>Recursos de multas por infração cambial</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Hierarchy SVG Diagram -->
+            <div class="diagram-container">
+                <svg width="500" height="260" viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" aria-label="Hierarquia Normativa do SFN">
+                    <rect x="140" y="10" width="220" height="48" rx="10" fill="#1c2735" stroke="#d4a853" stroke-width="2.2"/>
+                    <text x="250" y="40" text-anchor="middle" fill="#e8c878" font-size="14" font-weight="700">CMN</text>
+                    <text x="250" y="54" text-anchor="middle" fill="#8a877e" font-size="10">(Cérebro — Define Políticas)</text>
+
+                    <line x1="250" y1="58" x2="250" y2="82" stroke="#d4a853" stroke-width="2" marker-end="url(#arrow)"/>
+
+                    <rect x="140" y="85" width="220" height="48" rx="10" fill="#1c2735" stroke="#5b9bd5" stroke-width="2.2"/>
+                    <text x="250" y="115" text-anchor="middle" fill="#8bb8e0" font-size="14" font-weight="700">BCB</text>
+                    <text x="250" y="129" text-anchor="middle" fill="#8a877e" font-size="10">(Braço — Executa e Fiscaliza)</text>
+
+                    <line x1="250" y1="133" x2="250" y2="157" stroke="#5b9bd5" stroke-width="2" marker-end="url(#arrow)"/>
+
+                    <rect x="140" y="160" width="220" height="48" rx="10" fill="#1c2735" stroke="#d4657e" stroke-width="2.2"/>
+                    <text x="250" y="190" text-anchor="middle" fill="#e090a0" font-size="14" font-weight="700">CRSFN</text>
+                    <text x="250" y="204" text-anchor="middle" fill="#8a877e" font-size="10">(Juiz — Julga Recursos)</text>
+
+                    <text x="250" y="242" text-anchor="middle" fill="#8a877e" font-size="10" font-style="italic">CMN → normatiza | BCB → executa/fiscaliza | CRSFN → julga</text>
+                </svg>
+            </div>
+
+            <h3>6.2 Pegadinhas Recorrentes</h3>
+            <ul>
+                <li><strong>Atribuir ao CMN a fiscalização de bancos:</strong> a fiscalização é do Banco Central. O CMN normatiza; o BCB executa e fiscaliza.</li>
+                <li><strong>Atribuir ao BCB a criação de políticas:</strong> o BCB executa, mas a definição de políticas maiores cabe ao CMN. Em temas específicos, o BCB pode baixar resoluções próprias, mas sempre com base na delegação do CMN.</li>
+                <li><strong>Confundir CRSFN com BCB:</strong> o CRSFN é órgão recursal, não executor.</li>
+            </ul>
+
+            <div class="tip-box">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="9" stroke="#6bba6b" stroke-width="2" fill="none"/><line x1="11" y1="5" x2="11" y2="12" stroke="#6bba6b" stroke-width="2" stroke-linecap="round"/><line x1="11" y1="15" x2="11" y2="16.5" stroke="#6bba6b" stroke-width="2.2" stroke-linecap="round"/></svg>
+                <div class="box-content">
+                    <p class="box-label">Dica de Memorização</p>
+                    <p><strong>CMN → cérebro</strong> (pensa as políticas). <strong>BCB → braço</strong> (executa e fiscaliza). <strong>CRSFN → juiz</strong> (julga recursos).</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider ornament">
+
+        <!-- CHAPTER 7 -->
+        <section class="chapter" id="cap7">
+            <div class="chapter-header">
+                <span class="ch-num">CAPÍTULO 7</span>
+                <h2>LEGISLAÇÃO APLICADA À ROTINA BANCÁRIA (VISÃO GERAL PARA CONCURSOS)</h2>
+            </div>
+
+            <h3>7.1 Código de Defesa do Consumidor (CDC) no Contexto Bancário</h3>
+            <p>Os serviços bancários são relações de consumo, e o CDC incide plenamente. Pontos que mais caem em prova:</p>
+            <ul>
+                <li><strong>Direito à informação clara e adequada</strong> (art. 6º, III): o CET (Custo Efetivo Total) deve ser apresentado antes da contratação. Omissão gera dever de indenizar.</li>
+                <li><strong>Práticas abusivas</strong> (art. 39): venda casada, recusa de atendimento, envio de cartão sem solicitação.</li>
+                <li><strong>Responsabilidade objetiva</strong> (art. 14): o banco responde por danos independentemente de culpa. Casos de fraude, clonagem, golpe do PIX, quando houver falha na prestação do serviço, podem gerar condenação.</li>
+            </ul>
+            <p><strong>Cenário de agência:</strong> um cliente questiona tarifa de manutenção que não foi previamente informada. O escriturário deve saber que a Resolução nº 3.919/10 obriga o banco a oferecer os serviços essenciais gratuitamente, e qualquer cobrança extra precisa de contratação expressa. O CDC reforça o direito à informação prévia.</p>
+
+            <h3>7.2 Sigilo Bancário (LC nº 105/01)</h3>
+            <p>O sigilo bancário é a regra. As exceções que permitem a quebra sem ordem judicial são estritamente previstas em lei: fiscalização tributária (com processo administrativo instaurado), investigações do COAF, comissões parlamentares de inquérito (CPI), etc. Para o escriturário, a <strong>regra de ouro</strong> é: informações cadastrais e movimentações só podem ser compartilhadas com consentimento do cliente ou por determinação legal/judicial.</p>
+
+            <h3>7.3 Prevenção à Lavagem de Dinheiro (PLD – Lei nº 9.613/98)</h3>
+            <p>Toda a rotina de abertura de conta e movimentação atípica é orientada pela PLD. O escriturário deve:</p>
+            <ul>
+                <li>Identificar e qualificar o cliente (KYC).</li>
+                <li>Registrar operações acima dos limites legais.</li>
+                <li>Comunicar operações suspeitas ao COAF, <strong>sem dar ciência ao cliente</strong>.</li>
+                <li>Atualizar dados cadastrais periodicamente.</li>
+            </ul>
+
+            <div class="study-case">
+                <p class="case-label">Estudo de Caso</p>
+                <p>Um cliente pessoa física movimenta valores incompatíveis com sua renda declarada, com depósitos fragmentados no mesmo dia (smurfing). O sistema de monitoramento gera um alerta. O gerente deve analisar e, se julgar suspeito, comunicar ao setor de compliance, que reporta ao COAF. <strong>Jamais se alerta o cliente sobre a comunicação.</strong></p>
+            </div>
+        </section>
+
+        <hr class="section-divider ornament">
+
+        <!-- CHAPTER 8 -->
+        <section class="chapter" id="cap8">
+            <div class="chapter-header">
+                <span class="ch-num">CAPÍTULO 8</span>
+                <h2>MAPAS MENTAIS E MACETES PARA REVISÃO</h2>
+            </div>
+
+            <h3>8.1 Mapa Mental: Tipos de Contas</h3>
+            <div class="mindmap-block">
+                CONTAS BANCÁRIAS
+                ├─ Individual
+                │   ├─ Único titular (PF ou PJ)
+                │   └─ Movimentação: titular ou representante legal
+                ├─ Conjunta (apenas PF)
+                │   ├─ Solidária (e/ou): qualquer titular movimenta
+                │   └─ Não solidária (e): todos devem assinar
+                ├─ Depósito à vista (Conta Corrente)
+                │   ├─ Não remunerada
+                │   ├─ Cheque, cartão, PIX
+                │   └─ PJ pode ter
+                ├─ Depósito de Poupança
+                │   ├─ Remunerada (TR + 0,5% ou 70% Selic)
+                │   ├─ Apenas PF (regra)
+                │   └─ Aniversário define rendimento
+            </div>
+
+            <h3>8.2 Macetes para Política Monetária</h3>
+            <ul>
+                <li><strong>Compromissada</strong> → <strong>Com</strong>promisso de devolver. Temporário, curto prazo.</li>
+                <li><strong>Open Market</strong> → <strong>Open</strong> (aberto) definitivo, sem volta.</li>
+                <li><strong>Compulsório</strong> → <strong>Com</strong>pulsoriamente recolhido, <strong>con</strong>trai liquidez.</li>
+                <li><strong>Redesconto</strong> → <strong>Re</strong>de de segurança para <strong>ban</strong>cos, não para governo.</li>
+            </ul>
+
+            <h3>8.3 Associação: Startup, Fintech, Edtech</h3>
+            <ul>
+                <li><strong>Startup</strong> = Empresa inicial, alto risco, equipe enxuta, busca investimento.</li>
+                <li><strong>Fin</strong>tech = <strong>Fin</strong>anças (mercado financeiro).</li>
+                <li><strong>Ed</strong>tech = <strong>Ed</strong>ucação (ensino).</li>
+            </ul>
+
+            <h3>8.4 Fluxo de Atendimento ao Cliente Irritado</h3>
+            <div class="mindmap-block">
+                1. Manter calma
+                2. Ouvir sem interromper
+                3. Demonstrar empatia
+                4. Entender o ponto de vista
+                5. Oferecer solução viável (respeitando compliance)
+                6. Se necessário, escalar ao supervisor (mas não transferir abruptamente)
+            </div>
+
+            <h3>8.5 Venda Pessoal: Perguntas-Chave de Determinação de Necessidades</h3>
+            <ul>
+                <li>Situação atual?</li>
+                <li>Uso atual do serviço?</li>
+                <li>Problemas enfrentados?</li>
+                <li>Valor de resolver o problema?</li>
+            </ul>
+            <p>Essas perguntas indicam a etapa de <strong>determinação de necessidades</strong> (investigação, diagnóstico), jamais abordagem ou fechamento.</p>
+        </section>
+
+        <hr class="section-divider ornament">
+
+        <!-- CHAPTER 9 -->
+        <section class="chapter" id="cap9">
+            <div class="chapter-header">
+                <span class="ch-num">CAPÍTULO 9</span>
+                <h2>QUESTÕES COMENTADAS E GABARITOS INTERPRETATIVOS</h2>
+            </div>
+
+            <h3>9.1 Questão sobre Conta Individual e PJ</h3>
+            <p><strong>Enunciado típico:</strong> <em>"Na abertura de conta corrente individual para pessoa jurídica, são exigidos, entre outros documentos:"</em></p>
+            <p><strong>Alternativa correta:</strong> razão social, atividade principal, forma e data de constituição.</p>
+            <p><strong>Alternativa errada (pegadinha):</strong> apenas os documentos dos sócios, ignorando a atividade principal.</p>
+            <p><strong>Comentário:</strong> a atividade principal é indispensável para análise de risco e compliance, e sua ausência invalida a alternativa.</p>
+
+            <hr class="section-divider">
+
+            <h3>9.2 Questão sobre Operações Compromissadas</h3>
+            <p><strong>Enunciado:</strong> <em>"São operações de compra e venda de títulos públicos com compromisso de revenda/recompra em prazo fixado, utilizadas para ajuste de liquidez de curtíssimo prazo."</em> O trecho define:</p>
+            <p><strong>Resposta:</strong> Operações compromissadas.</p>
+            <p><strong>Pegadinha:</strong> não confundir com open market definitivo.</p>
+
+            <hr class="section-divider">
+
+            <h3>9.3 Questão sobre PIX</h3>
+            <p><strong>Enunciado:</strong> <em>"Sobre o PIX, é correto afirmar que:"</em></p>
+            <p><strong>Alternativa falsa:</strong> <em>"Somente instituições com mais de 500 mil contas ativas podem aderir."</em></p>
+            <p><strong>Motivo:</strong> instituições com menos de 500 mil contas podem aderir facultativamente. A obrigatoriedade é para as que superam esse número.</p>
+
+            <hr class="section-divider">
+
+            <h3>9.4 Questão sobre Atendimento</h3>
+            <p><strong>Enunciado:</strong> <em>"Ao atender cliente que faz acusações graves, o escriturário deve:"</em></p>
+            <p><strong>Alternativa correta:</strong> manter a calma, ouvir atentamente, demonstrar empatia e buscar solução dentro das regras.</p>
+            <p><strong>Alternativas erradas:</strong> concordar com tudo; transferir imediatamente ao supervisor; ignorar acusações.</p>
+
+            <hr class="section-divider">
+
+            <h3>9.5 Questão sobre Processo de Vendas</h3>
+            <p><strong>Enunciado:</strong> <em>"Durante a conversa, o gerente pergunta: 'Qual sua situação financeira atual?', 'Que problemas o senhor tem enfrentado com seu banco atual?', 'Quanto valeria resolver isso?'. Essas perguntas caracterizam a etapa de:"</em></p>
+            <p><strong>Gabarito:</strong> Determinação de necessidades.</p>
+            <p><strong>Erro comum:</strong> Marcar abordagem ou pré-abordagem.</p>
+        </section>
+
+        <hr class="section-divider ornament">
+
+        <!-- FINAL CONSIDERATIONS -->
+        <section class="chapter">
+            <div class="chapter-header">
+                <span class="ch-num">FINAL</span>
+                <h2>CONSIDERAÇÕES FINAIS</h2>
+            </div>
+            <p>Esta apostila reconstruiu, de forma aprofundada e conectada, os fragmentos de conhecimento trazidos pelos flashcards, transformando-os em um material coeso de estudo. Cada tópico foi contextualizado no ambiente bancário real, com atenção às armadilhas de prova, à literalidade normativa e à prática do cargo de escriturário/agente comercial.</p>
+            <p>O domínio desses conteúdos não é apenas um requisito para aprovação, mas o alicerce de uma carreira bancária sólida e orientada à excelência no atendimento, na conformidade e nos resultados comerciais responsáveis. <strong>Bons estudos e sucesso em seu concurso.</strong></p>
+        </section>
+
+        <!-- FOOTER -->
+        <footer style="text-align:center;padding:28px 0 12px;color:var(--text-muted);font-size:0.82rem;border-top:1px solid var(--divider);margin-top:20px;">
+            <p>Material de estudo otimizado para leitura prolongada em tablet &mdash; versão digital premium</p>
+        </footer>
+
+    </div>
+</body>
+</html>
