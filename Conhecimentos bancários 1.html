@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Digital · Sistema Financeiro Nacional e Práticas Bancárias</title>
+    <style>
+        :root {
+            --bg: #1b1b24;
+            --surface: #242430;
+            --surface2: #2d2d3b;
+            --surface3: #353545;
+            --text: #d8d8e2;
+            --text-secondary: #b0b0bc;
+            --accent: #e2b04a;
+            --accent-soft: #e2b04a22;
+            --blue: #6a9fd8;
+            --blue-soft: #6a9fd822;
+            --green: #7ecba1;
+            --green-soft: #7ecba122;
+            --red: #e07b7b;
+            --red-soft: #e07b7b22;
+            --purple: #b39cd0;
+            --purple-soft: #b39cd022;
+            --orange: #e8a87c;
+            --orange-soft: #e8a87c22;
+            --teal: #7ec9c0;
+            --teal-soft: #7ec9c022;
+            --divider: #3a3a4a;
+            --highlight: #f5d74244;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            --radius: 14px;
+            --radius-sm: 8px;
+            --font-heading: 'Segoe UI', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+            --font-body: 'Charter', 'Georgia', 'Palatino Linotype', 'Book Antiqua', 'Palatino', serif;
+            --font-mono: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 17px;
+        }
+
+        body {
+            background-color: #141419;
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: 0.01em;
+        }
+
+        .page-wrapper {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2rem 1.8rem 4rem;
+            background: linear-gradient(180deg, #1b1b24 0%, #1e1e28 100%);
+            min-height: 100vh;
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ─── HEADER ─────────────────────── */
+        .main-header {
+            text-align: center;
+            padding: 3rem 1.5rem 2.5rem;
+            border-bottom: 2px solid var(--divider);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .main-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        .main-header h1 {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #f0e6d3;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .main-header .subtitle {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* ─── SUMÁRIO ───────────────────── */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--divider);
+            border-radius: var(--radius);
+            padding: 2rem 2.2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+        .toc h2 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.03em;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .toc h2 .toc-icon {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+        }
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+            padding-left: 0;
+        }
+        .toc li {
+            counter-increment: toc-counter;
+            margin-bottom: 0.55rem;
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 2.4rem;
+            line-height: 1.5;
+        }
+        .toc li::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            background: var(--accent-soft);
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+        }
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+        .toc a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+        .toc .toc-sub {
+            margin-top: 0.3rem;
+            padding-left: 1.8rem;
+            list-style: none;
+        }
+        .toc .toc-sub li {
+            font-size: 0.95rem;
+            margin-bottom: 0.35rem;
+            padding-left: 1.6rem;
+            counter-increment: none;
+        }
+        .toc .toc-sub li::before {
+            content: '▸';
+            background: none;
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            left: 0.3rem;
+            top: 0.3rem;
+            padding: 0;
+        }
+
+        /* ─── SEÇÕES E CAPÍTULOS ────────── */
+        .chapter {
+            margin-bottom: 3.5rem;
+        }
+        .chapter-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #efe3c9;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid var(--divider);
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #e8d7a8;
+            margin: 2.2rem 0 1rem;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding-left: 1rem;
+        }
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.15rem;
+            bottom: 0.15rem;
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        .subsection-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #cfc5a8;
+            margin: 1.6rem 0 0.7rem;
+            letter-spacing: 0.02em;
+        }
+
+        p {
+            margin-bottom: 1.1rem;
+        }
+
+        strong {
+            color: #f2e0b0;
+            font-weight: 600;
+        }
+
+        /* ─── DESTAQUE MARCA-TEXTO ───────── */
+        .highlight {
+            background: var(--highlight);
+            padding: 0.1em 0.4em;
+            border-radius: 3px;
+            color: #f5e6b8;
+            font-weight: 500;
+        }
+
+        /* ─── CALLOUTS & BOXES ──────────── */
+        .callout {
+            padding: 1.3rem 1.6rem;
+            border-radius: var(--radius-sm);
+            margin: 1.5rem 0;
+            border-left: 5px solid;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+        .callout.info {
+            background: var(--blue-soft);
+            border-color: var(--blue);
+        }
+        .callout.warning {
+            background: var(--orange-soft);
+            border-color: var(--orange);
+        }
+        .callout.tip {
+            background: var(--green-soft);
+            border-color: var(--green);
+        }
+        .callout.danger {
+            background: var(--red-soft);
+            border-color: var(--red);
+        }
+        .callout .callout-label {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+        .callout.info .callout-label {
+            color: var(--blue);
+        }
+        .callout.warning .callout-label {
+            color: var(--orange);
+        }
+        .callout.tip .callout-label {
+            color: var(--green);
+        }
+        .callout.danger .callout-label {
+            color: var(--red);
+        }
+
+        .info-box {
+            background: var(--surface2);
+            border: 1px solid var(--divider);
+            border-radius: var(--radius-sm);
+            padding: 1.4rem 1.8rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .info-box .info-box-icon {
+            position: absolute;
+            top: -14px;
+            left: 20px;
+            background: var(--surface3);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent);
+        }
+        .info-box .info-box-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--divider);
+            border-radius: var(--radius);
+            padding: 1.6rem 2rem;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
+        }
+        .card .card-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #e8d7a8;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* ─── CITAÇÕES ──────────────────── */
+        blockquote {
+            margin: 1.5rem 0;
+            padding: 1.2rem 2rem;
+            background: var(--surface2);
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+            color: #c5c0b8;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 1.02rem;
+            letter-spacing: 0.01em;
+        }
+        blockquote strong {
+            font-style: normal;
+            color: #f2e0b0;
+        }
+
+        /* ─── TABELAS ───────────────────── */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--divider);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            min-width: 600px;
+        }
+        thead {
+            background: var(--surface3);
+        }
+        th {
+            padding: 0.9rem 1.2rem;
+            text-align: left;
+            font-weight: 700;
+            color: #f0e6d3;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            border-bottom: 2px solid var(--accent);
+        }
+        td {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid var(--divider);
+            color: var(--text);
+            vertical-align: top;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tbody tr:hover {
+            background: var(--surface2);
+        }
+
+        /* ─── LISTAS ────────────────────── */
+        ul,
+        ol {
+            margin: 0.8rem 0 1.2rem 1.5rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        ul.styled-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.styled-list li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.6rem;
+        }
+        ul.styled-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* ─── FLUXO / ESQUEMA ───────────── */
+        .flow-svg-container {
+            text-align: center;
+            margin: 2rem 0;
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            border: 1px solid var(--divider);
+        }
+        .flow-svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ─── DIVIDER ───────────────────── */
+        .divider {
+            border: none;
+            height: 1px;
+            background: var(--divider);
+            margin: 2.5rem 0;
+            position: relative;
+        }
+        .divider.ornament::after {
+            content: '◆';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg);
+            padding: 0 1rem;
+            color: var(--accent);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+        }
+
+        /* ─── CÓDIGO / MONO ─────────────── */
+        .mono-badge {
+            font-family: var(--font-mono);
+            background: var(--surface3);
+            padding: 0.15em 0.5em;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #f0c27b;
+            letter-spacing: 0.02em;
+        }
+
+        /* ─── MACETE BOX ────────────────── */
+        .mnemonic-box {
+            background: var(--purple-soft);
+            border: 1px solid var(--purple);
+            border-radius: var(--radius-sm);
+            padding: 1.3rem 1.8rem;
+            margin: 1.5rem 0;
+        }
+        .mnemonic-box .mnemonic-title {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--purple);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ─── RESPONSIVO ────────────────── */
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 1.2rem 1rem 2rem;
+            }
+            .main-header h1 {
+                font-size: 1.7rem;
+            }
+            .chapter-title {
+                font-size: 1.4rem;
+            }
+            .section-title {
+                font-size: 1.15rem;
+            }
+            table {
+                font-size: 0.78rem;
+            }
+            th,
+            td {
+                padding: 0.5rem 0.7rem;
+            }
+            .toc {
+                padding: 1.2rem 1.3rem;
+            }
+            .toc li {
+                font-size: 0.9rem;
+                padding-left: 2rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .page-wrapper {
+                max-width: 900px;
+                padding: 2.5rem 3rem 5rem;
+            }
+            html {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+
+        <!-- ═══════════════ HEADER ═══════════════ -->
+        <header class="main-header">
+            <h1>Sistema Financeiro Nacional<br>e Práticas Bancárias</h1>
+            <p class="subtitle">Apostila Digital para Estudo Prolongado · Concurso Bancário</p>
+        </header>
+
+        <!-- ═══════════════ SUMÁRIO ═══════════════ -->
+        <nav class="toc" aria-label="Sumário">
+            <h2>
+                <svg class="toc-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="2" y="4" width="24" height="3" rx="1.5" fill="#e2b04a"/><rect x="2" y="11" width="18" height="3" rx="1.5" fill="#e2b04a" opacity="0.7"/><rect x="2" y="18" width="21" height="3" rx="1.5" fill="#e2b04a" opacity="0.5"/><rect x="2" y="25" width="14" height="3" rx="1.5" fill="#e2b04a" opacity="0.35"/></svg>
+                Sumário Inteligente
+            </h2>
+            <ol>
+                <li><a href="#cap1">O Sistema Financeiro Nacional e seus Agentes Especializados</a>
+                    <ul class="toc-sub">
+                        <li><a href="#sec1-1">Bancos de Desenvolvimento</a></li>
+                        <li><a href="#sec1-2">Vedações aos Bancos de Desenvolvimento</a></li>
+                        <li><a href="#sec1-3">BNDES × Banco de Desenvolvimento</a></li>
+                    </ul>
+                </li>
+                <li><a href="#cap2">Canais de Atendimento e Inovação</a>
+                    <ul class="toc-sub">
+                        <li><a href="#sec2-1">Correspondentes Bancários</a></li>
+                        <li><a href="#sec2-2">Fintechs e a Redefinição da Competição</a></li>
+                    </ul>
+                </li>
+                <li><a href="#cap3">Produtos e Serviços Financeiros no Varejo Bancário</a>
+                    <ul class="toc-sub">
+                        <li><a href="#sec3-1">Produtos de Captação: CDB</a></li>
+                        <li><a href="#sec3-2">Produtos de Crédito: Empréstimo Consignado</a></li>
+                    </ul>
+                </li>
+                <li><a href="#cap4">Governança Corporativa</a>
+                    <ul class="toc-sub">
+                        <li><a href="#sec4-1">Prestação de Contas (Accountability)</a></li>
+                        <li><a href="#sec4-2">Equidade e o Mecanismo do Voto</a></li>
+                    </ul>
+                </li>
+                <li><a href="#guia">Guia de Sobrevivência para a Prova Cesgranrio</a></li>
+            </ol>
+        </nav>
+
+        <!-- ═══════════════ CAPÍTULO 1 ═══════════════ -->
+        <section class="chapter" id="cap1">
+            <h2 class="chapter-title">Capítulo 1: O Sistema Financeiro Nacional e seus Agentes Especializados</h2>
+            <p>
+                O Sistema Financeiro Nacional (SFN) é um ecossistema complexo, arquitetado para promover o desenvolvimento econômico e social do país. Dentro dele, coexistem instituições com finalidades e públicos-alvo radicalmente diferentes. Para o profissional bancário, compreender a distinção entre um banco múltiplo de varejo e um banco de desenvolvimento não é um mero preciosismo acadêmico: é a base para entender o posicionamento estratégico da sua própria instituição e, principalmente, para saber identificar o perfil de cliente e as operações que são vedadas ou permitidas a cada uma delas. Errar isso em uma prova ou, pior, na esteira de uma agência, tentando operacionalizar um produto inexistente para sua instituição, é uma falha grave.
+            </p>
+            <p>
+                Começaremos nosso estudo por um tipo de instituição financeira muito cobrada em concursos, especialmente pela banca Cesgranrio: os <strong>Bancos de Desenvolvimento</strong>.
+            </p>
+
+            <!-- 1.1 -->
+            <h3 class="section-title" id="sec1-1">1.1 Bancos de Desenvolvimento: O Motor do Desenvolvimento Regional</h3>
+            <p>
+                Imagine o governo de um estado, como Minas Gerais ou Bahia, com a necessidade de financiar a expansão de um distrito industrial, a modernização da infraestrutura de saneamento de um município ou apoiar uma cooperativa de produtores rurais. Essas operações, de longo prazo e alto risco, muitas vezes não são atendidas de forma ideal pelos bancos comerciais tradicionais, que operam com horizontes de tempo mais curtos. É aqui que entram os Bancos de Desenvolvimento.
+            </p>
+
+            <div class="card">
+                <div class="card-title">O que são?</div>
+                <p>São instituições financeiras <strong>públicas, de âmbito estadual</strong>, cuja missão precípua é fomentar o desenvolvimento econômico e social da sua unidade federativa. Eles atuam como um braço financeiro estratégico do governo estadual, direcionando crédito de médio e longo prazo para setores considerados prioritários. A regulamentação que rege suas atividades é a <span class="mono-badge">Resolução CMN nº 5.047, de 25/11/2022</span>.</p>
+            </div>
+
+            <p><strong>Características Fundamentais (o tripé de existência):</strong></p>
+            <ol>
+                <li><strong>Atuação Geográfica Restrita:</strong> A sede do banco deve, obrigatoriamente, ser na capital do estado em que opera. Seu foco de atuação é regional.</li>
+                <li><strong>Foco em Longo Prazo:</strong> A vocação natural dessas instituições é o financiamento de projetos que gerem impacto estrutural. Operam primordialmente com crédito de médio e longo prazo.</li>
+                <li><strong>Captação de Recursos:</strong> Captam via <strong>depósitos a prazo</strong> (como CDBs) e, principalmente, através de <strong>repasses de fundos e programas oficiais de crédito</strong>. Não possuem redes massivas de depósitos à vista.</li>
+            </ol>
+
+            <div class="info-box">
+                <div class="info-box-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e2b04a" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16" r="0.8" fill="#e2b04a"/></svg>
+                </div>
+                <div class="info-box-title">Estudo de Caso: A Diferença na Prática da Agência</div>
+                <p>Um cliente chega à sua mesa, que é gerente em um banco múltiplo nacional, e pergunta sobre um financiamento de longo prazo para construir um hospital. Você opera com crédito, mas seu banco tem uma carteira mais voltada para o curto e médio prazo. Você, conhecendo o mercado, pode orientá-lo a procurar o banco de desenvolvimento do seu estado, que possui linhas específicas com taxas subsidiadas para projetos de saúde. Agora, imagine que esse mesmo cliente é um loteador. Você, no banco múltiplo, pode financiar a construção, mas o banco de desenvolvimento estadual, conforme veremos a seguir, tem uma vedação crucial nesse sentido. Esse conhecimento protege você e o cliente de trilharem um caminho negocial que é, na verdade, um beco sem saída normativo.</p>
+            </div>
+
+            <!-- 1.2 -->
+            <h3 class="section-title" id="sec1-2">1.2 Vedações aos Bancos de Desenvolvimento: O Raio-X da Prova</h3>
+            <p>
+                A Cesgranrio tem uma predileção por cobrar a literalidade do <strong>art. 9º da Resolução CMN nº 5.047/2022</strong>, que estabelece as vedações. São proibições absolutas, e a banca adora testar se o candidato as confunde com exceções ou com permissões de outras instituições.
+            </p>
+
+            <blockquote>
+                <strong>É vedado aos bancos de desenvolvimento:</strong> (Base: Art. 9º da Res. CMN 5.047/2022)
+            </blockquote>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Vedação</th>
+                            <th>Explicação Prática e "Porquê"</th>
+                            <th>Pegadinha de Prova</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>I – Operar em aceites de títulos cambiários para colocação no mercado de capitais</strong></td>
+                            <td>O "aceite" é uma fiança prestada pelo banco. Evita que o banco de desenvolvimento assuma risco de crédito de empresas no mercado de capitais, função típica de bancos de investimento.</td>
+                            <td>A banca pode trocar "aceites" por "emissão de CDB". Um banco de desenvolvimento <strong>pode</strong> emitir CDB para se financiar. O que ele não pode é dar aval para títulos de terceiros.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>II – Constituir, administrar e gerir fundos de investimentos</strong></td>
+                            <td>A gestão de fundos é atividade supervisionada pela CVM. O banco de desenvolvimento é agente de crédito de fomento, não administrador de recursos de terceiros.</td>
+                            <td>Cuidado: o banco pode ser <strong>cliente</strong> de um fundo (aplicar recursos próprios). O verbo proibido é "constituir/administrar/gerir".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>III – Financiar loteamento de terrenos e construção de imóveis para revenda ou incorporação</strong></td>
+                            <td>Direciona o crédito para atividades produtivas, não para especulação imobiliária. <strong>Exceção: "salvo as operações relativas à implantação de distritos industriais".</strong></td>
+                            <td>A Cesgranrio adora esta exceção. "Financiar condomínio residencial para revenda?" <strong>NÃO</strong>. "E se for um distrito industrial?" <strong>SIM</strong>. Decore "distritos industriais".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IV – Adquirir imóveis não destinados a uso próprio</strong></td>
+                            <td>O banco pode comprar o prédio de sua agência (uso próprio). Não pode adquirir imóveis como investimento ou especulação. Exceção legal: imóveis recebidos como dação em pagamento.</td>
+                            <td>A afirmação "É vedado ao banco de desenvolvimento adquirir imóveis que não sejam para uso próprio" está <strong>CORRETA</strong> em prova (a forma seca, sem exceção, é considerada verdadeira).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- MACETE -->
+            <div class="mnemonic-box">
+                <div class="mnemonic-title">🧠 Memorização Inteligente – Macete para as Vedações</div>
+                <p>Use a sigla <strong>"A F I M"</strong> para lembrar dos temas centrais de cada vedação:</p>
+                <ul class="styled-list">
+                    <li><strong>A</strong>ceites de títulos (Aval no Mercado de Capitais)</li>
+                    <li><strong>F</strong>undos de investimento (Administrar/gerir Fundos)</li>
+                    <li><strong>I</strong>móveis para revenda/incorporação (Financiar Incorporação, com exceção de Distritos Industriais)</li>
+                    <li><strong>M</strong>óveis (Imóveis) não de uso próprio (Aquisição de Imóveis para especular)</li>
+                </ul>
+            </div>
+
+            <!-- 1.3 -->
+            <h3 class="section-title" id="sec1-3">1.3 A Distinção Crucial: Por que o BNDES NÃO é um Banco de Desenvolvimento?</h3>
+            <p>
+                Essa é, disparada, a maior fonte de erros em concursos. O Banco Nacional de Desenvolvimento Econômico e Social (BNDES) tem "desenvolvimento" no nome, mas sua natureza jurídica e seu escopo são completamente distintos.
+            </p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Banco de Desenvolvimento (ex.: BDMG, Desenbahia)</th>
+                            <th>BNDES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Natureza Jurídica</strong></td>
+                            <td>Instituição Financeira Pública <strong>Estadual</strong></td>
+                            <td><strong>Empresa Pública Federal</strong>, criada por lei específica (Lei nº 1.628/52)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Abrangência Geográfica</strong></td>
+                            <td><strong>Regional:</strong> atua restrito ao seu estado. Sede na capital.</td>
+                            <td><strong>Nacional:</strong> atua em todo o território brasileiro.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Status no SFN</strong></td>
+                            <td>Classificado como "Banco de Desenvolvimento" na regulamentação do CMN.</td>
+                            <td>Entidade <em>sui generis</em>, banco de fomento federal, mas <strong>não</strong> se enquadra nas regras da Res. CMN 5.047.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Principais Vedações</strong></td>
+                            <td>Sujeito às vedações do Art. 9º da Res. CMN 5.047 (A-F-I-M).</td>
+                            <td>Não se submete a essas vedações específicas; rege-se por sua lei de criação.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr class="divider ornament">
+
+        <!-- ═══════════════ CAPÍTULO 2 ═══════════════ -->
+        <section class="chapter" id="cap2">
+            <h2 class="chapter-title">Capítulo 2: Canais de Atendimento e Inovação – A Expansão do Sistema</h2>
+            <p>
+                Após entender as instituições, é vital compreender como os serviços financeiros chegam à população. A agência bancária física não é mais o único canal. A capilaridade do sistema se expande através de parceiros e da tecnologia, moldando o dia a dia de quem trabalha no setor.
+            </p>
+
+            <!-- 2.1 -->
+            <h3 class="section-title" id="sec2-1">2.1 Correspondentes Bancários: O Banco Onde Você Não Vê um Banco</h3>
+            <p>
+                O cliente está em uma farmácia, paga uma conta de luz e, de quebra, aproveita para desbloquear o cartão de crédito. Ele não está em uma agência, mas realizou operações bancárias. Esse é o universo dos correspondentes bancários.
+            </p>
+            <p><strong>Definição:</strong> Correspondentes bancários são estabelecimentos comerciais (padarias, supermercados, lotéricas, farmácias) que, mediante contrato com uma instituição financeira, atuam como um ponto de atendimento terceirizado.</p>
+
+            <div class="callout info">
+                <span class="callout-label">📋 Cadeia de Responsabilidade</span>
+                <ol>
+                    <li><strong>O Banco Contratante:</strong> Define os serviços autorizados. <strong>É o responsável final</strong> pela qualidade, segurança e legalidade de todos os serviços prestados em seu nome.</li>
+                    <li><strong>O Correspondente:</strong> Mero executor. Não pode criar serviços, alterar tarifas ou modificar procedimentos.</li>
+                    <li><strong>O Cliente:</strong> Deve ser informado de que os serviços são de responsabilidade do banco contratante.</li>
+                    <li><strong>O Regulador (CMN e Bacen):</strong> Atividades regulamentadas pela <span class="mono-badge">Resolução CMN nº 4.935/2021</span>.</li>
+                </ol>
+            </div>
+
+            <div class="callout warning">
+                <span class="callout-label">⚠️ Autorização para Funcionamento – A Pegadinha Mais Frequente</span>
+                <p><strong>Os correspondentes bancários NÃO precisam de autorização do Banco Central para funcionar.</strong> Apenas as instituições financeiras necessitam de autorização do Bacen. O correspondente é um prestador de serviço da instituição já autorizada. Sozinho, não opera.</p>
+            </div>
+
+            <!-- Fluxograma SVG -->
+            <div class="flow-svg-container">
+                <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" aria-label="Fluxo de atuação do correspondente bancário" role="img">
+                    <rect x="10" y="20" width="150" height="60" rx="10" fill="#2d2d3b" stroke="#6a9fd8" stroke-width="2"/>
+                    <text x="85" y="45" text-anchor="middle" fill="#d8d8e2" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Banco X obtém</text>
+                    <text x="85" y="63" text-anchor="middle" fill="#d8d8e2" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">autorização do Bacen</text>
+                    <line x1="160" y1="50" x2="220" y2="50" stroke="#e2b04a" stroke-width="2" marker-end="url(#arrow)"/>
+                    <rect x="225" y="20" width="150" height="60" rx="10" fill="#2d2d3b" stroke="#6a9fd8" stroke-width="2"/>
+                    <text x="300" y="45" text-anchor="middle" fill="#d8d8e2" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Banco X firma contrato</text>
+                    <text x="300" y="63" text-anchor="middle" fill="#d8d8e2" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">com a Farmácia Y</text>
+                    <line x1="375" y1="50" x2="435" y2="50" stroke="#e2b04a" stroke-width="2" marker-end="url(#arrow)"/>
+                    <rect x="440" y="20" width="150" height="60" rx="10" fill="#2d2d3b" stroke="#6a9fd8" stroke-width="2"/>
+                    <text x="515" y="45" text-anchor="middle" fill="#d8d8e2" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">Farmácia Y apta a</text>
+                    <text x="515" y="63" text-anchor="middle" fill="#d8d8e2" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">prestar serviços</text>
+
+                    <rect x="140" y="110" width="420" height="55" rx="10" fill="#e2b04a15" stroke="#e2b04a" stroke-width="1.5" stroke-dasharray="6,3"/>
+                    <text x="350" y="133" text-anchor="middle" fill="#e2b04a" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">Obrigações: seguir políticas de PLD,</text>
+                    <text x="350" y="153" text-anchor="middle" fill="#e2b04a" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">sigilo de dados e treinamento do Banco X</text>
+
+                    <line x1="515" y1="80" x2="515" y2="105" stroke="#e2b04a" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+                    <rect x="440" y="170" width="150" height="28" rx="8" fill="#353545" stroke="#7ecba1" stroke-width="1.5"/>
+                    <text x="515" y="189" text-anchor="middle" fill="#7ecba1" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600">Bacen fiscaliza o Banco X</text>
+
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M0,0 L10,5 L0,10 Z" fill="#e2b04a"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:0.8rem;font-family:var(--font-heading);">Fluxo procedimental da atuação do correspondente bancário</p>
+            </div>
+
+            <!-- 2.2 -->
+            <h3 class="section-title" id="sec2-2">2.2 Fintechs e a Redefinição da Competição Bancária</h3>
+            <p>
+                O avanço das fintechs não é fruto de um "afrouxamento" regulatório, mas de uma disrupção tecnológica que permitiu a novos entrantes competir com os bancos tradicionais em nichos específicos.
+            </p>
+            <div class="card">
+                <div class="card-title">Por que as fintechs prosperaram? A Vantagem Competitiva</div>
+                <p>A barreira de entrada clássica para um banco sempre foi a necessidade de agências, grandes estruturas e sistemas legados caríssimos. As fintechs contornaram isso. Seu principal combustível é a <strong>queda das barreiras tecnológicas e operacionais</strong>. Elas oferecem serviços financeiros através de plataformas 100% digitais, com custos operacionais drasticamente menores. Isso se traduz em tarifas mais baixas, processos mais ágeis e uma experiência de usuário superior.</p>
+            </div>
+        </section>
+
+        <hr class="divider ornament">
+
+        <!-- ═══════════════ CAPÍTULO 3 ═══════════════ -->
+        <section class="chapter" id="cap3">
+            <h2 class="chapter-title">Capítulo 3: Produtos e Serviços Financeiros no Varejo Bancário</h2>
+            <p>
+                A mesa do escriturário ou agente comercial é um palco onde produtos de captação (investimentos) e de aplicação (crédito) se encontram. Dominar suas características, riscos e aplicabilidades é o que transforma um atendente em um consultor financeiro.
+            </p>
+
+            <!-- 3.1 -->
+            <h3 class="section-title" id="sec3-1">3.1 Produtos de Captação: O Lado do Investidor</h3>
+            <h4 class="subsection-title">3.1.1 Certificado de Depósito Bancário (CDB)</h4>
+            <p>
+                Imagine que o banco onde você trabalha precisa de dinheiro para emprestar aos clientes. Para isso, ele "emite" um título, prometendo pagar ao investidor o valor aplicado mais juros em uma data futura. Esse título é o CDB.
+            </p>
+            <p><strong>Natureza: Renda Fixa.</strong> Renda fixa não significa "sem risco", mas sim que a regra de remuneração é conhecida no momento da aplicação.</p>
+
+            <div class="callout tip">
+                <span class="callout-label">💡 Modalidades de Remuneração</span>
+                <ul>
+                    <li><strong>CDB Pré-fixado:</strong> Taxa de juros definida na contratação (ex: 12% a.a.). Ideal para cenários de queda de juros.</li>
+                    <li><strong>CDB Pós-fixado:</strong> Atrelado a um indexador, geralmente um percentual do CDI. Ideal para cenários de alta de juros. O CDB que rende 100% do CDI é o produto mais comum da prateleira de um banco de varejo.</li>
+                </ul>
+            </div>
+
+            <div class="callout danger">
+                <span class="callout-label">⚠️ Um Mito Perigoso: O Vencimento</span>
+                <p><strong>"Todo CDB tem data de vencimento, inclusive aqueles com liquidez diária."</strong> A "liquidez diária" é uma opção de resgate antecipado que o banco lhe concede. Ela não extingue o prazo final do título. A ideia de que um CDB com liquidez diária "não tem vencimento" é um erro conceitual grotesco que a Cesgranrio explora em suas alternativas.</p>
+            </div>
+            <p><strong>Segurança:</strong> O CDB é coberto pelo <strong>Fundo Garantidor de Créditos (FGC)</strong> até o limite de R$ 250 mil por CPF por instituição financeira, com teto global de R$ 1 milhão (renovável a cada 4 anos).</p>
+
+            <!-- 3.2 -->
+            <h3 class="section-title" id="sec3-2">3.2 Produtos de Crédito: O Lado do Tomador</h3>
+            <h4 class="subsection-title">3.2.1 Empréstimo Consignado: A Lógica do Menor Risco</h4>
+            <p>O empréstimo consignado é o produto "queridinho" dos bancos e um dos temas mais recorrentes em provas.</p>
+
+            <!-- Diagrama causal SVG -->
+            <div class="flow-svg-container">
+                <svg viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg" aria-label="Relação causal do empréstimo consignado" role="img">
+                    <rect x="20" y="25" width="160" height="70" rx="12" fill="#e07b7b22" stroke="#e07b7b" stroke-width="2"/>
+                    <text x="100" y="55" text-anchor="middle" fill="#f0d0d0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">Desconto em</text>
+                    <text x="100" y="74" text-anchor="middle" fill="#f0d0d0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">Folha</text>
+                    <line x1="180" y1="60" x2="235" y2="60" stroke="#e2b04a" stroke-width="2.5" marker-end="url(#arrow2)"/>
+                    <rect x="240" y="25" width="160" height="70" rx="12" fill="#e8a87c22" stroke="#e8a87c" stroke-width="2"/>
+                    <text x="320" y="55" text-anchor="middle" fill="#f5d8c0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">Menor Risco de</text>
+                    <text x="320" y="74" text-anchor="middle" fill="#f5d8c0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">Inadimplência</text>
+                    <line x1="400" y1="60" x2="455" y2="60" stroke="#e2b04a" stroke-width="2.5" marker-end="url(#arrow2)"/>
+                    <rect x="460" y="25" width="160" height="70" rx="12" fill="#7ecba122" stroke="#7ecba1" stroke-width="2"/>
+                    <text x="540" y="55" text-anchor="middle" fill="#c8f0d8" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">Taxas de Juros</text>
+                    <text x="540" y="74" text-anchor="middle" fill="#c8f0d8" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">Mais Baixas</text>
+                    <defs>
+                        <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M0,0 L10,5 L0,10 Z" fill="#e2b04a"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:0.8rem;font-family:var(--font-heading);">Relação Causal Fundamental do Empréstimo Consignado</p>
+            </div>
+
+            <p><strong>Desconstruindo a Relação:</strong></p>
+            <ul>
+                <li><strong>Por que o risco é menor?</strong> O pagamento é deduzido diretamente da folha de salário ou benefício do INSS antes mesmo de o dinheiro cair na conta do cliente.</li>
+                <li><strong>Por que os juros são mais baixos?</strong> O risco de não receber é o principal componente da taxa de juros. Como esse risco é mitigado, o <em>spread</em> (margem do banco) é muito menor.</li>
+                <li><strong>Quem pode contratar?</strong> Trabalhadores CLT, servidores públicos e aposentados/pensionistas do INSS. <strong>Não é um produto exclusivo para alta renda.</strong></li>
+                <li><strong>Qual a garantia?</strong> O desconto em folha é a garantia em si. <strong>Não se exige garantia real</strong> (imóvel ou veículo).</li>
+                <li><strong>Qual o prazo?</strong> Pode ser superior a doze meses, sendo comum operações de 60 ou 72 meses.</li>
+            </ul>
+
+            <div class="info-box">
+                <div class="info-box-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e2b04a" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16" r="0.8" fill="#e2b04a"/></svg>
+                </div>
+                <div class="info-box-title">Aplicação Prática no Atendimento</div>
+                <p>Um aposentado chega com um carnê de crédito pessoal com juros de 8% ao mês. Você verifica que ele tem margem consignável disponível. Sua conduta consultiva é apresentar o crédito consignado, mostrando a economia brutal que ele terá trocando uma dívida cara por outra com juros de, digamos, 1,8% ao mês. Você não só vendeu um produto, como prestou um serviço financeiro de alto valor, fidelizando o cliente.</p>
+            </div>
+        </section>
+
+        <hr class="divider ornament">
+
+        <!-- ═══════════════ CAPÍTULO 4 ═══════════════ -->
+        <section class="chapter" id="cap4">
+            <h2 class="chapter-title">Capítulo 4: Governança Corporativa – A Espinha Dorsal da Confiança</h2>
+            <p>
+                A governança corporativa é o sistema pelo qual as empresas são dirigidas e monitoradas. O Código das Melhores Práticas do IBGC (Instituto Brasileiro de Governança Corporativa) é a principal referência.
+            </p>
+
+            <!-- 4.1 -->
+            <h3 class="section-title" id="sec4-1">4.1 O Princípio da Prestação de Contas (Accountability)</h3>
+            <p>Os agentes de governança (sócios, administradores, conselheiros) são os guardiões dos recursos de terceiros. O IBGC estabelece que eles devem prestar contas de sua atuação de maneira exemplar.</p>
+            <blockquote>
+                A prestação de contas deve ser feita de modo <strong>claro, conciso, compreensível e tempestivo</strong>.
+            </blockquote>
+            <ul>
+                <li><strong>Claro:</strong> Sem ambiguidades.</li>
+                <li><strong>Conciso:</strong> Direto ao ponto.</li>
+                <li><strong>Compreensível:</strong> A informação deve ser acessível a todos os <em>stakeholders</em>, não apenas a técnicos. A Cesgranrio costuma trocar "compreensível" por "técnico" ou "padrão".</li>
+                <li><strong>Tempestivo:</strong> A tempo de permitir uma tomada de decisão informada.</li>
+            </ul>
+
+            <!-- 4.2 -->
+            <h3 class="section-title" id="sec4-2">4.2 O Princípio da Equidade e o Mecanismo do Voto</h3>
+            <p>O IBGC preza pelo tratamento justo e igualitário de todos os sócios. Para promover esse alinhamento, defende uma prática específica:</p>
+
+            <div class="card">
+                <div class="card-title">"Uma ação, um voto" (Direito de Voto Proporcional)</div>
+                <p>Este é o mecanismo que garante que o poder de influência em uma assembleia seja diretamente proporcional à participação no capital da empresa. Quem investe mais, tem mais poder de voto. É um sistema que alinha o risco financeiro com o poder político.</p>
+            </div>
+
+            <p><strong>Armadilhas de Prova: Estruturas Rejeitadas pela Equidade</strong></p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mecanismo</th>
+                            <th>Definição e Função</th>
+                            <th>Por que é Rejeitado pela Equidade?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Voto Proporcional</strong></td>
+                            <td><strong>Regra:</strong> "Uma ação, um voto".</td>
+                            <td><strong>Este é o modelo defendido.</strong> Promove o alinhamento.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Voto Plural</strong></td>
+                            <td>Uma única ação confere dois ou mais votos.</td>
+                            <td>Concentra poder político sem correspondente poder econômico.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ações Preferenciais</strong></td>
+                            <td>Ações sem direito a voto (ou com voto restrito), mas com vantagens econômicas.</td>
+                            <td>Dissocia quem controla (tem voto) de quem financia (tem ações sem voto).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Golden Share</strong></td>
+                            <td>Ação especial (geralmente do governo) que confere poder de veto com participação ínfima no capital.</td>
+                            <td>Desproporcionalidade levada ao extremo. Poder político descomunal de uma participação minúscula.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Poison Pill</strong></td>
+                            <td>Mecanismo de defesa contra aquisição hostil; torna a compra proibitivamente cara.</td>
+                            <td>Pode entrincheirar a administração atual, prejudicando o direito dos demais acionistas de vender com prêmio de controle.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <div class="info-box-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e2b04a" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16" r="0.8" fill="#e2b04a"/></svg>
+                </div>
+                <div class="info-box-title">Estudo de Caso em uma Assembleia</div>
+                <p>Em uma assembleia do seu banco, um grupo de acionistas minoritários contesta uma decisão do controlador. Pelo princípio do voto proporcional, a decisão será tomada pelo voto da maioria do capital. Se o controlador possuísse uma <em>golden share</em>, poderia vetar a decisão da maioria, gerando um conflito de governança. Essa é a lógica que o IBGC busca combater em nome da equidade.</p>
+            </div>
+        </section>
+
+        <hr class="divider ornament">
+
+        <!-- ═══════════════ GUIA DE SOBREVIVÊNCIA ═══════════════ -->
+        <section class="chapter" id="guia">
+            <h2 class="chapter-title">Guia de Sobrevivência para a Prova Cesgranrio</h2>
+            <p style="color:var(--text-secondary);">Consolidado por tema para revisão rápida.</p>
+
+            <!-- Card 1 -->
+            <div class="card" style="border-left: 5px solid #e2b04a;">
+                <div class="card-title">🏦 Bancos de Desenvolvimento</div>
+                <ul>
+                    <li><strong>Alvo da Banca:</strong> Literalidade das vedações do Art. 9º. Decore o "AFIM" e a exceção <span class="highlight">"distritos industriais"</span>.</li>
+                    <li><strong>Pegadinha Mortal:</strong> O BNDES. Ao ver "Banco Nacional de Desenvolvimento...", sua mente deve gritar: <strong>"É EMPRESA PÚBLICA FEDERAL, NÃO É BANCO DE DESENVOLVIMENTO ESTADUAL"</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" style="border-left: 5px solid #6a9fd8;">
+                <div class="card-title">🏪 Correspondentes Bancários</div>
+                <ul>
+                    <li><strong>Alvo da Banca:</strong> Responsabilidade. Quem responde? <strong>O banco contratante</strong>, sempre.</li>
+                    <li><strong>Pegadinha Mortal:</strong> Autorização do Bacen. O correspondente <strong>NÃO</strong> precisa. Só o banco precisa.</li>
+                </ul>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card" style="border-left: 5px solid #7ecba1;">
+                <div class="card-title">💳 Empréstimo Consignado</div>
+                <ul>
+                    <li><strong>Alvo da Banca:</strong> A relação de causalidade. Menor risco (por causa do desconto em folha) → Menores Juros.</li>
+                    <li><strong>Pegadinha Mortal:</strong> Afirmar que é para alta renda, que exige garantia real ou que o prazo é sempre curto. <strong>Tudo falso.</strong></li>
+                </ul>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card" style="border-left: 5px solid #b39cd0;">
+                <div class="card-title">🏛️ Governança Corporativa (IBGC)</div>
+                <ul>
+                    <li><strong>Alvo da Banca:</strong> A palavra mágica na prestação de contas: <span class="highlight">compreensível</span>.</li>
+                    <li><strong>Pegadinha Mortal:</strong> Confundir "voto proporcional" (uma ação, um voto) com estruturas que geram desproporção, como <em>golden shares</em> (poder de veto) ou voto plural (mais de um voto por ação).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ═══════════════ FOOTER ═══════════════ -->
+        <footer style="text-align:center;padding:2rem 0 0;color:var(--text-secondary);font-size:0.85rem;border-top:1px solid var(--divider);margin-top:3rem;">
+            <p>Apostila Digital · Estudo para Concurso Bancário · Conteúdo 100% preservado</p>
+            <p style="font-size:0.75rem;opacity:0.6;">Design otimizado para leitura prolongada em tablet</p>
+        </footer>
+
+    </div><!-- /page-wrapper -->
+</body>
+</html>
