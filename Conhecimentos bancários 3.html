@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Bancário e Relacionamento com o Cliente · Apostila Digital</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #1b1b1b;
+            color: #d0d0d0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 18px;
+            line-height: 1.75;
+            padding: 20px;
+            max-width: 750px;
+            margin: 0 auto;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* ===== TIPOGRAFIA ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #e2b04a;
+            margin-top: 2.2em;
+            margin-bottom: 0.6em;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-top: 0.5em;
+            color: #f0c27b;
+            border-bottom: 2px solid #3a3a3a;
+            padding-bottom: 0.4em;
+        }
+
+        h2 {
+            font-size: 1.7rem;
+            border-left: 5px solid #e2b04a;
+            padding-left: 0.5em;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            color: #c59b5f;
+        }
+
+        h4 {
+            font-size: 1.15rem;
+            color: #b8a07c;
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+
+        strong {
+            color: #f0c27b;
+            font-weight: 600;
+        }
+
+        em {
+            color: #c59b5f;
+            font-style: italic;
+        }
+
+        a {
+            color: #e2b04a;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #f5d78c;
+            text-decoration: underline;
+        }
+
+        /* ===== LAYOUT ===== */
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .subtitulo {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            margin-top: 0.2em;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        /* ===== SUMÁRIO INTELIGENTE ===== */
+        nav#sumario {
+            background: #232323;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid #3a3a3a;
+        }
+
+        nav#sumario h2 {
+            border-left: none;
+            margin-top: 0;
+            font-size: 1.3rem;
+            text-align: center;
+            color: #f0c27b;
+        }
+
+        nav#sumario ol {
+            list-style: none;
+            counter-reset: item;
+            padding: 0;
+            margin: 1.2rem 0 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.3rem;
+        }
+
+        nav#sumario li {
+            counter-increment: item;
+            font-size: 1.05rem;
+        }
+
+        nav#sumario li a {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            color: #d0d0d0;
+            padding: 0.3rem 0;
+            border-bottom: 1px dotted #3a3a3a;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        nav#sumario li a::before {
+            content: counter(item, decimal-leading-zero);
+            font-weight: bold;
+            color: #e2b04a;
+            min-width: 2rem;
+        }
+
+        nav#sumario li a:hover {
+            background: #2d2d2d;
+            color: #f0c27b;
+            text-decoration: none;
+            border-radius: 4px;
+            padding-left: 0.5rem;
+        }
+
+        /* ===== ÍCONES EMBUTIDOS ===== */
+        .icon {
+            width: 1.3em;
+            height: 1.3em;
+            vertical-align: middle;
+            margin-right: 0.2em;
+            fill: currentColor;
+        }
+
+        /* ===== BLOCOS DE DESTAQUE ===== */
+        .dica, .atencao, .callout, .base-legal, .destaque-teoria, .macete, .macete-alvo {
+            background: #252525;
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-left: 6px solid;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .dica {
+            background: #2e2b1f;
+            border-color: #b68b00;
+            color: #e8d08e;
+        }
+
+        .atencao {
+            background: #2e1f1f;
+            border-color: #b04545;
+            color: #e8b0b0;
+        }
+
+        .base-legal {
+            background: #1f2a2e;
+            border-color: #4a90b0;
+            color: #b0d4e8;
+        }
+
+        .destaque-teoria {
+            background: #2a2a1f;
+            border-color: #b0a04a;
+            color: #e8e0b0;
+        }
+
+        .macete {
+            background: #1f2a1f;
+            border-color: #4a8b4a;
+            color: #b0e8b0;
+        }
+
+        .macete-alvo {
+            background: #2a1f2a;
+            border-color: #8b4a8b;
+            color: #e0b0e0;
+        }
+
+        .callout {
+            background: #252525;
+            border-color: #5a5a5a;
+            color: #d0d0d0;
+            font-style: italic;
+        }
+
+        .dica .icon, .atencao .icon, .base-legal .icon, .destaque-teoria .icon, .macete .icon, .macete-alvo .icon {
+            flex-shrink: 0;
+            margin-top: 0.15em;
+        }
+
+        /* ===== CITAÇÕES ESTILIZADAS ===== */
+        blockquote {
+            background: #252525;
+            border-left: 5px solid #e2b04a;
+            margin: 1.8rem 0;
+            padding: 1rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #c0c0c0;
+        }
+
+        /* ===== TABELAS MODERNAS ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+            background: #202020;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #3a3a3a;
+        }
+
+        th {
+            background: #2d2d2d;
+            color: #f0c27b;
+            font-weight: 600;
+            padding: 0.8rem 0.6rem;
+            text-align: left;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            border-bottom: 2px solid #3a3a3a;
+        }
+
+        td {
+            padding: 0.7rem 0.6rem;
+            border-bottom: 1px solid #3a3a3a;
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+            background: #232323;
+        }
+
+        /* ===== LISTAS ===== */
+        ul, ol {
+            margin: 1rem 0 1.5rem 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        ul li::marker {
+            color: #e2b04a;
+        }
+
+        /* ===== LINHAS DIVISÓRIAS ===== */
+        hr {
+            border: none;
+            border-top: 1px solid #3a3a3a;
+            margin: 2.5rem 0;
+        }
+
+        hr.ornament {
+            border-top: 2px dashed #4a4a4a;
+            margin: 2rem 0;
+        }
+
+        /* ===== MARCA-TEXTO ===== */
+        mark {
+            background-color: #b68b00;
+            color: #1b1b1b;
+            padding: 0.1em 0.3em;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        /* ===== CARDS PARA CONCEITOS ===== */
+        .card {
+            background: #252525;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.8rem 0;
+            border: 1px solid #3a3a3a;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== FLUXOGRAMAS SVG ===== */
+        .svg-diagram {
+            display: block;
+            max-width: 100%;
+            margin: 2rem auto;
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 550px) {
+            body {
+                font-size: 16px;
+                padding: 10px;
+            }
+            nav#sumario {
+                padding: 1rem;
+            }
+        }
+
+        /* ===== UTILITIES ===== */
+        .text-center {
+            text-align: center;
+        }
+        .mt-0 {
+            margin-top: 0;
+        }
+        .mb-0 {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== BIBLIOTECA DE ÍCONES SVG ========== -->
+    <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <!-- Lâmpada (dica) -->
+            <g id="lamp">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17h8v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM11 19h2v1h-2z"/>
+                <path d="M10 21h4v1h-4z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </g>
+            <!-- Alerta (atenção) -->
+            <g id="alert">
+                <path d="M12 2L2 22h20L12 2zm0 3.7L19.4 20H4.6L12 5.7zM11 10h2v5h-2zm0 7h2v2h-2z"/>
+            </g>
+            <!-- Check (correto) -->
+            <g id="check">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 12l3 3 5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <!-- X (incorreto) -->
+            <g id="xmark">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <!-- Documento (base legal) -->
+            <g id="doc">
+                <path d="M6 2h8l6 6v14a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M14 2v6h6" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line x1="8" y1="13" x2="16" y2="13" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="8" y1="17" x2="16" y2="17" stroke="currentColor" stroke-width="1.5"/>
+            </g>
+            <!-- Alfinete (destaque) -->
+            <g id="pin">
+                <path d="M16 12l-3-3V3l-2-1-2 1v6L6 12v2h3v7l3 2 3-2v-7h3v-2z" fill="none" stroke="currentColor" stroke-width="2"/>
+            </g>
+            <!-- Chave (macete) -->
+            <g id="key">
+                <circle cx="8" cy="15" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 11l7-7m-3 0h3v3" fill="none" stroke="currentColor" stroke-width="2"/>
+            </g>
+            <!-- Alvo (macete) -->
+            <g id="target">
+                <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+                <line x1="12" y1="2" x2="12" y2="5" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="12" y1="19" x2="12" y2="22" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="2" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="19" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5"/>
+            </g>
+        </defs>
+    </svg>
+
+    <!-- ========== CABEÇALHO ========== -->
+    <header>
+        <h1>Marketing Bancário e Relacionamento com o Cliente</h1>
+        <p class="subtitulo">Material Didático para Concursos da Área Bancária</p>
+    </header>
+
+    <!-- ========== SUMÁRIO INTELIGENTE ========== -->
+    <nav id="sumario">
+        <h2>Sumário</h2>
+        <ol>
+            <li><a href="#cap1">Introdução ao Marketing Bancário e Relacionamento</a></li>
+            <li><a href="#cap2">Marketing de Relacionamento e Pós-Venda</a></li>
+            <li><a href="#cap3">Contexto Macroeconômico e Comportamento do Consumidor Bancário</a></li>
+            <li><a href="#cap4">Adequação de Produtos e Serviços (Resolução CMN nº 4.949/2021)</a></li>
+            <li><a href="#cap5">Dimensões da Qualidade em Serviços Bancários</a></li>
+            <li><a href="#cap6">Processo de Compra do Consumidor Bancário</a></li>
+            <li><a href="#cap7">Segmentação de Mercado no Setor Financeiro</a></li>
+            <li><a href="#cap8">Guia de Revisão e Macetes para Provas</a></li>
+        </ol>
+    </nav>
+
+    <hr class="ornament">
+
+    <!-- ========== CAPÍTULO 1 ========== -->
+    <section id="cap1">
+        <h2>CAPÍTULO 1: INTRODUÇÃO AO MARKETING BANCÁRIO E RELACIONAMENTO</h2>
+
+        <h3>1.1 A Evolução do Marketing no Setor Financeiro</h3>
+        <p>O setor bancário brasileiro passou por profundas transformações nas últimas décadas. O que antes era um mercado restrito, com poucos players e clientes cativos, tornou-se um ambiente altamente competitivo, onde a diferenciação passa necessariamente pela qualidade do relacionamento com o cliente.</p>
+
+        <h3>Do Marketing Transacional ao Marketing de Relacionamento</h3>
+        <p>Para compreender a lógica do marketing bancário contemporâneo, é fundamental distinguir duas abordagens que coexistem no setor:</p>
+
+        <table>
+            <thead>
+                <tr><th>Aspecto</th><th>Marketing Transacional</th><th>Marketing de Relacionamento</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Foco</td><td>Venda imediata</td><td>Relacionamento de longo prazo</td></tr>
+                <tr><td>Horizonte temporal</td><td>Curto prazo</td><td>Longo prazo</td></tr>
+                <tr><td>Objetivo principal</td><td>Conquistar novos clientes</td><td>Fidelizar clientes existentes</td></tr>
+                <tr><td>Métrica de sucesso</td><td>Volume de vendas no período</td><td>Lifetime value (valor do ciclo de vida)</td></tr>
+                <tr><td>Abordagem</td><td>Transação única</td><td>Interação contínua</td></tr>
+                <tr><td>Comunicação</td><td>Massiva e padronizada</td><td>Personalizada e segmentada</td></tr>
+            </tbody>
+        </table>
+
+        <div class="dica">
+            <svg class="icon"><use href="#lamp"/></svg>
+            <div><strong>DICA DE PROVA (CESGRANRIO):</strong> A banca frequentemente cobra a distinção entre marketing transacional e de relacionamento. Quando a questão menciona "curto prazo", "captação" ou "venda imediata", o raciocínio aponta para o marketing transacional. Quando menciona "pós-venda", "acompanhamento", "fidelização" ou "lealdade", trata-se do marketing de relacionamento.</div>
+        </div>
+
+        <p><strong>Exemplo Prático:</strong><br> Um gerente de contas aborda um cliente que está na fila para oferecer um empréstimo consignado. Esta é uma abordagem típica de marketing transacional. Por outro lado, o mesmo gerente liga para o cliente uma semana após a contratação para verificar se o pagamento das parcelas está sendo feito com tranquilidade e se há alguma dúvida sobre o contrato — isso é marketing de relacionamento.</p>
+    </section>
+
+    <hr>
+
+    <!-- ========== CAPÍTULO 2 ========== -->
+    <section id="cap2">
+        <h2>CAPÍTULO 2: MARKETING DE RELACIONAMENTO E PÓS-VENDA</h2>
+
+        <h3>2.1 O Conceito de Pós-Venda no Contexto Bancário</h3>
+        <p>O pós-venda é uma das etapas mais críticas e, paradoxalmente, mais negligenciadas no processo de venda bancária. Trata-se do acompanhamento realizado após a concretização da venda ou contratação do serviço, com o objetivo principal de medir a satisfação do cliente.</p>
+
+        <h4>Por que o Pós-Venda é Fundamental?</h4>
+        <ul>
+            <li><strong>Identificação precoce de insatisfação:</strong> Permite resolver problemas antes que eles se transformem em reclamações formais ou, pior, em cancelamentos.</li>
+            <li><strong>Fortalecimento do vínculo:</strong> O cliente que se sente acompanhado desenvolve maior confiança na instituição.</li>
+            <li><strong>Oportunidades de vendas cruzadas (cross-selling):</strong> Um cliente satisfeito está mais receptivo a novas ofertas.</li>
+            <li><strong>Redução do churn (taxa de cancelamento):</strong> Manter um cliente existente custa de 5 a 7 vezes menos do que conquistar um novo.</li>
+            <li><strong>Geração de advocacy:</strong> Clientes satisfeitos tornam-se promotores da marca, recomendando o banco para amigos e familiares.</li>
+        </ul>
+
+        <h3>2.2 O Erro Comum: Confundir Pós-Venda com Cobrança ou Venda Adicional</h3>
+        <div class="atencao">
+            <svg class="icon"><use href="#alert"/></svg>
+            <div><strong>ATENÇÃO (PEGADINHA DE PROVA):</strong> A CESGRANRIO é enfática em distinguir o verdadeiro propósito do pós-venda.</div>
+        </div>
+
+        <p><strong>O que NÃO é objetivo do pós-venda:</strong></p>
+        <ul>
+            <li><svg class="icon"><use href="#xmark"/></svg> Aumentar a eficácia na abordagem de vendas (isso é etapa de prospecção)</li>
+            <li><svg class="icon"><use href="#xmark"/></svg> Garantir mais vendas no curto prazo (isso é marketing transacional)</li>
+            <li><svg class="icon"><use href="#xmark"/></svg> Cobrar resultados da equipe comercial (isso é gestão de desempenho)</li>
+            <li><svg class="icon"><use href="#xmark"/></svg> Realizar tarefas após o expediente (isso é organização do trabalho)</li>
+        </ul>
+
+        <p><strong>O que É o objetivo principal do pós-venda:</strong></p>
+        <ul>
+            <li><svg class="icon"><use href="#check"/></svg> Medir a satisfação dos clientes por meio de acompanhamento e avaliação (follow-up)</li>
+            <li><svg class="icon"><use href="#check"/></svg> Verificar se o cliente está satisfeito e resolver problemas identificados</li>
+            <li><svg class="icon"><use href="#check"/></svg> Fortalecer o vínculo e promover a fidelização</li>
+            <li><svg class="icon"><use href="#check"/></svg> Criar as condições para vendas futuras de forma sustentável (não imediata)</li>
+        </ul>
+
+        <h3>2.3 O Processo de Pós-Venda na Rotina Bancária</h3>
+        <h4>Fluxo Típico do Pós-Venda em uma Agência</h4>
+
+        <!-- Fluxograma SVG do Pós-Venda -->
+        <svg class="svg-diagram" viewBox="0 0 500 620" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="arrow1" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#b68b00"/></marker></defs>
+            <rect x="150" y="10" width="200" height="40" rx="8" fill="#2e2b1f" stroke="#b68b00" stroke-width="2"/>
+            <text x="250" y="35" text-anchor="middle" fill="#e8d08e" font-size="14" font-weight="bold">Venda realizada</text>
+            <line x1="250" y1="50" x2="250" y2="80" stroke="#b68b00" stroke-width="2" marker-end="url(#arrow1)"/>
+
+            <rect x="140" y="80" width="220" height="45" rx="8" fill="#2e2b1f" stroke="#b68b00" stroke-width="2"/>
+            <text x="250" y="100" text-anchor="middle" fill="#e8d08e" font-size="13" font-weight="bold">1º contato (D+1):</text>
+            <text x="250" y="117" text-anchor="middle" fill="#e8d08e" font-size="13">Confirmação e agradecimento</text>
+            <line x1="250" y1="125" x2="250" y2="155" stroke="#b68b00" stroke-width="2" marker-end="url(#arrow1)"/>
+
+            <rect x="130" y="155" width="240" height="45" rx="8" fill="#2e2b1f" stroke="#b68b00" stroke-width="2"/>
+            <text x="250" y="175" text-anchor="middle" fill="#e8d08e" font-size="13" font-weight="bold">2º contato (D+7):</text>
+            <text x="250" y="192" text-anchor="middle" fill="#e8d08e" font-size="13">Verificação de primeiras impressões</text>
+            <line x1="250" y1="200" x2="250" y2="230" stroke="#b68b00" stroke-width="2" marker-end="url(#arrow1)"/>
+
+            <rect x="130" y="230" width="240" height="45" rx="8" fill="#2e2b1f" stroke="#b68b00" stroke-width="2"/>
+            <text x="250" y="250" text-anchor="middle" fill="#e8d08e" font-size="13" font-weight="bold">Acompanhamento periódico</text>
+            <text x="250" y="267" text-anchor="middle" fill="#e8d08e" font-size="13">(D+30, D+60, D+90)</text>
+            <line x1="250" y1="275" x2="250" y2="305" stroke="#b68b00" stroke-width="2" marker-end="url(#arrow1)"/>
+
+            <rect x="140" y="305" width="220" height="40" rx="8" fill="#2e2b1f" stroke="#b68b00" stroke-width="2"/>
+            <text x="250" y="330" text-anchor="middle" fill="#e8d08e" font-size="13" font-weight="bold">Pesquisa de satisfação formal</text>
+            <line x1="250" y1="345" x2="250" y2="375" stroke="#b68b00" stroke-width="2" marker-end="url(#arrow1)"/>
+
+            <rect x="130" y="375" width="240" height="40" rx="8" fill="#2e2b1f" stroke="#b68b00" stroke-width="2"/>
+            <text x="250" y="400" text-anchor="middle" fill="#e8d08e" font-size="13" font-weight="bold">Identificação de oportunidades de melhoria</text>
+            <line x1="250" y1="415" x2="250" y2="445" stroke="#b68b00" stroke-width="2" marker-end="url(#arrow1)"/>
+
+            <rect x="140" y="445" width="220" height="40" rx="8" fill="#2e2b1f" stroke="#b68b00" stroke-width="2"/>
+            <text x="250" y="470" text-anchor="middle" fill="#e8d08e" font-size="13" font-weight="bold">Ações corretivas (se necessário)</text>
+            <line x1="250" y1="485" x2="250" y2="515" stroke="#b68b00" stroke-width="2" marker-end="url(#arrow1)"/>
+
+            <rect x="120" y="515" width="260" height="45" rx="8" fill="#2e2b1f" stroke="#b68b00" stroke-width="2"/>
+            <text x="250" y="535" text-anchor="middle" fill="#e8d08e" font-size="13" font-weight="bold">Nova venda (ciclo se reinicia</text>
+            <text x="250" y="552" text-anchor="middle" fill="#e8d08e" font-size="13">com mais confiança)</text>
+        </svg>
+
+        <h4>Instrumentos de Pós-Venda no Setor Bancário</h4>
+        <ul>
+            <li><strong>Pesquisas de satisfação (NPS - Net Promoter Score):</strong> Medem a probabilidade de o cliente recomendar o banco.</li>
+            <li><strong>Ligações de follow-up:</strong> Contato telefônico para verificar a experiência do cliente com o produto ou serviço.</li>
+            <li><strong>Reuniões de revisão de carteira:</strong> Encontros periódicos para avaliar a adequação dos produtos contratados.</li>
+            <li><strong>Monitoramento de reclamações:</strong> Acompanhamento de manifestações no BACEN, Procon e ouvidoria.</li>
+            <li><strong>Análise de cancelamentos (churn analysis):</strong> Investigação das razões que levaram clientes a encerrar o relacionamento.</li>
+        </ul>
+
+        <h3>2.4 Estudo de Caso: Pós-Venda na Prática</h3>
+        <p><strong>Cenário:</strong> Maria, gerente de relacionamento do Banco Beta, acaba de fechar a venda de um plano de previdência privada para o cliente Sr. José, empresário de 52 anos.</p>
+        <p><strong>Pós-venda realizado (correto):</strong></p>
+        <ul>
+            <li>Dia 1: Maria envia mensagem de agradecimento e confirmação da contratação.</li>
+            <li>Dia 7: Liga para o Sr. José, verifica se ele entendeu as regras de resgate, tributação e carência. Esclarece dúvidas sobre o regulamento do plano.</li>
+            <li>Dia 30: Agenda uma reunião presencial de 15 minutos para revisar a primeira fatura e verificar se as contribuições foram realizadas conforme o combinado.</li>
+            <li>Dia 60: Envia relatório simplificado de rentabilidade por e-mail e pergunta se o Sr. José quer ajustar o valor da contribuição mensal.</li>
+            <li>Dia 90: Solicita ao cliente que responda a uma pesquisa de satisfação sobre o processo de contratação e o acompanhamento recebido.</li>
+        </ul>
+        <p><strong>Resultado:</strong> O Sr. José sente-se valorizado, confia no trabalho de Maria e, após 6 meses, procura-a para contratar um seguro de vida para seus sócios.</p>
+
+        <h3>2.5 Erros Frequentes em Provas sobre Pós-Venda</h3>
+        <table>
+            <thead><tr><th>Afirmação Incorreta</th><th>Motivo da Incorreção</th></tr></thead>
+            <tbody>
+                <tr><td>"O pós-venda visa aumentar a eficácia nas vendas"</td><td>A eficácia das vendas é trabalhada na etapa de prospecção e abordagem</td></tr>
+                <tr><td>"O pós-venda garante vendas no curto prazo"</td><td>O foco é o longo prazo e o relacionamento sustentável</td></tr>
+                <tr><td>"O pós-venda é uma etapa de cobrança"</td><td>Cobrança é atividade de recuperação de crédito, não de relacionamento</td></tr>
+                <tr><td>"O pós-venda ocorre apenas para corrigir erros"</td><td>Embora corrija problemas, seu principal objetivo é medir satisfação</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- ========== CAPÍTULO 3 ========== -->
+    <section id="cap3">
+        <h2>CAPÍTULO 3: CONTEXTO MACROECONÔMICO E COMPORTAMENTO DO CONSUMIDOR BANCÁRIO</h2>
+
+        <h3>3.1 A Interação entre Política Econômica e Consumo Bancário</h3>
+        <p>O comportamento do consumidor de produtos bancários não ocorre no vácuo. Ele é profundamente influenciado por variáveis macroeconômicas que afetam diretamente a capacidade de consumo e a propensão a contratar serviços financeiros.</p>
+
+        <h4>O Tripé Macroeconômico que Afeta o Consumidor Bancário</h4>
+        <!-- Diagrama SVG do tripé -->
+        <svg class="svg-diagram" viewBox="0 0 400 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect x="120" y="10" width="160" height="50" rx="8" fill="#2e1f1f" stroke="#b04545" stroke-width="2"/>
+            <text x="200" y="30" text-anchor="middle" fill="#e8b0b0" font-size="13" font-weight="bold">INFLAÇÃO</text>
+            <text x="200" y="48" text-anchor="middle" fill="#e8b0b0" font-size="11">(Erosão do poder de compra)</text>
+
+            <rect x="10" y="130" width="140" height="50" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="2"/>
+            <text x="80" y="150" text-anchor="middle" fill="#b0d4e8" font-size="12" font-weight="bold">SALÁRIOS</text>
+            <text x="80" y="168" text-anchor="middle" fill="#b0d4e8" font-size="11">(Renda real)</text>
+
+            <rect x="250" y="130" width="140" height="50" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="2"/>
+            <text x="320" y="150" text-anchor="middle" fill="#b0d4e8" font-size="12" font-weight="bold">TAXA DE JUROS</text>
+            <text x="320" y="168" text-anchor="middle" fill="#b0d4e8" font-size="11">(Custo do crédito)</text>
+
+            <line x1="200" y1="60" x2="80" y2="130" stroke="#5a5a5a" stroke-width="1.5"/>
+            <line x1="200" y1="60" x2="320" y2="130" stroke="#5a5a5a" stroke-width="1.5"/>
+            <line x1="80" y1="180" x2="200" y2="230" stroke="#5a5a5a" stroke-width="1.5"/>
+            <line x1="320" y1="180" x2="200" y2="230" stroke="#5a5a5a" stroke-width="1.5"/>
+
+            <rect x="100" y="230" width="200" height="40" rx="8" fill="#2a1f1f" stroke="#b04545" stroke-width="2"/>
+            <text x="200" y="255" text-anchor="middle" fill="#e8b0b0" font-size="13" font-weight="bold">MENOR PODER DE COMPRA</text>
+        </svg>
+
+        <h3>3.2 Análise Detalhada dos Impactos</h3>
+
+        <h4>3.2.1 Inflação Elevada</h4>
+        <p><strong>O que acontece:</strong> O aumento generalizado dos preços reduz o valor real da moeda. O cliente percebe que com a mesma quantidade de dinheiro compra menos bens e serviços.</p>
+        <p><strong>Impacto no consumo bancário:</strong></p>
+        <ul>
+            <li>Menor disposição para contratar crédito (as parcelas corrigidas pela inflação pesam no orçamento)</li>
+            <li>Busca por investimentos que protejam o poder de compra (títulos indexados à inflação)</li>
+            <li>Aumento da demanda por produtos com liquidez (medo de emergências futuras)</li>
+            <li>Redução da capacidade de poupança</li>
+        </ul>
+
+        <h4>3.2.2 Congelamento dos Salários</h4>
+        <p><strong>O que acontece:</strong> A renda nominal do trabalhador permanece estável enquanto os preços sobem (inflação). Ocorre uma perda real de renda.</p>
+        <p><strong>Impacto no consumo bancário:</strong></p>
+        <ul>
+            <li>Redução da capacidade de contratar novos produtos</li>
+            <li>Aumento da inadimplência nos produtos já contratados</li>
+            <li>Maior procura por renegociações e alongamento de prazos</li>
+            <li>Migração para produtos mais baratos ou com tarifas reduzidas</li>
+            <li>Diminuição da demanda por serviços bancários discricionários</li>
+        </ul>
+
+        <h4>3.2.3 Aumento da Taxa de Juros (Selic)</h4>
+        <p><strong>O que acontece:</strong> O Banco Central eleva a taxa básica de juros para conter a inflação (política monetária contracionista).</p>
+        <table>
+            <thead><tr><th>Efeito</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+            <tbody>
+                <tr><td>Crédito mais caro</td><td>Os juros cobrados pelos bancos sobem</td><td>Financiamento imobiliário fica mais caro</td></tr>
+                <tr><td>Menor demanda por empréstimos</td><td>Clientes desistem de contratar dívidas</td><td>Pessoa física adia compra de veículo</td></tr>
+                <tr><td>Aumento da seletividade</td><td>Bancos restringem concessão de crédito</td><td>Critérios de aprovação mais rígidos</td></tr>
+                <tr><td>Atração para renda fixa</td><td>Investidores migram para títulos atrelados à Selic</td><td>CDB, LCI, LCA se tornam mais atrativos</td></tr>
+                <tr><td>Redução da inadimplência futura</td><td>Clientes com dívidas sofrem mais para pagar</td><td>Aumento do risco de calote</td></tr>
+            </tbody>
+        </table>
+
+        <h3>3.3 Efeito Combinado: O Cenário de Crise</h3>
+        <div class="atencao">
+            <svg class="icon"><use href="#alert"/></svg>
+            <div><strong>CENÁRIO TÍPICO DE PROVA:</strong> Quando a questão apresenta a combinação "inflação alta + salários congelados + juros elevados", a resposta CORRETA será sempre algo relacionado à redução do poder de compra da população.</div>
+        </div>
+        <p><strong>Raciocínio Lógico:</strong> Inflação alta → Preços sobem; Salários congelados → Renda não acompanha; Juros elevados → Crédito mais caro. <mark>Consequência: MENOR PODER DE COMPRA e Redução da capacidade de consumo.</mark></p>
+
+        <h3>3.4 O que NÃO é Impacto Direto (Armadilhas de Prova)</h3>
+        <table>
+            <thead><tr><th>Alternativa Incorreta</th><th>Por que está errada</th></tr></thead>
+            <tbody>
+                <tr><td>"Acertos na política econômica"</td><td>O cenário descrito é de crise, não de acertos</td></tr>
+                <tr><td>"Interferência dos bancos no orçamento"</td><td>Bancos são afetados, não causam o problema</td></tr>
+                <tr><td>"Regulações político-legais inadequadas"</td><td>É consequência macro, não o foco do enunciado</td></tr>
+                <tr><td>"Pouco investimento em tecnologia"</td><td>Impacto indireto, não diretamente relacionado</td></tr>
+            </tbody>
+        </table>
+
+        <h3>3.5 Aplicação Prática: Decisões do Gerente Bancário</h3>
+        <p><strong>Cenário Real:</strong> João é gerente de uma agência em uma região onde a inflação subiu 8% no último ano, os salários dos trabalhadores locais foram reajustados em apenas 2% e a taxa Selic passou de 10% para 13,75%.</p>
+        <p><strong>Decisões que João deve tomar:</strong></p>
+        <ul>
+            <li>Revisar a estratégia de crédito: Reduzir a exposição a empréstimos pessoais não consignados e aumentar a oferta de produtos com garantia.</li>
+            <li>Adequar a comunicação: Explicar aos clientes os benefícios da renda fixa em momentos de juros altos.</li>
+            <li>Reforçar o pós-venda: Acompanhar de perto os clientes com dívidas para evitar inadimplência.</li>
+            <li>Ofertar produtos de proteção: Seguros e previdência podem ser mais atrativos para quem busca segurança.</li>
+            <li>Realizar análise de crédito mais criteriosa: Aumentar a avaliação da capacidade de pagamento.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- ========== CAPÍTULO 4 ========== -->
+    <section id="cap4">
+        <h2>CAPÍTULO 4: ADEQUAÇÃO DE PRODUTOS E SERVIÇOS (RESOLUÇÃO CMN Nº 4.949/2021)</h2>
+
+        <h3>4.1 Contexto e Fundamentação Normativa</h3>
+        <p>A Resolução CMN nº 4.949/2021 estabelece as regras para a política de adequação dos produtos, serviços e canais de distribuição ofertados pelas instituições financeiras.</p>
+        <div class="base-legal">
+            <svg class="icon"><use href="#doc"/></svg>
+            <div><strong>BASE LEGAL:</strong> Resolução do Conselho Monetário Nacional (CMN) nº 4.949, de 29 de setembro de 2021. Esta resolução é fruto da evolução normativa que busca colocar o cliente no centro das decisões bancárias, alinhando-se às melhores práticas internacionais de proteção ao consumidor.</div>
+        </div>
+
+        <h3>4.2 Dispositivo Central (Art. 4º, I)</h3>
+        <blockquote>"Art. 4º As instituições autorizadas a funcionar pelo Banco Central do Brasil devem assegurar a adequação dos produtos e serviços ofertados ou recomendados às necessidades, interesses e objetivos dos clientes e usuários."</blockquote>
+        <p><strong>Análise Detalhada do Dispositivo:</strong> O artigo estabelece três elementos que devem ser considerados na adequação:</p>
+        <ul>
+            <li><mark>NECESSIDADES</mark> → O que o cliente efetivamente precisa</li>
+            <li><mark>INTERESSES</mark> → O que o cliente deseja e valoriza</li>
+            <li><mark>OBJETIVOS</mark> → Para onde o cliente quer chegar</li>
+        </ul>
+
+        <h3>4.3 A Tríade "Necessidades, Interesses e Objetivos"</h3>
+        <div class="card">
+            <h4>4.3.1 Necessidades</h4>
+            <p><strong>Conceito:</strong> São as demandas essenciais do cliente, aquilo sem o qual ele não pode prescindir para sua vida financeira saudável. Exemplos: conta corrente para receber salário, cartão de débito, crédito emergencial, segurança na guarda de dinheiro.</p>
+            <h4>4.3.2 Interesses</h4>
+            <p><strong>Conceito:</strong> São as preferências e desejos do cliente. Exemplos: investimentos com rentabilidade superior à poupança, tarifas baixas, atendimento digital, programas de pontos.</p>
+            <h4>4.3.3 Objetivos</h4>
+            <p><strong>Conceito:</strong> São as metas financeiras que o cliente quer alcançar. Exemplos: comprar imóvel em 5 anos, acumular patrimônio para aposentadoria, financiar expansão do negócio, viagem internacional.</p>
+        </div>
+
+        <h3>4.4 Erros Comuns em Provas sobre a Resolução CMN 4.949/2021</h3>
+        <table>
+            <thead><tr><th>O que a norma EXIGE</th><th>O que a norma NÃO EXIGE (PEGADINHA)</th></tr></thead>
+            <tbody>
+                <tr><td>Necessidades</td><td>Lucros</td></tr>
+                <tr><td>Interesses</td><td>Investimentos (genérico)</td></tr>
+                <tr><td>Objetivos</td><td>Patrimônios</td></tr>
+                <tr><td>—</td><td>Benefícios (financeiros)</td></tr>
+            </tbody>
+        </table>
+        <div class="atencao">
+            <svg class="icon"><use href="#alert"/></svg>
+            <div><strong>ATENÇÃO (CESGRANRIO):</strong> A banca explora a literalidade da lei. Se a alternativa mencionar "investimentos" ou "patrimônios" no lugar de "objetivos", está INCORRETA. A combinação correta é necessidades, interesses e objetivos.</div>
+        </div>
+
+        <h3>4.5 Aplicação Prática na Rotina Bancária</h3>
+        <p><strong>Estudo de Caso: Adequação de Produto</strong><br> Situação: Um cliente de 65 anos, aposentado, procura a agência para aplicar R$ 100.000,00. Ele tem receio de perder dinheiro. O gerente oferece um fundo de ações de alto risco.</p>
+        <table>
+            <thead><tr><th>Critério</th><th>Análise</th><th>Está Adequado?</th></tr></thead>
+            <tbody>
+                <tr><td>Necessidades</td><td>O cliente precisa de segurança e preservação de capital</td><td><svg class="icon"><use href="#xmark"/></svg></td></tr>
+                <tr><td>Interesses</td><td>O cliente valoriza a tranquilidade</td><td><svg class="icon"><use href="#xmark"/></svg></td></tr>
+                <tr><td>Objetivos</td><td>Não foi perguntado qual o objetivo do cliente</td><td><svg class="icon"><use href="#xmark"/></svg></td></tr>
+            </tbody>
+        </table>
+        <p><strong>Conclusão:</strong> O produto NÃO é adequado. O gerente deveria ter ofertado produtos de renda fixa com garantia do FGC (CDB, LCI, LCA) ou títulos públicos.</p>
+
+        <h4>Fluxo de Adequação (Passo a Passo)</h4>
+        <svg class="svg-diagram" viewBox="0 0 420 580" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#4a90b0"/></marker></defs>
+            <rect x="110" y="10" width="200" height="40" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="2"/>
+            <text x="210" y="35" text-anchor="middle" fill="#b0d4e8" font-size="13" font-weight="bold">1. CONHECER O CLIENTE</text>
+            <line x1="210" y1="50" x2="210" y2="80" stroke="#4a90b0" stroke-width="2" marker-end="url(#arrow2)"/>
+
+            <rect x="90" y="80" width="240" height="45" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="2"/>
+            <text x="210" y="100" text-anchor="middle" fill="#b0d4e8" font-size="12">Perfil de investidor, Capacidade financeira,</text>
+            <text x="210" y="117" text-anchor="middle" fill="#b0d4e8" font-size="12">Tolerância a riscos, Objetivos</text>
+            <line x1="210" y1="125" x2="210" y2="155" stroke="#4a90b0" stroke-width="2" marker-end="url(#arrow2)"/>
+
+            <rect x="90" y="155" width="240" height="45" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="2"/>
+            <text x="210" y="175" text-anchor="middle" fill="#b0d4e8" font-size="13" font-weight="bold">2. IDENTIFICAR AS DEMANDAS</text>
+            <text x="210" y="192" text-anchor="middle" fill="#b0d4e8" font-size="12">Necessidades, Interesses, Objetivos</text>
+            <line x1="210" y1="200" x2="210" y2="230" stroke="#4a90b0" stroke-width="2" marker-end="url(#arrow2)"/>
+
+            <rect x="90" y="230" width="240" height="40" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="2"/>
+            <text x="210" y="255" text-anchor="middle" fill="#b0d4e8" font-size="13" font-weight="bold">3. SELECIONAR O PRODUTO ADEQUADO</text>
+            <line x1="210" y1="270" x2="210" y2="300" stroke="#4a90b0" stroke-width="2" marker-end="url(#arrow2)"/>
+
+            <rect x="90" y="300" width="240" height="40" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="2"/>
+            <text x="210" y="325" text-anchor="middle" fill="#b0d4e8" font-size="13" font-weight="bold">4. APRESENTAR E EXPLICAR</text>
+            <line x1="210" y1="340" x2="210" y2="370" stroke="#4a90b0" stroke-width="2" marker-end="url(#arrow2)"/>
+
+            <rect x="80" y="370" width="260" height="45" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="2"/>
+            <text x="210" y="390" text-anchor="middle" fill="#b0d4e8" font-size="12">Linguagem clara, Riscos e custos,</text>
+            <text x="210" y="407" text-anchor="middle" fill="#b0d4e8" font-size="12">Esclarecer dúvidas</text>
+            <line x1="210" y1="415" x2="210" y2="445" stroke="#4a90b0" stroke-width="2" marker-end="url(#arrow2)"/>
+
+            <rect x="80" y="445" width="260" height="45" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="2"/>
+            <text x="210" y="465" text-anchor="middle" fill="#b0d4e8" font-size="13" font-weight="bold">5. CONFIRMAR A ADEQUAÇÃO</text>
+            <text x="210" y="482" text-anchor="middle" fill="#b0d4e8" font-size="12">Manifestação do cliente, Documentação</text>
+        </svg>
+
+        <h3>4.6 Conexão com Outras Normas</h3>
+        <table>
+            <thead><tr><th>Norma</th><th>Relação com a CMN 4.949</th></tr></thead>
+            <tbody>
+                <tr><td>Resolução CMN 4.557/2017 (Política de Atendimento)</td><td>Complementaridade no foco no cliente</td></tr>
+                <tr><td>Resolução CMN 4.438/2015 (Accountability)</td><td>Transparência na prestação de contas</td></tr>
+                <tr><td>Lei 13.709/2018 (LGPD)</td><td>Proteção de dados e consentimento</td></tr>
+                <tr><td>Lei 9.613/1998 (PLD)</td><td>Prevenção à lavagem de dinheiro</td></tr>
+                <tr><td>CDC (Lei 8.078/1990)</td><td>Direitos básicos do consumidor</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- ========== CAPÍTULO 5 ========== -->
+    <section id="cap5">
+        <h2>CAPÍTULO 5: DIMENSÕES DA QUALIDADE EM SERVIÇOS BANCÁRIOS</h2>
+
+        <h3>5.1 Modelo dos 5 Dimensões da Qualidade (Parasuraman, Zeithaml e Berry)</h3>
+        <p>O modelo SERVQUAL identifica cinco dimensões que os clientes utilizam para avaliar a qualidade do serviço prestado.</p>
+
+        <div class="card">
+            <ol>
+                <li><strong>TANGIBILIDADE</strong> → Aspectos físicos e materiais</li>
+                <li><strong>CONFIABILIDADE</strong> → Cumprimento de promessas</li>
+                <li><strong>RESPONSIVIDADE</strong> → Rapidez e presteza</li>
+                <li><strong>SEGURANÇA</strong> → Confiança e credibilidade</li>
+                <li><strong>EMPATIA</strong> → Atenção individualizada</li>
+            </ol>
+        </div>
+
+        <h3>5.2 Detalhamento de Cada Dimensão</h3>
+
+        <h4>5.2.1 Tangibilidade</h4>
+        <p><strong>Conceito:</strong> Refere-se aos aspectos físicos: instalações, equipamentos, aparência dos funcionários, materiais de comunicação. <em>Exemplo de prova:</em> "Os clientes elogiam as novas instalações da agência, com poltronas confortáveis e ambiente climatizado." → Tangibilidade.</p>
+
+        <h4>5.2.2 Confiabilidade</h4>
+        <p><strong>Conceito:</strong> Capacidade de executar o serviço prometido de forma confiável e precisa. <em>Exemplo de prova:</em> "O banco realiza o crédito do salário na data prometida, sem atrasos." → Confiabilidade.</p>
+
+        <h4>5.2.3 Responsividade</h4>
+        <p><strong>Conceito:</strong> Disposição para ajudar os clientes e fornecer serviço rápido. <em>Exemplo de prova:</em> "O gerente atendeu prontamente à solicitação do cliente de segunda via do cartão." → Responsividade.</p>
+
+        <h4>5.2.4 Segurança</h4>
+        <p><strong>Conceito:</strong> Transmitir confiança, credibilidade e conhecimento. <em>Exemplo de prova:</em> "O cliente confia na orientação do gerente sobre investimentos porque ele demonstra amplo conhecimento do mercado." → Segurança.</p>
+
+        <h4>5.2.5 Empatia</h4>
+        <p><strong>Conceito:</strong> Atenção individualizada, cuidado personalizado. <em>Exemplo de prova:</em> "Os clientes elogiam a infraestrutura da agência, mas reclamam da falta de atenção individualizada." → A dimensão comprometida é a empatia.</p>
+
+        <h3>5.3 Distinção Crucial: Empatia vs. Responsividade</h3>
+        <table>
+            <thead><tr><th>Aspecto</th><th>EMPATIA</th><th>RESPONSIVIDADE</th></tr></thead>
+            <tbody>
+                <tr><td>Foco</td><td>Atenção individualizada</td><td>Rapidez e presteza</td></tr>
+                <tr><td>Palavra-chave</td><td>Personalização</td><td>Agilidade</td></tr>
+                <tr><td>O que envolve</td><td>Acolhimento, compreensão</td><td>Disposição para ajudar</td></tr>
+                <tr><td>Exemplo</td><td>"O gerente me conhece e sabe o que eu preciso"</td><td>"O atendimento foi rápido"</td></tr>
+                <tr><td>Pergunta-chave</td><td>"O provedor me entende?"</td><td>"O provedor me atende rápido?"</td></tr>
+                <tr><td>Temporalidade</td><td>Relação contínua</td><td>Momento específico</td></tr>
+            </tbody>
+        </table>
+
+        <div class="macete">
+            <svg class="icon"><use href="#key"/></svg>
+            <div><strong>MACETE DE PROVA:</strong> Leia a questão e identifique a palavra-chave:<br> Se falar em "atenção individualizada", "acolhimento", "compreensão das necessidades" → EMPATIA<br> Se falar em "rapidez", "agilidade", "prontidão", "disposição para ajudar" → RESPONSIVIDADE</div>
+        </div>
+
+        <h4>Exemplos de Questões (Interpretação)</h4>
+        <p><strong>Exemplo 1:</strong> "Uma agência bancária recebeu reclamações de clientes sobre a demora no atendimento nos caixas e na resolução de problemas simples."<br> <em>Dimensão comprometida:</em> Responsividade (ênfase em "demora").</p>
+        <p><strong>Exemplo 2:</strong> "Os clientes se sentem frustrados porque o gerente não lembra de suas necessidades específicas, apesar de as instalações serem excelentes."<br> <em>Dimensão comprometida:</em> Empatia.</p>
+        <p><strong>Exemplo 3:</strong> "O banco prometeu crédito em conta em até 2 horas, mas o cliente precisou esperar 24 horas."<br> <em>Dimensão comprometida:</em> Confiabilidade.</p>
+    </section>
+
+    <hr>
+
+    <!-- ========== CAPÍTULO 6 ========== -->
+    <section id="cap6">
+        <h2>CAPÍTULO 6: PROCESSO DE COMPRA DO CONSUMIDOR BANCÁRIO</h2>
+
+        <h3>6.1 O Modelo de 5 Etapas (Kotler)</h3>
+        <div class="card">
+            <ol>
+                <li><strong>RECONHECIMENTO DA NECESSIDADE</strong></li>
+                <li><strong>BUSCA DE INFORMAÇÕES</strong></li>
+                <li><strong>AVALIAÇÃO DE ALTERNATIVAS</strong></li>
+                <li><strong>DECISÃO DE COMPRA</strong></li>
+                <li><strong>COMPORTAMENTO PÓS-COMPRA</strong></li>
+            </ol>
+        </div>
+
+        <h3>6.2 Etapa 2: Busca de Informações (Foco em Provas)</h3>
+        <p>A etapa de busca de informações é especialmente relevante para concursos, pois envolve a classificação das fontes de informação.</p>
+
+        <h4>6.2.1 Classificação das Fontes de Informação</h4>
+        <table>
+            <thead><tr><th>Tipo de Fonte</th><th>Descrição</th><th>Exemplos</th></tr></thead>
+            <tbody>
+                <tr><td>Pessoais</td><td>Informações vindas de pessoas próximas</td><td>Família, amigos, vizinhos, colegas de trabalho</td></tr>
+                <tr><td>Comerciais</td><td>Informações controladas e veiculadas pela empresa</td><td>Propaganda, vendedores, displays, site institucional</td></tr>
+                <tr><td>Públicas</td><td>Informações divulgadas por meios independentes</td><td>Mídia, órgãos de defesa do consumidor, redes sociais (orgânico)</td></tr>
+                <tr><td>Experimentais</td><td>Informações obtidas pelo uso/teste do produto</td><td>Test-drive, período de experiência, amostra grátis</td></tr>
+            </tbody>
+        </table>
+
+        <h4>6.2.2 Fontes Comerciais: O Destaque</h4>
+        <div class="destaque-teoria">
+            <svg class="icon"><use href="#pin"/></svg>
+            <div><strong>DESTAQUE DA TEORIA:</strong> Segundo Kotler, as fontes comerciais fornecem a MAIOR PARTE das informações sobre o produto. No entanto, as fontes pessoais são consideradas as MAIS EFICAZES e CONFIÁVEIS pelo consumidor.</div>
+        </div>
+        <p><strong>Características das Fontes Comerciais:</strong> Controladas pela empresa, geram o maior volume de informações, visam influenciar a decisão. Exemplos bancários: propagandas de empréstimos, panfletos no balcão, site do banco, gerentes apresentando produtos.</p>
+
+        <h3>6.3 Armadilhas de Prova sobre Fontes de Informação</h3>
+        <table>
+            <thead><tr><th>O que a banca menciona</th><th>Classificação CORRETA</th><th>Classificação INCORRETA (PEGADINHA)</th></tr></thead>
+            <tbody>
+                <tr><td>Propaganda e vendedores</td><td>Comercial</td><td>Pública, Pessoal</td></tr>
+                <tr><td>Recomendação de amigo</td><td>Pessoal</td><td>Comercial, Pública</td></tr>
+                <tr><td>Matéria em jornal</td><td>Pública</td><td>Comercial</td></tr>
+                <tr><td>Teste do produto</td><td>Experimental</td><td>Comercial</td></tr>
+            </tbody>
+        </table>
+        <div class="dica">
+            <svg class="icon"><use href="#lamp"/></svg>
+            <div><strong>DICA DE PROVA:</strong> Sempre que a questão mencionar "fontes controladas por profissionais de marketing", "propaganda", "vendedores" ou "displays", a resposta será FONTES COMERCIAIS.</div>
+        </div>
+
+        <h3>6.4 Aplicação Prática no Contexto Bancário</h3>
+        <p><strong>Estudo de Caso:</strong> Ana, 32 anos, decide contratar previdência privada.</p>
+        <table>
+            <thead><tr><th>Etapa</th><th>Ação de Ana</th><th>Fonte/Classificação</th></tr></thead>
+            <tbody>
+                <tr><td>1. Reconhecimento</td><td>Percebe que precisa planejar a aposentadoria</td><td>Interna</td></tr>
+                <tr><td>2. Busca de informações</td><td>Pesquisa no Google, lê site do banco, pergunta para amigos, visita agência</td><td>Comercial (site), Comercial, Pessoal, Comercial</td></tr>
+                <tr><td>3. Avaliação</td><td>Compara taxas de 3 bancos</td><td>Racional</td></tr>
+                <tr><td>4. Decisão</td><td>Escolhe o plano do Banco X</td><td>Compra</td></tr>
+                <tr><td>5. Pós-compra</td><td>Avalia se fez a escolha correta</td><td>Cognitiva</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- ========== CAPÍTULO 7 ========== -->
+    <section id="cap7">
+        <h2>CAPÍTULO 7: SEGMENTAÇÃO DE MERCADO NO SETOR FINANCEIRO</h2>
+
+        <h3>7.1 Conceito Fundamental</h3>
+        <p>A segmentação de mercado é o processo de dividir o mercado total em grupos menores e homogêneos, com características, necessidades e comportamentos semelhantes, para que a empresa possa desenvolver estratégias de marketing específicas para cada grupo.</p>
+        <p><strong>Por que Segmentar?</strong> Melhor compreensão do cliente, alocação eficiente de recursos, diferenciação competitiva, maior satisfação do cliente e vantagem competitiva.</p>
+
+        <h3>7.2 Critérios de Segmentação (Kotler)</h3>
+
+        <h4>7.2.1 Segmentação Geográfica</h4>
+        <p><strong>Variáveis:</strong> Localização, região, país, cidade, clima, densidade populacional. <em>Exemplo de prova:</em> "O Banco X oferece condições especiais para o crédito rural na região do MATOPIBA." → Geográfica.</p>
+
+        <h4>7.2.2 Segmentação Demográfica</h4>
+        <p><strong>Variáveis:</strong> Idade, gênero, renda, escolaridade, ocupação, estado civil. <em>Exemplo de prova:</em> "O banco desenvolveu um pacote de serviços específico para aposentados." → Demográfica (idade).</p>
+
+        <h4>7.2.3 Segmentação Psicográfica (ou Psicológica)</h4>
+        <p><strong>Variáveis:</strong> Estilo de vida, personalidade, valores, atitudes, crenças, classe social. <em>Exemplo de prova:</em> "O banco oferece fundos de investimento que excluem empresas poluentes para clientes com estilo de vida sustentável." → Psicográfica.</p>
+
+        <h4>7.2.4 Segmentação Comportamental</h4>
+        <p><strong>Variáveis:</strong> Ocasão de uso, benefícios buscados, status de usuário, taxa de uso, fidelidade. <em>Exemplo de prova:</em> "O banco oferece um programa de pontos exclusivo para clientes que movimentam mais de R$ 10.000 por mês no cartão." → Comportamental (taxa de uso).</p>
+
+        <h3>7.3 Macete para Memorização</h3>
+        <div class="macete-alvo">
+            <svg class="icon"><use href="#target"/></svg>
+            <div><strong>"DEMO PSICO COMPORTA GEO"</strong><br> <strong>D</strong>emográfica · <strong>P</strong>sicográfica · <strong>C</strong>omportamental · <strong>G</strong>eográfica</div>
+        </div>
+
+        <h3>7.4 Tabela Comparativa Completa</h3>
+        <table>
+            <thead><tr><th>Critério</th><th>Variáveis</th><th>Exemplo Bancário</th><th>Palavra-chave para Prova</th></tr></thead>
+            <tbody>
+                <tr><td>Geográfica</td><td>Local, região, país</td><td>Crédito rural no Nordeste</td><td>Localização, região</td></tr>
+                <tr><td>Demográfica</td><td>Idade, gênero, renda, escolaridade</td><td>Conta universitária</td><td>Idade, renda, sexo</td></tr>
+                <tr><td>Psicográfica</td><td>Estilo de vida, valores, personalidade</td><td>Fundos ESG, Private Banking</td><td>Estilo de vida, valores</td></tr>
+                <tr><td>Comportamental</td><td>Frequência, fidelidade, benefícios</td><td>Programa de pontos</td><td>Uso, benefícios, lealdade</td></tr>
+            </tbody>
+        </table>
+
+        <h3>7.5 Erros Comuns em Provas</h3>
+        <div class="atencao">
+            <svg class="icon"><use href="#alert"/></svg>
+            <div><strong>Confusão entre Demográfica e Psicográfica:</strong> Idade, sexo e renda são variáveis DEMOGRÁFICAS, não psicográficas. Estilo de vida e personalidade são psicográficas.</div>
+        </div>
+        <p><strong>Segmentação Individual:</strong> "Segmentação individual" (marketing um-a-um) NÃO é considerada um tipo de segmentação no modelo de Kotler. É personalização extrema.</p>
+
+        <h3>7.6 Segmentação no Contexto Bancário (Aprofundamento)</h3>
+        <h4>Perfil de Investidor</h4>
+        <table>
+            <thead><tr><th>Perfil</th><th>Características</th><th>Produtos Indicados</th></tr></thead>
+            <tbody>
+                <tr><td>Conservador</td><td>Baixa tolerância a risco</td><td>Poupança, CDB, LCI, LCA, Tesouro Selic</td></tr>
+                <tr><td>Moderado</td><td>Equilíbrio entre risco e retorno</td><td>Fundos multimercado, Debêntures, Tesouro IPCA+</td></tr>
+                <tr><td>Agressivo</td><td>Alta tolerância a risco</td><td>Ações, Fundos de ações, Derivativos</td></tr>
+            </tbody>
+        </table>
+        <h4>Estágio de Vida</h4>
+        <table>
+            <thead><tr><th>Estágio</th><th>Características</th><th>Produtos Indicados</th></tr></thead>
+            <tbody>
+                <tr><td>Jovem (18-25)</td><td>Baixa renda, estudo</td><td>Conta universitária, cartão limite baixo</td></tr>
+                <tr><td>Adulto (26-40)</td><td>Estabilidade, família</td><td>Financiamento imobiliário, previdência</td></tr>
+                <tr><td>Maduro (41-60)</td><td>Renda mais alta</td><td>Investimentos de longo prazo</td></tr>
+                <tr><td>Idoso (60+)</td><td>Aposentado, renda fixa</td><td>Previdência, produtos sem tarifas</td></tr>
+            </tbody>
+        </table>
+
+        <h3>7.7 Estudo de Caso: Segmentação na Prática</h3>
+        <p><strong>Cenário:</strong> Banco Delta identificou três grupos: Grupo A (jovens universitários digitais), Grupo B (profissionais 30-45 anos construindo patrimônio), Grupo C (aposentados que frequentam agências).</p>
+        <table>
+            <thead><tr><th>Grupo</th><th>Tipo de Segmentação</th><th>Estratégia Recomendada</th></tr></thead>
+            <tbody>
+                <tr><td>A</td><td>Demográfica (idade) + Comportamental (uso digital)</td><td>Conta digital, isenção de tarifas</td></tr>
+                <tr><td>B</td><td>Demográfica (renda/idade) + Psicográfica (valores)</td><td>Fundos de investimento, assessoria financeira</td></tr>
+                <tr><td>C</td><td>Demográfica (idade)</td><td>Atendimento prioritário, produtos sem tarifas</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- ========== CAPÍTULO 8 ========== -->
+    <section id="cap8">
+        <h2>CAPÍTULO 8: GUIA DE REVISÃO E MACETES PARA PROVAS</h2>
+
+        <h3>8.1 Resumo dos Principais Conceitos</h3>
+        <div class="card">
+            <h4>Marketing de Relacionamento vs. Pós-Venda</h4>
+            <p><strong>MARKETING DE RELACIONAMENTO:</strong> Foco: Longo prazo, fidelização. Pós-venda: Acompanhamento e satisfação. Objetivo: Medir satisfação e fortalecer vínculo. NÃO é venda imediata, cobrança ou curto prazo.</p>
+            <p><strong>MARKETING TRANSACIONAL:</strong> Foco: Curto prazo, venda imediata. Etapa: Captação e prospecção. Objetivo: Conquista de novos clientes. NÃO é pós-venda ou fidelização.</p>
+        </div>
+
+        <div class="card">
+            <h4>Dimensões da Qualidade (SERVQUAL)</h4>
+            <p><strong>TANGIBILIDADE</strong> → "O que se vê": instalações, equipamentos<br>
+            <strong>CONFIABILIDADE</strong> → "Faz o que promete": cumpre prazos e compromissos<br>
+            <strong>RESPONSIVIDADE</strong> → "Rápido": agilidade e presteza<br>
+            <strong>SEGURANÇA</strong> → "Confiável": conhecimento e credibilidade<br>
+            <strong>EMPATIA</strong> → "Individual": atenção personalizada</p>
+        </div>
+
+        <div class="card">
+            <h4>Classificação das Fontes de Informação</h4>
+            <p><strong>PESSOAIS</strong> → Família, amigos, conhecidos<br>
+            <strong>COMERCIAIS ★ (MAIOR VOLUME)</strong> → Propaganda, vendedores, displays, site<br>
+            <strong>PÚBLICAS</strong> → Mídia, órgãos de defesa do consumidor<br>
+            <strong>EXPERIMENTAIS</strong> → Teste do produto, amostra grátis</p>
+        </div>
+
+        <div class="card">
+            <h4>Segmentação de Mercado</h4>
+            <p><strong>GEOGRÁFICA</strong> → Lugar, região, clima<br>
+            <strong>DEMOGRÁFICA ★ (MAIS COBRADA)</strong> → Idade, sexo, renda, escolaridade<br>
+            <strong>PSICOGRÁFICA</strong> → Estilo de vida, valores, personalidade<br>
+            <strong>COMPORTAMENTAL</strong> → Frequência de uso, fidelidade, benefícios</p>
+        </div>
+
+        <h3>8.2 Macetes para Memorização</h3>
+        <ul>
+            <li><strong>Dimensões da Qualidade:</strong> <mark>"TUDO CERTO COM EMPATIA"</mark> (Tangibilidade, Confiabilidade, Responsividade, Segurança, Empatia)</li>
+            <li><strong>Fontes de Informação:</strong> <mark>"PCPE"</mark> (Pessoais, Comerciais, Públicas, Experimentais)</li>
+            <li><strong>Segmentação:</strong> <mark>"DEMO PSICO COMPORTA GEO"</mark></li>
+            <li><strong>Adequação de Produtos (CMN 4.949):</strong> <mark>"NIO"</mark> (Necessidades, Interesses, Objetivos)</li>
+        </ul>
+
+        <h3>8.3 Tabela de Pegadinhas Frequentes</h3>
+        <table>
+            <thead><tr><th>Tema</th><th>O que a banca coloca</th><th>O que é CORRETO</th></tr></thead>
+            <tbody>
+                <tr><td>Pós-venda</td><td>"Aumentar eficácia de vendas"</td><td><svg class="icon"><use href="#xmark"/></svg> Incorreto</td></tr>
+                <tr><td>Pós-venda</td><td>"Garantir vendas no curto prazo"</td><td><svg class="icon"><use href="#xmark"/></svg> Incorreto</td></tr>
+                <tr><td>Pós-venda</td><td>"Medir satisfação do cliente"</td><td><svg class="icon"><use href="#check"/></svg> Correto</td></tr>
+                <tr><td>Empatia vs. Responsividade</td><td>"Atenção individualizada"</td><td><svg class="icon"><use href="#check"/></svg> Empatia</td></tr>
+                <tr><td>Empatia vs. Responsividade</td><td>"Rapidez no atendimento"</td><td><svg class="icon"><use href="#check"/></svg> Responsividade</td></tr>
+                <tr><td>Segmentação</td><td>"Idade é psicográfica"</td><td><svg class="icon"><use href="#xmark"/></svg> Errado (é demográfica)</td></tr>
+                <tr><td>Segmentação</td><td>"Segmentação individual"</td><td><svg class="icon"><use href="#xmark"/></svg> Errado (não é classificação)</td></tr>
+                <tr><td>Fontes de informação</td><td>"Propaganda é fonte pública"</td><td><svg class="icon"><use href="#xmark"/></svg> Errado (é comercial)</td></tr>
+                <tr><td>CMN 4.949</td><td>"Necessidades, interesses e patrimônios"</td><td><svg class="icon"><use href="#xmark"/></svg> Errado</td></tr>
+                <tr><td>CMN 4.949</td><td>"Necessidades, interesses e objetivos"</td><td><svg class="icon"><use href="#check"/></svg> Correto</td></tr>
+            </tbody>
+        </table>
+
+        <h3>8.4 Lista de Verificação para Prova</h3>
+        <p>Ao ler a questão, pergunte-se:</p>
+        <ol>
+            <li>A questão fala em curto ou longo prazo? → (Transacional x Relacionamento)</li>
+            <li>A questão menciona pós-venda? → (Acompanhamento e satisfação)</li>
+            <li>A questão tem "exceto" ou "não"? → (Atenção ao que é pedido)</li>
+            <li>A questão fala em instalações ou equipamentos? → (Tangibilidade)</li>
+            <li>A questão fala em rapidez ou agilidade? → (Responsividade)</li>
+            <li>A questão fala em atenção individualizada? → (Empatia)</li>
+            <li>A questão menciona propaganda ou vendedores? → (Fontes comerciais)</li>
+            <li>A questão menciona idade, renda ou sexo? → (Segmentação demográfica)</li>
+            <li>A questão menciona estilo de vida ou valores? → (Segmentação psicográfica)</li>
+            <li>A questão menciona a CMN 4.949? → (Necessidades, interesses, objetivos)</li>
+        </ol>
+
+        <h3>8.5 Considerações Finais para o Candidato</h3>
+        <div class="dica">
+            <svg class="icon"><use href="#lamp"/></svg>
+            <div><strong>Dicas Específicas para CESGRANRIO e Bancas Similares:</strong>
+            <ul>
+                <li><strong>Literalidade da norma:</strong> A tríade correta é necessidades, interesses e objetivos. Qualquer outra combinação está incorreta.</li>
+                <li><strong>Distinção sutil entre dimensões:</strong> Atenção personalizada = empatia; rapidez = responsividade.</li>
+                <li><strong>Marketing transacional vs. relacionamento:</strong> Pós-venda é sobre satisfação, não sobre novas vendas imediatas.</li>
+                <li><strong>Segmentação:</strong> Idade, sexo, renda e escolaridade são SEMPRE demográficas.</li>
+                <li><strong>Fontes de informação:</strong> Propaganda, vendedores, displays são fontes comerciais.</li>
+                <li><strong>Impacto macroeconômico:</strong> Inflação + juros altos + salários congelados = menor poder de compra.</li>
+            </ul></div>
+        </div>
+    </section>
+
+    <hr class="ornament">
+
+    <!-- ========== REFERÊNCIAS ========== -->
+    <section>
+        <h2>REFERÊNCIAS NORMATIVAS E BIBLIOGRÁFICAS</h2>
+        <h3>Normas Citadas</h3>
+        <ul>
+            <li>Resolução CMN nº 4.949/2021 - Política de Adequação de Produtos e Serviços</li>
+            <li>Lei nº 8.078/1990 - Código de Defesa do Consumidor (CDC)</li>
+            <li>Lei nº 13.709/2018 - Lei Geral de Proteção de Dados (LGPD)</li>
+            <li>Lei nº 9.613/1998 - Lei de Lavagem de Dinheiro (PLD)</li>
+        </ul>
+        <h3>Referências Bibliográficas</h3>
+        <ul>
+            <li>KOTLER, Philip; KELLER, Kevin Lane. Administração de Marketing. 15ª ed. São Paulo: Pearson, 2018.</li>
+            <li>PARASURAMAN, A.; ZEITHAML, V. A.; BERRY, L. L. SERVQUAL: A Multiple-Item Scale for Measuring Consumer Perceptions of Service Quality. Journal of Retailing, 1988.</li>
+            <li>BACEN - Banco Central do Brasil. Resolução CMN nº 4.949/2021.</li>
+            <li>CHURCHILL, Gilbert A.; PETER, J. Paul. Marketing: Criando Valor para os Clientes. 3ª ed. São Paulo: Saraiva, 2012.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- ========== ANEXO: FLUXOGRAMAS ========== -->
+    <section>
+        <h2>ANEXO: FLUXOGRAMAS DE PROCESSOS</h2>
+        <p><strong>Fluxo do Pós-Venda Bancário</strong> (representado acima no Capítulo 2).</p>
+
+        <h3>Fluxo de Adequação de Produtos (CMN 4.949/2021)</h3>
+        <p>Representado no Capítulo 4.</p>
+
+        <h3>Mapa Mental: Segmentação de Mercado</h3>
+        <svg class="svg-diagram" viewBox="0 0 500 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+            <rect x="190" y="10" width="120" height="35" rx="17" fill="#2d2d2d" stroke="#e2b04a" stroke-width="2"/>
+            <text x="250" y="33" text-anchor="middle" fill="#f0c27b" font-size="14" font-weight="bold">SEGMENTAÇÃO</text>
+
+            <line x1="250" y1="45" x2="60" y2="80" stroke="#5a5a5a" stroke-width="1.5"/>
+            <line x1="250" y1="45" x2="160" y2="80" stroke="#5a5a5a" stroke-width="1.5"/>
+            <line x1="250" y1="45" x2="340" y2="80" stroke="#5a5a5a" stroke-width="1.5"/>
+            <line x1="250" y1="45" x2="440" y2="80" stroke="#5a5a5a" stroke-width="1.5"/>
+
+            <rect x="10" y="80" width="100" height="35" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="1.5"/>
+            <text x="60" y="102" text-anchor="middle" fill="#b0d4e8" font-size="11">GEOGRÁFICA</text>
+            <rect x="120" y="80" width="100" height="35" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="1.5"/>
+            <text x="170" y="102" text-anchor="middle" fill="#b0d4e8" font-size="11">DEMOGRÁFICA</text>
+            <rect x="300" y="80" width="100" height="35" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="1.5"/>
+            <text x="350" y="102" text-anchor="middle" fill="#b0d4e8" font-size="11">PSICOGRÁFICA</text>
+            <rect x="410" y="80" width="100" height="35" rx="8" fill="#1f2a2e" stroke="#4a90b0" stroke-width="1.5"/>
+            <text x="460" y="102" text-anchor="middle" fill="#b0d4e8" font-size="10">COMPORTAMENTAL</text>
+
+            <line x1="60" y1="115" x2="60" y2="145" stroke="#5a5a5a" stroke-width="1"/>
+            <line x1="170" y1="115" x2="170" y2="145" stroke="#5a5a5a" stroke-width="1"/>
+            <line x1="350" y1="115" x2="350" y2="145" stroke="#5a5a5a" stroke-width="1"/>
+            <line x1="460" y1="115" x2="460" y2="145" stroke="#5a5a5a" stroke-width="1"/>
+
+            <text x="60" y="165" text-anchor="middle" fill="#b0b0b0" font-size="9">Região, Cidade</text>
+            <text x="170" y="165" text-anchor="middle" fill="#b0b0b0" font-size="9">Idade, Renda</text>
+            <text x="350" y="165" text-anchor="middle" fill="#b0b0b0" font-size="9">Estilo de vida</text>
+            <text x="460" y="165" text-anchor="middle" fill="#b0b0b0" font-size="9">Fidelidade, Uso</text>
+        </svg>
+    </section>
+
+    <hr class="ornament">
+
+    <footer style="text-align:center; padding:2rem 0; color:#888; font-size:0.9rem;">
+        <p>Fim da Apostila · Material elaborado com base em conteúdo de flashcards e adaptado para formato de apostila teórica. Para aprofundamento, recomenda-se a leitura das normas citadas e resolução de questões de provas anteriores da CESGRANRIO, FCC, FGV e Cebraspe.</p>
+    </footer>
+
+</body>
+</html>
