@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>SFN - Política Monetária e Inovações Bancárias</title>
+    <style>
+        /* ── RESET & BASE ── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #141425;
+            --bg-secondary: #1e1e3a;
+            --bg-card: #25254a;
+            --bg-highlight: #2a2a55;
+            --bg-elevated: #32326a;
+            --text-primary: #e8e2da;
+            --text-secondary: #c4bcb2;
+            --text-muted: #a0988e;
+            --gold: #d4a847;
+            --gold-dim: #b8913a;
+            --blue: #6a9ec7;
+            --blue-dim: #4f7fa8;
+            --teal: #7ab89a;
+            --teal-dim: #5a9a7a;
+            --red-warm: #c97a6a;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-medium: rgba(255, 255, 255, 0.12);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.45);
+            --radius: 14px;
+            --radius-sm: 8px;
+            --font-base: 'Georgia', 'Palatino', 'Times New Roman', serif;
+            --font-heading: 'Georgia', 'Palatino', 'Times New Roman', serif;
+            --font-mono: 'Courier New', monospace;
+        }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-base);
+            line-height: 1.7;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        ::selection {
+            background: rgba(212, 168, 71, 0.35);
+            color: #fff;
+        }
+
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dim);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 2rem 1.8rem 4rem;
+        }
+
+        /* ── TYPOGRAPHY ── */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2.0rem;
+            margin-top: 2.8rem;
+            margin-bottom: 1.0rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--border-medium);
+            color: var(--gold);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2.0rem;
+            margin-bottom: 0.7rem;
+            color: var(--blue);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        h5 {
+            font-size: 1.05rem;
+            margin-top: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.0rem;
+            color: var(--text-primary);
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #e8c86a;
+            text-decoration: underline;
+        }
+
+        strong,
+        b {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        em,
+        i {
+            color: var(--blue);
+            font-style: italic;
+        }
+
+        /* ── HEADER / TITLE PAGE ── */
+        .title-page {
+            text-align: center;
+            padding: 4rem 1rem 3rem;
+            border-bottom: 2px solid var(--border-subtle);
+            margin-bottom: 2.5rem;
+        }
+
+        .title-page .badge {
+            display: inline-block;
+            background: var(--gold-dim);
+            color: #1a1a2e;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.25rem 1.2rem;
+            border-radius: 30px;
+            margin-bottom: 1.2rem;
+            font-family: var(--font-mono);
+        }
+
+        .title-page h1 {
+            font-size: 3.0rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .title-page .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0.5rem auto 0.2rem;
+        }
+
+        .title-page .meta {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 1.2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .title-page .meta svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0.3rem;
+        }
+
+        /* ── TOC ── */
+        .toc {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 2rem 2.2rem;
+            margin: 2.5rem 0 3rem;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+        }
+
+        .toc-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 2rem;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .toc-item .num {
+            color: var(--gold-dim);
+            font-weight: 700;
+            font-size: 0.8rem;
+            min-width: 2.2rem;
+            font-family: var(--font-mono);
+        }
+
+        .toc-item a {
+            color: var(--text-secondary);
+            transition: color 0.2s;
+            font-weight: 400;
+        }
+        .toc-item a:hover {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+                gap: 0.1rem;
+            }
+            .toc {
+                padding: 1.5rem 1.2rem;
+            }
+            .title-page h1 {
+                font-size: 2.0rem;
+            }
+            .container {
+                padding: 1.2rem 1rem 3rem;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            html {
+                font-size: 16px;
+            }
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+            margin: 2.8rem 0;
+        }
+
+        .divider-gold {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+            margin: 2.0rem 0 1.8rem;
+        }
+
+        /* ── CARDS / BOXES ── */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.6rem 2.0rem;
+            margin: 1.6rem 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+        }
+
+        .card-gold {
+            border-left: 4px solid var(--gold);
+        }
+        .card-blue {
+            border-left: 4px solid var(--blue);
+        }
+        .card-teal {
+            border-left: 4px solid var(--teal);
+        }
+        .card-red {
+            border-left: 4px solid var(--red-warm);
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .card-title.gold {
+            color: var(--gold);
+        }
+        .card-title.blue {
+            color: var(--blue);
+        }
+        .card-title.teal {
+            color: var(--teal);
+        }
+        .card-title.red {
+            color: var(--red-warm);
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── CALLOUT ── */
+        .callout {
+            background: var(--bg-highlight);
+            border-radius: var(--radius-sm);
+            padding: 1.2rem 1.6rem;
+            margin: 1.4rem 0;
+            border-left: 4px solid var(--gold);
+            font-size: 0.95rem;
+        }
+
+        .callout.warning {
+            border-left-color: var(--red-warm);
+            background: rgba(201, 122, 106, 0.08);
+        }
+
+        .callout.tip {
+            border-left-color: var(--teal);
+            background: rgba(122, 184, 154, 0.08);
+        }
+
+        .callout.important {
+            border-left-color: var(--blue);
+            background: rgba(106, 158, 199, 0.08);
+        }
+
+        .callout strong {
+            color: var(--gold);
+        }
+
+        /* ── QUOTE ── */
+        .quote {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            padding: 1.6rem 2.0rem;
+            margin: 1.6rem 0;
+            border-left: 4px solid var(--gold-dim);
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '\201C';
+            font-size: 3.6rem;
+            color: var(--gold-dim);
+            position: absolute;
+            top: -0.4rem;
+            left: 0.6rem;
+            opacity: 0.25;
+            font-family: Georgia, serif;
+        }
+
+        .quote .attribution {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.6rem 0;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-secondary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            min-width: 480px;
+        }
+
+        thead {
+            background: var(--bg-highlight);
+        }
+
+        th {
+            padding: 0.9rem 1.2rem;
+            text-align: left;
+            font-weight: 700;
+            color: var(--gold);
+            border-bottom: 2px solid var(--border-medium);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        td {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .table-wrap .caption {
+            padding: 0.6rem 1.2rem 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* ── LISTS ── */
+        ul,
+        ol {
+            margin: 0.8rem 0 1.2rem 1.6rem;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+            padding-left: 0.2rem;
+        }
+
+        ul ul,
+        ol ol {
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-check li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        .list-check li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.4rem;
+            width: 1.0rem;
+            height: 1.0rem;
+            background: var(--gold-dim);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        .list-check li strong {
+            color: var(--gold);
+        }
+
+        /* ── MARKER / HIGHLIGHT ── */
+        .marker {
+            background: linear-gradient(120deg, rgba(212, 168, 71, 0.20) 0%, rgba(212, 168, 71, 0.20) 100%);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .marker-blue {
+            background: linear-gradient(120deg, rgba(106, 158, 199, 0.18) 0%, rgba(106, 158, 199, 0.18) 100%);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: 600;
+            color: var(--blue);
+        }
+
+        .marker-teal {
+            background: linear-gradient(120deg, rgba(122, 184, 154, 0.18) 0%, rgba(122, 184, 154, 0.18) 100%);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: 600;
+            color: var(--teal);
+        }
+
+        /* ── INLINE CODE ── */
+        code {
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+            background: var(--bg-highlight);
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            color: var(--gold-dim);
+        }
+
+        /* ── SVGs ── */
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            margin: 1.8rem 0;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            padding: 1.2rem;
+            border: 1px solid var(--border-subtle);
+            overflow-x: auto;
+        }
+
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ── KEYWORDS / TAGS ── */
+        .tag {
+            display: inline-block;
+            background: var(--bg-highlight);
+            color: var(--text-secondary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin: 0.1rem 0.2rem;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .tag.gold {
+            background: rgba(212, 168, 71, 0.15);
+            color: var(--gold);
+            border-color: rgba(212, 168, 71, 0.2);
+        }
+
+        .tag.blue {
+            background: rgba(106, 158, 199, 0.15);
+            color: var(--blue);
+            border-color: rgba(106, 158, 199, 0.2);
+        }
+
+        .tag.teal {
+            background: rgba(122, 184, 154, 0.15);
+            color: var(--teal);
+            border-color: rgba(122, 184, 154, 0.2);
+        }
+
+        /* ── MACETE BOX ── */
+        .macete {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            padding: 1.2rem 1.8rem;
+            margin: 1.4rem 0;
+            border: 1px dashed var(--gold-dim);
+            position: relative;
+        }
+
+        .macete::before {
+            content: '⚡';
+            position: absolute;
+            top: -0.7rem;
+            left: 1.2rem;
+            background: var(--bg-primary);
+            padding: 0 0.5rem;
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+
+        .macete strong {
+            color: var(--gold);
+        }
+
+        /* ── RESPONSIVE TWEAKS ── */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.8rem 0.8rem 2.5rem;
+            }
+            .title-page {
+                padding: 2rem 0.5rem 2rem;
+            }
+            .title-page h1 {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 1.2rem 1.2rem;
+            }
+            .quote {
+                padding: 1.2rem 1.2rem;
+            }
+            .callout {
+                padding: 1.0rem 1.2rem;
+            }
+            .toc {
+                padding: 1.2rem 1.0rem;
+            }
+            table {
+                font-size: 0.8rem;
+                min-width: 340px;
+            }
+            th,
+            td {
+                padding: 0.5rem 0.7rem;
+            }
+            .svg-container {
+                padding: 0.6rem;
+            }
+        }
+
+        /* ── PRINT ── */
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .card,
+            .toc,
+            .callout,
+            .quote,
+            .macete {
+                break-inside: avoid;
+                border-color: #ccc;
+                background: #f5f5f5;
+            }
+            .title-page h1 {
+                color: #222;
+            }
+            h2 {
+                color: #222;
+                border-bottom-color: #ccc;
+            }
+            h3 {
+                color: #333;
+            }
+            strong,
+            b {
+                color: #222;
+            }
+            .marker {
+                background: #f0e6c0;
+                color: #222;
+            }
+            .svg-container {
+                border-color: #ccc;
+                background: #fafafa;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- TITLE PAGE                                         -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <header class="title-page">
+            <div class="badge">📘 Material Oficial • Concurso Bancário</div>
+            <h1>SISTEMA FINANCEIRO NACIONAL,<br>POLÍTICA MONETÁRIA E<br>INOVAÇÕES TECNOLÓGICAS<br>NO MERCADO BANCÁRIO</h1>
+            <p class="subtitle">Apostila Teórica Completa para Concursos Públicos da Área Bancária</p>
+            <p class="meta">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                &nbsp; Cesgranrio · Banca Examinadora
+            </p>
+        </header>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- TABLE OF CONTENTS                                  -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <nav class="toc" aria-label="Sumário">
+            <div class="toc-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+                Sumário
+            </div>
+            <div class="toc-grid">
+                <div class="toc-item"><span class="num">1.</span><a href="#cap1">O SFN e sua Estrutura Hierárquica</a></div>
+                <div class="toc-item"><span class="num">2.</span><a href="#cap2">Política Monetária e seus Instrumentos</a></div>
+                <div class="toc-item"><span class="num">3.</span><a href="#cap3">Mercados Financeiros — Classificação</a></div>
+                <div class="toc-item"><span class="num">4.</span><a href="#cap4">Inovações Tecnológicas no Setor</a></div>
+                <div class="toc-item"><span class="num">5.</span><a href="#cap5">Abono Salarial — PIS/PASEP</a></div>
+                <div class="toc-item"><span class="num">6.</span><a href="#cap6">Prevenção à Lavagem de Dinheiro</a></div>
+                <div class="toc-item"><span class="num">7.</span><a href="#cap7">Caixa Econômica Federal</a></div>
+                <div class="toc-item"><span class="num">8.</span><a href="#cap8">Estudos de Caso — Aplicação Prática</a></div>
+                <div class="toc-item"><span class="num">9.</span><a href="#cap9">Quadros‑Resumo e Tabelas</a></div>
+                <div class="toc-item"><span class="num">10.</span><a href="#cap10">Dicas de Prova — Cesgranrio</a></div>
+            </div>
+        </nav>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 1                                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap1">
+            <h2>Capítulo 1 &middot; O Sistema Financeiro Nacional (SFN) e sua Estrutura Hierárquica</h2>
+
+            <h3>1.1. Introdução ao Sistema Financeiro Nacional</h3>
+            <p>O Sistema Financeiro Nacional (SFN) representa o conjunto de instituições, órgãos e mecanismos responsáveis por intermediar o fluxo de recursos entre os agentes econômicos superavitários (poupadores) e os deficitários (tomadores de recursos). Imagine o SFN como o sistema circulatório da economia brasileira: assim como o sangue transporta oxigênio e nutrientes pelo corpo humano, o SFN canaliza recursos financeiros para onde são necessários, promovendo o desenvolvimento econômico, a geração de empregos e o bem‑estar social.</p>
+            <p>No dia a dia de uma agência bancária, o escriturário ou agente comercial não precisa decorar toda a estrutura do SFN para realizar suas atividades operacionais. No entanto, compreender essa arquitetura institucional é fundamental para entender por que determinados produtos existem, quem define suas regras e como as decisões tomadas em Brasília afetam diretamente a taxa de juros do empréstimo que você oferece ao cliente ou a rentabilidade da aplicação financeira que você recomenda.</p>
+            <p>O SFN está organizado em três grandes grupos funcionais: <strong>órgãos normativos</strong>, <strong>entidades supervisoras</strong> e <strong>operadores</strong>. Esta divisão tripartite é uma das classificações mais cobradas em concursos públicos, especialmente pela Cesgranrio, que adora explorar a hierarquia e as competências de cada ente.</p>
+
+            <hr class="divider-gold">
+
+            <h3>1.2. O Conselho Monetário Nacional (CMN) — O Órgão Normativo Máximo</h3>
+
+            <h4>1.2.1. Natureza Jurídica e Composição</h4>
+            <p>O Conselho Monetário Nacional (CMN) é o órgão normativo máximo do SFN. Isso significa que ele ocupa o topo da pirâmide decisória: é o CMN quem formula as regras gerais que orientam o funcionamento de todos os mercados financeiros do país — monetário, de crédito, de capitais e de câmbio.</p>
+            <p>O CMN não é um órgão executor. Ele não fiscaliza bancos, não aplica multas e não atende o público. Sua função é exclusivamente normativa e estratégica. Trata‑se de um conselho de cúpula, composto por três membros com assento permanente:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Membro</th><th>Cargo</th></tr></thead>
+                    <tbody>
+                        <tr><td>Ministro da Fazenda</td><td>Presidente do CMN</td></tr>
+                        <tr><td>Ministro do Planejamento</td><td>Membro titular</td></tr>
+                        <tr><td>Presidente do Banco Central do Brasil</td><td>Membro titular</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout warning">
+                <strong>⚠️ Pegadinha de Prova — Cesgranrio:</strong> É muito comum a banca tentar confundir o candidato incluindo membros que <strong>NÃO</strong> compõem o CMN, como o Presidente da República, o Ministro da Indústria e Comércio ou o Presidente da CVM. Lembre‑se: são apenas três membros, todos titulares de cargos estratégicos da política econômica.
+            </div>
+
+            <div class="macete">
+                <strong>Raciocínio para memorização:</strong> Pense na sigla "MPB" ao contrário — <strong>BPM</strong>: <strong>B</strong>anco Central, <strong>P</strong>lanejamento, <strong>M</strong>inistro da Fazenda. Ou ainda: quem define as regras do jogo financeiro são exatamente aqueles que comandam a economia do país: quem arrecada (Fazenda), quem planeja os gastos (Planejamento) e quem controla a moeda (Banco Central).
+            </div>
+
+            <h4>1.2.2. Competências do CMN</h4>
+            <p>As atribuições do CMN estão previstas na Lei nº 4.595/1964, que ainda é a espinha dorsal do SFN. As principais competências são:</p>
+            <ul>
+                <li><strong>Disciplinar o crédito</strong> em todas as suas modalidades, podendo limitar taxas de juros, prazos, garantias e volume das operações;</li>
+                <li><strong>Regular a moeda</strong>, definindo as diretrizes da política monetária e cambial;</li>
+                <li><strong>Coordenar as políticas monetária, creditícia, orçamentária e fiscal</strong>;</li>
+                <li><strong>Autorizar emissões de papel‑moeda</strong>, sempre por meio do Banco Central;</li>
+                <li><strong>Definir a meta de inflação</strong>, em conjunto com o regime de metas estabelecido;</li>
+                <li><strong>Regulamentar as operações de câmbio</strong> e a movimentação de capitais estrangeiros;</li>
+                <li><strong>Disciplinar o funcionamento das instituições financeiras</strong>.</li>
+            </ul>
+
+            <div class="card card-gold">
+                <div class="card-title gold">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    Aplicação prática na agência
+                </div>
+                <p>Quando um gerente de relacionamento observa que o banco alterou as condições de um determinado produto de crédito — por exemplo, ampliou o prazo máximo do financiamento imobiliário de 30 para 35 anos —, saiba que essa decisão provavelmente decorre de uma resolução do CMN que flexibilizou as regras para aquele segmento. O CMN estabelece as balizas; cada banco define sua estratégia comercial dentro delas.</p>
+            </div>
+
+            <h4>1.2.3. Hierarquia Normativa no SFN</h4>
+            <p>A estrutura hierárquica do SFN é uma das preferidas da Cesgranrio. Visualize a pirâmide:</p>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" style="max-width:520px;width:100%;height:auto;">
+                    <rect x="0" y="0" width="520" height="380" fill="none" />
+                    <!-- CMN -->
+                    <rect x="170" y="10" width="180" height="48" rx="10" fill="#2a2a55" stroke="#d4a847" stroke-width="2"/>
+                    <text x="260" y="40" text-anchor="middle" fill="#d4a847" font-size="16" font-weight="700" font-family="Georgia,serif">CMN</text>
+                    <text x="260" y="58" text-anchor="middle" fill="#c4bcb2" font-size="10" font-family="Georgia,serif">Órgão Normativo Máximo</text>
+                    <line x1="260" y1="58" x2="260" y2="80" stroke="#d4a847" stroke-width="2" stroke-dasharray="4,4"/>
+                    <!-- BCB / CVM / SUSEP -->
+                    <rect x="30" y="90" width="140" height="46" rx="8" fill="#1e1e3a" stroke="#6a9ec7" stroke-width="1.5"/>
+                    <text x="100" y="110" text-anchor="middle" fill="#6a9ec7" font-size="13" font-weight="700" font-family="Georgia,serif">Banco Central</text>
+                    <text x="100" y="128" text-anchor="middle" fill="#c4bcb2" font-size="9" font-family="Georgia,serif">Supervisor / Executor</text>
+
+                    <rect x="190" y="90" width="140" height="46" rx="8" fill="#1e1e3a" stroke="#6a9ec7" stroke-width="1.5"/>
+                    <text x="260" y="110" text-anchor="middle" fill="#6a9ec7" font-size="13" font-weight="700" font-family="Georgia,serif">CVM</text>
+                    <text x="260" y="128" text-anchor="middle" fill="#c4bcb2" font-size="9" font-family="Georgia,serif">Supervisor</text>
+
+                    <rect x="350" y="90" width="140" height="46" rx="8" fill="#1e1e3a" stroke="#6a9ec7" stroke-width="1.5"/>
+                    <text x="420" y="110" text-anchor="middle" fill="#6a9ec7" font-size="13" font-weight="700" font-family="Georgia,serif">SUSEP / Previc</text>
+                    <text x="420" y="128" text-anchor="middle" fill="#c4bcb2" font-size="9" font-family="Georgia,serif">Supervisor</text>
+
+                    <!-- setas -->
+                    <line x1="260" y1="80" x2="100" y2="90" stroke="#6a9ec7" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="260" y1="80" x2="260" y2="90" stroke="#6a9ec7" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="260" y1="80" x2="420" y2="90" stroke="#6a9ec7" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+                    <!-- Instituições -->
+                    <rect x="30" y="170" width="140" height="46" rx="8" fill="#141425" stroke="#7ab89a" stroke-width="1.5"/>
+                    <text x="100" y="190" text-anchor="middle" fill="#7ab89a" font-size="12" font-weight="700" font-family="Georgia,serif">Instituições</text>
+                    <text x="100" y="208" text-anchor="middle" fill="#c4bcb2" font-size="9" font-family="Georgia,serif">Financeiras</text>
+
+                    <rect x="190" y="170" width="140" height="46" rx="8" fill="#141425" stroke="#7ab89a" stroke-width="1.5"/>
+                    <text x="260" y="190" text-anchor="middle" fill="#7ab89a" font-size="12" font-weight="700" font-family="Georgia,serif">Bolsas / Corretoras</text>
+                    <text x="260" y="208" text-anchor="middle" fill="#c4bcb2" font-size="9" font-family="Georgia,serif">Operadores</text>
+
+                    <rect x="350" y="170" width="140" height="46" rx="8" fill="#141425" stroke="#7ab89a" stroke-width="1.5"/>
+                    <text x="420" y="190" text-anchor="middle" fill="#7ab89a" font-size="12" font-weight="700" font-family="Georgia,serif">Seguradoras /</text>
+                    <text x="420" y="208" text-anchor="middle" fill="#c4bcb2" font-size="9" font-family="Georgia,serif">Ent. Previd.</text>
+
+                    <line x1="100" y1="136" x2="100" y2="170" stroke="#7ab89a" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="260" y1="136" x2="260" y2="170" stroke="#7ab89a" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="420" y1="136" x2="420" y2="170" stroke="#7ab89a" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+                    <!-- legenda -->
+                    <text x="30" y="270" fill="#c4bcb2" font-size="10" font-family="Georgia,serif">▸ CMN expede normas gerais</text>
+                    <text x="30" y="290" fill="#c4bcb2" font-size="10" font-family="Georgia,serif">▸ BCB fiscaliza e executa</text>
+                    <text x="30" y="310" fill="#c4bcb2" font-size="10" font-family="Georgia,serif">▸ Instituições financeiras operam</text>
+
+                    <rect x="30" y="335" width="12" height="12" rx="2" fill="#2a2a55" stroke="#d4a847" stroke-width="1.5"/>
+                    <text x="48" y="346" fill="#d4a847" font-size="10" font-family="Georgia,serif">Normativo</text>
+                    <rect x="120" y="335" width="12" height="12" rx="2" fill="#1e1e3a" stroke="#6a9ec7" stroke-width="1.5"/>
+                    <text x="138" y="346" fill="#6a9ec7" font-size="10" font-family="Georgia,serif">Supervisor</text>
+                    <rect x="220" y="335" width="12" height="12" rx="2" fill="#141425" stroke="#7ab89a" stroke-width="1.5"/>
+                    <text x="238" y="346" fill="#7ab89a" font-size="10" font-family="Georgia,serif">Operador</text>
+                </svg>
+            </div>
+
+            <div class="callout important">
+                <strong>📌 Cesgranrio:</strong> A banca cobra exaustivamente essa hierarquia. Memorize: <strong>CMN</strong> expede normas gerais; <strong>BCB</strong> fiscaliza e executa; <strong>instituições financeiras</strong> operam.
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>1.3. O Banco Central do Brasil (BCB) — O Executor da Política Monetária</h3>
+
+            <h4>1.3.1. Natureza e Função</h4>
+            <p>O Banco Central do Brasil (BCB) é a entidade supervisora do SFN e o principal executor das políticas formuladas pelo CMN. Enquanto o CMN é o "cérebro" que pensa as regras, o BCB é o "braço" que as implementa e fiscaliza seu cumprimento.</p>
+            <p>O BCB é uma autarquia federal especial, dotada de autonomia operacional e administrativa. Sua atuação abrange:</p>
+            <ul>
+                <li><strong>Execução da política monetária</strong>: controlar a quantidade de moeda em circulação e influenciar as taxas de juros;</li>
+                <li><strong>Supervisão das instituições financeiras</strong>: fiscalizar bancos, cooperativas de crédito e demais entes autorizados;</li>
+                <li><strong>Banco dos bancos</strong>: receber depósitos compulsórios e prover redesconto (assistência de liquidez);</li>
+                <li><strong>Banco emissor</strong>: emitir papel‑moeda, seguindo autorização do CMN;</li>
+                <li><strong>Administração do sistema de pagamentos brasileiro</strong>, incluindo o PIX e a compensação de cheques e boletos.</li>
+            </ul>
+
+            <div class="card card-blue">
+                <div class="card-title blue">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    Exemplo do cotidiano
+                </div>
+                <p>Quando você, como escriturário, realiza uma operação de câmbio para um cliente que vai viajar, o sistema da sua agência se comunica com os módulos de controle do Banco Central. O BCB monitora cada operação de compra e venda de moeda estrangeira realizada no país. É por isso que você precisa classificar a natureza da operação (viagem, importação, doação, etc.) — esses dados alimentam as estatísticas do balanço de pagamentos e permitem que o BCB controle o fluxo cambial.</p>
+            </div>
+
+            <h4>1.3.2. A Diferença entre CMN e BCB</h4>
+            <p>Esta é uma das distinções mais importantes para sua prova:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Aspecto</th><th>CMN</th><th>BCB</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Natureza</strong></td><td>Órgão normativo</td><td>Entidade supervisora e executora</td></tr>
+                        <tr><td><strong>Função principal</strong></td><td>Formular regras gerais</td><td>Implementar regras e fiscalizar</td></tr>
+                        <tr><td><strong>Composição</strong></td><td>3 membros (Min. Fazenda, Min. Planejamento, Pres. BCB)</td><td>Estrutura administrativa própria</td></tr>
+                        <tr><td><strong>Atuação</strong></td><td>Estratégica e normativa</td><td>Operacional e fiscalizatória</td></tr>
+                        <tr><td><strong>Exemplo de ação</strong></td><td>"Fica autorizada a emissão de Letras Imobiliárias…"</td><td>"Fica o Banco X multado por descumprimento…"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout warning">
+                <strong>⚠️ Pegadinha clássica:</strong> A Cesgranrio frequentemente apresenta uma ação típica do BCB (como "aplicar multa a um banco") e atribui ao CMN. Cuidado: o CMN <strong>não</strong> fiscaliza nem pune diretamente instituições. Essa é função do BCB.
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>1.4. O Comitê de Política Monetária (COPOM)</h3>
+
+            <h4>1.4.1. O que é e como funciona</h4>
+            <p>O Comitê de Política Monetária (COPOM) é um órgão interno do Banco Central, criado para definir a taxa básica de juros da economia — a <strong>Taxa Selic</strong>. Sua criação representou um marco na transparência da política monetária brasileira, pois estabeleceu um calendário previsível de reuniões e um ritual de comunicação com o mercado.</p>
+            <p>O COPOM reúne‑se ordinariamente a cada <strong>45 dias</strong> (8 reuniões por ano), seguindo um calendário divulgado com antecedência. Cada reunião ocorre em dois dias: no primeiro, são feitas apresentações técnicas sobre a conjuntura econômica; no segundo, os membros decidem, por voto, a nova meta para a Taxa Selic.</p>
+
+            <div class="card card-teal">
+                <div class="card-title teal">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    Aplicação prática no ambiente bancário
+                </div>
+                <p>Quando você oferece um CDB a um cliente, a rentabilidade é frequentemente atrelada ao CDI (Certificado de Depósito Interbancário), que por sua vez acompanha de perto a Selic. Portanto, a decisão do COPOM impacta diretamente:</p>
+                <ul>
+                    <li>A rentabilidade das aplicações financeiras que você recomenda;</li>
+                    <li>O custo dos empréstimos que você oferece;</li>
+                    <li>A atratividade dos produtos de crédito imobiliário;</li>
+                    <li>O planejamento financeiro dos seus clientes.</li>
+                </ul>
+            </div>
+
+            <div class="macete">
+                <strong>Memorize a diferença:</strong><br>
+                • <strong>CMN</strong>: formula as grandes regras da economia;<br>
+                • <strong>BCB</strong>: executa e fiscaliza;<br>
+                • <strong>COPOM</strong>: comitê dentro do BCB que define a Selic.
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>1.5. A Estrutura dos Órgãos Normativos por Segmento</h3>
+            <p>Além do CMN, que é o órgão máximo para o mercado financeiro em geral, existem conselhos específicos para outros segmentos. A Cesgranrio adora explorar essa organização:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Órgão Normativo</th><th>Segmento</th><th>Entidade Supervisora</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>CMN</strong> (Conselho Monetário Nacional)</td><td>Mercado financeiro, monetário, crédito, câmbio</td><td>BCB, CVM</td></tr>
+                        <tr><td><strong>CNSP</strong> (Conselho Nacional de Seguros Privados)</td><td>Seguros privados</td><td>SUSEP</td></tr>
+                        <tr><td><strong>CNPC</strong> (Conselho Nacional de Previdência Complementar)</td><td>Previdência complementar fechada</td><td>PREVIC</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout tip">
+                <strong>💡 Macete de memorização — "Conselho":</strong> Perceba que todos os órgãos normativos têm a palavra <strong>"Conselho"</strong> no nome: Conselho Monetário Nacional, Conselho Nacional de Seguros Privados, Conselho Nacional de Previdência Complementar. Se na prova aparecer um órgão normativo, a palavra "Conselho" estará presente. Isso ajuda a eliminar alternativas com nomes como "Superintendência", "Agência" ou "Instituto", que são tipicamente entidades supervisoras ou operadoras.
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 2                                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap2">
+            <h2>Capítulo 2 &middot; Política Monetária e seus Instrumentos</h2>
+
+            <h3>2.1. Conceitos Fundamentais de Política Monetária</h3>
+            <p>A política monetária é o conjunto de medidas adotadas pelo Banco Central para controlar a quantidade de moeda em circulação e as taxas de juros, com o objetivo de manter a estabilidade da moeda e estimular o crescimento econômico. Em termos simples: é o BCB regulando a "torneira" do dinheiro — abrindo mais quando quer estimular a economia e fechando quando precisa conter a inflação.</p>
+
+            <h4>2.1.1. Política Monetária Expansionista</h4>
+            <p>Uma política monetária é dita <strong>expansionista</strong> quando o Banco Central adota medidas para aumentar a quantidade de moeda em circulação e reduzir as taxas de juros. O objetivo é estimular o consumo e o investimento, aquecendo a economia.</p>
+            <p><strong>Mecanismos de uma política expansionista:</strong></p>
+            <ul>
+                <li>Redução da Taxa Selic;</li>
+                <li>Compra de títulos públicos no mercado aberto (injetando dinheiro);</li>
+                <li>Redução dos depósitos compulsórios (liberando mais recursos para empréstimos);</li>
+                <li>Redução da taxa de redesconto.</li>
+            </ul>
+            <p><strong>Efeitos em cadeia:</strong></p>
+            <ol>
+                <li>Juros menores → crédito mais barato;</li>
+                <li>Crédito mais barato → empresas investem mais e consumidores compram mais;</li>
+                <li>Maior consumo e investimento → crescimento do PIB;</li>
+                <li>Pressão sobre preços → risco de inflação.</li>
+            </ol>
+
+            <div class="card card-gold">
+                <div class="card-title gold">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    Exemplo prático na agência
+                </div>
+                <p>Em um ciclo expansionista, o gerente comercial observa maior procura por crédito imobiliário e financiamento de veículos, já que as parcelas ficam menores. Por outro lado, os investidores conservadores que dependem da renda fixa começam a buscar alternativas, pois a rentabilidade da poupança e de CDBs atrelados ao CDI diminui.</p>
+            </div>
+
+            <h4>2.1.2. Política Monetária Contracionista</h4>
+            <p>Uma política é <strong>contracionista</strong> (ou restritiva) quando o BCB reduz a liquidez e eleva os juros. O objetivo clássico é conter pressões inflacionárias, desaquecendo uma economia superaquecida.</p>
+            <p><strong>Mecanismos de uma política contracionista:</strong></p>
+            <ul>
+                <li>Aumento da Taxa Selic;</li>
+                <li>Venda de títulos públicos (retirando dinheiro de circulação);</li>
+                <li>Elevação dos compulsórios;</li>
+                <li>Aumento da taxa de redesconto.</li>
+            </ul>
+
+            <div class="callout important">
+                <strong>📌 Efeito no câmbio — fundamental para a Cesgranrio:</strong><br>
+                Quando o Brasil eleva sua taxa de juros (política contracionista), os títulos públicos brasileiros passam a oferecer maior rentabilidade. Investidores estrangeiros, em busca de melhores retornos, trazem dólares para investir no Brasil. O aumento da oferta de dólares no mercado brasileiro faz o Real se <strong>valorizar</strong> frente ao Dólar.
+            </div>
+
+            <div class="macete">
+                <strong>Analogia:</strong> Pense na taxa de juros como o "preço do dinheiro". Se o Brasil paga mais pelo dinheiro (juros altos), investidores do mundo todo querem "vender" seu dinheiro para o Brasil. Essa maior oferta de dólares derruba sua cotação, valorizando o Real.
+            </div>
+
+            <div class="card card-red">
+                <div class="card-title red">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Macete de prova — Cesgranrio
+                </div>
+                <ul class="list-check">
+                    <li><strong>Juros brasileiros SOBEM → Dólar DESCE (Real valoriza)</strong></li>
+                    <li><strong>Juros brasileiros DEScem → Dólar SOBE (Real desvaloriza)</strong></li>
+                </ul>
+                <p style="margin-top:0.6rem;">O raciocínio é sempre: capital financeiro migra para onde a rentabilidade é maior.</p>
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>2.2. Operações de Mercado Aberto (Open Market)</h3>
+            <p>As operações de mercado aberto são o principal instrumento de política monetária no dia a dia. Consistem na compra e venda de títulos públicos pelo Banco Central no mercado secundário, com o objetivo de ajustar a liquidez do sistema bancário e influenciar as taxas de juros de curto prazo.</p>
+
+            <h4>2.2.1. Mecanismo de Funcionamento</h4>
+            <p><strong>Quando o BCB quer REDUZIR os juros (política expansionista):</strong></p>
+            <p>O Banco Central <strong>compra</strong> títulos públicos que estão em poder dos bancos. Ao pagar por esses títulos, o BCB <strong>injeta dinheiro</strong> no sistema bancário. Com mais recursos disponíveis, os bancos reduzem as taxas de juros para emprestar esse dinheiro excedente.</p>
+            <div class="callout tip">
+                <strong>Analogia:</strong> Imagine um mercado de frutas. Se o governo compra grande quantidade de maçãs, injeta dinheiro nas mãos dos feirantes, que, com mais capital de giro, podem reduzir seus preços para atrair mais clientes.
+            </div>
+            <p><strong>Sequência lógica:</strong> COMPRA de títulos → INJEÇÃO de dinheiro → AUMENTO de liquidez → REDUÇÃO dos juros.</p>
+
+            <p><strong>Quando o BCB quer AUMENTAR os juros (política contracionista):</strong></p>
+            <p>O BCB <strong>vende</strong> títulos públicos de sua carteira para os bancos. Os bancos pagam por esses títulos, <strong>enxugando</strong> seus recursos disponíveis. Com menos dinheiro em caixa, eles elevam as taxas para racionar o crédito.</p>
+            <p><strong>Sequência lógica:</strong> VENDA de títulos → RETIRADA de dinheiro → REDUÇÃO de liquidez → AUMENTO dos juros.</p>
+
+            <div class="macete">
+                <strong>Macete definitivo:</strong><br>
+                <span style="font-size:1.2rem;">📌</span> <strong>"BCB COMPRA → BOTA dinheiro → JUROS CAEM"</strong><br>
+                <span style="font-size:1.2rem;">📌</span> <strong>"BCB VENDE → TIRA dinheiro → JUROS SOBEM"</strong><br>
+                <span style="font-size:0.9rem;color:var(--text-muted);">Foque no fluxo do <strong>dinheiro</strong>, não no fluxo do título.</span>
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>2.3. A Taxa Selic e o Controle da Inflação</h3>
+
+            <h4>2.3.1. Selic Over — O Conceito Técnico</h4>
+            <p>A Taxa Selic é a taxa média ajustada dos financiamentos diários com lastro em títulos públicos federais. Na prática, é a taxa de juros que referencia as operações compromissadas de um dia (overnight) entre as instituições financeiras, tendo títulos públicos como garantia.</p>
+            <div class="callout">
+                <strong>Por que "Over"?</strong> O termo "over" remete a "overnight" — operações de curtíssimo prazo, geralmente de um dia. Quando um banco precisa de recursos para fechar seu caixa no final do dia, ele toma emprestado de outro banco, oferecendo títulos públicos como garantia. A taxa Selic Over é a média dessas operações.
+            </div>
+            <p><strong>Associação mental:</strong> Taxa Selic Over → curto prazo → noite → operações compromissadas de 1 dia.</p>
+
+            <h4>2.3.2. O Mecanismo de Transmissão da Política Monetária</h4>
+            <p>Quando o COPOM altera a meta da Selic, ocorre uma cadeia de transmissão que afeta toda a economia:</p>
+            <ol>
+                <li><strong>Alteração da Selic meta</strong> pelo COPOM;</li>
+                <li><strong>BCB atua no mercado aberto</strong> (comprando ou vendendo títulos) para que a Selic efetiva convirja para a meta;</li>
+                <li><strong>Taxas do mercado interbancário (CDI)</strong> se ajustam imediatamente;</li>
+                <li><strong>Bancos repassam a variação</strong> para as taxas de empréstimo (spread + Selic);</li>
+                <li><strong>Rentabilidade da renda fixa</strong> se altera (CDBs, LCIs, LCAs, etc.);</li>
+                <li><strong>Decisões de consumo e investimento</strong> são impactadas;</li>
+                <li><strong>Inflação responde</strong> ao longo do tempo.</li>
+            </ol>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 560 240" xmlns="http://www.w3.org/2000/svg" style="max-width:560px;width:100%;height:auto;">
+                    <rect x="0" y="0" width="560" height="240" fill="none" />
+                    <!-- COPOM -->
+                    <rect x="200" y="10" width="160" height="36" rx="8" fill="#2a2a55" stroke="#d4a847" stroke-width="1.5"/>
+                    <text x="280" y="33" text-anchor="middle" fill="#d4a847" font-size="14" font-weight="700" font-family="Georgia,serif">COPOM</text>
+                    <text x="280" y="48" text-anchor="middle" fill="#c4bcb2" font-size="9" font-family="Georgia,serif">altera a meta Selic</text>
+                    <line x1="280" y1="50" x2="280" y2="68" stroke="#d4a847" stroke-width="1.5"/>
+                    <!-- Mercado Aberto -->
+                    <rect x="180" y="70" width="200" height="36" rx="8" fill="#1e1e3a" stroke="#6a9ec7" stroke-width="1.5"/>
+                    <text x="280" y="93" text-anchor="middle" fill="#6a9ec7" font-size="13" font-weight="700" font-family="Georgia,serif">BCB atua no mercado aberto</text>
+                    <line x1="280" y1="108" x2="280" y2="122" stroke="#6a9ec7" stroke-width="1.5"/>
+                    <!-- CDI -->
+                    <rect x="200" y="124" width="160" height="32" rx="8" fill="#1e1e3a" stroke="#7ab89a" stroke-width="1.5"/>
+                    <text x="280" y="145" text-anchor="middle" fill="#7ab89a" font-size="13" font-weight="700" font-family="Georgia,serif">CDI se ajusta</text>
+                    <line x1="280" y1="158" x2="280" y2="172" stroke="#7ab89a" stroke-width="1.5"/>
+                    <!-- Bancos / Economia -->
+                    <rect x="110" y="174" width="340" height="40" rx="8" fill="#141425" stroke="#c4bcb2" stroke-width="1.2"/>
+                    <text x="280" y="193" text-anchor="middle" fill="#c4bcb2" font-size="12" font-weight="600" font-family="Georgia,serif">Bancos repassam → crédito, investimentos, consumo</text>
+                    <text x="280" y="208" text-anchor="middle" fill="#a0988e" font-size="10" font-family="Georgia,serif">Inflação responde ao longo do tempo</text>
+                    <!-- setas laterais -->
+                    <line x1="380" y1="90" x2="440" y2="90" stroke="#6a9ec7" stroke-width="1.2" stroke-dasharray="3,3"/>
+                    <text x="450" y="94" fill="#6a9ec7" font-size="10" font-family="Georgia,serif">compra/venda títulos</text>
+                </svg>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 3                                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap3">
+            <h2>Capítulo 3 &middot; Mercados Financeiros — Classificação e Operações</h2>
+
+            <h3>3.1. Os Quatro Grandes Mercados</h3>
+            <p>O SFN organiza as operações financeiras em quatro grandes mercados, cada um com funções e características próprias. A Cesgranrio explora exaustivamente a distinção entre eles, exigindo que o candidato saiba classificar operações específicas.</p>
+
+            <h4>3.1.1. Mercado Monetário</h4>
+            <p>O <strong>Mercado Monetário</strong> é o ambiente onde se realizam operações de curtíssimo prazo, voltadas ao controle da liquidez da economia. É o mercado onde o Banco Central atua diretamente, por meio das operações de mercado aberto.</p>
+            <ul>
+                <li><strong>Prazo:</strong> curto e curtíssimo prazo (até um ano, geralmente dias ou meses);</li>
+                <li><strong>Ativos:</strong> títulos públicos federais, operações compromissadas;</li>
+                <li><strong>Objetivo:</strong> controle da liquidez e da taxa de juros básica;</li>
+                <li><strong>Participantes:</strong> BCB, Tesouro Nacional, bancos.</li>
+            </ul>
+
+            <h4>3.1.2. Mercado de Crédito</h4>
+            <p>O <strong>Mercado de Crédito</strong> é o segmento responsável pela intermediação financeira propriamente dita: canalizar recursos dos poupadores para os tomadores. É o mercado mais presente no cotidiano da agência bancária.</p>
+            <ul>
+                <li><strong>Prazo:</strong> curto e médio prazo;</li>
+                <li><strong>Produtos:</strong> empréstimos pessoais, financiamentos, capital de giro, desconto de duplicatas;</li>
+                <li><strong>Participantes:</strong> bancos, financeiras, cooperativas de crédito;</li>
+                <li><strong>Regulação:</strong> CMN e BCB.</li>
+            </ul>
+
+            <h4>3.1.3. Mercado de Capitais</h4>
+            <p>O <strong>Mercado de Capitais</strong> é onde empresas e governo captam recursos de médio e longo prazo, por meio da emissão de valores mobiliários. É o mercado que financia o investimento produtivo.</p>
+            <ul>
+                <li><strong>Prazo:</strong> médio e longo prazo;</li>
+                <li><strong>Ativos:</strong> ações, debêntures, Fundos de Investimento Imobiliário (FIIs), notas promissórias;</li>
+                <li><strong>Participantes:</strong> empresas (emissoras), investidores, corretoras, bolsa de valores;</li>
+                <li><strong>Supervisão:</strong> Comissão de Valores Mobiliários (CVM).</li>
+            </ul>
+
+            <h4>3.1.4. Mercado de Câmbio</h4>
+            <p>O <strong>Mercado de Câmbio</strong> é o ambiente onde se negociam moedas estrangeiras. Sua função primordial é viabilizar as transações internacionais, convertendo moedas e permitindo o comércio exterior e os investimentos transfronteiriços.</p>
+            <ul>
+                <li><strong>Ativo negociado:</strong> moeda estrangeira (divisas);</li>
+                <li><strong>Objetivo:</strong> permitir a troca de moedas para transações internacionais;</li>
+                <li><strong>Regulação:</strong> CMN (normas gerais) e BCB (execução e fiscalização);</li>
+                <li><strong>Participantes:</strong> bancos autorizados, corretoras de câmbio, importadores, exportadores, viajantes.</li>
+            </ul>
+
+            <hr class="divider-gold">
+
+            <h3>3.2. Tabela Comparativa — Os Quatro Mercados</h3>
+
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Critério</th><th>Mercado Monetário</th><th>Mercado de Crédito</th><th>Mercado de Capitais</th><th>Mercado de Câmbio</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>O que negocia</strong></td><td>Moeda de curto prazo, liquidez</td><td>Empréstimos e financiamentos</td><td>Valores mobiliários (ações, debêntures)</td><td>Moeda estrangeira</td></tr>
+                        <tr><td><strong>Prazo típico</strong></td><td>Curto/curtíssimo</td><td>Curto e médio</td><td>Médio e longo</td><td>À vista ou futuro</td></tr>
+                        <tr><td><strong>Objetivo</strong></td><td>Controle monetário</td><td>Financiar consumo e giro</td><td>Financiar investimento</td><td>Viabilizar comércio exterior</td></tr>
+                        <tr><td><strong>Supervisor</strong></td><td>BCB</td><td>BCB</td><td>CVM</td><td>BCB</td></tr>
+                        <tr><td><strong>Produto típico</strong></td><td>Títulos públicos, compromissadas</td><td>Capital de giro, CDC</td><td>Ações, FIIs, debêntures</td><td>Dólar turismo, câmbio comercial</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="macete">
+                <strong>Macete Cesgranrio:</strong><br>
+                • <strong>Cambial</strong> → <strong>C</strong>âmbio = <strong>C</strong>onversão de moeda;<br>
+                • <strong>Monetário</strong> → <strong>M</strong>oeda = curto prazo, liquidez;<br>
+                • <strong>Capitais</strong> → <strong>C</strong>aptação de recursos = investimento;<br>
+                • <strong>Crédito</strong> → <strong>C</strong>oncessão de empréstimos.
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>3.3. Mercado de Câmbio: Aprofundamento</h3>
+
+            <h4>3.3.1. Regulação e Fiscalização</h4>
+            <p>O mercado de câmbio brasileiro é minuciosamente regulado. O Banco Central do Brasil estabelece as condições para que uma instituição seja autorizada a operar, os limites operacionais e os procedimentos de registro e controle.</p>
+
+            <div class="callout important">
+                <strong>📌 Prazo de guarda documental — Resolução BCB nº 277/2022:</strong><br>
+                Um dos pontos mais específicos e cobrados em provas recentes é o prazo de conservação dos documentos comprobatórios de operações de câmbio. De acordo com a Resolução BCB nº 277, de 31 de dezembro de 2022, as instituições autorizadas a operar no mercado de câmbio devem conservar os documentos por <strong>10 anos</strong>, contados do término do exercício em que ocorreu a contratação, liquidação, cancelamento ou baixa da operação.
+            </div>
+
+            <div class="card card-red">
+                <div class="card-title red">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Atenção máxima
+                </div>
+                <p>Este prazo de 10 anos é uma exceção relevante. A regra geral para documentos de clientes costuma ser de 5 anos. A Cesgranrio explora justamente essa distinção:</p>
+                <div class="table-wrap" style="margin-top:0.6rem;">
+                    <table>
+                        <thead><tr><th>Tipo de documento</th><th>Prazo de guarda</th></tr></thead>
+                        <tbody>
+                            <tr><td>Cadastro de clientes (regra geral)</td><td>5 anos</td></tr>
+                            <tr><td>Documentos de operações de câmbio (Res. BCB 277/2022)</td><td><strong>10 anos</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top:0.6rem;"><strong>Pegadinha:</strong> A banca apresenta um caso de fiscalização do BCB e pergunta por quanto tempo os documentos de uma operação de câmbio devem ser mantidos. O candidato desatento marca 5 anos, por ser o prazo mais comum. O correto é <strong>10 anos</strong>.</p>
+            </div>
+
+            <h4>3.3.2. Efeitos da Variação Cambial no Comércio Exterior</h4>
+            <p>A taxa de câmbio tem impacto direto e imediato sobre a competitividade das exportações e o preço das importações. Compreender essa dinâmica é essencial tanto para a prova quanto para entender o noticiário econômico.</p>
+
+            <div class="card card-blue">
+                <div class="card-title blue">Cenário 1: Desvalorização do Real (Real mais fraco)</div>
+                <ul>
+                    <li><strong>Exportações:</strong> Os produtos brasileiros ficam mais baratos para o comprador estrangeiro, que paga em dólar. Um produto que custa R$ 500,00, com o dólar a R$ 5,00, sai por US$ 100. Se o dólar sobe para R$ 6,00 (desvalorização do Real), o mesmo produto passa a custar US$ 83,33. <strong>Efeito: estímulo às exportações.</strong></li>
+                    <li><strong>Importações:</strong> Produtos importados ficam mais caros em reais. Um smartphone de US$ 1.000 que custava R$ 5.000 passa a custar R$ 6.000. <strong>Efeito: desestímulo às importações e pressão inflacionária.</strong></li>
+                    <li><strong>Na agência:</strong> O cliente exportador fica mais satisfeito (sua receita em reais aumenta), mas o cliente que planeja viajar para o exterior reclama do custo elevado.</li>
+                </ul>
+            </div>
+
+            <div class="card card-teal">
+                <div class="card-title teal">Cenário 2: Valorização do Real (Real mais forte)</div>
+                <ul>
+                    <li><strong>Exportações:</strong> Produtos brasileiros ficam mais caros no exterior. <strong>Efeito: desestímulo às exportações.</strong></li>
+                    <li><strong>Importações:</strong> Produtos estrangeiros ficam mais baratos. <strong>Efeito: estímulo às importações e controle inflacionário.</strong></li>
+                </ul>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Efeito</th><th>Real Desvalorizado</th><th>Real Valorizado</th></tr></thead>
+                    <tbody>
+                        <tr><td>Exportação</td><td>Favorece (produtos mais baratos em dólar)</td><td>Prejudica</td></tr>
+                        <tr><td>Importação</td><td>Prejudica (produtos mais caros em reais)</td><td>Favorece</td></tr>
+                        <tr><td>Inflação</td><td>Pressiona para cima</td><td>Contribui para controle</td></tr>
+                        <tr><td>Viagem internacional</td><td>Mais cara para brasileiros</td><td>Mais barata para brasileiros</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>3.4. Política Monetária Internacional e Efeitos no Câmbio</h3>
+
+            <h4>3.4.1. O Efeito da Política do Federal Reserve (Fed)</h4>
+            <p>O Federal Reserve é o banco central dos Estados Unidos. Suas decisões de política monetária repercutem em todo o mundo, inclusive no Brasil, devido ao papel do dólar como moeda de referência global.</p>
+            <div class="callout">
+                <strong>Quando o Fed eleva os juros (política contracionista nos EUA):</strong><br>
+                Os títulos do Tesouro americano (Treasuries) passam a oferecer maior rentabilidade. Investidores globais redirecionam seus capitais para os EUA, buscando esse retorno mais elevado. Esse movimento:
+                <ul>
+                    <li>Aumenta a demanda por dólares;</li>
+                    <li>Valoriza o dólar frente a outras moedas, inclusive o Real;</li>
+                    <li>Provoca saída de capitais de países emergentes, incluindo o Brasil.</li>
+                </ul>
+            </div>
+            <div class="macete">
+                <strong>Macete:</strong><br>
+                <span style="font-size:1.2rem;">📌</span> <strong>Juros Americanos Sobem → Dólar Sobe (valoriza)</strong><br>
+                <span style="font-size:1.2rem;">📌</span> <strong>Juros Americanos Descem → Dólar Desce (desvaloriza)</strong><br>
+                <span style="font-size:0.9rem;color:var(--text-muted);">Associe o "S" (Sobem/Sobe) e o "D" (Descem/Desce) para memorizar a direção do movimento.</span>
+            </div>
+
+            <h4>3.4.2. Quantitative Easing (QE) — Política Não Convencional</h4>
+            <p>O Quantitative Easing (QE) é uma política monetária não convencional, adotada em situações de crise severa, quando a política monetária tradicional (redução de juros) já atingiu seu limite (juros próximos de zero).</p>
+            <p><strong>Mecanismo:</strong> O banco central compra títulos públicos e privados de <strong>longo prazo</strong> no mercado, injetando quantidades massivas de dinheiro. Diferentemente das operações de mercado aberto tradicionais, que focam no curto prazo, o QE visa reduzir as taxas de juros de <strong>longo prazo</strong>, estimulando investimentos produtivos e a recuperação econômica.</p>
+            <ul>
+                <li><strong>Objetivo principal do QE:</strong> Reduzir as taxas de juros de longo prazo, barateando o crédito para investimentos de maturação longa (infraestrutura, construção civil, etc.).</li>
+                <li><strong>Efeitos colaterais potenciais:</strong> inflação futura, bolhas de ativos, desvalorização cambial.</li>
+            </ul>
+
+            <hr class="divider-gold">
+
+            <h3>3.5. Impacto da Selic na Dívida Pública</h3>
+            <p>Uma relação que a Cesgranrio explora com frequência é o efeito da variação da Selic sobre a razão Dívida Pública / PIB.</p>
+            <div class="callout important">
+                <strong>Raciocínio:</strong><br>
+                1. Grande parte da dívida pública brasileira é indexada à Taxa Selic (títulos pós‑fixados);<br>
+                2. Quando a Selic <strong>cai</strong>, o custo de carregamento da dívida (pagamento de juros) diminui;<br>
+                3. Com menor despesa de juros, o crescimento da dívida total desacelera;<br>
+                4. Mantido o PIB constante, a razão Dívida/PIB <strong>diminui</strong>;<br>
+                5. Inversamente, quando a Selic <strong>sobe</strong>, o custo da dívida aumenta, pressionando a razão Dívida/PIB para cima.
+            </div>
+            <p><strong>Consequência prática:</strong> Em ciclos de queda de juros, o governo gasta menos com o serviço da dívida, liberando recursos para outras áreas (saúde, educação, investimentos). Em ciclos de alta, o orçamento fica mais comprimido pelo pagamento de juros.</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 4                                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap4">
+            <h2>Capítulo 4 &middot; Inovações Tecnológicas no Sistema Financeiro</h2>
+
+            <h3>4.1. Fintechs — A Revolução dos Serviços Financeiros</h3>
+
+            <h4>4.1.1. Definição e Características</h4>
+            <p>As <strong>fintechs</strong> (contração de <em>financial technology</em>) são empresas que utilizam a tecnologia de forma intensiva para oferecer serviços financeiros de maneira inovadora, ágil e com custos reduzidos. Elas representam uma ruptura no modelo tradicional de intermediação financeira, desafiando bancos estabelecidos e ampliando o acesso da população a serviços financeiros.</p>
+            <ul>
+                <li>Uso intensivo de tecnologia (aplicativos, inteligência artificial, big data);</li>
+                <li>Foco em experiência do usuário (UX) simplificada e digital;</li>
+                <li>Redução de custos operacionais (sem agências físicas);</li>
+                <li>Democratização do acesso a serviços financeiros;</li>
+                <li>Agilidade na contratação e na prestação de serviços.</li>
+            </ul>
+
+            <div class="card card-blue">
+                <div class="card-title blue">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    Exemplo de modelo de negócio — Fiador Digital
+                </div>
+                <p>Uma fintech no modelo de "fiador digital" atua como garantidora em contratos de aluguel, utilizando seu capital próprio como garantia. Isso elimina a necessidade de o locatário apresentar um fiador tradicional (pessoa física com imóvel quitado). As Sociedades de Crédito Direto (SCD) são exemplos de fintechs que podem operar nesse modelo, facilitando o acesso à moradia.</p>
+            </div>
+
+            <h4>4.1.2. O Que NÃO Caracteriza uma Fintech</h4>
+            <p>Para a Cesgranrio, é fundamental saber o que <strong>não</strong> é uma fintech:</p>
+            <ul>
+                <li><strong>Marketplace</strong> (portal de vendas): A fintech é uma intermediadora financeira, não uma plataforma de comércio eletrônico;</li>
+                <li><strong>Serviço que exige navegador específico</strong>: Fintechs prezam pela ampla acessibilidade;</li>
+                <li><strong>Conexão obrigatória a agências físicas via VPN</strong>: O modelo é digital, desvinculado de estruturas físicas tradicionais;</li>
+                <li><strong>Serviço que exige comparecimento presencial</strong>: A essência é a desburocratização e o atendimento remoto.</li>
+            </ul>
+            <p>O conceito central é: <strong>inovação, acessibilidade, independência de estruturas físicas e intermediação financeira digital</strong>.</p>
+
+            <hr class="divider-gold">
+
+            <h3>4.2. Shadow Banking — O Sistema Bancário Paralelo</h3>
+            <p>O <strong>Shadow Banking</strong> (sistema bancário sombra ou paralelo) refere‑se ao conjunto de atividades de intermediação financeira realizadas por entidades que operam fora do sistema bancário tradicional regulado. São instituições que, na prática, exercem funções típicas de bancos (captar recursos, conceder crédito, alavancar operações), mas sem estarem submetidas ao mesmo grau de supervisão e regulação.</p>
+            <div class="callout warning">
+                <strong>Exemplo típico:</strong> Os <strong>fundos de hedge</strong> são exemplos clássicos de participantes do shadow banking. Eles captam recursos de investidores qualificados, alavancam posições e realizam operações complexas, muitas vezes com pouca transparência e regulação mais flexível que a dos bancos comerciais.
+            </div>
+            <p><strong>Risco associado:</strong> O shadow banking pode gerar risco sistêmico, pois opera com alto grau de alavancagem e descasamento de prazos, sem a rede de proteção dos bancos tradicionais (como acesso ao redesconto e garantia de depósitos).</p>
+
+            <hr class="divider-gold">
+
+            <h3>4.3. Tecnologia de Registro Distribuído (DLT) e Blockchain</h3>
+
+            <h4>4.3.1. DLT — Conceito Geral</h4>
+            <p>A <strong>Distributed Ledger Technology (DLT)</strong>, ou Tecnologia de Registro Distribuído, é uma inovação que permite a transferência digital de valor de forma segura, transparente e descentralizada, sem a necessidade de uma autoridade central validando as transações.</p>
+            <ul>
+                <li><strong>Descentralização:</strong> O registro não está em um único servidor, mas distribuído entre múltiplos participantes;</li>
+                <li><strong>Imutabilidade:</strong> Uma vez validada e registrada, a transação não pode ser alterada;</li>
+                <li><strong>Transparência:</strong> Todos os participantes podem verificar o histórico de transações;</li>
+                <li><strong>Segurança criptográfica:</strong> As transações são protegidas por criptografia avançada.</li>
+            </ul>
+            <p><strong>Objetivo principal da DLT:</strong> Permitir a transferência digital de valor (criptomoedas, ativos digitais, contratos inteligentes) de forma confiável, eliminando intermediários tradicionais.</p>
+
+            <h4>4.3.2. Blockchain — Um Tipo Específico de DLT</h4>
+            <p>O <strong>Blockchain</strong> é o tipo mais conhecido e difundido de DLT. Nele, as transações são agrupadas em "blocos", que são encadeados sequencialmente (daí o nome: <em>block chain</em> = cadeia de blocos), formando um registro cronológico inviolável.</p>
+            <div class="callout important">
+                <strong>Distinção importante para prova:</strong><br>
+                • <strong>DLT</strong> é o gênero (tecnologia de registro distribuído em geral);<br>
+                • <strong>Blockchain</strong> é uma espécie (DLT que organiza dados em blocos encadeados).<br><br>
+                Nem toda DLT é um blockchain. Por exemplo, uma rede baseada em Hyperledger Besu utiliza DLT, mas não necessariamente organiza os dados em cadeia de blocos no formato tradicional.
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>4.4. Open Finance, Mobile Banking e Internet Banking</h3>
+            <p>A transformação digital do setor bancário trouxe novos conceitos que a Cesgranrio explora, exigindo que o candidato saiba distingui‑los com clareza.</p>
+
+            <h4>4.4.1. Open Finance (Sistema Financeiro Aberto)</h4>
+            <p>O <strong>Open Finance</strong> é um sistema que permite o compartilhamento padronizado de dados financeiros entre instituições autorizadas, sempre mediante consentimento expresso do cliente. A ideia é que os dados pertencem ao cliente, não ao banco.</p>
+            <div class="card card-gold">
+                <div class="card-title gold">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    Funcionamento prático
+                </div>
+                <p>Um cliente do Banco X pode autorizar o Banco Y a acessar seu histórico de transações e perfil financeiro. Com base nesses dados, o Banco Y pode oferecer produtos mais adequados e com condições melhores, aumentando a concorrência.</p>
+                <p><strong>Exemplo na agência:</strong> Um cliente insatisfeito com a taxa de juros do seu banco atual pode compartilhar seus dados com outra instituição via Open Finance. O novo banco, conhecendo o histórico positivo do cliente, oferece um crédito com juros menores. O cliente faz a portabilidade e todos ganham — exceto o banco original, que perde o cliente por não ter sido competitivo.</p>
+            </div>
+
+            <h4>4.4.2. Internet Banking</h4>
+            <p>O <strong>Internet Banking</strong> é o canal de acesso a serviços bancários por meio de um navegador web (Chrome, Firefox, Edge, etc.), em um computador. O cliente acessa o site do banco, autentica‑se com login e senha, e realiza transações.</p>
+            <ul>
+                <li>Acesso via navegador em computador;</li>
+                <li>Requer conexão à internet;</li>
+                <li>Não requer instalação de aplicativo específico;</li>
+                <li>Funcionalidades completas para gestão financeira.</li>
+            </ul>
+
+            <h4>4.4.3. Mobile Banking</h4>
+            <p>O <strong>Mobile Banking</strong> é o serviço bancário acessado por meio de um aplicativo instalado no smartphone ou tablet do cliente.</p>
+            <ul>
+                <li>Maior conveniência e mobilidade;</li>
+                <li>Recursos nativos do dispositivo (biometria, geolocalização, notificações push);</li>
+                <li>Autenticação em dois fatores integrada;</li>
+                <li>Interface otimizada para telas sensíveis ao toque;</li>
+                <li>Possibilidade de acesso offline para consultas simples.</li>
+            </ul>
+
+            <h4>4.4.4. Quadro Comparativo</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Característica</th><th>Internet Banking</th><th>Mobile Banking</th><th>Open Finance</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Meio de acesso</strong></td><td>Navegador no computador</td><td>Aplicativo no celular</td><td>API padronizada</td></tr>
+                        <tr><td><strong>O que faz</strong></td><td>Transações bancárias</td><td>Transações bancárias</td><td>Compartilha dados entre instituições</td></tr>
+                        <tr><td><strong>Instalação</strong></td><td>Não requer</td><td>Requer instalação do app</td><td>Não é um app; é um sistema</td></tr>
+                        <tr><td><strong>Função principal</strong></td><td>Autoatendimento remoto</td><td>Autoatendimento com mobilidade</td><td>Portabilidade de dados</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>4.5. Experiência do Consumidor (CX) e Personalização</h3>
+
+            <h4>4.5.1. O Conceito de Customer Experience (CX)</h4>
+            <p>A Experiência do Consumidor (Customer Experience, ou CX) é a percepção que o cliente tem de todas as interações com a instituição, ao longo de toda a sua jornada. Não se trata apenas de "bom atendimento", mas de uma abordagem holística que considera cada ponto de contato.</p>
+            <div class="callout tip">
+                <strong>Estratégia mais eficaz para melhorar CX:</strong> A <strong>personalização</strong> baseada em dados comportamentais e histórico de uso é apontada como a estratégia mais impactante. Analisar o perfil do cliente para oferecer produtos e serviços relevantes faz com que ele se sinta valorizado e compreendido, aumentando a satisfação e a fidelização.
+            </div>
+
+            <h4>4.5.2. Erro Comum Explorado pela Cesgranrio</h4>
+            <p>A banca adora apresentar alternativas que parecem boas, mas são armadilhas:</p>
+            <ul>
+                <li><strong>"Adicionar mais funcionalidades ao aplicativo"</strong>: Mais funcionalidades podem tornar a interface confusa e sobrecarregada;</li>
+                <li><strong>"Implementar segurança máxima com múltiplos passos"</strong>: Segurança excessiva (muitas etapas de autenticação) pode tornar a experiência frustrante;</li>
+                <li><strong>"Limitar canais de atendimento automatizado"</strong>: A automação bem‑feita agiliza o atendimento; limitá‑la prejudica a eficiência.</li>
+            </ul>
+            <p><strong>O equilíbrio correto:</strong> Personalização com usabilidade, segurança na medida certa e automação inteligente.</p>
+
+            <hr class="divider-gold">
+
+            <h3>4.6. Plataformas de Ciência de Dados no Setor Bancário</h3>
+
+            <h4>4.6.1. Definição e Propósito</h4>
+            <p>Uma plataforma de Ciência de Dados no contexto bancário é um ambiente tecnológico projetado para coletar, processar, analisar e transformar grandes volumes de dados em insights acionáveis para a tomada de decisão.</p>
+            <ul>
+                <li><strong>Escalabilidade</strong>: Capacidade de crescer conforme o volume de dados e o negócio se expandem;</li>
+                <li><strong>Alta disponibilidade</strong>: Deve estar operacional 24/7, suportando falhas sem interrupção;</li>
+                <li><strong>Controles de acesso robustos</strong>: Segurança e governança dos dados, com permissões granulares;</li>
+                <li><strong>Suporte a múltiplos usuários simultâneos</strong>: Gerentes de diferentes agências e áreas acessando ao mesmo tempo.</li>
+            </ul>
+
+            <h4>4.6.2. Distinção de Outras Ferramentas Tecnológicas</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Tecnologia</th><th>Função Principal</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Plataforma de Ciência de Dados</strong></td><td>Tratar e analisar grandes volumes de dados para gerar insights</td></tr>
+                        <tr><td><strong>IoT (Internet das Coisas)</strong></td><td>Gerenciar dispositivos físicos conectados</td></tr>
+                        <tr><td><strong>Middleware</strong></td><td>Concentrar e rotear mensagens entre sistemas</td></tr>
+                        <tr><td><strong>Servidor Web</strong></td><td>Servir páginas e aplicações web</td></tr>
+                        <tr><td><strong>Sistema de Arquivos</strong></td><td>Gerenciar armazenamento de dados em disco</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-gold">
+
+            <h3>4.7. O Sistema PIX e a Quantidade de Chaves</h3>
+            <p>O PIX é o sistema de pagamentos instantâneos brasileiro, gerido pelo Banco Central. As chaves PIX funcionam como "apelidos" vinculados a uma conta, facilitando a identificação do recebedor.</p>
+            <div class="card card-gold">
+                <div class="card-title gold">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+                    Limites de chaves por conta
+                </div>
+                <ul>
+                    <li><strong>Pessoa Física (CPF):</strong> até <strong>5 chaves</strong> por conta;</li>
+                    <li><strong>Pessoa Jurídica (CNPJ):</strong> até <strong>20 chaves</strong> por conta.</li>
+                </ul>
+                <p><strong>Tipos de chave:</strong> CPF ou CNPJ; número de celular; e‑mail; chave aleatória (sequência de caracteres gerada pelo sistema).</p>
+                <p><strong>Aplicação prática:</strong> Um empresário (pessoa jurídica) pode vincular até 20 chaves diferentes à sua conta no Banco W, podendo usar seu CNPJ, e‑mails dos departamentos, celulares corporativos e chaves aleatórias para diferentes finalidades.</p>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 5                                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap5">
+            <h2>Capítulo 5 &middot; Temas Sociais e Benefícios — Abono Salarial (PIS/PASEP)</h2>
+
+            <h3>5.1. Base Legal</h3>
+            <p>O Abono Salarial é um direito constitucional (art. 239 da Constituição Federal) e está regulamentado pela <strong>Lei nº 7.998/1990</strong>. A Cesgranrio cobra com frequência a literalidade dos critérios estabelecidos nessa lei.</p>
+
+            <h3>5.2. Critérios para Recebimento (Literalidade da Lei)</h3>
+            <p>Para ter direito ao abono salarial anual (popularmente chamado de "14º salário" ou "PIS/Pasep"), o trabalhador deve preencher <strong>simultaneamente</strong> os três requisitos:</p>
+
+            <div class="card card-blue">
+                <div class="card-title blue">Requisito 1: Média Salarial</div>
+                <p>Ter recebido remuneração mensal média de <strong>até 2 salários mínimos</strong> durante o ano‑base.</p>
+                <p><strong>Pegadinha:</strong> A banca troca por "até 1 salário mínimo" ou "até 5 salários mínimos". O correto é <strong>2</strong>.</p>
+            </div>
+
+            <div class="card card-teal">
+                <div class="card-title teal">Requisito 2: Tempo de Trabalho</div>
+                <p>Ter exercido atividade remunerada por <strong>pelo menos 30 dias</strong>, consecutivos ou não, no ano‑base.</p>
+                <p><strong>Pegadinha:</strong> A banca apresenta "90 dias", "120 dias", "6 meses". O correto é <strong>30 dias</strong>.</p>
+            </div>
+
+            <div class="card card-gold">
+                <div class="card-title gold">Requisito 3: Tempo de Cadastro</div>
+                <p>Estar cadastrado no PIS/Pasep há <strong>pelo menos 5 anos</strong>.</p>
+                <p><strong>Pegadinha:</strong> As alternativas mais comuns são "1 ano", "2 anos", "3 anos". O correto é <strong>5 anos</strong>.</p>
+            </div>
+
+            <div class="macete">
+                <strong>Macete de Memorização — "30, 2, 5"</strong><br>
+                • <strong>30</strong> dias trabalhados no ano‑base;<br>
+                • Média de até <strong>2</strong> salários mínimos;<br>
+                • <strong>5</strong> anos de cadastro no PIS/Pasep.<br>
+                <span style="font-size:0.9rem;color:var(--text-muted);">Visualize mentalmente a sequência 30‑2‑5 e associe a situações do cotidiano para fixar.</span>
+            </div>
+
+            <h3>5.4. Valor do Abono</h3>
+            <p>O valor do abono é proporcional ao número de meses trabalhados no ano‑base. A fração é de 1/12 do salário mínimo vigente na data do pagamento por mês trabalhado. Quem trabalhou os 12 meses do ano‑base recebe o valor integral (um salário mínimo).</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 6                                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap6">
+            <h2>Capítulo 6 &middot; Prevenção à Lavagem de Dinheiro (PLD) — Governança</h2>
+
+            <h3>6.1. Circular Bacen nº 3.978/2020</h3>
+            <p>A Circular Bacen nº 3.978/2020 dispõe sobre a política, os procedimentos e os controles internos que as instituições financeiras devem adotar para prevenir a utilização do sistema financeiro para a prática dos crimes de lavagem de dinheiro e financiamento ao terrorismo.</p>
+
+            <h3>6.2. Estrutura de Governança</h3>
+            <p>Um dos requisitos centrais da circular é a exigência de uma <strong>estrutura de governança</strong> adequada. Mas por que a governança é o requisito estrutural e não simplesmente "procedimentos" ou "controles"?</p>
+            <div class="callout important">
+                A estrutura de governança é o mecanismo que:
+                <ul>
+                    <li>Abrange a liderança, a estratégia e os mecanismos de controle;</li>
+                    <li>Assegura que os procedimentos e controles internos sejam efetivamente implementados;</li>
+                    <li>Monitora continuamente a gestão dos riscos de lavagem de dinheiro;</li>
+                    <li>Garante o cumprimento das normas de PLD em todos os níveis da organização.</li>
+                </ul>
+            </div>
+            <p>A Cesgranrio explora a compreensão de que a governança é o arcabouço que sustenta todos os demais elementos (procedimentos, controles, treinamento, etc.).</p>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 7                                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap7">
+            <h2>Capítulo 7 &middot; Instituições Financeiras Públicas — Caixa Econômica Federal</h2>
+
+            <h3>7.1. Natureza Jurídica</h3>
+            <p>A Caixa Econômica Federal é uma <strong>empresa pública federal</strong>, instituição financeira 100% pública, cujo controle acionário pertence exclusivamente à União.</p>
+
+            <h3>7.2. Capital Social</h3>
+            <p>De acordo com o Estatuto Social da Caixa, a <strong>subscrição e a integralização do capital social são de responsabilidade exclusiva da União</strong>. Isso significa que:</p>
+            <ul>
+                <li>Não há participação de acionistas privados;</li>
+                <li>Não há participação de estados ou municípios;</li>
+                <li>A União é a única responsável por aportar capital na instituição.</li>
+            </ul>
+            <div class="callout warning">
+                <strong>⚠️ Pegadinha:</strong> A Cesgranrio apresenta alternativas como "União, estados e municípios" ou "acionistas privados e União". O correto é <strong>exclusivamente a União</strong>.
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 8                                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap8">
+            <h2>Capítulo 8 &middot; Estudos de Caso — Aplicação Prática na Agência</h2>
+
+            <h3>8.1. Caso 1 — Política Monetária e Crédito</h3>
+            <div class="card card-gold">
+                <div class="card-title gold">Situação</div>
+                <p>Maria, gerente de uma agência bancária, observa que nos últimos meses a procura por crédito imobiliário caiu significativamente. Ela lê no noticiário que o COPOM elevou a Taxa Selic em 2 pontos percentuais nos últimos seis meses.</p>
+            </div>
+            <div class="card card-blue">
+                <div class="card-title blue">Análise</div>
+                <p>A elevação da Selic (política contracionista) encarece o crédito em todas as modalidades. O crédito imobiliário, por ser de longo prazo, é particularmente sensível às variações da taxa básica. Com parcelas mais altas, menos clientes se qualificam para o financiamento.</p>
+            </div>
+            <div class="card card-teal">
+                <div class="card-title teal">Conduta</div>
+                <p>Maria deve compreender o cenário macroeconômico e ajustar sua abordagem comercial, focando em clientes com maior capacidade financeira e orientando os demais sobre o momento desfavorável para assumir dívidas de longo prazo.</p>
+            </div>
+
+            <h3>8.2. Caso 2 — Variação Cambial e Cliente Exportador</h3>
+            <div class="card card-gold">
+                <div class="card-title gold">Situação</div>
+                <p>José, escriturário, atende um cliente exportador de café que está visivelmente satisfeito. O cliente comenta que seu faturamento em reais aumentou 20% nos últimos meses, mesmo sem ter aumentado o volume exportado.</p>
+            </div>
+            <div class="card card-blue">
+                <div class="card-title blue">Análise</div>
+                <p>O Real se desvalorizou frente ao Dólar. O exportador recebe em dólar, mas converte para real. Com o dólar mais caro, cada dólar recebido gera mais reais. Além disso, o café brasileiro ficou mais competitivo no mercado internacional, pois o preço em dólar ficou mais baixo.</p>
+            </div>
+            <div class="card card-teal">
+                <div class="card-title teal">Conduta</div>
+                <p>José pode aproveitar a situação favorável do cliente para oferecer produtos de investimento, como aplicações em renda fixa com rentabilidade atrelada ao CDI, ajudando o cliente a rentabilizar esse aumento de receita.</p>
+            </div>
+
+            <h3>8.3. Caso 3 — Fintech e Concorrência</h3>
+            <div class="card card-gold">
+                <div class="card-title gold">Situação</div>
+                <p>Um cliente chega à agência afirmando que vai encerrar sua conta porque uma fintech ofereceu um cartão de crédito sem anuidade e uma conta digital com rendimento automático.</p>
+            </div>
+            <div class="card card-blue">
+                <div class="card-title blue">Análise</div>
+                <p>A fintech opera com custos operacionais muito inferiores (sem agências físicas, sem papel, processos totalmente digitais), o que permite oferecer produtos com taxas menores ou inexistentes. A resposta do banco tradicional não pode ser "combater" a fintech, mas sim agregar valor de outras formas (relacionamento, assessoria financeira, produtos mais complexos que a fintech não oferece).</p>
+            </div>
+            <div class="card card-teal">
+                <div class="card-title teal">Conduta do escriturário</div>
+                <p>Em vez de tentar convencer o cliente a ficar apenas com argumentos emocionais, o profissional deve apresentar os diferenciais do banco: atendimento personalizado, gerente dedicado, acesso a linhas de crédito exclusivas, seguros, previdência e assessoria para investimentos mais sofisticados. O foco é naquilo que a fintech não consegue oferecer.</p>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 9                                          -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap9">
+            <h2>Capítulo 9 &middot; Quadros‑Resumo e Tabelas para Revisão</h2>
+
+            <h3>9.1. Estrutura do SFN — Visão Hierárquica</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Nível</th><th>Órgão/Entidade</th><th>Função</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Normativo</strong></td><td>CMN</td><td>Formular regras gerais</td></tr>
+                        <tr><td><strong>Normativo</strong></td><td>CNSP</td><td>Regular seguros privados</td></tr>
+                        <tr><td><strong>Normativo</strong></td><td>CNPC</td><td>Regular previdência complementar</td></tr>
+                        <tr><td><strong>Supervisor</strong></td><td>BCB</td><td>Fiscalizar e executar política monetária</td></tr>
+                        <tr><td><strong>Supervisor</strong></td><td>CVM</td><td>Fiscalizar mercado de capitais</td></tr>
+                        <tr><td><strong>Supervisor</strong></td><td>SUSEP</td><td>Fiscalizar seguros</td></tr>
+                        <tr><td><strong>Operador</strong></td><td>Bancos, corretoras, etc.</td><td>Realizar operações financeiras</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>9.2. Política Monetária — Resumo dos Efeitos</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Ação</th><th>Tipo de Política</th><th>Efeito na Liquidez</th><th>Efeito nos Juros</th><th>Efeito no Câmbio</th></tr></thead>
+                    <tbody>
+                        <tr><td>Compra de títulos</td><td>Expansionista</td><td>Aumenta</td><td>Reduz</td><td>Desvaloriza o Real</td></tr>
+                        <tr><td>Venda de títulos</td><td>Contracionista</td><td>Reduz</td><td>Aumenta</td><td>Valoriza o Real</td></tr>
+                        <tr><td>Redução da Selic</td><td>Expansionista</td><td>Aumenta</td><td>Reduz</td><td>Desvaloriza o Real</td></tr>
+                        <tr><td>Aumento da Selic</td><td>Contracionista</td><td>Reduz</td><td>Aumenta</td><td>Valoriza o Real</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>9.3. Prazos de Guarda Documental</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Documento</th><th>Prazo</th><th>Base Legal</th></tr></thead>
+                    <tbody>
+                        <tr><td>Cadastro de clientes</td><td>5 anos</td><td>Regra geral</td></tr>
+                        <tr><td>Operações de câmbio</td><td><strong>10 anos</strong></td><td>Resolução BCB nº 277/2022</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>9.4. Requisitos do Abono Salarial (PIS/Pasep)</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Requisito</th><th>Valor</th></tr></thead>
+                    <tbody>
+                        <tr><td>Média salarial</td><td>Até 2 salários mínimos</td></tr>
+                        <tr><td>Tempo trabalhado no ano‑base</td><td>Mínimo 30 dias</td></tr>
+                        <tr><td>Cadastro no PIS/Pasep</td><td>Mínimo 5 anos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- CHAPTER 10                                         -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <section id="cap10">
+            <h2>Capítulo 10 &middot; Dicas de Prova — Cesgranrio</h2>
+
+            <h3>10.1. Padrões de Cobrança</h3>
+            <p>A Cesgranrio costuma:</p>
+            <ul>
+                <li>Cobrar hierarquia e competências do SFN de forma direta e literal;</li>
+                <li>Apresentar situações hipotéticas para testar a aplicação prática de conceitos;</li>
+                <li>Explorar prazos e percentuais com alternativas que trocam números;</li>
+                <li>Exigir distinção entre conceitos próximos (CMN x BCB, câmbio x capitais, DLT x blockchain);</li>
+                <li>Cobrar a literalidade de leis e normativos (especialmente prazos e requisitos).</li>
+            </ul>
+
+            <h3>10.2. Principais Pegadinhas</h3>
+            <div class="card card-red">
+                <div class="card-title red">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Fique atento!
+                </div>
+                <ol>
+                    <li><strong>Atribuir ao CMN funções do BCB</strong> (ex.: "fiscalizar bancos", "aplicar multas");</li>
+                    <li><strong>Inverter efeitos da política monetária</strong> (ex.: "compra de títulos aumenta juros");</li>
+                    <li><strong>Trocar prazos</strong> (ex.: "5 anos para documentos de câmbio" em vez de 10);</li>
+                    <li><strong>Alterar números do Abono Salarial</strong> (30 dias → 90 dias; 2 salários → 1 salário; 5 anos → 2 anos);</li>
+                    <li><strong>Confundir mercados</strong> (ex.: classificar operação de câmbio como mercado monetário);</li>
+                    <li><strong>Tratar Open Finance como aplicativo</strong> (é um sistema de compartilhamento);</li>
+                    <li><strong>Apresentar fintech como marketplace</strong> (fintech é intermediadora financeira).</li>
+                </ol>
+            </div>
+
+            <h3>10.3. Estratégia de Resolução</h3>
+            <p>Ao se deparar com uma questão da Cesgranrio:</p>
+            <ol>
+                <li><strong>Identifique o assunto central</strong> (SFN, política monetária, câmbio, inovação, etc.);</li>
+                <li><strong>Elimine alternativas</strong> com erros crassos de hierarquia ou competência;</li>
+                <li><strong>Verifique números e prazos</strong> — a banca adora trocá‑los;</li>
+                <li><strong>Teste a lógica econômica</strong> — se a alternativa desafia o senso comum econômico, provavelmente está errada;</li>
+                <li><strong>Confie na literalidade da lei</strong> em questões normativas.</li>
+            </ol>
+
+            <hr class="divider-gold">
+
+            <div class="quote" style="margin-top:2.5rem;">
+                Este material foi elaborado com foco na preparação para concursos públicos da área bancária, especialmente para os cargos de Técnico Bancário, Escriturário e Agente Comercial, considerando o perfil de cobrança das principais bancas examinadoras, com destaque para a Cesgranrio.
+                <span class="attribution">— Bons estudos!</span>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- FOOTER                                             -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <hr class="divider" style="margin-top:3.5rem;">
+
+        <footer style="text-align:center;padding:1.5rem 0 0.5rem;color:var(--text-muted);font-size:0.85rem;border-top:1px solid var(--border-subtle);margin-top:1rem;">
+            <p style="margin-bottom:0.2rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                &nbsp; Apostila Digital Premium &mdash; Conteúdo 100% preservado
+            </p>
+            <p style="font-size:0.75rem;color:var(--text-muted);opacity:0.6;">Material para estudo prolongado em tablet &bull; Todos os direitos reservados</p>
+        </footer>
+
+    </div>
+    <!-- end .container -->
+
+</body>
+</html>
