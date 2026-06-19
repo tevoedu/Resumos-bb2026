@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Conhecimentos Bancários - Módulo Avançado</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-primary: #0d0c1a;
+            --bg-secondary: #16152b;
+            --bg-card: #1e1d38;
+            --bg-highlight: #252447;
+            --bg-code: #2a284f;
+            --text-primary: #eaeaf0;
+            --text-secondary: #b8b8d0;
+            --text-muted: #8888aa;
+            --accent-blue: #6fc3ff;
+            --accent-gold: #f5c84a;
+            --accent-green: #7ddfb3;
+            --accent-orange: #ffb07c;
+            --accent-red: #ff7a7a;
+            --accent-purple: #c9a8ff;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-card: rgba(255, 255, 255, 0.08);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --radius: 14px;
+            --radius-sm: 8px;
+            --font-body: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: Georgia, 'Times New Roman', serif;
+            --max-width: 820px;
+            --transition: 0.25s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 17px;
+            padding: 2rem 1.5rem 4rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* ===== TIPOGRAFIA ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.3;
+            color: #ffffff;
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            letter-spacing: -0.01em;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--border-subtle);
+            padding-bottom: 0.4rem;
+            margin-top: 3rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            color: var(--accent-blue);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 1.6rem;
+            color: var(--accent-gold);
+        }
+
+        p {
+            margin-bottom: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        strong,
+        b {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        em {
+            color: var(--accent-blue);
+            font-style: italic;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color var(--transition);
+        }
+
+        a:hover {
+            border-bottom-color: var(--accent-blue);
+        }
+
+        /* ===== SUMÁRIO ===== */
+        .toc {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 2rem 2.2rem;
+            margin: 2rem 0 2.8rem;
+            border: 1px solid var(--border-card);
+            box-shadow: var(--shadow-card);
+        }
+
+        .toc-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .toc-title svg {
+            flex-shrink: 0;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem 2rem;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid transparent;
+            transition: border-color var(--transition);
+        }
+
+        .toc-item:hover {
+            border-bottom-color: var(--border-subtle);
+        }
+
+        .toc-num {
+            font-weight: 700;
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+            min-width: 2rem;
+        }
+
+        .toc-link {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: none;
+            transition: color var(--transition);
+        }
+
+        .toc-link:hover {
+            color: #ffffff;
+            border-bottom: none;
+        }
+
+        .toc-sub {
+            padding-left: 2.2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .toc-sub .toc-num {
+            min-width: 1.6rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 600px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+                gap: 0.2rem;
+            }
+            .toc {
+                padding: 1.5rem;
+            }
+            .toc-sub {
+                padding-left: 1.8rem;
+            }
+        }
+
+        /* ===== CABEÇALHO ===== */
+        .header {
+            text-align: center;
+            padding: 1.8rem 0 2.2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 1.5rem;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: #0d0c1a;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            padding: 0.2rem 1.2rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .header .meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.8rem;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 0.8rem;
+            display: inline-block;
+        }
+
+        /* ===== CARDS / BOXES ===== */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.6rem 2rem;
+            margin: 1.6rem 0;
+            border: 1px solid var(--border-card);
+            box-shadow: var(--shadow-card);
+            transition: border-color var(--transition);
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.6rem;
+            color: #ffffff;
+        }
+
+        .card-title svg {
+            flex-shrink: 0;
+        }
+
+        .card-tip {
+            border-left: 4px solid var(--accent-green);
+            background: rgba(125, 223, 179, 0.07);
+        }
+
+        .card-tip .card-title {
+            color: var(--accent-green);
+        }
+
+        .card-important {
+            border-left: 4px solid var(--accent-orange);
+            background: rgba(255, 176, 124, 0.07);
+        }
+
+        .card-important .card-title {
+            color: var(--accent-orange);
+        }
+
+        .card-warning {
+            border-left: 4px solid var(--accent-red);
+            background: rgba(255, 122, 122, 0.07);
+        }
+
+        .card-warning .card-title {
+            color: var(--accent-red);
+        }
+
+        .card-definition {
+            border-left: 4px solid var(--accent-purple);
+            background: rgba(201, 168, 255, 0.07);
+        }
+
+        .card-definition .card-title {
+            color: var(--accent-purple);
+        }
+
+        .card-blue {
+            border-left: 4px solid var(--accent-blue);
+            background: rgba(111, 195, 255, 0.06);
+        }
+
+        .card-blue .card-title {
+            color: var(--accent-blue);
+        }
+
+        .card-gold {
+            border-left: 4px solid var(--accent-gold);
+            background: rgba(245, 200, 74, 0.06);
+        }
+
+        .card-gold .card-title {
+            color: var(--accent-gold);
+        }
+
+        /* ===== TABELAS ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.6rem 0;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-card);
+            background: var(--bg-secondary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 500px;
+        }
+
+        th {
+            background: var(--bg-highlight);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.9rem 1.2rem;
+            text-align: left;
+            border-bottom: 2px solid var(--border-card);
+        }
+
+        td {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .table-highlight td {
+            background: rgba(111, 195, 255, 0.06);
+        }
+
+        /* ===== LISTAS ===== */
+        ul,
+        ol {
+            margin: 0.8rem 0 1.2rem 1.8rem;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        ul ul,
+        ol ol {
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-check li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .list-check li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .list-bullet {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-bullet li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .list-bullet li::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-size: 0.8rem;
+            top: 0.1rem;
+        }
+
+        /* ===== CITAÇÕES ===== */
+        .blockquote {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1.4rem 2rem;
+            margin: 1.6rem 0;
+            border-left: 4px solid var(--accent-purple);
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            position: relative;
+        }
+
+        .blockquote::before {
+            content: "“";
+            font-size: 3rem;
+            font-family: Georgia, serif;
+            color: var(--accent-purple);
+            opacity: 0.3;
+            position: absolute;
+            top: -0.2rem;
+            left: 0.6rem;
+            line-height: 1;
+        }
+
+        .blockquote p {
+            margin-bottom: 0;
+            padding-left: 1.8rem;
+        }
+
+        .blockquote cite {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding-left: 1.8rem;
+        }
+
+        /* ===== DESTAQUES ===== */
+        .highlight {
+            background: rgba(111, 195, 255, 0.18);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .highlight-gold {
+            background: rgba(245, 200, 74, 0.18);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .highlight-green {
+            background: rgba(125, 223, 179, 0.18);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .highlight-red {
+            background: rgba(255, 122, 122, 0.18);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* ===== DIVISÓRIAS ===== */
+        .divider {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-card), transparent);
+            margin: 2.8rem 0;
+        }
+
+        .divider-diamond {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+            margin: 2.8rem 0;
+            position: relative;
+        }
+
+        .divider-diamond::after {
+            content: "◆";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--bg-primary);
+            padding: 0 0.6rem;
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+        }
+
+        /* ===== SVG INLINE ===== */
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            margin: 1.8rem 0;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1.2rem;
+            border: 1px solid var(--border-card);
+        }
+
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ===== MACETE / DESTAQUE ===== */
+        .macete {
+            background: var(--bg-highlight);
+            border-radius: var(--radius);
+            padding: 1.2rem 1.8rem;
+            margin: 1.4rem 0;
+            border: 1px solid var(--border-card);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .macete svg {
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .macete-content {
+            flex: 1;
+        }
+
+        .macete-content strong {
+            color: var(--accent-gold);
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 1rem 3rem;
+                font-size: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            h4 {
+                font-size: 1.1rem;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            .header .subtitle {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1.2rem 1.4rem;
+            }
+
+            .toc {
+                padding: 1.2rem;
+            }
+
+            .blockquote {
+                padding: 1rem 1.2rem;
+            }
+
+            .blockquote::before {
+                font-size: 2.2rem;
+                left: 0.4rem;
+            }
+            .blockquote p {
+                padding-left: 1.2rem;
+            }
+            .blockquote cite {
+                padding-left: 1.2rem;
+            }
+
+            .table-wrap table {
+                font-size: 0.85rem;
+                min-width: 400px;
+            }
+            th,
+            td {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .macete {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.4rem;
+            }
+            .macete svg {
+                margin: 0 auto;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            body {
+                padding: 2rem 2.5rem 4rem;
+                font-size: 18px;
+            }
+            .container {
+                max-width: 720px;
+            }
+            h1 {
+                font-size: 2.8rem;
+            }
+            h2 {
+                font-size: 2.2rem;
+            }
+            .card {
+                padding: 2rem 2.4rem;
+            }
+        }
+
+        /* ===== ANIMAÇÃO SUAVE ===== */
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ===== RODAPÉ ===== */
+        .footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer svg {
+            vertical-align: middle;
+            margin-right: 0.3rem;
+        }
+
+        /* ===== MISC ===== */
+        .text-center {
+            text-align: center;
+        }
+        .mt-1 {
+            margin-top: 1rem;
+        }
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+        .inline-icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.3rem;
+        }
+        .gap-1 {
+            gap: 0.5rem;
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-highlight);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--border-card);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header fade-in">
+            <div class="badge">Módulo Avançado</div>
+            <h1>Conhecimentos Bancários,<br>Marketing e Vendas</h1>
+            <div class="subtitle">Estratégias Comerciais, Produtos Financeiros e Regulação do Mercado</div>
+            <div class="meta">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:0.4rem;">
+                    <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                </svg>
+                Material exclusivo para concursos • Cesgranrio • Leitura prolongada
+            </div>
+        </header>
+
+        <!-- ===== SUMÁRIO ===== -->
+        <nav class="toc fade-in" aria-label="Sumário">
+            <div class="toc-title">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16M4 12h16M4 18h10"/>
+                    <circle cx="18" cy="18" r="2"/>
+                    <circle cx="18" cy="6" r="2"/>
+                    <circle cx="18" cy="12" r="2"/>
+                </svg>
+                Sumário
+            </div>
+            <div class="toc-grid">
+                <!-- Cap 1 -->
+                <div class="toc-item"><span class="toc-num">1</span><a href="#cap1" class="toc-link">Marketing Digital &amp; Mix de Marketing</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">1.1</span><a href="#cap1-1" class="toc-link">Landing Page</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">1.2</span><a href="#cap1-2" class="toc-link">Os 4Ps do Mix de Marketing</a></div>
+                <!-- Cap 2 -->
+                <div class="toc-item"><span class="toc-num">2</span><a href="#cap2" class="toc-link">Prospecção, Gatilhos Mentais &amp; Capital Intelectual</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">2.1</span><a href="#cap2-1" class="toc-link">Métodos de Prospecção</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">2.2</span><a href="#cap2-2" class="toc-link">Gatilhos Mentais</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">2.3</span><a href="#cap2-3" class="toc-link">Capital Intelectual</a></div>
+                <!-- Cap 3 -->
+                <div class="toc-item"><span class="toc-num">3</span><a href="#cap3" class="toc-link">Métricas de Negócio, Câmbio e Proteção</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">3.1</span><a href="#cap3-1" class="toc-link">Customer Lifetime Value (CLV)</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">3.2</span><a href="#cap3-2" class="toc-link">Mercado de Câmbio</a></div>
+                <!-- Cap 4 -->
+                <div class="toc-item"><span class="toc-num">4</span><a href="#cap4" class="toc-link">Mercado de Capitais, Derivativos &amp; Renda Fixa Privada</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">4.1</span><a href="#cap4-1" class="toc-link">Supervisão: Bacen vs CVM</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">4.2</span><a href="#cap4-2" class="toc-link">Derivativos Financeiros</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">4.3</span><a href="#cap4-3" class="toc-link">Produtos de Renda Fixa Privada</a></div>
+                <!-- Cap 5 -->
+                <div class="toc-item"><span class="toc-num">5</span><a href="#cap5" class="toc-link">Mercados, Regulação &amp; Produtos Específicos</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">5.1</span><a href="#cap5-1" class="toc-link">Mercado de Balcão</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">5.2</span><a href="#cap5-2" class="toc-link">Seguros</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">5.3</span><a href="#cap5-3" class="toc-link">Crédito Rotativo do Cartão</a></div>
+                <!-- Cap 6 -->
+                <div class="toc-item"><span class="toc-num">6</span><a href="#cap6" class="toc-link">Estratégia Avançada de Prova</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">6.1</span><a href="#cap6-1" class="toc-link">Padrão das Distinções Conceituais</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">6.2</span><a href="#cap6-2" class="toc-link">Erro Comum: Crédito Rotativo</a></div>
+                <div class="toc-item toc-sub"><span class="toc-num">6.3</span><a href="#cap6-3" class="toc-link">Dicas e Macetes Finais</a></div>
+            </div>
+        </nav>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 1 -->
+        <!-- ============================================================ -->
+        <section id="cap1">
+            <h2>Capítulo 1 &bull; Marketing Digital e o Mix de Marketing no Contexto Bancário</h2>
+
+            <p>Prezado aluno, este módulo foi cuidadosamente elaborado para proporcionar a você uma compreensão profunda e aplicada dos temas mais recorrentes e desafiadores nos concursos da área bancária, especialmente aqueles organizados pela Cesgranrio. Não se trata de mera revisão conceitual, mas de um verdadeiro treinamento para a rotina profissional e para a resolução de questões complexas. Cada tópico será explorado em suas dimensões teóricas, práticas e estratégicas, com atenção redobrada às "pegadinhas" que podem definir sua aprovação.</p>
+
+            <!-- 1.1 -->
+            <section id="cap1-1">
+                <h3>1.1 Landing Page: a ponte para a conversão de clientes</h3>
+                <p>No ambiente digital cada vez mais presente na estratégia dos bancos, compreender as ferramentas de captação e conversão de clientes é essencial para o profissional moderno. Uma das ferramentas mais poderosas e frequentemente mal compreendida é a <strong>Landing Page</strong>.</p>
+
+                <h4>1.1.1 Definição e Função Principal</h4>
+                <p>A Landing Page, traduzida literalmente como "página de aterrissagem" ou "página de pouso", é muito mais do que uma simples página web. Trata-se de uma <span class="highlight">página de conversão</span>, meticulosamente projetada com um único objetivo: transformar visitantes em leads ou clientes. No jargão do marketing digital, ela é o destino final de uma campanha, o ponto de chegada após um clique em um anúncio, e-mail ou link promocional.</p>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Contexto Bancário
+                    </div>
+                    <p>Imagine a seguinte situação na sua futura agência:</p>
+                    <p>A diretoria de marketing do banco decide promover uma nova linha de crédito consignado com taxas reduzidas para servidores públicos. Em vez de simplesmente anunciar no site principal, onde o cliente poderia se perder entre abas de "conta corrente", "investimentos" e "cartões", é criada uma Landing Page específica. Nela, o cliente encontra apenas: um título impactante com a oferta, uma breve descrição dos benefícios, um formulário de simulação ou solicitação de contato, e um botão de "call-to-action" (chamada para ação), como "Simule Agora" ou "Quero Essa Taxa Exclusiva".</p>
+                    <p>A função principal da Landing Page é, portanto, <strong>aumentar a taxa de conversão</strong> de campanhas específicas, concentrando a atenção do cliente na oferta e eliminando qualquer elemento que possa desviar seu foco.</p>
+                </div>
+
+                <h4>1.1.2 Distinções Cruciais para a Prova e para a Prática</h4>
+                <p>A Cesgranrio é mestre em embaralhar conceitos correlatos. É fundamental que você saiba diferenciar a Landing Page de outras ferramentas digitais que podem aparecer nas alternativas.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Ferramenta</th><th>Definição e Foco</th><th>Frase-Chave para Memorização</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Landing Page</strong></td><td>Página de conversão focada em uma oferta. Objetivo: gerar negócios.</td><td>"A página para onde o cliente 'pousa' e decide comprar."</td></tr>
+                            <tr><td><strong>SAC</strong></td><td>Canal de suporte para dúvidas, reclamações e resolução de problemas. Foco no relacionamento pós-venda.</td><td>"A central de ajuda, não de vendas."</td></tr>
+                            <tr><td><strong>Drip Line (Drip Marketing)</strong></td><td>Estratégia de "gotejamento" de e-mails automatizados enviados em sequência lógica para nutrir um lead.</td><td>"A sequência de e-mails que educa o cliente ao longo do tempo."</td></tr>
+                            <tr><td><strong>Link Building</strong></td><td>Técnica de SEO focada em obter links de outros sites para melhorar a autoridade e posição em buscadores.</td><td>"Construção de pontes (links) para ranquear melhor no Google."</td></tr>
+                            <tr><td><strong>Gateway de Pagamento</strong></td><td>Sistema tecnológico que processa pagamentos online de forma segura, intermediando a transação entre banco, bandeira do cartão e lojista.</td><td>"O 'porteiro' eletrônico que aprova a transação."</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Pegadinha Cesgranrio
+                    </div>
+                    <p>Um banco digital, ao lançar uma campanha de abertura de conta com cashback, utilizará uma <strong>Landing Page</strong> para capturar os dados do cliente. Se, posteriormente, ele enviar uma série de e-mails explicando como usar a conta, ele estará fazendo <strong>Drip Marketing</strong>. Se o cliente tiver um problema com o cashback não creditado, ele recorrerá ao <strong>SAC</strong>. A integração que permite que o pagamento do cashback seja processado é feita por um <strong>Gateway de Pagamento</strong>. E, para que sua Landing Page apareça nos primeiros resultados de busca quando alguém pesquisar "conta digital com cashback", a equipe de marketing trabalhará em estratégias de <strong>Link Building</strong>.</p>
+                    <p>A "pegadinha" clássica é a banca descrever uma página de vendas e, nas alternativas, incluir termos como "Gateway de Pagamento" ou "SAC". Lembre-se: <strong>se o objetivo é converter uma oferta, a resposta será Landing Page.</strong></p>
+                </div>
+            </section>
+
+            <!-- 1.2 -->
+            <section id="cap1-2">
+                <h3>1.2 Os 4Ps do Mix de Marketing e a Promoção de Vendas</h3>
+                <p>O Mix de Marketing, popularizado por Philip Kotler, é o alicerce das estratégias comerciais de qualquer empresa, e os bancos não são exceção. Compreender os 4Ps é vital para o agente comercial posicionar produtos e para o escriturário entender as campanhas que o banco implementa.</p>
+
+                <h4>1.2.1 Os Componentes do Mix</h4>
+                <p>Os 4Ps formam um modelo integrado onde cada elemento deve ser pensado em conjunto para atingir o mercado-alvo.</p>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 9h6M9 15h4"/>
+                        </svg>
+                        Produto
+                    </div>
+                    <p>É tudo aquilo que o banco oferece para satisfazer uma necessidade do cliente. Não se limita a bens físicos. Um "produto" bancário pode ser uma conta corrente, um pacote de serviços, um financiamento imobiliário, um fundo de investimento ou um seguro de vida. Envolve características como design (no caso do cartão), qualidade do atendimento associado e a marca.</p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 12h8"/>
+                        </svg>
+                        Preço
+                    </div>
+                    <p>É o valor monetário que o cliente paga para adquirir o produto ou serviço. No contexto bancário, o conceito de preço é amplo e envolve:</p>
+                    <ul>
+                        <li><strong>Taxas de Juros:</strong> Preço do dinheiro no tempo (empréstimos, financiamentos).</li>
+                        <li><strong>Tarifas:</strong> Preço pela prestação de serviços (manutenção de conta, TED, saque extra).</li>
+                        <li><strong>Taxa de Administração:</strong> Preço pela gestão de um fundo de investimento.</li>
+                        <li><strong>Prêmio:</strong> Preço do seguro.</li>
+                    </ul>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                        Praça (Distribuição)
+                    </div>
+                    <p>Refere-se aos canais pelos quais o produto chega ao cliente. Para os bancos, a Praça evoluiu drasticamente:</p>
+                    <ul>
+                        <li><strong>Canais Físicos:</strong> Agências, postos de atendimento, correspondentes bancários (como lotéricas e supermercados).</li>
+                        <li><strong>Canais Digitais:</strong> Internet Banking, aplicativo mobile, plataformas de open finance.</li>
+                    </ul>
+                    <p><strong>Exemplo Prático:</strong> Um empréstimo pessoal pode ser "distribuído" tanto no caixa da agência quanto pelo aplicativo do banco. A estratégia de Praça define onde o cliente terá acesso ao Produto.</p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Promoção
+                    </div>
+                    <p>É o P que mais gera confusão com o termo "promoção" do senso comum (desconto). Em Marketing, <strong>Promoção é toda e qualquer ação de comunicação</strong> para divulgar o produto, informar o cliente e persuadi-lo à compra. Inclui:</p>
+                    <ul>
+                        <li><strong>Publicidade:</strong> Anúncios em TV, rádio, internet.</li>
+                        <li><strong>Venda Pessoal:</strong> O trabalho do gerente e do agente comercial na agência.</li>
+                        <li><strong>Promoção de Vendas:</strong> Ofertas por tempo limitado (ex: "isenção de anuidade por 1 ano").</li>
+                        <li><strong>Marketing Direto:</strong> Comunicação segmentada e direta com clientes específicos, por meio de e-mails, SMS, mala direta ou telemarketing ativo.</li>
+                    </ul>
+                </div>
+
+                <h4>1.2.2 Foco em Marketing Direto e a Distinção de "Planejamento"</h4>
+                <p>O Marketing Direto se enquadra, portanto, no <strong>P de Promoção</strong>. É uma ferramenta poderosa no setor bancário, pois permite ofertas personalizadas com base no perfil de consumo do cliente. Quando o banco te envia um e-mail com a oferta de um consórcio, ou quando o escriturário recebe uma lista de clientes "pré-aprovados" para um crédito e deve contatá-los por telefone, trata-se de ações de Marketing Direto.</p>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Dica de Prova (Cesgranrio)
+                    </div>
+                    <p>Cuidado com a alternativa <strong>"Planejamento"</strong>. Muitos alunos, na ânsia, confundem os 4Ps e acabam marcando-a. Planejamento é uma etapa anterior, uma função administrativa que orienta a definição do Mix de Marketing, mas <strong>não é um dos 4Ps clássicos</strong>.</p>
+                </div>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Macete para Memorizar os 4Ps:</strong><br>
+                        <span class="highlight">Produto:</span> <em>O QUE</em> vender.<br>
+                        <span class="highlight-gold">Preço:</span> <em>QUANTO</em> cobrar.<br>
+                        <span class="highlight">Praça:</span> <em>ONDE</em> vender.<br>
+                        <span class="highlight-gold">Promoção:</span> <em>COMO</em> comunicar e atrair o cliente.
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <hr class="divider-diamond">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 2 -->
+        <!-- ============================================================ -->
+        <section id="cap2">
+            <h2>Capítulo 2 &bull; Prospecção de Clientes, Gatilhos Mentais e Capital Intelectual</h2>
+
+            <section id="cap2-1">
+                <h3>2.1 Métodos de Prospecção de Clientes: a arte de construir uma carteira</h3>
+                <p>Prospecção é o processo ativo de buscar novos clientes para o banco. Dominar seus diferentes métodos é crucial tanto para a atuação do agente comercial quanto para acertar questões que descrevem situações práticas.</p>
+
+                <h4>2.1.1 Cadeia de Indicação: o poder do relacionamento</h4>
+                <p>O método da cadeia de indicação (ou member-get-member) é um dos mais eficazes e de menor custo. Ele se baseia no princípio da confiança e da satisfação.</p>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        Como funciona na prática
+                    </div>
+                    <p>João, gerente de relacionamento, acaba de fechar uma ótima previdência privada para a cliente Maria. Ao final do atendimento, percebendo a satisfação de Maria, João diz: <em>"Dona Maria, fico muito feliz que a senhora tenha confiado em nosso planejamento. A senhora conhece algum amigo ou familiar que também se preocupa com o futuro e que poderia se beneficiar dessa mesma estratégia? Eu adoraria ajudá-lo também."</em></p>
+                    <p>Ao solicitar indicações, o gerente cria uma "cadeia": um cliente satisfeito gera um novo cliente, que por sua vez poderá gerar outro, e assim sucessivamente. O vínculo inicial de confiança com Maria reduz a resistência do novo prospect.</p>
+                </div>
+
+                <h4>2.1.2 Diferenciando Outros Métodos de Prospecção</h4>
+                <p>É essencial não confundir a cadeia de indicação com outras estratégias comuns.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Método de Prospecção</th><th>Mecanismo Principal</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Cadeia de Indicação</strong></td><td>Recomendação direta de cliente satisfeito a um prospect.</td></tr>
+                            <tr><td><strong>Telemarketing</strong></td><td>Abordagem telefônica fria e ativa.</td></tr>
+                            <tr><td><strong>Centro de Influência</strong></td><td>Parceria com um líder para acessar seu grupo.</td></tr>
+                            <tr><td><strong>Clientes Órfãos</strong></td><td>Reaproveitamento de clientes sem gerente.</td></tr>
+                            <tr><td><strong>Clube de Prospecção</strong></td><td>Troca mútua de leads entre profissionais.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Atenção ao enunciado!
+                    </div>
+                    <p>Se a questão falar em <strong>"acessar novos clientes por meio de recomendações dos clientes atuais"</strong>, a resposta é, sem dúvida, <span class="highlight">Cadeia de Indicação</span>.</p>
+                </div>
+            </section>
+
+            <section id="cap2-2">
+                <h3>2.2 Gatilhos Mentais em Vendas: a psicologia aplicada à negociação</h3>
+                <p>Os gatilhos mentais são atalhos psicológicos que influenciam a tomada de decisão das pessoas. No contexto de vendas bancárias, conhecê-los é entender o que realmente motiva um cliente a dizer "sim".</p>
+
+                <h4>2.2.1 O Gatilho da Escassez: "Só para os primeiros..."</h4>
+                <p>A escassez é um dos gatilhos mais poderosos. Ele se baseia no princípio de que valorizamos mais aquilo que é raro, limitado ou que está prestes a se esgotar. A simples percepção de escassez gera um senso de urgência e medo da perda (FOMO).</p>
+
+                <div class="card card-gold">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Aplicação Prática
+                    </div>
+                    <p><em>"Os 20 primeiros clientes que investirem no Fundo Super S estarão isentos de taxas de administração por 12 meses."</em></p>
+                    <p>Essa frase, típica do dia a dia bancário, dispara o gatilho da escassez de duas formas:</p>
+                    <ul>
+                        <li><strong>Limitação de Quantidade:</strong> Apenas 20 clientes serão beneficiados.</li>
+                        <li><strong>Limitação Temporal Indireta:</strong> A condição é válida "até que os 20 primeiros" contratem, o que pode acontecer a qualquer momento.</li>
+                    </ul>
+                    <p>O cliente, com medo de perder a vantagem exclusiva, é levado a agir rapidamente, encurtando o ciclo de venda.</p>
+                </div>
+
+                <h4>2.2.2 Diferenciando os Principais Gatilhos Mentais</h4>
+                <p>Para não cair nas armadilhas da prova, é preciso distinguir a escassez de outros gatilhos com os quais ela pode ser confundida.</p>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12h4l2-5 3 9 2-6 2 4 3-5"/>
+                        </svg>
+                        Escassez
+                    </div>
+                    <p>Foco na limitação da oferta em si (quantidade, tempo, edição limitada). O valor é gerado pela dificuldade de acesso.</p>
+                    <p><em>Exemplo: "Últimas unidades de LCI com essa taxa."</em></p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Ancoragem
+                    </div>
+                    <p>Usa uma informação de referência para influenciar a percepção de valor de algo. O primeiro preço (a âncora) influencia o julgamento dos preços subsequentes.</p>
+                    <p><em>Exemplo: Um gerente mostra primeiro um plano de previdência de R$ 1.000/mês (âncora alta) para depois apresentar o plano ideal de R$ 500/mês. Este último parecerá muito mais barato em comparação.</em></p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        Prova Social
+                    </div>
+                    <p>Baseia-se no comportamento da maioria ou de figuras de autoridade para gerar confiança. "Se outros estão fazendo, deve ser bom."</p>
+                    <p><em>Exemplo: "Mais de 1 milhão de clientes já confiam em nosso fundo de investimento."</em></p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        Reciprocidade
+                    </div>
+                    <p>Tendência humana de querer retribuir um favor ou gentileza.</p>
+                    <p><em>Exemplo: Um banco oferece uma consultoria financeira gratuita e não vinculativa (o "presente"), criando uma dívida psicológica que aumenta a chance de o cliente contratar um produto posteriormente.</em></p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Conformidade (ou Autoridade)
+                    </div>
+                    <p>Tendência de seguir o conselho de uma autoridade ou especialista.</p>
+                    <p><em>Exemplo: Uma campanha de investimento endossada por um economista renomado. "O especialista recomendou."</em></p>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Estratégia para a Cesgranrio
+                    </div>
+                    <p>Quando a frase-chave no enunciado envolver <strong>limitação explícita</strong> de algo para gerar ação, a resposta é <span class="highlight">escassez</span>. Se houver um preço inicial para comparação, é <span class="highlight-gold">ancoragem</span>. Se o apelo for "todo mundo está fazendo", é <span class="highlight-green">prova social</span>.</p>
+                </div>
+            </section>
+
+            <section id="cap2-3">
+                <h3>2.3 Capital Intelectual: os ativos invisíveis que geram valor</h3>
+                <p>O capital intelectual representa o conjunto de ativos intangíveis de uma organização que geram valor presente e futuro. Para o setor bancário, onde o conhecimento e o relacionamento são fundamentais, compreender seus pilares é cada vez mais cobrado em provas.</p>
+
+                <h4>2.3.1 Os Três Pilares do Capital Intelectual</h4>
+                <p>O capital intelectual é comumente dividido em três categorias interligadas:</p>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        Capital Humano
+                    </div>
+                    <p>É o conhecimento, a habilidade, a experiência e a capacidade de inovação das pessoas que trabalham no banco. É o ativo que "vai para casa à noite".</p>
+                    <p><em>Exemplo: A expertise de um analista de crédito, a capacidade de negociação de um gerente, a habilidade técnica da equipe de TI. O banco não é "dono" desse capital, ele o "aluga" por meio dos salários.</em></p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 9h6M9 15h4"/>
+                        </svg>
+                        Capital Estrutural (ou Organizacional)
+                    </div>
+                    <p>É tudo aquilo que permanece no banco quando os funcionários vão embora. É a infraestrutura que apoia o capital humano. Inclui:</p>
+                    <ul>
+                        <li><strong>Ativos de Propriedade Intelectual:</strong> Patentes de tecnologias bancárias, marcas registradas, softwares proprietários.</li>
+                        <li><strong>Ativos de Infraestrutura:</strong> Processos internos, metodologias, manuais de procedimentos, cultura organizacional, sistemas de gestão de risco, banco de dados.</li>
+                    </ul>
+                    <p><em>Exemplo: O algoritmo que o banco usa para pré-aprovar crédito. Ele é um ativo estrutural.</em></p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        Capital Relacional (ou de Clientes)
+                    </div>
+                    <p>É o valor gerado por todas as relações externas da organização com seus públicos de interesse (stakeholders). Este é um pilar central para o profissional de agência.</p>
+                    <p><strong>Componentes:</strong> Carteira de clientes (e sua fidelidade), relacionamento com fornecedores, parcerias estratégicas, imagem e reputação da marca, nível de satisfação e confiança dos clientes.</p>
+                    <p><em>Exemplo Prático: A confiança que um cliente de longa data deposita em seu gerente, aceitando suas recomendações e concentrando seus negócios no banco. Essa carteira fidelizada é o mais puro capital relacional.</em></p>
+                </div>
+
+                <div class="card card-tip">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Aplicação no Atendimento
+                    </div>
+                    <p>Quando o agente comercial atende bem um cliente e resolve seus problemas, ele não está apenas cumprindo uma tarefa. Ele está, de forma direta, <strong>construindo o capital relacional</strong> do banco, aumentando a chance de retenção, novos negócios (cross-selling) e indicações.</p>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Pilar do Capital Intelectual</th><th>Foco</th><th>Palavras-Chave</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Humano</strong></td><td>Pessoas (internas)</td><td>Competências, habilidades, experiência dos funcionários.</td></tr>
+                            <tr><td><strong>Estrutural</strong></td><td>Processos e Ativos (internos)</td><td>Patentes, marcas, sistemas, manuais, cultura, banco de dados.</td></tr>
+                            <tr><td><strong>Relacional</strong></td><td>Relações (externas)</td><td>Clientes, fornecedores, parceiros, reputação, fidelidade.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Pegadinha Cesgranrio
+                    </div>
+                    <p>A banca costuma descrever situações com foco nas <strong>relações externas</strong> e colocar como alternativa "capital estrutural" ou "capital humano". Lembre-se: <span class="highlight">se o foco da questão for o relacionamento com clientes e parceiros, é capital relacional.</span></p>
+                </div>
+            </section>
+        </section>
+
+        <hr class="divider-diamond">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 3 -->
+        <!-- ============================================================ -->
+        <section id="cap3">
+            <h2>Capítulo 3 &bull; Métricas de Negócio, Câmbio e Proteção</h2>
+
+            <section id="cap3-1">
+                <h3>3.1 Customer Lifetime Value (CLV): o valor do cliente no tempo</h3>
+                <p>O Customer Lifetime Value (CLV), ou Valor do Ciclo de Vida do Cliente, é uma métrica de suma importância para a estratégia comercial do banco. Ela projeta o lucro total que um cliente deve gerar durante todo o seu relacionamento com a instituição. O CLV orienta decisões como: quanto investir para adquirir um novo cliente? Quais clientes merecem maior esforço de retenção?</p>
+
+                <h4>3.1.1 O Cálculo Essencial do CLV</h4>
+                <p>O conceito é simples e poderoso, e a Cesgranrio explora cálculos diretos. A lógica fundamental é: projetar o valor médio gerado por período e multiplicá-lo pelo número de períodos da vida útil do cliente.</p>
+
+                <div class="card card-gold">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Fórmula Básica do CLV
+                    </div>
+                    <p style="font-size:1.3rem;text-align:center;font-weight:700;color:#fff;">
+                        CLV = (Valor Mensal Gerado) &times; (Tempo de Ciclo de Vida em Meses)
+                    </p>
+                    <p><strong>Cuidado com as Unidades de Tempo!</strong> Este é o principal ponto de erro em prova. O valor gerado costuma ser dado em meses (ex: R$ 40.000,00 de receita mensal), mas o ciclo de vida pode ser dado em anos. A primeira etapa do cálculo é, obrigatoriamente, converter o ciclo de vida para meses.</p>
+                </div>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        Estudo de Caso 1: Pessoa Jurídica
+                    </div>
+                    <p>Um banco está analisando sua carteira de Pessoa Jurídica. Uma empresa-cliente média gera R$ 40.000,00 de receita mensal para o banco (entre tarifas, juros e serviços). O tempo médio de retenção (ciclo de vida) desse tipo de cliente é de 3 anos. Qual o CLV dessa empresa?</p>
+                    <p><strong>Passo a Passo:</strong></p>
+                    <ul>
+                        <li>Converter o ciclo de vida para meses: <span class="highlight">3 anos &times; 12 meses/ano = 36 meses</span>.</li>
+                        <li>Multiplicar pelo valor mensal: <span class="highlight-gold">36 meses &times; R$ 40.000,00/mês = <strong>R$ 1.440.000,00</strong></span>.</li>
+                    </ul>
+                    <p><strong>Interpretação Gerencial:</strong> Isso significa que, na média, cada nova empresa desse porte que o banco conquista deve gerar um valor de R$ 1,44 milhão durante sua relação com o banco. Com esse número em mente, o gerente pode, por exemplo, justificar um investimento de R$ 5.000,00 em um brinde ou evento para fidelizar esses clientes, pois o retorno potencial é muitas vezes maior.</p>
+                </div>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        Estudo de Caso 2: Pessoa Física de Alta Renda
+                    </div>
+                    <p>O banco possui um segmento de clientes Personnalité. Um cliente desse segmento gera, em média, R$ 14.000,00 de receita mensal. O ciclo de vida estimado é de 10 anos. Qual o CLV?</p>
+                    <p><strong>Passo a Passo:</strong></p>
+                    <ul>
+                        <li>Converter ciclo de vida: <span class="highlight">10 anos &times; 12 meses = 120 meses</span>.</li>
+                        <li>Calcular: <span class="highlight-gold">120 meses &times; R$ 14.000,00 = <strong>R$ 1.680.000,00</strong></span>.</li>
+                    </ul>
+                    <p><strong>Observação Comparativa:</strong> Embora o cliente Pessoa Física gere menos receita mensal, seu ciclo de vida muito mais longo faz com que seu CLV supere o da empresa do primeiro exemplo. Isso demonstra a importância de estratégias de fidelização de longo prazo, especialmente para clientes de varejo de alta renda.</p>
+                </div>
+            </section>
+
+            <section id="cap3-2">
+                <h3>3.2 Mercado de Câmbio: contratos, equilíbrio e proteção</h3>
+                <p>O mercado de câmbio é um ambiente vital para a economia e para as operações bancárias. Nele, moedas estrangeiras são negociadas. O escriturário, especialmente em agências que lidam com comércio exterior ou remessas, precisa ter noções sólidas sobre esse tema.</p>
+
+                <h4>3.2.1 Contratos de Câmbio: O Que É Imutável e o Que Pode Ser Ajustado?</h4>
+                <p>O contrato de câmbio é o documento que formaliza uma operação de compra e venda de moeda estrangeira entre o cliente (comprador ou vendedor) e o banco autorizado pelo Banco Central.</p>
+
+                <div class="card card-important">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Regra Fundamental
+                    </div>
+                    <p>O contrato de câmbio é, por natureza, um instrumento de <strong>liquidação futura</strong>, ou seja, ele é assinado hoje, mas a entrega da moeda (nacional ou estrangeira) se dará em uma data posterior acordada. Dada a volatilidade do mercado, a regulamentação do Banco Central é rigorosa quanto ao que pode ser alterado posteriormente.</p>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        O que NUNCA pode ser alterado (Cláusulas Pétreas)
+                    </div>
+                    <ul class="list-check">
+                        <li><strong>Partes</strong> (Comprador e Vendedor): A identidade das partes é essencial à natureza do contrato. Mudar um deles seria criar uma nova obrigação.</li>
+                        <li><strong>Valores</strong> (em Moeda Estrangeira e em Moeda Nacional): O montante da operação, tanto em dólar quanto em reais, é fixo. Se o valor mudar, a base da negociação se desfaz.</li>
+                        <li><strong>Moeda Estrangeira:</strong> Um contrato firmado em Dólar Americano não pode ser alterado para Euro.</li>
+                        <li><strong>Taxa de Câmbio:</strong> Este é o ponto mais sensível. A taxa é acordada no momento da contratação (fechamento do contrato). Se o câmbio oscilar nos dias seguintes, não há volta: o contrato é para ser liquidado na taxa pactuada. Permitir a alteração da taxa seria abrir uma porta para a especulação predatória e para enormes riscos sistêmicos.</li>
+                    </ul>
+                </div>
+
+                <div class="card card-tip">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        O que PODE ser alterado (por mútuo acordo)
+                    </div>
+                    <ul>
+                        <li><strong>Datas e Prazos:</strong> O prazo para a entrega dos documentos, o vencimento do contrato e a data de liquidação podem ser prorrogados. Isso ocorre, por exemplo, quando um importador enfrenta um atraso no embarque das mercadorias e, junto com o banco, ajusta a data prevista para a chegada dos recursos.</li>
+                        <li><strong>Natureza da Operação</strong> (em alguns casos): É possível ajustar a finalidade, desde que mantida a essência.</li>
+                    </ul>
+                </div>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Justificativa Prática e Teórica
+                    </div>
+                    <p>A rigidez visa dar <strong>segurança jurídica e financeira</strong> a ambas as partes, eliminando o risco de uma das partes querer se beneficiar de uma variação cambial que lhe seja favorável após o fechamento do contrato. Para o banco, o contrato de câmbio gera uma posição que precisa ser gerida, e a alteração de seus elementos essenciais poderia gerar descasamentos e riscos não provisionados.</p>
+                </div>
+
+                <h4>3.2.2 A Taxa de Câmbio de Equilíbrio</h4>
+                <p>A taxa de câmbio, como qualquer preço em uma economia de mercado, é formada pelo encontro da <strong>oferta</strong> e da <strong>demanda</strong> pela moeda estrangeira (o dólar, por convenção).</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Taxa de Câmbio (R$/US$)</th><th>Quantidade Ofertada (US$)</th><th>Quantidade Demandada (US$)</th><th>Situação</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>3,00</td><td>100 milhões</td><td>900 milhões</td><td>Excesso de Demanda</td></tr>
+                            <tr><td>4,00</td><td>400 milhões</td><td>600 milhões</td><td>Excesso de Demanda</td></tr>
+                            <tr class="table-highlight"><td><strong>5,00</strong></td><td><strong>500 milhões</strong></td><td><strong>500 milhões</strong></td><td><strong>Equilíbrio</strong></td></tr>
+                            <tr><td>6,00</td><td>700 milhões</td><td>300 milhões</td><td>Excesso de Oferta</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Taxa de Equilíbrio
+                    </div>
+                    <p>A taxa de câmbio de equilíbrio é o valor (ex: R$ 5,00/US$) no qual a quantidade de dólares que os ofertantes desejam vender é exatamente igual à quantidade de dólares que os demandantes desejam comprar. Nesse ponto, não há excesso de oferta nem excesso de demanda.</p>
+                    <p><strong>Como encontrar em uma tabela na prova:</strong> A Cesgranrio pode fornecer uma tabela como a acima e perguntar qual a taxa de equilíbrio. Seu trabalho é buscar a linha onde os números são iguais.</p>
+                </div>
+
+                <h4>3.2.3 Hedge Cambial: Protegendo o Caixa da Empresa</h4>
+                <p>O hedge é uma operação de proteção contra riscos de mercado, e o risco cambial é um dos mais comuns para empresas com receitas ou despesas em moeda estrangeira.</p>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Cenário Típico de Prova
+                    </div>
+                    <p>Uma empresa brasileira importou um maquinário e tem uma dívida de US$ 1 milhão para pagar em 90 dias. A empresa está preocupada com a depreciação do real (ou seja, a alta do dólar), pois isso aumentaria sua dívida em reais. <strong>Qual a estratégia de proteção adequada?</strong></p>
+                </div>
+
+                <div class="card card-gold">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        A Estratégia Correta: Comprar Dólares a Termo
+                    </div>
+                    <p>A empresa deve procurar seu banco e <strong>comprar dólares no mercado a termo</strong>. Ao fazer isso, ela firma um contrato de câmbio hoje, travando (fixando) a taxa de câmbio pela qual comprará os dólares no dia do vencimento da dívida.</p>
+                    <ul>
+                        <li><strong>Mecanismo:</strong> A empresa não precisa desembolsar os reais hoje. Ela apenas fixa a taxa para liquidação futura (os 90 dias).</li>
+                        <li><strong>Resultado:</strong> Independentemente de o dólar ir a R$ 7,00 ou R$ 5,50, a empresa comprará os US$ 1 milhão pela taxa que travou hoje (ex: R$ 5,80). Ela zerou sua exposição ao risco cambial.</li>
+                    </ul>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Por que "Vender Dólares a Termo" é a Alternativa ERRADA?
+                    </div>
+                    <p>Se a empresa vendesse dólares a termo, ela estaria apostando na queda do dólar. No cenário proposto, ela tem uma dívida em dólar (um passivo cambial). Para se proteger, ela precisa assumir uma posição que lhe dê o direito de <strong>receber</strong> dólares no futuro. Vender seria apostar contra si mesma, pois se o dólar subir, ela perde na operação de hedge e perde na dívida, tendo um prejuízo duplo.</p>
+                </div>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Regra de Ouro para Questões de Hedge:</strong><br>
+                        <span class="highlight-red">Quem tem PASSIVO em dólar (dívida) → COMPRA dólar no futuro para se proteger.</span><br>
+                        <span class="highlight-green">Quem tem ATIVO em dólar (recebível) → VENDE dólar no futuro para se proteger.</span>
+                    </div>
+                </div>
+
+                <div class="card card-tip">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Aplicação na Agência
+                    </div>
+                    <p>Um gerente de negócios de uma agência com muitas empresas exportadoras ou importadoras deve ter essa sensibilidade. Um exportador (que vai receber dólares) teme a queda do dólar. Um importador (que vai pagar dólares) teme a alta do dólar. A recomendação do produto de hedge cambial correto fortalece o papel do banco como parceiro financeiro e evita perdas catastróficas para seus clientes.</p>
+                </div>
+            </section>
+        </section>
+
+        <hr class="divider-diamond">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 4 -->
+        <!-- ============================================================ -->
+        <section id="cap4">
+            <h2>Capítulo 4 &bull; Mercado de Capitais, Derivativos e Renda Fixa Privada</h2>
+
+            <section id="cap4-1">
+                <h3>4.1 A Estrutura de Supervisão do Mercado: Bacen versus CVM</h3>
+                <p>A divisão de tarefas no Sistema Financeiro Nacional (SFN) é um tema certa de prova. O mercado financeiro é segmentado, e cada segmento tem seu regulador e supervisor. A confusão mais comum é entre o Banco Central do Brasil (Bacen) e a Comissão de Valores Mobiliários (CVM).</p>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Banco Central do Brasil (Bacen)
+                    </div>
+                    <p>O Bacen é a autoridade monetária. Sua função primordial é zelar pela estabilidade da moeda e do sistema financeiro. Como supervisor, ele foca nas instituições que captam depósitos do público e criam moeda escritural (concedem crédito).</p>
+                    <p><strong>Entidades Supervisionadas pelo Bacen:</strong></p>
+                    <ul>
+                        <li>Bancos Comerciais e Múltiplos (com carteira comercial)</li>
+                        <li>Caixa Econômica Federal</li>
+                        <li>Cooperativas de Crédito</li>
+                        <li>Sociedades de Crédito, Financiamento e Investimento (Financeiras)</li>
+                        <li>Sociedades de Crédito Imobiliário</li>
+                        <li>Corretoras e Distribuidoras de Valores (no que tange a sua atuação como intermediárias, embora a CVM também as regule quanto a valores mobiliários).</li>
+                    </ul>
+                    <p>O "core" da supervisão do Bacen está nas <strong>operações de crédito</strong>, nos depósitos (à vista e poupança), na gestão da política monetária e cambial, e no bom funcionamento do sistema de pagamentos.</p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Comissão de Valores Mobiliários (CVM)
+                    </div>
+                    <p>A CVM é uma autarquia especial vinculada ao Ministério da Economia, cujo foco é disciplinar e fiscalizar o mercado de valores mobiliários. Seu objetivo é proteger os investidores, garantir a lisura das operações e coibir fraudes no mercado de capitais.</p>
+                    <p><strong>Entidades e Produtos Supervisionados pela CVM:</strong></p>
+                    <ul>
+                        <li><strong>Bolsas de Valores e Mercadorias e Futuros:</strong> Como a B3.</li>
+                        <li><strong>Fundos de Investimento:</strong> Registro e funcionamento de fundos de todas as classes.</li>
+                        <li><strong>Companhias Abertas:</strong> Empresas que emitem ações negociadas em bolsa. A CVM fiscaliza a divulgação de informações, a governança corporativa e os atos dos administradores.</li>
+                        <li><strong>Emissores de Valores Mobiliários:</strong> Quem emite ações, debêntures, notas comerciais, etc.</li>
+                        <li><strong>Securitizadoras:</strong> Empresas que transformam créditos (como os do agronegócio ou imobiliário) em títulos negociáveis.</li>
+                        <li><strong>Agentes Autônomos, Consultores e Gestores:</strong> Profissionais que atuam no mercado de capitais.</li>
+                    </ul>
+                </div>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Macete para a Distinção:</strong><br>
+                        <span class="highlight">BACEN</span> supervisiona o <em>mercado monetário e de crédito</em> (instituições que captam depósitos e emprestam dinheiro).<br>
+                        <span class="highlight-gold">CVM</span> supervisiona o <em>mercado de capitais</em> (títulos emitidos por empresas para se financiar, negociados em bolsa ou balcão).
+                    </div>
+                </div>
+            </section>
+
+            <section id="cap4-2">
+                <h3>4.2 Derivativos Financeiros: contratos a termo e swap</h3>
+                <p>Derivativos são contratos cujo valor deriva de um ativo subjacente (taxa de juros, moeda, ação, commodity, etc.). São poderosos instrumentos de gestão de risco e, por isso, muito cobrados.</p>
+
+                <h4>4.2.1 Contrato a Termo: uma obrigação futura</h4>
+                <p>Um contrato a termo é um acordo de compra e venda de um ativo (moeda, café, ouro) com preço fixado na data de negociação, mas com liquidação (entrega e pagamento) em uma data futura específica. É uma <strong>obrigação</strong> para ambas as partes.</p>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Estudo de Caso
+                    </div>
+                    <p>Um produtor de café (vendedor) e uma torrefação (comprador) firmam um contrato a termo para 1.000 sacas de café a <strong>R$ 120,00 por saca</strong>, com vencimento em 30 dias. No vencimento, o preço de mercado do café é de <strong>R$ 110,00/saca</strong>.</p>
+                    <ul>
+                        <li><strong>Para o Vendedor (Produtor):</strong> Ganho. Ele garantiu vender a saca por R$ 120,00, enquanto o mercado a precifica a R$ 110,00. Seu ganho é de R$ 10,00 por saca. Cálculo: (120 − 110) × 1.000 sacas = <span class="highlight-green">Ganho de R$ 10.000,00</span>. Sua expectativa estava correta; o preço caiu e ele se protegeu.</li>
+                        <li><strong>Para o Comprador (Torrefação):</strong> Perda. Ele se obrigou a pagar R$ 120,00 por algo que no vencimento vale R$ 110,00. Sua perda é de R$ 10,00 por saca. Cálculo: (110 − 120) × 1.000 sacas = <span class="highlight-red">Perda de R$ 10.000,00</span>. Sua expectativa estava errada; ele travou um preço de compra alto.</li>
+                    </ul>
+                    <p><strong>Conclusão Lógica:</strong> O contrato a termo é um jogo de soma zero. O ganho do vendedor é exatamente igual à perda do comprador, e vice-versa.</p>
+                </div>
+
+                <h4>4.2.2 Swap de Taxa de Juros: trocando risco com inteligência</h4>
+                <p>O swap é um contrato onde duas partes trocam fluxos de caixa futuros. O swap de taxa de juros é o mais comum e é usado para gerenciar o risco de descasamento entre ativos e passivos.</p>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Quando o Swap de Taxa de Juros é a Resposta?
+                    </div>
+                    <p>A Cesgranrio adora descrever a seguinte situação:</p>
+                    <p><em>"Uma empresa tem um passivo (dívida) indexado a uma taxa pós-fixada (ex: 110% do CDI), mas seu ativo (recebível) é corrigido por uma taxa prefixada. A empresa teme que a taxa de juros (CDI) suba, aumentando o custo de sua dívida. Que derivativo utilizar?"</em></p>
+                    <p>A resposta é o <span class="highlight">Swap de Taxa de Juros</span>. O objetivo da empresa é trocar o indexador de seu passivo para que ele case com seu ativo, eliminando a incompatibilidade (mismatch).</p>
+                </div>
+
+                <div class="card card-tip">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Como funciona na prática
+                    </div>
+                    <p>A empresa vai ao banco e contrata um swap onde ela fica <strong>passiva em taxa prefixada</strong> e <strong>ativa em taxa pós-fixada</strong>. O que isso significa?</p>
+                    <ul>
+                        <li>Ela se compromete a pagar ao banco uma taxa fixa ao ano sobre um valor de referência.</li>
+                        <li>Ela recebe do banco uma taxa pós-fixada (como o CDI) sobre o mesmo valor de referência.</li>
+                    </ul>
+                    <p><strong>Resultado Final Líquido:</strong></p>
+                    <ul>
+                        <li>Dívida original da empresa: Paga ao mercado 110% do CDI.</li>
+                        <li>No Swap com o Banco: Ela paga taxa fixa e recebe CDI.</li>
+                        <li>Liquidação Financeira (por diferença): A empresa usa o fluxo de CDI que recebe do banco para pagar sua dívida pós-fixada original. Sobra para ela apenas o pagamento da taxa fixa para o banco. Assim, ela transformou sua dívida de pós-fixada em prefixada, eliminando o risco de alta do CDI e casando com seu ativo.</li>
+                    </ul>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Derivativo</th><th>Característica Principal</th><th>Indicado para...</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Contrato a Termo</strong></td><td>Compra e venda futura com preço e obrigações fixos hoje.</td><td>Proteger o preço de um ativo (café, dólar) em uma data específica.</td></tr>
+                            <tr><td><strong>Opção</strong></td><td>Direito (não obrigação) de comprar ou vender, pagando um prêmio.</td><td>Proteger-se de cenários extremos, mas mantendo o benefício de cenários favoráveis.</td></tr>
+                            <tr><td><strong>Swap de Moeda</strong></td><td>Troca de principal e juros em moedas diferentes.</td><td>Gerenciar descasamento entre receitas e despesas em moedas distintas.</td></tr>
+                            <tr><td><strong>Swap de Índice</strong></td><td>Troca de fluxos baseados em índices (ex: CDI x IPCA).</td><td>Proteger-se da inflação, casando um passivo atrelado à inflação com um ativo.</td></tr>
+                            <tr><td><strong>Swap de Taxa de Juros</strong></td><td>Troca de fluxos baseados em indexadores de juros diferentes.</td><td>Resolver incompatibilidade entre ativo e passivo atrelados a taxas diferentes.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="cap4-3">
+                <h3>4.3 Produtos de Renda Fixa Privada: Debêntures e CDB</h3>
+                <p>Tanto as debêntures quanto os CDBs são instrumentos de captação de recursos fora do sistema bancário ou dentro dele, e suas diferenças são essenciais para a prova.</p>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 9h6M9 15h4"/>
+                        </svg>
+                        Debêntures
+                    </div>
+                    <p>A debênture é um título de dívida de renda fixa emitido por <strong>sociedades por ações (S.A.)</strong>, sejam elas de capital aberto ou fechado. Ao comprar uma debênture, você está emprestando dinheiro diretamente à empresa emissora, e não ao banco.</p>
+                    <p><strong>Características Fundamentais:</strong></p>
+                    <ul>
+                        <li><strong>Emissor:</strong> Exclusivamente Sociedades Anônimas (não é emitida por governos, nem por bancos em seu nome).</li>
+                        <li><strong>Objetivo da Empresa:</strong> Captar recursos de forma alternativa ao financiamento bancário para alongar o perfil de sua dívida, financiar projetos de investimento ou recompor capital de giro.</li>
+                        <li><strong>Remuneração ao Investidor:</strong> Quem compra uma debênture não se torna sócio. Portanto, não recebe dividendos. Sua remuneração são os juros (fixos, flutuantes ou mistos), que podem ser acrescidos de prêmios, além da devolução do principal no vencimento.</li>
+                        <li><strong>Garantias:</strong> Podem ter garantias reais (como um imóvel da empresa), garantia flutuante ou não ter garantia (quirografárias).</li>
+                    </ul>
+                    <p><strong>Exceção Importante (Incentivo Fiscal):</strong> Embora emitidas por empresas privadas, as debêntures incentivadas e de infraestrutura são regulamentadas por leis específicas (como a Lei 12.431/2011) e contam com incentivos fiscais (isenção ou redução de Imposto de Renda para pessoas físicas) justamente para atrair investidores e fomentar projetos de grande porte (logística, energia, saneamento). A emissão, no entanto, segue sendo privada.</p>
+                </div>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 9h6M9 15h4"/>
+                        </svg>
+                        Certificado de Depósito Bancário (CDB)
+                    </div>
+                    <p>O CDB é um título de renda fixa emitido por <strong>instituições financeiras</strong> (bancos múltiplos, comerciais, de investimento e sociedades de crédito) com o mesmo objetivo de captar recursos para lastrear suas operações de crédito.</p>
+                    <p><strong>Características Essenciais do CDB:</strong></p>
+                    <ul>
+                        <li><strong>Emissor:</strong> Bancos e outras IFs autorizadas pelo Bacen. É um título privado.</li>
+                        <li><strong>Funcionamento:</strong> O investidor empresta dinheiro ao banco, que usa esses recursos para financiar suas atividades (como conceder empréstimos). Em troca, o banco paga uma remuneração ao investidor.</li>
+                        <li><strong>Remuneração:</strong> Pode ser prefixada, pós-fixada (atrelada ao CDI, geralmente em percentuais como 95% do CDI) ou híbrida (IPCA + taxa prefixada).</li>
+                        <li><strong>Proteção do FGC:</strong> É a principal característica que o diferencia. O CDB é coberto pelo Fundo Garantidor de Créditos (FGC) até o limite de <strong>R$ 250.000,00 por CPF/CNPJ</strong>, respeitado o teto global de <strong>R$ 1 milhão a cada 4 anos</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Pegadinha Cesgranrio: CDB x Títulos Públicos x Operações Compromissadas
+                    </div>
+                    <p>A banca costuma embaralhar esses três conceitos. Seja cirúrgico:</p>
+                    <div class="table-wrap" style="margin:0.5rem 0;">
+                        <table>
+                            <thead>
+                                <tr><th>Característica</th><th>CDB</th><th>Título Público (Tesouro)</th><th>Operação Compromissada</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Emissor</strong></td><td>Banco (instituição privada)</td><td>Tesouro Nacional (Governo)</td><td>Não há "emissão", é uma operação de curtíssimo prazo do Bacen.</td></tr>
+                                <tr><td><strong>Natureza</strong></td><td>Renda Fixa Privada</td><td>Renda Fixa Pública</td><td>Operação de Mercado Aberto (Open Market).</td></tr>
+                                <tr><td><strong>Garantia</strong></td><td>FGC (até R$ 250 mil)</td><td>Risco Soberano (Governo)</td><td>Lastro em Títulos Públicos com compromisso de revenda.</td></tr>
+                                <tr><td><strong>Finalidade</strong></td><td>Captação de longo prazo pelo banco.</td><td>Financiamento da dívida pública.</td><td>Controle da liquidez da economia pelo Bacen.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><strong>Lembre-se:</strong> o CDB é um investimento privado, não tem lastro em títulos públicos e não é emitido pelo Banco Central ou Tesouro.</p>
+                </div>
+            </section>
+        </section>
+
+        <hr class="divider-diamond">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 5 -->
+        <!-- ============================================================ -->
+        <section id="cap5">
+            <h2>Capítulo 5 &bull; Mercados, Regulação e Produtos Específicos</h2>
+
+            <section id="cap5-1">
+                <h3>5.1 Mercado de Balcão: flexibilidade com supervisão</h3>
+                <p>O mercado de balcão é um ambiente de negociação que difere do pregão das bolsas de valores. É fundamental entender que "mercado de balcão" não é sinônimo de "mercado sem regras".</p>
+
+                <div class="card card-definition">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Mercado de Balcão Organizado
+                    </div>
+                    <p>É o ambiente administrado por uma entidade autorizada (como a B3, que opera o Balcão B3). Suas principais características são:</p>
+                    <ul>
+                        <li><strong>Registro Obrigatório:</strong> Todas as operações são registradas em sistemas centralizados, garantindo transparência sobre preços e volumes.</li>
+                        <li><strong>Supervisão da CVM:</strong> Está sujeito à fiscalização da CVM.</li>
+                        <li><strong>Regras Mais Flexíveis:</strong> As regras para negociação são menos rígidas que as da bolsa, permitindo a negociação de uma gama maior de ativos (como cotas de fundos e debêntures de empresas fechadas) com requisitos de divulgação menos pesados.</li>
+                        <li><strong>Negociação Eletrônica:</strong> As ordens são fechadas eletronicamente, sem um pregão viva-voz.</li>
+                    </ul>
+                </div>
+
+                <div class="card card-important">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Mercado de Balcão Não Organizado
+                    </div>
+                    <p>É o ambiente de negociação direta entre comprador e vendedor, sem intermediação de uma instituição e sem registro em sistemas autorizados. Faltam transparência e garantia de liquidação.</p>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        A Chave para a Questão
+                    </div>
+                    <p>A Cesgranrio explora a diferença entre a bolsa e o balcão. A bolsa é um mercado de leilão, com regras mais rígidas de listagem e transparência em tempo real. O <strong>mercado de balcão organizado</strong> demanda menos informações da empresa emissora e tem regras mais flexíveis, mas, repita-se, <span class="highlight">exige registro e é supervisionado pela CVM</span>. O "não organizado" é que carece de registro.</p>
+                </div>
+            </section>
+
+            <section id="cap5-2">
+                <h3>5.2 Seguros: conceitos fundamentais para a rotina da agência</h3>
+                <p>A venda de seguros é uma frente importante de receita e de proteção para os clientes. O domínio da terminologia é o ponto de partida.</p>
+
+                <div class="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Prêmio do Seguro</div>
+                        <p style="font-size:0.95rem;">É o preço pago pelo segurado à seguradora para obter a cobertura contratada. É o custo do risco transferido. <em>Exemplo: A mensalidade que você paga pelo seguro do carro.</em></p>
+                    </div>
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Sinistro</div>
+                        <p style="font-size:0.95rem;">É a ocorrência do evento gerador de prejuízo que está coberto pela apólice. É o "acidente" ou fato que faz o seguro ser acionado. <em>Exemplo: Uma batida de carro, um incêndio na casa, o falecimento no seguro de vida.</em></p>
+                    </div>
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Indenização</div>
+                        <p style="font-size:0.95rem;">É o valor pago pela seguradora ao segurado ou beneficiário para reparar o prejuízo causado pelo sinistro.</p>
+                    </div>
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Franquia</div>
+                        <p style="font-size:0.95rem;">É o valor da indenização que fica a cargo do segurado. Serve para que ele tenha um interesse em evitar o sinistro. <em>Exemplo: Num sinistro de R$ 10.000,00 com franquia de R$ 2.000,00, o segurado paga R$ 2.000,00 e a seguradora paga os R$ 8.000,00 restantes.</em></p>
+                    </div>
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Importância Segurada</div>
+                        <p style="font-size:0.95rem;">É o valor atribuído ao bem segurado e representa o limite máximo de indenização da seguradora.</p>
+                    </div>
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Cobertura</div>
+                        <p style="font-size:0.95rem;">É o conjunto de riscos especificados na apólice que estão protegidos. <em>Exemplo: cobertura contra roubo e furto, cobertura contra incêndio.</em></p>
+                    </div>
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Endosso</div>
+                        <p style="font-size:0.95rem;">É qualquer alteração contratual na apólice durante sua vigência, como a inclusão de um novo dependente no plano de saúde ou a mudança da importância segurada.</p>
+                    </div>
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Beneficiário</div>
+                        <p style="font-size:0.95rem;">É a pessoa física ou jurídica designada para receber a indenização em seguros de vida.</p>
+                    </div>
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Carência</div>
+                        <p style="font-size:0.95rem;">É o período inicial de vigência do contrato durante o qual o segurado não tem direito a certas coberturas.</p>
+                    </div>
+                    <div class="card card-definition" style="margin:0;">
+                        <div class="card-title" style="font-size:1rem;">Resseguro</div>
+                        <p style="font-size:0.95rem;">É a operação pela qual a seguradora transfere parte dos riscos que assumiu para outra empresa especializada, como forma de se proteger contra grandes sinistros.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cap5-3">
+                <h3>5.3 Crédito Rotativo do Cartão de Crédito: a regra do Banco Central</h3>
+                <p>Este é um ponto de altíssima relevância social e uma fonte inesgotável de questões. A Resolução CMN nº 4.549, de 26 de janeiro de 2017, trouxe uma mudança estrutural para combater o superendividamento, proibindo o chamado "rotativo perpétuo".</p>
+
+                <h4>5.3.1 O Funcionamento da Regra (Art. 1º)</h4>
+                <p>Quando um cliente não paga o valor total da fatura do cartão de crédito, ele financia o saldo devedor, entrando no crédito rotativo.</p>
+
+                <div class="card card-important">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Regra Fundamental
+                    </div>
+                    <p>O saldo devedor da fatura pode ser financiado na modalidade de crédito rotativo <strong>apenas até o vencimento da fatura subsequente</strong>.</p>
+                </div>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Na prática
+                    </div>
+                    <ul>
+                        <li><strong>Mês 1:</strong> Fatura de R$ 1.000,00. Cliente paga R$ 300,00 (pagamento mínimo). O saldo devedor de R$ 700,00 é financiado no crédito rotativo.</li>
+                        <li><strong>Mês 2 (Vencimento da fatura subsequente):</strong> O cliente recebe a fatura com os R$ 700,00 acrescidos dos juros do rotativo. Se ele novamente não pagar o valor total dessa nova fatura, o banco <strong>não pode</strong> manter esse saldo no rotativo.</li>
+                    </ul>
+                    <p><strong>O que o banco DEVE fazer?</strong> Ao final do período do rotativo (que dura, no máximo, até a próxima fatura), a instituição financeira é obrigada a oferecer ao cliente uma <strong>operação de crédito parcelado</strong>, com condições mais vantajosas (taxas de juros menores) que as do crédito rotativo.</p>
+                </div>
+
+                <h4>5.3.2 As Vedações e Direitos do Cliente</h4>
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Proibição de Re-rotativização de Parcelado
+                    </div>
+                    <p>É terminantemente proibido financiar novamente no crédito rotativo qualquer valor que já tenha sido objeto de parcelamento. O objetivo é cortar o <strong>"efeito bola de neve"</strong>, no qual o cliente pagava juros sobre juros de forma exponencial e nunca saía da dívida.</p>
+                </div>
+
+                <div class="card card-tip">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Portabilidade do Saldo Devedor
+                    </div>
+                    <p>O cliente tem o direito de transferir o saldo devedor do cartão de crédito (tanto o rotativo quanto o parcelado) para outra instituição financeira que lhe ofereça melhores condições. Esta portabilidade é <strong>gratuita</strong> para o cliente.</p>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Pegadinha Cesgranrio
+                    </div>
+                    <p><em>"É proibido parcelar no crédito rotativo valores que já foram parcelados."</em> — Essa afirmação está <span class="highlight-green">CORRETA</span>. O cerne da resolução é justamente esse. A portabilidade, por outro lado, é permitida e gratuita para qualquer tipo de dívida do cartão, inclusive as parceladas.</p>
+                </div>
+            </section>
+        </section>
+
+        <hr class="divider-diamond">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 6 -->
+        <!-- ============================================================ -->
+        <section id="cap6">
+            <h2>Capítulo 6 &bull; Estratégia Avançada de Prova: como a Cesgranrio pensa</h2>
+            <p>Após dominar o conteúdo, é vital entender a mente do examinador. A Cesgranrio tem um padrão de cobrança muito específico para Conhecimentos Bancários e matérias afins. Preparar-se sem essa visão estratégica é estudar pela metade.</p>
+
+            <section id="cap6-1">
+                <h3>6.1 O Padrão das Distinções Conceituais Finas</h3>
+                <p>A banca raramente pergunta o óbvio. Ela não vai pedir "o que é um CDB?". Ela vai descrever um título e pedir para você diferenciá-lo de uma debênture, uma operação compromissada ou um título público. O examinador explora o <strong>limite entre os conceitos</strong>.</p>
+
+                <div class="card card-important">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Seu radar deve estar ligado para as distinções
+                    </div>
+                    <ul class="list-bullet">
+                        <li><strong>Marketing:</strong> Landing Page vs. SAC/Drip Line; Qual "P" do Marketing engloba determinada ação (Marketing Direto está na Promoção).</li>
+                        <li><strong>Prospecção:</strong> Cadeia de Indicação vs. Centro de Influência vs. Clube de Prospecção.</li>
+                        <li><strong>Psicologia:</strong> Escassez vs. Ancoragem vs. Prova Social.</li>
+                        <li><strong>Capital Intelectual:</strong> Humano vs. Estrutural vs. Relacional.</li>
+                        <li><strong>SFN:</strong> Supervisão do Bacen vs. Supervisão da CVM.</li>
+                        <li><strong>Derivativos:</strong> Swap de Taxa de Juros vs. Contrato a Termo vs. Swap de Moeda.</li>
+                        <li><strong>Renda Fixa:</strong> CDB vs. Debênture vs. Título Público.</li>
+                        <li><strong>Produtos:</strong> Cartão Rotativo vs. Parcelado.</li>
+                    </ul>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Atenção aos Qualificadores
+                    </div>
+                    <p>Leia cada palavra do enunciado. Palavras como <strong>"exceto"</strong>, <strong>"somente"</strong>, <strong>"salvo"</strong>, <strong>"necessariamente"</strong> e <strong>"obrigatoriamente"</strong> são minas terrestres. Elas invertem a lógica da pergunta e testam sua precisão e calma.</p>
+                </div>
+            </section>
+
+            <section id="cap6-2">
+                <h3>6.2 Erro Comum: a confusão do crédito rotativo</h3>
+                <p>O erro mais crasso que muitos cometem, e que a banca explora, é achar que o crédito rotativo pode ser usado por tempo indeterminado. A Resolução 4.549/2017 foi um marco justamente para acabar com isso. O rotativo é uma <strong>ponte de 30 dias</strong>, não uma moradia permanente.</p>
+
+                <div class="card card-warning">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 8v4M12 16h.01"/>
+                        </svg>
+                        Outro erro comum
+                    </div>
+                    <p>Confundir os direitos do cliente. A questão pode afirmar: <em>"o banco pode recusar a portabilidade de uma dívida parcelada"</em>. Isso é <span class="highlight-red">FALSO</span>. A portabilidade é um direito do cliente e é gratuita, inclusive para dívidas parceladas. A proibição é o banco, por conta própria, "jogar" a dívida parcelada de volta no rotativo.</p>
+                </div>
+            </section>
+
+            <section id="cap6-3">
+                <h3>6.3 Dicas e Macetes Finais para Memorização e Prova</h3>
+                <p>A memorização inteligente utiliza associações que fazem sentido para o seu cérebro. Aqui estão alguns macetes testados e aprovados:</p>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Macete 1: Landing Page</strong> — Associe ao ato de "pousar" ou "aterrissar". O cliente clica no anúncio e "pousa" em uma página feita para converter. <em>Drip Line</em> lembre-se de "gotejamento" (pinga-pinga de e-mails). <em>Gateway</em> é um "porteiro" para pagamentos.
+                    </div>
+                </div>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Macete 2: Os 4Ps</strong> — A sigla é simples: <span class="highlight">PPPP</span> (Produto, Preço, Praça, Promoção). Sempre que falar em "Planejamento", desconfie. Planejamento é a função que antecede a definição dos 4Ps. <span class="highlight-gold">Marketing Direto é sempre Promoção.</span>
+                    </div>
+                </div>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Macete 3: Crédito Rotativo</strong> — <em>"Rotativo roda um mês, depois é parcelamento de vez."</em> A Resolução 4.549 limita o rotativo a uma "roda" entre duas faturas. Depois, a dívida tem que estacionar em um parcelamento com juros menores.
+                    </div>
+                </div>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Macete 4: Swap de Taxa de Juros</strong> — Se o enunciado falar em uma empresa com um <span class="highlight">"descasamento"</span> entre uma taxa de juros prefixada e uma pós-fixada (CDI), a solução é o <span class="highlight-gold">Swap de Taxa de Juros</span>. A palavra-chave é a incompatibilidade de taxas de juros, não de moedas (aí seria swap de moeda) nem de índices de preço (aí seria swap de índice).
+                    </div>
+                </div>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Macete 5: Hedge para Dívida em Dólar</strong> — Quem tem uma dívida em dólar (passivo) se protege <span class="highlight">comprando</span> dólar no futuro. Pense: <em>"Preciso de dólares no futuro para pagar, então eu travo o preço de compra deles agora"</em>.
+                    </div>
+                </div>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Macete 6: Gatilho da Escassez</strong> — "Somente para os 20 primeiros..." "Últimas unidades..." Toda vez que a oferta tiver um limite numérico claro e que gere urgência por medo de perder, é <span class="highlight-gold">escassez</span>. <span class="highlight">Ancoragem</span> sempre envolve uma comparação de preços.
+                    </div>
+                </div>
+
+                <div class="macete">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <div class="macete-content">
+                        <strong>Macete 7: Cadeia de Indicação</strong> — O cliente traz outro cliente. É um método baseado em confiança e indicação direta "boca a boca". Se o lead vier de uma parceria formal entre empresas, é <span class="highlight">clube de prospecção</span>; se vier de um líder comunitário, é <span class="highlight-gold">centro de influência</span>.
+                    </div>
+                </div>
+
+                <div class="card card-gold" style="margin-top:2rem;">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Conclusão Final
+                    </div>
+                    <p>Com este arsenal teórico e estratégico, você não apenas acerta as questões, mas também desenvolve o raciocínio de um profissional bancário completo, pronto para os desafios da agência e da prova. <strong>Bons estudos!</strong></p>
+                </div>
+            </section>
+        </section>
+
+        <!-- ===== RODAPÉ ===== -->
+        <footer class="footer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z"/>
+                <path d="M8 8h8v8H8z"/>
+                <path d="M8 8l8 8M16 8l-8 8"/>
+            </svg>
+            Apostila de Conhecimentos Bancários &bull; Módulo Avançado &bull; Material exclusivo para concursos
+            <br>
+            <span style="font-size:0.8rem;color:var(--text-muted);">Todos os direitos reservados &bull; Proibida reprodução parcial ou total</span>
+        </footer>
+
+    </div>
+</body>
+</html>
