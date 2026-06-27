@@ -857,7 +857,7 @@
     <script>
         (function() {
             // ============================================================
-            // CONFIGURAÇÃO: Array de Decks (ATUALIZADO com Conhecimentos Bancários)
+            // CONFIGURAÇÃO: Array de Decks (ATUALIZADO com Português)
             // ============================================================
             const DECKS = [{
                 id: 'deck-1',
@@ -888,6 +888,17 @@
                         { name: 'Conhecimentos Bancários 18', file: 'Conhecimentos Bancários 18.html' },
                     ],
                 }, ],
+            }, {
+                id: 'deck-2',
+                name: 'Português',
+                icon: 'book',
+                categories: [{
+                    name: 'Materiais',
+                    icon: 'folder',
+                    items: [
+                        { name: 'Português 0', file: 'portugues0.html' },
+                    ],
+                }, ],
             }, ];
 
             // ============================================================
@@ -911,7 +922,7 @@
             // ============================================================
             const state = {
                 sidebarVisible: true,
-                expandedDecks: new Set(['deck-1']), // IDs dos decks expandidos
+                expandedDecks: new Set(['deck-1', 'deck-2']), // Ambos expandidos por padrão
                 expandedCategories: new Set(), // "deckId|catIndex" strings
                 activeResume: null, // { deckId, categoryIndex, itemIndex, deckName, categoryName, itemName, fileName }
                 isFullscreen: false,
@@ -980,7 +991,7 @@
 
             function loadState() {
                 state.sidebarVisible = loadFromStorage(STORAGE_KEYS.sidebarVisible, true);
-                state.expandedDecks = loadFromStorage(STORAGE_KEYS.expandedDecks, new Set(['deck-1']));
+                state.expandedDecks = loadFromStorage(STORAGE_KEYS.expandedDecks, new Set(['deck-1', 'deck-2']));
                 state.expandedCategories = loadFromStorage(STORAGE_KEYS.expandedCategories, new Set());
                 const lastResume = loadFromStorage(STORAGE_KEYS.lastResume, null);
                 if (lastResume && lastResume.deckId && lastResume.fileName) {
