@@ -1,0 +1,3116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>Língua Portuguesa – Teoria Suprema para Concursos</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', 'Palatino', serif;
+            background: #1a1613;
+            color: #e8dfd3;
+            line-height: 1.75;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1613;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5a4a3a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7a6a5a;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.8rem 2rem 4rem;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: 0.02em;
+            color: #dcc9b0;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.04em;
+            color: #e8d5b8;
+            border-bottom: 3px solid #c9a87c;
+            padding-bottom: 0.6rem;
+            display: inline-block;
+        }
+
+        h2 {
+            font-size: 2.0rem;
+            margin-top: 2.8rem;
+            margin-bottom: 1.2rem;
+            color: #dcc9b0;
+            border-left: 5px solid #c9a87c;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+            color: #d0bca0;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            margin-top: 1.6rem;
+            margin-bottom: 0.6rem;
+            color: #c9b094;
+            font-weight: 600;
+        }
+
+        h5 {
+            font-size: 1.1rem;
+            margin-top: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: #c0a88a;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        a {
+            color: #c9a87c;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(201, 168, 124, 0.3);
+            transition: border-color 0.2s;
+        }
+        a:hover {
+            border-color: #c9a87c;
+        }
+
+        strong,
+        b {
+            color: #e8dcc8;
+            font-weight: 700;
+        }
+        em,
+        i {
+            color: #d0c0a8;
+            font-style: italic;
+        }
+
+        /* ===== DIVIDERS ===== */
+        .divider {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a87c, transparent);
+            margin: 2.8rem 0;
+            opacity: 0.5;
+        }
+
+        .divider-light {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #5a4a3a, transparent);
+            margin: 1.8rem 0;
+        }
+
+        /* ===== TOC ===== */
+        .toc-wrap {
+            background: #221e1a;
+            border: 1px solid #3a322a;
+            border-radius: 12px;
+            padding: 1.6rem 2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .toc-wrap summary {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #dcc9b0;
+            cursor: pointer;
+            padding: 0.4rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .toc-wrap summary::-webkit-details-marker {
+            display: none;
+        }
+        .toc-wrap summary::before {
+            content: "▾";
+            font-size: 1.2rem;
+            color: #c9a87c;
+            transition: transform 0.3s;
+        }
+        .toc-wrap[open] summary::before {
+            transform: rotate(-180deg);
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem 2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #3a322a;
+            margin-top: 0.8rem;
+        }
+        @media (max-width: 600px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .toc-item {
+            font-size: 0.9rem;
+            color: #c9b8a0;
+            padding: 0.2rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .toc-item:hover {
+            border-color: #5a4a3a;
+        }
+        .toc-item .toc-num {
+            color: #c9a87c;
+            font-weight: 700;
+            min-width: 2.2rem;
+            font-size: 0.85rem;
+        }
+        .toc-item .toc-label {
+            color: #d0c0a8;
+        }
+        .toc-item .toc-link {
+            color: #e8dfd3;
+            border: none;
+            font-weight: 400;
+        }
+        .toc-item .toc-link:hover {
+            color: #c9a87c;
+        }
+
+        /* ===== CARDS / BOXES ===== */
+        .card {
+            background: #251f1b;
+            border: 1px solid #3a322a;
+            border-radius: 10px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.4rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: border-color 0.2s;
+        }
+        .card:hover {
+            border-color: #5a4a3a;
+        }
+
+        .card-concept {
+            border-left: 5px solid #c9a87c;
+        }
+
+        .card-tip {
+            border-left: 5px solid #7a9b8a;
+            background: #1f2922;
+        }
+
+        .card-important {
+            border-left: 5px solid #c97a5a;
+            background: #261f1a;
+        }
+
+        .card-info {
+            border-left: 5px solid #6a8a9a;
+            background: #1a2126;
+        }
+
+        .card-warning {
+            border-left: 5px solid #c9a040;
+            background: #26201a;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #dcc9b0;
+        }
+        .card-title .icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+        }
+
+        /* ===== TABLES ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.4rem 0;
+            border-radius: 10px;
+            border: 1px solid #3a322a;
+            background: #1e1a16;
+        }
+
+        table.modern {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+        table.modern thead th {
+            background: #2a2420;
+            color: #dcc9b0;
+            font-weight: 700;
+            padding: 0.8rem 1rem;
+            border-bottom: 2px solid #c9a87c;
+            white-space: nowrap;
+        }
+        table.modern tbody td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #2a2420;
+            color: #e0d5c8;
+            vertical-align: top;
+        }
+        table.modern tbody tr:last-child td {
+            border-bottom: none;
+        }
+        table.modern tbody tr:hover {
+            background: #2a2420;
+        }
+        table.modern tbody tr:nth-child(even) {
+            background: #1f1b18;
+        }
+        table.modern tbody tr:nth-child(even):hover {
+            background: #2a2420;
+        }
+
+        /* ===== LISTS ===== */
+        ul,
+        ol {
+            padding-left: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: #e0d5c8;
+        }
+        ul li,
+        ol li {
+            margin-bottom: 0.3rem;
+        }
+        ul ul,
+        ol ul {
+            margin-bottom: 0.2rem;
+        }
+
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-check li {
+            padding-left: 2rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        .list-check li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #7a9b8a;
+            font-weight: 700;
+        }
+
+        /* ===== QUOTES ===== */
+        .quote {
+            background: #221e1a;
+            border-left: 4px solid #c9a87c;
+            padding: 1.2rem 2rem;
+            margin: 1.4rem 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #d8cfc0;
+            position: relative;
+        }
+        .quote::before {
+            content: "“";
+            font-size: 3rem;
+            color: #c9a87c;
+            opacity: 0.3;
+            position: absolute;
+            left: 0.6rem;
+            top: -0.2rem;
+            font-family: 'Georgia', serif;
+            line-height: 1;
+        }
+        .quote p {
+            margin-bottom: 0;
+            padding-left: 1.8rem;
+        }
+        .quote .quote-author {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-weight: 600;
+            color: #c9a87c;
+            font-size: 0.9rem;
+            padding-left: 1.8rem;
+        }
+
+        /* ===== HIGHLIGHT ===== */
+        .highlight {
+            background: rgba(201, 168, 124, 0.15);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: #e8dcc8;
+            font-weight: 500;
+        }
+
+        .highlight-gold {
+            background: rgba(201, 168, 124, 0.20);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: #e8d5b8;
+        }
+
+        /* ===== DEFINITION TERM ===== */
+        .def-term {
+            font-weight: 700;
+            color: #dcc9b0;
+        }
+
+        /* ===== SVGs ===== */
+        .svg-wrap {
+            background: #1e1a16;
+            border: 1px solid #3a322a;
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin: 1.6rem 0;
+            text-align: center;
+            overflow-x: auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .svg-wrap svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ===== GRID FOR COMPARISONS ===== */
+        .comp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.4rem 0;
+        }
+        @media (max-width: 600px) {
+            .comp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .comp-grid .comp-item {
+            background: #221e1a;
+            border: 1px solid #3a322a;
+            border-radius: 8px;
+            padding: 1.2rem 1.4rem;
+        }
+        .comp-grid .comp-item h5 {
+            margin-top: 0;
+            color: #c9a87c;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.6rem;
+            justify-content: center;
+            margin: 1.4rem 0;
+            padding: 1.2rem;
+            background: #1e1a16;
+            border-radius: 10px;
+            border: 1px solid #3a322a;
+        }
+        .timeline .tl-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            min-width: 80px;
+        }
+        .timeline .tl-item .tl-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #c9a87c;
+            border: 2px solid #5a4a3a;
+        }
+        .timeline .tl-item .tl-label {
+            font-size: 0.85rem;
+            color: #c9b8a0;
+            text-align: center;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            html {
+                font-size: 16px;
+            }
+            .container {
+                padding: 1.2rem 1.2rem 3rem;
+            }
+            h1 {
+                font-size: 2.0rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+                margin-top: 2.2rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            h4 {
+                font-size: 1.1rem;
+            }
+            .card {
+                padding: 1rem 1.2rem;
+            }
+            .toc-wrap {
+                padding: 1.2rem 1.2rem;
+            }
+            .toc-grid {
+                gap: 0.4rem 1rem;
+            }
+            .quote {
+                padding: 1rem 1.2rem;
+            }
+            .quote p {
+                padding-left: 1.2rem;
+            }
+            .comp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+            .container {
+                padding: 0.8rem 0.8rem 2rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            table.modern {
+                font-size: 0.8rem;
+            }
+            table.modern thead th,
+            table.modern tbody td {
+                padding: 0.5rem 0.6rem;
+            }
+            .card {
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body {
+                background: #fff;
+                color: #222;
+            }
+            .container {
+                max-width: 100%;
+                padding: 1rem;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: #222;
+            }
+            .card,
+            .toc-wrap,
+            .svg-wrap,
+            .table-wrap {
+                background: #f5f0eb;
+                border-color: #ccc;
+                box-shadow: none;
+            }
+            .card-concept {
+                border-left-color: #8a7a6a;
+            }
+            .card-tip {
+                border-left-color: #5a8a7a;
+            }
+            .card-important {
+                border-left-color: #c97a5a;
+            }
+            .quote {
+                background: #f0ebe5;
+                border-left-color: #8a7a6a;
+            }
+            .highlight,
+            .highlight-gold {
+                background: #e8e0d8;
+                color: #222;
+            }
+            .toc-wrap summary::before {
+                content: "☰";
+            }
+            .divider {
+                background: #ccc;
+            }
+            table.modern thead th {
+                background: #e8e0d8;
+                color: #222;
+                border-bottom-color: #8a7a6a;
+            }
+            table.modern tbody td {
+                border-bottom-color: #ddd;
+                color: #222;
+            }
+            table.modern tbody tr:nth-child(even) {
+                background: #f5f0eb;
+            }
+            table.modern tbody tr:hover {
+                background: #e8e0d8;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+        <h1>Língua Portuguesa</h1>
+        <p style="font-size:1.2rem; color:#c9b8a0; margin-top:-0.2rem; font-weight:300;">Teoria Suprema para Concursos</p>
+        <p style="font-size:1rem; color:#8a7a6a; margin-top:0.2rem;">Baseada nos Flashcards — Edição Premium</p>
+
+        <hr class="divider">
+
+        <!-- ===== TOC ===== -->
+        <details class="toc-wrap" open>
+            <summary>Sumário Completo</summary>
+            <div class="toc-grid">
+                <div class="toc-item"><span class="toc-num">Módulo I</span><span class="toc-label">Teoria da Comunicação e Funções da Linguagem</span></div>
+                <div class="toc-item"><span class="toc-num">Cap. 1</span><a href="#cap1" class="toc-link">Elementos da Comunicação</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 2</span><a href="#cap2" class="toc-link">Funções da Linguagem</a></div>
+
+                <div class="toc-item"><span class="toc-num">Módulo II</span><span class="toc-label">Tipologia e Gêneros Textuais</span></div>
+                <div class="toc-item"><span class="toc-num">Cap. 3</span><a href="#cap3" class="toc-link">Tipologias Textuais</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 4</span><a href="#cap4" class="toc-link">Gêneros Textuais</a></div>
+
+                <div class="toc-item"><span class="toc-num">Módulo III</span><span class="toc-label">Acentuação Gráfica</span></div>
+                <div class="toc-item"><span class="toc-num">Cap. 5</span><a href="#cap5" class="toc-link">Regras Gerais</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 6</span><a href="#cap6" class="toc-link">Casos Especiais</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 7</span><a href="#cap7" class="toc-link">Verbos Ter e Vir</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 8</span><a href="#cap8" class="toc-link">Erros e Pegadinhas</a></div>
+
+                <div class="toc-item"><span class="toc-num">Módulo IV</span><span class="toc-label">Morfologia (Classes de Palavras)</span></div>
+                <div class="toc-item"><span class="toc-num">Cap. 9</span><a href="#cap9" class="toc-link">Estrutura e Formação</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 10</span><a href="#cap10" class="toc-link">Substantivos</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 11</span><a href="#cap11" class="toc-link">Adjetivos</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 12</span><a href="#cap12" class="toc-link">Pronomes</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 13</span><a href="#cap13" class="toc-link">Verbos</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 14</span><a href="#cap14" class="toc-link">Advérbios</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 15</span><a href="#cap15" class="toc-link">Preposições</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 16</span><a href="#cap16" class="toc-link">Conjunções</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 17</span><a href="#cap17" class="toc-link">Interjeições</a></div>
+
+                <div class="toc-item"><span class="toc-num">Módulo V</span><span class="toc-label">Sintaxe (Análise Estrutural)</span></div>
+                <div class="toc-item"><span class="toc-num">Cap. 18</span><a href="#cap18" class="toc-link">Termos da Oração</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 19</span><a href="#cap19" class="toc-link">Concordância Verbal</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 20</span><a href="#cap20" class="toc-link">Concordância Nominal</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 21</span><a href="#cap21" class="toc-link">Regência Verbal</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 22</span><a href="#cap22" class="toc-link">Regência Nominal</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 23</span><a href="#cap23" class="toc-link">Crase</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 24</span><a href="#cap24" class="toc-link">Colocação Pronominal</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 25</span><a href="#cap25" class="toc-link">Período Composto</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 26</span><a href="#cap26" class="toc-link">Vozes Verbais</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 27</span><a href="#cap27" class="toc-link">Pontuação</a></div>
+
+                <div class="toc-item"><span class="toc-num">Módulo VI</span><span class="toc-label">Semântica e Interpretação</span></div>
+                <div class="toc-item"><span class="toc-num">Cap. 28</span><a href="#cap28" class="toc-link">Relações Semânticas</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 29</span><a href="#cap29" class="toc-link">Figuras de Linguagem</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 30</span><a href="#cap30" class="toc-link">Denotação e Conotação</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 31</span><a href="#cap31" class="toc-link">Coesão e Coerência</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 32</span><a href="#cap32" class="toc-link">Estratégias de Leitura</a></div>
+
+                <div class="toc-item"><span class="toc-num">Módulo VII</span><span class="toc-label">Hífen e Ortografia</span></div>
+                <div class="toc-item"><span class="toc-num">Cap. 33</span><a href="#cap33" class="toc-link">Hifenização com Prefixos</a></div>
+                <div class="toc-item"><span class="toc-num">Cap. 34</span><a href="#cap34" class="toc-link">Porquês</a></div>
+
+                <div class="toc-item"><span class="toc-num">Módulo VIII</span><a href="#mod8" class="toc-link">Apêndice de Questões</a></div>
+                <div class="toc-item"><span class="toc-num">Módulo IX</span><a href="#mod9" class="toc-link">Glossário Final</a></div>
+            </div>
+        </details>
+
+        <!-- ============================================================ -->
+        <!-- MÓDULO I -->
+        <!-- ============================================================ -->
+
+        <section id="mod1">
+            <h2 style="border-left-color:#c9a87c;">Módulo I — Teoria da Comunicação e Funções da Linguagem</h2>
+
+            <!-- CAPÍTULO 1 -->
+            <h3 id="cap1">Capítulo 1 – Elementos da Comunicação</h3>
+
+            <h4>1.1. Emissor (ou Locutor)</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">emissor</span> é a pessoa, grupo ou instituição que produz e envia a mensagem em um ato comunicativo. É a origem do processo de comunicação, o sujeito que codifica a informação a ser transmitida.</p>
+
+            <div class="card card-concept">
+                <div class="card-title">Classificação e características</div>
+                <ul>
+                    <li>Pode ser individual (uma pessoa falando), coletivo (uma empresa, um governo) ou institucional (um órgão público).</li>
+                    <li>É responsável pela escolha do código, do canal, do conteúdo e da forma da mensagem.</li>
+                    <li>Na comunicação interpessoal, emissor e receptor podem alternar seus papéis continuamente (diálogo).</li>
+                    <li>Em textos escritos, o emissor é o autor, mesmo que o texto seja assinado por uma instituição.</li>
+                </ul>
+            </div>
+
+            <h5>Exemplos em diferentes contextos:</h5>
+            <ol>
+                <li><strong>Literatura:</strong> Em "Memórias Póstumas de Brás Cubas", de Machado de Assis, o emissor é o narrador-defunto Brás Cubas, que se dirige ao leitor desde o túmulo.</li>
+                <li><strong>Jornalismo:</strong> Em uma notícia publicada no jornal O Globo, o emissor institucional é o jornal, representado pelo repórter que assina a matéria.</li>
+                <li><strong>Publicidade:</strong> Em uma propaganda da Coca-Cola, o emissor é a empresa, que codifica uma mensagem persuasiva para o consumidor.</li>
+                <li><strong>Cotidiano formal:</strong> Em um ofício encaminhado por um diretor a um funcionário, o emissor é o diretor, com todas as marcas de formalidade e hierarquia.</li>
+                <li><strong>Cotidiano informal:</strong> Em uma mensagem de WhatsApp, o emissor é o remetente, podendo usar códigos próprios da comunicação digital (emojis, abreviações).</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>1.2. Receptor (ou Interlocutor)</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">receptor</span> é a pessoa, grupo ou instituição que recebe, decodifica e interpreta a mensagem enviada pelo emissor. É o destinatário do ato comunicativo.</p>
+
+            <div class="card card-concept">
+                <div class="card-title">Características e particularidades</div>
+                <ul>
+                    <li>O receptor pode ser previsto (público-alvo) ou imprevisto (leitor eventual).</li>
+                    <li>A decodificação depende do conhecimento do código pelo receptor.</li>
+                    <li>O receptor não é passivo: interpreta, infere, avalia e pode reagir à mensagem.</li>
+                    <li>Em textos escritos, o receptor pode ser o leitor implícito (construído pelo texto) ou o leitor real.</li>
+                </ul>
+            </div>
+
+            <h5>Exemplos em diferentes contextos:</h5>
+            <ol>
+                <li><strong>Literatura:</strong> O receptor de "Dom Casmurro", de Machado de Assis, é o leitor, que precisa decodificar as ambiguidades do narrador Bentinho e inferir se Capitu traiu ou não o marido.</li>
+                <li><strong>Jornalismo:</strong> O receptor de uma notícia sobre política é o cidadão comum, que deve interpretar os fatos e formar sua opinião.</li>
+                <li><strong>Publicidade:</strong> O receptor de uma propaganda de um carro é o consumidor potencial, que deve ser convencido a comprar o produto.</li>
+                <li><strong>Cotidiano formal:</strong> O receptor de um memorando é o funcionário da empresa, que deve ler e cumprir as instruções.</li>
+                <li><strong>Cotidiano informal:</strong> O receptor de um elogio é a pessoa que recebe a mensagem positiva, devendo interpretar a intenção do emissor.</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>1.3. Mensagem</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">mensagem</span> é o conteúdo transmitido no ato comunicativo, o conjunto de informações, ideias, sentimentos ou instruções que o emissor deseja comunicar ao receptor.</p>
+
+            <div class="card card-concept">
+                <div class="card-title">Características</div>
+                <ul>
+                    <li>Pode ser verbal (palavras), não verbal (gestos, imagens) ou mista.</li>
+                    <li>A mensagem é construída a partir do código escolhido pelo emissor.</li>
+                    <li>Pode ter diferentes finalidades: informar, convencer, entreter, instruir, etc.</li>
+                    <li>A eficácia da mensagem depende da compatibilidade com o código, canal e contexto.</li>
+                </ul>
+            </div>
+
+            <h5>Exemplos em diferentes contextos:</h5>
+            <ol>
+                <li><strong>Literatura:</strong> A mensagem de "O Alienista", de Machado de Assis, é uma crítica à pretensão da ciência em definir a sanidade mental, questionando os limites entre razão e loucura.</li>
+                <li><strong>Jornalismo:</strong> A mensagem de uma reportagem sobre desmatamento é informar o leitor sobre os dados e impactos ambientais.</li>
+                <li><strong>Publicidade:</strong> A mensagem de um comercial de refrigerante é associar o produto a momentos de felicidade e descontração.</li>
+                <li><strong>Cotidiano formal:</strong> A mensagem de uma ata de reunião é registrar oficialmente as decisões e deliberações do encontro.</li>
+                <li><strong>Cotidiano informal:</strong> A mensagem "Estou cansado" pode comunicar exaustão, tédio, desânimo ou apenas um fato, dependendo do contexto.</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>1.4. Código</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">código</span> é o sistema de signos (sinais, símbolos, regras) utilizado pelo emissor para construir e transmitir a mensagem, e pelo receptor para decodificá-la.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Categoria</th><th>Definição</th><th>Exemplos</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Código Verbal</strong></td><td>Utiliza palavras como signos</td><td>Língua portuguesa, inglês, espanhol, libras (língua de sinais)</td></tr>
+                        <tr><td><strong>Código Não Verbal</strong></td><td>Utiliza imagens, gestos, sons não linguísticos</td><td>Placas de trânsito, gestos de aprovação, apitos, semáforos</td></tr>
+                        <tr><td><strong>Código Misto</strong></td><td>Combina elementos verbais e não verbais</td><td>Histórias em quadrinhos, infográficos, propagandas com imagem e texto</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-concept">
+                <div class="card-title">Características essenciais</div>
+                <ul>
+                    <li>O código deve ser compartilhado por emissor e receptor para que a comunicação seja eficaz.</li>
+                    <li>Cada código tem suas próprias regras gramaticais, sintáticas e semânticas.</li>
+                    <li>Um mesmo conteúdo pode ser transmitido por códigos diferentes (ex: uma notícia pode ser lida em jornal impresso, assistida em telejornal ou ouvida no rádio).</li>
+                </ul>
+            </div>
+
+            <h5>Exemplos em diferentes contextos:</h5>
+            <ol>
+                <li><strong>Literatura:</strong> Machado de Assis utiliza o código da língua portuguesa em sua forma literária, com recursos estilísticos, ironia e intertextualidade.</li>
+                <li><strong>Jornalismo:</strong> Uma reportagem na televisão utiliza código misto: verbal (fala do repórter) e não verbal (imagens, gráficos, legendas).</li>
+                <li><strong>Publicidade:</strong> Um outdoor utiliza predominantemente código não verbal (imagem do produto) com elementos verbais mínimos (slogan).</li>
+                <li><strong>Cotidiano formal:</strong> Um contrato utiliza código verbal formal, com terminologia jurídica específica.</li>
+                <li><strong>Cotidiano informal:</strong> Uma mensagem de texto utiliza código verbal com abreviações, emojis e gírias.</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>1.5. Canal</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">canal</span> é o meio físico e sensorial que conduz o código da mensagem do emissor ao receptor. É o suporte material ou via por onde a mensagem trafega.</p>
+
+            <div class="card card-concept">
+                <div class="card-title">Características essenciais</div>
+                <ul>
+                    <li>O canal deve ser compatível com o código utilizado.</li>
+                    <li>Pode ser natural (ar, luz) ou artificial (telefone, internet, papel).</li>
+                    <li>O canal pode ser visual (texto escrito, imagem), auditivo (fala, música) ou tátil (Braille).</li>
+                    <li>A escolha do canal influencia a forma e o conteúdo da mensagem.</li>
+                </ul>
+            </div>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Código</th><th>Canal Compatível</th><th>Canal Incompatível</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Língua Portuguesa (escrita)</td><td>Papel, tela de computador, livro</td><td>Telefone (apenas oral)</td></tr>
+                        <tr><td>Língua Portuguesa (oral)</td><td>Ar, telefone, rádio</td><td>Jornal impresso</td></tr>
+                        <tr><td>Linguagem de Sinais</td><td>Visão (gestos)</td><td>Rádio</td></tr>
+                        <tr><td>Imagens</td><td>Visão (tela, papel)</td><td>Rádio</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Exemplos em diferentes contextos:</h5>
+            <ol>
+                <li><strong>Literatura:</strong> O canal de um romance impresso é o papel (ou tela de e-reader), com o código escrito.</li>
+                <li><strong>Jornalismo:</strong> Uma notícia no rádio utiliza o canal auditivo (ar, ondas sonoras) e código verbal oral.</li>
+                <li><strong>Publicidade:</strong> Um vídeo no YouTube utiliza canal visual e auditivo (tela e som).</li>
+                <li><strong>Cotidiano formal:</strong> Um ofício enviado por e-mail utiliza o canal digital (internet) e código verbal escrito.</li>
+                <li><strong>Cotidiano informal:</strong> Uma conversa presencial utiliza o canal auditivo/visual (ar, luz) e códigos verbal e não verbal.</li>
+            </ol>
+
+            <div class="card card-important">
+                <div class="card-title">Regra crucial</div>
+                <p>O canal deve ser compatível com o código utilizado. Um código escrito (como a língua portuguesa em sua forma gráfica) não pode ser transmitido por um canal apenas oral (como o rádio) – é necessário que o texto seja lido em voz alta, transformando o código em verbal oral.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>1.6. Contexto (ou Referente)</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">contexto</span>, também chamado de referente, é a situação ou conjunto de circunstâncias – temporais, espaciais, culturais, históricas, sociais e psicológicas – que envolvem o ato comunicativo.</p>
+
+            <div class="card card-concept">
+                <div class="card-title">Características e importância</div>
+                <ul>
+                    <li>O contexto é decisivo para a interpretação correta da mensagem.</li>
+                    <li>Sem contexto, a mensagem pode ser mal interpretada ou perder seu sentido.</li>
+                    <li>O contexto pode ser explícito (mencionado no texto) ou implícito (subentendido).</li>
+                    <li>A descontextualização é uma das principais causas de falha na comunicação.</li>
+                </ul>
+            </div>
+
+            <h5>Exemplos de variação de sentido conforme o contexto:</h5>
+            <ol>
+                <li><strong>"Está frio aqui."</strong>
+                    <ul>
+                        <li>Contexto 1 (Ártico): Constatação óbvia, possivelmente uma reclamação.</li>
+                        <li>Contexto 2 (Rio de Janeiro no verão): Pode ser ironia, exagero ou referência ao ar-condicionado.</li>
+                        <li>Contexto 3 (Sala de aula): Pode ser um pedido implícito para fechar a janela.</li>
+                    </ul>
+                </li>
+                <li><strong>"Ele chegou tarde."</strong>
+                    <ul>
+                        <li>Contexto 1 (Trabalho): Pode indicar falta de pontualidade, problema disciplinar.</li>
+                        <li>Contexto 2 (Festa): Pode ser apenas uma constatação factual, sem juízo de valor.</li>
+                        <li>Contexto 3 (Enterro): Pode indicar que o morto já foi sepultado.</li>
+                    </ul>
+                </li>
+                <li><strong>"Que dia lindo!"</strong>
+                    <ul>
+                        <li>Contexto 1 (Praia): Entusiasmo genuíno.</li>
+                        <li>Contexto 2 (Escritório): Pode ser ironia sobre o fato de estar preso no trabalho.</li>
+                        <li>Contexto 3 (Dia de prova): Pode ser um comentário para descontrair a tensão.</li>
+                    </ul>
+                </li>
+                <li><strong>Literatura:</strong> Em "Vidas Secas", de Graciliano Ramos, a descrição da seca no sertão só faz sentido no contexto da região Nordeste, da pobreza e da desigualdade social.</li>
+                <li><strong>Cotidiano:</strong> A frase "Vou ali e volto" no contexto de um hospital pode significar algo muito diferente da mesma frase dita em uma lanchonete.</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>1.7. Falhas na Comunicação e Ruído</h4>
+            <p><span class="def-term">Definição precisa:</span> A comunicação falha ou não se realiza adequadamente quando um ou mais dos seis elementos (emissor, receptor, mensagem, código, canal, contexto) não funciona adequadamente, gerando <span class="highlight">ruído</span>.</p>
+
+            <p><strong>Ruído:</strong> É qualquer interferência que distorce, prejudica ou impede a transmissão e/ou recepção da mensagem.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Elemento com falha</th><th>Exemplo de falha</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Emissor</strong></td><td>Falta de clareza, linguagem inadequada ao receptor, emissor pouco articulado</td></tr>
+                        <tr><td><strong>Receptor</strong></td><td>Desatenção, falta de conhecimento do código, preconceito, surdez (física ou seletiva)</td></tr>
+                        <tr><td><strong>Mensagem</strong></td><td>Conteúdo ambíguo, contraditório, excessivamente longo ou complexo</td></tr>
+                        <tr><td><strong>Código</strong></td><td>Uso de código que o receptor não conhece (ex: falar em alemão com quem só entende português)</td></tr>
+                        <tr><td><strong>Canal</strong></td><td>Ruído físico (telefone com chiado, letra ilegível), canal incompatível com o código</td></tr>
+                        <tr><td><strong>Contexto</strong></td><td>Descontextualização, interpretação fora do referente adequado</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Exemplos de falhas:</h5>
+            <ol>
+                <li><strong>Canal:</strong> Uma conversa ao telefone com interferência (chiado) que impede a compreensão da mensagem.</li>
+                <li><strong>Contexto:</strong> Roberto chegou atrasado ao cinema e não entendeu por que a heroína recusou o casamento. Falhou o contexto, pois ele não teve acesso às informações iniciais do filme que explicavam a motivação da personagem.</li>
+                <li><strong>Emissor:</strong> Um médico que usa termos técnicos demais ao falar com um paciente leigo, impedindo a compreensão do diagnóstico.</li>
+                <li><strong>Receptor:</strong> Um aluno que está distraído durante a explicação do professor e não compreende o conteúdo.</li>
+                <li><strong>Código:</strong> Um emissor usa um código que o receptor desconhece, como um turista que fala português com um japonês que não entende o idioma.</li>
+            </ol>
+
+            <!-- SVG: Elementos da Comunicação -->
+            <div class="svg-wrap">
+                <svg viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama dos elementos da comunicação">
+                    <rect x="0" y="0" width="800" height="260" fill="#1e1a16" rx="8"/>
+
+                    <!-- Emissor -->
+                    <rect x="30" y="80" width="120" height="60" rx="8" fill="#2a2420" stroke="#c9a87c" stroke-width="2"/>
+                    <text x="90" y="106" text-anchor="middle" fill="#dcc9b0" font-size="15" font-weight="700">Emissor</text>
+                    <text x="90" y="126" text-anchor="middle" fill="#b0a088" font-size="11">(Locutor)</text>
+
+                    <!-- Mensagem -->
+                    <rect x="300" y="70" width="140" height="80" rx="8" fill="#2a2420" stroke="#c9a87c" stroke-width="2"/>
+                    <text x="370" y="100" text-anchor="middle" fill="#dcc9b0" font-size="15" font-weight="700">Mensagem</text>
+                    <text x="370" y="120" text-anchor="middle" fill="#b0a088" font-size="11">(Conteúdo)</text>
+                    <text x="370" y="138" text-anchor="middle" fill="#b0a088" font-size="11">Verbal / Não verbal</text>
+
+                    <!-- Receptor -->
+                    <rect x="600" y="80" width="120" height="60" rx="8" fill="#2a2420" stroke="#c9a87c" stroke-width="2"/>
+                    <text x="660" y="106" text-anchor="middle" fill="#dcc9b0" font-size="15" font-weight="700">Receptor</text>
+                    <text x="660" y="126" text-anchor="middle" fill="#b0a088" font-size="11">(Interlocutor)</text>
+
+                    <!-- Código -->
+                    <rect x="140" y="170" width="100" height="50" rx="8" fill="#1f2922" stroke="#7a9b8a" stroke-width="2"/>
+                    <text x="190" y="196" text-anchor="middle" fill="#c9d8c8" font-size="13" font-weight="600">Código</text>
+                    <text x="190" y="212" text-anchor="middle" fill="#8a9a8a" font-size="10">(Sistema de signos)</text>
+
+                    <!-- Canal -->
+                    <rect x="460" y="170" width="100" height="50" rx="8" fill="#1f2922" stroke="#7a9b8a" stroke-width="2"/>
+                    <text x="510" y="196" text-anchor="middle" fill="#c9d8c8" font-size="13" font-weight="600">Canal</text>
+                    <text x="510" y="212" text-anchor="middle" fill="#8a9a8a" font-size="10">(Meio físico)</text>
+
+                    <!-- Contexto -->
+                    <rect x="320" y="185" width="100" height="40" rx="8" fill="#26201a" stroke="#c9a040" stroke-width="2"/>
+                    <text x="370" y="210" text-anchor="middle" fill="#dcc9b0" font-size="13" font-weight="600">Contexto</text>
+
+                    <!-- Conexões -->
+                    <line x1="150" y1="110" x2="300" y2="110" stroke="#5a4a3a" stroke-width="2" stroke-dasharray="4,4"/>
+                    <line x1="440" y1="110" x2="600" y2="110" stroke="#5a4a3a" stroke-width="2" stroke-dasharray="4,4"/>
+
+                    <line x1="190" y1="170" x2="270" y2="140" stroke="#5a4a3a" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="470" y1="170" x2="390" y2="140" stroke="#5a4a3a" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+                    <line x1="370" y1="185" x2="370" y2="150" stroke="#5a4a3a" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+                    <!-- Ruído -->
+                    <path d="M270 60 L285 50 L275 40" stroke="#c97a5a" stroke-width="2" fill="none"/>
+                    <text x="280" y="48" fill="#c97a5a" font-size="11" font-weight="700">Ruído</text>
+                </svg>
+                <p style="font-size:0.8rem; color:#8a7a6a; margin-top:0.4rem;">Diagrama dos seis elementos da comunicação com o ruído como interferência.</p>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- CAPÍTULO 2 -->
+        <section id="cap2">
+            <h3>Capítulo 2 – Funções da Linguagem</h3>
+
+            <h4>2.1. Função Referencial (ou Denotativa ou Informativa)</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">função referencial</span> predomina quando o objetivo da mensagem é transmitir informações objetivas sobre o contexto ou referente, com foco no conteúdo e na realidade extralinguística.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Característica</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Predomínio da 3ª pessoa</td><td>O emissor se mantém distante do conteúdo</td></tr>
+                        <tr><td>Objetividade</td><td>Busca-se a neutralidade, sem opiniões pessoais</td></tr>
+                        <tr><td>Linguagem denotativa</td><td>Sentido literal, sem figuras de linguagem</td></tr>
+                        <tr><td>Vocabulário técnico</td><td>Termos específicos do assunto tratado</td></tr>
+                        <tr><td>Foco no conteúdo</td><td>A mensagem é mais importante que o emissor ou o receptor</td></tr>
+                        <tr><td>Predomínio de verbos no indicativo</td><td>Fatos, dados, informações</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Notícia:</strong> "O governo anunciou hoje um pacote de medidas econômicas que inclui a redução de impostos para pequenas empresas. A medida, que entra em vigor em 30 dias, deve beneficiar cerca de 2 milhões de negócios."</li>
+                <li><strong>Texto científico:</strong> "A luz solar é composta por diferentes comprimentos de onda, que vão desde o ultravioleta até o infravermelho. A fotossíntese ocorre quando a clorofila absorve a luz nas faixas do azul e do vermelho."</li>
+                <li><strong>Relatório:</strong> "No primeiro trimestre de 2024, a empresa registrou um aumento de 15% nas vendas em relação ao mesmo período do ano anterior. O setor de eletrônicos foi o que mais contribuiu para esse crescimento."</li>
+                <li><strong>Literatura (trecho descritivo):</strong> "A casa era velha, com paredes de taipa e telhado de palha. Uma mangueira imensa sombreava o quintal, onde galinhas ciscavam a terra seca." (Graciliano Ramos)</li>
+                <li><strong>Cotidiano:</strong> "O ônibus 472 passa na esquina às 7h15 e às 8h45. A tarifa é de R$ 4,50."</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>2.2. Função Emotiva (ou Expressiva)</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">função emotiva</span> predomina quando o objetivo da mensagem é expressar sentimentos, emoções, opiniões e estados de espírito do emissor, com foco no próprio locutor.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Característica</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Predomínio da 1ª pessoa</td><td>Uso de "eu", "meu", "minha"</td></tr>
+                        <tr><td>Subjetividade</td><td>Mensagem carregada de emoção e opinião</td></tr>
+                        <tr><td>Uso de interjeições</td><td>Ah!, Oh!, Puxa!, Nossa!</td></tr>
+                        <tr><td>Pontuação expressiva</td><td>Exclamações, reticências, interrogações</td></tr>
+                        <tr><td>Adjetivos valorativos</td><td>Opiniões explícitas (maravilhoso, horrível, incrível)</td></tr>
+                        <tr><td>Verbos no presente ou pretérito perfeito</td><td>Expressão de sentimentos atuais ou passados</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Diário íntimo:</strong> "Ah, como estou cansada hoje! Que dia horrível no trabalho. Tive que atender um cliente insuportável, e o chefe ainda me cobrou um relatório que não era minha responsabilidade. Por que isso sempre acontece comigo?"</li>
+                <li><strong>Poesia lírica:</strong> "Ah, como sou infeliz! Tudo em volta é tristeza e solidão. O vento não me traz teu nome, e a noite não tem teu olhar." (Poema imaginário)</li>
+                <li><strong>Carta pessoal:</strong> "Querido amigo, sinto uma saudade imensa de você. Lembro com carinho dos dias em que passeávamos pela praia e ríamos de coisas bobas. Estou ansioso para reencontrá-lo."</li>
+                <li><strong>Literatura:</strong> "Ai de mim! O que me resta, senão o desespero? A vida é um labirinto sem saída, e eu ando em círculos, sem encontrar a luz." (Adaptado de um trecho de Clarice Lispector)</li>
+                <li><strong>Cotidiano:</strong> "Nossa! Que susto você me deu! Pensei que nunca mais ia chegar. Estava tão preocupado!"</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>2.3. Função Conativa (ou Apelativa)</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">função conativa</span> predomina quando o objetivo da mensagem é influenciar, convencer, orientar, persuadir ou dar ordens ao receptor. O foco está no interlocutor, buscando modificar seu comportamento ou pensamento.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Característica</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Predomínio da 2ª pessoa</td><td>Uso de "você", "tu", "vos"</td></tr>
+                        <tr><td>Verbos no imperativo</td><td>"Faça", "compre", "venha", "escute"</td></tr>
+                        <tr><td>Vocativos</td><td>Chamamento direto ao receptor</td></tr>
+                        <tr><td>Perguntas retóricas</td><td>"Você já pensou nisso?"</td></tr>
+                        <tr><td>Foco no receptor</td><td>O interlocutor é o centro da mensagem</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Propaganda:</strong> "Compre agora e leve o segundo produto com 50% de desconto! Não perca esta oportunidade única. Visite nossa loja hoje mesmo!"</li>
+                <li><strong>Discurso político:</strong> "Eleitores, é hora de mudar! Vote no candidato que realmente defende seus interesses. Não deixe que outros decidam por você!"</li>
+                <li><strong>Campanha publicitária:</strong> "Pare de fumar hoje! Seu corpo agradece, sua família agradece. Ligue agora e agende sua consulta."</li>
+                <li><strong>Texto injuntivo (instrução):</strong> "Quando ouvir falar bem de um amigo, conte isso a ele. Não deixe que o elogio morra no ouvido. Seja generoso com as palavras."</li>
+                <li><strong>Cotidiano:</strong> "Maria, vá à padaria comprar pão. E não se esqueça de trazer o troco, por favor."</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>2.4. Função Fática</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">função fática</span> predomina quando o objetivo da mensagem é estabelecer, manter, prolongar ou testar o contato comunicativo, garantindo que o canal funciona. O conteúdo da mensagem é irrelevante; o importante é a conexão entre emissor e receptor.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Característica</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Saudações</td><td>"Olá", "Bom dia", "Oi"</td></tr>
+                        <tr><td>Verificações</td><td>"Alô?", "Está me ouvindo?", "Tá ligado?"</td></tr>
+                        <tr><td>Marcadores de continuidade</td><td>"Hum hum", "É mesmo?", "Ah, sim"</td></tr>
+                        <tr><td>Fórmulas de cortesia</td><td>"Como vai?", "Tudo bem?"</td></tr>
+                        <tr><td>Foco no canal</td><td>A mensagem existe para testar ou manter o canal</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Telefonema:</strong> "Alô? Alô? Está me ouvindo? Sim, estou ouvindo. Hum hum, pode continuar."</li>
+                <li><strong>Conversa informal:</strong> "Oi, tudo bem? Que bom ver você! É, fazia tempo que a gente não se via... Pois é, a vida corrida..."</li>
+                <li><strong>Cotidiano:</strong> "Não te surpreendes que haja vida noutros planetas?" (Esta frase não busca informação, mas estabelecer um diálogo, testar a atenção do interlocutor.)</li>
+                <li><strong>Literatura:</strong> "Olá, meu caro leitor. É com grande prazer que inicio esta história." (Machado de Assis, em alguns trechos, usa a função fática para estabelecer contato com o leitor.)</li>
+                <li><strong>Cotidiano:</strong> "Hum hum... É mesmo? Nossa, que interessante! Conte-me mais."</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>2.5. Função Metalinguística</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">função metalinguística</span> predomina quando a linguagem é usada para falar sobre si mesma, explicando ou definindo o código utilizado. O foco está no próprio sistema linguístico.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Característica</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Linguagem que explica a linguagem</td><td>O código é usado para descrever o código</td></tr>
+                        <tr><td>Definições</td><td>"Significa", "é quando"</td></tr>
+                        <tr><td>Explicações gramaticais</td><td>"A crase ocorre quando..."</td></tr>
+                        <tr><td>Dicionários</td><td>Definem palavras usando palavras</td></tr>
+                        <tr><td>Foco no código</td><td>A mensagem tem o código como referente</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Dicionário:</strong> "Crase: fusão da preposição 'a' com o artigo feminino 'a' ou com o pronome demonstrativo 'aquela'."</li>
+                <li><strong>Aula de português:</strong> "O pronome relativo 'que' pode ser substituído por 'o qual'. Veja: 'O livro que li' → 'O livro o qual li'."</li>
+                <li><strong>Texto literário:</strong> "A palavra 'saudade' é intraduzível; é uma palavra que só existe em português, e que significa a sensação de falta de algo ou alguém que se ama."</li>
+                <li><strong>Gramática:</strong> "Os verbos da 1ª conjugação terminam em -ar; os da 2ª, em -er; os da 3ª, em -ir."</li>
+                <li><strong>Cotidiano:</strong> "A palavra 'amigo' vem do latim 'amicus', que significa 'aquele que é amado'."</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>2.6. Função Poética</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">função poética</span> predomina quando o objetivo da mensagem é valorizar a própria mensagem, elaborando-a de forma estética, criativa e inovadora. O foco está na forma como a mensagem é construída, não apenas no que é dito, mas em como é dito.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Característica</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Preocupação com a forma</td><td>Sonoridade, ritmo, métrica</td></tr>
+                        <tr><td>Figuras de linguagem</td><td>Metáforas, comparações, hipérboles</td></tr>
+                        <tr><td>Linguagem conotativa</td><td>Sentido figurado, simbólico</td></tr>
+                        <tr><td>Inovação vocabular</td><td>Neologismos, combinações inusitadas</td></tr>
+                        <tr><td>Recursos estilísticos</td><td>Aliterações, assonâncias, paralelismos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Poema:</strong> "Minha terra tem palmeiras / Onde canta o sabiá / As aves que aqui gorjeiam / Não gorjeiam como lá." (Gonçalves Dias)</li>
+                <li><strong>Literatura:</strong> "O vento passava, passava, e as palhas dos coqueiros balançavam, balançavam, como se estivessem dançando uma valsa invisível." (Mário de Andrade)</li>
+                <li><strong>Música:</strong> "O mar é tão grande, tão imenso, tão azul / Que parece o céu que se derramou no chão." (Música popular)</li>
+                <li><strong>Propaganda criativa:</strong> "A vida é feita de momentos. Os nossos são feitos de chocolate." (Propaganda de chocolate)</li>
+                <li><strong>Cotidiano:</strong> "O tempo é um rio que corre sem parar, e nós, barcos à deriva, tentamos encontrar nossa rota." (Frase criativa, com valor poético)</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>2.7. Aplicação Prática: Identificação de Funções em Frases</h4>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Frase</th><th>Função Predominante</th><th>Justificativa</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>"A Terra gira em torno do Sol."</td><td><strong>Referencial</strong></td><td>Foco no conteúdo, informação objetiva, 3ª pessoa</td></tr>
+                        <tr><td>"Ah, como estou triste hoje!"</td><td><strong>Emotiva</strong></td><td>Expressão de sentimento, 1ª pessoa, interjeição</td></tr>
+                        <tr><td>"Compre já seu ingresso!"</td><td><strong>Conativa</strong></td><td>Verbo no imperativo, foco no receptor</td></tr>
+                        <tr><td>"Alô? Você está me ouvindo?"</td><td><strong>Fática</strong></td><td>Verificação do canal, conteúdo irrelevante</td></tr>
+                        <tr><td>"A palavra 'felicidade' tem quatro vogais."</td><td><strong>Metalinguística</strong></td><td>Linguagem falando sobre si mesma</td></tr>
+                        <tr><td>"O amor é uma flor que desabrocha no inverno."</td><td><strong>Poética</strong></td><td>Metáfora, linguagem conotativa, preocupação estética</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-important">
+                <div class="card-title">Questão comentada</div>
+                <p><strong>Frase:</strong> "Quando ouvir falar bem de um amigo, conte isso a ele."</p>
+                <p><strong>Qual função da linguagem predomina?</strong></p>
+                <p><strong>Resposta:</strong> Predomina a <span class="highlight">função conativa ou apelativa</span>, pois a frase se dirige diretamente ao receptor e utiliza o verbo no imperativo ("conte") para influenciar seu comportamento, destacando o receptor como elemento central.</p>
+                <p><strong>Comentário aprofundado:</strong> A frase não tem foco no conteúdo (não é referencial), pois não transmite uma informação objetiva sobre a realidade. Não expressa sentimentos do emissor (não é emotiva) – não há 1ª pessoa ou marcas de subjetividade. Não testa o canal (não é fática) – não é uma saudação ou verificação. Não explica o código (não é metalinguística) – não define ou comenta sobre a linguagem. Não valoriza a forma (não é poética) – a frase é direta, sem figuras de linguagem ou preocupação estética. O foco está no receptor, com um comando direto ("conte"), caracterizando a função conativa.</p>
+            </div>
+
+            <!-- SVG: Funções da Linguagem -->
+            <div class="svg-wrap">
+                <svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama das funções da linguagem">
+                    <rect x="0" y="0" width="800" height="340" fill="#1e1a16" rx="8"/>
+
+                    <!-- Título -->
+                    <text x="400" y="32" text-anchor="middle" fill="#dcc9b0" font-size="16" font-weight="700">Funções da Linguagem</text>
+
+                    <!-- Referencial -->
+                    <rect x="20" y="55" width="170" height="60" rx="8" fill="#2a2420" stroke="#8a9a8a" stroke-width="2"/>
+                    <text x="105" y="82" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Referencial</text>
+                    <text x="105" y="102" text-anchor="middle" fill="#b0a088" font-size="11">(Informativa)</text>
+
+                    <!-- Emotiva -->
+                    <rect x="210" y="55" width="170" height="60" rx="8" fill="#2a2420" stroke="#c9a87c" stroke-width="2"/>
+                    <text x="295" y="82" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Emotiva</text>
+                    <text x="295" y="102" text-anchor="middle" fill="#b0a088" font-size="11">(Expressiva)</text>
+
+                    <!-- Conativa -->
+                    <rect x="400" y="55" width="170" height="60" rx="8" fill="#2a2420" stroke="#c97a5a" stroke-width="2"/>
+                    <text x="485" y="82" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Conativa</text>
+                    <text x="485" y="102" text-anchor="middle" fill="#b0a088" font-size="11">(Apelativa)</text>
+
+                    <!-- Fática -->
+                    <rect x="590" y="55" width="170" height="60" rx="8" fill="#2a2420" stroke="#6a8a9a" stroke-width="2"/>
+                    <text x="675" y="82" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Fática</text>
+                    <text x="675" y="102" text-anchor="middle" fill="#b0a088" font-size="11">(Contato)</text>
+
+                    <!-- Metalinguística -->
+                    <rect x="120" y="150" width="170" height="60" rx="8" fill="#1f2922" stroke="#7a9b8a" stroke-width="2"/>
+                    <text x="205" y="177" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Metalinguística</text>
+                    <text x="205" y="197" text-anchor="middle" fill="#b0a088" font-size="11">(Código)</text>
+
+                    <!-- Poética -->
+                    <rect x="430" y="150" width="170" height="60" rx="8" fill="#26201a" stroke="#c9a040" stroke-width="2"/>
+                    <text x="515" y="177" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Poética</text>
+                    <text x="515" y="197" text-anchor="middle" fill="#b0a088" font-size="11">(Forma)</text>
+
+                    <!-- Destaque: foco -->
+                    <text x="400" y="260" text-anchor="middle" fill="#8a7a6a" font-size="12">Cada função destaca um elemento da comunicação:</text>
+                    <text x="400" y="280" text-anchor="middle" fill="#b0a088" font-size="11">Referencial → Contexto | Emotiva → Emissor | Conativa → Receptor</text>
+                    <text x="400" y="298" text-anchor="middle" fill="#b0a088" font-size="11">Fática → Canal | Metalinguística → Código | Poética → Mensagem</text>
+
+                    <!-- Conexões -->
+                    <line x1="105" y1="115" x2="205" y2="150" stroke="#5a4a3a" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="485" y1="115" x2="515" y2="150" stroke="#5a4a3a" stroke-width="1.5" stroke-dasharray="3,3"/>
+                </svg>
+                <p style="font-size:0.8rem; color:#8a7a6a; margin-top:0.4rem;">As seis funções da linguagem e os elementos da comunicação que cada uma enfatiza.</p>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- MÓDULO II -->
+        <!-- ============================================================ -->
+
+        <section id="mod2">
+            <h2 style="border-left-color:#7a9b8a;">Módulo II — Tipologia e Gêneros Textuais</h2>
+
+            <!-- CAPÍTULO 3 -->
+            <h3 id="cap3">Capítulo 3 – Tipologias Textuais</h3>
+
+            <h4>3.1. Texto Narrativo</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">texto narrativo</span> conta uma história, com começo, meio e fim, apresentando elementos como personagens, tempo, espaço e enredo. A principal característica é a sequência temporal de eventos, organizados em uma trama.</p>
+
+            <div class="card card-concept">
+                <div class="card-title">Elementos essenciais</div>
+                <ol>
+                    <li><strong>Personagens:</strong> Seres (humanos, animais, seres fantásticos) que participam da história.</li>
+                    <li><strong>Enredo:</strong> A sequência de acontecimentos que compõem a história.</li>
+                    <li><strong>Tempo:</strong> A época em que a história se passa (tempo cronológico ou psicológico).</li>
+                    <li><strong>Espaço:</strong> O lugar onde a história acontece.</li>
+                    <li><strong>Narrador:</strong> A voz que conta a história (1ª ou 3ª pessoa).</li>
+                </ol>
+            </div>
+
+            <div class="card card-info">
+                <div class="card-title">Características linguísticas</div>
+                <ul>
+                    <li>Predomínio de verbos de ação (no passado ou presente histórico).</li>
+                    <li>Marcadores temporais (antes, depois, quando, então).</li>
+                    <li>Sequência lógica e cronológica dos fatos.</li>
+                    <li>Foco na progressão dos eventos.</li>
+                </ul>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Literatura:</strong> "O que vivi ao ficar preso no elevador", de Ton Paulo – texto que conta uma história com começo, meio e fim, apresentando personagens, tempo, espaço e enredo definido.</li>
+                <li><strong>Cotidiano:</strong> "Hoje de manhã, eu acordei atrasado, tomei café correndo e cheguei ao trabalho com 20 minutos de atraso."</li>
+                <li><strong>Relato histórico:</strong> "Em 1500, a frota de Cabral partiu de Portugal, atravessou o Atlântico e chegou às terras que viriam a ser chamadas de Brasil."</li>
+                <li><strong>Notícia (com elementos narrativos):</strong> "Na madrugada de ontem, um carro capotou na Rodovia dos Bandeirantes, ferindo três ocupantes. O motorista perdeu o controle após um pneu estourar."</li>
+                <li><strong>Literatura (clássico):</strong> "Vivia aquele homem encerrado numa torre, sem saber do mundo, sem contato com a vida. Um dia, porém, ouviu um rumor estranho..." (Adaptado de "O Alienista", Machado de Assis)</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>3.2. Texto Descritivo</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">texto descritivo</span> apresenta detalhes de um objeto, pessoa, ambiente ou cena, permitindo que o leitor crie uma imagem mental do que está sendo descrito. O foco está nas características, qualidades e atributos.</p>
+
+            <div class="card card-info">
+                <div class="card-title">Características linguísticas</div>
+                <ul>
+                    <li>Predomínio de verbos de estado (ser, estar, parecer) e verbos descritivos (ter, apresentar).</li>
+                    <li>Uso abundante de adjetivos e locuções adjetivas.</li>
+                    <li>Predomínio de substantivos concretos.</li>
+                    <li>Enumeração de características.</li>
+                    <li>Foco no presente (estático) ou no passado (descrição de memória).</li>
+                </ul>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Relato de viagem:</strong> "A praia era extensa, com areia branca e fina, água cristalina e um céu de um azul profundo. Coqueiros se inclinavam sobre a areia, como se quisessem tocar o mar."</li>
+                <li><strong>Biografia:</strong> "Maria era uma mulher alta, de cabelos negros e olhos castanhos que brilhavam quando ela ria. Tinha uma voz suave, como um sussurro, e um sorriso que iluminava o ambiente."</li>
+                <li><strong>Literatura:</strong> "O sobrado era antigo, de três andares, com janelas largas e uma varanda de ferro trabalhado. As paredes, descascadas, mostravam a passagem do tempo." (Adaptado de "Memórias Póstumas de Brás Cubas")</li>
+                <li><strong>Cotidiano:</strong> "Meu apartamento é pequeno, com dois quartos, uma sala e uma cozinha compacta. As paredes são pintadas de branco, e o piso é de madeira clara."</li>
+                <li><strong>Texto técnico:</strong> "O equipamento possui 2 metros de altura, 1 metro de largura, pesa 50 quilos e é fabricado em aço inoxidável."</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>3.3. Texto Expositivo (ou Informativo)</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">texto expositivo</span> tem o objetivo de informar, explicar e expor conceitos, ideias, fatos ou dados de forma objetiva e neutra. Busca assegurar a veracidade das informações, geralmente respaldando-se em conhecimento teórico, científico ou especializado.</p>
+
+            <div class="card card-info">
+                <div class="card-title">Características linguísticas</div>
+                <ul>
+                    <li>Predomínio da 3ª pessoa (impessoalidade).</li>
+                    <li>Linguagem denotativa e objetiva.</li>
+                    <li>Vocabulário específico (terminologia).</li>
+                    <li>Estrutura lógica (introdução, desenvolvimento, conclusão).</li>
+                    <li>Ausência de opiniões ou julgamentos pessoais.</li>
+                </ul>
+            </div>
+
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Expositivo</h5>
+                    <ul>
+                        <li>Informar, explicar</li>
+                        <li>Neutra, imparcial</li>
+                        <li>Dados, fatos, conceitos</li>
+                        <li>Denotativa</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Argumentativo</h5>
+                    <ul>
+                        <li>Defender uma tese, persuadir</li>
+                        <li>Subjetiva, com opinião</li>
+                        <li>Tese, argumentos, contra-argumentos</li>
+                        <li>Pode ser conotativa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Texto científico popular:</strong> "Arte Digital: saiba como tudo começou" – texto que informa e explica o conceito e o desenvolvimento histórico da arte digital de forma objetiva e neutra.</li>
+                <li><strong>Notícia expositiva:</strong> "O Ministério da Saúde divulgou hoje os dados da campanha de vacinação. Foram aplicadas 10 milhões de doses em todo o país, com cobertura de 85% do público-alvo."</li>
+                <li><strong>Texto sobre clima:</strong> "O fenômeno El Niño é caracterizado pelo aquecimento anormal das águas do Oceano Pacífico, causando alterações climáticas em todo o mundo."</li>
+                <li><strong>Reportagem informativa:</strong> "A tecnologia 5G utiliza ondas de rádio de alta frequência para transmitir dados, oferecendo velocidades até 100 vezes superiores às do 4G."</li>
+                <li><strong>Cotidiano formal:</strong> "O processo de reciclagem do plástico envolve as etapas de coleta, triagem, lavagem, trituração e transformação em novos produtos."</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>3.4. Texto Argumentativo</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">texto argumentativo</span> tem o objetivo de defender um ponto de vista, persuadir o leitor e convencê-lo sobre uma determinada tese, utilizando argumentos lógicos, evidências, dados e raciocínios consistentes.</p>
+
+            <div class="card card-info">
+                <div class="card-title">Características linguísticas</div>
+                <ul>
+                    <li>Predomínio da 1ª pessoa (subjetividade) ou 3ª pessoa (impessoalidade argumentativa).</li>
+                    <li>Uso de conectivos argumentativos (logo, portanto, porque, já que, embora).</li>
+                    <li>Estrutura: Introdução (tese), Desenvolvimento (argumentos), Conclusão.</li>
+                    <li>Presença de opinião, juízo de valor.</li>
+                    <li>Busca pela persuasão.</li>
+                </ul>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Editorial de jornal:</strong> "O Brasil precisa urgentemente de uma reforma tributária que simplifique o sistema e reduza a carga sobre os mais pobres. Os dados mostram que os impostos incidem desproporcionalmente sobre o consumo, penalizando quem ganha menos."</li>
+                <li><strong>Artigo de opinião:</strong> "A educação digital não é um luxo, mas uma necessidade. As crianças que crescem sem acesso à tecnologia estarão em desvantagem no mercado de trabalho do futuro."</li>
+                <li><strong>Resenha crítica:</strong> "O filme é tecnicamente impecável, mas peca na construção dos personagens, que são rasos e estereotipados. O diretor parece mais preocupado com os efeitos visuais do que com a profundidade da trama."</li>
+                <li><strong>Cotidiano formal:</strong> "Acredito que o teletrabalho deveria ser incentivado pelas empresas, pois aumenta a produtividade, reduz custos e melhora a qualidade de vida dos funcionários."</li>
+                <li><strong>Discurso:</strong> "Não podemos aceitar a destruição da Amazônia. A floresta é o pulmão do mundo, abriga uma biodiversidade incomparável e é essencial para o equilíbrio climático."</li>
+            </ol>
+
+            <hr class="divider-light">
+
+            <h4>3.5. Texto Injuntivo (ou Instrucional)</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">texto injuntivo</span> tem a finalidade de instruir, orientar, prescrever ou influenciar o comportamento do leitor, dando ordens, conselhos ou instruções. Frequentemente utiliza verbos no modo imperativo.</p>
+
+            <div class="card card-info">
+                <div class="card-title">Características linguísticas</div>
+                <ul>
+                    <li>Predomínio de verbos no imperativo.</li>
+                    <li>Uso de 2ª pessoa (direto ao receptor).</li>
+                    <li>Sequência lógica de ações (passo a passo).</li>
+                    <li>Linguagem clara e direta.</li>
+                    <li>Foco na ação do receptor.</li>
+                </ul>
+            </div>
+
+            <h5>Exemplos:</h5>
+            <ol>
+                <li><strong>Manual de instrução:</strong> "Ligue o aparelho. Pressione o botão de início. Aguarde até que a luz verde se acenda. Insira o cartão de memória. Selecione a opção desejada."</li>
+                <li><strong>Receita culinária:</strong> "Bata os ovos com o açúcar até formar um creme. Acrescente a farinha e mexa bem. Unte a forma com manteiga. Despeje a massa. Asse por 30 minutos."</li>
+                <li><strong>Bula de remédio:</strong> "Tome este medicamento com um copo de água. Não mastigue ou triture o comprimido. Conserve-o em temperatura ambiente, protegido da luz."</li>
+                <li><strong>Propaganda (comando):</strong> "Entenda quais os principais impactos: Mananciais e Sistemas de Água." (Uso do verbo "Entenda" no imperativo)</li>
+                <li><strong>Cotidiano formal:</strong> "Ao chegar ao local, apresente seu documento de identificação. Preencha o formulário com letra legível. Aguarde a chamada para a senha."</li>
+            </ol>
+
+            <!-- SVG: Tipologias Textuais -->
+            <div class="svg-wrap">
+                <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama das tipologias textuais">
+                    <rect x="0" y="0" width="800" height="220" fill="#1e1a16" rx="8"/>
+                    <text x="400" y="30" text-anchor="middle" fill="#dcc9b0" font-size="15" font-weight="700">Tipologias Textuais</text>
+
+                    <rect x="30" y="55" width="130" height="60" rx="8" fill="#2a2420" stroke="#c9a87c" stroke-width="2"/>
+                    <text x="95" y="82" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Narrativo</text>
+                    <text x="95" y="102" text-anchor="middle" fill="#b0a088" font-size="10">Conta uma história</text>
+
+                    <rect x="180" y="55" width="130" height="60" rx="8" fill="#2a2420" stroke="#c9a87c" stroke-width="2"/>
+                    <text x="245" y="82" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Descritivo</text>
+                    <text x="245" y="102" text-anchor="middle" fill="#b0a088" font-size="10">Detalha características</text>
+
+                    <rect x="330" y="55" width="130" height="60" rx="8" fill="#2a2420" stroke="#c9a87c" stroke-width="2"/>
+                    <text x="395" y="82" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Expositivo</text>
+                    <text x="395" y="102" text-anchor="middle" fill="#b0a088" font-size="10">Informa, explica</text>
+
+                    <rect x="480" y="55" width="130" height="60" rx="8" fill="#2a2420" stroke="#c9a87c" stroke-width="2"/>
+                    <text x="545" y="82" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Argumentativo</text>
+                    <text x="545" y="102" text-anchor="middle" fill="#b0a088" font-size="10">Persuade, defende tese</text>
+
+                    <rect x="630" y="55" width="130" height="60" rx="8" fill="#2a2420" stroke="#c9a87c" stroke-width="2"/>
+                    <text x="695" y="82" text-anchor="middle" fill="#dcc9b0" font-size="14" font-weight="700">Injuntivo</text>
+                    <text x="695" y="102" text-anchor="middle" fill="#b0a088" font-size="10">Instrui, orienta</text>
+
+                    <text x="400" y="170" text-anchor="middle" fill="#8a7a6a" font-size="11">Cada tipologia tem finalidade e estrutura próprias.</text>
+                    <text x="400" y="192" text-anchor="middle" fill="#b0a088" font-size="10">Narrativo: temporal | Descritivo: espacial | Expositivo: lógico | Argumentativo: persuasivo | Injuntivo: pragmático</text>
+                </svg>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- CAPÍTULO 4 -->
+        <section id="cap4">
+            <h3>Capítulo 4 – Gêneros Textuais</h3>
+
+            <h4>4.1. Tirinha</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">tirinha</span> é uma pequena história em quadrinhos, geralmente com poucos quadros (3 a 4), com personagens fixos e situações cotidianas, muitas vezes de tom humorístico ou crítico.</p>
+
+            <div class="card card-concept">
+                <div class="card-title">Características essenciais</div>
+                <ul>
+                    <li>Combinação de linguagem verbal e não verbal.</li>
+                    <li>Personagens fixos (Mafalda, Garfield, Calvin, etc.).</li>
+                    <li>Estrutura narrativa curta.</li>
+                    <li>Humor, ironia ou crítica social.</li>
+                    <li>Pode ser classificada como narrativa efêmera quando trata de temas atuais e passageiros.</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.2. Charge</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">charge</span> é uma ilustração única, focada em fazer uma crítica humorística sobre um acontecimento atual e político, geralmente com tom satírico e caricatural.</p>
+
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Tirinha</h5>
+                    <ul>
+                        <li>Múltiplos quadros (sequência)</li>
+                        <li>Personagens fixos, cotidianos</li>
+                        <li>Cotidiano, humor leve</li>
+                        <li>Atemporal ou efêmera</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Charge</h5>
+                    <ul>
+                        <li>Ilustração única</li>
+                        <li>Figuras públicas, políticos</li>
+                        <li>Política, sátira, crítica social</li>
+                        <li>Sempre atual, vinculada a um evento específico</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.3. Carta Pessoal</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">carta pessoal</span> estabelece comunicação entre pessoas próximas (amigos, familiares), com linguagem coloquial e subjetiva, expressando sentimentos e assuntos íntimos.</p>
+
+            <div class="card card-info">
+                <div class="card-title">Características</div>
+                <ul>
+                    <li>Comunicação entre pessoas que têm algum vínculo afetivo.</li>
+                    <li>Linguagem coloquial, informal.</li>
+                    <li>Subjetividade, expressão de sentimentos.</li>
+                    <li>Estrutura epistolar (data, saudação, corpo, despedida, assinatura).</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.4. Carta do Leitor</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">carta do leitor</span> é um gênero argumentativo que permite que um leitor se posicione criticamente, opine ou reaja sobre um tema, acontecimento ou matéria publicada em um veículo de comunicação.</p>
+            <ul>
+                <li>Publicada em jornais, revistas ou sites.</li>
+                <li>Finalidade: posicionar-se, elogiar, criticar, sugerir.</li>
+                <li>Texto argumentativo.</li>
+                <li>Dirigida ao veículo de comunicação ou aos editores.</li>
+            </ul>
+
+            <hr class="divider-light">
+
+            <h4>4.5. Carta Comercial</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">carta comercial</span> é usada no ambiente profissional, exigindo linguagem formal, objetiva e impessoal, para tratar de negócios, parcerias, solicitações e comunicações empresariais.</p>
+            <ul>
+                <li>Comunicação entre empresas ou profissionais.</li>
+                <li>Linguagem formal, objetiva.</li>
+                <li>Estrutura padronizada.</li>
+                <li>Ausência de subjetividade.</li>
+            </ul>
+
+            <hr class="divider-light">
+
+            <h4>4.6. Carta de Reclamação</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">carta de reclamação</span> exige uma estrutura formal específica com destinatário, pedido formal e estrutura epistolar. A ausência desses elementos descaracteriza o gênero.</p>
+
+            <div class="card card-important">
+                <div class="card-title">Características essenciais</div>
+                <ul>
+                    <li>Destinatário explícito (empresa, órgão).</li>
+                    <li>Pedido formal (ressarcimento, solução).</li>
+                    <li>Estrutura epistolar (data, saudação, corpo, despedida, assinatura).</li>
+                    <li>Finalidade: reclamar, solicitar solução.</li>
+                </ul>
+            </div>
+
+            <div class="card card-warning">
+                <div class="card-title">Pegadinha comum</div>
+                <p>Um texto crítico que não possui destinatário, nem pedido formal e nem estrutura epistolar <strong>NÃO</strong> pode ser classificado como carta de reclamação.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.7. Artigo de Opinião</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">artigo de opinião</span> é um gênero argumentativo que defende um ponto de vista sobre um tema atual, utilizando argumentos para persuadir o leitor.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Elemento</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>1. Apresentação do tema</strong></td><td>Introdução do assunto a ser discutido</td></tr>
+                        <tr><td><strong>2. Tese</strong></td><td>Ponto de vista do autor</td></tr>
+                        <tr><td><strong>3. Desenvolvimento argumentativo</strong></td><td>Argumentos, evidências, exemplos</td></tr>
+                        <tr><td><strong>4. Conclusão reflexiva</strong></td><td>Síntese, proposta, reflexão final</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-concept">
+                <div class="card-title">Características essenciais</div>
+                <ul>
+                    <li>Defende uma tese (posicionamento claro).</li>
+                    <li>Utiliza argumentação lógica e persuasiva.</li>
+                    <li>Pode ser escrito em 1ª ou 3ª pessoa.</li>
+                    <li>Publicado em jornais, revistas, blogs.</li>
+                    <li>Não necessita de verbos no imperativo (diferentemente de propaganda ou texto injuntivo).</li>
+                </ul>
+            </div>
+
+            <div class="card card-tip">
+                <div class="card-title">Três perguntas para identificar um artigo de opinião</div>
+                <ol>
+                    <li>O autor avalia ou apenas relata?</li>
+                    <li>Há análise de consequências?</li>
+                    <li>Há posicionamento crítico?</li>
+                </ol>
+                <p>Se a resposta for <strong>sim</strong> para essas perguntas, o gênero é provavelmente artigo de opinião.</p>
+            </div>
+
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Notícia</h5>
+                    <ul>
+                        <li>Informar</li>
+                        <li>Impessoal, baseada em fatos</li>
+                        <li>Pirâmide invertida</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Artigo de Opinião</h5>
+                    <ul>
+                        <li>Argumentar</li>
+                        <li>Subjetiva, contém tese</li>
+                        <li>Tese + argumentos + conclusão</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-important">
+                <div class="card-title">Exemplo de identificação</div>
+                <p><strong>Texto:</strong> "O fim das redes sociais" – classificado como artigo de opinião porque analisa criticamente as transformações nas redes sociais, avaliando impactos como a polarização e assumindo um posicionamento crítico. A palavra-chave que justifica é <span class="highlight">"argumentar acerca das implicações"</span>.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.8. Notícia</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">notícia</span> é um gênero informativo que relata um fato atual, recente, de interesse público, com objetividade, impessoalidade e linguagem informativa.</p>
+            <ul>
+                <li>Relata um fato atual (novidade).</li>
+                <li>Objetividade e impessoalidade.</li>
+                <li>Linguagem clara e direta.</li>
+                <li>Estrutura de pirâmide invertida (informações mais importantes primeiro).</li>
+                <li>Baseada em fatos reais.</li>
+            </ul>
+
+            <div class="card card-warning">
+                <div class="card-title">Pegadinha comum</div>
+                <p>Um texto publicado em jornal que não relata um fato atual, não traz dados objetivos e tem caráter reflexivo não pode ser classificado como notícia.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.9. Reportagem</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">reportagem</span> é um gênero informativo mais extenso que a notícia, aprofundando o assunto com entrevistas, análises, contextualização e dados adicionais.</p>
+
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Notícia</h5>
+                    <ul>
+                        <li>Curta (direta)</li>
+                        <li>Superficial (fato imediato)</li>
+                        <li>Informações básicas</li>
+                        <li>Informar o fato</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Reportagem</h5>
+                    <ul>
+                        <li>Longa (detalhada)</li>
+                        <li>Profunda (contexto, análise)</li>
+                        <li>Entrevistas, dados, análises</li>
+                        <li>Informar e contextualizar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.10. Matéria Jornalística</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">matéria jornalística</span> é um gênero informativo com linguagem clara e acessível ao público geral, baseado em fatos reais e sem metodologia científica formal, diferenciando-se do artigo científico.</p>
+
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Matéria Jornalística</h5>
+                    <ul>
+                        <li>Acessível, clara</li>
+                        <li>Pirâmide invertida</li>
+                        <li>Geral</li>
+                        <li>Divulgar informação</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Artigo Científico</h5>
+                    <ul>
+                        <li>Técnica, formal</li>
+                        <li>Metodologia, hipóteses, referências</li>
+                        <li>Acadêmico</li>
+                        <li>Contribuir para a ciência</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.11. Sinopse</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">sinopse</span> é um resumo objetivo da obra (livro, filme, peça) com linguagem impessoal, apresentando os elementos principais da trama sem análise crítica ou interpretação.</p>
+            <ul>
+                <li>Resumo objetivo.</li>
+                <li>Linguagem impessoal.</li>
+                <li>Apresenta a trama básica.</li>
+                <li>Não contém interpretação ou crítica.</li>
+            </ul>
+
+            <hr class="divider-light">
+
+            <h4>4.12. Crônica Literária</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">crônica literária</span> é um gênero que retrata o cotidiano com linguagem subjetiva e tom literário, frequentemente com elementos narrativos e descritivos, marcada pela leveza e pela reflexão sobre a vida comum.</p>
+
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Crônica</h5>
+                    <ul>
+                        <li>Cotidiano, reflexão</li>
+                        <li>Subjetiva, literária</li>
+                        <li>Pessoal, ficcional</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Matéria Jornalística</h5>
+                    <ul>
+                        <li>Informação factual</li>
+                        <li>Objetiva, direta</li>
+                        <li>Impessoal, factual</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.13. Diário de Viagem</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">diário de viagem</span> é caracterizado pelo registro cronológico, relato íntimo, estrutura datada e narrativa sequencial de um deslocamento real.</p>
+
+            <div class="card card-warning">
+                <div class="card-title">Pegadinha comum</div>
+                <p>Em um texto onde a "viagem" é usada como metáfora e não há datas ou relato de deslocamento real, <strong>não</strong> pode ser classificado como diário de viagem.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.14. Infográfico</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">infográfico</span> é um gênero multimodal que integra texto e imagem, é sintético, informativo e visualmente organizado para facilitar a compreensão.</p>
+
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Infográfico</h5>
+                    <ul>
+                        <li>Informar</li>
+                        <li>Dados, informações</li>
+                        <li>Ilustrativa, explicativa</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Anúncio Publicitário</h5>
+                    <ul>
+                        <li>Persuadir</li>
+                        <li>Apelo ao consumo</li>
+                        <li>Persuasiva, atrativa</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>4.15. Fluxograma</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">fluxograma</span> representa um processo sequencial com etapas e fluxo lógico, mostrando a ordem de operações ou decisões.</p>
+            <ul>
+                <li>Representa um processo sequencial.</li>
+                <li>Mostra etapas e fluxo lógico.</li>
+                <li>Inclui decisões (sim/não) e ramificações.</li>
+                <li>Utilizado em processos administrativos, computacionais, etc.</li>
+            </ul>
+
+            <hr class="divider-light">
+
+            <h4>4.16. Organograma</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">organograma</span> mostra a estrutura hierárquica e relação de subordinação dentro de uma organização.</p>
+            <ul>
+                <li>Mostra hierarquia organizacional.</li>
+                <li>Relação de subordinação (quem manda em quem).</li>
+                <li>Estrutura vertical ou horizontal.</li>
+                <li>Utilizado em empresas, órgãos públicos.</li>
+            </ul>
+
+            <hr class="divider-light">
+
+            <h4>4.17. Narrativa Efêmera</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">narrativa efêmera</span> trata de um assunto atual e passageiro, refletindo um contexto específico do presente que pode se tornar obsoleto no futuro.</p>
+            <ul>
+                <li>Tema contemporâneo.</li>
+                <li>Contexto específico do presente.</li>
+                <li>Pode se tornar obsoleto.</li>
+                <li>Reflete a cultura e tecnologia de um período.</li>
+            </ul>
+
+            <hr class="divider-light">
+
+            <h4>4.18. Comparativo entre Gêneros (Tabela)</h4>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Gênero</th><th>Finalidade</th><th>Estrutura</th><th>Linguagem</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Tirinha</strong></td><td>Humor, crítica</td><td>Vários quadros</td><td>Verbal + não verbal</td><td>Calvin, Mafalda</td></tr>
+                        <tr><td><strong>Charge</strong></td><td>Sátira política</td><td>Única ilustração</td><td>Não verbal + pouco verbal</td><td>Crítica a político</td></tr>
+                        <tr><td><strong>Carta Pessoal</strong></td><td>Comunicação íntima</td><td>Data, saudação, corpo, despedida</td><td>Coloquial, subjetiva</td><td>Carta a um amigo</td></tr>
+                        <tr><td><strong>Carta do Leitor</strong></td><td>Posicionamento crítico</td><td>Argumentativa</td><td>Formal, crítica</td><td>Carta ao jornal</td></tr>
+                        <tr><td><strong>Artigo de Opinião</strong></td><td>Defender uma tese</td><td>Tese, argumentos, conclusão</td><td>Persuasiva, subjetiva</td><td>Editorial</td></tr>
+                        <tr><td><strong>Notícia</strong></td><td>Informar fato atual</td><td>Pirâmide invertida</td><td>Objetiva, impessoal</td><td>Jornal diário</td></tr>
+                        <tr><td><strong>Reportagem</strong></td><td>Aprofundar assunto</td><td>Extensa, contextualizada</td><td>Informativa, mais detalhada</td><td>Revista semanal</td></tr>
+                        <tr><td><strong>Sinopse</strong></td><td>Resumir obra</td><td>Resumo objetivo</td><td>Impessoal, descritiva</td><td>Contracapa de livro</td></tr>
+                        <tr><td><strong>Crônica</strong></td><td>Refletir sobre o cotidiano</td><td>Narrativa/descritiva</td><td>Subjetiva, literária</td><td>Coluna de jornal</td></tr>
+                        <tr><td><strong>Diário de Viagem</strong></td><td>Registrar deslocamento</td><td>Datas, narração cronológica</td><td>Íntima, subjetiva</td><td>Relato de viagem</td></tr>
+                        <tr><td><strong>Infográfico</strong></td><td>Informar visualmente</td><td>Texto + imagem</td><td>Sintético, informativo</td><td>Infográfico de jornal</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- MÓDULO III — ACENTUAÇÃO -->
+        <!-- ============================================================ -->
+
+        <section id="mod3">
+            <h2 style="border-left-color:#c97a5a;">Módulo III — Acentuação Gráfica</h2>
+
+            <!-- CAPÍTULO 5 -->
+            <h3 id="cap5">Capítulo 5 – Regras Gerais de Acentuação</h3>
+
+            <h4>5.1. Proparoxítonas (Esdrúxulas)</h4>
+            <p><span class="def-term">Definição precisa:</span> Palavras <span class="highlight">proparoxítonas</span> são aquelas cuja sílaba tônica é a antepenúltima. <strong>Todas</strong> as proparoxítonas são acentuadas graficamente, independentemente da terminação.</p>
+            <p><strong>Regra:</strong> Toda palavra proparoxítona recebe acento gráfico. Não há exceções.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Palavra</th><th>Sílaba Tônica</th><th>Observação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>básico</td><td>BÁ-si-co</td><td>—</td></tr>
+                        <tr><td>isquêmico</td><td>is-QUÊ-mi-co</td><td>—</td></tr>
+                        <tr><td>alcoólicas</td><td>al-co-Ó-li-cas</td><td>—</td></tr>
+                        <tr><td>dietético</td><td>di-e-TÉ-ti-co</td><td>—</td></tr>
+                        <tr><td>inúmeras</td><td>i-NÚ-me-ras</td><td>—</td></tr>
+                        <tr><td>público</td><td>PÚ-bli-co</td><td>—</td></tr>
+                        <tr><td>climáticos</td><td>cli-MÁ-ti-cos</td><td>—</td></tr>
+                        <tr><td>físicos</td><td>FÍ-si-cos</td><td>—</td></tr>
+                        <tr><td>hemorrágico</td><td>he-mor-RÁ-gi-co</td><td>—</td></tr>
+                        <tr><td>periféricas</td><td>pe-ri-FÉ-ri-cas</td><td>—</td></tr>
+                        <tr><td>acúmulo</td><td>a-CÚ-mu-lo</td><td>Subst. (proparoxítona)</td></tr>
+                        <tr><td>próprio</td><td>PRÓ-prio</td><td>—</td></tr>
+                        <tr><td>excelência</td><td>ex-ce-LÊN-cia</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-important">
+                <div class="card-title">Atenção</div>
+                <p>A banca pode chamar as proparoxítonas de <span class="highlight">"esdrúxulas"</span>. São sinônimos.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>5.2. Paroxítonas</h4>
+            <p><span class="def-term">Definição precisa:</span> Palavras <span class="highlight">paroxítonas</span> têm a sílaba tônica na penúltima posição. São acentuadas quando terminam em determinadas terminações.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Terminação</th><th>Exemplos</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>l</strong></td><td>incrível, inalienável, provável, terrível, comparável, transformável</td></tr>
+                        <tr><td><strong>n</strong></td><td>hífen, pólen, abdômen, próton, elétron, nêutron</td></tr>
+                        <tr><td><strong>r</strong></td><td>caráter, éter, mártir, revólver, açúcar, cadáver</td></tr>
+                        <tr><td><strong>x</strong></td><td>tórax, látex, córtex, ônix</td></tr>
+                        <tr><td><strong>us</strong></td><td>bônus, Vênus, Espírito Santo</td></tr>
+                        <tr><td><strong>ps</strong></td><td>bíceps, fórceps, tríceps</td></tr>
+                        <tr><td><strong>ã</strong></td><td>ímã, órfã</td></tr>
+                        <tr><td><strong>um</strong></td><td>álbum, médium, fórum, mínimum</td></tr>
+                        <tr><td><strong>ditongo</strong></td><td>história, existência, inteligência, cenário, média, pátria, série, incêndio, glória, miséria</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-tip">
+                <div class="card-title">Regra do ditongo</div>
+                <p>As paroxítonas terminadas em ditongo (crescente ou decrescente) recebem acento. Exemplos: <span class="highlight">história</span>, <span class="highlight">existência</span>, <span class="highlight">inteligência</span>, <span class="highlight">cenário</span>, <span class="highlight">média</span>, <span class="highlight">pátria</span>, <span class="highlight">série</span>, <span class="highlight">incêndio</span>, <span class="highlight">glória</span>.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>5.3. Oxítonas</h4>
+            <p><span class="def-term">Definição precisa:</span> Palavras <span class="highlight">oxítonas</span> têm a sílaba tônica na última posição. Recebem acento quando terminadas em <strong>a, e, o, em, ens</strong> (seguidas ou não de <strong>s</strong>).</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Terminação</th><th>Exemplos</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>a(s)</strong></td><td>será, Pará, jacá, cajá, maracujá</td></tr>
+                        <tr><td><strong>e(s)</strong></td><td>café, você, jacaré, obtém, detém, armazém</td></tr>
+                        <tr><td><strong>o(s)</strong></td><td>nó, pós, avô, avó, paletó, jiló</td></tr>
+                        <tr><td><strong>em</strong></td><td>também, ninguém, alguém, refém</td></tr>
+                        <tr><td><strong>ens</strong></td><td>parabéns, armazéns, reféns</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-warning">
+                <div class="card-title">Observação</div>
+                <p>"Através" é oxítona terminada em "es", e a regra vale para "e" seguido de s, então é acentuada. Não é paroxítona.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>5.4. Monossílabos Tônicos</h4>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Monossílabos tônicos</span> são palavras de uma só sílaba pronunciadas com intensidade. São acentuados os terminados em <strong>a, e, o</strong> (seguidos ou não de <strong>s</strong>).</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Palavra</th><th>Terminação</th><th>Observação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>há</td><td>a</td><td>Verbo haver (sentido de existir)</td></tr>
+                        <tr><td>lá</td><td>a</td><td>Advérbio de lugar</td></tr>
+                        <tr><td>pá</td><td>a</td><td>Substantivo</td></tr>
+                        <tr><td>pé</td><td>e</td><td>Substantivo</td></tr>
+                        <tr><td>mês</td><td>e + s</td><td>Substantivo</td></tr>
+                        <tr><td>nó</td><td>o</td><td>Substantivo</td></tr>
+                        <tr><td>pôs</td><td>o + s</td><td>Verbo pôr</td></tr>
+                        <tr><td>nós</td><td>o + s</td><td>Pronome pessoal</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-important">
+                <div class="card-title">Casos clássicos em provas</div>
+                <ul>
+                    <li><strong>há</strong> (verbo haver) – monossílabo tônico terminado em a, acentuado.</li>
+                    <li><strong>nós</strong> (pronome pessoal) – monossílabo tônico terminado em o + s, acentuado.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- CAPÍTULO 6 -->
+        <section id="cap6">
+            <h3>Capítulo 6 – Casos Especiais</h3>
+
+            <h4>6.1. Hiatos (i e u tônicos)</h4>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Hiato</span> é o encontro de duas vogais em sílabas diferentes. Acentuam-se o <strong>i</strong> e o <strong>u</strong> tônicos quando formam hiato com a vogal anterior, estando sozinhos na sílaba ou acompanhados de <strong>s</strong>, desde que não sejam seguidos de <strong>nh</strong> e não venham após ditongo decrescente em paroxítonas.</p>
+
+            <div class="card card-tip">
+                <div class="card-title">Regra resumida</div>
+                <p>i e u tônicos em hiato recebem acento se:</p>
+                <ol>
+                    <li>Estiverem sozinhos na sílaba.</li>
+                    <li>Ou acompanhados de <strong>s</strong>.</li>
+                    <li>Não forem seguidos de <strong>nh</strong>.</li>
+                    <li>Não vierem após ditongo decrescente em paroxítonas.</li>
+                </ol>
+            </div>
+
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Com acento</h5>
+                    <ul>
+                        <li>saúde (sa-ú-de)</li>
+                        <li>viúvo (vi-ú-vo)</li>
+                        <li>país (pa-ís)</li>
+                        <li>juízo (ju-í-zo)</li>
+                        <li>casuísmo (ca-su-ís-mo)</li>
+                        <li>faísca (fa-ís-ca)</li>
+                        <li>saída (sa-í-da)</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Sem acento (exceções)</h5>
+                    <ul>
+                        <li>feiura (fei-u-ra) — ditongo + u átono</li>
+                        <li>baiuca (bai-u-ca) — ditongo + u átono</li>
+                        <li>rainha (ra-i-nha) — i + nh</li>
+                        <li>moinho (mo-i-nho) — i + nh</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>6.2. Ditongos Abertos (éi, éu, ói)</h4>
+            <p><span class="def-term">Definição precisa:</span> Os ditongos abertos <span class="highlight">éi, éu e ói</span> em palavras oxítonas recebem acento agudo.</p>
+            <p><strong>Exemplos:</strong> herói, chapéu, céu, troféu, dói.</p>
+            <div class="card card-info">
+                <p>A regra dos ditongos abertos é específica para oxítonas. Em paroxítonas, os ditongos abertos não são acentuados (ex: "ideia", "plateia", "joia" – no Novo Acordo, perderam o acento).</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>6.3. Acento Diferencial</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">acento diferencial</span> é usado para distinguir palavras de mesma grafia (homógrafas) que têm funções gramaticais diferentes.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Com acento</th><th>Sem acento</th><th>Diferença</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>pôr</strong> (verbo)</td><td>por (preposição)</td><td>Verbo / Preposição</td></tr>
+                        <tr><td><strong>pôde</strong> (pretérito perfeito)</td><td>pode (presente)</td><td>Pretérito / Presente</td></tr>
+                        <tr><td><strong>fôrma</strong> (substantivo)</td><td>forma (verbo)</td><td>Subst. / Verbo</td></tr>
+                        <tr><td><strong>tem</strong> (3ª sg. presente)</td><td>têm (3ª pl. presente)</td><td>Singular / Plural</td></tr>
+                        <tr><td><strong>vem</strong> (3ª sg. presente)</td><td>vêm (3ª pl. presente)</td><td>Singular / Plural</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-important">
+                <div class="card-title">Atenção</div>
+                <p>A banca AOCP costuma cobrar os verbos "ter" e "vir" com seus derivados (detém/detêm, mantém/mantêm, intervém/intervêm, etc.).</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>6.4. Til (~) como Sinal Diacrítico</h4>
+            <p><span class="def-term">Definição precisa:</span> O <span class="highlight">til (~)</span> é um sinal diacrítico que indica nasalização das vogais <strong>a</strong> e <strong>o</strong>. Não é acento gráfico.</p>
+
+            <div class="card card-warning">
+                <div class="card-title">Atenção</div>
+                <p>O til não é um acento gráfico (como o agudo, circunflexo ou grave). Ele apenas indica que a vogal deve ser pronunciada com nasalização. Portanto, palavras como <span class="highlight">"campeão"</span>, <span class="highlight">"reflexão"</span>, <span class="highlight">"estão"</span> <strong>não</strong> são consideradas acentuadas pelo til.</p>
+            </div>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Palavra</th><th>Til?</th><th>É acentuada?</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>campeão</td><td>Sim (em ã)</td><td>Não (o til não é acento)</td></tr>
+                        <tr><td>reflexão</td><td>Sim (em ã)</td><td>Não (o til não é acento)</td></tr>
+                        <tr><td>estão</td><td>Sim (em ã)</td><td>Não (o til não é acento)</td></tr>
+                        <tr><td>órfão</td><td>Sim (em ã)</td><td>Sim (tem acento agudo no "o")</td></tr>
+                        <tr><td>ímã</td><td>Sim (em ã)</td><td>Sim (tem acento agudo no "i")</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- CAPÍTULO 7 -->
+        <section id="cap7">
+            <h3>Capítulo 7 – Acentuação dos Verbos Ter e Vir</h3>
+
+            <h4>7.1. Tem / Têm</h4>
+            <p><span class="def-term">Regra precisa:</span></p>
+            <ul>
+                <li><strong>Tem</strong> (sem acento) – 3ª pessoa do singular do presente do indicativo do verbo <strong>ter</strong>.</li>
+                <li><strong>Têm</strong> (com acento circunflexo) – 3ª pessoa do plural do presente do indicativo do verbo <strong>ter</strong>.</li>
+            </ul>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Verbo</th><th>3ª sg.</th><th>3ª pl.</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>ter</td><td>tem</td><td>têm</td></tr>
+                        <tr><td>manter</td><td>mantém</td><td>mantêm</td></tr>
+                        <tr><td>conter</td><td>contém</td><td>contêm</td></tr>
+                        <tr><td>deter</td><td>detém</td><td>detêm</td></tr>
+                        <tr><td>reter</td><td>retém</td><td>retêm</td></tr>
+                        <tr><td>entreter</td><td>entretém</td><td>entretêm</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>7.2. Vem / Vêm</h4>
+            <ul>
+                <li><strong>Vem</strong> (sem acento) – 3ª pessoa do singular do presente do indicativo do verbo <strong>vir</strong>.</li>
+                <li><strong>Vêm</strong> (com acento circunflexo) – 3ª pessoa do plural do presente do indicativo do verbo <strong>vir</strong>.</li>
+            </ul>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Verbo</th><th>3ª sg.</th><th>3ª pl.</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>vir</td><td>vem</td><td>vêm</td></tr>
+                        <tr><td>intervir</td><td>intervém</td><td>intervêm</td></tr>
+                        <tr><td>convir</td><td>convém</td><td>convêm</td></tr>
+                        <tr><td>provir</td><td>provém</td><td>provêm</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>7.3. Verbos Derivados (Detém / Detêm; Mantém / Mantêm)</h4>
+            <p><span class="def-term">Regra geral:</span> Todos os verbos derivados de <strong>ter</strong> e <strong>vir</strong> seguem a mesma regra de acentuação:</p>
+            <ul>
+                <li>3ª pessoa do singular: acento agudo (ex: detém, mantém, convém, intervém).</li>
+                <li>3ª pessoa do plural: acento circunflexo (ex: detêm, mantêm, convêm, intervêm).</li>
+            </ul>
+
+            <div class="card card-important">
+                <div class="card-title">Exemplo de questão</div>
+                <p>"A empresa ___ o monopólio do setor." (detém / detêm)</p>
+                <p><strong>Resposta:</strong> "A empresa <span class="highlight">detém</span>" (singular). Se fosse "As empresas <span class="highlight">detêm</span>" (plural).</p>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- CAPÍTULO 8 -->
+        <section id="cap8">
+            <h3>Capítulo 8 – Erros e Pegadinhas Frequentes em Acentuação</h3>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Erro comum</th><th>Correção</th><th>Explicação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Classificar "através" como paroxítona</td><td>É oxítona</td><td>Acentua-se por ser oxítona terminada em "es"</td></tr>
+                        <tr><td>Classificar "você" como paroxítona</td><td>É oxítona</td><td>Acentua-se por ser oxítona terminada em "e"</td></tr>
+                        <tr><td>Achar que "viúvo" é acentuado por ser paroxítona terminada em "o"</td><td>É acentuado pela regra do hiato</td><td>"vi-ú-vo" – hiato com u tônico</td></tr>
+                        <tr><td>Achar que "próprias" é oxítona</td><td>É paroxítona</td><td>Sílaba tônica em "pró", acentuada por terminar em ditongo "ia"</td></tr>
+                        <tr><td>Achar que "desenvolvido" deve ser acentuado</td><td>Não é acentuado</td><td>Paroxítona terminada em "o" – sem acento</td></tr>
+                        <tr><td>Achar que "país" não é acentuado</td><td>É acentuado</td><td>Hiato com i tônico sozinho na sílaba</td></tr>
+                        <tr><td>Achar que "baiuca" é acentuado</td><td>Não é acentuado</td><td>Paroxítona com ditongo decrescente + u átono</td></tr>
+                        <tr><td>Confundir "tem" com "têm"</td><td>Tem = singular; Têm = plural</td><td>Regra dos verbos ter/vir</td></tr>
+                        <tr><td>Confundir "vem" com "vêm"</td><td>Vem = singular; Vêm = plural</td><td>Regra dos verbos ter/vir</td></tr>
+                        <tr><td>Achar que o til é acento gráfico</td><td>Não é acento</td><td>É sinal diacrítico de nasalização</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- MÓDULO IV — MORFOLOGIA -->
+        <!-- ============================================================ -->
+
+        <section id="mod4">
+            <h2 style="border-left-color:#6a8a9a;">Módulo IV — Morfologia (Classes de Palavras)</h2>
+
+            <!-- CAPÍTULO 9 -->
+            <h3 id="cap9">Capítulo 9 – Estrutura e Formação de Palavras</h3>
+
+            <h4>9.1. Derivação Prefixal</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">derivação prefixal</span> é o processo de formação de palavras que acrescenta um prefixo antes do radical, modificando o sentido da palavra primitiva.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Palavra</th><th>Prefixo</th><th>Radical</th><th>Significado</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>ultranacionalista</td><td>ultra-</td><td>nacionalista</td><td>além de, em excesso</td></tr>
+                        <tr><td>subutilizados</td><td>sub-</td><td>utilizados</td><td>abaixo, insuficiência</td></tr>
+                        <tr><td>desproporcional</td><td>des-</td><td>proporcional</td><td>negação, inversão</td></tr>
+                        <tr><td>desenvolver</td><td>des-</td><td>envolver</td><td>ação contrária</td></tr>
+                        <tr><td>reconfigurar</td><td>re-</td><td>configurar</td><td>repetição, novamente</td></tr>
+                        <tr><td>sobrecarregar</td><td>sobre-</td><td>carregar</td><td>excesso, acima</td></tr>
+                        <tr><td>subestimar</td><td>sub-</td><td>estimar</td><td>abaixo, insuficiência</td></tr>
+                        <tr><td>superestimar</td><td>super-</td><td>estimar</td><td>acima, excesso</td></tr>
+                        <tr><td>inútil</td><td>in-</td><td>útil</td><td>negação</td></tr>
+                        <tr><td>anormal</td><td>an-</td><td>normal</td><td>negação, privação</td></tr>
+                        <tr><td>bilateral</td><td>bi-</td><td>lateral</td><td>dois</td></tr>
+                        <tr><td>multinacional</td><td>multi-</td><td>nacional</td><td>muitos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-tip">
+                <div class="card-title">Como identificar</div>
+                <p>Para identificar se um elemento é prefixo, retire o suposto prefixo. Se o que sobra é uma palavra com sentido próprio, trata-se de derivação prefixal. Exemplo: <span class="highlight">subutilizados</span> – retire "sub-" → "utilizados" (palavra com sentido próprio). Portanto, é derivação prefixal.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>9.2. Derivação Sufixal</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">derivação sufixal</span> é o processo de formação de palavras que acrescenta um sufixo após o radical, modificando o sentido ou a classe gramatical da palavra.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Palavra</th><th>Radical</th><th>Sufixo</th><th>Mudança</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>brasileiro</td><td>Brasil</td><td>-eiro</td><td>Origem/nacionalidade</td></tr>
+                        <tr><td>doçura</td><td>doce</td><td>-ura</td><td>Qualidade</td></tr>
+                        <tr><td>felicidade</td><td>feliz</td><td>-idade</td><td>Estado/qualidade</td></tr>
+                        <tr><td>jesuítas</td><td>Jesus</td><td>-ita</td><td>Seguidor, pertencente</td></tr>
+                        <tr><td>respiável</td><td>respirar</td><td>-ável</td><td>Possibilidade</td></tr>
+                        <tr><td>livremente</td><td>livre</td><td>-mente</td><td>Modo (advérbio)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-info">
+                <div class="card-title">Sufixo polissêmico "-eiro"</div>
+                <ul>
+                    <li><strong>Brasileiro</strong> – indica origem/nacionalidade.</li>
+                    <li><strong>Celeiro</strong> – indica lugar.</li>
+                    <li><strong>Palavreiro</strong> – indica quantidade.</li>
+                    <li><strong>Coveiro</strong> – indica agente.</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>9.3. Derivação Parassintética</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">derivação parassintética</span> ocorre quando a palavra recebe simultaneamente um prefixo e um sufixo, e a retirada de um deles faz com que a palavra perca o sentido.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Palavra</th><th>Prefixo</th><th>Radical</th><th>Sufixo</th><th>Observação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>envelhecer</td><td>en-</td><td>velho</td><td>-ecer</td><td>Não existe "envelho" ou "velhecer"</td></tr>
+                        <tr><td>empobrecer</td><td>em-</td><td>pobre</td><td>-ecer</td><td>Não existe "empobre" ou "pobrecer"</td></tr>
+                        <tr><td>entardecer</td><td>en-</td><td>tarde</td><td>-ecer</td><td>Não existe "entarde" ou "tardecer"</td></tr>
+                        <tr><td>amanhecer</td><td>a-</td><td>manhã</td><td>-ecer</td><td>Não existe "amanhã" ou "manhecer"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>9.4. Composição por Justaposição</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">composição por justaposição</span> ocorre quando dois ou mais radicais se unem sem que ocorra alteração fonética ou perda de elementos.</p>
+            <p><strong>Exemplos:</strong> guarda-chuva, couve-flor, pé-de-moleque, segunda-feira, arco-íris, bem-te-vi.</p>
+
+            <hr class="divider-light">
+
+            <h4>9.5. Composição por Aglutinação</h4>
+            <p><span class="def-term">Definição precisa:</span> A <span class="highlight">composição por aglutinação</span> ocorre quando dois ou mais radicais se unem com perda ou alteração de elementos fonéticos.</p>
+            <p><strong>Exemplos:</strong> planalto (plano + alto), pernilongo (perna + longa), aguardente (água + ardente), fidalgo (filho + de + algo), embora (em + boa + hora).</p>
+
+            <hr class="divider-light">
+
+            <h4>9.6. Falsa Derivação (Prefixos Falsos)</h4>
+            <p><span class="def-term">Definição precisa:</span> Algumas palavras parecem ter prefixos, mas na verdade o elemento faz parte do radical. A banca costuma cobrar isso como pegadinha.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Palavra</th><th>Aparência</th><th>Realidade</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>realizar</td><td>re- é prefixo?</td><td>Não. Radical "real" + sufixo "-izar". O "re" faz parte do radical "real".</td></tr>
+                        <tr><td>demandas</td><td>de- é prefixo?</td><td>Não. Vem do latim "demandare" (encomendar). O "de" não é prefixo; é parte do radical.</td></tr>
+                        <tr><td>refrigerar</td><td>re- é prefixo?</td><td>Sim. "re-" indica repetição, + "frigerar" (esfriar).</td></tr>
+                        <tr><td>redobrar</td><td>re- é prefixo?</td><td>Sim. "re-" indica repetição, + "dobrar".</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-tip">
+                <div class="card-title">Como identificar</div>
+                <p>Se ao retirar o suposto prefixo o que sobra é uma palavra com sentido próprio, trata-se de derivação prefixal. Caso contrário, o elemento faz parte do radical.</p>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- CAPÍTULO 10 a 17 — Resumidos com tabelas e cards para manter a completude -->
+        <section id="cap10">
+            <h3>Capítulo 10 – Substantivos</h3>
+            <h4>10.1. Definição e Classificação</h4>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Substantivo</span> é a classe de palavras que nomeia seres, objetos, fenômenos, sentimentos, ações, estados, etc. É o núcleo do sujeito e de vários termos da oração.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Classificação</th><th>Subdivisão</th><th>Exemplos</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Comum</strong></td><td>—</td><td>homem, cidade, livro, amor</td></tr>
+                        <tr><td><strong>Próprio</strong></td><td>—</td><td>João, São Paulo, Brasil, Coca-Cola</td></tr>
+                        <tr><td><strong>Concreto</strong></td><td>—</td><td>mesa, árvore, água, criança</td></tr>
+                        <tr><td><strong>Abstrato</strong></td><td>—</td><td>amor, esperança, beleza, verdade</td></tr>
+                        <tr><td><strong>Simples</strong></td><td>—</td><td>sol, flor, livro, casa</td></tr>
+                        <tr><td><strong>Composto</strong></td><td>—</td><td>guarda-chuva, pé-de-moleque, passatempo</td></tr>
+                        <tr><td><strong>Primitivo</strong></td><td>—</td><td>livro, terra, flor</td></tr>
+                        <tr><td><strong>Derivado</strong></td><td>—</td><td>livreto, terreno, florista</td></tr>
+                        <tr><td><strong>Coletivo</strong></td><td>—</td><td>multidão, cardume, manada, enxame</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-info">
+                <div class="card-title">Lista de coletivos</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem 1.2rem;font-size:0.9rem;">
+                    <div>multidão – grande quantidade de pessoas</div>
+                    <div>cardume – peixes</div>
+                    <div>manada – gado ou outros animais</div>
+                    <div>enxame – abelhas</div>
+                    <div>bando – aves ou pessoas</div>
+                    <div>alcateia – lobos</div>
+                    <div>matilha – cães</div>
+                    <div>rebanho – ovelhas, cabras</div>
+                    <div>plantel – animais de criação</div>
+                    <div>constelação – estrelas</div>
+                    <div>flora – plantas de uma região</div>
+                    <div>fauna – animais de uma região</div>
+                    <div>acervo – obras de arte</div>
+                    <div>biblioteca – livros</div>
+                    <div>arquivo – documentos</div>
+                    <div>turma – alunos</div>
+                    <div>classe – estudantes</div>
+                    <div>pelotão – soldados</div>
+                    <div>esquadrilha – aviões</div>
+                    <div>frota – navios</div>
+                </div>
+            </div>
+
+            <h4>10.2. Flexões (Gênero, Número, Grau)</h4>
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Gênero</h5>
+                    <ul>
+                        <li>-o / -a: gato/gata</li>
+                        <li>-ão / -ã: alemão/alemã</li>
+                        <li>-or / -ora: doutor/doutora</li>
+                        <li>-ês / -esa: português/portuguesa</li>
+                        <li>-eu / -eia: europeu/europeia</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Número</h5>
+                    <ul>
+                        <li>-l → -is: caracol/caracóis</li>
+                        <li>-al → -ais: jornal/jornais</li>
+                        <li>-el → -éis: papel/papéis</li>
+                        <li>-ão → -ões: pão/pões</li>
+                        <li>-ão → -ães: alemão/alemães</li>
+                        <li>-ão → -ãos: mão/mãos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap11">Capítulo 11 – Adjetivos</h3>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Adjetivo</span> é a classe de palavras que caracteriza ou qualifica o substantivo, atribuindo-lhe qualidade, estado, origem, etc.</p>
+            <div class="card card-info">
+                <div class="card-title">Locução adjetiva</div>
+                <p>Expressão formada por preposição + substantivo que funciona como adjetivo:</p>
+                <ul>
+                    <li>de olhos → ocular: problema ocular</li>
+                    <li>de mãe → maternal: amor maternal</li>
+                    <li>de cabeça → craniano: traumatismo craniano</li>
+                    <li>de água → aquático: esporte aquático</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap12">Capítulo 12 – Pronomes</h3>
+
+            <h4>12.1. Pronomes Pessoais (Retos e Oblíquos)</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Pessoa</th><th>Reto</th><th>Oblíquo Átono</th><th>Oblíquo Tônico</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1ª sg.</td><td>eu</td><td>me, mim, comigo</td><td>mim, comigo</td></tr>
+                        <tr><td>2ª sg.</td><td>tu</td><td>te, ti, contigo</td><td>ti, contigo</td></tr>
+                        <tr><td>3ª sg.</td><td>ele/ela</td><td>o, a, lhe, se</td><td>si, consigo</td></tr>
+                        <tr><td>1ª pl.</td><td>nós</td><td>nos, conosco</td><td>nós, conosco</td></tr>
+                        <tr><td>2ª pl.</td><td>vós</td><td>vos, convosco</td><td>vós, convosco</td></tr>
+                        <tr><td>3ª pl.</td><td>eles/elas</td><td>os, as, lhes, se</td><td>si, consigo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>12.3. Pronomes Demonstrativos</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Pessoa</th><th>Variável</th><th>Invariável</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1ª (perto de quem fala)</td><td>este, esta, estes, estas</td><td>isto</td></tr>
+                        <tr><td>2ª (perto de quem ouve)</td><td>esse, essa, esses, essas</td><td>isso</td></tr>
+                        <tr><td>3ª (longe de ambos)</td><td>aquele, aquela, aqueles, aquelas</td><td>aquilo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card card-tip">
+                <div class="card-title">Função textual</div>
+                <ul>
+                    <li><strong>Este/isto:</strong> função catafórica (refere-se a algo que ainda será dito).</li>
+                    <li><strong>Esse/isso:</strong> função anafórica (refere-se a algo já dito).</li>
+                    <li><strong>Aquele/aquilo:</strong> função anafórica (refere-se a algo distante no texto).</li>
+                </ul>
+            </div>
+
+            <h4>12.4. Pronomes Relativos</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Pronome Relativo</th><th>Uso</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>que</td><td>Substituível por "o qual"</td><td>O livro <strong>que</strong> li</td></tr>
+                        <tr><td>quem</td><td>Refere-se a pessoa</td><td>A pessoa <strong>quem</strong> vi</td></tr>
+                        <tr><td>cujo</td><td>Posse</td><td>O livro <strong>cujo</strong> autor é famoso</td></tr>
+                        <tr><td>onde</td><td>Lugar</td><td>A casa <strong>onde</strong> moro</td></tr>
+                        <tr><td>quanto</td><td>Quantidade</td><td>Tudo <strong>quanto</strong> tinha</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card card-important">
+                <div class="card-title">Regra do "cujo"</div>
+                <ul>
+                    <li>Indica posse.</li>
+                    <li>Concorda com o substantivo que o segue.</li>
+                    <li><strong>Nunca</strong> vem acompanhado de artigo após ele.</li>
+                    <li>Erro grave: "cujo <strong>o</strong>" ou "cuja <strong>a</strong>" – o correto é sem artigo.</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap13">Capítulo 13 – Verbos</h3>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Verbo</span> é a classe de palavras que expressa ação, estado, fenômeno ou processo, localizando-o no tempo.</p>
+
+            <div class="card card-concept">
+                <div class="card-title">Estrutura do verbo</div>
+                <p>Radical + Vogal Temática + Desinência</p>
+                <ul>
+                    <li>1ª conjugação: <strong>-ar</strong> (amar, falar, cantar)</li>
+                    <li>2ª conjugação: <strong>-er</strong> (comer, beber, correr)</li>
+                    <li>3ª conjugação: <strong>-ir</strong> (partir, sentir, dormir)</li>
+                </ul>
+            </div>
+
+            <div class="card card-info">
+                <div class="card-title">Formas Nominais</div>
+                <ul>
+                    <li><strong>Infinitivo:</strong> amar, comer, partir – nomeia a ação</li>
+                    <li><strong>Gerúndio:</strong> amando, comendo, partindo – indica processo</li>
+                    <li><strong>Particípio:</strong> amado, comido, partido – indica estado/resultado</li>
+                </ul>
+            </div>
+
+            <div class="card card-tip">
+                <div class="card-title">Aspecto verbal progressivo</div>
+                <p>Marcado pela locução verbal: verbo auxiliar (estar, ir, vir, andar) + verbo principal no gerúndio. Indica ação contínua, em desenvolvimento. Exemplo: <span class="highlight">"estiverem realizando"</span> (gerúndio) indica ação contínua.</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap14">Capítulo 14 – Advérbios</h3>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Advérbio</span> é a classe de palavras que modifica o verbo, o adjetivo ou outro advérbio, indicando circunstância (tempo, modo, lugar, intensidade, etc.).</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Tipo</th><th>Exemplos</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Modo</strong></td><td>bem, mal, assim, devagar, depressa</td></tr>
+                        <tr><td><strong>Tempo</strong></td><td>hoje, ontem, amanhã, sempre, nunca, já</td></tr>
+                        <tr><td><strong>Lugar</strong></td><td>aqui, ali, lá, perto, longe, dentro</td></tr>
+                        <tr><td><strong>Intensidade</strong></td><td>muito, pouco, bastante, tão, tanto</td></tr>
+                        <tr><td><strong>Dúvida</strong></td><td>talvez, quiçá, provavelmente</td></tr>
+                        <tr><td><strong>Afirmação</strong></td><td>sim, certamente, realmente</td></tr>
+                        <tr><td><strong>Negação</strong></td><td>não, nunca, jamais</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap15">Capítulo 15 – Preposições</h3>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Preposição</span> é a classe de palavras que liga termos da oração, estabelecendo relações de dependência entre eles.</p>
+            <p><strong>Preposições essenciais:</strong> a, ante, após, até, com, contra, de, desde, em, entre, para, per, perante, por, sem, sob, sobre, trás.</p>
+
+            <div class="card card-info">
+                <div class="card-title">Preposição + infinitivo – relações semânticas</div>
+                <ul>
+                    <li><strong>para</strong> + infinitivo → Finalidade: "Estudo <strong>para passar</strong>."</li>
+                    <li><strong>por</strong> + infinitivo → Causa: "Fui demitido <strong>por chegar</strong> atrasado."</li>
+                    <li><strong>apesar de</strong> + infinitivo → Concessão: "Fui <strong>apesar de estar</strong> doente."</li>
+                    <li><strong>ao</strong> + infinitivo → Tempo: "<strong>Ao chegar</strong>, fui embora."</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap16">Capítulo 16 – Conjunções</h3>
+
+            <h4>16.2. Conjunções Coordenativas</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Tipo</th><th>Valor</th><th>Conjunções</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Aditiva</strong></td><td>Adição, soma</td><td>e, nem, não só... mas também</td><td>Estudei <strong>e</strong> passei.</td></tr>
+                        <tr><td><strong>Adversativa</strong></td><td>Oposição, contraste</td><td>mas, porém, contudo, todavia, entretanto</td><td>Estudei, <strong>mas</strong> não passei.</td></tr>
+                        <tr><td><strong>Alternativa</strong></td><td>Alternância, escolha</td><td>ou, ou... ou, ora... ora, já... já</td><td><strong>Ou</strong> você estuda <strong>ou</strong> reprova.</td></tr>
+                        <tr><td><strong>Conclusiva</strong></td><td>Conclusão, consequência</td><td>logo, portanto, pois (posposto), assim</td><td>Estudei, <strong>portanto</strong> passei.</td></tr>
+                        <tr><td><strong>Explicativa</strong></td><td>Explicação, justificativa</td><td>porque, pois (anteposto), que</td><td>Não fui <strong>porque</strong> estava doente.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>16.3. Conjunções Subordinativas</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Tipo</th><th>Valor</th><th>Conjunções</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Causal</strong></td><td>Causa</td><td>porque, já que, visto que, como</td><td>Não fui <strong>porque</strong> estava doente.</td></tr>
+                        <tr><td><strong>Concessiva</strong></td><td>Concessão, ressalva</td><td>embora, ainda que, mesmo que, conquanto</td><td><strong>Embora</strong> doente, fui.</td></tr>
+                        <tr><td><strong>Condicional</strong></td><td>Condição</td><td>se, caso, desde que, a menos que</td><td><strong>Se</strong> estudar, passará.</td></tr>
+                        <tr><td><strong>Conformativa</strong></td><td>Conformidade</td><td>conforme, como, segundo</td><td>Fiz <strong>como</strong> mandou.</td></tr>
+                        <tr><td><strong>Comparativa</strong></td><td>Comparação</td><td>como, tal qual, mais que, menos que</td><td>Ela é <strong>mais alta que</strong> ele.</td></tr>
+                        <tr><td><strong>Consecutiva</strong></td><td>Consequência</td><td>que (com tão/tanto), de modo que</td><td>Falou <strong>tanto que</strong> perdeu a voz.</td></tr>
+                        <tr><td><strong>Final</strong></td><td>Finalidade</td><td>para que, a fim de que</td><td>Estudei <strong>para que</strong> passasse.</td></tr>
+                        <tr><td><strong>Temporal</strong></td><td>Tempo</td><td>quando, enquanto, logo que</td><td><strong>Quando</strong> chegar, avise.</td></tr>
+                        <tr><td><strong>Proporcional</strong></td><td>Proporção</td><td>à medida que, quanto mais... mais</td><td><strong>Quanto mais</strong> estudo, <strong>mais</strong> aprendo.</td></tr>
+                        <tr><td><strong>Integrante</strong></td><td>Introduz oração substantiva</td><td>que, se</td><td>Disse <strong>que</strong> viria.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap17">Capítulo 17 – Interjeições</h3>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Interjeição</span> é a classe de palavras que expressa emoções, sentimentos, reações espontâneas.</p>
+            <p><strong>Exemplos:</strong> Ah! (espanto), Oh! (admiração), Nossa! (espanto), Puxa! (admiração/desapontamento), Ops! (erro/surpresa).</p>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- MÓDULO V — SINTAXE -->
+        <!-- ============================================================ -->
+
+        <section id="mod5">
+            <h2 style="border-left-color:#c9a040;">Módulo V — Sintaxe (Análise Estrutural)</h2>
+
+            <!-- CAPÍTULO 18 -->
+            <h3 id="cap18">Capítulo 18 – Termos da Oração</h3>
+
+            <h4>18.1. Sujeito</h4>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Sujeito</span> é o termo da oração que pratica ou sofre a ação verbal, ou ainda aquele sobre o qual se declara algo. É o termo com o qual o verbo concorda.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Tipo</th><th>Descrição</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Determinado Simples</strong></td><td>Um núcleo</td><td>"O <strong>cão</strong> latiu."</td></tr>
+                        <tr><td><strong>Determinado Composto</strong></td><td>Mais de um núcleo</td><td>"<strong>João e Maria</strong> chegaram."</td></tr>
+                        <tr><td><strong>Indeterminado</strong></td><td>Não se sabe ou não se quer dizer</td><td>"<strong>Falaram</strong> mal de mim."</td></tr>
+                        <tr><td><strong>Inexistente (oração sem sujeito)</strong></td><td>Verbos impessoais</td><td>"<strong>Havia</strong> muitos livros."</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>18.2. Predicado</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Tipo</th><th>Núcleo</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Verbal</strong></td><td>Verbo</td><td>"O cão <strong>latiu</strong>."</td></tr>
+                        <tr><td><strong>Nominal</strong></td><td>Nome (predicativo)</td><td>"O cão <strong>está cansado</strong>."</td></tr>
+                        <tr><td><strong>Verbo-Nominal</strong></td><td>Verbo + Nome</td><td>"O cão <strong>chegou cansado</strong>."</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-light">
+
+            <h4>18.3 a 18.10 – Resumo dos Termos</h4>
+            <div class="card card-concept">
+                <div class="card-title">Termos da Oração</div>
+                <ul>
+                    <li><strong>Objeto Direto:</strong> Complemento verbal sem preposição obrigatória. Ex: "Comprei <strong>o livro</strong>."</li>
+                    <li><strong>Objeto Indireto:</strong> Complemento verbal com preposição obrigatória. Ex: "Gosto <strong>de música</strong>."</li>
+                    <li><strong>Complemento Nominal:</strong> Termo preposicionado que completa o sentido de um nome. Ex: "Necessidade <strong>de dinheiro</strong>."</li>
+                    <li><strong>Adjunto Adnominal:</strong> Termo que determina, especifica ou caracteriza um substantivo. Ex: "A <strong>casa</strong> de João."</li>
+                    <li><strong>Adjunto Adverbial:</strong> Termo que modifica o verbo, indicando circunstância. Ex: "Chegou <strong>cedo</strong>."</li>
+                    <li><strong>Aposto:</strong> Termo que explica, enumera ou especifica outro termo. Ex: "São Paulo, <strong>a maior cidade do Brasil</strong>."</li>
+                    <li><strong>Vocativo:</strong> Termo que chama, invoca ou interpela o interlocutor. Ex: "<strong>Maria</strong>, venha aqui."</li>
+                    <li><strong>Agente da Passiva:</strong> Termo que indica quem executa a ação na voz passiva. Ex: "O livro foi escrito <strong>por Machado</strong>."</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- CAPÍTULO 19 a 27 — Resumos com tabelas -->
+        <section id="cap19">
+            <h3>Capítulo 19 – Concordância Verbal</h3>
+            <div class="card card-concept">
+                <div class="card-title">Regras essenciais</div>
+                <ul>
+                    <li><strong>Sujeito simples:</strong> O verbo concorda em número e pessoa com o núcleo. Ex: "O <strong>cão</strong> latiu."</li>
+                    <li><strong>Sujeito composto:</strong> O verbo vai para o plural. Ex: "<strong>João e Maria</strong> chegaram."</li>
+                    <li><strong>Sujeito coletivo:</strong> O verbo fica no singular. Ex: "A <strong>multidão</strong> gritou."</li>
+                    <li><strong>Sujeito com pronome relativo:</strong> O verbo concorda com o antecedente. Ex: "Fui eu <strong>que fiz</strong>."</li>
+                    <li><strong>Verbo Haver (existir):</strong> Impessoal, 3ª pessoa do singular. Ex: "<strong>Havia</strong> muitos livros."</li>
+                    <li><strong>Verbo Fazer (tempo):</strong> Impessoal, 3ª pessoa do singular. Ex: "<strong>Faz</strong> dez anos."</li>
+                    <li><strong>Concordância ideológica (silepse):</strong> Concorda com o sentido. Ex: "A multidão <strong>gritaram</strong>."</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap20">Capítulo 20 – Concordância Nominal</h3>
+            <div class="card card-concept">
+                <div class="card-title">Casos especiais</div>
+                <ul>
+                    <li><strong>É proibido / É proibida:</strong> "É proibido fumar." / "É proibida a entrada."</li>
+                    <li><strong>É necessário / É necessária:</strong> "É necessário o esforço." / "É necessária a coragem."</li>
+                    <li><strong>Menos / Menas:</strong> "Menos" é invariável; "menas" é errado.</li>
+                    <li><strong>Alerta:</strong> Invariável. "Fiquem alerta."</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap21">Capítulo 21 – Regência Verbal</h3>
+            <div class="card card-concept">
+                <div class="card-title">Verbos com regência múltipla</div>
+                <ul>
+                    <li><strong>Assistir:</strong> ver (a), ajudar (a), caber (a). Ex: "Assisti <strong>ao</strong> filme."</li>
+                    <li><strong>Chamar:</strong> transitivo direto ou com predicativo. Ex: "Chamei o médico." / "Chamei-o de ignorante."</li>
+                    <li><strong>Agradar:</strong> causar prazer (a), fazer carinho (direto). Ex: "O filme agradou <strong>ao</strong> público." / "Agradou o cão."</li>
+                    <li><strong>Desembarcar:</strong> em (lugar), de (origem). Ex: "Desembarcou <strong>em</strong> São Paulo." / "Desembarcou <strong>do</strong> avião."</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap22">Capítulo 22 – Regência Nominal</h3>
+            <p><span class="def-term">Definição precisa:</span> <span class="highlight">Regência nominal</span> é a relação de dependência entre um nome (substantivo, adjetivo ou advérbio) e seus complementos, determinada pela preposição.</p>
+            <ul>
+                <li>Necessidade <strong>de</strong> ajuda.</li>
+                <li>Capacidade <strong>de/para</strong> entender.</li>
+                <li>Medo <strong>de</strong> altura.</li>
+                <li>Feliz <strong>com</strong> a notícia.</li>
+                <li>Pronto <strong>para</strong> viajar.</li>
+            </ul>
+
+            <hr class="divider-light">
+
+            <h3 id="cap23">Capítulo 23 – Crase</h3>
+            <div class="card card-important">
+                <div class="card-title">Casos obrigatórios</div>
+                <ul>
+                    <li>Preposição "a" + artigo "a": "Vou <strong>à</strong> escola."</li>
+                    <li>Preposição "a" + pronome demonstrativo: "Refiro-me <strong>àquela</strong> pessoa."</li>
+                    <li>Preposição "a" + pronome relativo "a qual": "A revista <strong>à qual</strong> me refiro."</li>
+                    <li>Locuções adverbiais femininas: "<strong>À</strong> noite.", "<strong>Às</strong> pressas."</li>
+                    <li>Antes de horas: "<strong>Às</strong> 10 horas."</li>
+                </ul>
+            </div>
+            <div class="card card-warning">
+                <div class="card-title">Casos proibidos</div>
+                <ul>
+                    <li>Antes de substantivo masculino: "Andei <strong>a</strong> cavalo."</li>
+                    <li>Antes de verbo: "Ajudou <strong>a</strong> fazer."</li>
+                    <li>Antes de pronome que não admite artigo: "Recorre <strong>a ela</strong>."</li>
+                    <li>Antes de cidade (Vou a / volto de): "Vou <strong>a</strong> São Paulo."</li>
+                </ul>
+            </div>
+            <div class="card card-tip">
+                <div class="card-title">Regra do nome de cidade</div>
+                <p><strong>Vou a, volto de, crase há.</strong> (Vai a + volta da = crase) – "Vou <strong>à</strong> Bahia" (volto da Bahia).</p>
+                <p><strong>Vou a, volto de, crase pra quê?</strong> (Vai a + volta de = não tem crase) – "Vou <strong>a</strong> São Paulo" (volto de São Paulo).</p>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap24">Capítulo 24 – Colocação Pronominal</h3>
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Próclise (palavras atrativas)</h5>
+                    <ul>
+                        <li>Advérbios: "<strong>Não me</strong> toque."</li>
+                        <li>Pronomes relativos: "O livro <strong>que me</strong> deu."</li>
+                        <li>Conjunções subordinativas: "<strong>Quando me</strong> chamou."</li>
+                        <li>Pronomes indefinidos: "<strong>Alguém me</strong> disse."</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Ênclise</h5>
+                    <ul>
+                        <li>Verbo no início: "<strong>Diga-me</strong> a verdade."</li>
+                        <li>Imperativo afirmativo: "<strong>Faça-me</strong> um favor."</li>
+                        <li>Gerúndio sem preposição: "Saiu <strong>fazendo-se</strong>."</li>
+                        <li>Infinitivo impessoal: "É preciso <strong>fazer-se</strong> ouvir."</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card card-info">
+                <div class="card-title">Mesóclise</div>
+                <p>Pronome no meio do verbo, no futuro do presente ou do pretérito.</p>
+                <ul>
+                    <li>"<strong>Dar-lhe-á</strong> o livro." (futuro do presente)</li>
+                    <li>"<strong>Dir-me-ia</strong> a verdade." (futuro do pretérito)</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap25">Capítulo 25 – Período Composto</h3>
+            <div class="card card-concept">
+                <div class="card-title">Orações Subordinadas Adverbiais</div>
+                <ul>
+                    <li><strong>Causal:</strong> porque, já que — "Não fui <strong>porque</strong> estava doente."</li>
+                    <li><strong>Concessiva:</strong> embora, ainda que — "<strong>Embora</strong> doente, fui."</li>
+                    <li><strong>Condicional:</strong> se, caso — "<strong>Se</strong> estudar, passará."</li>
+                    <li><strong>Final:</strong> para que, a fim de que — "Estudei <strong>para que</strong> passasse."</li>
+                    <li><strong>Temporal:</strong> quando, enquanto — "<strong>Quando</strong> chegar, avise."</li>
+                    <li><strong>Consecutiva:</strong> que (com tão/tanto) — "Falou <strong>tanto que</strong> perdeu a voz."</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap26">Capítulo 26 – Vozes Verbais</h3>
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Voz Ativa</h5>
+                    <p>Sujeito pratica a ação.</p>
+                    <p>"<strong>Eu</strong> encontrei a obra."</p>
+                </div>
+                <div class="comp-item">
+                    <h5>Voz Passiva Analítica</h5>
+                    <p>Sujeito sofre a ação. Verbo "ser" + particípio.</p>
+                    <p>"A obra <strong>foi encontrada</strong> por mim."</p>
+                </div>
+                <div class="comp-item">
+                    <h5>Voz Passiva Sintética</h5>
+                    <p>Com "se" (partícula apassivadora).</p>
+                    <p>"<strong>Detectaram-se</strong> micro e nanopartículas."</p>
+                </div>
+                <div class="comp-item">
+                    <h5>Voz Reflexiva</h5>
+                    <p>Sujeito pratica e recebe a ação.</p>
+                    <p>"<strong>Ele se</strong> feriu."</p>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap27">Capítulo 27 – Pontuação</h3>
+            <div class="card card-concept">
+                <div class="card-title">Uso da vírgula</div>
+                <ul>
+                    <li><strong>Adjunto adverbial deslocado:</strong> "<strong>Ao mudar de atividade</strong>, o cérebro..."</li>
+                    <li><strong>Oração explicativa:</strong> "O livro, <strong>que li ontem</strong>, é bom."</li>
+                    <li><strong>Enumeração:</strong> "Comprei <strong>livro, caderno e caneta</strong>."</li>
+                    <li><strong>Aposto:</strong> "São Paulo, <strong>a maior cidade</strong>."</li>
+                    <li><strong>Conjunções adversativas:</strong> "Estudei, <strong>mas</strong> não passei."</li>
+                    <li><strong>Vocativo:</strong> "<strong>Maria</strong>, venha aqui."</li>
+                </ul>
+            </div>
+            <div class="card card-warning">
+                <div class="card-title">Erros frequentes</div>
+                <ul>
+                    <li>Separar sujeito do verbo: "O homem, chegou." ❌</li>
+                    <li>Separar verbo do objeto: "Comprei, um livro." ❌</li>
+                    <li>Separar agente da passiva: "O livro foi escrito, por Machado." ❌</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- MÓDULO VI — SEMÂNTICA -->
+        <!-- ============================================================ -->
+
+        <section id="mod6">
+            <h2 style="border-left-color:#8a7a6a;">Módulo VI — Semântica e Interpretação Textual</h2>
+
+            <h3 id="cap28">Capítulo 28 – Relações Semânticas</h3>
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Sinonímia</h5>
+                    <p>Palavras de sentido igual ou aproximado.</p>
+                    <ul>
+                        <li>ensejo = oportunidade</li>
+                        <li>deletérias = danosas</li>
+                        <li>sinergia = associação</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Antonímia</h5>
+                    <p>Palavras de sentido contrário.</p>
+                    <ul>
+                        <li>ensejo × revés</li>
+                        <li>bom × mau</li>
+                        <li>certo × errado</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Polissemia</h5>
+                    <p>Uma palavra com múltiplos significados.</p>
+                    <ul>
+                        <li>"português" – idioma ou nacionalidade</li>
+                        <li>"certo" – correto ou determinado</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>Hiponímia / Hiperonímia</h5>
+                    <p>Especificidade / Generalidade.</p>
+                    <ul>
+                        <li>maçã é hipônimo de fruta</li>
+                        <li>fruta é hiperônimo de maçã</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap29">Capítulo 29 – Figuras de Linguagem</h3>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Figura</th><th>Definição</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Metáfora</strong></td><td>Comparação implícita</td><td>"O amor é uma flor."</td></tr>
+                        <tr><td><strong>Metonímia</strong></td><td>Substituição por relação de proximidade</td><td>"Ler Machado." (autor pela obra)</td></tr>
+                        <tr><td><strong>Hipérbole</strong></td><td>Exagero intencional</td><td>"Mil e uma demandas."</td></tr>
+                        <tr><td><strong>Ironia</strong></td><td>Dizer o contrário do que se pensa</td><td>"Que dia lindo!" (chovendo)</td></tr>
+                        <tr><td><strong>Eufemismo</strong></td><td>Suavização de uma expressão</td><td>"Falecer" em vez de "morrer"</td></tr>
+                        <tr><td><strong>Prosopopeia</strong></td><td>Atribuição de características humanas</td><td>"O vento sussurrava."</td></tr>
+                        <tr><td><strong>Sinestesia</strong></td><td>Mistura de sensações</td><td>"Voz aveludada."</td></tr>
+                        <tr><td><strong>Comparação (Símile)</strong></td><td>Comparação explícita</td><td>"O amor é <strong>como</strong> uma flor."</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap30">Capítulo 30 – Denotação e Conotação</h3>
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>Denotação</h5>
+                    <p>Sentido literal, objetivo.</p>
+                    <p>"Essa planta é <strong>tóxica</strong>."</p>
+                </div>
+                <div class="comp-item">
+                    <h5>Conotação</h5>
+                    <p>Sentido figurado, subjetivo.</p>
+                    <p>"A relação entre eles é <strong>tóxica</strong>."</p>
+                </div>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap31">Capítulo 31 – Mecanismos de Coesão e Coerência</h3>
+            <div class="card card-concept">
+                <div class="card-title">Conectivos e seus valores</div>
+                <ul>
+                    <li><strong>por</strong> – causa: "Não fui <strong>por</strong> cansaço."</li>
+                    <li><strong>ou</strong> – alternância: "Estude <strong>ou</strong> reprove."</li>
+                    <li><strong>porque</strong> – causa/explicação: "Não fui <strong>porque</strong> estava doente."</li>
+                    <li><strong>por exemplo</strong> – exemplificação: "Comprei frutas, <strong>por exemplo</strong>, maçãs."</li>
+                    <li><strong>para</strong> – finalidade: "Estudo <strong>para</strong> passar."</li>
+                    <li><strong>daí</strong> – conclusivo/consecutivo: "Estudei, <strong>daí</strong> passei."</li>
+                    <li><strong>só que</strong> – adversativo: "Estudei, <strong>só que</strong> não passei."</li>
+                    <li><strong>no entanto</strong> – adversativo: "Estava cansado, <strong>no entanto</strong> continuei."</li>
+                    <li><strong>mesmo assim</strong> – concessivo/adversativo: "Estava doente, <strong>mesmo assim</strong> fui."</li>
+                </ul>
+            </div>
+
+            <div class="card card-info">
+                <div class="card-title">Anáfora e Catáfora</div>
+                <ul>
+                    <li><strong>Anáfora:</strong> Referência a um termo já mencionado. "A vida é bela. <strong>Isso</strong> é o que penso."</li>
+                    <li><strong>Catáfora:</strong> Referência a um termo que ainda será mencionado. "<strong>Isto</strong> é o que penso: a vida é bela."</li>
+                </ul>
+            </div>
+
+            <hr class="divider-light">
+
+            <h3 id="cap32">Capítulo 32 – Estratégias de Leitura e Interpretação</h3>
+            <div class="card card-concept">
+                <div class="card-title">Conceitos-chave</div>
+                <ul>
+                    <li><strong>Tese:</strong> Ponto de vista defendido pelo autor.</li>
+                    <li><strong>Pressuposto:</strong> Informação implícita tomada como verdadeira.</li>
+                    <li><strong>Subentendido:</strong> Informação implícita que pode ser inferida.</li>
+                    <li><strong>Inferência:</strong> Conclusão tirada a partir das informações explícitas.</li>
+                    <li><strong>Intencionalidade:</strong> O objetivo que o autor tem ao escrever.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- MÓDULO VII — HÍFEN E ORTOGRAFIA -->
+        <!-- ============================================================ -->
+
+        <section id="mod7">
+            <h2 style="border-left-color:#7a9b8a;">Módulo VII — Hífen e Ortografia</h2>
+
+            <h3 id="cap33">Capítulo 33 – Hifenização com Prefixos</h3>
+
+            <h4>33.1. Prefixo "Co-"</h4>
+            <p><span class="def-term">Regra:</span> O prefixo "co-" aglutina-se sem hífen, mesmo quando o segundo elemento começa com a mesma vogal.</p>
+            <ul>
+                <li><strong>coautora</strong> (correto – sem hífen)</li>
+                <li><strong>coorganizar</strong> (correto – sem hífen)</li>
+                <li><strong>coedição</strong> (correto – sem hífen)</li>
+                <li><strong>co-herdeiro</strong> (incorreto – com hífen é errado)</li>
+            </ul>
+
+            <h4>33.2. Prefixo "Sub-"</h4>
+            <p><span class="def-term">Regra:</span> Usa-se hífen com "sub-" antes de <strong>b, r, h</strong>.</p>
+            <ul>
+                <li>sub-base, sub-região, sub-humano (com hífen)</li>
+                <li>subutilizados, subdesenvolvido, subestimar (sem hífen)</li>
+            </ul>
+
+            <h4>33.3. Prefixo "Super-"</h4>
+            <p><span class="def-term">Regra:</span> Usa-se hífen com "super-" antes de <strong>r, h</strong>.</p>
+            <ul>
+                <li>super-rápido, super-homem (com hífen)</li>
+                <li>superpoderes, supermercado (sem hífen)</li>
+            </ul>
+
+            <h4>33.4. Prefixo "Pós-", "Pré-", "Pró-"</h4>
+            <p><span class="def-term">Regra:</span> Os prefixos "pós-", "pré-" e "pró-" (tônicos) sempre exigem hífen.</p>
+            <ul>
+                <li>pós-graduação, pré-requisito, pró-ativo</li>
+            </ul>
+
+            <h4>33.5. Prefixos Sempre com Hífen</h4>
+            <ul>
+                <li><strong>ex-:</strong> ex-marido, ex-presidente</li>
+                <li><strong>vice-:</strong> vice-presidente, vice-reitor</li>
+                <li><strong>recém-:</strong> recém-nascido, recém-chegado</li>
+                <li><strong>bem-:</strong> bem-aventurado, bem-estar</li>
+                <li><strong>mal-:</strong> mal-educado, mal-entendido</li>
+            </ul>
+
+            <hr class="divider-light">
+
+            <h3 id="cap34">Capítulo 34 – Porquês</h3>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Forma</th><th>Uso</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Por que</strong></td><td>Em perguntas (diretas ou indiretas); equivale a "pelo qual"</td><td>"<strong>Por que</strong> você não foi?"</td></tr>
+                        <tr><td><strong>Porque</strong></td><td>Conjunção causal ou explicativa; equivale a "pois"</td><td>"Não fui <strong>porque</strong> estava doente."</td></tr>
+                        <tr><td><strong>Por quê</strong></td><td>No final de perguntas (antes de pontuação)</td><td>"Você não veio <strong>por quê</strong>?"</td></tr>
+                        <tr><td><strong>Porquê</strong></td><td>Substantivo, sinônimo de "motivo"</td><td>"Não entendo o <strong>porquê</strong> disso."</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card card-tip">
+                <div class="card-title">Dica</div>
+                <p>Troque por "motivo". Se fizer sentido, é <span class="highlight">"porquê"</span> (substantivo).</p>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- MÓDULO VIII — QUESTÕES -->
+        <!-- ============================================================ -->
+
+        <section id="mod8">
+            <h2 style="border-left-color:#c97a5a;">Módulo VIII — Apêndice de Questões</h2>
+
+            <div class="card card-important">
+                <div class="card-title">Questão 1 – Acentuação</div>
+                <p><strong>Texto-base:</strong> "A empresa detem o monopólio do setor de energia eolica, embora hajam outras opções no mercado."</p>
+                <p><strong>Assinale a alternativa em que todas as palavras estão acentuadas corretamente:</strong></p>
+                <ol type="A">
+                    <li>"A empresa <strong>detém</strong> o monopólio do setor de <strong>eólica</strong>, embora <strong>haja</strong> outras opções no mercado."</li>
+                    <li>"A empresa <strong>detêm</strong> o monopólio do setor de <strong>eolica</strong>, embora <strong>hajam</strong> outras opções no mercado."</li>
+                    <li>"A empresa <strong>detem</strong> o monopólio do setor de <strong>eólica</strong>, embora <strong>haja</strong> outras opções no mercado."</li>
+                    <li>"A empresa <strong>detêm</strong> o monopólio do setor de <strong>eólica</strong>, embora <strong>haja</strong> outras opções no mercado."</li>
+                    <li>"A empresa <strong>detém</strong> o monopólio do setor de <strong>eólica</strong>, embora <strong>hajam</strong> outras opções no mercado."</li>
+                </ol>
+                <p><strong>Gabarito:</strong> A</p>
+                <p><strong>Comentário:</strong> "detém" – 3ª pessoa do singular, sujeito "A empresa" é singular; "eólica" – proparoxítona, acentuada; "haja" – verbo haver impessoal, 3ª pessoa do singular.</p>
+            </div>
+
+            <div class="card card-important">
+                <div class="card-title">Questão 2 – Crase</div>
+                <p><strong>Assinale a alternativa em que a crase é obrigatória:</strong></p>
+                <ol type="A">
+                    <li>"Vou a São Paulo amanhã."</li>
+                    <li>"Recorre a ela quando precisar."</li>
+                    <li>"Chegamos a tempo."</li>
+                    <li>"Refiro-me a aquela situação."</li>
+                    <li>"Fui a escola ontem."</li>
+                </ol>
+                <p><strong>Gabarito:</strong> E</p>
+                <p><strong>Comentário:</strong> "Fui <strong>à</strong> escola" – o verbo "ir" exige a preposição "a", e "escola" é substantivo feminino que admite artigo, formando a crase.</p>
+            </div>
+
+            <div class="card card-important">
+                <div class="card-title">Questão 3 – Concordância Verbal</div>
+                <p><strong>Assinale a alternativa em que a concordância verbal está correta:</strong></p>
+                <ol type="A">
+                    <li>"Haviam muitas pessoas na fila."</li>
+                    <li>"Fazem dez anos que não o vejo."</li>
+                    <li>"A multidão de manifestantes gritaram."</li>
+                    <li>"O tupi nos legou 10.000 palavras."</li>
+                    <li>"Fui eu que fez o trabalho."</li>
+                </ol>
+                <p><strong>Gabarito:</strong> D</p>
+                <p><strong>Comentário:</strong> O sujeito é "o tupi" (singular), e o verbo "legou" concorda com ele. "10.000 palavras" é objeto direto.</p>
+            </div>
+
+            <div class="card card-important">
+                <div class="card-title">Questão 4 – Colocação Pronominal</div>
+                <p><strong>Assinale a alternativa em que a colocação pronominal está correta, segundo a norma-padrão:</strong></p>
+                <ol type="A">
+                    <li>"Não se esqueça de mim."</li>
+                    <li>"O homem que viu-me."</li>
+                    <li>"Também impede-nos de agir."</li>
+                    <li>"Dar-me-á o livro."</li>
+                    <li>"Em se tratando do assunto."</li>
+                </ol>
+                <p><strong>Gabarito:</strong> A</p>
+                <p><strong>Comentário:</strong> "Não" é palavra atrativa, exigindo próclise: "Não <strong>se</strong> esqueça".</p>
+            </div>
+
+            <div class="card card-important">
+                <div class="card-title">Questão 5 – Interpretação de Texto</div>
+                <p><strong>Com base no texto "Os desafios da educação na era digital", assinale a alternativa que representa uma inferência correta:</strong></p>
+                <ol type="A">
+                    <li>O acesso à informação sempre garante a formação de conhecimento significativo.</li>
+                    <li>O professor deve deixar de transmitir conteúdos e focar exclusivamente no uso da tecnologia.</li>
+                    <li>O principal desafio da educação digital é ensinar o aluno a pensar criticamente.</li>
+                    <li>As redes sociais são o principal responsável pela desinformação.</li>
+                    <li>A reformulação do currículo é a única solução para os problemas da educação.</li>
+                </ol>
+                <p><strong>Gabarito:</strong> C</p>
+                <p><strong>Comentário:</strong> O texto afirma explicitamente: "O grande desafio da educação, portanto, não é mais transmitir conteúdos, mas ensinar o aluno a pensar criticamente."</p>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- MÓDULO IX — GLOSSÁRIO -->
+        <!-- ============================================================ -->
+
+        <section id="mod9">
+            <h2 style="border-left-color:#c9a87c;">Módulo IX — Glossário Final</h2>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Termo</th><th>Definição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Anáfora</strong></td><td>Referência a um termo já mencionado no texto.</td></tr>
+                        <tr><td><strong>Catáfora</strong></td><td>Referência a um termo que ainda será mencionado no texto.</td></tr>
+                        <tr><td><strong>Coesão</strong></td><td>Conexão entre os elementos do texto por meio de conectivos, pronomes e outros mecanismos.</td></tr>
+                        <tr><td><strong>Coerência</strong></td><td>Unidade de sentido do texto, a lógica interna que o torna compreensível.</td></tr>
+                        <tr><td><strong>Denotação</strong></td><td>Sentido literal, objetivo das palavras.</td></tr>
+                        <tr><td><strong>Conotação</strong></td><td>Sentido figurado, subjetivo das palavras.</td></tr>
+                        <tr><td><strong>Crase</strong></td><td>Fusão da preposição "a" com o artigo feminino "a" ou com pronomes demonstrativos.</td></tr>
+                        <tr><td><strong>Ênclise</strong></td><td>Colocação do pronome oblíquo átono após o verbo (com hífen).</td></tr>
+                        <tr><td><strong>Mesóclise</strong></td><td>Colocação do pronome oblíquo átono no meio do verbo (futuro).</td></tr>
+                        <tr><td><strong>Próclise</strong></td><td>Colocação do pronome oblíquo átono antes do verbo (palavras atrativas).</td></tr>
+                        <tr><td><strong>Hipérbole</strong></td><td>Figura de linguagem que consiste em exagero intencional.</td></tr>
+                        <tr><td><strong>Ironia</strong></td><td>Figura de linguagem que consiste em dizer o contrário do que se pensa.</td></tr>
+                        <tr><td><strong>Metáfora</strong></td><td>Comparação implícita sem conectivo.</td></tr>
+                        <tr><td><strong>Metonímia</strong></td><td>Substituição de uma palavra por outra com relação de proximidade.</td></tr>
+                        <tr><td><strong>Polissemia</strong></td><td>Propriedade de uma palavra ter múltiplos significados.</td></tr>
+                        <tr><td><strong>Silepse</strong></td><td>Concordância com o sentido, não com a forma gramatical.</td></tr>
+                        <tr><td><strong>Voz Ativa</strong></td><td>Sujeito pratica a ação.</td></tr>
+                        <tr><td><strong>Voz Passiva</strong></td><td>Sujeito sofre a ação (analítica ou sintética).</td></tr>
+                        <tr><td><strong>Hiponímia</strong></td><td>Relação de especificidade (maçã é hipônimo de fruta).</td></tr>
+                        <tr><td><strong>Hiperonímia</strong></td><td>Relação de generalidade (fruta é hiperônimo de maçã).</td></tr>
+                        <tr><td><strong>Homonímia</strong></td><td>Palavras iguais com origens diferentes.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <hr class="divider">
+
+        <footer style="text-align:center; padding:2rem 0 1rem; color:#5a4a3a; font-size:0.85rem; border-top:1px solid #2a2420; margin-top:2rem;">
+            <p style="margin:0;">Língua Portuguesa — Teoria Suprema para Concursos</p>
+            <p style="margin:0.2rem 0 0; font-size:0.8rem; color:#4a3a2a;">Baseada nos Flashcards — Edição Premium para Estudo em Tablet</p>
+            <p style="margin:0.8rem 0 0; font-size:0.75rem; color:#3a2a1a;">Todos os direitos reservados ao conteúdo original.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
