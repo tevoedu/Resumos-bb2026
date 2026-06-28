@@ -857,73 +857,121 @@
     <script>
         (function() {
             // ============================================================
-            // CONFIGURAÇÃO: Array de Decks (ATUALIZADO com os 3 decks solicitados)
+            // CONFIGURAÇÃO: Array de Decks (TODOS OS DECKS)
             // ============================================================
-            const DECKS = [{
-                id: 'deck-adm',
-                name: 'Administração',
-                icon: 'book',
-                categories: [{
-                    name: 'Resumos',
-                    icon: 'folder',
-                    items: [
-                        { name: 'Administração 01', file: 'administracao01.html' },
-                        { name: 'Administração 02', file: 'administracao02.html' },
-                        { name: 'Administração 03', file: 'administracao03.html' },
-                        { name: 'Administração 04', file: 'administracao04.html' },
-                        { name: 'Administração 05', file: 'administracao05.html' },
-                        { name: 'Administração 06', file: 'administracao06.html' },
-                        { name: 'Administração 07', file: 'administracao07.html' },
-                        { name: 'Administração 08', file: 'administracao08.html' },
-                        { name: 'Administração 09', file: 'administracao09.html' },
-                        { name: 'Administração 10', file: 'administracao10.html' },
-                        { name: 'Administração 11', file: 'administracao11.html' },
-                        { name: 'Administração 12', file: 'administracao12.html' },
-                        { name: 'Administração 13', file: 'administracao13.html' },
-                        { name: 'Administração 14', file: 'administracao14.html' },
-                        { name: 'Administração 15', file: 'administracao15.html' },
-                        { name: 'Administração 16', file: 'administracao16.html' },
-                    ],
-                }, ],
-            }, {
-                id: 'deck-info',
-                name: 'Informática',
-                icon: 'book',
-                categories: [{
-                    name: 'Resumos',
-                    icon: 'folder',
-                    items: [
-                        { name: 'Informática 01', file: 'informatica01.html' },
-                        { name: 'Informática 02', file: 'informatica02.html' },
-                        { name: 'Informática 03', file: 'informatica03.html' },
-                        { name: 'Informática 04', file: 'informatica04.html' },
-                        { name: 'Informática 05', file: 'informatica05.html' },
-                        { name: 'Informática 06', file: 'informatica06.html' },
-                        { name: 'Informática 07', file: 'informatica07.html' },
-                        { name: 'Informática 08', file: 'informatica08.html' },
-                        { name: 'Informática 09', file: 'informatica09.html' },
-                    ],
-                }, ],
-            }, {
-                id: 'deck-vendas',
-                name: 'Vendas e Negociação',
-                icon: 'book',
-                categories: [{
-                    name: 'Resumos',
-                    icon: 'folder',
-                    items: [
-                        { name: 'Vendas e Negociação 01', file: 'vendasenegociacao01.html' },
-                        { name: 'Vendas e Negociação 02', file: 'vendasenegociacao02.html' },
-                        { name: 'Vendas e Negociação 03', file: 'vendasenegociacao03.html' },
-                        { name: 'Vendas e Negociação 04', file: 'vendasenegociacao04.html' },
-                        { name: 'Vendas e Negociação 05', file: 'vendasenegociacao05.html' },
-                        { name: 'Vendas e Negociação 06', file: 'vendasenegociacao06.html' },
-                        { name: 'Vendas e Negociação 07', file: 'vendasenegociacao07.html' },
-                        { name: 'Vendas e Negociação 08', file: 'vendasenegociacao08.html' },
-                        { name: 'Vendas e Negociação 09', file: 'vendasenegociacao09.html' },
-                    ],
-                }, ],
-            }, ];
+            const DECKS = [
+                // --- Decks originais ---
+                {
+                    id: 'deck-conhecimentos',
+                    name: 'Conhecimentos Bancários',
+                    icon: 'book',
+                    categories: [{
+                        name: 'Materiais',
+                        icon: 'folder',
+                        items: [
+                            { name: 'Conhecimentos bancários 1', file: 'Conhecimentos bancários 1.html' },
+                            { name: 'Conhecimentos bancários 2', file: 'Conhecimentos bancários 2.html' },
+                            { name: 'Conhecimentos bancários 3', file: 'Conhecimentos bancários 3.html' },
+                            { name: 'Conhecimentos bancários 4', file: 'Conhecimentos bancários 4.html' },
+                            { name: 'Conhecimentos bancários 5', file: 'Conhecimentos bancários 5.html' },
+                            { name: 'Conhecimentos bancários 6', file: 'Conhecimentos bancários 6.html' },
+                            { name: 'Conhecimentos bancários 7', file: 'Conhecimentos bancários 7.html' },
+                            { name: 'Conhecimentos bancários 8', file: 'Conhecimentos bancários 8.html' },
+                            { name: 'Conhecimentos bancários 9', file: 'Conhecimentos bancários 9.html' },
+                            { name: 'Conhecimentos bancários 9.1', file: 'Conhecimentos bancários 9.1.html' },
+                            { name: 'Conhecimentos Bancários 10', file: 'Conhecimentos Bancários 10.html' },
+                            { name: 'Conhecimentos Bancários 11', file: 'Conhecimentos Bancários 11.html' },
+                            { name: 'Conhecimentos Bancários 12', file: 'Conhecimentos Bancários 12.html' },
+                            { name: 'Conhecimentos Bancários 13', file: 'Conhecimentos Bancários 13.html' },
+                            { name: 'Conhecimentos Bancários 14', file: 'Conhecimentos Bancários 14.html' },
+                            { name: 'Conhecimentos Bancários 15', file: 'Conhecimentos Bancários 15.html' },
+                            { name: 'Conhecimentos Bancários 16', file: 'Conhecimentos Bancários 16.html' },
+                            { name: 'Conhecimentos Bancários 17', file: 'Conhecimentos Bancários 17.html' },
+                            { name: 'Conhecimentos Bancários 18', file: 'Conhecimentos Bancários 18.html' },
+                        ],
+                    }, ],
+                },
+                {
+                    id: 'deck-portugues',
+                    name: 'Português',
+                    icon: 'book',
+                    categories: [{
+                        name: 'Materiais',
+                        icon: 'folder',
+                        items: [
+                            { name: 'Português 0', file: 'portugues0.html' },
+                        ],
+                    }, ],
+                },
+                // --- Novos decks solicitados ---
+                {
+                    id: 'deck-adm',
+                    name: 'Administração',
+                    icon: 'book',
+                    categories: [{
+                        name: 'Resumos',
+                        icon: 'folder',
+                        items: [
+                            { name: 'Administração 01', file: 'administracao01.html' },
+                            { name: 'Administração 02', file: 'administracao02.html' },
+                            { name: 'Administração 03', file: 'administracao03.html' },
+                            { name: 'Administração 04', file: 'administracao04.html' },
+                            { name: 'Administração 05', file: 'administracao05.html' },
+                            { name: 'Administração 06', file: 'administracao06.html' },
+                            { name: 'Administração 07', file: 'administracao07.html' },
+                            { name: 'Administração 08', file: 'administracao08.html' },
+                            { name: 'Administração 09', file: 'administracao09.html' },
+                            { name: 'Administração 10', file: 'administracao10.html' },
+                            { name: 'Administração 11', file: 'administracao11.html' },
+                            { name: 'Administração 12', file: 'administracao12.html' },
+                            { name: 'Administração 13', file: 'administracao13.html' },
+                            { name: 'Administração 14', file: 'administracao14.html' },
+                            { name: 'Administração 15', file: 'administracao15.html' },
+                            { name: 'Administração 16', file: 'administracao16.html' },
+                        ],
+                    }, ],
+                },
+                {
+                    id: 'deck-info',
+                    name: 'Informática',
+                    icon: 'book',
+                    categories: [{
+                        name: 'Resumos',
+                        icon: 'folder',
+                        items: [
+                            { name: 'Informática 01', file: 'informatica01.html' },
+                            { name: 'Informática 02', file: 'informatica02.html' },
+                            { name: 'Informática 03', file: 'informatica03.html' },
+                            { name: 'Informática 04', file: 'informatica04.html' },
+                            { name: 'Informática 05', file: 'informatica05.html' },
+                            { name: 'Informática 06', file: 'informatica06.html' },
+                            { name: 'Informática 07', file: 'informatica07.html' },
+                            { name: 'Informática 08', file: 'informatica08.html' },
+                            { name: 'Informática 09', file: 'informatica09.html' },
+                        ],
+                    }, ],
+                },
+                {
+                    id: 'deck-vendas',
+                    name: 'Vendas e Negociação',
+                    icon: 'book',
+                    categories: [{
+                        name: 'Resumos',
+                        icon: 'folder',
+                        items: [
+                            { name: 'Vendas e Negociação 01', file: 'vendasenegociacao01.html' },
+                            { name: 'Vendas e Negociação 02', file: 'vendasenegociacao02.html' },
+                            { name: 'Vendas e Negociação 03', file: 'vendasenegociacao03.html' },
+                            { name: 'Vendas e Negociação 04', file: 'vendasenegociacao04.html' },
+                            { name: 'Vendas e Negociação 05', file: 'vendasenegociacao05.html' },
+                            { name: 'Vendas e Negociação 06', file: 'vendasenegociacao06.html' },
+                            { name: 'Vendas e Negociação 07', file: 'vendasenegociacao07.html' },
+                            { name: 'Vendas e Negociação 08', file: 'vendasenegociacao08.html' },
+                            { name: 'Vendas e Negociação 09', file: 'vendasenegociacao09.html' },
+                        ],
+                    }, ],
+                },
+            ];
 
             // ============================================================
             // ÍCONES SVG INLINE (funções que retornam strings SVG)
@@ -946,9 +994,11 @@
             // ============================================================
             const state = {
                 sidebarVisible: true,
-                expandedDecks: new Set(['deck-adm', 'deck-info', 'deck-vendas']), // Todos expandidos por padrão
-                expandedCategories: new Set(), // "deckId|catIndex" strings
-                activeResume: null, // { deckId, categoryIndex, itemIndex, deckName, categoryName, itemName, fileName }
+                expandedDecks: new Set(['deck-conhecimentos', 'deck-portugues', 'deck-adm', 'deck-info',
+                    'deck-vendas'
+                ]), // todos expandidos
+                expandedCategories: new Set(),
+                activeResume: null,
                 isFullscreen: false,
                 searchQuery: '',
             };
@@ -1015,8 +1065,8 @@
 
             function loadState() {
                 state.sidebarVisible = loadFromStorage(STORAGE_KEYS.sidebarVisible, true);
-                state.expandedDecks = loadFromStorage(STORAGE_KEYS.expandedDecks, new Set(['deck-adm', 'deck-info',
-                    'deck-vendas'
+                state.expandedDecks = loadFromStorage(STORAGE_KEYS.expandedDecks, new Set(['deck-conhecimentos',
+                    'deck-portugues', 'deck-adm', 'deck-info', 'deck-vendas'
                 ]));
                 state.expandedCategories = loadFromStorage(STORAGE_KEYS.expandedCategories, new Set());
                 const lastResume = loadFromStorage(STORAGE_KEYS.lastResume, null);
@@ -1155,7 +1205,6 @@
                 } else {
                     state.expandedDecks.add(deckId);
                 }
-                // Se estiver filtrando, não colapsar — manter expandido para visibilidade
                 if (state.searchQuery.trim()) {
                     state.expandedDecks.add(deckId);
                 }
@@ -1187,7 +1236,6 @@
                     itemName: item.name,
                     fileName: item.file,
                 };
-                // Expandir deck e categoria
                 state.expandedDecks.add(deck.id);
                 state.expandedCategories.add(`${deck.id}|${catIndex}`);
                 persistState();
@@ -1195,7 +1243,6 @@
                 loadIframe(item.file);
                 updateBreadcrumb(deck.name, cat.name, item.name);
                 showIframe();
-                // Scrollar item ativo para visibilidade
                 setTimeout(() => {
                     const activeItem = $sidebarDecksList.querySelector('.resume-item.active');
                     if (activeItem) {
@@ -1216,7 +1263,6 @@
             function loadIframe(fileName) {
                 $iframeLoader.classList.add('visible');
                 $resumeIframe.classList.remove('loaded');
-                // Pequeno delay para garantir que o loader apareça
                 setTimeout(() => {
                     $resumeIframe.src = fileName;
                 }, 60);
@@ -1242,7 +1288,6 @@
             }
 
             function updateBreadcrumb(deckName, catName, itemName) {
-                // Limpar breadcrumb (mantém o ícone home)
                 const existingItems = $breadcrumbContainer.querySelectorAll(
                     '.breadcrumb-sep, .breadcrumb-item');
                 existingItems.forEach(el => el.remove());
@@ -1255,7 +1300,6 @@
                     return;
                 }
 
-                // Deck
                 const deckSpan = document.createElement('span');
                 deckSpan.className = 'breadcrumb-item clickable';
                 deckSpan.textContent = deckName;
@@ -1362,7 +1406,6 @@
                         if (catHasVisible || !q) {
                             catEl.classList.remove('hidden-category');
                             deckHasVisible = true;
-                            // Expandir categoria se houver match com query
                             if (q && catHasVisible) {
                                 catEl.classList.add('expanded');
                             }
@@ -1386,7 +1429,7 @@
                 state.searchQuery = '';
                 $sidebarSearch.value = '';
                 applySearchFilter('');
-                renderSidebar(); // Re-renderizar para restaurar estados de expansão originais
+                renderSidebar();
             }
 
             // ============================================================
@@ -1432,19 +1475,16 @@
             $breadcrumbHome.addEventListener('click', goBackToWelcome);
             $btnFullscreen.addEventListener('click', toggleFullscreen);
 
-            // Pesquisa
             $sidebarSearch.addEventListener('input', function() {
                 const query = this.value;
                 state.searchQuery = query;
                 if (!query.trim()) {
-                    // Ao limpar, re-renderizar para restaurar estados
                     renderSidebar();
                     state.searchQuery = '';
                 } else {
                     applySearchFilter(query);
                 }
             });
-            // Tecla Escape limpa a pesquisa
             $sidebarSearch.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     clearSearch();
@@ -1452,67 +1492,36 @@
                 }
             });
 
-            // ============================================================
-            // IFRAME: CARREGAMENTO E INJEÇÃO DE ESTILOS DA SCROLLBAR
-            // ============================================================
             $resumeIframe.addEventListener('load', function() {
-                // Remove o loader e marca como carregado
                 $iframeLoader.classList.remove('visible');
                 $resumeIframe.classList.add('loaded');
-
-                // --- INJEÇÃO DE CSS PARA ESTILIZAR A SCROLLBAR DENTRO DO IFRAME ---
                 try {
-                    // Tenta acessar o documento do iframe (mesma origem)
                     const iframeDoc = $resumeIframe.contentDocument || $resumeIframe.contentWindow?.document;
                     if (iframeDoc) {
-                        // Verifica se o estilo já foi injetado para não duplicar
                         if (!iframeDoc.getElementById('hub-scrollbar-style')) {
                             const style = iframeDoc.createElement('style');
                             style.id = 'hub-scrollbar-style';
-                            // Estilos que combinam com o tema escuro do Hub
                             style.textContent = `
-                                /* Scrollbar para WebKit (Chrome, Edge, Safari) */
-                                ::-webkit-scrollbar {
-                                    width: 7px;
-                                    height: 7px;
-                                }
-                                ::-webkit-scrollbar-track {
-                                    background: #141428;
-                                    border-radius: 6px;
-                                }
-                                ::-webkit-scrollbar-thumb {
-                                    background: #3a3a58;
-                                    border-radius: 6px;
-                                    transition: background 0.2s ease;
-                                }
-                                ::-webkit-scrollbar-thumb:hover {
-                                    background: #7c3aed;
-                                }
-                                /* Scrollbar para Firefox */
-                                * {
-                                    scrollbar-width: thin;
-                                    scrollbar-color: #3a3a58 #141428;
-                                }
+                                ::-webkit-scrollbar { width: 7px; height: 7px; }
+                                ::-webkit-scrollbar-track { background: #141428; border-radius: 6px; }
+                                ::-webkit-scrollbar-thumb { background: #3a3a58; border-radius: 6px; transition: background 0.2s ease; }
+                                ::-webkit-scrollbar-thumb:hover { background: #7c3aed; }
+                                * { scrollbar-width: thin; scrollbar-color: #3a3a58 #141428; }
                             `;
-                            // Insere no <head> do iframe
                             iframeDoc.head.appendChild(style);
                             console.log('✅ Estilos de scrollbar injetados no iframe.');
                         }
                     }
                 } catch (e) {
-                    // Se não for possível acessar (cross-origin), ignora silenciosamente
                     console.log('ℹ️ Não foi possível injetar estilos de scrollbar no iframe (cross-origin ou restrição).');
                 }
             });
 
-            // Iframe: tratamento de erro
             $resumeIframe.addEventListener('error', function() {
                 $iframeLoader.classList.remove('visible');
-                // Tenta mostrar mesmo assim
                 $resumeIframe.classList.add('loaded');
             });
 
-            // Detectar mudanças de tela cheia
             document.addEventListener('fullscreenchange', () => {
                 updateFullscreenUI(!!document.fullscreenElement);
             });
@@ -1520,14 +1529,11 @@
                 updateFullscreenUI(!!document.webkitFullscreenElement);
             });
 
-            // Atalhos de teclado
             document.addEventListener('keydown', function(e) {
-                // Ctrl+B ou Ctrl+Shift+B para toggle sidebar
                 if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
                     e.preventDefault();
                     toggleSidebar();
                 }
-                // Ctrl+F ou / foca na pesquisa
                 if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
                     e.preventDefault();
                     setSidebarVisible(true);
@@ -1540,15 +1546,12 @@
                     setSidebarVisible(true);
                     setTimeout(() => $sidebarSearch.focus(), 300);
                 }
-                // Escape para voltar ao início
                 if (e.key === 'Escape' && state.activeResume && document.activeElement === document
                     .body) {
                     goBackToWelcome();
                 }
             });
 
-            // Fechar sidebar ao clicar fora em mobile (overlay já trata)
-            // Redimensionar: em telas grandes, garantir sidebar visível se estava
             window.addEventListener('resize', () => {
                 if (window.innerWidth > 768 && $sidebarOverlay.classList.contains(
                         'visible')) {
@@ -1562,31 +1565,24 @@
             function init() {
                 loadState();
 
-                // Aplicar estado da sidebar
                 if (state.sidebarVisible) {
                     $sidebar.classList.remove('collapsed');
                 } else {
                     $sidebar.classList.add('collapsed');
                 }
 
-                // Renderizar sidebar
                 renderSidebar();
-
-                // Atualizar welcome stats
                 updateWelcomeStats();
 
-                // Se havia um resumo ativo salvo, restaurá-lo
                 if (state.activeResume && state.activeResume.fileName) {
                     const ar = state.activeResume;
                     updateBreadcrumb(ar.deckName, ar.categoryName, ar.itemName);
                     loadIframe(ar.fileName);
                     showIframe();
-                    // Garantir expansão
                     state.expandedDecks.add(ar.deckId);
                     state.expandedCategories.add(`${ar.deckId}|${ar.categoryIndex}`);
                     persistState();
                     renderSidebar();
-                    // Scrollar para o item ativo
                     setTimeout(() => {
                         const activeItem = $sidebarDecksList.querySelector('.resume-item.active');
                         if (activeItem) {
@@ -1598,7 +1594,6 @@
                     showWelcome();
                 }
 
-                // Estado inicial de fullscreen
                 updateFullscreenUI(!!document.fullscreenElement || !!document.webkitFullscreenElement);
 
                 console.log('%c🚀 Hub de Estudos inicializado com sucesso!',
@@ -1611,12 +1606,8 @@
                     'color: #7878a0; font-style: italic;');
             }
 
-            // Iniciar a aplicação
             init();
 
-            // ============================================================
-            // EXPOR API PARA CONSOLE (debug)
-            // ============================================================
             window.HubEstudos = {
                 decks: DECKS,
                 state,
