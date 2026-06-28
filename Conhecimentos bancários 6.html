@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Apostila Completa - Conhecimentos Bancários</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', 'Palatino Linotype', serif;
+            background: #0b121e;
+            color: #e2ded7;
+            line-height: 1.7;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        ::selection {
+            background: #d4b86a55;
+            color: #f0ece5;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b121e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3a4a5a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a5a6a;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 20px 24px 60px;
+        }
+
+        /* ===== COVER ===== */
+        .cover {
+            padding: 60px 20px 50px;
+            text-align: center;
+            border-bottom: 2px solid #1e2a3a;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .cover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4b86a66, transparent);
+        }
+        .cover-badge {
+            display: inline-block;
+            background: #1e2a3a;
+            color: #d4b86a;
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            border: 1px solid #2a3a4a;
+        }
+        .cover h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #f0ece5;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .cover h1 span {
+            color: #d4b86a;
+        }
+        .cover-sub {
+            font-size: 1.05rem;
+            color: #b0aa9e;
+            font-style: italic;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+        .cover-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 24px;
+            font-size: 0.85rem;
+            color: #8a8a80;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+        .cover-meta span {
+            background: #121c2a;
+            padding: 4px 14px;
+            border-radius: 12px;
+            border: 1px solid #1e2a3a;
+        }
+
+        /* ===== TOC ===== */
+        .toc {
+            background: #121c2a;
+            border-radius: 16px;
+            padding: 28px 32px 32px;
+            margin-bottom: 48px;
+            border: 1px solid #1e2a3a;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        .toc-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #d4b86a;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #1e2a3a;
+            padding-bottom: 12px;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 24px;
+        }
+        @media (max-width: 600px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            font-size: 0.92rem;
+            color: #c8c2b8;
+            text-decoration: none;
+            transition: color 0.2s;
+            border-bottom: 1px solid #1a2434;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+        .toc-item:hover {
+            color: #d4b86a;
+        }
+        .toc-item .num {
+            color: #6a7a8a;
+            font-size: 0.75rem;
+            font-weight: 600;
+            min-width: 28px;
+        }
+        .toc-item .label {
+            flex: 1;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #f0ece5;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        .unit-title {
+            font-size: 1.8rem;
+            color: #d4b86a;
+            letter-spacing: -0.3px;
+            padding-top: 30px;
+            margin-top: 10px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #1e2a3a;
+            padding-bottom: 14px;
+            font-weight: 700;
+        }
+        .unit-title .num {
+            display: block;
+            font-size: 0.85rem;
+            color: #6a7a8a;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            margin-bottom: 2px;
+        }
+
+        .chapter-title {
+            font-size: 1.5rem;
+            color: #e8e2da;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid #d4b86a;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        .chapter-title .num {
+            color: #6a7a8a;
+            font-size: 0.9rem;
+            font-weight: 400;
+            display: block;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            color: #d8d2c8;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .subsection-title {
+            font-size: 1.05rem;
+            color: #c8c0b4;
+            margin-top: 22px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #d8d2c8;
+        }
+
+        strong,
+        b {
+            color: #f0ece5;
+            font-weight: 600;
+        }
+
+        em,
+        i {
+            color: #c0b8aa;
+            font-style: italic;
+        }
+
+        /* ===== CARDS & BOXES ===== */
+        .card {
+            background: #121c2a;
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border: 1px solid #1e2a3a;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+        }
+        .card-accent {
+            border-left: 4px solid #d4b86a;
+        }
+        .card-blue {
+            border-left: 4px solid #6a9bb5;
+        }
+        .card-green {
+            border-left: 4px solid #6a9b7a;
+        }
+        .card-red {
+            border-left: 4px solid #b56a6a;
+        }
+        .card-purple {
+            border-left: 4px solid #9a7ab5;
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #d4b86a;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-title .icon {
+            display: inline-flex;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        .card-title .icon svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #d4b86a;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .card-blue .card-title {
+            color: #6a9bb5;
+        }
+        .card-blue .card-title .icon svg {
+            stroke: #6a9bb5;
+        }
+
+        .card-green .card-title {
+            color: #6a9b7a;
+        }
+        .card-green .card-title .icon svg {
+            stroke: #6a9b7a;
+        }
+
+        .card-red .card-title {
+            color: #b56a6a;
+        }
+        .card-red .card-title .icon svg {
+            stroke: #b56a6a;
+        }
+
+        .card-purple .card-title {
+            color: #9a7ab5;
+        }
+        .card-purple .card-title .icon svg {
+            stroke: #9a7ab5;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== HIGHLIGHT / MARKER ===== */
+        .highlight {
+            background: linear-gradient(120deg, #d4b86a33 0%, #d4b86a22 100%);
+            padding: 0 6px;
+            border-radius: 4px;
+            color: #f0ece5;
+            font-weight: 500;
+        }
+
+        .marker-gold {
+            background: #d4b86a30;
+            padding: 0 6px;
+            border-radius: 3px;
+            border-bottom: 2px solid #d4b86a66;
+        }
+        .marker-blue {
+            background: #6a9bb530;
+            padding: 0 6px;
+            border-radius: 3px;
+            border-bottom: 2px solid #6a9bb566;
+        }
+
+        /* ===== QUOTE ===== */
+        .quote {
+            background: #0e1824;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border-left: 4px solid #d4b86a;
+            font-style: italic;
+            color: #d0c8bc;
+            position: relative;
+        }
+        .quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: #d4b86a44;
+            position: absolute;
+            top: -6px;
+            left: 12px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .quote p {
+            margin-bottom: 4px;
+            padding-left: 20px;
+        }
+        .quote .attr {
+            font-style: normal;
+            font-size: 0.85rem;
+            color: #8a8a80;
+            text-align: right;
+            padding-left: 20px;
+            margin-top: 6px;
+        }
+
+        /* ===== TABLES ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 1px solid #1a2434;
+            background: #0e1824;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            color: #d0c8bc;
+            min-width: 460px;
+        }
+        thead {
+            background: #162030;
+        }
+        th {
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #d4b86a;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #2a3a4a;
+        }
+        td {
+            padding: 10px 16px;
+            border-bottom: 1px solid #1a2434;
+            vertical-align: top;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: #121c2a55;
+        }
+
+        /* ===== LISTS ===== */
+        ul,
+        ol {
+            padding-left: 24px;
+            margin: 12px 0 16px;
+            color: #d0c8bc;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        ul ul,
+        ol ol {
+            margin: 4px 0 6px;
+        }
+
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-check li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .list-check li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #6a9b7a;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .list-bullet {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-bullet li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .list-bullet li::before {
+            content: '▸';
+            position: absolute;
+            left: 4px;
+            color: #d4b86a;
+            font-weight: 700;
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            margin: 36px 0 28px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #2a3a4a, #3a4a5a, #2a3a4a, transparent);
+            position: relative;
+        }
+        .divider-dot {
+            margin: 32px 0 24px;
+            text-align: center;
+            color: #2a3a4a;
+            font-size: 1.2rem;
+            letter-spacing: 12px;
+        }
+        .divider-dot::before {
+            content: '● ● ●';
+        }
+
+        .divider-thin {
+            margin: 20px 0;
+            height: 1px;
+            background: #1a2434;
+        }
+
+        /* ===== MACETE ===== */
+        .macete {
+            background: #0e1824;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            border: 1px solid #2a3a4a;
+            border-left: 4px solid #d4b86a;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+        .macete .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #d4b86a;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .macete .content {
+            color: #e2ded7;
+            font-size: 1rem;
+        }
+        .macete .content strong {
+            color: #d4b86a;
+        }
+
+        /* ===== SVG DIAGRAMS ===== */
+        .diagram-wrap {
+            background: #0e1824;
+            border-radius: 14px;
+            padding: 20px 16px;
+            margin: 24px 0;
+            border: 1px solid #1a2434;
+            overflow-x: auto;
+            text-align: center;
+        }
+        .diagram-wrap svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .diagram-caption {
+            font-size: 0.8rem;
+            color: #6a7a8a;
+            text-align: center;
+            margin-top: 10px;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+
+        /* ===== EXERCISE ===== */
+        .exercise {
+            background: #121c2a;
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin: 20px 0;
+            border: 1px solid #1e2a3a;
+        }
+        .exercise .num {
+            font-weight: 700;
+            color: #d4b86a;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .exercise .stem {
+            font-weight: 500;
+            color: #e2ded7;
+            margin-bottom: 10px;
+        }
+        .exercise .options {
+            list-style: none;
+            padding-left: 0;
+            margin: 6px 0 10px;
+        }
+        .exercise .options li {
+            padding: 4px 0 4px 28px;
+            position: relative;
+            color: #c8c2b8;
+            font-size: 0.92rem;
+        }
+        .exercise .options li::before {
+            content: attr(data-letter) ')';
+            position: absolute;
+            left: 0;
+            color: #6a7a8a;
+            font-weight: 600;
+        }
+        .exercise .answer {
+            margin-top: 10px;
+            padding: 10px 16px;
+            background: #0e1824;
+            border-radius: 8px;
+            border-left: 3px solid #6a9b7a;
+            color: #c8c2b8;
+            font-size: 0.92rem;
+        }
+        .exercise .answer strong {
+            color: #6a9b7a;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 720px) {
+            .container {
+                padding: 12px 14px 40px;
+            }
+            .cover h1 {
+                font-size: 1.8rem;
+            }
+            .cover {
+                padding: 40px 12px 30px;
+            }
+            .unit-title {
+                font-size: 1.4rem;
+            }
+            .chapter-title {
+                font-size: 1.2rem;
+                padding-left: 12px;
+            }
+            .card {
+                padding: 16px 16px;
+            }
+            .toc {
+                padding: 20px 18px 24px;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+            .diagram-wrap {
+                padding: 12px 8px;
+            }
+            table {
+                font-size: 0.82rem;
+                min-width: 320px;
+            }
+            th,
+            td {
+                padding: 8px 10px;
+            }
+            .exercise {
+                padding: 16px 16px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .cover h1 {
+                font-size: 1.4rem;
+            }
+            .unit-title {
+                font-size: 1.15rem;
+            }
+            .chapter-title {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1rem;
+            }
+            .card-title {
+                font-size: 0.8rem;
+            }
+            .toc-item {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ===== ANCHOR OFFSET ===== */
+        .anchor-offset {
+            scroll-margin-top: 20px;
+        }
+
+        /* ===== MISC ===== */
+        .inline-code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background: #0e1824;
+            padding: 1px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            color: #d4b86a;
+            border: 1px solid #1a2434;
+        }
+
+        .small-note {
+            font-size: 0.85rem;
+            color: #8a8a80;
+            font-style: italic;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 8px 0;
+        }
+        .flex-row .tag {
+            background: #0e1824;
+            padding: 4px 14px;
+            border-radius: 16px;
+            border: 1px solid #1a2434;
+            font-size: 0.8rem;
+            color: #b0aa9e;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+        .flex-row .tag.gold {
+            border-color: #d4b86a55;
+            color: #d4b86a;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        .text-muted {
+            color: #8a8a80;
+        }
+        .mt-1 {
+            margin-top: 8px;
+        }
+        .mt-2 {
+            margin-top: 16px;
+        }
+        .mb-1 {
+            margin-bottom: 8px;
+        }
+        .mb-2 {
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ===== COVER ===== -->
+        <header class="cover">
+            <div class="cover-badge">📘 Material Premium</div>
+            <h1>Conhecimentos <span>Bancários</span></h1>
+            <p class="cover-sub">Apostila completa para concursos da área bancária</p>
+            <div class="cover-meta">
+                <span>Cesgranrio · FCC · FGV · Cebraspe</span>
+                <span>2026 · Edição Digital</span>
+            </div>
+        </header>
+
+        <!-- ===== TOC ===== -->
+        <nav class="toc" aria-label="Sumário">
+            <div class="toc-title">Sumário</div>
+            <div class="toc-grid">
+                <a href="#unidade1" class="toc-item"><span class="num">I</span><span class="label">Governança, Ética &amp; Compliance</span></a>
+                <a href="#cap1" class="toc-item"><span class="num">1</span><span class="label">Hierarquia Normativa e Códigos</span></a>
+                <a href="#cap2" class="toc-item"><span class="num">2</span><span class="label">Prevenção à Lavagem de Dinheiro</span></a>
+                <a href="#unidade2" class="toc-item"><span class="num">II</span><span class="label">Marketing Bancário</span></a>
+                <a href="#cap3" class="toc-item"><span class="num">3</span><span class="label">Marketing de Serviços Bancários</span></a>
+                <a href="#unidade3" class="toc-item"><span class="num">III</span><span class="label">Produtos &amp; Serviços Financeiros</span></a>
+                <a href="#cap4" class="toc-item"><span class="num">4</span><span class="label">Títulos de Renda Fixa</span></a>
+                <a href="#cap5" class="toc-item"><span class="num">5</span><span class="label">Criptomoedas</span></a>
+                <a href="#cap6" class="toc-item"><span class="num">6</span><span class="label">Taxas de Câmbio</span></a>
+                <a href="#unidade4" class="toc-item"><span class="num">IV</span><span class="label">Política Monetária</span></a>
+                <a href="#cap7" class="toc-item"><span class="num">7</span><span class="label">Instrumentos do Banco Central</span></a>
+                <a href="#unidade5" class="toc-item"><span class="num">V</span><span class="label">Legislação Aplicada</span></a>
+                <a href="#cap8" class="toc-item"><span class="num">8</span><span class="label">Estrutura do SFN</span></a>
+                <a href="#cap9" class="toc-item"><span class="num">9</span><span class="label">CDC e Relações Bancárias</span></a>
+                <a href="#quadros" class="toc-item"><span class="num">◆</span><span class="label">Quadros-Resumo</span></a>
+                <a href="#macetes" class="toc-item"><span class="num">◆</span><span class="label">Macetes</span></a>
+                <a href="#exercicios" class="toc-item"><span class="num">◆</span><span class="label">Exercícios de Fixação</span></a>
+            </div>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- UNIDADE I -->
+        <!-- ============================================================ -->
+
+        <section id="unidade1" class="anchor-offset">
+            <h2 class="unit-title"><span class="num">Unidade I</span>Governança, Ética e Compliance no Sistema Financeiro</h2>
+
+            <!-- CAPÍTULO 1 -->
+            <h3 id="cap1" class="chapter-title anchor-offset"><span class="num">Capítulo 1</span>Hierarquia Normativa e Códigos de Ética no Conglomerado Bancário</h3>
+
+            <h4 class="section-title">1.1 A Importância da Ética no Sistema Financeiro Nacional</h4>
+            <p>O Sistema Financeiro Nacional (SFN) opera sob um rigoroso arcabouço regulatório e ético, que visa garantir a estabilidade, a transparência e a confiança dos agentes econômicos. Nesse contexto, os códigos de ética, conduta e integridade das instituições financeiras não são meros documentos formais — eles representam o alicerce comportamental que orienta a atuação de todos os colaboradores, desde o escriturário recém-contratado até os membros da alta administração.</p>
+            <p>Para o profissional bancário, compreender a hierarquia entre os diferentes códigos que regem sua atuação é fundamental não apenas para aprovação em concursos, mas para o exercício diário da profissão com segurança jurídica e alinhamento estratégico.</p>
+
+            <h4 class="section-title">1.2 A Hierarquia dos Códigos de Ética no Conglomerado Financeiro</h4>
+
+            <h5 class="subsection-title">1.2.1 O Princípio da Soberania do Código da Matriz</h5>
+            <p>Em instituições financeiras que possuem subsidiárias, como é o caso da Caixa Econômica Federal (CEF) e seus braços operacionais, estabelece-se uma relação hierárquica clara entre os códigos de ética.</p>
+
+            <div class="card card-accent">
+                <div class="card-title">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                    </span>
+                    Regra fundamental
+                </div>
+                <p>Em caso de conflito entre o Código de Ética, Conduta e Integridade da instituição matriz (controladora) e os códigos de suas subsidiárias, <strong>prevalece o código da matriz</strong>.</p>
+            </div>
+
+            <p><strong>Por quê?</strong></p>
+            <ol>
+                <li><strong>Razão de Controle Societário:</strong> A instituição matriz detém o controle acionário das subsidiárias, sendo responsável por definir as diretrizes estratégicas e os valores fundamentais de todo o conglomerado.</li>
+                <li><strong>Uniformidade Normativa:</strong> A soberania do código da matriz garante que todas as empresas do grupo sigam os mesmos padrões éticos mínimos, evitando brechas normativas que poderiam ser exploradas em operações menos supervisionadas.</li>
+                <li><strong>Coerência de Imagem Institucional:</strong> O mercado e a sociedade percebem o conglomerado como uma única entidade. Conflitos éticos entre diferentes empresas do grupo poderiam gerar danos reputacionais severos.</li>
+                <li><strong>Base Legal e Regulatória:</strong> Essa hierarquia está expressamente prevista no próprio Código da Caixa Econômica Federal, que determina sua soberania sobre os códigos das subsidiárias, conferindo-lhe caráter de norma fundamental para todo o conglomerado.</li>
+            </ol>
+
+            <!-- SVG: Hierarquia dos Códigos -->
+            <div class="diagram-wrap">
+                <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama da hierarquia dos códigos de ética">
+                    <rect x="0" y="0" width="600" height="280" fill="transparent"/>
+                    <!-- Matriz -->
+                    <rect x="140" y="10" width="320" height="52" rx="8" fill="#1e2a3a" stroke="#d4b86a" stroke-width="2"/>
+                    <text x="300" y="30" text-anchor="middle" fill="#d4b86a" font-size="14" font-weight="600" font-family="Segoe UI, sans-serif">CÓDIGO DA MATRIZ</text>
+                    <text x="300" y="50" text-anchor="middle" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Caixa Econômica Federal (CEF)</text>
+                    <!-- Linha vertical -->
+                    <line x1="300" y1="62" x2="300" y2="92" stroke="#3a4a5a" stroke-width="2"/>
+                    <polygon points="300,92 294,82 306,82" fill="#3a4a5a"/>
+                    <!-- Subsidiárias -->
+                    <rect x="40" y="100" width="240" height="52" rx="8" fill="#121c2a" stroke="#3a4a5a" stroke-width="1.5"/>
+                    <text x="160" y="120" text-anchor="middle" fill="#c8c2b8" font-size="13" font-weight="500" font-family="Segoe UI, sans-serif">Subsidiária 1</text>
+                    <text x="160" y="140" text-anchor="middle" fill="#8a8a80" font-size="11" font-family="Segoe UI, sans-serif">(ex: Seguros)</text>
+                    <rect x="320" y="100" width="240" height="52" rx="8" fill="#121c2a" stroke="#3a4a5a" stroke-width="1.5"/>
+                    <text x="440" y="120" text-anchor="middle" fill="#c8c2b8" font-size="13" font-weight="500" font-family="Segoe UI, sans-serif">Subsidiária 2</text>
+                    <text x="440" y="140" text-anchor="middle" fill="#8a8a80" font-size="11" font-family="Segoe UI, sans-serif">(ex: Consórcio)</text>
+                    <!-- Linhas da matriz para subsidiárias -->
+                    <line x1="240" y1="82" x2="160" y2="100" stroke="#3a4a5a" stroke-width="1.5"/>
+                    <line x1="360" y1="82" x2="440" y2="100" stroke="#3a4a5a" stroke-width="1.5"/>
+                    <!-- Legenda -->
+                    <rect x="80" y="180" width="12" height="12" rx="2" fill="#d4b86a" opacity="0.6"/>
+                    <text x="100" y="191" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Prevalece sobre</text>
+                    <line x1="220" y1="186" x2="280" y2="186" stroke="#3a4a5a" stroke-width="1.5" stroke-dasharray="4,4"/>
+                    <text x="290" y="191" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Relação hierárquica</text>
+                </svg>
+                <div class="diagram-caption">Hierarquia dos códigos de ética: a matriz prevalece sobre as subsidiárias.</div>
+            </div>
+
+            <h5 class="subsection-title">1.2.2 Aplicação Prática no Dia a Dia Bancário</h5>
+            <p>Imagine a seguinte situação: Um escriturário da Caixa Econômica Federal trabalha em conjunto com um colaborador de sua subsidiária de seguros. Ambos recebem orientações conflitantes sobre como proceder diante de uma oferta de benefício indevido por parte de um cliente. Qual código deve prevalecer?</p>
+            <div class="card card-blue">
+                <div class="card-title">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16v0"/></svg>
+                    </span>
+                    Resposta
+                </div>
+                <p><strong>O Código da Caixa</strong>, pois ele serve como bússola ética para todas as operações realizadas no âmbito do conglomerado, independentemente de qual empresa específica esteja conduzindo a operação.</p>
+            </div>
+
+            <h4 class="section-title">1.3 O Papel do Conselho de Administração na Governança Ética</h4>
+            <p>No caso específico da Caixa Econômica Federal, o <strong>Conselho de Administração</strong> exerce papel fundamental na definição dos rumos éticos e estratégicos da organização.</p>
+
+            <h5 class="subsection-title">1.3.1 Competências do Conselho de Administração da CEF</h5>
+            <p>O Conselho de Administração é o <strong>órgão máximo de deliberação estratégica</strong> da Caixa, cabendo-lhe:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Competência</th><th>Descrição Detalhada</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Aprovação da Orientação Geral</strong></td><td>Define as diretrizes estratégicas de longo prazo, alinhadas com a missão institucional e os interesses da União (acionista majoritária)</td></tr>
+                        <tr><td><strong>Planos de Negócios</strong></td><td>Aprova os planos plurianuais, orçamentos e metas de desempenho</td></tr>
+                        <tr><td><strong>Decisões de Investimento</strong></td><td>Delibera sobre grandes projetos de investimento e expansão</td></tr>
+                        <tr><td><strong>Monitoramento da Gestão</strong></td><td>Supervisiona a atuação da Diretoria Executiva, garantindo o cumprimento das estratégias aprovadas</td></tr>
+                        <tr><td><strong>Políticas de Compliance</strong></td><td>Estabelece as políticas de integridade, prevenção à lavagem de dinheiro e governança corporativa</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="subsection-title">1.3.2 Diferenciação de Papéis na Estrutura de Governança</h5>
+            <p>Para fins de prova e atuação profissional, é essencial distinguir as atribuições dos diferentes órgãos:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Órgão</th><th>Função Principal</th><th>Natureza</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Conselho de Administração</strong></td><td>Decisão estratégica e monitoramento</td><td>Deliberativo máximo</td></tr>
+                        <tr><td><strong>Diretoria Executiva</strong></td><td>Execução das decisões e gestão operacional</td><td>Executivo</td></tr>
+                        <tr><td><strong>Presidência</strong></td><td>Representação institucional e coordenação executiva</td><td>Executivo máximo</td></tr>
+                        <tr><td><strong>Corregedoria</strong></td><td>Apuração de infrações e aplicação de penalidades</td><td>Fiscalizador/disciplinar</td></tr>
+                        <tr><td><strong>Ouvidoria</strong></td><td>Recebimento e tratamento de reclamações de clientes</td><td>Canal de comunicação</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="macete">
+                <div class="label">🧠 Macete para Memorização</div>
+                <div class="content"><strong>"Conselho pensa, Diretoria faz, Corregedoria pune, Ouvidoria escuta"</strong></div>
+                <div class="content" style="margin-top:4px;font-size:0.9rem;color:#b0aa9e;">
+                    • Conselho de Administração = "pensa" (define estratégias)<br>
+                    • Diretoria Executiva = "faz" (executa)<br>
+                    • Corregedoria = "pune" (apura infrações)<br>
+                    • Ouvidoria = "escuta" (recebe reclamações)
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- CAPÍTULO 2 -->
+            <h3 id="cap2" class="chapter-title anchor-offset"><span class="num">Capítulo 2</span>Prevenção à Lavagem de Dinheiro (PLD) e Comunicação ao COAF</h3>
+
+            <h4 class="section-title">2.1 O Arcabouço Regulatório da PLD no Brasil</h4>
+            <p>A prevenção à lavagem de dinheiro (PLD) é um dos pilares da regulação bancária brasileira. O Brasil adota um sistema de prevenção e combate que envolve múltiplos atores, sendo o Banco Central do Brasil (BCB) um dos principais reguladores do setor financeiro.</p>
+
+            <h4 class="section-title">2.2 A Circular Bacen nº 3.978/2020 – Operações em Espécie</h4>
+
+            <h5 class="subsection-title">2.2.1 O Valor de Corte para Comunicação ao COAF</h5>
+            <p>A Circular BACEN nº 3.978/2020 estabelece regras claras sobre quais operações devem ser comunicadas ao Conselho de Controle de Atividades Financeiras (COAF), órgão responsável por receber, examinar e encaminhar informações sobre atividades suspeitas.</p>
+
+            <div class="card card-accent">
+                <div class="card-title">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 2"/></svg>
+                    </span>
+                    Regra fundamental
+                </div>
+                <p>Devem ser comunicadas ao COAF as operações de:</p>
+                <ul>
+                    <li><strong>Depósito ou aporte em espécie</strong> de valor igual ou superior a <span class="highlight">R$ 50.000,00</span></li>
+                    <li><strong>Saque em espécie</strong> de valor igual ou superior a <span class="highlight">R$ 50.000,00</span></li>
+                </ul>
+            </div>
+
+            <h5 class="subsection-title">2.2.2 Esclarecimentos Importantes sobre a Norma</h5>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Ponto</th><th>Esclarecimento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Valor de corte fixo</strong></td><td>O valor de R$ 50.000,00 é fixo, não se aplicando valores inferiores (R$ 20.000,00 ou R$ 30.000,00)</td></tr>
+                        <tr><td><strong>Foco em dinheiro vivo</strong></td><td>A norma se aplica especificamente a operações em espécie (dinheiro vivo)</td></tr>
+                        <tr><td><strong>Meios de pagamento excluídos</strong></td><td>Cheque, PIX, transferências eletrônicas e outros meios de pagamento não se enquadram nessa regra específica</td></tr>
+                        <tr><td><strong>Provisionamentos</strong></td><td>Provisionamentos com valores inferiores não são comunicados por este dispositivo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="subsection-title">2.2.3 Por que a Norma Foca em Espécie?</h5>
+            <p>A ênfase em operações em espécie (dinheiro vivo) decorre da maior dificuldade de rastreabilidade desses recursos em comparação com meios eletrônicos. O dinheiro físico:</p>
+            <ul>
+                <li>Não deixa rastros automáticos de sua origem</li>
+                <li>Facilita a ocultação de recursos ilícitos</li>
+                <li>Permite transações anônimas ou com baixo nível de identificação</li>
+            </ul>
+
+            <!-- SVG: Fluxo COAF -->
+            <div class="diagram-wrap">
+                <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fluxo de comunicação ao COAF">
+                    <rect x="0" y="0" width="700" height="200" fill="transparent"/>
+                    <!-- Operação -->
+                    <rect x="20" y="70" width="160" height="60" rx="8" fill="#1e2a3a" stroke="#d4b86a" stroke-width="1.5"/>
+                    <text x="100" y="96" text-anchor="middle" fill="#e2ded7" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">Operação em espécie</text>
+                    <text x="100" y="116" text-anchor="middle" fill="#d4b86a" font-size="11" font-family="Segoe UI, sans-serif">≥ R$ 50.000,00</text>
+                    <!-- Seta -->
+                    <line x1="180" y1="100" x2="240" y2="100" stroke="#3a4a5a" stroke-width="2"/>
+                    <polygon points="240,100 232,94 232,106" fill="#3a4a5a"/>
+                    <!-- Comunicação -->
+                    <rect x="250" y="70" width="180" height="60" rx="8" fill="#121c2a" stroke="#6a9bb5" stroke-width="1.5"/>
+                    <text x="340" y="96" text-anchor="middle" fill="#e2ded7" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">Banco comunica</text>
+                    <text x="340" y="116" text-anchor="middle" fill="#6a9bb5" font-size="11" font-family="Segoe UI, sans-serif">ao COAF</text>
+                    <!-- Seta -->
+                    <line x1="430" y1="100" x2="490" y2="100" stroke="#3a4a5a" stroke-width="2"/>
+                    <polygon points="490,100 482,94 482,106" fill="#3a4a5a"/>
+                    <!-- COAF analisa -->
+                    <rect x="500" y="70" width="180" height="60" rx="8" fill="#121c2a" stroke="#9a7ab5" stroke-width="1.5"/>
+                    <text x="590" y="96" text-anchor="middle" fill="#e2ded7" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">COAF analisa</text>
+                    <text x="590" y="116" text-anchor="middle" fill="#9a7ab5" font-size="11" font-family="Segoe UI, sans-serif">a operação</text>
+                    <!-- Legenda inferior -->
+                    <rect x="100" y="165" width="12" height="12" rx="2" fill="#d4b86a" opacity="0.6"/>
+                    <text x="120" y="176" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Início</text>
+                    <rect x="230" y="165" width="12" height="12" rx="2" fill="#6a9bb5" opacity="0.6"/>
+                    <text x="250" y="176" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Comunicação</text>
+                    <rect x="380" y="165" width="12" height="12" rx="2" fill="#9a7ab5" opacity="0.6"/>
+                    <text x="400" y="176" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Análise</text>
+                </svg>
+                <div class="diagram-caption">Fluxo de comunicação de operações em espécie ao COAF.</div>
+            </div>
+
+            <h4 class="section-title">2.3 A Posição da Caixa no SFN</h4>
+
+            <h5 class="subsection-title">2.3.1 Classificação da Caixa como Operadora</h5>
+            <p>No âmbito do Sistema Financeiro Nacional, a Caixa Econômica Federal é classificada como <strong>instituição operadora</strong>.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Função</th><th>Instituição/Órgão</th><th>Exemplos</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Reguladora/Normativa</strong></td><td>CMN, CNSP</td><td>Define regras gerais</td></tr>
+                        <tr><td><strong>Supervisora/Fiscalizadora</strong></td><td>BCB, CVM, SUSEP</td><td>Fiscaliza e supervisiona</td></tr>
+                        <tr><td><strong>Operadora</strong></td><td>Bancos, seguradoras, distribuidoras</td><td>Intermedeia recursos e oferta produtos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-blue">
+                <div class="card-title">
+                    <span class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                    </span>
+                    Dica de Prova
+                </div>
+                <p>A Cesgranrio costuma cobrar a distinção entre os papéis de cada entidade. Lembre-se: a Caixa é <strong>operadora</strong> — ela atua diretamente com o público, ofertando produtos e serviços financeiros.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- ============================================================ -->
+            <!-- UNIDADE II -->
+            <!-- ============================================================ -->
+
+            <section id="unidade2" class="anchor-offset">
+                <h2 class="unit-title"><span class="num">Unidade II</span>Marketing Bancário, Atendimento e Vendas</h2>
+
+                <!-- CAPÍTULO 3 -->
+                <h3 id="cap3" class="chapter-title anchor-offset"><span class="num">Capítulo 3</span>Marketing de Serviços Bancários e Relacionamento com o Cliente</h3>
+
+                <h4 class="section-title">3.1 Conceitos Fundamentais de Marketing Digital Bancário</h4>
+
+                <h5 class="subsection-title">3.1.1 Segmentação de Mercado</h5>
+                <p><strong>Conceito:</strong> A segmentação de mercado consiste em dividir o mercado em grupos com características e necessidades semelhantes, para direcionar ofertas e comunicações personalizadas.</p>
+
+                <p><strong>Aplicação Bancária:</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Tipo de Segmentação</th><th>Exemplo Bancário</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Demográfica</strong></td><td>Produtos para aposentados, jovens, mulheres empreendedoras</td></tr>
+                            <tr><td><strong>Geográfica</strong></td><td>Ofertas diferenciadas por região (ex: crédito rural no Norte, consignado no Sudeste)</td></tr>
+                            <tr><td><strong>Comportamental</strong></td><td>Produtos para investidores conservadores, moderados ou arrojados</td></tr>
+                            <tr><td><strong>Necessidades</strong></td><td>Crédito imobiliário para quem busca casa própria, capital de giro para empresas</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Diferenciação Importante:</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Conceito</th><th>Definição</th><th>Exemplo</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Segmentação</strong></td><td>Divisão do mercado em grupos homogêneos</td><td>Separar clientes por renda e perfil de investimento</td></tr>
+                            <tr><td><strong>Marketing de Massa</strong></td><td>Comunicação uniforme para todo o mercado</td><td>Propaganda genérica de conta corrente na TV aberta</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card card-purple">
+                    <div class="card-title">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                        </span>
+                        Pegadinha de Prova
+                    </div>
+                    <p>A instituição que personaliza conteúdo e direciona publicidade apenas para clientes cujas necessidades ela atende melhor que os concorrentes está aplicando o conceito de <strong>segmentação de mercado</strong>, e não fidelidade, reposicionamento ou recuperação de serviço.</p>
+                </div>
+
+                <h5 class="subsection-title">3.1.2 A Escala de Lealdade de Payne (Escada de Lealdade)</h5>
+                <p>A Escala de Lealdade de Payne é um modelo fundamental para entender a evolução do relacionamento entre cliente e instituição.</p>
+
+                <p><strong>Ordem Crescente da Escada:</strong></p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Nível</th><th>Denominação</th><th>Característica Principal</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1º</td><td><strong>Potencial (Prospectivo)</strong></td><td>Pode ser persuadido a negociar, mas ainda não comprou</td></tr>
+                            <tr><td>2º</td><td><strong>Comprador</strong></td><td>Realizou a primeira compra</td></tr>
+                            <tr><td>3º</td><td><strong>Cliente</strong></td><td>Realiza compras recorrentes</td></tr>
+                            <tr><td>4º</td><td><strong>Adepto</strong></td><td>Prefere a marca, mas não a recomenda ativamente</td></tr>
+                            <tr><td>5º</td><td><strong>Defensor</strong></td><td>Recomenda ativamente a marca, sem ser parceiro</td></tr>
+                            <tr><td>6º</td><td><strong>Parceiro</strong></td><td>Tem relacionamento de cocriação com a organização</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- SVG: Escada de Payne -->
+                <div class="diagram-wrap">
+                    <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escada de Lealdade de Payne">
+                        <rect x="0" y="0" width="500" height="380" fill="transparent"/>
+                        <!-- Degraus -->
+                        <rect x="60" y="10" width="380" height="44" rx="6" fill="#1e2a3a" stroke="#d4b86a" stroke-width="1.5"/>
+                        <text x="80" y="30" fill="#d4b86a" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">6.</text>
+                        <text x="100" y="30" fill="#f0ece5" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">PARCEIRO</text>
+                        <text x="340" y="30" fill="#8a8a80" font-size="11" font-family="Segoe UI, sans-serif">cocriação</text>
+
+                        <rect x="80" y="60" width="340" height="44" rx="6" fill="#162030" stroke="#6a9bb5" stroke-width="1.5"/>
+                        <text x="100" y="80" fill="#6a9bb5" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">5.</text>
+                        <text x="120" y="80" fill="#f0ece5" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">DEFENSOR</text>
+                        <text x="340" y="80" fill="#8a8a80" font-size="11" font-family="Segoe UI, sans-serif">recomendação ativa</text>
+
+                        <rect x="100" y="110" width="300" height="44" rx="6" fill="#162030" stroke="#6a7a8a" stroke-width="1.5"/>
+                        <text x="120" y="130" fill="#6a7a8a" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">4.</text>
+                        <text x="140" y="130" fill="#f0ece5" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">ADEPTO</text>
+                        <text x="320" y="130" fill="#8a8a80" font-size="11" font-family="Segoe UI, sans-serif">preferência</text>
+
+                        <rect x="120" y="160" width="260" height="44" rx="6" fill="#162030" stroke="#6a7a8a" stroke-width="1.5"/>
+                        <text x="140" y="180" fill="#6a7a8a" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">3.</text>
+                        <text x="160" y="180" fill="#f0ece5" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">CLIENTE</text>
+                        <text x="300" y="180" fill="#8a8a80" font-size="11" font-family="Segoe UI, sans-serif">compras recorrentes</text>
+
+                        <rect x="140" y="210" width="220" height="44" rx="6" fill="#162030" stroke="#6a7a8a" stroke-width="1.5"/>
+                        <text x="160" y="230" fill="#6a7a8a" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">2.</text>
+                        <text x="180" y="230" fill="#f0ece5" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">COMPRADOR</text>
+                        <text x="280" y="230" fill="#8a8a80" font-size="11" font-family="Segoe UI, sans-serif">primeira compra</text>
+
+                        <rect x="160" y="260" width="180" height="44" rx="6" fill="#0e1824" stroke="#4a5a6a" stroke-width="1.5"/>
+                        <text x="180" y="280" fill="#4a5a6a" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">1.</text>
+                        <text x="200" y="280" fill="#b0aa9e" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">POTENCIAL</text>
+                        <text x="280" y="280" fill="#6a7a8a" font-size="11" font-family="Segoe UI, sans-serif">pode ser persuadido</text>
+
+                        <!-- Seta lateral -->
+                        <line x1="50" y1="35" x2="50" y2="280" stroke="#3a4a5a" stroke-width="2" stroke-dasharray="6,4"/>
+                        <polygon points="50,280 44,272 56,272" fill="#3a4a5a"/>
+                        <text x="28" y="170" fill="#6a7a8a" font-size="11" font-family="Segoe UI, sans-serif" transform="rotate(-90,28,170)">LEALDADE ↑</text>
+                    </svg>
+                    <div class="diagram-caption">Escala de Lealdade de Payne: evolução do relacionamento com o cliente.</div>
+                </div>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                        </span>
+                        Dica de Prova
+                    </div>
+                    <p>A Cesgranrio costuma cobrar a distinção entre <strong>potencial</strong> (prospectivo) e <strong>defensor</strong>. O potencial ainda não comprou; o defensor recomenda ativamente, mas não tem parceria formal.</p>
+                </div>
+
+                <h4 class="section-title">3.2 O Momento da Verdade no Atendimento Bancário</h4>
+
+                <h5 class="subsection-title">3.2.1 Definição</h5>
+                <p>O <strong>Momento da Verdade</strong> (em inglês, <em>Moment of Truth</em>) é o instante de interação entre cliente e empresa em que se forma a percepção sobre a qualidade do serviço.</p>
+
+                <h5 class="subsection-title">3.2.2 Aplicação no Contexto Bancário</h5>
+                <p>Cada interação entre o cliente e a agência bancária é um momento da verdade que pode consolidar ou destruir o relacionamento.</p>
+
+                <div class="quote">
+                    <p>Um cliente, após receber recomendação de amigos, vai a uma agência bancária para abrir uma conta. Ele enfrenta longa fila e atendimento grosseiro do gerente, formando uma imagem negativa e decidindo não usar os serviços do banco.</p>
+                    <div class="attr">— Exemplo prático do Momento da Verdade</div>
+                </div>
+
+                <p><strong>O que isso ilustra?</strong> Este episódio ilustra o <strong>Momento da Verdade</strong>, pois é no contato decisivo com a agência que se define a imagem da organização para aquele cliente potencial.</p>
+
+                <p><strong>Distinção de Conceitos:</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Conceito</th><th>Definição</th><th>Aplicação no Exemplo</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Momento da Verdade</strong></td><td>Interação que define a percepção do serviço</td><td>O atendimento grosseiro forma a imagem negativa</td></tr>
+                            <tr><td><strong>Deserção</strong></td><td>Cliente que deixa de usar os serviços</td><td>Não se aplica, pois o cliente não era usuário</td></tr>
+                            <tr><td><strong>Incidente Crítico</strong></td><td>Evento específico que marca a relação</td><td>A fila e o atendimento são incidentes críticos, mas o conceito central é o momento da verdade</td></tr>
+                            <tr><td><strong>Gargalo</strong></td><td>Ponto de estrangulamento no processo</td><td>A fila é um gargalo, mas o foco é a interação decisiva</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="section-title">3.3 Clientecentrismo e Cultura Organizacional</h4>
+
+                <h5 class="subsection-title">3.3.1 O Maior Desafio para a Criação de um Mindset Clientocêntrico</h5>
+                <p>A criação de um mindset clientocêntrico (foco no cliente como centro das decisões) enfrenta diversos desafios organizacionais.</p>
+
+                <div class="card card-red">
+                    <div class="card-title">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        </span>
+                        O maior desafio
+                    </div>
+                    <p><strong>Falta de uma cultura organizacional centrada no cliente</strong> e de líderes que estimulem e disseminem essa cultura.</p>
+                </div>
+
+                <p><strong>Por que este é o maior desafio?</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Desafio</th><th>Importância Relativa</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Cultura organizacional</strong></td><td><span class="highlight">Crítico</span> — é o alicerce de toda mudança comportamental</td></tr>
+                            <tr><td>Coleta de dados</td><td>Importante, mas secundário</td></tr>
+                            <tr><td>Personalização</td><td>Importante, mas decorrente da cultura</td></tr>
+                            <tr><td>Cocriação</td><td>Importante, mas depende de cultura colaborativa</td></tr>
+                            <tr><td>Medição de satisfação</td><td>Importante, mas é consequência, não causa</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Análise Prática:</strong> Um banco pode ter os melhores sistemas de CRM, dados completos sobre clientes e ferramentas de personalização, mas se a liderança não estimular e a cultura não valorizar o foco no cliente, essas ferramentas serão subutilizadas ou aplicadas de forma mecânica e sem efetividade.</p>
+
+                <div class="card card-purple">
+                    <div class="card-title">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                        </span>
+                        Pegadinha de Prova
+                    </div>
+                    <p>A Cesgranrio pode apresentar alternativas como "falta de coleta de dados" ou "ausência de personalização" como distratores. O que realmente falta, na visão da banca, é a <strong>mudança de mentalidade e comprometimento da liderança</strong>.</p>
+                </div>
+
+                <h4 class="section-title">3.4 Gatilhos Mentais e Inbound Marketing Bancário</h4>
+
+                <h5 class="subsection-title">3.4.1 A Reciprocidade como Gatilho de Vendas</h5>
+                <p><strong>Conceito:</strong> A reciprocidade é um gatilho mental baseado na tendência humana de retribuir favores recebidos.</p>
+
+                <p><strong>Aplicação no Inbound Marketing Bancário:</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Ação do Vendedor</th><th>Gatilho Ativado</th><th>Efeito Esperado</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Oferece material rico gratuitamente (e-book, planilha, consultoria)</td><td><strong>Reciprocidade</strong></td><td>Cliente se sente compelido a retribuir, priorizando o banco na contratação</td></tr>
+                            <tr><td>Oferece café e atendimento personalizado</td><td><strong>Reciprocidade</strong></td><td>Cliente sente-se acolhido e mais propenso a ouvir ofertas</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Diferenciação dos Gatilhos Mentais:</strong></p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Gatilho</th><th>Definição</th><th>Exemplo Bancário</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Reciprocidade</strong></td><td>Retribuição de favores</td><td>Oferta gratuita de material educativo</td></tr>
+                            <tr><td><strong>Escassez</strong></td><td>Valorização do que é raro</td><td>"Últimas cotas disponíveis do fundo"</td></tr>
+                            <tr><td><strong>Aprovação Social</strong></td><td>Influência do grupo</td><td>"80% dos clientes com seu perfil escolheram..."</td></tr>
+                            <tr><td><strong>Autoridade</strong></td><td>Confiança em especialistas</td><td>Recomendação do economista-chefe do banco</td></tr>
+                            <tr><td><strong>Compromisso e Coerência</strong></td><td>Consistência com ações passadas</td><td>"Você já pesquisa investimentos, por que não faz seu primeiro aporte?"</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                        </span>
+                        Dica de Prova
+                    </div>
+                    <p>A oferta voluntária de valor que gera um senso de obrigação de retribuição caracteriza o gatilho da <strong>reciprocidade</strong>, e não escassez, aprovação social, autoridade ou compromisso.</p>
+                </div>
+
+                <h4 class="section-title">3.5 Superação de Objeções no Atendimento Bancário</h4>
+
+                <h5 class="subsection-title">3.5.1 Estratégias para Lidar com Objeções de Adiamento</h5>
+                <p>As objeções de adiamento são comuns no ambiente bancário, especialmente em vendas de produtos mais complexos como consórcios, previdência privada e financiamentos.</p>
+
+                <p><strong>Exemplos de Objeções de Adiamento:</strong></p>
+                <ul>
+                    <li>"Deixe-me pensar com calma"</li>
+                    <li>"Preciso falar com meu chefe" (no caso de clientes PJ)</li>
+                    <li>"Vou aguardar o próximo orçamento"</li>
+                    <li>"Preciso conversar com minha esposa/marido"</li>
+                </ul>
+
+                <h5 class="subsection-title">3.5.2 Estratégia Adequada: Compromisso com Ação Futura</h5>
+                <p><strong>Resposta correta:</strong> Solicitar um compromisso com ação futura que impulse a venda.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Cenário</th><th>Estratégia Adequada</th><th>Exemplo de Abordagem</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>"Preciso falar com meu chefe"</td><td>Agendar reunião com o tomador de decisão</td><td>"Sr. Cliente, podemos agendar uma reunião presencial com seu chefe para apresentarmos os benefícios do produto?"</td></tr>
+                            <tr><td>"Deixe-me pensar"</td><td>Estabelecer prazo para retorno</td><td>"Compreendo perfeitamente. Que tal agendarmos uma nova conversa na próxima quinta-feira, quando eu trago mais informações?"</td></tr>
+                            <tr><td>"Aguardar próximo orçamento"</td><td>Oferecer simulação para o período</td><td>"Posso fazer uma simulação para o próximo orçamento, incluindo cenários com diferentes prazos e valores?"</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h5 class="subsection-title">3.5.3 O Que NÃO Funciona para Adiamento</h5>
+                <div class="card card-red">
+                    <div class="card-title">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                        </span>
+                        Estratégias inadequadas
+                    </div>
+                    <ul>
+                        <li><strong>Confrontar o cliente</strong> — Cria tensão e resistência</li>
+                        <li><strong>Voltar à etapa de necessidades</strong> — O problema não é falta de entendimento, mas falta de urgência ou autonomia</li>
+                        <li><strong>Tratar o cliente como oponente</strong> — Destrói o relacionamento e a confiança</li>
+                    </ul>
+                </div>
+
+                <div class="card card-purple">
+                    <div class="card-title">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                        </span>
+                        Pegadinha de Prova
+                    </div>
+                    <p>A Cesgranrio pode apresentar alternativas como "confrontar o cliente" ou "voltar à etapa de necessidades" como opções. A estratégia adequada é sempre <strong>solicitar compromisso com ação futura</strong>.</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- ============================================================ -->
+                <!-- UNIDADE III -->
+                <!-- ============================================================ -->
+
+                <section id="unidade3" class="anchor-offset">
+                    <h2 class="unit-title"><span class="num">Unidade III</span>Produtos e Serviços Financeiros</h2>
+
+                    <!-- CAPÍTULO 4 -->
+                    <h3 id="cap4" class="chapter-title anchor-offset"><span class="num">Capítulo 4</span>Títulos de Renda Fixa e Investimentos</h3>
+
+                    <h4 class="section-title">4.1 Debêntures – O Título de Crédito Privado</h4>
+
+                    <h5 class="subsection-title">4.1.1 Características Fundamentais</h5>
+                    <p>A debênture é um título de renda fixa emitido por sociedades por ações (S.A.) para captação de recursos no mercado de capitais.</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Característica</th><th>Descrição</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Emissor</strong></td><td>Sociedade por ações (S.A.)</td></tr>
+                                <tr><td><strong>Natureza</strong></td><td>Crédito privado</td></tr>
+                                <tr><td><strong>Tipo</strong></td><td>Renda fixa</td></tr>
+                                <tr><td><strong>Registro</strong></td><td>Comissão de Valores Mobiliários (CVM)</td></tr>
+                                <tr><td><strong>Remuneração</strong></td><td>Juros (prefixados, pós-fixados ou híbridos)</td></tr>
+                                <tr><td><strong>Amortização</strong></td><td>Principal no vencimento (podendo haver amortizações parciais)</td></tr>
+                                <tr><td><strong>Fluxo</strong></td><td>Cupons periódicos (juros) + principal no final</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">4.1.2 Diferenciação de Outros Títulos</h5>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Título</th><th>Emissor</th><th>Registro</th><th>Natureza</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Debênture</strong></td><td>S.A. (empresa não financeira)</td><td>CVM</td><td>Crédito privado</td></tr>
+                                <tr><td><strong>CDB</strong></td><td>Banco</td><td>BCB</td><td>Crédito privado</td></tr>
+                                <tr><td><strong>Ação</strong></td><td>S.A.</td><td>CVM</td><td>Renda variável</td></tr>
+                                <tr><td><strong>Tesouro Direto</strong></td><td>Tesouro Nacional</td><td>STN</td><td>Título público</td></tr>
+                                <tr><td><strong>Fundo de Renda Fixa</strong></td><td>Gestor</td><td>CVM</td><td>Carteira coletiva</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card card-purple">
+                        <div class="card-title">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                            </span>
+                            Pegadinha de Prova
+                        </div>
+                        <p>A Cesgranrio pode apresentar um enunciado descrevendo um título com as características da debênture e oferecer alternativas como CDB, ação, Tesouro Direto ou fundo de renda fixa como distratores.</p>
+                        <p style="margin-top:8px;"><strong>Exemplo:</strong> "Um título emitido por sociedade por ações, de crédito privado e renda fixa, com registro na CVM, que paga juros prefixados periódicos e principal no vencimento, é classificado como:" <span class="highlight">Debênture</span>.</p>
+                    </div>
+
+                    <h4 class="section-title">4.2 Consórcios – Regulação e Supervisão</h4>
+
+                    <h5 class="subsection-title">4.2.1 O Marco Regulatório dos Consórcios</h5>
+                    <p>A Lei nº 11.795/2008 (Lei dos Consórcios) estabelece o arcabouço regulatório para o sistema de consórcios no Brasil.</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Órgão</th><th>Responsabilidade</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Banco Central do Brasil (BCB)</strong></td><td>Normatização, autorização, supervisão e controle do sistema de consórcios</td></tr>
+                                <tr><td><strong>SUSEP</strong></td><td>Seguros e capitalização (não consórcios)</td></tr>
+                                <tr><td><strong>CVM</strong></td><td>Valores mobiliários (não consórcios)</td></tr>
+                                <tr><td><strong>CMN</strong></td><td>Normativo geral (não supervisiona diretamente)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">4.2.2 Informações Contábeis dos Consórcios</h5>
+                    <p><strong>Regra:</strong> A administradora de consórcio, pertencente a instituição financeira, deve enviar periodicamente informações contábeis sobre suas operações ao <strong>Banco Central do Brasil</strong>.</p>
+
+                    <div class="card card-blue">
+                        <div class="card-title">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                            </span>
+                            Dica de Prova
+                        </div>
+                        <p>A Cesgranrio pode tentar confundir com Susep (que cuida de seguros e capitalização) ou CVM (valores mobiliários). O órgão correto para informações contábeis de consórcios é o <strong>BCB</strong>.</p>
+                    </div>
+
+                    <h4 class="section-title">4.3 Oferta Pública de Aquisição (OPA) e Fechamento de Capital</h4>
+
+                    <h5 class="subsection-title">4.3.1 Conceito de OPA</h5>
+                    <p>A Oferta Pública de Aquisição (OPA) é uma operação pela qual um acionista ou grupo de acionistas oferece aos demais acionistas a compra de suas ações, podendo resultar no fechamento do capital da empresa.</p>
+
+                    <h5 class="subsection-title">4.3.2 Critérios para Definição do Preço Justo no Laudo de Avaliação</h5>
+                    <p>Para OPA com fechamento de capital, o art. 4º, § 4º da Lei das S.A. (Lei nº 6.404/76) estabelece os critérios aceitos pela CVM para definição do preço justo:</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Critério</th><th>Descrição</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Patrimônio Líquido Contábil</strong></td><td>Valor contábil do patrimônio da empresa</td></tr>
+                                <tr><td><strong>Patrimônio Líquido Avaliado a Preço de Mercado</strong></td><td>Reavaliação do patrimônio a valores de mercado</td></tr>
+                                <tr><td><strong>Fluxo de Caixa Descontado</strong></td><td>Projeção de fluxos futuros trazidos a valor presente</td></tr>
+                                <tr><td><strong>Múltiplos de Mercado</strong></td><td>Comparação com empresas similares</td></tr>
+                                <tr><td><strong>Outros critérios aceitos pela CVM</strong></td><td>Metodologias alternativas aprovadas pela autarquia</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card card-purple">
+                        <div class="card-title">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                            </span>
+                            Pegadinha de Prova
+                        </div>
+                        <p>A Cesgranrio já cobrou questão em que o enunciado apresentava um erro na nomenclatura ("Comissão de Valores Monetários" em vez de "Comissão de Valores Mobiliários"). Fique atento!</p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- CAPÍTULO 5 -->
+                    <h3 id="cap5" class="chapter-title anchor-offset"><span class="num">Capítulo 5</span>Criptomoedas e Tecnologia Financeira</h3>
+
+                    <h4 class="section-title">5.1 Mineração de Bitcoin – Como Funciona</h4>
+
+                    <h5 class="subsection-title">5.1.1 O Processo Fundamental</h5>
+                    <p>A mineração de Bitcoin é o processo pelo qual novas transações são validadas e adicionadas ao blockchain, servindo como mecanismo de consenso da rede.</p>
+
+                    <p><strong>Etapas do Processo:</strong></p>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Etapa</th><th>Descrição</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>1. Validação de Transações</strong></td><td>Os mineradores agrupam transações pendentes em um bloco</td></tr>
+                                <tr><td><strong>2. Prova de Trabalho (PoW)</strong></td><td>Resolução de problemas matemáticos complexos utilizando poder computacional</td></tr>
+                                <tr><td><strong>3. Descoberta do Bloco</strong></td><td>O primeiro minerador a resolver o problema propaga o bloco para a rede</td></tr>
+                                <tr><td><strong>4. Recompensa</strong></td><td>O minerador recebe novos Bitcoins (emissão) e taxas de transação</td></tr>
+                                <tr><td><strong>5. Confirmação</strong></td><td>O bloco é adicionado à cadeia, confirmando as transações</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">5.1.2 Esclarecimentos Importantes</h5>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Ponto</th><th>Esclarecimento</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Objetivo principal</strong></td><td>Validar transações (não apenas emitir novos Bitcoins)</td></tr>
+                                <tr><td><strong>Emissão</strong></td><td>É uma recompensa pela validação, não o objetivo em si</td></tr>
+                                <tr><td><strong>Limite de oferta</strong></td><td>Máximo de 21 milhões de Bitcoins (não é expansível ilimitadamente)</td></tr>
+                                <tr><td><strong>Imutabilidade</strong></td><td>Os registros anteriores não podem ser alterados</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">5.1.3 Aplicação no Contexto Bancário</h5>
+                    <p>Embora os bancos tradicionais não atuem diretamente com mineração de criptomoedas, o entendimento desse processo é relevante para:</p>
+                    <ul>
+                        <li>Atendimento a clientes que investem em criptoativos</li>
+                        <li>Compreensão dos riscos tecnológicos e de segurança</li>
+                        <li>Análise de impacto no sistema financeiro</li>
+                    </ul>
+
+                    <div class="divider"></div>
+
+                    <!-- CAPÍTULO 6 -->
+                    <h3 id="cap6" class="chapter-title anchor-offset"><span class="num">Capítulo 6</span>Taxas de Câmbio e Mercado Cambial</h3>
+
+                    <h4 class="section-title">6.1 A Taxa Ptax – Referência do Mercado Cambial</h4>
+
+                    <h5 class="subsection-title">6.1.1 Conceito e Funcionamento</h5>
+                    <p>A <strong>Ptax</strong> (Preço Transação Atual X) é a taxa de referência entre o Real e o Dólar americano divulgada diariamente pelo Banco Central do Brasil, sendo a mais utilizada no mercado de câmbio brasileiro.</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Característica</th><th>Descrição</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Natureza</strong></td><td>Taxa média ponderada das cotações de compra e venda de dólar no mercado à vista</td></tr>
+                                <tr><td><strong>Apuração</strong></td><td>Realizada em janelas diárias (geralmente das 9h às 16h30)</td></tr>
+                                <tr><td><strong>Divulgação</strong></td><td>Pelo Banco Central do Brasil</td></tr>
+                                <tr><td><strong>Utilização</strong></td><td>Referência para contratos futuros, hedge, liquidação de operações</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">6.1.2 Diferenciação de Outras Taxas</h5>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Taxa</th><th>Aplicação</th><th>Característica</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Ptax</strong></td><td>Câmbio (USD/BRL)</td><td>Taxa de referência, média diária</td></tr>
+                                <tr><td><strong>Selic</strong></td><td>Juros</td><td>Taxa básica de juros da economia</td></tr>
+                                <tr><td><strong>TR (Taxa Referencial)</strong></td><td>Poupança</td><td>Taxa de juros para caderneta de poupança</td></tr>
+                                <tr><td><strong>Swap Cambial</strong></td><td>Derivativo</td><td>Instrumento de hedge cambial</td></tr>
+                                <tr><td><strong>Cambial Direta (Spot)</strong></td><td>Câmbio</td><td>Cotação para liquidação pronta</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="section-title">6.2 Desvalorização Real e seus Efeitos</h4>
+
+                    <h5 class="subsection-title">6.2.1 Conceito e Implicações</h5>
+                    <p>Quando ocorre uma desvalorização real da moeda brasileira em relação ao Dólar americano (considerando bens comercializáveis), tem-se que:</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Efeito Direto</th><th>Descrição</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Aumento do poder de compra do Dólar</strong></td><td>Os produtos brasileiros ficam mais baratos em moeda estrangeira</td></tr>
+                                <tr><td><strong>Melhora da competitividade das exportações</strong></td><td>Bens nacionais tornam-se mais atrativos para o exterior</td></tr>
+                                <tr><td><strong>Redução de déficits em transações correntes</strong></td><td>Exportações aumentam, importações ficam mais caras</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">6.2.2 Análise de Impactos</h5>
+                    <div class="card card-blue">
+                        <div class="card-title">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16v0"/></svg>
+                            </span>
+                            Exemplo Hipotético
+                        </div>
+                        <p>Suponha que a taxa de câmbio REAL/DÓLAR passou de R$ 4,00/USD para R$ 5,00/USD. Considerando apenas bens comercializáveis:</p>
+                        <ul>
+                            <li><strong>Competitividade das exportações:</strong> Aumenta (produtos brasileiros ficam 25% mais baratos para compradores estrangeiros)</li>
+                            <li><strong>Balança comercial:</strong> Tendência de melhora (exportações aumentam, importações diminuem)</li>
+                            <li><strong>Poder de compra do Dólar:</strong> Aumenta (cada dólar compra mais reais)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-purple">
+                        <div class="card-title">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                            </span>
+                            Pegadinha de Prova
+                        </div>
+                        <p>A Cesgranrio pode afirmar que a desvalorização real "reduz a competitividade das exportações" (o que é falso) ou que "aumenta déficits em transações correntes" (também falso). A desvalorização real <strong>melhora a competitividade</strong> e tende a <strong>reduzir déficits</strong>.</p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- ============================================================ -->
+                    <!-- UNIDADE IV -->
+                    <!-- ============================================================ -->
+
+                    <section id="unidade4" class="anchor-offset">
+                        <h2 class="unit-title"><span class="num">Unidade IV</span>Política Monetária e Mercado Financeiro</h2>
+
+                        <!-- CAPÍTULO 7 -->
+                        <h3 id="cap7" class="chapter-title anchor-offset"><span class="num">Capítulo 7</span>Política Monetária e Instrumentos do Banco Central</h3>
+
+                        <h4 class="section-title">7.1 Operações Compromissadas no Mercado Aberto</h4>
+
+                        <h5 class="subsection-title">7.1.1 Conceito e Mecanismo</h5>
+                        <p>As operações compromissadas são operações de compra e venda de títulos públicos com compromisso de recompra ou revenda, realizadas pelo Banco Central no mercado aberto.</p>
+
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr><th>Tipo de Operação</th><th>Descrição</th><th>Efeito na Liquidez</th><th>Efeito na Taxa de Juros</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Compra de títulos</strong></td><td>BCB compra títulos, pagando com moeda</td><td><span class="highlight">Aumenta</span></td><td>Pressão para baixo</td></tr>
+                                    <tr><td><strong>Venda de títulos</strong></td><td>BCB vende títulos, recebendo moeda</td><td>Reduz</td><td>Pressão para cima</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h5 class="subsection-title">7.1.2 Análise do Efeito da Compra de Títulos</h5>
+                        <p><strong>Cenário:</strong> O Banco Central realiza uma operação compromissada de compra de títulos públicos no mercado aberto.</p>
+
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr><th>Variável</th><th>Efeito</th><th>Razão</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Liquidez</strong></td><td><span class="highlight">Aumenta</span></td><td>O BCB injeta dinheiro no sistema ao pagar pelos títulos</td></tr>
+                                    <tr><td><strong>Reservas bancárias</strong></td><td><span class="highlight">Aumentam</span></td><td>Os bancos ficam com mais recursos</td></tr>
+                                    <tr><td><strong>Taxa de juros de curto prazo</strong></td><td><span class="highlight">Reduz</span></td><td>Maior oferta de recursos pressiona os juros para baixo</td></tr>
+                                    <tr><td><strong>Natureza da política</strong></td><td><span class="highlight">Expansionista</span></td><td>Aumenta a oferta de moeda</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- SVG: Operações Compromissadas -->
+                        <div class="diagram-wrap">
+                            <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fluxo de operações compromissadas">
+                                <rect x="0" y="0" width="700" height="180" fill="transparent"/>
+                                <!-- Compra -->
+                                <rect x="20" y="20" width="200" height="56" rx="8" fill="#1e2a3a" stroke="#6a9b7a" stroke-width="1.5"/>
+                                <text x="120" y="46" text-anchor="middle" fill="#6a9b7a" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">BCB COMPRA</text>
+                                <text x="120" y="64" text-anchor="middle" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">títulos públicos</text>
+                                <!-- Seta -->
+                                <line x1="220" y1="48" x2="280" y2="48" stroke="#3a4a5a" stroke-width="2"/>
+                                <polygon points="280,48 272,42 272,54" fill="#3a4a5a"/>
+                                <text x="250" y="38" fill="#6a7a8a" font-size="10" font-family="Segoe UI, sans-serif">↓</text>
+                                <!-- Efeito -->
+                                <rect x="290" y="10" width="180" height="52" rx="8" fill="#121c2a" stroke="#d4b86a" stroke-width="1.5"/>
+                                <text x="380" y="32" text-anchor="middle" fill="#d4b86a" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">Liquidez ↑</text>
+                                <text x="380" y="50" text-anchor="middle" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Juros ↓</text>
+                                <!-- Seta -->
+                                <line x1="470" y1="36" x2="530" y2="36" stroke="#3a4a5a" stroke-width="2"/>
+                                <polygon points="530,36 522,30 522,42" fill="#3a4a5a"/>
+                                <!-- Resultado -->
+                                <rect x="540" y="10" width="140" height="52" rx="8" fill="#0e1824" stroke="#6a9b7a" stroke-width="1.5"/>
+                                <text x="610" y="32" text-anchor="middle" fill="#6a9b7a" font-size="12" font-weight="600" font-family="Segoe UI, sans-serif">Política</text>
+                                <text x="610" y="50" text-anchor="middle" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Expansionista</text>
+
+                                <!-- Legenda inferior -->
+                                <rect x="80" y="100" width="12" height="12" rx="2" fill="#6a9b7a" opacity="0.6"/>
+                                <text x="100" y="111" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Ação do BCB</text>
+                                <rect x="240" y="100" width="12" height="12" rx="2" fill="#d4b86a" opacity="0.6"/>
+                                <text x="260" y="111" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Efeito imediato</text>
+                                <rect x="400" y="100" width="12" height="12" rx="2" fill="#6a9b7a" opacity="0.6"/>
+                                <text x="420" y="111" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Resultado final</text>
+                            </svg>
+                            <div class="diagram-caption">Efeito da compra de títulos pelo BCB na liquidez e nos juros.</div>
+                        </div>
+
+                        <div class="card card-purple">
+                            <div class="card-title">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                                </span>
+                                Pegadinha de Prova
+                            </div>
+                            <p>A Cesgranrio pode inverter a relação, afirmando que a compra de títulos "reduz a liquidez" ou "eleva os juros". O raciocínio correto é: <strong>compra = injeção de moeda = liquidez maior = juros menores</strong>.</p>
+                        </div>
+
+                        <h4 class="section-title">7.2 Política Monetária Não Convencional</h4>
+
+                        <h5 class="subsection-title">7.2.1 Conceito e Exemplos</h5>
+                        <p>A política monetária não convencional caracteriza-se pela utilização de instrumentos que fogem das ferramentas tradicionais (taxa de redesconto, depósito compulsório, operações com títulos de curto prazo).</p>
+
+                        <div class="card card-accent">
+                            <div class="card-title">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/></svg>
+                                </span>
+                                Exemplo Clássico: Quantitative Easing (QE)
+                            </div>
+                            <ul>
+                                <li><strong>O que é:</strong> Compra recorrente de títulos de longo prazo do Tesouro Nacional</li>
+                                <li><strong>Objetivo:</strong> Estimular a economia quando a taxa de juros já está em níveis muito baixos (próxima a zero)</li>
+                                <li><strong>Efeito:</strong> Aumentar a oferta de moeda e reduzir juros de longo prazo</li>
+                                <li><strong>Diferencial:</strong> Foge dos instrumentos tradicionais de curto prazo</li>
+                            </ul>
+                        </div>
+
+                        <h5 class="subsection-title">7.2.2 Comparação com Política Convencional</h5>
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr><th>Instrumento</th><th>Tipo de Política</th><th>Prazo dos Títulos</th><th>Característica</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Taxa Selic</td><td>Convencional</td><td>Curtíssimo prazo</td><td>Instrumento tradicional</td></tr>
+                                    <tr><td>Depósito Compulsório</td><td>Convencional</td><td>N/A</td><td>Instrumento tradicional</td></tr>
+                                    <tr><td>Operações de Mercado Aberto (títulos curtos)</td><td>Convencional</td><td>Curto prazo</td><td>Instrumento tradicional</td></tr>
+                                    <tr><td><strong>QE (títulos longos)</strong></td><td><span class="highlight">Não convencional</span></td><td><span class="highlight">Longo prazo</span></td><td><span class="highlight">Instrumento não tradicional</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="card card-blue">
+                            <div class="card-title">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                            </span>
+                            Dica de Prova
+                        </div>
+                        <p>A Cesgranrio costuma explorar a distinção entre política convencional e não convencional. Lembre-se: <strong>QE = compra de títulos de longo prazo = política não convencional</strong>.</p>
+                    </div>
+
+                    <h4 class="section-title">7.3 Razão Dívida Pública/PIB</h4>
+
+                    <h5 class="subsection-title">7.3.1 Conceito e Fatores Determinantes</h5>
+                    <p>A razão Dívida/PIB é o indicador mais utilizado para mensurar o endividamento do setor público em relação ao tamanho da economia.</p>
+
+                    <div class="card card-accent">
+                        <div class="card-title">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8v8H8z"/></svg>
+                            </span>
+                            Fórmula
+                        </div>
+                        <p><strong>Razão Dívida/PIB = Dívida Pública / Produto Interno Bruto</strong></p>
+                    </div>
+
+                    <h5 class="subsection-title">7.3.2 Fatores que Aumentam a Razão</h5>
+                    <p><strong>Mantidas as demais constantes, o aumento da taxa Selic contribui para o aumento da razão Dívida/PIB.</strong></p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Efeito da Selic</th><th>Impacto no Numerador</th><th>Impacto no Denominador</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Aumento da Selic</strong></td><td>Eleva o custo da dívida (juros maiores)</td><td>Desacelera o PIB (crédito mais caro)</td></tr>
+                                <tr><td><strong>Efeito combinado</strong></td><td>Numerador ↑</td><td>Denominador ↓</td></tr>
+                                <tr><td><strong>Resultado</strong></td><td colspan="2"><span class="highlight">Razão Dívida/PIB ↑</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">7.3.3 Fatores que Reduzem a Razão</h5>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Fator</th><th>Mecanismo</th><th>Efeito na Razão</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Superávit fiscal</strong></td><td>Reduz o endividamento (numerador)</td><td>Reduz</td></tr>
+                                <tr><td><strong>Redução de gastos</strong></td><td>Controla o crescimento da dívida</td><td>Reduz ou estabiliza</td></tr>
+                                <tr><td><strong>Maior arrecadação</strong></td><td>Aumenta a capacidade de pagamento</td><td>Reduz</td></tr>
+                                <tr><td><strong>Crescimento econômico</strong></td><td>Aumenta o PIB (denominador)</td><td>Reduz</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card card-purple">
+                        <div class="card-title">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                            </span>
+                            Pegadinha de Prova
+                        </div>
+                        <p>A Cesgranrio pode apresentar superávits fiscais, redução de gastos ou crescimento econômico como opções para "aumento da razão Dívida/PIB", mas o fator correto para o aumento é a <strong>elevação da taxa básica de juros (Selic)</strong>.</p>
+                    </div>
+
+                    <h4 class="section-title">7.4 Mercado Monetário e Reservas Bancárias</h4>
+
+                    <h5 class="subsection-title">7.4.1 Conceito de Mercado Monetário</h5>
+                    <p>O mercado monetário é o segmento do mercado financeiro onde ocorrem operações de curtíssimo prazo para controle de liquidez e equilíbrio de caixa entre os bancos e o Banco Central.</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Característica</th><th>Descrição</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Prazo</strong></td><td>Curtíssimo (usualmente até 1 dia útil)</td></tr>
+                                <tr><td><strong>Objetivo</strong></td><td>Controle de liquidez e equilíbrio de caixa</td></tr>
+                                <tr><td><strong>Participantes</strong></td><td>Instituições financeiras e BCB</td></tr>
+                                <tr><td><strong>Ativos</strong></td><td>Reservas bancárias, títulos públicos de curtíssimo prazo</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">7.4.2 Reservas Bancárias</h5>
+                    <p><strong>Conceito:</strong> As reservas bancárias são os depósitos que os bancos comerciais mantêm no Banco Central, que representam:</p>
+                    <ul>
+                        <li><strong>Passivo do Banco Central</strong> (BCB deve devolver esses recursos)</li>
+                        <li><strong>Ativo dos bancos comerciais</strong> (recursos que os bancos têm direito)</li>
+                    </ul>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Mercado</th><th>Ativo Negociado</th><th>Finalidade</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Monetário</strong></td><td>Reservas bancárias</td><td>Equilíbrio de caixa</td></tr>
+                                <tr><td>Cambial</td><td>Moedas estrangeiras</td><td>Comércio internacional</td></tr>
+                                <tr><td>Crédito</td><td>Empréstimos e financiamentos</td><td>Intermediação de recursos</td></tr>
+                                <tr><td>Capitais</td><td>Ações e títulos de longo prazo</td><td>Financiamento de empresas</td></tr>
+                                <tr><td>Criptomoedas</td><td>Criptoativos</td><td>Investimento/meio de pagamento</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card card-blue">
+                        <div class="card-title">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                            </span>
+                            Dica de Prova
+                        </div>
+                        <p>As reservas bancárias fazem parte do <strong>mercado monetário</strong>, não do cambial, de crédito, de capitais ou de criptomoedas.</p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- ============================================================ -->
+                    <!-- UNIDADE V -->
+                    <!-- ============================================================ -->
+
+                    <section id="unidade5" class="anchor-offset">
+                        <h2 class="unit-title"><span class="num">Unidade V</span>Legislação Aplicada e Normativos</h2>
+
+                        <!-- CAPÍTULO 8 -->
+                        <h3 id="cap8" class="chapter-title anchor-offset"><span class="num">Capítulo 8</span>Estrutura do Sistema Financeiro Nacional (SFN)</h3>
+
+                        <h4 class="section-title">8.1 Funções das Instituições Financeiras</h4>
+
+                        <h5 class="subsection-title">8.1.1 Classificação da Caixa Econômica Federal</h5>
+                        <p>A Caixa Econômica Federal é classificada como <strong>instituição operadora</strong> no âmbito do SFN.</p>
+
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr><th>Função</th><th>Órgãos/Instituições</th><th>Característica</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Reguladora/Normativa</strong></td><td>CMN, CNSP</td><td>Define regras gerais para todo o sistema</td></tr>
+                                    <tr><td><strong>Supervisora/Fiscalizadora</strong></td><td>BCB, CVM, SUSEP</td><td>Fiscaliza e supervisiona a atuação</td></tr>
+                                    <tr><td><strong>Operadora</strong></td><td>Bancos, seguradoras, distribuidoras</td><td>Atua diretamente com o público</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="card card-blue">
+                            <div class="card-title">
+                                <span class="icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                            </span>
+                            Dica de Prova
+                        </div>
+                        <p>A Cesgranrio costuma cobrar a classificação correta da Caixa no SFN. Lembre-se: a Caixa é <strong>operadora</strong>, nunca reguladora, supervisora ou autoridade monetária.</p>
+                    </div>
+
+                    <h5 class="subsection-title">8.1.2 Hierarquia dos Órgãos do SFN</h5>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Nível</th><th>Órgão</th><th>Função</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Conselho Monetário Nacional (CMN)</strong></td><td>CNSP (seguros)</td><td>Normativo geral</td></tr>
+                                <tr><td><strong>Banco Central do Brasil (BCB)</strong></td><td>CVM, SUSEP</td><td>Supervisão e execução</td></tr>
+                                <tr><td><strong>Instituições Operadoras</strong></td><td>Bancos, seguradoras, etc.</td><td>Intermediação financeira</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- SVG: SFN -->
+                    <div class="diagram-wrap">
+                        <svg viewBox="0 0 620 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estrutura do SFN">
+                            <rect x="0" y="0" width="620" height="280" fill="transparent"/>
+                            <!-- CMN -->
+                            <rect x="200" y="10" width="220" height="48" rx="8" fill="#1e2a3a" stroke="#d4b86a" stroke-width="2"/>
+                            <text x="310" y="32" text-anchor="middle" fill="#d4b86a" font-size="14" font-weight="600" font-family="Segoe UI, sans-serif">Conselho Monetário Nacional</text>
+                            <text x="310" y="50" text-anchor="middle" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">(CMN) — Normativo geral</text>
+                            <!-- Linhas -->
+                            <line x1="200" y1="70" x2="200" y2="100" stroke="#3a4a5a" stroke-width="2"/>
+                            <line x1="310" y1="58" x2="310" y2="100" stroke="#3a4a5a" stroke-width="2"/>
+                            <line x1="420" y1="70" x2="420" y2="100" stroke="#3a4a5a" stroke-width="2"/>
+                            <!-- BCB -->
+                            <rect x="40" y="108" width="180" height="48" rx="8" fill="#121c2a" stroke="#6a9bb5" stroke-width="2"/>
+                            <text x="130" y="130" text-anchor="middle" fill="#6a9bb5" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">Banco Central (BCB)</text>
+                            <text x="130" y="148" text-anchor="middle" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Supervisão / Execução</text>
+                            <!-- CVM -->
+                            <rect x="240" y="108" width="140" height="48" rx="8" fill="#121c2a" stroke="#9a7ab5" stroke-width="2"/>
+                            <text x="310" y="130" text-anchor="middle" fill="#9a7ab5" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">CVM</text>
+                            <text x="310" y="148" text-anchor="middle" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Mercado de capitais</text>
+                            <!-- SUSEP -->
+                            <rect x="400" y="108" width="160" height="48" rx="8" fill="#121c2a" stroke="#6a9b7a" stroke-width="2"/>
+                            <text x="480" y="130" text-anchor="middle" fill="#6a9b7a" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">SUSEP</text>
+                            <text x="480" y="148" text-anchor="middle" fill="#b0aa9e" font-size="11" font-family="Segoe UI, sans-serif">Seguros / Capitalização</text>
+                            <!-- Linhas para operadoras -->
+                            <line x1="130" y1="156" x2="130" y2="190" stroke="#3a4a5a" stroke-width="1.5"/>
+                            <line x1="310" y1="156" x2="310" y2="190" stroke="#3a4a5a" stroke-width="1.5"/>
+                            <line x1="480" y1="156" x2="480" y2="190" stroke="#3a4a5a" stroke-width="1.5"/>
+                            <!-- Operadoras -->
+                            <rect x="40" y="198" width="540" height="48" rx="8" fill="#0e1824" stroke="#4a5a6a" stroke-width="1.5"/>
+                            <text x="310" y="220" text-anchor="middle" fill="#e2ded7" font-size="13" font-weight="600" font-family="Segoe UI, sans-serif">Instituições Operadoras</text>
+                            <text x="310" y="238" text-anchor="middle" fill="#8a8a80" font-size="11" font-family="Segoe UI, sans-serif">Bancos · Seguradoras · Distribuidoras · Consórcios</text>
+                        </svg>
+                        <div class="diagram-caption">Estrutura hierárquica do Sistema Financeiro Nacional (SFN).</div>
+                    </div>
+
+                    <h4 class="section-title">8.2 Comunicação ao COAF – Detalhamento</h4>
+
+                    <h5 class="subsection-title">8.2.1 Operações em Espécie Sujeitas a Comunicação</h5>
+                    <p>A Circular BACEN nº 3.978/2020 estabelece a obrigatoriedade de comunicação ao COAF para:</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Operação</th><th>Valor Mínimo</th><th>Observação</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Depósito em espécie</strong></td><td>R$ 50.000,00</td><td>Comunicação obrigatória</td></tr>
+                                <tr><td><strong>Aporte em espécie</strong></td><td>R$ 50.000,00</td><td>Comunicação obrigatória</td></tr>
+                                <tr><td><strong>Saque em espécie</strong></td><td>R$ 50.000,00</td><td>Comunicação obrigatória</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">8.2.2 Fluxo de Comunicação</h5>
+                    <div class="card card-blue">
+                        <div class="card-title">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16v0"/></svg>
+                            </span>
+                            Fluxo
+                        </div>
+                        <p style="font-family: 'Segoe UI', sans-serif; font-size:0.95rem;">
+                            Operação em espécie ≥ R$ 50.000,00 → Comunicação pelo banco ao COAF → COAF analisa a operação → Em caso de suspeita, encaminha ao MPF/PF
+                        </p>
+                        <p class="small-note" style="margin-top:8px;">A comunicação ao COAF é dever da instituição financeira, não do cliente. O banco deve ter sistemas e procedimentos para identificar e reportar essas operações.</p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- CAPÍTULO 9 -->
+                    <h3 id="cap9" class="chapter-title anchor-offset"><span class="num">Capítulo 9</span>Código de Defesa do Consumidor (CDC) e Relações Bancárias</h3>
+
+                    <h4 class="section-title">9.1 Aplicação do CDC aos Contratos Bancários</h4>
+                    <p>O Código de Defesa do Consumidor (Lei nº 8.078/90) aplica-se plenamente às relações entre instituições financeiras e seus clientes, considerados consumidores.</p>
+
+                    <h5 class="subsection-title">9.1.1 Principais Dispositivos Aplicados no Contexto Bancário</h5>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Dispositivo CDC</th><th>Aplicação Bancária</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Art. 6º (direitos básicos)</strong></td><td>Informação adequada sobre produtos e serviços</td></tr>
+                                <tr><td><strong>Art. 39 (práticas abusivas)</strong></td><td>Proibição de envio de cartões não solicitados</td></tr>
+                                <tr><td><strong>Art. 42 (cobrança de dívidas)</strong></td><td>Proibição de constrangimento na cobrança</td></tr>
+                                <tr><td><strong>Art. 49 (direito de arrependimento)</strong></td><td>Desistência de contratações fora do estabelecimento</td></tr>
+                                <tr><td><strong>Art. 51 (cláusulas abusivas)</strong></td><td>Nulidade de cláusulas que colocam o consumidor em desvantagem</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">9.1.2 Exemplo de Aplicação Prática</h5>
+                    <div class="quote">
+                        <p>"Uma cliente idosa contrata um empréstimo consignado em sua agência. Posteriormente, descobre que a taxa de juros praticada é superior à divulgada no momento da contratação."</p>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Elemento</th><th>Violacão</th><th>Fundamento</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Informação inadequada</strong></td><td>Sim</td><td>Art. 6º, III (informação correta)</td></tr>
+                                <tr><td><strong>Taxa de juros divergente</strong></td><td>Sim</td><td>Art. 6º, III e Art. 39</td></tr>
+                                <tr><td><strong>Prática abusiva</strong></td><td>Sim</td><td>Art. 39 (informação enganosa)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="section-title">9.2 Estatuto do Idoso e Atendimento Bancário</h4>
+
+                    <h5 class="subsection-title">9.2.1 Direitos do Idoso no Âmbito Bancário</h5>
+                    <p>O Estatuto do Idoso (Lei nº 10.741/2003) estabelece direitos específicos que devem ser observados pelas instituições financeiras.</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Direito</th><th>Aplicação Bancária</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Atendimento preferencial</strong></td><td>Filas prioritárias em agências</td></tr>
+                                <tr><td><strong>Informação adequada</strong></td><td>Linguagem clara e acessível</td></tr>
+                                <tr><td><strong>Proteção contra abusos</strong></td><td>Vedação de venda casada e práticas predatórias</td></tr>
+                                <tr><td><strong>Valor máximo de comprometimento da renda</strong></td><td>Limite para empréstimos consignados (35%)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h5 class="subsection-title">9.2.2 Caso Prático</h5>
+                    <div class="quote">
+                        <p>"José, escriturário, recebeu um cliente idoso que deseja aplicar seu dinheiro. O cliente tem visão reduzida e dificuldade de compreender os termos técnicos."</p>
+                    </div>
+                    <p><strong>Conduta adequada do escriturário:</strong></p>
+                    <ol>
+                        <li>Atender preferencialmente</li>
+                        <li>Explicar em linguagem clara e acessível</li>
+                        <li>Garantir que o cliente compreenda os riscos e benefícios</li>
+                        <li>Oferecer material em formato acessível (letras grandes, áudio, etc.)</li>
+                        <li>Documentar a explicação e o consentimento do cliente</li>
+                    </ol>
+
+                    <div class="divider"></div>
+
+                    <!-- ============================================================ -->
+                    <!-- QUADROS-RESUMO -->
+                    <!-- ============================================================ -->
+
+                    <section id="quadros" class="anchor-offset">
+                        <h2 class="unit-title" style="border-bottom-color:#d4b86a;"><span class="num">◆</span>Quadros-Resumo para Revisão</h2>
+
+                        <h4 class="section-title">Quadro 1 – Hierarquia dos Códigos de Ética</h4>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Regra</th><th>Aplicação</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Matriz prevalece sobre subsidiária</strong></td><td>Código da CEF → Códigos das subsidiárias</td></tr>
+                                    <tr><td><strong>Base legal</strong></td><td>Expressa no Código da CEF</td></tr>
+                                    <tr><td><strong>Objetivo</strong></td><td>Uniformidade ética e evitamento de brechas</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="section-title">Quadro 2 – Comunicação ao COAF</h4>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Operação</th><th>Valor de Corte</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Depósito em espécie</strong></td><td>≥ R$ 50.000,00</td></tr>
+                                    <tr><td><strong>Aporte em espécie</strong></td><td>≥ R$ 50.000,00</td></tr>
+                                    <tr><td><strong>Saque em espécie</strong></td><td>≥ R$ 50.000,00</td></tr>
+                                    <tr><td><strong>Excluídos</strong></td><td>Cheque, PIX, TED, DOC</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="section-title">Quadro 3 – Escala de Lealdade de Payne</h4>
+                        <div class="card" style="font-family:'Segoe UI',sans-serif;font-size:0.95rem;">
+                            <div style="display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:center;padding:4px 0;">
+                                <span style="color:#d4b86a;">6. PARCEIRO</span>
+                                <span style="color:#6a9bb5;">5. DEFENSOR</span>
+                                <span style="color:#6a7a8a;">4. ADEPTO</span>
+                                <span style="color:#6a7a8a;">3. CLIENTE</span>
+                                <span style="color:#6a7a8a;">2. COMPRADOR</span>
+                                <span style="color:#4a5a6a;">1. POTENCIAL</span>
+                            </div>
+                            <div style="display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:center;font-size:0.8rem;color:#8a8a80;padding-top:4px;border-top:1px solid #1a2434;">
+                                <span>cocriação</span>
+                                <span>recomendação ativa</span>
+                                <span>preferência</span>
+                                <span>compras recorrentes</span>
+                                <span>primeira compra</span>
+                                <span>pode ser persuadido</span>
+                            </div>
+                        </div>
+
+                        <h4 class="section-title">Quadro 4 – Tipos de Títulos de Renda Fixa</h4>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Título</th><th>Emissor</th><th>Registro</th><th>Natureza</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Debênture</strong></td><td>S.A.</td><td>CVM</td><td>Privado</td></tr>
+                                    <tr><td><strong>CDB</strong></td><td>Banco</td><td>BCB</td><td>Privado</td></tr>
+                                    <tr><td><strong>Tesouro Direto</strong></td><td>Tesouro Nacional</td><td>STN</td><td>Público</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="section-title">Quadro 5 – Instrumentos de Política Monetária</h4>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Instrumento</th><th>Tipo de Política</th><th>Efeito na Liquidez</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>Compra de títulos</strong></td><td>Expansionista</td><td><span class="highlight">Aumenta</span></td></tr>
+                                    <tr><td><strong>Venda de títulos</strong></td><td>Contracionista</td><td>Reduz</td></tr>
+                                    <tr><td><strong>QE (títulos longos)</strong></td><td>Não convencional</td><td><span class="highlight">Aumenta</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h4 class="section-title">Quadro 6 – Atribuições dos Órgãos do SFN</h4>
+                        <div class="table-wrap">
+                            <table>
+                                <thead><tr><th>Órgão</th><th>Função</th><th>Exemplo</th></tr></thead>
+                                <tbody>
+                                    <tr><td><strong>CMN</strong></td><td>Regulador normativo</td><td>Define regras gerais</td></tr>
+                                    <tr><td><strong>BCB</strong></td><td>Supervisor/executor</td><td>Fiscaliza bancos</td></tr>
+                                    <tr><td><strong>CVM</strong></td><td>Supervisor</td><td>Fiscaliza mercado de capitais</td></tr>
+                                    <tr><td><strong>SUSEP</strong></td><td>Supervisor</td><td>Fiscaliza seguros</td></tr>
+                                    <tr><td><strong>COAF</strong></td><td>Inteligência financeira</td><td>Recebe comunicações de operações suspeitas</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <!-- ============================================================ -->
+                        <!-- MACETES -->
+                        <!-- ============================================================ -->
+
+                        <section id="macetes" class="anchor-offset">
+                            <h2 class="unit-title" style="border-bottom-color:#d4b86a;"><span class="num">◆</span>Macetes para Memorização</h2>
+
+                            <div class="macete">
+                                <div class="label">Macete 1 – Hierarquia dos Códigos</div>
+                                <div class="content"><strong>"Matriz manda"</strong> → Código da CEF (matriz) prevalece sobre os códigos das subsidiárias.</div>
+                            </div>
+
+                            <div class="macete">
+                                <div class="label">Macete 2 – COAF (R$ 50.000)</div>
+                                <div class="content"><strong>"Cinquenta, vivo e contado"</strong> → R$ 50.000 em espécie (dinheiro vivo) deve ser comunicado ao COAF.</div>
+                            </div>
+
+                            <div class="macete">
+                                <div class="label">Macete 3 – Escala de Payne</div>
+                                <div class="content"><strong>"Potencial, Comprador, Cliente, Adepto, Defensor, Parceiro"</strong> → P.C.C.A.D.P.</div>
+                            </div>
+
+                            <div class="macete">
+                                <div class="label">Macete 4 – Conselhos e Órgãos</div>
+                                <div class="content">
+                                    <strong>Conselho de Administração</strong> = "pensa" (estratégia)<br>
+                                    <strong>Diretoria Executiva</strong> = "faz" (executa)<br>
+                                    <strong>Corregedoria</strong> = "pune" (infrações)<br>
+                                    <strong>Ouvidoria</strong> = "escuta" (reclamações)
+                                </div>
+                            </div>
+
+                            <div class="macete">
+                                <div class="label">Macete 5 – Operações Compromissadas</div>
+                                <div class="content">
+                                    <strong>"Compra = Juros Caem"</strong> → BCB compra títulos → mais dinheiro circulando → juros caem.<br>
+                                    <strong>"Venda = Juros Sobem"</strong> → BCB vende títulos → menos dinheiro circulando → juros sobem.
+                                </div>
+                            </div>
+
+                            <div class="macete">
+                                <div class="label">Macete 6 – Funções do SFN</div>
+                                <div class="content"><strong>"Regula, Supervisiona, Opera"</strong> → CMN (regula), BCB/CVM/Susep (supervisionam), Bancos (operam).</div>
+                            </div>
+
+                            <div class="macete">
+                                <div class="label">Macete 7 – OPA e Preço Justo</div>
+                                <div class="content"><strong>"P. P. F. M."</strong> → Patrimônio contábil, Patrimônio a preço de mercado, Fluxo de caixa descontado, Múltiplos de mercado.</div>
+                            </div>
+
+                            <div class="macete">
+                                <div class="label">Macete 8 – Desvalorização Real</div>
+                                <div class="content"><strong>"Desvalorização = exportação boa"</strong> → Moeda mais fraca = produtos brasileiros mais baratos lá fora = exportações competitivas.</div>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <!-- ============================================================ -->
+                            <!-- DICAS CESGRANRIO -->
+                            <!-- ============================================================ -->
+
+                            <h2 class="unit-title" style="border-bottom-color:#6a9bb5;"><span class="num">◆</span>Dicas Específicas da Cesgranrio</h2>
+
+                            <div class="card card-blue">
+                                <div class="card-title">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                                    </span>
+                                    Dica 1 – Ética e Governança
+                                </div>
+                                <p>A Cesgranrio valoriza a hierarquia entre os códigos. Fique atento à regra da matriz sobre as subsidiárias e às funções do Conselho de Administração.</p>
+                            </div>
+
+                            <div class="card card-blue">
+                                <div class="card-title">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                                    </span>
+                                    Dica 2 – COAF e PLD
+                                </div>
+                                <p>A banca costuma cobrar o valor exato (R$ 50.000,00) e o tipo de operação (espécie). Não confunda com valores menores ou com outros meios de pagamento.</p>
+                            </div>
+
+                            <div class="card card-blue">
+                                <div class="card-title">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                                    </span>
+                                    Dica 3 – Marketing Bancário
+                                </div>
+                                <p>A Cesgranrio é detalhista na Escala de Payne. Decore a ordem e as definições de potencial e defensor.</p>
+                            </div>
+
+                            <div class="card card-blue">
+                                <div class="card-title">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                                    </span>
+                                    Dica 4 – Produtos Financeiros
+                                </div>
+                                <p>A banca costuma diferenciar títulos por emissor e registro. Debênture = S.A. + CVM.</p>
+                            </div>
+
+                            <div class="card card-blue">
+                                <div class="card-title">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                                    </span>
+                                    Dica 5 – Política Monetária
+                                </div>
+                                <p>A Cesgranrio explora a distinção entre política convencional e não convencional (QE). Atenção aos efeitos das operações compromissadas sobre liquidez e juros.</p>
+                            </div>
+
+                            <div class="card card-blue">
+                                <div class="card-title">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                                    </span>
+                                    Dica 6 – Legislação
+                                </div>
+                                <p>A aplicação do CDC e do Estatuto do Idoso ao contexto bancário é frequentemente cobrada. Fique atento à proteção ao consumidor idoso.</p>
+                            </div>
+
+                            <div class="card card-blue">
+                                <div class="card-title">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                                    </span>
+                                    Dica 7 – Atribuições dos Órgãos
+                                </div>
+                                <p>A banca adora confundir atribuições do CMN, BCB, CVM, SUSEP e COAF. Decore as funções específicas de cada um.</p>
+                            </div>
+
+                            <div class="card card-blue">
+                                <div class="card-title">
+                                    <span class="icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+                                    </span>
+                                    Dica 8 – Valores e Prazos
+                                </div>
+                                <p>A Cesgranrio pode cobrar em questões de cálculo e interpretação. Treine operações com taxas de juros, câmbio e indicadores econômicos.</p>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <!-- ============================================================ -->
+                            <!-- EXERCÍCIOS -->
+                            <!-- ============================================================ -->
+
+                            <section id="exercicios" class="anchor-offset">
+                                <h2 class="unit-title" style="border-bottom-color:#6a9b7a;"><span class="num">◆</span>Exercícios de Fixação</h2>
+
+                                <!-- Questão 1 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 1 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">Em caso de conflito entre o Código de Ética, Conduta e Integridade da Caixa Econômica Federal e o de sua subsidiária de seguros, qual dos seguintes códigos prevalece?</div>
+                                    <ul class="options">
+                                        <li data-letter="a">O código da subsidiária, por ser específico do setor de seguros</li>
+                                        <li data-letter="b">O código da CEF, por ser a matriz e controladora</li>
+                                        <li data-letter="c">O código que for mais benéfico ao cliente</li>
+                                        <li data-letter="d">O código que for mais recente</li>
+                                        <li data-letter="e">Ambos têm a mesma hierarquia</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> b) O código da CEF, por ser a matriz e controladora.</div>
+                                </div>
+
+                                <!-- Questão 2 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 2 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">Conforme a Circular Bacen nº 3.978/2020, as operações de depósito em espécie devem ser comunicadas ao COAF quando atingirem o valor de:</div>
+                                    <ul class="options">
+                                        <li data-letter="a">R$ 10.000,00</li>
+                                        <li data-letter="b">R$ 20.000,00</li>
+                                        <li data-letter="c">R$ 30.000,00</li>
+                                        <li data-letter="d">R$ 50.000,00</li>
+                                        <li data-letter="e">R$ 100.000,00</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> d) R$ 50.000,00.</div>
+                                </div>
+
+                                <!-- Questão 3 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 3 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">Na Escala de Lealdade de Payne, o cliente que recomenda ativamente a marca, sem ser parceiro, é denominado:</div>
+                                    <ul class="options">
+                                        <li data-letter="a">Potencial</li>
+                                        <li data-letter="b">Comprador</li>
+                                        <li data-letter="c">Adepto</li>
+                                        <li data-letter="d">Defensor</li>
+                                        <li data-letter="e">Cliente</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> d) Defensor.</div>
+                                </div>
+
+                                <!-- Questão 4 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 4 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">Quando o Banco Central realiza uma operação compromissada de compra de títulos públicos no mercado aberto, qual é o efeito imediato sobre a liquidez e a taxa de juros de curto prazo?</div>
+                                    <ul class="options">
+                                        <li data-letter="a">Reduz a liquidez e eleva os juros</li>
+                                        <li data-letter="b">Aumenta a liquidez e reduz os juros</li>
+                                        <li data-letter="c">Reduz a liquidez e mantém os juros estáveis</li>
+                                        <li data-letter="d">Aumenta a liquidez e eleva os juros</li>
+                                        <li data-letter="e">Não afeta a liquidez nem os juros</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> b) Aumenta a liquidez e reduz os juros.</div>
+                                </div>
+
+                                <!-- Questão 5 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 5 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">Uma instituição financeira que personaliza conteúdo e direciona publicidade apenas para clientes cujas necessidades ela atende melhor que os concorrentes está aplicando qual conceito de Marketing?</div>
+                                    <ul class="options">
+                                        <li data-letter="a">Fidelidade de clientes</li>
+                                        <li data-letter="b">Reposicionamento de marca</li>
+                                        <li data-letter="c">Segmentação de mercado</li>
+                                        <li data-letter="d">Recuperação de serviço</li>
+                                        <li data-letter="e">Marketing de massa</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> c) Segmentação de mercado.</div>
+                                </div>
+
+                                <!-- Questão 6 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 6 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">O maior desafio para a criação de um mindset clientocêntrico em uma organização bancária é:</div>
+                                    <ul class="options">
+                                        <li data-letter="a">A falta de dados sobre os clientes</li>
+                                        <li data-letter="b">A ausência de ferramentas de personalização</li>
+                                        <li data-letter="c">A falta de uma cultura organizacional centrada no cliente e de líderes que estimulem essa cultura</li>
+                                        <li data-letter="d">A dificuldade de medir a satisfação do cliente</li>
+                                        <li data-letter="e">A falta de tecnologia para cocriação</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> c) A falta de uma cultura organizacional centrada no cliente e de líderes que estimulem essa cultura.</div>
+                                </div>
+
+                                <!-- Questão 7 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 7 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">Um título emitido por sociedade por ações, de crédito privado e renda fixa, com registro na CVM, que paga juros prefixados periódicos e principal no vencimento, é classificado como:</div>
+                                    <ul class="options">
+                                        <li data-letter="a">CDB</li>
+                                        <li data-letter="b">Debênture</li>
+                                        <li data-letter="c">Ação</li>
+                                        <li data-letter="d">Tesouro Direto</li>
+                                        <li data-letter="e">Fundo de renda fixa</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> b) Debênture.</div>
+                                </div>
+
+                                <!-- Questão 8 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 8 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">No âmbito do Sistema Financeiro Nacional, a Caixa Econômica Federal é classificada como instituição:</div>
+                                    <ul class="options">
+                                        <li data-letter="a">Reguladora</li>
+                                        <li data-letter="b">Supervisora</li>
+                                        <li data-letter="c">Normativa</li>
+                                        <li data-letter="d">Operadora</li>
+                                        <li data-letter="e">Autoridade monetária</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> d) Operadora.</div>
+                                </div>
+
+                                <!-- Questão 9 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 9 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">Um cliente, ao ser atendido, apresenta a objeção "Preciso falar com meu chefe antes de decidir". A estratégia adequada para o vendedor é:</div>
+                                    <ul class="options">
+                                        <li data-letter="a">Confrontar o cliente, questionando sua autonomia</li>
+                                        <li data-letter="b">Voltar à etapa de necessidades</li>
+                                        <li data-letter="c">Solicitar um compromisso com ação futura, como agendar uma reunião com o chefe</li>
+                                        <li data-letter="d">Desistir da venda</li>
+                                        <li data-letter="e">Tratar o cliente como oponente</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> c) Solicitar um compromisso com ação futura, como agendar uma reunião com o chefe.</div>
+                                </div>
+
+                                <!-- Questão 10 -->
+                                <div class="exercise">
+                                    <div class="num">Questão 10 (Cesgranrio - Estilo)</div>
+                                    <div class="stem">Qual dos seguintes fatores contribui para o aumento da razão dívida pública/PIB, mantidas as demais variáveis constantes?</div>
+                                    <ul class="options">
+                                        <li data-letter="a">Aumento do superávit fiscal</li>
+                                        <li data-letter="b">Redução de gastos públicos</li>
+                                        <li data-letter="c">Aumento da taxa Selic</li>
+                                        <li data-letter="d">Maior arrecadação tributária</li>
+                                        <li data-letter="e">Crescimento do PIB</li>
+                                    </ul>
+                                    <div class="answer"><strong>Resposta:</strong> c) Aumento da taxa Selic.</div>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <!-- ============================================================ -->
+                                <!-- CONSIDERAÇÕES FINAIS -->
+                                <!-- ============================================================ -->
+
+                                <h2 class="unit-title" style="border-bottom-color:#d4b86a;"><span class="num">◆</span>Considerações Finais</h2>
+
+                                <p>O conteúdo desta apostila foi estruturado para proporcionar uma compreensão aprofundada dos temas centrais dos conhecimentos bancários, com ênfase na aplicação prática no dia a dia da agência e na resolução de questões de concurso.</p>
+
+                                <p><strong>Para revisão final, foque nos seguintes tópicos:</strong></p>
+                                <ol>
+                                    <li>A hierarquia dos códigos de ética no conglomerado financeiro</li>
+                                    <li>Os valores e obrigações de comunicação ao COAF</li>
+                                    <li>Os conceitos de marketing bancário (segmentação, escada de Payne, momento da verdade, gatilhos mentais)</li>
+                                    <li>As características dos principais produtos financeiros (debêntures, consórcios, OPA)</li>
+                                    <li>Os instrumentos de política monetária e seus efeitos</li>
+                                    <li>As atribuições de cada órgão do SFN</li>
+                                    <li>A aplicação do CDC e do Estatuto do Idoso no contexto bancário</li>
+                                    <li>Os conceitos de criptomoedas e tecnologia financeira</li>
+                                </ol>
+
+                                <div class="card card-accent" style="text-align:center;padding:28px 20px;">
+                                    <p style="font-size:1.2rem;font-weight:600;color:#d4b86a;margin-bottom:4px;">Bons estudos e sucesso em sua preparação!</p>
+                                    <p style="color:#b0aa9e;font-size:0.95rem;">Conhecimentos Bancários · Edição Digital</p>
+                                </div>
+
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </div>
+</body>
+</html>
