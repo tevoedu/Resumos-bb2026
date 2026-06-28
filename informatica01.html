@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Completa de Informática para Concursos</title>
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            color: #f0e6d0;
+            border-bottom: 3px solid #58a6ff;
+            padding-bottom: 0.5rem;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            color: #f0883e;
+            border-left: 6px solid #f0883e;
+            padding-left: 1rem;
+            margin-top: 2.8rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #58a6ff;
+            margin-top: 2rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px dashed #2d3a4a;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            color: #d2a8ff;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sumário */
+        .toc {
+            background: #161b22;
+            border-radius: 16px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 2.5rem 0;
+            border: 1px solid #2d3a4a;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .toc h2 {
+            border-left: none;
+            padding-left: 0;
+            margin-top: 0;
+            color: #f0e6d0;
+            font-size: 1.6rem;
+            text-align: center;
+            border-bottom: 2px solid #2d3a4a;
+            padding-bottom: 0.5rem;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .toc-grid a {
+            display: block;
+            padding: 0.3rem 0;
+            color: #b1bac4;
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .toc-grid a:hover {
+            color: #f0e6d0;
+            border-bottom-color: #58a6ff;
+            text-decoration: none;
+        }
+
+        /* Listas */
+        ul,
+        ol {
+            margin: 0.8rem 0 1.2rem 1.8rem;
+        }
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        thead {
+            background: #1f2a3a;
+            color: #f0e6d0;
+        }
+
+        th {
+            padding: 0.9rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #2d3a4a;
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #2d3a4a;
+            background-color: #0d1117;
+            color: #d4dce6;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover td {
+            background-color: #161b22;
+        }
+
+        /* Boxes */
+        .box {
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 6px solid transparent;
+            background: #161b22;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .box-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            margin-top: 2px;
+            fill: currentColor;
+            color: inherit;
+        }
+
+        .box-content {
+            flex: 1;
+        }
+        .box-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .box-importante {
+            border-left-color: #f0883e;
+            background: #1c1b1a;
+        }
+        .box-importante .box-icon {
+            color: #f0883e;
+        }
+
+        .box-dica {
+            border-left-color: #3fb950;
+            background: #0f1f16;
+        }
+        .box-dica .box-icon {
+            color: #3fb950;
+        }
+
+        .box-pegadinha {
+            border-left-color: #f85149;
+            background: #1f1416;
+        }
+        .box-pegadinha .box-icon {
+            color: #f85149;
+        }
+
+        .box-observacao {
+            border-left-color: #d2a8ff;
+            background: #19162b;
+        }
+        .box-observacao .box-icon {
+            color: #d2a8ff;
+        }
+
+        .box-exemplo {
+            border-left-color: #58a6ff;
+            background: #0f1a2a;
+        }
+        .box-exemplo .box-icon {
+            color: #58a6ff;
+        }
+
+        .box-resumo {
+            border-left-color: #ffd700;
+            background: #1f1d12;
+        }
+        .box-resumo .box-icon {
+            color: #ffd700;
+        }
+
+        .box strong {
+            color: #f0e6d0;
+        }
+
+        /* Blockquote */
+        blockquote {
+            margin: 1.5rem 0;
+            padding: 1rem 1.8rem;
+            background: #161b22;
+            border-left: 6px solid #58a6ff;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: #b1bac4;
+        }
+        blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Cards para conceitos */
+        .card-conceito {
+            background: #161b22;
+            border: 1px solid #2d3a4a;
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+        .card-conceito h4 {
+            margin-top: 0;
+            color: #f0e6d0;
+            border-bottom: 1px solid #2d3a4a;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Divisórias elegantes */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2d3a4a, #58a6ff, #2d3a4a, transparent);
+            margin: 2.5rem 0;
+            border: none;
+        }
+
+        .divider-light {
+            height: 1px;
+            background: #2d3a4a;
+            margin: 2rem 0;
+        }
+
+        /* Marcadores visuais para listas */
+        ul.checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.checklist li::before {
+            content: "✓ ";
+            color: #3fb950;
+            font-weight: bold;
+        }
+
+        ul.star-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.star-list li::before {
+            content: "★ ";
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        ul.arrow-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.arrow-list li::before {
+            content: "▸ ";
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        /* SVG responsivo */
+        .diagram-container {
+            background: #161b22;
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            margin: 2rem 0;
+            border: 1px solid #2d3a4a;
+            overflow-x: auto;
+            text-align: center;
+        }
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Botão voltar ao topo */
+        .back-top {
+            display: inline-block;
+            margin: 2rem 0 1rem;
+            padding: 0.6rem 1.8rem;
+            background: #1f2a3a;
+            color: #b1bac4;
+            border-radius: 40px;
+            border: 1px solid #2d3a4a;
+            font-size: 0.9rem;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+        }
+        .back-top:hover {
+            background: #2d3a4a;
+            color: #f0e6d0;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #2d3a4a;
+            text-align: center;
+            color: #6e7b8a;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.8rem;
+                font-size: 0.98rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+            table {
+                font-size: 0.85rem;
+            }
+            .box {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1rem;
+            }
+            .box-icon {
+                width: 24px;
+                height: 24px;
+                margin-bottom: 0.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            body {
+                font-size: 0.92rem;
+            }
+            .toc {
+                padding: 1rem;
+            }
+        }
+
+        /* Acessibilidade - alto contraste */
+        ::selection {
+            background: #58a6ff;
+            color: #0d1117;
+        }
+        code {
+            background: #1f2a3a;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.9em;
+            color: #f0883e;
+        }
+        .highlight {
+            background: #2d3a4a;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: #f0e6d0;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ícones SVG ocultos para reuso -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+        <symbol id="icon-importante" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+            <text x="12" y="16" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">!</text>
+        </symbol>
+        <symbol id="icon-dica" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+            <text x="12" y="16" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">i</text>
+        </symbol>
+        <symbol id="icon-pegadinha" viewBox="0 0 24 24">
+            <path d="M12 2L2 22h20L12 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <text x="12" y="18" text-anchor="middle" font-size="14" font-weight="bold" fill="currentColor">⚠</text>
+        </symbol>
+        <symbol id="icon-observacao" viewBox="0 0 24 24">
+            <ellipse cx="12" cy="12" rx="10" ry="8" stroke="currentColor" stroke-width="2" fill="none"/>
+            <circle cx="12" cy="8" r="1.5" fill="currentColor"/>
+            <path d="M12 12v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-exemplo" viewBox="0 0 24 24">
+            <rect x="4" y="6" width="16" height="14" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M8 4v2M16 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </symbol>
+        <symbol id="icon-resumo" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </symbol>
+    </svg>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>APOSTILA COMPLETA DE INFORMÁTICA PARA CONCURSOS</h1>
+        <p style="text-align:center; color:#b1bac4; font-size:1.1rem; margin-top:-0.2rem;">
+            Material preparado com base na experiência de bancas como Cesgranrio, FCC, FGV, Cebraspe, Vunesp, IADES e Instituto Verbena
+        </p>
+        <div class="divider"></div>
+    </header>
+
+    <!-- Apresentação -->
+    <section>
+        <h2>Apresentação</h2>
+        <p>Caro concurseiro,</p>
+        <p>Esta apostila foi desenvolvida para transformar conceitos fragmentados de informática em um conhecimento sólido, estruturado e aplicável. Diferentemente de materiais que apenas listam perguntas e respostas, aqui você encontrará a teoria aprofundada, a contextualização prática e as pegadinhas mais comuns cobradas em provas de cargos administrativos, bancários, fiscais e de gestão.</p>
+        <p>A informática para concursos não exige que você seja um programador ou técnico de suporte, mas sim que compreenda o funcionamento das ferramentas do dia a dia, saiba interpretar situações-problema e reconheça as melhores práticas de segurança e produtividade. Cada tópico foi abordado com quatro pilares: <strong>o que é</strong>, <strong>por que é importante</strong>, <strong>como se aplica</strong> e <strong>como é cobrado em prova</strong>.</p>
+        <p>Bons estudos!</p>
+        <div class="divider"></div>
+    </section>
+
+    <!-- Sumário -->
+    <nav class="toc">
+        <h2>Sumário</h2>
+        <div class="toc-grid">
+            <a href="#cap1">Capítulo 1 – Sistemas Operacionais</a>
+            <a href="#cap2">Capítulo 2 – Pacote Microsoft Office</a>
+            <a href="#cap3">Capítulo 3 – Redes e Segurança</a>
+            <a href="#cap4">Capítulo 4 – Hardware e Periféricos</a>
+            <a href="#cap5">Capítulo 5 – Segurança da Informação</a>
+            <a href="#cap6">Capítulo 6 – Dicas e Pegadinhas</a>
+            <a href="#cap7">Capítulo 7 – Estudos de Caso</a>
+            <a href="#conclusao">Conclusão</a>
+        </div>
+    </nav>
+
+    <!-- ==================== CAPÍTULO 1 ==================== -->
+    <section id="cap1">
+        <h2>Capítulo 1 – Sistemas Operacionais: Windows e Linux</h2>
+
+        <h3>1.1 Windows 11 – Configurações de Segurança e Desempenho</h3>
+        <p>O Windows 11 trouxe diversas melhorias em termos de interface e segurança, mas também exige que o usuário saiba equilibrar proteção e desempenho. Em provas, é comum aparecerem questões sobre quais funcionalidades devem ser habilitadas ou desabilitadas para garantir um ambiente seguro e ágil.</p>
+
+        <h4>1.1.1 Inicialização Segura (Secure Boot)</h4>
+        <p>A <strong>Inicialização Segura</strong> é um recurso de firmware (UEFI) que verifica a assinatura digital de cada componente carregado durante o boot do sistema. Ela impede que malwares de boot (como rootkits) sejam executados antes do carregamento do sistema operacional.</p>
+        <ul class="arrow-list">
+            <li><strong>Quando habilitar?</strong> Sempre que possível. É uma camada essencial de proteção contra ataques de baixo nível.</li>
+            <li><strong>Impacto no desempenho:</strong> Praticamente nulo, pois a verificação ocorre apenas na inicialização.</li>
+            <li><strong>Pegadinha de prova:</strong> Algumas bancas tentam confundir Secure Boot com BitLocker ou com firewall. Lembre-se: Secure Boot age antes do sistema carregar; BitLocker atua na criptografia do disco; Firewall atua no tráfego de rede.</li>
+        </ul>
+
+        <h4>1.1.2 Windows Defender Firewall</h4>
+        <p>O Firewall do Windows é uma barreira de proteção que controla o tráfego de dados que entra e sai do computador, baseado em regras predefinidas. Ele pode bloquear conexões não solicitadas, protegendo contra invasões e malwares que tentam se comunicar com servidores externos.</p>
+        <ul class="arrow-list">
+            <li><strong>Recomendação:</strong> Mantenha sempre ativo, a menos que você tenha um firewall de terceiros igualmente robusto.</li>
+            <li><strong>Desempenho:</strong> O impacto é mínimo, pois a filtragem é feita em nível de kernel.</li>
+            <li><strong>Cuidado:</strong> Desabilitar o firewall expõe o computador a ataques diretos, especialmente em redes públicas.</li>
+        </ul>
+
+        <h4>1.1.3 BitLocker – Criptografia de Unidade</h4>
+        <p>BitLocker é uma ferramenta de criptografia de disco que protege os dados contra acesso não autorizado em caso de perda ou roubo do dispositivo. Ele criptografa todo o volume, exigindo uma senha ou chave de recuperação para desbloqueio.</p>
+        <ul class="arrow-list">
+            <li><strong>Quando usar:</strong> Em notebooks e dispositivos móveis que possam ser extraviados.</li>
+            <li><strong>Desempenho:</strong> A criptografia pode causar uma pequena queda no desempenho de leitura/gravação, mas em hardware moderno é praticamente imperceptível.</li>
+            <li><strong>Pegadinha:</strong> Bancas podem perguntar se o BitLocker deve ser desabilitado para melhorar o desempenho. A resposta correta é <strong>não</strong>, pois a segurança é prioridade, e o impacto é mínimo. Desabilitar só se justifica em situações muito específicas de compatibilidade.</li>
+        </ul>
+
+        <h4>1.1.4 Controle de Conta de Usuário (UAC)</h4>
+        <p>O UAC é um recurso que solicita permissão do administrador antes de executar ações que alterem configurações críticas do sistema. Ele evita que aplicativos maliciosos façam alterações sem o conhecimento do usuário.</p>
+        <ul class="arrow-list">
+            <li><strong>Recomendação:</strong> Mantenha o UAC no nível padrão (notificar sempre que um programa tentar fazer alterações). Desabilitá-lo reduz a segurança, pois qualquer programa poderá executar ações administrativas sem aviso.</li>
+            <li><strong>Desempenho:</strong> O UAC não consome recursos significativos; seu impacto está na interação com o usuário.</li>
+        </ul>
+
+        <h4>1.1.5 Atualizações Automáticas</h4>
+        <p>Manter o sistema atualizado é uma das práticas mais importantes de segurança. As atualizações corrigem vulnerabilidades descobertas após o lançamento do sistema.</p>
+        <ul class="arrow-list">
+            <li><strong>Recomendação:</strong> Mantenha as atualizações automáticas habilitadas. Desativá-las expõe o sistema a ataques conhecidos.</li>
+            <li><strong>Exceção:</strong> Em ambientes corporativos gerenciados, as atualizações podem ser controladas por um servidor WSUS, mas nunca devem ser simplesmente desligadas.</li>
+        </ul>
+
+        <h4>1.1.6 Hyper-V e Modo Desenvolvedor</h4>
+        <ul class="arrow-list">
+            <li><strong>Hyper-V</strong> é a plataforma de virtualização do Windows. Ativá-la consome recursos significativos de memória e CPU, e só deve ser habilitada se você realmente for usar máquinas virtuais.</li>
+            <li><strong>Modo Desenvolvedor</strong> é voltado para programadores, permitindo instalar aplicativos sem assinatura e acessar ferramentas de depuração. Para um usuário comum, não é recomendado ativá-lo, pois amplia a superfície de ataque.</li>
+        </ul>
+
+        <h4>1.1.7 Modo de Segurança (Safe Mode)</h4>
+        <p>O Modo de Segurança carrega apenas os drivers e serviços essenciais, sendo útil para diagnosticar problemas. No entanto, não é uma configuração para uso diário, pois limita funcionalidades e não oferece proteção adicional contra malwares (muitos malwares podem ser carregados mesmo em modo de segurança se estiverem profundamente enraizados).</p>
+
+        <div class="box box-resumo">
+            <svg class="box-icon"><use href="#icon-resumo"/></svg>
+            <div class="box-content">
+                <strong>Resumo das boas práticas no Windows 11:</strong>
+                <table>
+                    <thead>
+                        <tr><th>Funcionalidade</th><th>Recomendação</th><th>Motivo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Secure Boot</td><td>Habilitar</td><td>Impede malware no boot</td></tr>
+                        <tr><td>Windows Defender Firewall</td><td>Habilitar</td><td>Filtra tráfego não autorizado</td></tr>
+                        <tr><td>BitLocker</td><td>Habilitar (em dispositivos móveis)</td><td>Protege dados em caso de perda</td></tr>
+                        <tr><td>UAC</td><td>Manter nível padrão</td><td>Evita alterações não autorizadas</td></tr>
+                        <tr><td>Atualizações automáticas</td><td>Habilitar</td><td>Corrige vulnerabilidades</td></tr>
+                        <tr><td>Hyper-V</td><td>Desabilitar (se não usado)</td><td>Economiza recursos</td></tr>
+                        <tr><td>Modo Desenvolvedor</td><td>Desabilitar</td><td>Reduz superfície de ataque</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="divider-light">
+
+        <h3>1.2 Linux – Gerenciamento de Pacotes com apt-get</h3>
+        <p>O Linux é amplamente utilizado em servidores e em alguns órgãos públicos, e seu conhecimento básico é cobrado em diversos concursos. O comando <strong>apt-get</strong> é a ferramenta padrão para gerenciamento de pacotes nas distribuições derivadas do Debian (Ubuntu, Mint, etc.).</p>
+
+        <h4>1.2.1 O que é apt-get?</h4>
+        <p>O Advanced Package Tool (APT) é um sistema de gerenciamento de pacotes que facilita a instalação, atualização e remoção de softwares a partir de repositórios oficiais. O comando <strong>apt-get</strong> é a interface de linha de comando para o APT.</p>
+
+        <h4>1.2.2 Subcomandos mais comuns</h4>
+        <table>
+            <thead><tr><th>Comando</th><th>Função</th></tr></thead>
+            <tbody>
+                <tr><td><code>apt-get update</code></td><td>Atualiza a lista de pacotes disponíveis nos repositórios (não instala nada, apenas sincroniza as referências).</td></tr>
+                <tr><td><code>apt-get upgrade</code></td><td>Atualiza todos os pacotes instalados para as versões mais recentes disponíveis.</td></tr>
+                <tr><td><code>apt-get install [pacote]</code></td><td>Instala um ou mais pacotes especificados.</td></tr>
+                <tr><td><code>apt-get remove [pacote]</code></td><td>Remove um pacote, mas mantém os arquivos de configuração.</td></tr>
+                <tr><td><code>apt-get purge [pacote]</code></td><td>Remove o pacote e também seus arquivos de configuração.</td></tr>
+                <tr><td><code>apt-get autoremove</code></td><td>Remove pacotes que foram instalados como dependências e não são mais necessários.</td></tr>
+            </tbody>
+        </table>
+
+        <h4>1.2.3 Diferenças com outros comandos</h4>
+        <p>É comum as bancas misturarem comandos de diferentes finalidades. Veja a distinção:</p>
+        <ul class="arrow-list">
+            <li><code>ifconfig</code> – configura interfaces de rede (ex.: exibir IP, ativar/desativar interface).</li>
+            <li><code>wget</code> – baixa arquivos da internet via HTTP/HTTPS/FTP.</li>
+            <li><code>chmod</code> – altera permissões de acesso a arquivos e diretórios.</li>
+            <li><code>kill</code> – encerra processos em execução (por PID ou nome).</li>
+            <li><code>apt-get</code> – gerencia pacotes. Nenhum dos outros tem essa finalidade.</li>
+        </ul>
+
+        <div class="box box-exemplo">
+            <svg class="box-icon"><use href="#icon-exemplo"/></svg>
+            <div class="box-content">
+                <strong>Exemplo prático em prova</strong>
+                <p><em>"Em um servidor Debian, o administrador deseja instalar o pacote 'nginx'. Qual comando deve ser utilizado?"</em></p>
+                <p>Resposta: <code>sudo apt-get install nginx</code>. A banca pode incluir opções como <code>apt-get update</code> (que apenas atualiza a lista) ou <code>wget nginx</code> (incorreto). Fique atento!</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+    </section>
+
+    <!-- ==================== CAPÍTULO 2 ==================== -->
+    <section id="cap2">
+        <h2>Capítulo 2 – Pacote Microsoft Office</h2>
+
+        <h3>2.1 Microsoft Word – Formatação, Atalhos e Operações</h3>
+        <p>O Word é o editor de texto mais cobrado em concursos. As questões vão além do básico e exploram desde formatação até atalhos de teclado.</p>
+
+        <h4>2.1.1 Elementos de Formatação</h4>
+        <p>Os principais conceitos de formatação no Word incluem:</p>
+        <ul class="arrow-list">
+            <li><strong>Colunas:</strong> Divisão do texto em duas ou mais colunas verticais, comuns em jornais e revistas. Acessível pela guia <strong>Layout</strong> &gt; <strong>Colunas</strong>.</li>
+            <li><strong>Parágrafos:</strong> Blocos de texto delimitados pela tecla Enter. A formatação de parágrafo inclui alinhamento, recuo, espaçamento entre linhas e entre parágrafos.</li>
+            <li><strong>Caixas de Texto:</strong> São áreas retangulares posicionáveis livremente na página, onde se pode inserir texto, imagens ou outros objetos. Podem ter bordas, preenchimento e efeitos.</li>
+            <li><strong>Fontes:</strong> Referem-se ao tipo (Arial, Times New Roman), tamanho, cor, estilo (negrito, itálico, sublinhado) e efeitos (sobrescrito, subscrito, etc.).</li>
+        </ul>
+        <div class="box box-pegadinha">
+            <svg class="box-icon"><use href="#icon-pegadinha"/></svg>
+            <div class="box-content">
+                <strong>Atenção:</strong> Marcadores e numeração são recursos de <strong>lista</strong>, não são considerados um dos quatro elementos principais de formatação (colunas, parágrafos, caixas de texto e fontes). Essa é uma pegadinha clássica da banca Avança SP.
+            </div>
+        </div>
+
+        <h4>2.1.2 Atalhos de Teclado no Word (e em todo o Office)</h4>
+        <p>Os atalhos são cobrados exaustivamente. Decore a tabela abaixo:</p>
+        <table>
+            <thead><tr><th>Atalho</th><th>Função</th><th>Macete</th></tr></thead>
+            <tbody>
+                <tr><td><code>Ctrl+C</code></td><td>Copiar</td><td><strong>C</strong> de Copy</td></tr>
+                <tr><td><code>Ctrl+X</code></td><td>Recortar</td><td>X parece uma tesoura</td></tr>
+                <tr><td><code>Ctrl+V</code></td><td>Colar</td><td>V de "vem"</td></tr>
+                <tr><td><code>Ctrl+Z</code></td><td>Desfazer</td><td>Z de "zás" (voltar)</td></tr>
+                <tr><td><code>Ctrl+Y</code></td><td>Refazer</td><td>Y de "y" (porque é o oposto de Z)</td></tr>
+                <tr><td><code>Ctrl+S</code></td><td>Salvar</td><td><strong>S</strong> de Save</td></tr>
+                <tr><td><code>Ctrl+O</code></td><td>Abrir</td><td><strong>O</strong> de Open</td></tr>
+                <tr><td><code>Ctrl+N</code></td><td>Novo documento</td><td><strong>N</strong> de New</td></tr>
+                <tr><td><code>Ctrl+F</code></td><td>Localizar</td><td><strong>F</strong> de Find</td></tr>
+                <tr><td><code>Ctrl+B</code></td><td>Negrito (em português)</td><td><strong>B</strong> de Bold</td></tr>
+                <tr><td><code>Ctrl+I</code></td><td>Itálico</td><td><strong>I</strong> de Italic</td></tr>
+                <tr><td><code>Ctrl+U</code></td><td>Sublinhado</td><td><strong>U</strong> de Underline</td></tr>
+            </tbody>
+        </table>
+        <div class="box box-pegadinha">
+            <svg class="box-icon"><use href="#icon-pegadinha"/></svg>
+            <div class="box-content">
+                <strong>Pegadinha comum:</strong> <code>Ctrl+Y</code> refaz a ação desfeita, e não "salvar" ou "localizar". Já <code>Ctrl+Z</code> desfaz. Muitas provas trocam esses dois.
+            </div>
+        </div>
+
+        <h4>2.1.3 O que é a Área de Transferência?</h4>
+        <p>A área de transferência (clipboard) é um espaço temporário na memória RAM que armazena dados copiados ou recortados. Quando você usa <code>Ctrl+C</code>, o conteúdo é copiado para lá; <code>Ctrl+V</code> insere o que está na área de transferência no local atual. O conteúdo permanece na área de transferência até ser substituído por uma nova cópia ou recorte, ou até o desligamento do computador.</p>
+
+        <hr class="divider-light">
+
+        <h3>2.2 Microsoft Excel – Fórmulas, Funções e Operadores</h3>
+        <p>O Excel é uma ferramenta indispensável para cargos administrativos e bancários. As provas exigem conhecimento de funções, operadores e interpretação de resultados.</p>
+
+        <h4>2.2.1 Operadores Aritméticos</h4>
+        <p>No Excel, as operações matemáticas básicas utilizam os seguintes símbolos:</p>
+        <table>
+            <thead><tr><th>Operação</th><th>Símbolo</th><th>Exemplo</th></tr></thead>
+            <tbody>
+                <tr><td>Adição</td><td><code>+</code></td><td><code>=A1+B1</code></td></tr>
+                <tr><td>Subtração</td><td><code>-</code></td><td><code>=A1-B1</code></td></tr>
+                <tr><td>Multiplicação</td><td><code>*</code></td><td><code>=A1*B1</code></td></tr>
+                <tr><td>Divisão</td><td><code>/</code></td><td><code>=A1/B1</code></td></tr>
+                <tr><td>Exponenciação</td><td><code>^</code></td><td><code>=A1^2</code> (eleva ao quadrado)</td></tr>
+            </tbody>
+        </table>
+        <div class="box box-exemplo">
+            <svg class="box-icon"><use href="#icon-exemplo"/></svg>
+            <div class="box-content">
+                <strong>Exemplo de questão:</strong> <em>"Para multiplicar o valor de B2 por C2, qual fórmula deve ser usada?"</em> – A resposta é <code>=B2*C2</code>. Nunca use <code>x</code> ou ponto; o Excel só reconhece o asterisco.
+            </div>
+        </div>
+
+        <h4>2.2.2 Funções Essenciais</h4>
+        <table>
+            <thead><tr><th>Função</th><th>Sintaxe</th><th>O que faz</th></tr></thead>
+            <tbody>
+                <tr><td>SOMA</td><td><code>=SOMA(intervalo)</code></td><td>Retorna a soma de todos os números no intervalo.</td></tr>
+                <tr><td>MÉDIA</td><td><code>=MÉDIA(intervalo)</code></td><td>Retorna a média aritmética (soma dividida pela quantidade).</td></tr>
+                <tr><td>MÁXIMO</td><td><code>=MÁXIMO(intervalo)</code></td><td>Retorna o maior valor do intervalo.</td></tr>
+                <tr><td>MÍNIMO</td><td><code>=MÍNIMO(intervalo)</code></td><td>Retorna o menor valor do intervalo.</td></tr>
+                <tr><td>MAIOR</td><td><code>=MAIOR(intervalo; k)</code></td><td>Retorna o k-ésimo maior valor.</td></tr>
+                <tr><td>MENOR</td><td><code>=MENOR(intervalo; k)</code></td><td>Retorna o k-ésimo menor valor.</td></tr>
+                <tr><td>CONT.NÚM</td><td><code>=CONT.NÚM(intervalo)</code></td><td>Conta quantas células contêm números.</td></tr>
+                <tr><td>PROCV</td><td><code>=PROCV(valor_procurado; matriz_tabela; num_coluna; [procurar_intervalo])</code></td><td>Procura um valor na primeira coluna de uma tabela e retorna um valor em outra coluna da mesma linha.</td></tr>
+            </tbody>
+        </table>
+
+        <h4>2.2.3 A função MAIOR com valores repetidos</h4>
+        <p>A função <code>MAIOR(intervalo; k)</code> retorna o k-ésimo maior valor. Quando há valores repetidos, eles contam como posições diferentes.</p>
+        <div class="box box-exemplo">
+            <svg class="box-icon"><use href="#icon-exemplo"/></svg>
+            <div class="box-content">
+                <strong>Exemplo prático:</strong> Considere o intervalo <code>B4:D4</code> com os valores <code>189</code>, <code>189</code> e <code>275</code>.<br>
+                - O maior valor (k=1) é <code>275</code>.<br>
+                - O segundo maior (k=2) é <code>189</code>.<br>
+                - O terceiro maior (k=3) é <code>189</code>.<br>
+                Portanto, <code>=MAIOR(B4:D4;2)</code> retorna <code>189</code>. A Cesgranrio adora essa pegadinha com valores repetidos. A mesma lógica se aplica à função <code>MENOR</code>.
+            </div>
+        </div>
+
+        <h4>2.2.4 Função SOMA e a diferença entre MÉDIA</h4>
+        <ul class="arrow-list">
+            <li><code>=SOMA(A1:A20)</code> soma todos os valores numéricos de A1 a A20. Se houver texto ou células vazias, são ignorados.</li>
+            <li><code>=MÉDIA(A1:A20)</code> soma e divide pelo número de células com valores numéricos. Se houver células vazias, elas não entram no cálculo.</li>
+        </ul>
+        <div class="box box-pegadinha">
+            <svg class="box-icon"><use href="#icon-pegadinha"/></svg>
+            <div class="box-content">
+                <strong>Pegadinha:</strong> Se a pergunta for "qual função calcula a média das notas dos alunos?", a resposta é <code>=MÉDIA</code>. Não confunda com <code>=SOMA</code> (soma total) ou <code>=CONT.NÚM</code> (quantidade).
+            </div>
+        </div>
+
+        <h4>2.2.5 Outras funções importantes (embora não estejam nos flashcards, vale o aprofundamento)</h4>
+        <ul class="arrow-list">
+            <li><strong>SE</strong>: <code>=SE(teste; valor_se_verdadeiro; valor_se_falso)</code> – permite tomada de decisão.</li>
+            <li><strong>CONT.SE</strong> e <strong>SOMASE</strong>: contam ou somam com base em um critério.</li>
+            <li><strong>CONCATENAR</strong> (ou <code>=CONCAT</code>): junta textos de várias células.</li>
+            <li><strong>HOJE</strong> e <strong>AGORA</strong>: retornam a data/hora atual.</li>
+        </ul>
+
+        <div class="divider"></div>
+    </section>
+
+    <!-- ==================== CAPÍTULO 3 ==================== -->
+    <section id="cap3">
+        <h2>Capítulo 3 – Redes de Computadores e Segurança</h2>
+
+        <h3>3.1 Protocolos da Camada de Transporte: TCP e UDP</h3>
+        <p>O modelo TCP/IP é a base da internet. A camada de transporte oferece dois protocolos principais: TCP e UDP.</p>
+
+        <h4>3.1.1 TCP (Transmission Control Protocol)</h4>
+        <ul class="arrow-list">
+            <li><strong>Confiável:</strong> Estabelece uma conexão antes de enviar dados (three-way handshake).</li>
+            <li><strong>Garantias:</strong> Entrega ordenada, sem duplicação, com confirmação (ACK) e reenvio em caso de perda.</li>
+            <li><strong>Controle de fluxo:</strong> Ajusta a taxa de transmissão conforme a capacidade do receptor.</li>
+            <li><strong>Aplicações:</strong> HTTP, HTTPS, FTP, SMTP, SSH, etc.</li>
+        </ul>
+
+        <h4>3.1.2 UDP (User Datagram Protocol)</h4>
+        <ul class="arrow-list">
+            <li><strong>Não confiável:</strong> Não estabelece conexão; envia datagramas sem garantia de entrega, ordem ou integridade.</li>
+            <li><strong>Leve e rápido:</strong> Menor overhead, ideal para streaming, VoIP e jogos.</li>
+            <li><strong>Aplicações:</strong> DNS, DHCP, SNMP, RIP, etc.</li>
+        </ul>
+
+        <h4>3.1.3 Comparação</h4>
+        <table>
+            <thead><tr><th>Característica</th><th>TCP</th><th>UDP</th></tr></thead>
+            <tbody>
+                <tr><td>Conexão</td><td>Orientado à conexão</td><td>Sem conexão</td></tr>
+                <tr><td>Confiabilidade</td><td>Alta (ACK, reenvio)</td><td>Baixa (sem confirmação)</td></tr>
+                <tr><td>Ordenação</td><td>Garantida</td><td>Não garantida</td></tr>
+                <tr><td>Controle de fluxo</td><td>Sim</td><td>Não</td></tr>
+                <tr><td>Velocidade</td><td>Mais lento</td><td>Mais rápido</td></tr>
+                <tr><td>Exemplos de uso</td><td>Web, e-mail, transferência de arquivos</td><td>Streaming, VoIP, DNS</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Diagrama SVG comparativo TCP/UDP -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
+                <rect x="10" y="10" width="310" height="280" rx="16" fill="#1f2a3a" stroke="#58a6ff" stroke-width="2"/>
+                <text x="165" y="50" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="24" font-weight="bold" fill="#58a6ff">TCP</text>
+                <text x="165" y="85" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#b1bac4">Confiável · Orientado à conexão</text>
+                <text x="165" y="115" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#d4dce6">✔ Entrega ordenada</text>
+                <text x="165" y="140" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#d4dce6">✔ ACK e reenvio</text>
+                <text x="165" y="165" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#d4dce6">✔ Controle de fluxo</text>
+                <text x="165" y="195" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#f0883e">Aplicações:</text>
+                <text x="165" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">HTTP · HTTPS · FTP · SMTP · SSH</text>
+
+                <rect x="380" y="10" width="310" height="280" rx="16" fill="#1f2a3a" stroke="#d2a8ff" stroke-width="2"/>
+                <text x="535" y="50" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="24" font-weight="bold" fill="#d2a8ff">UDP</text>
+                <text x="535" y="85" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" fill="#b1bac4">Não confiável · Sem conexão</text>
+                <text x="535" y="115" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#d4dce6">✘ Sem garantia de entrega</text>
+                <text x="535" y="140" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#d4dce6">✘ Sem ordenação</text>
+                <text x="535" y="165" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#d4dce6">✔ Leve e rápido</text>
+                <text x="535" y="195" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#f0883e">Aplicações:</text>
+                <text x="535" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">DNS · DHCP · SNMP · RIP · Streaming</text>
+            </svg>
+        </div>
+
+        <div class="box box-pegadinha">
+            <svg class="box-icon"><use href="#icon-pegadinha"/></svg>
+            <div class="box-content">
+                <strong>Pegadinha de prova:</strong> A Cesgranrio pergunta qual protocolo garante entrega confiável – a resposta é TCP. IP (camada de rede) não garante entrega, ICMP é para diagnóstico (ping), IGMP é para multicast.
+            </div>
+        </div>
+
+        <hr class="divider-light">
+
+        <h3>3.2 VPN (Virtual Private Network) e Autenticação por Certificados</h3>
+        <p>Em ambientes corporativos, especialmente bancários, a comunicação entre agências e matriz deve ser segura. A VPN e os certificados digitais são as soluções mais adequadas.</p>
+
+        <h4>3.2.1 O que é uma VPN?</h4>
+        <p>Uma VPN cria um túnel criptografado sobre uma rede pública (como a internet), garantindo que os dados trafegados não possam ser interceptados ou lidos por terceiros. Isso é essencial para acesso remoto a sistemas internos.</p>
+        <p><strong>Recomendações de segurança:</strong></p>
+        <ul class="checklist">
+            <li>Utilizar VPN com criptografia forte (IPsec, OpenVPN, WireGuard).</li>
+            <li>Autenticar os usuários com certificados digitais ou tokens de dois fatores.</li>
+            <li>Nunca usar VPN em redes Wi-Fi públicas sem autenticação adicional.</li>
+            <li>Desabilitar compartilhamentos de arquivos e pastas durante a conexão VPN para evitar vazamentos.</li>
+        </ul>
+
+        <h4>3.2.2 Certificados Digitais</h4>
+        <p>Um certificado digital é um documento eletrônico que vincula uma identidade (pessoa, servidor, organização) a uma chave pública, e é assinado por uma Autoridade Certificadora (AC). Ele garante:</p>
+        <ul class="arrow-list">
+            <li><strong>Autenticidade:</strong> O remetente é quem diz ser.</li>
+            <li><strong>Integridade:</strong> Os dados não foram alterados durante a transmissão.</li>
+            <li><strong>Criptografia:</strong> Os dados são cifrados com a chave pública do destinatário.</li>
+        </ul>
+        <div class="box box-importante">
+            <svg class="box-icon"><use href="#icon-importante"/></svg>
+            <div class="box-content">
+                <strong>Prática incorreta:</strong> Habilitar compartilhamento sem restrições, usar Wi-Fi pública sem proteção, desabilitar DHCP ou desativar firewall. Todas essas ações comprometem a confidencialidade, integridade ou disponibilidade das informações.
+            </div>
+        </div>
+
+        <hr class="divider-light">
+
+        <h3>3.3 Hardening – Endurecimento de Sistemas</h3>
+        <p><strong>Hardening</strong> (ou endurecimento) é o conjunto de práticas que visa reduzir a superfície de ataque de um sistema, removendo ou desabilitando serviços, portas, usuários e funcionalidades desnecessárias, além de aplicar patches de segurança.</p>
+
+        <h4>3.3.1 Principais ações de hardening</h4>
+        <ul class="star-list">
+            <li>Desabilitar serviços e protocolos não utilizados (ex.: FTP, Telnet).</li>
+            <li>Remover softwares desnecessários.</li>
+            <li>Fechar portas de rede não utilizadas no firewall.</li>
+            <li>Aplicar atualizações de segurança regularmente.</li>
+            <li>Utilizar senhas fortes e políticas de bloqueio após tentativas inválidas.</li>
+            <li>Configurar logs e auditoria para monitorar acessos.</li>
+        </ul>
+        <div class="box box-observacao">
+            <svg class="box-icon"><use href="#icon-observacao"/></svg>
+            <div class="box-content">
+                <strong>Distinção:</strong> Hardening não é sinônimo de firewall, antimalware ou criptografia, embora todos façam parte de uma estratégia de defesa em profundidade. O hardening foca na configuração segura do sistema, removendo o que pode ser explorado.
+            </div>
+        </div>
+
+        <hr class="divider-light">
+
+        <h3>3.4 Ferramentas de Comunicação e Colaboração</h3>
+
+        <h4>3.4.1 Microsoft Teams – Compartilhamento de Tela</h4>
+        <p>Em reuniões remotas, o Teams permite que um participante compartilhe sua tela. Se alguém tiver dificuldade para compartilhar um arquivo, a melhor prática é:</p>
+        <ul class="arrow-list">
+            <li>O suporte solicitar <strong>"Dar controle"</strong> – assim, ele pode interagir com a tela do participante sem precisar acessar o arquivo diretamente, mantendo a segurança e a fluidez da reunião.</li>
+            <li>Não é recomendado pedir para sair e voltar, enviar o arquivo por e-mail (quebra o fluxo) ou ativar "Não Perturbe" (que não afeta a conexão).</li>
+        </ul>
+
+        <h4>3.4.2 Grupos de Discussão vs. Fórum vs. Wiki vs. ChatGPT</h4>
+        <table>
+            <thead><tr><th>Ferramenta</th><th>Característica</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Grupo de discussão</strong></td><td>Espaço virtual para troca de mensagens em tempo real (ou quase) sobre um tópico, com baixa moderação. Ex.: grupos no Telegram, listas de e-mail.</td></tr>
+                <tr><td><strong>Fórum</strong></td><td>Assíncrono, com tópicos e respostas, geralmente mais moderado e estruturado. Ex.: fóruns de suporte.</td></tr>
+                <tr><td><strong>Wiki</strong></td><td>Construção colaborativa de conteúdo, onde qualquer usuário pode editar páginas. Ex.: Wikipedia.</td></tr>
+                <tr><td><strong>ChatGPT</strong></td><td>Inteligência artificial que interage individualmente, gerando respostas com base em modelo de linguagem. Não é colaborativo.</td></tr>
+            </tbody>
+        </table>
+        <div class="box box-pegadinha">
+            <svg class="box-icon"><use href="#icon-pegadinha"/></svg>
+            <div class="box-content">
+                <strong>Pegadinha:</strong> Muitos candidatos confundem grupo de discussão com fórum. A diferença principal é a sincronicidade e o nível de moderação.
+            </div>
+        </div>
+
+        <h4>3.4.3 Atendimento Bancário e Redes Sociais</h4>
+        <p>Para instituições financeiras, a comunicação com clientes deve ser segura e controlada. O uso de <strong>bots no Telegram</strong> é uma boa prática, pois permite automatizar respostas a perguntas frequentes, mantendo o histórico e sem expor dados sensíveis em grupos abertos.</p>
+        <p><strong>Práticas inadequadas:</strong></p>
+        <ul class="arrow-list">
+            <li>Criar grupos no WhatsApp com clientes (exposição de números e mensagens).</li>
+            <li>Priorizar mensagens de voz (difíceis de auditar e arquivar).</li>
+            <li>Centralizar toda comunicação em uma única plataforma (ponto único de falha).</li>
+            <li>Enviar campanhas massivas sem consentimento explícito (viola a LGPD).</li>
+        </ul>
+
+        <hr class="divider-light">
+
+        <h3>3.5 LGPD – Lei Geral de Proteção de Dados</h3>
+        <p>A LGPD (Lei 13.709/2018) estabelece regras sobre coleta, armazenamento, tratamento e compartilhamento de dados pessoais. Em provas de informática, os temas mais comuns são:</p>
+        <ul class="arrow-list">
+            <li><strong>Base legal:</strong> Consentimento do titular, cumprimento de obrigação legal, execução de contrato, etc.</li>
+            <li><strong>Direitos do titular:</strong> Acessar, corrigir, anonimizar, bloquear ou eliminar dados.</li>
+            <li><strong>Segurança:</strong> Medidas técnicas e administrativas para proteger dados contra acessos não autorizados e incidentes.</li>
+            <li><strong>Comunicação:</strong> O envio de mensagens promocionais sem consentimento é proibido.</li>
+        </ul>
+        <div class="box box-exemplo">
+            <svg class="box-icon"><use href="#icon-exemplo"/></svg>
+            <div class="box-content">
+                <strong>Exemplo prático:</strong> Um banco não pode criar um grupo no WhatsApp com clientes sem autorização expressa, pois isso expõe dados pessoais e viola a LGPD.
+            </div>
+        </div>
+
+        <div class="divider"></div>
+    </section>
+
+    <!-- ==================== CAPÍTULO 4 ==================== -->
+    <section id="cap4">
+        <h2>Capítulo 4 – Hardware e Periféricos</h2>
+
+        <h3>4.1 O que são Periféricos?</h3>
+        <p>Periféricos são dispositivos conectados ao computador (externamente ou via portas) que permitem a entrada, saída ou armazenamento de dados. Eles são chamados de "periféricos" porque ficam na <strong>periferia</strong> do sistema, ou seja, ao redor da unidade central de processamento.</p>
+
+        <h4>4.1.1 Classificação dos Periféricos</h4>
+        <table>
+            <thead><tr><th>Tipo</th><th>Função</th><th>Exemplos</th></tr></thead>
+            <tbody>
+                <tr><td>Entrada</td><td>Inserem dados no computador</td><td>Teclado, mouse, scanner, microfone, webcam</td></tr>
+                <tr><td>Saída</td><td>Exibem ou reproduzem dados processados</td><td>Monitor, impressora, caixas de som, projetor</td></tr>
+                <tr><td>Entrada/Saída</td><td>Ambos</td><td>Pendrive, disco rígido externo, monitor touchscreen</td></tr>
+                <tr><td>Armazenamento</td><td>Guardam dados permanentemente</td><td>HD, SSD, pen drive, cartão de memória</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Diagrama SVG de classificação de periféricos -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
+                <rect x="250" y="10" width="200" height="50" rx="25" fill="#1f2a3a" stroke="#f0e6d0" stroke-width="2"/>
+                <text x="350" y="42" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" font-weight="bold" fill="#f0e6d0">Periféricos</text>
+
+                <!-- Ramos -->
+                <line x1="350" y1="60" x2="350" y2="90" stroke="#2d3a4a" stroke-width="2"/>
+                <line x1="80" y1="90" x2="620" y2="90" stroke="#2d3a4a" stroke-width="2"/>
+                <line x1="80" y1="90" x2="80" y2="120" stroke="#2d3a4a" stroke-width="2"/>
+                <line x1="250" y1="90" x2="250" y2="120" stroke="#2d3a4a" stroke-width="2"/>
+                <line x1="440" y1="90" x2="440" y2="120" stroke="#2d3a4a" stroke-width="2"/>
+                <line x1="620" y1="90" x2="620" y2="120" stroke="#2d3a4a" stroke-width="2"/>
+
+                <!-- Caixas dos tipos -->
+                <rect x="10" y="120" width="140" height="50" rx="12" fill="#1f2a3a" stroke="#3fb950" stroke-width="2"/>
+                <text x="80" y="150" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#3fb950">Entrada</text>
+                <text x="80" y="200" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">Teclado, Mouse</text>
+                <text x="80" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">Scanner, Webcam</text>
+
+                <rect x="180" y="120" width="140" height="50" rx="12" fill="#1f2a3a" stroke="#f85149" stroke-width="2"/>
+                <text x="250" y="150" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#f85149">Saída</text>
+                <text x="250" y="200" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">Monitor, Impressora</text>
+                <text x="250" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">Caixas de som</text>
+
+                <rect x="370" y="120" width="140" height="50" rx="12" fill="#1f2a3a" stroke="#d2a8ff" stroke-width="2"/>
+                <text x="440" y="150" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#d2a8ff">Entrada/Saída</text>
+                <text x="440" y="200" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">Pendrive, HD externo</text>
+                <text x="440" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">Monitor touch</text>
+
+                <rect x="550" y="120" width="140" height="50" rx="12" fill="#1f2a3a" stroke="#f0883e" stroke-width="2"/>
+                <text x="620" y="150" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#f0883e">Armazenamento</text>
+                <text x="620" y="200" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">HD, SSD, Pen drive</text>
+                <text x="620" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#b1bac4">Cartão de memória</text>
+            </svg>
+        </div>
+
+        <h4>4.1.2 O que NÃO é periférico?</h4>
+        <p>A <strong>placa-mãe</strong> (motherboard) é um componente interno essencial que interliga todos os elementos do sistema (CPU, memória, placas de expansão, etc.). Ela não é um periférico, pois fica dentro do gabinete e é fundamental para o funcionamento do computador.</p>
+        <div class="box box-pegadinha">
+            <svg class="box-icon"><use href="#icon-pegadinha"/></svg>
+            <div class="box-content">
+                <strong>Pegadinha de prova:</strong> A Cetap pergunta "qual dos itens abaixo não é considerado um periférico?" e coloca opções como impressora, monitor, mouse, teclado e placa-mãe. A resposta correta é placa-mãe.
+            </div>
+        </div>
+
+        <hr class="divider-light">
+
+        <h3>4.2 Impressoras – Qualidade de Impressão</h3>
+        <p>Para obter uma impressão de qualidade em documentos importantes, é necessário verificar:</p>
+        <ol>
+            <li><strong>Nível de tinta/toner:</strong> Se estiver baixo, a impressão pode sair com falhas ou riscos.</li>
+            <li><strong>Alinhamento do papel:</strong> Papel mal colocado pode causar atolamento ou impressão torta.</li>
+            <li><strong>Configuração do tipo de papel:</strong> A impressora deve estar configurada com o mesmo tipo de papel que foi carregado (ex.: comum, fotográfico, envelope). Isso afeta a densidade e a qualidade da impressão.</li>
+        </ol>
+        <div class="box box-observacao">
+            <svg class="box-icon"><use href="#icon-observacao"/></svg>
+            <div class="box-content">
+                <strong>Erro comum:</strong> Esquecer de verificar a configuração de tipo de papel. Muitos candidatos acham que apenas tinta e alinhamento são suficientes, mas a Avança SP cobra os três itens.
+            </div>
+        </div>
+
+        <hr class="divider-light">
+
+        <h3>4.3 Extensões de Arquivo e Programas Associados</h3>
+        <p>Cada extensão de arquivo indica seu formato e sugere qual programa pode abri-lo. A associação correta é cobrada em provas.</p>
+        <table>
+            <thead><tr><th>Extensão</th><th>Formato</th><th>Programas que abrem</th></tr></thead>
+            <tbody>
+                <tr><td><code>.txt</code></td><td>Texto simples (sem formatação)</td><td>Bloco de Notas, Word, LibreOffice Writer, editores de código</td></tr>
+                <tr><td><code>.docx</code></td><td>Documento Word</td><td>Word, LibreOffice Writer, Google Docs</td></tr>
+                <tr><td><code>.xlsx</code></td><td>Planilha Excel</td><td>Excel, LibreOffice Calc, Google Sheets</td></tr>
+                <tr><td><code>.pptx</code></td><td>Apresentação PowerPoint</td><td>PowerPoint, LibreOffice Impress</td></tr>
+                <tr><td><code>.pdf</code></td><td>Documento portável (imutável)</td><td>Adobe Acrobat Reader, navegadores</td></tr>
+                <tr><td><code>.jpg</code>, <code>.png</code></td><td>Imagens</td><td>Visualizador de imagens, Photoshop, Paint</td></tr>
+                <tr><td><code>.zip</code>, <code>.rar</code></td><td>Arquivos compactados</td><td>WinZip, WinRAR, 7-Zip</td></tr>
+            </tbody>
+        </table>
+        <div class="box box-pegadinha">
+            <svg class="box-icon"><use href="#icon-pegadinha"/></svg>
+            <div class="box-content">
+                <strong>Atenção:</strong> Arquivos <code>.txt</code> <strong>não</strong> podem ser abertos/editados adequadamente por editores de imagem (Photoshop, GIMP, Paint), planilhas (Excel, Calc) ou apresentações (PowerPoint, Keynote). O Instituto Verbena costuma cobrar essa distinção.
+            </div>
+        </div>
+
+        <div class="divider"></div>
+    </section>
+
+    <!-- ==================== CAPÍTULO 5 ==================== -->
+    <section id="cap5">
+        <h2>Capítulo 5 – Segurança da Informação e Boas Práticas</h2>
+
+        <h3>5.1 Software Livre – As Quatro Liberdades</h3>
+        <p>O conceito de software livre, definido pela Free Software Foundation (FSF), vai além da gratuidade. Ele garante quatro liberdades essenciais:</p>
+        <table>
+            <thead><tr><th>Liberdade</th><th>Descrição</th></tr></thead>
+            <tbody>
+                <tr><td><strong>0</strong></td><td>Executar o programa para qualquer propósito.</td></tr>
+                <tr><td><strong>1</strong></td><td>Estudar como o programa funciona e adaptá-lo às suas necessidades (acesso ao código-fonte é pré-requisito).</td></tr>
+                <tr><td><strong>2</strong></td><td>Redistribuir cópias para ajudar o próximo.</td></tr>
+                <tr><td><strong>3</strong></td><td>Melhorar o programa e liberar essas melhorias para o benefício da comunidade (acesso ao código-fonte é pré-requisito).</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Timeline SVG das liberdades -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
+                <line x1="80" y1="50" x2="80" y2="230" stroke="#2d3a4a" stroke-width="3"/>
+                <circle cx="80" cy="50" r="8" fill="#58a6ff"/>
+                <circle cx="80" cy="110" r="8" fill="#3fb950"/>
+                <circle cx="80" cy="170" r="8" fill="#f0883e"/>
+                <circle cx="80" cy="230" r="8" fill="#d2a8ff"/>
+
+                <rect x="120" y="30" width="520" height="40" rx="8" fill="#1f2a3a" stroke="#58a6ff" stroke-width="1.5"/>
+                <text x="135" y="55" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#58a6ff">Liberdade 0</text>
+                <text x="240" y="55" font-family="Segoe UI, sans-serif" font-size="14" fill="#b1bac4">Executar o programa para qualquer propósito</text>
+
+                <rect x="120" y="90" width="520" height="40" rx="8" fill="#1f2a3a" stroke="#3fb950" stroke-width="1.5"/>
+                <text x="135" y="115" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#3fb950">Liberdade 1</text>
+                <text x="240" y="115" font-family="Segoe UI, sans-serif" font-size="14" fill="#b1bac4">Estudar e adaptar o programa (código-fonte)</text>
+
+                <rect x="120" y="150" width="520" height="40" rx="8" fill="#1f2a3a" stroke="#f0883e" stroke-width="1.5"/>
+                <text x="135" y="175" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#f0883e">Liberdade 2</text>
+                <text x="240" y="175" font-family="Segoe UI, sans-serif" font-size="14" fill="#b1bac4">Redistribuir cópias para ajudar o próximo</text>
+
+                <rect x="120" y="210" width="520" height="40" rx="8" fill="#1f2a3a" stroke="#d2a8ff" stroke-width="1.5"/>
+                <text x="135" y="235" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#d2a8ff">Liberdade 3</text>
+                <text x="240" y="235" font-family="Segoe UI, sans-serif" font-size="14" fill="#b1bac4">Melhorar e liberar melhorias (código-fonte)</text>
+            </svg>
+        </div>
+
+        <div class="box box-observacao">
+            <svg class="box-icon"><use href="#icon-observacao"/></svg>
+            <div class="box-content">
+                <strong>Diferença:</strong> Software gratuito (freeware) pode ser baixado sem custo, mas não concede acesso ao código-fonte ou liberdade de modificação. O Instituto Verbena cobra a distinção.
+            </div>
+        </div>
+
+        <hr class="divider-light">
+
+        <h3>5.2 Backups e Compactação de Arquivos</h3>
+
+        <h4>5.2.1 Compactação com ZIP</h4>
+        <p>O formato <code>.zip</code> é um dos mais usados para compactar e agrupar arquivos. Suas principais funções:</p>
+        <ul class="arrow-list">
+            <li><strong>Redução de tamanho:</strong> Algoritmos de compressão eliminam redundâncias, diminuindo o espaço ocupado.</li>
+            <li><strong>Agrupamento:</strong> Vários arquivos e pastas são reunidos em um único arquivo, facilitando o envio por e-mail e o armazenamento.</li>
+        </ul>
+        <div class="box box-importante">
+            <svg class="box-icon"><use href="#icon-importante"/></svg>
+            <div class="box-content">
+                <strong>Importante:</strong> A compactação não converte arquivos para PDF, não executa arquivos automaticamente e a criptografia não é ativada por padrão (embora o ZIP suporte senha opcionalmente). O Instituto Verbena cobra essas limitações.
+            </div>
+        </div>
+
+        <h4>5.2.2 Política de Backup</h4>
+        <p>O backup é a cópia de dados importantes para um local seguro, permitindo a recuperação em caso de perda, falha ou ataque. As melhores práticas incluem:</p>
+        <ul class="star-list">
+            <li><strong>Regra 3-2-1:</strong> 3 cópias, em 2 mídias diferentes, 1 cópia off-site.</li>
+            <li>Backup incremental vs. diferencial vs. completo.</li>
+            <li><strong>Teste de restauração:</strong> Não adianta fazer backup se não for possível restaurar.</li>
+        </ul>
+
+        <hr class="divider-light">
+
+        <h3>5.3 Engenharia Social e Phishing</h3>
+        <p>Engenharia social é a manipulação psicológica de pessoas para que elas revelem informações confidenciais ou executem ações que comprometam a segurança. O <strong>phishing</strong> é uma das técnicas mais comuns: o atacante envia um e-mail ou mensagem falsa, simulando ser uma instituição legítima, com um link que leva a um site fraudulento.</p>
+        <p><strong>Como se proteger:</strong></p>
+        <ul class="checklist">
+            <li>Desconfiar de e-mails que solicitam dados pessoais ou financeiros.</li>
+            <li>Verificar o remetente e o domínio do e-mail.</li>
+            <li>Não clicar em links suspeitos; digitar o endereço do site manualmente.</li>
+            <li>Utilizar autenticação em dois fatores (2FA).</li>
+            <li>Manter o navegador e o sistema operacional atualizados.</li>
+        </ul>
+
+        <!-- Fluxograma simples para e-mail suspeito -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
+                <rect x="150" y="10" width="400" height="50" rx="25" fill="#1f2a3a" stroke="#f85149" stroke-width="2"/>
+                <text x="350" y="42" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" font-weight="bold" fill="#f85149">Recebeu e-mail suspeito?</text>
+
+                <line x1="350" y1="60" x2="350" y2="100" stroke="#2d3a4a" stroke-width="2"/>
+                <polygon points="340,95 360,95 350,110" fill="#2d3a4a"/>
+
+                <rect x="150" y="110" width="400" height="45" rx="12" fill="#1f2a3a" stroke="#58a6ff" stroke-width="2"/>
+                <text x="350" y="140" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#58a6ff">1. Não clique em links nem baixe anexos</text>
+
+                <line x1="350" y1="155" x2="350" y2="190" stroke="#2d3a4a" stroke-width="2"/>
+                <polygon points="340,185 360,185 350,200" fill="#2d3a4a"/>
+
+                <rect x="150" y="200" width="400" height="45" rx="12" fill="#1f2a3a" stroke="#3fb950" stroke-width="2"/>
+                <text x="350" y="230" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#3fb950">2. Verifique remetente e domínio</text>
+
+                <line x1="350" y1="245" x2="350" y2="280" stroke="#2d3a4a" stroke-width="2"/>
+                <polygon points="340,275 360,275 350,290" fill="#2d3a4a"/>
+
+                <rect x="150" y="290" width="400" height="45" rx="12" fill="#1f2a3a" stroke="#f0883e" stroke-width="2"/>
+                <text x="350" y="318" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#f0883e">3. Reporte ao setor de TI</text>
+            </svg>
+        </div>
+
+        <div class="divider"></div>
+    </section>
+
+    <!-- ==================== CAPÍTULO 6 ==================== -->
+    <section id="cap6">
+        <h2>Capítulo 6 – Dicas de Provas e Pegadinhas Frequentes</h2>
+        <p>As bancas adoram explorar pequenas confusões entre conceitos. Reunimos aqui as principais armadilhas:</p>
+
+        <h3>6.1 Atalhos de Teclado</h3>
+        <table>
+            <thead><tr><th>Pegadinha</th><th>Verdade</th></tr></thead>
+            <tbody>
+                <tr><td><code>Ctrl+Y</code> é "salvar"</td><td><code>Ctrl+Y</code> é <strong>refazer</strong>; salvar é <code>Ctrl+S</code>.</td></tr>
+                <tr><td><code>Ctrl+Z</code> é "refazer"</td><td><code>Ctrl+Z</code> é <strong>desfazer</strong>; refazer é <code>Ctrl+Y</code>.</td></tr>
+                <tr><td><code>Ctrl+C</code> é "recortar"</td><td><code>Ctrl+C</code> é <strong>copiar</strong>; recortar é <code>Ctrl+X</code>.</td></tr>
+                <tr><td><code>Ctrl+V</code> é "colar"</td><td>Correto, mas muitos confundem com <code>Ctrl+C</code>.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.2 Excel e Funções</h3>
+        <table>
+            <thead><tr><th>Pegadinha</th><th>Verdade</th></tr></thead>
+            <tbody>
+                <tr><td><code>=MAIOR(A1:A10;2)</code> retorna o segundo maior valor, ignorando repetidos</td><td><strong>Não</strong>, repetições contam, então se houver dois maiores iguais, o segundo maior pode ser igual ao primeiro.</td></tr>
+                <tr><td><code>=MÉDIA</code> soma e divide por todas as células do intervalo, incluindo vazias</td><td><strong>Não</strong>, células vazias são ignoradas; apenas células com números contam.</td></tr>
+                <tr><td>A multiplicação usa <code>x</code></td><td><strong>Não</strong>, usa <code>*</code>.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.3 Hardware e Periféricos</h3>
+        <table>
+            <thead><tr><th>Pegadinha</th><th>Verdade</th></tr></thead>
+            <tbody>
+                <tr><td>Placa-mãe é um periférico</td><td><strong>Não</strong>, é componente interno essencial.</td></tr>
+                <tr><td>Scanner é periférico de saída</td><td><strong>Não</strong>, é de entrada (digitaliza documentos).</td></tr>
+                <tr><td>Monitor é periférico de entrada</td><td><strong>Não</strong>, é de saída (exibe informações).</td></tr>
+            </tbody>
+        </table>
+
+        <h3>6.4 Redes e Segurança</h3>
+        <table>
+            <thead><tr><th>Pegadinha</th><th>Verdade</th></tr></thead>
+            <tbody>
+                <tr><td>UDP é confiável como TCP</td><td><strong>Não</strong>, UDP não é confiável.</td></tr>
+                <tr><td>Hardening é o mesmo que firewall</td><td><strong>Não</strong>, hardening é um conjunto de configurações seguras; firewall é uma ferramenta específica.</td></tr>
+                <tr><td>VPN garante anonimato total</td><td><strong>Não</strong>, a VPN criptografa o tráfego, mas o provedor pode ver que você está usando VPN; além disso, a autenticação é fundamental.</td></tr>
+            </tbody>
+        </table>
+
+        <div class="divider"></div>
+    </section>
+
+    <!-- ==================== CAPÍTULO 7 ==================== -->
+    <section id="cap7">
+        <h2>Capítulo 7 – Estudos de Caso para Fixação</h2>
+
+        <div class="card-conceito">
+            <h4>Caso 1: Orçamento no Excel</h4>
+            <p><em>Um servidor precisa criar uma planilha de orçamento mensal com as seguintes colunas: Despesa, Valor Previsto, Valor Realizado, Diferença. Ele deseja saber:</em></p>
+            <ol>
+                <li>Qual fórmula calcular a diferença (Realizado – Previsto)? <strong><code>=C2-B2</code></strong> (usando subtração).</li>
+                <li>Qual função exibir a maior diferença? <strong><code>=MÁXIMO(D2:D20)</code></strong>.</li>
+                <li>Qual função calcular a média dos valores realizados? <strong><code>=MÉDIA(C2:C20)</code></strong>.</li>
+            </ol>
+        </div>
+
+        <div class="card-conceito">
+            <h4>Caso 2: E-mail suspeito</h4>
+            <p><em>Um funcionário recebe um e-mail do "banco" solicitando que clique em um link para atualizar seus dados cadastrais. O que fazer?</em></p>
+            <ul class="checklist">
+                <li><strong>Não clicar no link.</strong> Verificar o remetente e o domínio. Se houver dúvida, contatar o banco por telefone oficial.</li>
+                <li><strong>Reportar o e-mail como phishing</strong> para o setor de TI.</li>
+                <li><strong>Nunca fornecer senhas ou dados pessoais por e-mail.</strong></li>
+            </ul>
+        </div>
+
+        <div class="card-conceito">
+            <h4>Caso 3: Compartilhamento de Arquivo no Teams</h4>
+            <p><em>Em uma reunião, um participante não consegue compartilhar um arquivo do Excel. A melhor ação do suporte é:</em></p>
+            <ul class="arrow-list">
+                <li>Solicitar "Dar controle" para assumir a tela e resolver o problema sem interromper a reunião.</li>
+                <li><strong>Não</strong> pedir para sair e voltar, <strong>não</strong> enviar por e-mail, <strong>não</strong> aguardar passivamente.</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+    </section>
+
+    <!-- ==================== CONCLUSÃO ==================== -->
+    <section id="conclusao">
+        <h2>Conclusão</h2>
+        <p>A informática para concursos exige mais do que decoreba: exige compreensão dos conceitos, aplicação prática e reconhecimento de pegadinhas. Esta apostila cobriu os principais tópicos cobrados pelas bancas, com foco em sistemas operacionais, pacote Office, redes, segurança, hardware e boas práticas.</p>
+        <p><strong>Continue praticando com questões de provas anteriores</strong> e revise os quadros-resumo e tabelas comparativas para fixar os detalhes. Lembre-se: o conhecimento técnico aliado à interpretação de situações do cotidiano é o que diferencia o candidato aprovado.</p>
+        <p>Desejamos a você excelentes estudos e sucesso nas provas!</p>
+        <p style="margin-top:1.5rem; font-style:italic; color:#b1bac4;">Material produzido com base na experiência de docência e na análise de provas das bancas Cesgranrio, FCC, FGV, Cebraspe, Vunesp, IADES, Cetap, Instituto Verbena e Avança SP.</p>
+    </section>
+
+    <!-- Voltar ao topo -->
+    <div style="text-align:center; margin-top:2rem;">
+        <a href="#" class="back-top">⬆ Voltar ao topo</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Apostila completa de informática para concursos &bull; Material de estudo &bull; Conteúdo 100% preservado</p>
+    </footer>
+
+</body>
+</html>
