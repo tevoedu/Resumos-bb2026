@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Apostila Completa de Conhecimentos Bancários</title>
+    <style>
+        /* ===== VARIÁVEIS E RESET ===== */
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2333;
+            --bg-box: #0d1117;
+            --bg-highlight: #2d1b3d;
+            --bg-code: #1e1e2f;
+
+            --text-primary: #e6edf3;
+            --text-secondary: #b0c4de;
+            --text-muted: #8b949e;
+            --text-inverse: #0d1117;
+
+            --accent-gold: #f0c674;
+            --accent-blue: #58a6ff;
+            --accent-cyan: #4ecdc4;
+            --accent-green: #7ee787;
+            --accent-orange: #ffa657;
+            --accent-red: #ff6b6b;
+            --accent-pink: #f778ba;
+            --accent-purple: #bc8cff;
+
+            --border-subtle: #30363d;
+            --border-highlight: #58a6ff;
+
+            --font-body: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            --font-heading: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+
+            --radius: 12px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            --transition: 0.2s ease;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 17px;
+            line-height: 1.7;
+            padding: 0 20px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* ===== TIPOGRAFIA ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--text-primary);
+            margin-top: 1.8em;
+            margin-bottom: 0.4em;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            letter-spacing: -0.02em;
+            margin-top: 0.5em;
+            margin-bottom: 0.2em;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.2em;
+            padding-bottom: 0.3em;
+            border-bottom: 3px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            margin-top: 1.6em;
+        }
+
+        h4 {
+            font-size: 1.15rem;
+            color: var(--accent-gold);
+            margin-top: 1.4em;
+        }
+
+        h5 {
+            font-size: 1.05rem;
+            color: var(--accent-pink);
+            margin-top: 1.2em;
+        }
+
+        p {
+            margin-bottom: 1em;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        a:hover {
+            color: var(--accent-cyan);
+            text-decoration: underline;
+        }
+
+        strong,
+        b {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        em,
+        i {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            margin: 2.5em 0;
+            opacity: 0.4;
+        }
+
+        /* ===== SUMÁRIO ===== */
+        .toc {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1.8rem 2rem;
+            margin: 1.5em 0 2.5em;
+            border-left: 5px solid var(--accent-gold);
+            box-shadow: var(--shadow);
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            padding-bottom: 0;
+            color: var(--accent-gold);
+            font-size: 1.6rem;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem 2rem;
+            margin-top: 0.8rem;
+        }
+        .toc-grid a {
+            display: block;
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+        .toc-grid a:hover {
+            color: var(--accent-cyan);
+            border-bottom-color: var(--accent-cyan);
+            text-decoration: none;
+        }
+        .toc-grid .toc-num {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-right: 0.3rem;
+        }
+        @media (max-width: 700px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== CARDS E BOXES ===== */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.5rem 1.8rem;
+            margin: 1.5em 0;
+            border-left: 4px solid var(--accent-blue);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        .card h4 {
+            margin-top: 0;
+        }
+
+        .box-tip {
+            background: #1a2a1f;
+            border-left-color: var(--accent-green);
+        }
+        .box-tip::before {
+            content: "💡 ";
+            font-size: 1.2rem;
+            color: var(--accent-green);
+        }
+
+        .box-warning {
+            background: #2a1f1a;
+            border-left-color: var(--accent-orange);
+        }
+        .box-warning::before {
+            content: "⚠️ ";
+            font-size: 1.2rem;
+            color: var(--accent-orange);
+        }
+
+        .box-important {
+            background: #1f1a2a;
+            border-left-color: var(--accent-purple);
+        }
+        .box-important::before {
+            content: "🔹 ";
+            font-size: 1.2rem;
+            color: var(--accent-purple);
+        }
+
+        .box-callout {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1.5rem 1.8rem;
+            margin: 1.5em 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow);
+        }
+
+        .highlight {
+            background: rgba(88, 166, 255, 0.15);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-blue);
+            font-weight: 500;
+        }
+
+        .highlight-gold {
+            background: rgba(240, 198, 116, 0.15);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        .highlight-green {
+            background: rgba(126, 231, 135, 0.12);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-green);
+            font-weight: 500;
+        }
+
+        .highlight-red {
+            background: rgba(255, 107, 107, 0.12);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            color: var(--accent-red);
+            font-weight: 500;
+        }
+
+        /* ===== TABELAS ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.5em 0;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-secondary);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            min-width: 500px;
+        }
+        table th {
+            background: var(--bg-card);
+            color: var(--accent-cyan);
+            font-weight: 600;
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--accent-cyan);
+        }
+        table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: top;
+        }
+        table tr:last-child td {
+            border-bottom: 0;
+        }
+        table tr:hover td {
+            background: rgba(88, 166, 255, 0.04);
+        }
+        table .col-highlight {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        /* ===== LISTAS ===== */
+        ul,
+        ol {
+            padding-left: 1.8rem;
+            margin: 0.8em 0 1.2em;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.3em;
+        }
+        ul ul,
+        ol ul {
+            margin-top: 0.2em;
+            margin-bottom: 0.4em;
+        }
+
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-check li {
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        .list-check li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+        .list-cross {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-cross li {
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        .list-cross li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        /* ===== CITAÇÕES ===== */
+        .blockquote {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.2rem 1.8rem;
+            margin: 1.5em 0;
+            border-left: 6px solid var(--accent-gold);
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .blockquote strong {
+            color: var(--accent-gold);
+            font-style: normal;
+        }
+
+        /* ===== DIVISÓRIAS ===== */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.5em 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+        }
+        .divider .divider-icon {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        /* ===== SVG CONTAINER ===== */
+        .svg-container {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1.5rem 1rem;
+            margin: 1.8em 0;
+            border: 1px solid var(--border-subtle);
+            overflow-x: auto;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ===== MACETE ===== */
+        .mnemonic {
+            display: inline-block;
+            background: var(--bg-highlight);
+            color: var(--accent-gold);
+            font-weight: 700;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            border: 1px solid var(--accent-gold);
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 900px) {
+            body {
+                font-size: 16px;
+                padding: 0 16px 50px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            .toc {
+                padding: 1.2rem 1.4rem;
+            }
+            .card {
+                padding: 1.2rem 1.4rem;
+            }
+            .table-wrap table {
+                font-size: 0.85rem;
+                min-width: 400px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 15px;
+                padding: 0 12px 40px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            h3 {
+                font-size: 1.15rem;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr;
+                gap: 0.2rem;
+            }
+            .card {
+                padding: 1rem 1.2rem;
+            }
+            .blockquote {
+                padding: 1rem 1.2rem;
+                font-size: 0.95rem;
+            }
+            .table-wrap table {
+                font-size: 0.8rem;
+                min-width: 320px;
+            }
+            .svg-container {
+                padding: 0.8rem 0.4rem;
+            }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-card);
+            border-radius: 10px;
+            border: 1px solid var(--border-subtle);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        /* ===== ANIMAÇÃO SUAVE ===== */
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RÓTULO DE CAPÍTULO ===== */
+        .chapter-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            background: rgba(240, 198, 116, 0.12);
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(240, 198, 116, 0.2);
+            margin-bottom: 0.2rem;
+        }
+
+        /* ===== BOTÃO DE VOLTAR AO TOPO ===== */
+        .back-top {
+            display: inline-block;
+            margin-top: 2.5em;
+            padding: 0.5rem 1.2rem;
+            background: var(--bg-card);
+            color: var(--accent-blue);
+            border: 1px solid var(--border-subtle);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .back-top:hover {
+            background: var(--accent-blue);
+            color: var(--bg-primary);
+            border-color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-note {
+            margin-top: 3.5em;
+            padding-top: 2em;
+            border-top: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* ===== CORREÇÃO PARA TABELAS DENTRO DE CARDS ===== */
+        .card .table-wrap {
+            margin: 0.8em 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- TÍTULO PRINCIPAL                                              -->
+    <!-- ============================================================ -->
+    <header style="margin: 1.5em 0 0.5em;">
+        <h1 style="margin-bottom: 0.1rem;">Conhecimentos Bancários</h1>
+        <p style="font-size: 1.15rem; color: var(--text-secondary); margin-top: 0;">
+            Apostila completa para concursos da área bancária
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 0.8rem; font-size: 0.9rem; color: var(--text-muted);">
+            <span>📘 Material didático</span>
+            <span>📌 Foco: Cesgranrio • FCC • FGV • Cebraspe</span>
+            <span>🔄 Atualizado 2026</span>
+        </div>
+    </header>
+
+    <hr style="margin: 1.2em 0 1.8em;">
+
+    <!-- ============================================================ -->
+    <!-- SUMÁRIO                                                       -->
+    <!-- ============================================================ -->
+    <nav class="toc" id="sumario">
+        <h2>📑 Sumário</h2>
+        <div class="toc-grid">
+            <a href="#cap1"><span class="toc-num">1.</span> Automação e acessibilidade no autoatendimento bancário</a>
+            <a href="#cap2"><span class="toc-num">2.</span> Governança corporativa e diversidade</a>
+            <a href="#cap3"><span class="toc-num">3.</span> Prevenção à lavagem de dinheiro e o papel do COAF</a>
+            <a href="#cap4"><span class="toc-num">4.</span> Inovação financeira: CBDCs, criptomoedas e stablecoins</a>
+            <a href="#cap5"><span class="toc-num">5.</span> Técnicas de vendas e marketing de relacionamento</a>
+            <a href="#cap6"><span class="toc-num">6.</span> Mercado de seguros: fundamentos e operações</a>
+            <a href="#cap7"><span class="toc-num">7.</span> Previdência complementar e regimes previdenciários</a>
+            <a href="#cap8"><span class="toc-num">8.</span> Títulos de capitalização: estrutura e prazos</a>
+            <a href="#cap9"><span class="toc-num">9.</span> Gestão de carteiras e reativação de clientes</a>
+            <a href="#cap10"><span class="toc-num">10.</span> Dicas de prova e pegadinhas das bancas</a>
+            <a href="#apendice"><span class="toc-num">+</span> Apêndice — Quadro-síntese</a>
+            <a href="#referencias"><span class="toc-num">+</span> Referências normativas</a>
+        </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 1                                                    -->
+    <!-- ============================================================ -->
+    <section id="cap1">
+        <div class="chapter-label">Capítulo 1</div>
+        <h2>Automação e acessibilidade no autoatendimento bancário</h2>
+
+        <h3>1.1 Contextualização: a evolução do autoatendimento bancário</h3>
+        <p>O autoatendimento bancário representa uma das mais significativas transformações no relacionamento entre instituições financeiras e seus clientes. Iniciado com os primeiros caixas eletrônicos na década de 1980, esse canal evoluiu para um ecossistema complexo de terminais multifuncionais que oferecem desde saques e depósitos até a contratação de produtos financeiros complexos.</p>
+        <p>Para o escriturário bancário, compreender o funcionamento desses terminais vai além do conhecimento operacional — é uma questão de atendimento qualificado, resolução de problemas e conformidade com normas regulatórias.</p>
+
+        <h4>1.1.1 A importância estratégica do autoatendimento</h4>
+        <p>Os terminais de autoatendimento não são meros substitutos do atendimento humano; eles representam:</p>
+        <ul>
+            <li><strong>Redução de custos operacionais</strong>: cada transação no autoatendimento custa ao banco uma fração do valor de uma transação no caixa tradicional;</li>
+            <li><strong>Ampliação do horário de atendimento</strong>: disponibilidade 24 horas por dia, 7 dias por semana;</li>
+            <li><strong>Desburocratização de serviços rotineiros</strong>: operações simples não exigem mais deslocamento até uma agência;</li>
+            <li><strong>Inclusão financeira</strong>: terminais em locais remotos ampliam o acesso a serviços bancários;</li>
+            <li><strong>Coleta de dados comportamentais</strong>: padrões de uso alimentam estratégias de marketing e gestão de risco.</li>
+        </ul>
+
+        <h4>1.1.2 Acessibilidade: muito além da boa vontade</h4>
+        <p>A acessibilidade nos terminais de autoatendimento não é um diferencial competitivo — é uma obrigação legal respaldada por:</p>
+        <ul>
+            <li><strong>Lei Brasileira de Inclusão (LBI)</strong> – Lei nº 13.146/2015, que estabelece normas gerais para a acessibilidade de pessoas com deficiência;</li>
+            <li><strong>Resolução CMN nº 4.949/2021</strong>, que dispõe sobre acessibilidade em produtos e serviços financeiros;</li>
+            <li><strong>Circular BACEN nº 3.942/2019</strong>, que estabelece requisitos de acessibilidade para terminais de autoatendimento.</li>
+        </ul>
+
+        <h3>1.2 Os recursos de acessibilidade nos terminais de autoatendimento</h3>
+
+        <h4>1.2.1 Identificação tátil e sinalização em relevo</h4>
+        <p>Os terminais de autoatendimento devem possuir sinalizações em relevo para identificar cada dispositivo disponível. Essa característica, prevista em normativos do Banco Central, atende principalmente pessoas com deficiência visual, mas beneficia também idosos e pessoas com baixa visão.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Dispositivo</th><th>Tipo de Sinalização</th><th>Finalidade</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Saída de comprovantes</td><td>Relevo específico</td><td>Localizar impressão de recibos</td></tr>
+                    <tr><td>Leitor de cartão</td><td>Relevo indicativo</td><td>Inserção correta do cartão</td></tr>
+                    <tr><td>Teclado numérico</td><td>Tecla 5 com relevo diferenciado</td><td>Orientação espacial no teclado</td></tr>
+                    <tr><td>Teclas de função (CANCELA/ENTER)</td><td>Relevo e cores contrastantes</td><td>Identificação rápida em emergências</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box-tip card">
+            <h4 style="margin-top:0;">Macete para prova</h4>
+            <p>A Cesgranrio costuma cobrar a tecla 5 como ponto de referência tátil — é o "marco zero" para orientação no teclado.</p>
+        </div>
+
+        <h4>1.2.2 O sistema de áudio e o conector para fones de ouvido</h4>
+        <p>Uma das inovações mais relevantes em termos de acessibilidade é o conector para fone de ouvido presente nos terminais de autoatendimento. Este recurso, obrigatório em terminais modernos, viabiliza o uso do <strong>assistente de voz</strong> que orienta pessoas com deficiência visual durante a realização de operações bancárias.</p>
+
+        <div class="box-important card">
+            <h4 style="margin-top:0;">O que acontece ao conectar o fone de ouvido?</h4>
+            <p>Ao inserir o fone no conector do terminal, ocorre a <strong>desativação automática ou congelamento da imagem do monitor</strong>. Essa medida, que pode parecer contraditória, tem uma função clara e essencial:</p>
+            <div style="background:var(--bg-highlight); padding:0.8rem 1.2rem; border-radius:8px; margin:0.6em 0; border-left:4px solid var(--accent-gold);">
+                <strong style="color:var(--accent-gold);">PROTEÇÃO À PRIVACIDADE DO DEFICIENTE VISUAL</strong>
+            </div>
+            <p>Imagine a seguinte situação: um cliente com deficiência visual realiza uma consulta de saldo em um terminal de autoatendimento utilizando o assistente de voz. Se o monitor permanecesse ativo, qualquer pessoa ao redor poderia visualizar todas as informações sigilosas daquele cliente — desde o saldo disponível até o limite de crédito — sem que ele tivesse ciência disso.</p>
+            <p>O desligamento do monitor garante que:</p>
+            <ul>
+                <li>O cliente com deficiência visual tenha controle sobre sua privacidade: apenas ele tem acesso às informações, através do áudio;</li>
+                <li>Pessoas ao redor não visualizem dados sensíveis: impede a chamada "visual eavesdropping" (espiada visual);</li>
+                <li>A operação seja tão segura quanto a de um cliente sem deficiência: o cliente vidente tem controle visual da tela; o cliente com deficiência visual tem controle auditivo, com garantia equivalente de privacidade.</li>
+            </ul>
+        </div>
+
+        <div class="box-warning card">
+            <h4 style="margin-top:0;">Aplicação prática em prova</h4>
+            <p>Em questões sobre autoatendimento, a banca pode perguntar o motivo do desligamento do monitor ao conectar o fone. A resposta <strong>NUNCA</strong> será "para economizar energia" ou "por defeito no equipamento" — é exclusivamente por <span class="highlight">privacidade e segurança do usuário com deficiência visual</span>.</p>
+        </div>
+
+        <h4>1.2.3 Teclas especiais: Cancelar e Enter</h4>
+        <p>As teclas CANCELA e ENTER recebem tratamento diferenciado nos terminais de autoatendimento:</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Característica</th><th>Tecla CANCELA</th><th>Tecla ENTER</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Relevo</td><td>Diferenciado</td><td>Diferenciado</td></tr>
+                    <tr><td>Cor</td><td>Vermelha (padrão)</td><td>Verde ou azul (padrão)</td></tr>
+                    <tr><td>Posição</td><td>Geralmente inferior direita</td><td>Geralmente inferior esquerda</td></tr>
+                    <tr><td>Função</td><td>Interromper operação</td><td>Confirmar operação</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>Essa diferenciação é crucial para evitar que pessoas com baixa visão ou deficiência visual confirmem operações indevidas ou cancelem transações importantes por engano.</p>
+
+        <h3>1.3 Caso prático: atendimento no autoatendimento</h3>
+        <div class="card">
+            <p><strong>Cenário:</strong> João, escriturário de uma agência bancária, é abordado por Maria, cliente idosa com baixa visão, que está com dificuldades para utilizar o terminal de autoatendimento. Ela precisa realizar um saque, mas não consegue localizar a entrada do cartão e teme digitar a senha incorretamente.</p>
+            <p><strong>Atuação correta do escriturário:</strong></p>
+            <ol>
+                <li><strong>Acompanhamento respeitoso</strong>: João deve oferecer auxílio sem constranger a cliente, perguntando se ela deseja ajuda;</li>
+                <li><strong>Orientação sobre recursos de acessibilidade</strong>: João pode explicar que o terminal possui sinalização em relevo e que o cartão deve ser inserido no local indicado por essa sinalização;</li>
+                <li><strong>Utilização do fone de ouvido</strong>: Se a agência disponibilizar fones de ouvido, João pode oferecer o equipamento para que Maria utilize o assistente de voz;</li>
+                <li><strong>Explicação sobre a privacidade</strong>: João deve tranquilizar a cliente explicando que o monitor será desligado ao conectar o fone, garantindo sua privacidade;</li>
+                <li><strong>Respeito à autonomia</strong>: Mesmo auxiliando, João deve garantir que Maria realize a operação por conta própria, com orientação verbal.</li>
+            </ol>
+        </div>
+
+        <h3>1.4 Pegadinhas comuns em provas</h3>
+        <div class="card box-warning">
+            <h4 style="margin-top:0;">Pegadinha 1</h4>
+            <p><span class="highlight-red">Falso:</span> "O conector para fone de ouvido serve para que deficientes auditivos possam amplificar o som do terminal."</p>
+            <p><span class="highlight-green">Correção:</span> O recurso é para deficientes <strong>VISUAIS</strong>, não auditivos. O som auxilia na navegação, não amplifica para quem tem perda auditiva.</p>
+        </div>
+        <div class="card box-warning">
+            <h4 style="margin-top:0;">Pegadinha 2</h4>
+            <p><span class="highlight-red">Falso:</span> "Ao conectar o fone, o monitor se desliga para economizar energia."</p>
+            <p><span class="highlight-green">Correção:</span> O desligamento do monitor é para proteger a <strong>PRIVACIDADE</strong> do usuário, não por economia de energia. A função de economia de energia, se existir, é secundária.</p>
+        </div>
+        <div class="card box-warning">
+            <h4 style="margin-top:0;">Pegadinha 3</h4>
+            <p><span class="highlight-red">Falso:</span> "A tecla 5 tem relevo diferenciado para facilitar a identificação do teclado por deficientes auditivos."</p>
+            <p><span class="highlight-green">Correção:</span> O relevo na tecla 5 auxilia <strong>DEFICIENTES VISUAIS</strong>, não auditivos. É um ponto de referência tátil.</p>
+        </div>
+
+        <!-- RESUMO CAP 1 -->
+        <div class="card" style="border-left-color:var(--accent-gold);">
+            <h4 style="margin-top:0; color:var(--accent-gold);">📌 Resumo do Capítulo 1</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Elemento</th><th>Função</th><th>Fundamento</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sinalização em relevo</td><td>Identificar dispositivos</td><td>Acessibilidade para DV</td></tr>
+                        <tr><td>Tecla 5 com relevo</td><td>Ponto de referência tátil</td><td>Acessibilidade para DV</td></tr>
+                        <tr><td>Teclas CANCELA/ENTER com relevo e cor</td><td>Evitar erros operacionais</td><td>Acessibilidade para DV</td></tr>
+                        <tr><td>Conector para fone</td><td>Acesso ao assistente de voz</td><td>Acessibilidade para DV</td></tr>
+                        <tr><td>Desligamento do monitor com fone</td><td>Proteger privacidade</td><td>Segurança do DV</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 2                                                    -->
+    <!-- ============================================================ -->
+    <section id="cap2">
+        <div class="chapter-label">Capítulo 2</div>
+        <h2>Governança corporativa e diversidade nas instituições financeiras</h2>
+
+        <h3>2.1 Fundamentos da governança corporativa no setor bancário</h3>
+        <p>A governança corporativa no sistema financeiro brasileiro transcende o mero cumprimento de normas — é um pilar estrutural para a estabilidade e credibilidade do sistema. Instituições financeiras, por sua natureza de intermediação de recursos de terceiros, estão sujeitas a níveis de exigência de governança que superam os da maioria dos setores da economia.</p>
+
+        <h4>2.1.1 Conceito e princípios norteadores</h4>
+        <p>A governança corporativa pode ser definida como o sistema pelo qual as organizações são dirigidas, monitoradas e incentivadas, envolvendo os relacionamentos entre acionistas, conselho de administração, diretoria, auditoria e demais stakeholders.</p>
+        <p>Os princípios fundamentais da governança corporativa, segundo o Instituto Brasileiro de Governança Corporativa (IBGC), são:</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Princípio</th><th>Descrição</th><th>Aplicação no Setor Bancário</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Transparência (Disclosure)</strong></td><td>Prestação de contas clara e tempestiva</td><td>Demonstrações financeiras detalhadas, relatórios de riscos, comunicados ao mercado</td></tr>
+                    <tr><td><strong>Equidade</strong></td><td>Tratamento justo a todos os stakeholders</td><td>Isonomia no atendimento, políticas de crédito não discriminatórias</td></tr>
+                    <tr><td><strong>Prestação de Contas (Accountability)</strong></td><td>Assunção de responsabilidades</td><td>Conselheiros e diretores respondem por suas decisões</td></tr>
+                    <tr><td><strong>Responsabilidade Socioambiental</strong></td><td>Consideração de impactos externos</td><td>Políticas de crédito sustentável, investimento social</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>2.1.2 Benefícios da adoção de boas práticas de governança</h4>
+        <p>Segundo a FGV, a adoção de boas práticas de governança corporativa gera os seguintes benefícios diretos:</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1em 0;">
+            <div class="card" style="margin:0; border-left-color:var(--accent-cyan);">
+                <h5 style="margin-top:0; color:var(--accent-cyan);">1. Separação das Competências</h5>
+                <p style="font-size:0.95rem;">Clareza na divisão entre funções deliberativas (conselho) e executivas (diretoria); evita concentração excessiva de poder; permite <em>checks and balances</em>.</p>
+            </div>
+            <div class="card" style="margin:0; border-left-color:var(--accent-gold);">
+                <h5 style="margin-top:0; color:var(--accent-gold);">2. Mitigação de Conflitos de Interesses</h5>
+                <p style="font-size:0.95rem;">Mecanismos para identificar e resolver conflitos entre administradores e acionistas; políticas de transação com partes relacionadas; códigos de conduta e ética.</p>
+            </div>
+            <div class="card" style="margin:0; border-left-color:var(--accent-blue);">
+                <h5 style="margin-top:0; color:var(--accent-blue);">3. Aumento da Transparência</h5>
+                <p style="font-size:0.95rem;">Divulgação tempestiva de informações relevantes; padrões contábeis rigorosos; relatórios de gestão detalhados.</p>
+            </div>
+            <div class="card" style="margin:0; border-left-color:var(--accent-green);">
+                <h5 style="margin-top:0; color:var(--accent-green);">4. Fomento da Equidade</h5>
+                <p style="font-size:0.95rem;">Tratamento isonômico entre acionistas minoritários e majoritários; políticas de diversidade e inclusão; práticas de remuneração justas.</p>
+            </div>
+            <div class="card" style="margin:0; border-left-color:var(--accent-purple); grid-column:1/-1;">
+                <h5 style="margin-top:0; color:var(--accent-purple);">5. Responsabilidade Socioambiental</h5>
+                <p style="font-size:0.95rem;">Integração de critérios ESG (Environmental, Social, Governance); políticas de crédito responsável; investimento em comunidades.</p>
+            </div>
+        </div>
+
+        <h4>2.1.3 O limite da governança: controles internos e auditoria</h4>
+        <p>Um dos pontos mais relevantes e frequentemente cobrados em provas é a <strong>distinção entre governança corporativa e controles internos</strong>.</p>
+
+        <div class="box-important card">
+            <h4 style="margin-top:0;">ATENÇÃO: A Cesgranrio explora exaustivamente essa distinção!</h4>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.5rem;">
+                <div style="background:var(--bg-highlight); padding:0.8rem 1rem; border-radius:8px; border-left:4px solid var(--accent-blue);">
+                    <h5 style="margin-top:0; color:var(--accent-blue);">Governança Corporativa</h5>
+                    <ul style="font-size:0.9rem; margin:0.3rem 0 0 1.2rem;">
+                        <li>Princípios amplos</li>
+                        <li>Direcionamento estratégico</li>
+                        <li>Transparência e equidade</li>
+                        <li>Prestação de contas</li>
+                        <li>Separação de competências</li>
+                    </ul>
+                </div>
+                <div style="background:var(--bg-highlight); padding:0.8rem 1rem; border-radius:8px; border-left:4px solid var(--accent-orange);">
+                    <h5 style="margin-top:0; color:var(--accent-orange);">Controles Internos e Auditoria</h5>
+                    <ul style="font-size:0.9rem; margin:0.3rem 0 0 1.2rem;">
+                        <li>Procedimentos específicos</li>
+                        <li>Execução operacional</li>
+                        <li>Prevenção e detecção de desvios</li>
+                        <li>Investigação e resposta a irregularidades</li>
+                        <li>Verificação de conformidade</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card box-warning">
+            <h4 style="margin-top:0;">O que NÃO é benefício direto da governança corporativa</h4>
+            <p><span class="highlight-red">❌ Prevenção, detecção e resposta a desvios</span> — Esta é função de <strong>controles internos e auditoria</strong>, não benefício direto da governança.</p>
+            <p style="margin-top:0.5rem;">Isso não significa que a governança não contribua para a prevenção de desvios — ela cria um ambiente ético que dificulta irregularidades. Porém, a ação direta de prevenção, detecção e resposta é operacionalizada pelos sistemas de controles internos e pela auditoria independente.</p>
+        </div>
+
+        <h3>2.2 Diversidade nas organizações: barreiras e superação</h3>
+        <p>A diversidade no ambiente corporativo, especialmente no setor financeiro, tem sido objeto de crescente atenção regulatória e social. Para o profissional bancário, compreender as barreiras à diversidade e como superá-las é essencial tanto para o atendimento quanto para o desenvolvimento de carreira.</p>
+
+        <h4>2.2.1 Por que a diversidade importa no setor bancário?</h4>
+        <ul>
+            <li><strong>Representatividade do público atendido</strong>: a base de clientes brasileira é extremamente diversa;</li>
+            <li><strong>Inovação e criatividade</strong>: equipes diversas produzem soluções mais inovadoras;</li>
+            <li><strong>Redução de vieses em decisões de crédito</strong>: diversidade na equipe de análise reduz discriminação;</li>
+            <li><strong>Conformidade regulatória</strong>: normas do Banco Central e CVM exigem políticas de diversidade;</li>
+            <li><strong>Atração e retenção de talentos</strong>: profissionais buscam ambientes inclusivos.</li>
+        </ul>
+
+        <h4>2.2.2 Barreiras para a incorporação da diversidade</h4>
+        <p>A incorporação efetiva da diversidade nas organizações esbarra em diversas barreiras, conforme identificado pela FGV:</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1em 0;">
+            <div class="card" style="margin:0; border-left-color:var(--accent-red);">
+                <h5 style="margin-top:0; color:var(--accent-red);">1. Vieses de Percepção (Estereótipos)</h5>
+                <p style="font-size:0.95rem;">Associações automáticas entre características e competências. Ex: presumir que mulheres são menos aptas para finanças; associar liderança a características masculinas.</p>
+            </div>
+            <div class="card" style="margin:0; border-left-color:var(--accent-orange);">
+                <h5 style="margin-top:0; color:var(--accent-orange);">2. Atitudes Negativas</h5>
+                <p style="font-size:0.95rem;">Apatia diante da necessidade de mudança; resistência ativa a políticas de diversidade; microagressões no ambiente de trabalho.</p>
+            </div>
+            <div class="card" style="margin:0; border-left-color:var(--accent-purple);">
+                <h5 style="margin-top:0; color:var(--accent-purple);">3. Conflitos Culturais</h5>
+                <p style="font-size:0.95rem;">Crenças pessoais e valores que entram em choque com a diversidade; dificuldade em conciliar diferentes visões de mundo; preconceitos enraizados.</p>
+            </div>
+            <div class="card" style="margin:0; border-left-color:var(--accent-pink);">
+                <h5 style="margin-top:0; color:var(--accent-pink);">4. Insuficiência de Habilidades Interculturais</h5>
+                <p style="font-size:0.95rem;">Falta de capacidade para se comunicar com pessoas de diferentes origens; dificuldade em mediar conflitos culturais; ausência de empatia intercultural.</p>
+            </div>
+        </div>
+
+        <div class="box-warning card">
+            <h4 style="margin-top:0;">O QUE NÃO É BARREIRA (E A BANCA ADORA CONFUNDIR)</h4>
+            <p><span class="highlight-green">✅ Não são barreiras à diversidade:</span></p>
+            <p><strong>Restrições organizacionais, como medidas para conectar diversidade e inclusão com as estratégias de crescimento da empresa.</strong></p>
+            <p>Isso é uma <span class="highlight">AÇÃO POSITIVA</span>, não uma barreira. Conectar diversidade à estratégia de crescimento é justamente o que as empresas devem fazer para superar as barreiras.</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:0.8rem;">
+                <div style="background:var(--bg-highlight); padding:0.6rem 1rem; border-radius:8px; border-left:4px solid var(--accent-red);">
+                    <strong style="color:var(--accent-red);">É BARREIRA</strong>
+                    <ul style="font-size:0.9rem; margin:0.2rem 0 0 1.2rem;">
+                        <li>Vieses de percepção</li>
+                        <li>Atitudes negativas (apatia, resistência)</li>
+                        <li>Conflitos culturais</li>
+                        <li>Insuficiência de habilidades interculturais</li>
+                    </ul>
+                </div>
+                <div style="background:var(--bg-highlight); padding:0.6rem 1rem; border-radius:8px; border-left:4px solid var(--accent-green);">
+                    <strong style="color:var(--accent-green);">NÃO É BARREIRA</strong>
+                    <ul style="font-size:0.9rem; margin:0.2rem 0 0 1.2rem;">
+                        <li>Conectar diversidade à estratégia de crescimento</li>
+                        <li>Implementar programas de mentoria</li>
+                        <li>Criar comitês de diversidade</li>
+                        <li>Estabelecer metas de representatividade</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h3>2.3 Estudo de caso: governança e diversidade em uma instituição financeira</h3>
+        <div class="card">
+            <p><strong>Cenário:</strong> O Banco Alfa, uma instituição de médio porte, enfrenta críticas por sua composição homogênea de liderança — todos os diretores são homens brancos com mais de 50 anos. O conselho de administração decide implementar um programa de governança e diversidade.</p>
+            <p><strong>Medidas implementadas:</strong></p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Medida</th><th>Área de Aplicação</th><th>Justificativa</th></tr></thead>
+                    <tbody>
+                        <tr><td>Criação de comitê de diversidade</td><td>Governança</td><td>Representação de grupos sub-representados</td></tr>
+                        <tr><td>Política de transparência salarial</td><td>Governança</td><td>Equidade de gênero e raça</td></tr>
+                        <tr><td>Programa de mentoria reversa</td><td>Diversidade</td><td>Desenvolvimento de habilidades interculturais</td></tr>
+                        <tr><td>Auditoria de vieses em processos de crédito</td><td>Controles Internos</td><td>Prevenção de discriminação</td></tr>
+                        <tr><td>Relatório anual de diversidade</td><td>Prestação de Contas</td><td>Transparência</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Análise para prova:</strong> A Cesgranrio pode perguntar quais dessas medidas são de governança e quais são de controles internos. A auditoria de vieses é controle interno; o comitê de diversidade e a política de transparência são governança.</p>
+        </div>
+
+        <!-- RESUMO CAP 2 -->
+        <div class="card" style="border-left-color:var(--accent-gold);">
+            <h4 style="margin-top:0; color:var(--accent-gold);">📌 Resumo do Capítulo 2</h4>
+            <p><strong>Benefícios da Governança Corporativa:</strong></p>
+            <ul>
+                <li>Separação das competências</li>
+                <li>Mitigação de conflitos de interesses</li>
+                <li>Aumento da transparência e da prestação de contas</li>
+                <li>Fomento da equidade</li>
+                <li>Responsabilidade socioambiental</li>
+            </ul>
+            <p><strong style="color:var(--accent-red);">O que NÃO é benefício direto:</strong> Prevenção, detecção e resposta a desvios (é função de controles internos e auditoria)</p>
+            <p><strong>Barreiras à Diversidade:</strong> Vieses de percepção, atitudes negativas, conflitos culturais, insuficiência de habilidades interculturais.</p>
+            <p><strong style="color:var(--accent-green);">O que NÃO é barreira:</strong> Medidas para conectar diversidade e inclusão com estratégias de crescimento.</p>
+        </div>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 3                                                    -->
+    <!-- ============================================================ -->
+    <section id="cap3">
+        <div class="chapter-label">Capítulo 3</div>
+        <h2>Prevenção à lavagem de dinheiro e o papel do COAF</h2>
+
+        <h3>3.1 O sistema de prevenção à lavagem de dinheiro no Brasil</h3>
+        <p>O combate à lavagem de dinheiro e ao financiamento do terrorismo (PLD/FT) é uma das responsabilidades mais críticas do sistema financeiro brasileiro. O escriturário bancário, como porta de entrada do relacionamento com clientes, desempenha papel fundamental nesse combate.</p>
+
+        <h4>3.1.1 Marco legal da PLD no Brasil</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Norma</th><th>Conteúdo Principal</th></tr></thead>
+                <tbody>
+                    <tr><td>Lei nº 9.613/1998</td><td>Define crimes de lavagem de dinheiro e estabelece obrigações para instituições financeiras</td></tr>
+                    <tr><td>Lei nº 13.810/2019</td><td>Dispõe sobre o combate ao financiamento do terrorismo</td></tr>
+                    <tr><td>Circular BACEN nº 3.978/2020</td><td>Estabelece procedimentos para PLD no SFN</td></tr>
+                    <tr><td>Resolução CMN nº 4.753/2019</td><td>Política de PLD para instituições financeiras</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>3.2 O Conselho de Controle de Atividades Financeiras (COAF)</h3>
+
+        <h4>3.2.1 Natureza e competências</h4>
+        <p>O COAF, atualmente vinculado ao Banco Central do Brasil (desde a Lei Complementar nº 179/2021), é a <strong>unidade de inteligência financeira (UIF)</strong> do Brasil. Sua principal atribuição é:</p>
+        <div class="blockquote">
+            <strong>Elaborar relatórios de inteligência financeira para subsidiar procedimentos investigativos de autoridades competentes.</strong>
+        </div>
+
+        <p>O COAF NÃO:</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>O COAF NÃO FAZ</th><th>Por quê?</th></tr></thead>
+                <tbody>
+                    <tr><td>Tem acesso direto a extratos bancários</td><td>Precisa de autorização judicial para dados sigilosos</td></tr>
+                    <tr><td>Escolhe discricionariamente alvos</td><td>Atua com base em critérios objetivos e comunicados</td></tr>
+                    <tr><td>Acessa bases sigilosas sem autorização</td><td>Respeita o sigilo bancário</td></tr>
+                    <tr><td>Investiga atos ilícitos diretamente</td><td>Apenas auxilia investigações com inteligência financeira</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>3.2.2 O fluxo de informações no sistema PLD</h4>
+        <!-- SVG: fluxo COAF -->
+        <div class="svg-container">
+            <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fluxo de informações no sistema PLD">
+                <defs>
+                    <marker id="arrow-coaf" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                        <path d="M0,1 L9,5 L0,9" fill="#58a6ff" />
+                    </marker>
+                    <style>
+                        .box-coaf { fill: #1c2333; stroke: #58a6ff; stroke-width: 2; rx: 10; }
+                        .box-coaf-text { fill: #e6edf3; font-size: 13px; font-family: 'Segoe UI', sans-serif; font-weight: 500; }
+                        .box-coaf-sub { fill: #b0c4de; font-size: 11px; font-family: 'Segoe UI', sans-serif; }
+                        .arrow-coaf { stroke: #58a6ff; stroke-width: 2; marker-end: url(#arrow-coaf); }
+                    </style>
+                </defs>
+                <!-- Instituição Financeira -->
+                <rect x="40" y="20" width="260" height="80" class="box-coaf" />
+                <text x="170" y="48" text-anchor="middle" class="box-coaf-text">Instituição Financeira</text>
+                <text x="170" y="68" text-anchor="middle" class="box-coaf-sub">• Identifica operações suspeitas</text>
+                <text x="170" y="84" text-anchor="middle" class="box-coaf-sub">• Comunica ao COAF (obrigação legal)</text>
+
+                <!-- Seta 1 -->
+                <line x1="300" y1="60" x2="380" y2="60" class="arrow-coaf" />
+
+                <!-- COAF -->
+                <rect x="390" y="20" width="260" height="80" class="box-coaf" style="stroke:#f0c674;" />
+                <text x="520" y="48" text-anchor="middle" class="box-coaf-text" style="fill:#f0c674;">COAF</text>
+                <text x="520" y="68" text-anchor="middle" class="box-coaf-sub">• Recebe comunicações</text>
+                <text x="520" y="84" text-anchor="middle" class="box-coaf-sub">• Elabora relatório de inteligência</text>
+
+                <!-- Seta 2 -->
+                <line x1="520" y1="100" x2="520" y2="180" class="arrow-coaf" />
+
+                <!-- Autoridades -->
+                <rect x="390" y="185" width="260" height="75" class="box-coaf" style="stroke:#7ee787;" />
+                <text x="520" y="215" text-anchor="middle" class="box-coaf-text" style="fill:#7ee787;">Autoridades Competentes</text>
+                <text x="520" y="235" text-anchor="middle" class="box-coaf-sub">• Ministério Público</text>
+                <text x="520" y="250" text-anchor="middle" class="box-coaf-sub">• Polícia Federal • Receita Federal</text>
+
+                <!-- Legenda -->
+                <text x="40" y="265" fill="#8b949e" font-size="10" font-family="'Segoe UI',sans-serif">Fluxo: Instituição → COAF → Autoridades</text>
+            </svg>
+        </div>
+
+        <h4>3.2.3 Aplicação prática para o escriturário</h4>
+        <p>Na rotina bancária, o escriturário deve estar atento a <strong>sinais de alerta</strong> (red flags) que podem indicar lavagem de dinheiro:</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1em 0;">
+            <div class="card" style="margin:0; border-left-color:var(--accent-orange);">
+                <h5 style="margin-top:0; color:var(--accent-orange);">Sinais de Alerta — Pessoas Físicas</h5>
+                <ul style="font-size:0.95rem;">
+                    <li>Clientes com perfil incompatível com as operações realizadas;</li>
+                    <li>Múltiplas transferências para contas no exterior sem justificativa;</li>
+                    <li>Depósitos fracionados para evitar limites de comunicação;</li>
+                    <li>Pessoa que se recusa a fornecer informações sobre a origem dos recursos.</li>
+                </ul>
+            </div>
+            <div class="card" style="margin:0; border-left-color:var(--accent-red);">
+                <h5 style="margin-top:0; color:var(--accent-red);">Sinais de Alerta — Pessoas Jurídicas</h5>
+                <ul style="font-size:0.95rem;">
+                    <li>Empresas sem atividade econômica aparente com movimentação financeira expressiva;</li>
+                    <li>Empresas com mudanças frequentes de sócios e endereço;</li>
+                    <li>Faturamento incompatível com o porte da empresa;</li>
+                    <li>Empresas de fachada ("laranjas").</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>3.3 Pegadinhas em provas sobre o COAF</h3>
+        <div class="card box-warning">
+            <h4 style="margin-top:0;">Pegadinha 1</h4>
+            <p><span class="highlight-red">Falso:</span> "O COAF investiga crimes financeiros."</p>
+            <p><span class="highlight-green">Correção:</span> O COAF NÃO investiga — ele elabora relatórios de inteligência. A investigação é das autoridades competentes (Polícia Federal, Ministério Público).</p>
+        </div>
+        <div class="card box-warning">
+            <h4 style="margin-top:0;">Pegadinha 2</h4>
+            <p><span class="highlight-red">Falso:</span> "O COAF tem acesso irrestrito aos dados bancários dos clientes."</p>
+            <p><span class="highlight-green">Correção:</span> O COAF recebe comunicações das instituições financeiras, mas NÃO tem acesso irrestrito. O sigilo bancário deve ser respeitado, e acesso a dados sigilosos depende de autorização judicial.</p>
+        </div>
+        <div class="card box-warning">
+            <h4 style="margin-top:0;">Pegadinha 3</h4>
+            <p><span class="highlight-red">Falso:</span> "O COAF escolhe os alvos de investigação de acordo com seu critério."</p>
+            <p><span class="highlight-green">Correção:</span> O COAF atua com base em critérios objetivos, comunicados pelas instituições financeiras, e não escolhe discricionariamente alvos de investigação.</p>
+        </div>
+
+        <div class="box-tip card">
+            <h4 style="margin-top:0;">Macete para lembrar as funções do COAF</h4>
+            <p><span class="mnemonic">COAF = COnhecimento, Análise e Fornecimento de informações para investigação</span></p>
+            <ul>
+                <li><strong>COnhecimento</strong>: recebe informações das instituições financeiras</li>
+                <li><strong>Análise</strong>: processa e cruza informações</li>
+                <li><strong>Fornecimento</strong>: elabora relatórios de inteligência financeira</li>
+            </ul>
+        </div>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 4                                                    -->
+    <!-- ============================================================ -->
+    <section id="cap4">
+        <div class="chapter-label">Capítulo 4</div>
+        <h2>Inovação financeira — CBDCs, criptomoedas e stablecoins</h2>
+
+        <h3>4.1 A revolução digital do dinheiro</h3>
+        <p>O sistema financeiro global passa por uma transformação sem precedentes com o surgimento de novas formas de dinheiro digital. Para o profissional bancário, compreender essas inovações não é mais opcional — é uma exigência para interpretar cenários regulatórios, riscos e oportunidades.</p>
+
+        <h3>4.2 CBDC — Central Bank Digital Currency</h3>
+        <h4>4.2.1 Conceito e características</h4>
+        <p>A CBDC (Central Bank Digital Currency, ou Moeda Digital de Banco Central) é a <strong>expressão digital da moeda soberana de um país</strong>, emitida e regulada pelo banco central.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Característica</th><th>Descrição</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Emissão Centralizada</strong></td><td>Emitida exclusivamente pelo banco central</td></tr>
+                    <tr><td><strong>Lastro na Confiança do Governo</strong></td><td>Representa a moeda fiduciária do país</td></tr>
+                    <tr><td><strong>Meio Legal de Pagamento</strong></td><td>Tem curso forçado (obrigação de aceitação)</td></tr>
+                    <tr><td><strong>Supervisão Regulatória</strong></td><td>Sujeita às regras do sistema financeiro nacional</td></tr>
+                    <tr><td><strong>Estabilidade Cambial</strong></td><td>Atrelada 1:1 à moeda fiduciária</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>4.2.2 Exemplos de CBDCs no mundo</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>País/Região</th><th>Projeto</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr><td>China</td><td>Digital Yuan (e-CNY)</td><td>Em implementação</td></tr>
+                    <tr><td>Brasil</td><td>Drex (antigo Real Digital)</td><td>Em fase de testes</td></tr>
+                    <tr><td>Suécia</td><td>E-krona</td><td>Em estudo</td></tr>
+                    <tr><td>Zona do Euro</td><td>Digital Euro</td><td>Em estudo</td></tr>
+                    <tr><td>Estados Unidos</td><td>Digital Dollar</td><td>Em estudo</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>4.2.3 O projeto Drex no Brasil</h4>
+        <p>O Drex (nome dado pelo Banco Central à CBDC brasileira) representa a digitalização da moeda Real. Diferentemente do PIX, que é um sistema de pagamento, o Drex é uma <strong>nova forma de dinheiro</strong>.</p>
+        <ul>
+            <li>Lastro 1:1 com o Real físico;</li>
+            <li>Emitido exclusivamente pelo Banco Central;</li>
+            <li>Transações tokenizadas, com contratos inteligentes (programabilidade);</li>
+            <li>Foco inicial em operações atacadistas entre instituições financeiras;</li>
+            <li>Expansão gradual para o varejo.</li>
+        </ul>
+
+        <h3>4.3 Criptomoedas: a alternativa descentralizada</h3>
+        <h4>4.3.1 Conceito e funcionamento</h4>
+        <p>As criptomoedas são ativos digitais descentralizados que utilizam criptografia para garantir a segurança das transações. Diferentemente das CBDCs, elas NÃO são emitidas por bancos centrais.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Característica</th><th>Descrição</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Descentralização</strong></td><td>Não há autoridade central emissora</td></tr>
+                    <tr><td><strong>Blockchain</strong></td><td>Registro distribuído e imutável</td></tr>
+                    <tr><td><strong>Anonimato Relativo</strong></td><td>Transações pseudônimas</td></tr>
+                    <tr><td><strong>Volatilidade</strong></td><td>Preços altamente voláteis</td></tr>
+                    <tr><td><strong>Oferta Limitada</strong></td><td>Muitas têm oferta máxima definida</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>4.3.2 Principais criptomoedas</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Criptomoeda</th><th>Criador</th><th>Característica Principal</th></tr></thead>
+                <tbody>
+                    <tr><td>Bitcoin</td><td>Satoshi Nakamoto</td><td>Primeira e mais conhecida; oferta limitada a 21 milhões</td></tr>
+                    <tr><td>Ethereum</td><td>Vitalik Buterin</td><td>Contratos inteligentes; segunda maior em valor</td></tr>
+                    <tr><td>Solana</td><td>Anatoly Yakovenko</td><td>Alta velocidade e baixo custo</td></tr>
+                    <tr><td>Cardano</td><td>Charles Hoskinson</td><td>Foco em pesquisa acadêmica</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>4.4 Stablecoins: o meio-termo</h3>
+        <h4>4.4.1 Conceito e características</h4>
+        <p>Stablecoins são ativos digitais privados com lastro em ativos tradicionais (moeda fiduciária, metais preciosos, commodities) com o objetivo de <strong>manter a estabilidade de preço</strong>.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo de Lastro</th><th>Exemplo</th><th>Característica</th></tr></thead>
+                <tbody>
+                    <tr><td>Lastro em moeda fiduciária</td><td>USDC, USDT</td><td>Lastro 1:1 em dólar americano</td></tr>
+                    <tr><td>Lastro em metais</td><td>PAX Gold</td><td>Lastro em ouro</td></tr>
+                    <tr><td>Algorítmicas</td><td>DAI</td><td>Mecanismos de oferta/demanda para estabilidade</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>4.4.2 Regulação das stablecoins no Brasil</h4>
+        <p>O Banco Central tem se posicionado sobre as stablecoins, especialmente no contexto do projeto Drex:</p>
+        <ul>
+            <li>As stablecoins são consideradas <strong>ativos digitais privados</strong>;</li>
+            <li>Sujeitas à regulação da CVM quando configuram valores mobiliários;</li>
+            <li>Não têm curso forçado no Brasil;</li>
+            <li>Podem ser utilizadas em operações autorizadas, mas o BC alerta sobre riscos.</li>
+        </ul>
+
+        <h3>4.5 Distinção essencial — O QUE A BANCA COBRA</h3>
+        <div class="box-important card">
+            <h4 style="margin-top:0;">ATENÇÃO: A Cesgranrio explora exaustivamente as diferenças entre CBDC, criptomoeda e stablecoin.</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Critério</th><th>CBDC</th><th>Criptomoeda</th><th>Stablecoin</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Emissor</strong></td><td>Banco Central</td><td>Desenvolvedores/Comunidade</td><td>Entidade privada</td></tr>
+                        <tr><td><strong>Centralização</strong></td><td>Centralizada</td><td>Descentralizada</td><td>Centralizada (geralmente)</td></tr>
+                        <tr><td><strong>Lastro</strong></td><td>Confiança no governo</td><td>Nenhum (exceto mineradoras)</td><td>Ativo fiduciário/metais</td></tr>
+                        <tr><td><strong>Regulação</strong></td><td>Plenamente regulada</td><td>Parcialmente regulada</td><td>Regulada como ativo privado</td></tr>
+                        <tr><td><strong>Curso Forçado</strong></td><td>Sim</td><td>Não</td><td>Não</td></tr>
+                        <tr><td><strong>Exemplo</strong></td><td>Real Digital (Drex)</td><td>Bitcoin, Ethereum</td><td>USDC, USDT</td></tr>
+                        <tr><td><strong>Volatilidade</strong></td><td>Baixa</td><td>Alta</td><td>Baixa</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3>4.6 Aplicação prática: o escriturário e o mundo digital</h3>
+        <p>Para o profissional bancário, a compreensão desses conceitos não é apenas teórica:</p>
+        <ol>
+            <li><strong>Atendimento a clientes</strong>: clientes perguntarão sobre investimentos em criptomoedas; o escriturário deve saber orientar sobre riscos e regulações;</li>
+            <li><strong>Risco de compliance</strong>: operações com criptomoedas podem ser utilizadas para lavagem de dinheiro; o escriturário deve identificar red flags;</li>
+            <li><strong>Inovação de produtos</strong>: bancos lançam produtos relacionados a ativos digitais; o profissional precisa entendê-los;</li>
+            <li><strong>Transformação digital</strong>: o Drex e o PIX estão transformando o sistema financeiro; o escriturário precisa estar preparado.</li>
+        </ol>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 5                                                    -->
+    <!-- ============================================================ -->
+    <section id="cap5">
+        <div class="chapter-label">Capítulo 5</div>
+        <h2>Técnicas de vendas e marketing de relacionamento</h2>
+
+        <h3>5.1 O processo de vendas no ambiente bancário</h3>
+        <p>O cargo de escriturário bancário, especialmente nas funções de Agente Comercial, envolve atividades de vendas e relacionamento. A abordagem de vendas no setor financeiro difere significativamente de outros setores devido à:</p>
+        <ul>
+            <li>Natureza fiduciária do relacionamento (confiança);</li>
+            <li>Complexidade dos produtos;</li>
+            <li>Regulamentação rigorosa;</li>
+            <li>Longo ciclo de relacionamento.</li>
+        </ul>
+
+        <h3>5.2 Etapas do processo de vendas</h3>
+        <h4>5.2.1 As etapas tradicionais</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Etapa</th><th>Descrição</th><th>Atividade Típica</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Prospecção</strong></td><td>Identificação de potenciais clientes</td><td>Análise de bases de dados, networking</td></tr>
+                    <tr><td><strong>Abordagem</strong></td><td>Primeiro contato com o prospect</td><td>Telefonema, e-mail, visita</td></tr>
+                    <tr><td><strong>Qualificação</strong></td><td>Análise do perfil e necessidade</td><td>Entrevista de diagnóstico</td></tr>
+                    <tr><td><strong>Apresentação</strong></td><td>Proposta de valor do produto</td><td>Demonstração de benefícios</td></tr>
+                    <tr><td><strong>Argumentação</strong></td><td>Superação de objeções</td><td>Esclarecimento de dúvidas</td></tr>
+                    <tr><td><strong>Fechamento</strong></td><td>Concretização da venda</td><td>Assinatura de contrato, abertura de conta</td></tr>
+                    <tr><td><strong>Pós-venda</strong></td><td>Acompanhamento e fidelização</td><td>Suporte, revisão periódica</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>5.2.2 O que vem depois do fechamento? (Foco da banca)</h4>
+        <div class="box-important card">
+            <h4 style="margin-top:0;">OBJETIVO PRINCIPAL DAS ETAPAS POSTERIORES AO FECHAMENTO:</h4>
+            <p style="font-size:1.2rem; color:var(--accent-gold);"><strong>Reter e fidelizar os clientes, garantindo relacionamento de longo prazo.</strong></p>
+        </div>
+        <p>Isso parece óbvio, mas a banca adora confundir com outros objetivos:</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>O QUE NÃO É O OBJETIVO PRINCIPAL DO PÓS-VENDA</th><th>Por que está errado?</th></tr></thead>
+                <tbody>
+                    <tr><td>Converter novos clientes</td><td>Isso é etapa de prospecção, não pós-venda</td></tr>
+                    <tr><td>Prospectar novos negócios</td><td>Isso é etapa de prospecção</td></tr>
+                    <tr><td>Nutrir leads</td><td>Isso é etapa do funil de vendas anterior</td></tr>
+                    <tr><td>Captar novos clientes</td><td>Isso é prospecção</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p>O pós-venda é sobre <strong>manter e aprofundar o relacionamento</strong> com quem JÁ é cliente.</p>
+
+        <h3>5.3 Boas práticas em vendas bancárias</h3>
+        <h4>5.3.1 O que é boa prática (e o que não é)</h4>
+        <div class="card" style="border-left-color:var(--accent-green);">
+            <h5 style="margin-top:0; color:var(--accent-green);">✅ Boas Práticas de Vendas</h5>
+            <p><strong>Ter um projeto bem estruturado de atendimento</strong> — esta é a prática universalmente recomendada, que transcende modismos e técnicas momentâneas.</p>
+        </div>
+        <div class="card" style="border-left-color:var(--accent-red);">
+            <h5 style="margin-top:0; color:var(--accent-red);">❌ O que NÃO é (necessariamente) boa prática</h5>
+            <ul>
+                <li><span class="highlight-red">Concentrar atenção em clientes indecisos</span> — focar exclusivamente em indecisos pode ser contraproducente; o atendimento deve ser equilibrado.</li>
+                <li><span class="highlight-red">Dar mais atenção a clientes com maior potencial de compra</span> — embora seja comum, não é uma boa prática universal; pode levar a negligência de outros clientes importantes.</li>
+            </ul>
+        </div>
+
+        <h4>5.3.2 O equilíbrio no atendimento</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo de Cliente</th><th>Abordagem Recomendada</th></tr></thead>
+                <tbody>
+                    <tr><td>Cliente indeciso</td><td>Atendimento paciente, esclarecimento de dúvidas</td></tr>
+                    <tr><td>Cliente decisivo</td><td>Agilidade na concretização</td></tr>
+                    <tr><td>Cliente de alto potencial</td><td>Ofertas personalizadas</td></tr>
+                    <tr><td>Cliente de baixo potencial</td><td>Atendimento padrão, com oportunidades de crescimento</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>5.4 Marketing de relacionamento no setor bancário</h3>
+        <h4>5.4.1 Conceito e importância</h4>
+        <p>O marketing de relacionamento no setor bancário visa criar vínculos duradouros com clientes, baseados em confiança e personalização. Diferentemente do marketing transacional (focado em venda única), o marketing de relacionamento busca:</p>
+        <ul>
+            <li><strong>Retenção de clientes</strong>;</li>
+            <li><strong>Aumento do lifetime value (valor do ciclo de vida)</strong>;</li>
+            <li><strong>Cross-selling e up-selling</strong> (venda cruzada e adicional);</li>
+            <li><strong>Redução de churn (taxa de cancelamento)</strong>.</li>
+        </ul>
+
+        <h4>5.4.2 Utilização de dados para estratégias personalizadas</h4>
+        <p>Os bancos convertem dados de clientes (contatos, assuntos tratados, histórico de transações) em informações para planejar ações personalizadas, facilitando a estruturação de estratégias de marketing de relacionamento.</p>
+        <div class="card">
+            <p><strong>Exemplo Prático:</strong></p>
+            <p>Um banco identifica, através da análise de dados, que clientes com perfil X (renda Y, idade Z, histórico de uso de cartão de crédito W) têm alta propensão a contratar um determinado seguro de vida.</p>
+            <p><strong>Ação personalizada:</strong></p>
+            <ol>
+                <li>Segmentação desses clientes;</li>
+                <li>Envio de comunicação específica sobre o seguro;</li>
+                <li>Oferta com condições atrativas;</li>
+                <li>Abordagem por canal preferido do cliente;</li>
+                <li>Acompanhamento pós-contratação.</li>
+            </ol>
+        </div>
+
+        <h3>5.5 Caso prático de atendimento e vendas</h3>
+        <div class="card">
+            <p><strong>Cenário:</strong> Um cliente chega à agência para solicitar informações sobre investimentos. Ele tem R$ 50.000,00 em poupança e está insatisfeito com a rentabilidade.</p>
+            <p><strong>Abordagem do escriturário:</strong></p>
+            <ol>
+                <li><strong>Diagnóstico (Qualificação)</strong>:
+                    <ul>
+                        <li>Qual o objetivo do cliente? (curto, médio ou longo prazo?)</li>
+                        <li>Qual o perfil de risco? (conservador, moderado ou arrojado?)</li>
+                        <li>Qual a necessidade de liquidez? (precisa do dinheiro a qualquer momento?)</li>
+                    </ul>
+                </li>
+                <li><strong>Apresentação</strong>:
+                    <ul>
+                        <li>Produto adequado ao perfil (ex: CDB, LCI, LCA, fundos, etc.)</li>
+                        <li>Benefícios do produto (rentabilidade, segurança, liquidez)</li>
+                        <li>Comparação com a poupança</li>
+                    </ul>
+                </li>
+                <li><strong>Argumentação</strong>:
+                    <ul>
+                        <li>Esclarecimento de dúvidas sobre tributação</li>
+                        <li>Esclarecimento sobre riscos</li>
+                        <li>Explicação sobre prazos</li>
+                    </ul>
+                </li>
+                <li><strong>Fechamento</strong>:
+                    <ul>
+                        <li>Formalização da operação</li>
+                        <li>Documentação necessária</li>
+                        <li>Esclarecimento sobre procedimentos</li>
+                    </ul>
+                </li>
+                <li><strong>Pós-venda</strong>:
+                    <ul>
+                        <li>Acompanhamento da rentabilidade</li>
+                        <li>Revisão periódica do perfil do investidor</li>
+                        <li>Oportunidades de novos produtos</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 6                                                    -->
+    <!-- ============================================================ -->
+    <section id="cap6">
+        <div class="chapter-label">Capítulo 6</div>
+        <h2>Mercado de seguros — fundamentos e operações</h2>
+
+        <h3>6.1 Panorama do mercado de seguros no Brasil</h3>
+        <p>O mercado de seguros brasileiro, regulado pela Superintendência de Seguros Privados (SUSEP), autarquia vinculada ao Ministério da Fazenda, movimenta bilhões de reais anualmente. Para o escriturário bancário, o seguro é um produto de venda frequente (especialmente em bancos com seguradoras próprias) e de grande relevância para a proteção patrimonial dos clientes.</p>
+
+        <h3>6.2 Os elementos do contrato de seguro</h3>
+        <h4>6.2.1 As partes contratantes</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Parte</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Segurado</strong></td><td>Pessoa física ou jurídica que contrata o seguro e paga o prêmio</td><td>Pessoa que compra seguro de carro</td></tr>
+                    <tr><td><strong>Seguradora</strong></td><td>Empresa que assume o risco e se obriga a indenizar</td><td>Porto Seguro, Bradesco Seguros</td></tr>
+                    <tr><td><strong>Beneficiário</strong></td><td>Pessoa que recebe a indenização em caso de sinistro</td><td>Herdeiros no seguro de vida</td></tr>
+                    <tr><td><strong>Estipulante</strong></td><td>Pessoa que contrata seguro para um grupo (seguro coletivo)</td><td>Empresa que contrata seguro de vida para funcionários</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>6.2.2 Os elementos do risco</h4>
+        <p>Para que um risco seja segurável, ele deve reunir certas características:</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Requisito</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Possível</strong></td><td>O evento pode ocorrer</td><td>Um incêndio pode ocorrer</td></tr>
+                    <tr><td><strong>Futuro</strong></td><td>Não pode ser um evento já ocorrido</td><td>Não se segura um carro já batido</td></tr>
+                    <tr><td><strong>Incerteza</strong></td><td>Não é certo que ocorrerá</td><td>Se fosse certo, seria despesa, não risco</td></tr>
+                    <tr><td><strong>Independente da vontade das partes</strong></td><td>Não pode ser causado intencionalmente</td><td>Não se segura um ato criminoso</td></tr>
+                    <tr><td><strong>Capaz de resultar prejuízo</strong></td><td>Deve gerar perda financeira</td><td>Risco de perda do patrimônio</td></tr>
+                    <tr><td><strong>Mensurável</strong></td><td>Quantificável em probabilidade e impacto</td><td>Possível calcular a probabilidade</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="box-warning card">
+            <h4 style="margin-top:0;">ATENÇÃO: A mensurabilidade é o requisito que a banca adora cobrar!</h4>
+            <p>O risco deve ser <span class="highlight">mensurável</span> — ou seja, quantificável em termos de probabilidade e impacto financeiro, permitindo à seguradora calcular o prêmio adequadamente.</p>
+            <p>Sem mensurabilidade, a seguradora não consegue precificar o seguro, tornando-o inviável.</p>
+        </div>
+
+        <h3>6.3 O princípio fundamental: boa-fé mútua</h3>
+        <p>O mercado de seguros é regido pelo princípio da <strong>boa-fé mútua</strong>, que exige que segurado e seguradora ajam com honestidade, transparência e ética em todas as etapas da relação contratual.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Obrigação do Segurado</th><th>Obrigação da Seguradora</th></tr></thead>
+                <tbody>
+                    <tr><td>Fornecer informações verdadeiras sobre o risco</td><td>Fornecer informações claras sobre coberturas</td></tr>
+                    <tr><td>Não omitir informações relevantes</td><td>Pagar indenizações dentro do prazo</td></tr>
+                    <tr><td>Comunicar alterações no risco</td><td>Não utilizar cláusulas abusivas</td></tr>
+                    <tr><td>Pagar o prêmio no prazo</td><td>Atender com eficiência</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>6.4 A consequência da violação da boa-fé: omissão e falsidade</h3>
+        <div class="box-important card">
+            <h4 style="margin-top:0;">CONSEQUÊNCIA PARA O SEGURADO QUE FIZER DECLARAÇÕES FALSAS OU OMITIR INFORMAÇÕES:</h4>
+            <p style="font-size:1.2rem; color:var(--accent-red);"><strong>Perda do direito à indenização.</strong></p>
+            <ul>
+                <li>A seguradora baseia a aceitação do risco e a precificação do prêmio nas informações fornecidas;</li>
+                <li>Informações falsas ou omissões alteram a avaliação do risco;</li>
+                <li>Se o cliente tivesse informado corretamente, a seguradora poderia: negar a cobertura; cobrar prêmio mais alto; estabelecer condições diferentes.</li>
+            </ul>
+        </div>
+
+        <h3>6.5 A indenização e sua finalidade</h3>
+        <p>A indenização no seguro tem uma finalidade específica: <strong>restaurar o segurado à situação anterior ao sinistro</strong>. Não é para gerar enriquecimento sem causa.</p>
+        <p>Quando a seguradora realiza a indenização com agilidade, transparência e cumprimento de prazos, ela <strong>garante o valor percebido pelo cliente e pela sociedade</strong>, pois a eficiência no serviço aumenta a confiança e a percepção positiva do setor de seguros.</p>
+
+        <h3>6.6 Documentos do seguro</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Documento</th><th>Descrição</th><th>Momento</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Proposta de Seguro</strong></td><td>Manifestação de interesse do proponente</td><td>Antes da contratação</td></tr>
+                    <tr><td><strong>Apólice</strong></td><td>Contrato formal emitido pela seguradora</td><td>Após aceitação</td></tr>
+                    <tr><td><strong>Endosso</strong></td><td>Documento que altera a apólice existente</td><td>Durante a vigência</td></tr>
+                    <tr><td><strong>Averbação</strong></td><td>Registro de modificações (usado em seguros patrimoniais)</td><td>Durante a vigência</td></tr>
+                    <tr><td><strong>Prêmio</strong></td><td>Valor pago pelo segurado</td><td>Periodicamente</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Distinção Importante:</strong></p>
+        <ul>
+            <li><strong>Proposta</strong>: manifestação de interesse → É um documento? <span class="highlight-green">Sim</span></li>
+            <li><strong>Apólice</strong>: contrato formal → É um documento? <span class="highlight-green">Sim</span></li>
+            <li><strong>Endosso</strong>: alteração de apólice → É um documento? <span class="highlight-green">Sim</span></li>
+            <li><strong>Prêmio</strong>: valor pago → É um documento? <span class="highlight-red">Não</span></li>
+        </ul>
+
+        <h3>6.7 Vigência do seguro</h3>
+        <p>Na falta de indicação expressa de horário no contrato de seguro, o horário padrão de início e término da vigência é:</p>
+        <div class="blockquote">
+            <strong>Sempre as vinte e quatro horas (24h) das datas indicadas.</strong><br>
+            Ou seja: o seguro cobre o dia completo.
+        </div>
+        <p><strong>Exemplo:</strong> Data de início: 01/01/2025 | Data de término: 31/01/2025 → Sem indicação de horário: cobertura de 00:00 do dia 01/01 a 24:00 do dia 31/01.</p>
+
+        <h3>6.8 Seguro coletivo e o grupo segurável</h3>
+        <p>O <strong>grupo segurável</strong> é a totalidade de pessoas físicas vinculadas ao estipulante que reúnem condições para inclusão em uma apólice coletiva. São pessoas com interesses seguráveis comuns que concorrem para formar uma massa econômica para suprir necessidades eventuais de parte do grupo.</p>
+
+        <h3>6.9 Erros comuns e pegadinhas</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Erro Comum</th><th>Correção</th></tr></thead>
+                <tbody>
+                    <tr><td>"Prêmio é o valor recebido em caso de sinistro"</td><td>Prêmio é o valor <strong>PAGO</strong> pelo segurado; a indenização é o valor <strong>RECEBIDO</strong> em caso de sinistro</td></tr>
+                    <tr><td>"A omissão leva à perda do prêmio"</td><td>A omissão leva à perda do <strong>DIREITO À INDENIZAÇÃO</strong>, não do prêmio</td></tr>
+                    <tr><td>"O seguro começa à meia-noite"</td><td>Sem indicação expressa, o seguro começa às 24h (ou seja, cobre o dia completo)</td></tr>
+                    <tr><td>"O COAF investiga crimes de seguro"</td><td>O COAF não investiga; produz relatórios de inteligência</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 7                                                    -->
+    <!-- ============================================================ -->
+    <section id="cap7">
+        <div class="chapter-label">Capítulo 7</div>
+        <h2>Previdência complementar e regimes previdenciários</h2>
+
+        <h3>7.1 Estrutura da previdência no Brasil</h3>
+        <p>A previdência no Brasil é composta por três pilares:</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Pilar</th><th>Descrição</th><th>Regulação</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Previdência Social (RGPS)</strong></td><td>Regime Geral de Previdência Social</td><td>INSS</td></tr>
+                    <tr><td><strong>Previdência do Servidor Público (RPPS)</strong></td><td>Regime Próprio de Previdência Social</td><td>Entes federativos</td></tr>
+                    <tr><td><strong>Previdência Complementar</strong></td><td>Previdência privada (aberta e fechada)</td><td>Susep (aberta), PREVIC (fechada)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>7.2 Regime Geral de Previdência Social (RGPS)</h3>
+        <p>O RGPS abrange os trabalhadores da iniciativa privada, autônomos e demais camadas sociais. É o regime mais abrangente do país, mantido pelo Instituto Nacional do Seguro Social (INSS).</p>
+        <ul>
+            <li>Cobertura universal;</li>
+            <li>Benefícios: aposentadoria, auxílio-doença, salário-maternidade, pensão por morte;</li>
+            <li>Contribuição obrigatória para trabalhadores formais;</li>
+            <li>Carência para acesso aos benefícios.</li>
+        </ul>
+
+        <h3>7.3 Regime Próprio de Previdência Social (RPPS)</h3>
+        <p>O RPPS é destinado a servidores públicos. Cada ente federativo (União, estados e municípios) pode ter seu próprio RPPS.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Característica</th><th>RGPS</th><th>RPPS</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Abrangência</strong></td><td>Trabalhadores privados, autônomos</td><td>Servidores públicos</td></tr>
+                    <tr><td><strong>Regulador</strong></td><td>INSS</td><td>Entes federativos</td></tr>
+                    <tr><td><strong>Sustentação</strong></td><td>Contribuições dos trabalhadores e empresas</td><td>Contribuições do ente e dos servidores</td></tr>
+                    <tr><td><strong>Benefícios</strong></td><td>Padronizados nacionalmente</td><td>Podem variar por ente</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>7.4 Previdência Complementar</h3>
+        <p>A previdência complementar é um regime facultativo que complementa os benefícios do RGPS e RPPS.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Previdência Complementar Aberta</strong></td><td>Qualquer pessoa pode contratar</td><td>PGBL, VGBL</td></tr>
+                    <tr><td><strong>Previdência Complementar Fechada</strong></td><td>Apenas funcionários de uma empresa ou grupo</td><td>Fundos de pensão</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Exemplo:</strong> Um funcionário da iniciativa privada contribui para o INSS (RGPS) e também faz um plano de previdência privada (PGBL/VGBL) para complementar sua aposentadoria.</p>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 8                                                    -->
+    <!-- ============================================================ -->
+    <section id="cap8">
+        <div class="chapter-label">Capítulo 8</div>
+        <h2>Títulos de capitalização — estrutura e prazos</h2>
+
+        <h3>8.1 Conceito e finalidade</h3>
+        <p>O título de capitalização é um produto financeiro que combina:</p>
+        <ul>
+            <li><strong>Poupança programada</strong>: o cliente faz contribuições periódicas;</li>
+            <li><strong>Participação em sorteios</strong>: os recursos são aplicados em sorteios;</li>
+            <li><strong>Resgate</strong>: possibilidade de resgatar o valor acumulado ao final do prazo.</li>
+        </ul>
+        <p>É regulado pela SUSEP (Superintendência de Seguros Privados) e não é um investimento no sentido estrito, pois parte dos recursos é destinada a sorteios e comissões.</p>
+
+        <h3>8.2 Os três prazos dos títulos de capitalização</h3>
+        <div class="box-tip card">
+            <h4 style="margin-top:0;">MACETE: <span class="mnemonic">PVC — Pagamento, Vigência, Carência</span></h4>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Prazo</th><th>Descrição</th><th>Pergunta-Chave</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Pagamento</strong></td><td>Período para pagar os prêmios</td><td>Quanto tempo tenho para pagar?</td></tr>
+                    <tr><td><strong>Vigência</strong></td><td>Período em que o título está ativo, com sorteios</td><td>Durante quanto tempo o título funciona?</td></tr>
+                    <tr><td><strong>Carência</strong></td><td>Período mínimo para poder resgatar o valor investido</td><td>Quando posso pegar meu dinheiro de volta?</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card" style="border-left-color:var(--accent-gold);">
+            <h4 style="margin-top:0;">Exemplo Prático</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Prazo</th><th>Duração</th><th>Função</th></tr></thead>
+                    <tbody>
+                        <tr><td>Pagamento</td><td>12 meses</td><td>Cliente faz 12 pagamentos mensais</td></tr>
+                        <tr><td>Vigência</td><td>24 meses</td><td>Sorteios ocorrem por 24 meses</td></tr>
+                        <tr><td>Carência</td><td>6 meses</td><td>Só pode resgatar após 6 meses</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3>8.3 Prazos e consequências para o consumidor</h3>
+        <p>O consumidor deve considerar esses três prazos antes de contratar um título de capitalização:</p>
+        <ol>
+            <li><strong>Prazo de Pagamento</strong>: Quanto tempo ele terá para quitar as parcelas;</li>
+            <li><strong>Prazo de Vigência</strong>: Por quanto tempo o título continuará ativo, com sorteios e possibilidade de resgate;</li>
+            <li><strong>Prazo de Carência</strong>: Quanto tempo ele precisará esperar para resgatar o dinheiro.</li>
+        </ol>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 9                                                    -->
+    <!-- ============================================================ -->
+    <section id="cap9">
+        <div class="chapter-label">Capítulo 9</div>
+        <h2>Gestão de carteiras e reativação de clientes</h2>
+
+        <h3>9.1 Segmentação de clientes</h3>
+        <p>A segmentação da base de clientes é uma das ações mais eficazes que um gestor comercial pode tomar para ampliar os resultados.</p>
+        <div class="card" style="border-left-color:var(--accent-cyan);">
+            <h5 style="margin-top:0; color:var(--accent-cyan);">Por que segmentar?</h5>
+            <ul>
+                <li><strong>Personalização</strong>: ofertas adaptadas a cada perfil</li>
+                <li><strong>Eficiência</strong>: esforços concentrados nos clientes certos</li>
+                <li><strong>Aumento de conversão</strong>: comunicação mais relevante</li>
+                <li><strong>Redução de custos</strong>: menos desperdício em ações inefetivas</li>
+                <li><strong>Cross-selling</strong>: identificação de produtos complementares</li>
+            </ul>
+        </div>
+
+        <p><strong>Critérios de Segmentação:</strong></p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Critério</th><th>Exemplo</th></tr></thead>
+                <tbody>
+                    <tr><td>Socioeconômico</td><td>Renda, escolaridade, profissão</td></tr>
+                    <tr><td>Demográfico</td><td>Idade, gênero, localização</td></tr>
+                    <tr><td>Comportamental</td><td>Hábitos de consumo, uso de produtos</td></tr>
+                    <tr><td>Psicográfico</td><td>Perfil de risco, estilo de vida</td></tr>
+                    <tr><td>Geográfico</td><td>Região, cidade, bairro</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>9.2 Reativação de clientes</h3>
+        <p>Reativar clientes perdidos ao longo do tempo é uma estratégia de custo-benefício vantajoso, pois:</p>
+        <ul>
+            <li>É mais barato que captar um novo cliente;</li>
+            <li>O cliente já conhece a instituição;</li>
+            <li>Reduz o churn e aumenta o lifetime value.</li>
+        </ul>
+
+        <div class="box-important card">
+            <h4 style="margin-top:0;">Condição Essencial para Reativação</h4>
+            <p style="font-size:1.1rem; color:var(--accent-gold);"><strong>Manter atualizados os cadastros de clientes é fundamental.</strong></p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-top:0.8rem;">
+                <div style="background:var(--bg-highlight); padding:0.6rem 1rem; border-radius:8px; border-left:4px solid var(--accent-red);">
+                    <strong style="color:var(--accent-red);">Sem Cadastro Atualizado</strong>
+                    <ul style="font-size:0.9rem; margin:0.2rem 0 0 1.2rem;">
+                        <li>Comunicação imprecisa</li>
+                        <li>Ações de marketing mal direcionadas</li>
+                        <li>Desperdício de recursos</li>
+                        <li>Dificuldade de localização</li>
+                    </ul>
+                </div>
+                <div style="background:var(--bg-highlight); padding:0.6rem 1rem; border-radius:8px; border-left:4px solid var(--accent-green);">
+                    <strong style="color:var(--accent-green);">Com Cadastro Atualizado</strong>
+                    <ul style="font-size:0.9rem; margin:0.2rem 0 0 1.2rem;">
+                        <li>Comunicação precisa</li>
+                        <li>Ações de marketing eficazes</li>
+                        <li>Melhor retorno sobre investimento</li>
+                        <li>Contato assertivo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <p><strong>Estratégias para Reativação:</strong></p>
+        <ol>
+            <li><strong>Manter dados atualizados</strong>: a base é o fundamento de qualquer ação;</li>
+            <li><strong>Comunicação personalizada</strong>: baseada no histórico do cliente;</li>
+            <li><strong>Felicitações em datas especiais</strong>: aniversário, datas de relacionamento;</li>
+            <li><strong>Ofertas especiais</strong>: condições atrativas para retorno;</li>
+            <li><strong>Pesquisa de satisfação</strong>: entender os motivos do cancelamento.</li>
+        </ol>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 10                                                   -->
+    <!-- ============================================================ -->
+    <section id="cap10">
+        <div class="chapter-label">Capítulo 10</div>
+        <h2>Dicas de prova e pegadinhas das bancas</h2>
+
+        <h3>10.1 Cesgranrio — características e pegadinhas</h3>
+        <p>A Cesgranrio tem um estilo próprio em provas da área bancária. Conhecer essas características é essencial para o sucesso.</p>
+
+        <h4>10.1.1 Governança Corporativa</h4>
+        <div class="card box-warning">
+            <p><span class="highlight-red">Pegadinha:</span> Incluir "prevenção, detecção e resposta a desvios" como benefício da governança corporativa.</p>
+            <p><span class="highlight-green">Correção:</span> Prevenção, detecção e resposta a desvios é função de <strong>controles internos e auditoria</strong>, não benefício direto da governança. A governança foca em princípios como transparência, equidade e separação de competências.</p>
+            <p><strong>Dica:</strong> Quando a questão listar benefícios da governança, desconfie de alternativas que mencionem atividades operacionais ou de controle. Governança é sobre direcionamento, não sobre execução.</p>
+        </div>
+
+        <h4>10.1.2 Diversidade</h4>
+        <div class="card box-warning">
+            <p><span class="highlight-red">Pegadinha:</span> Listar diversas barreiras e incluir uma alternativa positiva (como conectar diversidade à estratégia de crescimento).</p>
+            <p><span class="highlight-green">Correção:</span> Conectar diversidade à estratégia de crescimento não é barreira — é <strong>ação desejável</strong>. Barreiras reais incluem vieses, atitudes negativas, conflitos culturais e falta de habilidades interculturais.</p>
+            <p><strong>Dica:</strong> A Cesgranrio gosta de camuflar a resposta correta, colocando uma alternativa que parece boa mas é conceitualmente errada. Leia atentamente o que a questão pede.</p>
+        </div>
+
+        <h4>10.1.3 Autoatendimento</h4>
+        <div class="card box-warning">
+            <p><span class="highlight-red">Pegadinha:</span> Confundir o público-alvo dos recursos de acessibilidade (deficiente visual x auditivo).</p>
+            <p><span class="highlight-green">Correção:</span> O conector de fone é para <strong>deficiente visual</strong> (assistente de voz). O desligamento do monitor protege a <strong>privacidade</strong>.</p>
+            <p><strong>Dica:</strong> Lembre-se: o recurso de áudio é para quem não VÊ (deficiente visual), não para quem não ouve.</p>
+        </div>
+
+        <h4>10.1.4 Seguros</h4>
+        <div class="card box-warning">
+            <p><span class="highlight-red">Pegadinha:</span> Confundir prêmio com indenização.</p>
+            <p><span class="highlight-green">Correção:</span></p>
+            <ul>
+                <li><strong>Prêmio</strong>: valor <strong>PAGO</strong> pelo segurado à seguradora.</li>
+                <li><strong>Indenização</strong>: valor <strong>RECEBIDO</strong> pelo segurado em caso de sinistro.</li>
+            </ul>
+            <p><strong>Consequência da omissão:</strong> O segurado perde o direito à <strong>INDENIZAÇÃO</strong>, não ao prêmio.</p>
+        </div>
+
+        <h4>10.1.5 COAF</h4>
+        <div class="card box-warning">
+            <p><span class="highlight-red">Pegadinha:</span> Atribuir ao COAF funções investigativas ou de acesso direto a dados.</p>
+            <p><span class="highlight-green">Correção:</span> O COAF produz <strong>relatórios de inteligência financeira</strong> para <strong>auxiliar</strong> investigações de autoridades competentes. Não investiga, não tem acesso livre a dados sigilosos, não escolhe alvos discricionariamente.</p>
+        </div>
+
+        <h3>10.2 Resumo das principais distinções</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tema</th><th>Conceito A</th><th>Conceito B</th><th>Diferença Fundamental</th></tr></thead>
+                <tbody>
+                    <tr><td>Governança</td><td>Governança Corporativa</td><td>Controles Internos</td><td>Princípios vs. Procedimentos</td></tr>
+                    <tr><td>Diversidade</td><td>Barreiras</td><td>Ações positivas</td><td>Obstáculos vs. Soluções</td></tr>
+                    <tr><td>COAF</td><td>Inteligência Financeira</td><td>Investigação</td><td>Auxílio vs. Atuação direta</td></tr>
+                    <tr><td>Seguros</td><td>Prêmio</td><td>Indenização</td><td>Pagamento vs. Recebimento</td></tr>
+                    <tr><td>Autoatendimento</td><td>Fone para DV</td><td>Desligamento do monitor</td><td>Acessibilidade vs. Privacidade</td></tr>
+                    <tr><td>CBDC</td><td>Moeda digital centralizada</td><td>Criptomoeda descentralizada</td><td>Emissor e regulação</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- APÊNDICE                                                      -->
+    <!-- ============================================================ -->
+    <section id="apendice">
+        <div class="chapter-label">Apêndice</div>
+        <h2>Quadro-síntese dos principais temas</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tema</th><th>Conceito-Chave</th><th>Aplicação</th><th>Pegadinha</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Autoatendimento</strong></td><td>Fone de ouvido desativa monitor para privacidade de DV</td><td>Atendimento inclusivo</td><td>Confundir DV com DA</td></tr>
+                    <tr><td><strong>Governança</strong></td><td>Separação de competências, transparência, equidade</td><td>Gestão corporativa</td><td>Controles internos vs. governança</td></tr>
+                    <tr><td><strong>Diversidade</strong></td><td>Barreiras: vieses, atitudes, conflitos culturais</td><td>Políticas de inclusão</td><td>Ações positivas como barreiras</td></tr>
+                    <tr><td><strong>COAF</strong></td><td>Produção de relatórios de inteligência</td><td>PLD/FT</td><td>Funções investigativas</td></tr>
+                    <tr><td><strong>CBDC</strong></td><td>Moeda digital centralizada, lastro no governo</td><td>Inovação financeira</td><td>Confundir com criptomoeda</td></tr>
+                    <tr><td><strong>Seguros</strong></td><td>Boa-fé mútua, risco mensurável</td><td>Proteção patrimonial</td><td>Confundir prêmio e indenização</td></tr>
+                    <tr><td><strong>Capitalização</strong></td><td>Prazos: PVC (Pagamento, Vigência, Carência)</td><td>Poupança programada</td><td>Esquecer um dos prazos</td></tr>
+                    <tr><td><strong>Previdência</strong></td><td>RGPS (privados) x RPPS (servidores)</td><td>Planejamento previdenciário</td><td>Confundir regimes</td></tr>
+                    <tr><td><strong>Pós-venda</strong></td><td>Fidelização e retenção</td><td>Relacionamento</td><td>Confundir com prospecção</td></tr>
+                    <tr><td><strong>Reativação</strong></td><td>Cadastro atualizado</td><td>Recuperação de clientes</td><td>Subestimar importância dos dados</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- REFERÊNCIAS                                                   -->
+    <!-- ============================================================ -->
+    <section id="referencias">
+        <div class="chapter-label">Referências</div>
+        <h2>Referências normativas</h2>
+
+        <ul style="list-style:none; padding-left:0;">
+            <li style="padding:0.3rem 0; border-bottom:1px solid var(--border-subtle);">📜 Lei nº 9.613/1998 — Crimes de Lavagem de Dinheiro</li>
+            <li style="padding:0.3rem 0; border-bottom:1px solid var(--border-subtle);">📜 Lei nº 13.146/2015 — Lei Brasileira de Inclusão</li>
+            <li style="padding:0.3rem 0; border-bottom:1px solid var(--border-subtle);">📜 Lei Complementar nº 179/2021 — Vinculação do COAF ao BACEN</li>
+            <li style="padding:0.3rem 0; border-bottom:1px solid var(--border-subtle);">📜 Resolução CMN nº 4.949/2021 — Acessibilidade em Produtos Financeiros</li>
+            <li style="padding:0.3rem 0; border-bottom:1px solid var(--border-subtle);">📜 Circular BACEN nº 3.942/2019 — Acessibilidade em Terminais de Autoatendimento</li>
+            <li style="padding:0.3rem 0; border-bottom:1px solid var(--border-subtle);">📜 Circular BACEN nº 3.978/2020 — Procedimentos de PLD</li>
+            <li style="padding:0.3rem 0; border-bottom:1px solid var(--border-subtle);">📜 Código de Defesa do Consumidor — Lei nº 8.078/1990</li>
+            <li style="padding:0.3rem 0;">📜 Lei Geral de Proteção de Dados — Lei nº 13.709/2018</li>
+        </ul>
+
+        <div style="margin-top:2em; padding:1.2rem; background:var(--bg-secondary); border-radius:var(--radius); border-left:4px solid var(--accent-gold);">
+            <p style="margin:0; font-size:0.95rem; color:var(--text-muted);">
+                <em>Este material foi elaborado com base em conteúdo de estudos direcionados para concursos da área bancária, com foco nas bancas Cesgranrio, FCC, FGV e Cebraspe. O conteúdo reflete a interpretação consolidada de normativos e a prática bancária, sendo recomendada a consulta às fontes primárias para aprofundamento.</em>
+            </p>
+        </div>
+
+        <div style="text-align:right; margin-top:0.5rem;">
+            <a href="#sumario" class="back-top">↑ Voltar ao sumário</a>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER                                                        -->
+    <!-- ============================================================ -->
+    <footer class="footer-note">
+        <p style="margin:0;">Apostila de Conhecimentos Bancários — Material de estudo para concursos</p>
+        <p style="margin:0.2rem 0 0; font-size:0.8rem; color:var(--text-muted);">Conteúdo 100% preservado • Design otimizado para tablet e desktop</p>
+    </footer>
+
+</body>
+</html>
