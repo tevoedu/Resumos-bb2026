@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Sistema Financeiro Nacional e Produtos Bancários – Apostila para Concursos</title>
+    <style>
+        /* ===== RESET E BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0d1a;
+            color: #e8e6f0;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            font-size: 1.0625rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #141426;
+            padding: 2.5rem 2rem;
+            border-radius: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+            border: 1px solid #2a2a4a;
+        }
+
+        /* ===== TIPOGRAFIA ===== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 2.2rem;
+            margin-bottom: 1rem;
+            color: #f0ecff;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            margin-top: 0.2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #f9d976, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a8a4c0;
+            margin-bottom: 2rem;
+            border-left: 4px solid #f39c12;
+            padding-left: 1.2rem;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 3px solid #2a2a5a;
+            color: #f0c27f;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            margin-top: 2rem;
+            color: #9bbaff;
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            color: #b8b0d8;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #e0dcec;
+        }
+
+        a {
+            color: #f0c27f;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #ffd966;
+            text-decoration: underline;
+        }
+
+        strong {
+            color: #ffd966;
+        }
+
+        /* ===== SUMÁRIO ===== */
+        .toc {
+            background: #1c1c3a;
+            border-radius: 1.5rem;
+            padding: 1.8rem 2rem;
+            margin: 2.5rem 0 3rem;
+            border: 1px solid #3a3a6a;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: 2px solid #3a3a6a;
+            padding-bottom: 0.5rem;
+            color: #f0c27f;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.6rem 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #28284a;
+        }
+
+        .toc-item .num {
+            color: #f39c12;
+            font-weight: 700;
+            min-width: 2rem;
+        }
+
+        .toc-item a {
+            color: #c8c4e0;
+            font-weight: 500;
+        }
+        .toc-item a:hover {
+            color: #ffd966;
+        }
+
+        /* ===== TABELAS ===== */
+        .tabela-moderna {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.8rem 0;
+            font-size: 0.95rem;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .tabela-moderna thead {
+            background: #2a2a5a;
+            color: #f0ecff;
+        }
+
+        .tabela-moderna th {
+            padding: 0.9rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .tabela-moderna td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #2a2a4a;
+            background-color: #1a1a30;
+            color: #dedaee;
+        }
+
+        .tabela-moderna tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tabela-moderna tbody tr:hover td {
+            background-color: #25254a;
+        }
+
+        .tabela-moderna .destaque-linha {
+            background-color: #2a2a50 !important;
+        }
+
+        /* ===== LISTAS ===== */
+        ul,
+        ol {
+            margin: 0.8rem 0 1.5rem 1.8rem;
+            color: #e0dcec;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .lista-marcadores {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .lista-marcadores li {
+            padding-left: 2.2rem;
+            position: relative;
+            margin-bottom: 0.7rem;
+        }
+
+        .lista-marcadores li::before {
+            content: "▹";
+            color: #f39c12;
+            position: absolute;
+            left: 0.2rem;
+            font-size: 1.2rem;
+        }
+
+        /* ===== CAIXAS DE DESTAQUE ===== */
+        .dica-box,
+        .observacao-box,
+        .conceito-card,
+        .citacao-box,
+        .info-box {
+            padding: 1.4rem 1.8rem;
+            margin: 1.8rem 0;
+            border-radius: 1.2rem;
+            border-left: 6px solid;
+            background: #18183a;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .dica-box {
+            border-left-color: #f1c40f;
+            background: #1f1f30;
+        }
+
+        .dica-box .titulo-box {
+            color: #f1c40f;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .observacao-box {
+            border-left-color: #3498db;
+            background: #16213e;
+        }
+
+        .observacao-box .titulo-box {
+            color: #5dade2;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .conceito-card {
+            border-left-color: #9b59b6;
+            background: #1f1a3a;
+            border: 1px solid #6c3483;
+            box-shadow: 0 6px 24px rgba(155, 89, 182, 0.15);
+        }
+
+        .conceito-card .titulo-box {
+            color: #c39bd3;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .citacao-box {
+            border-left-color: #e67e22;
+            background: #1f1a2a;
+            font-style: italic;
+            color: #d5d0e8;
+        }
+
+        .citacao-box::before {
+            content: "“";
+            font-size: 2.4rem;
+            color: #e67e22;
+            line-height: 0.8;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .info-box {
+            border-left-color: #1abc9c;
+            background: #0f2a2a;
+        }
+
+        .info-box .titulo-box {
+            color: #48c9b0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== CARDS ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 1.8rem 0;
+        }
+
+        .card-simples {
+            background: #1c1c3a;
+            padding: 1.5rem;
+            border-radius: 1.2rem;
+            border: 1px solid #2f2f5a;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.15s;
+        }
+
+        .card-simples:hover {
+            transform: translateY(-4px);
+            border-color: #4a4a7a;
+        }
+
+        .card-simples h4 {
+            margin-top: 0;
+            color: #f0c27f;
+            font-size: 1.2rem;
+        }
+
+        .card-simples p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== DIVISORES ===== */
+        .divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3a3a6a, #6a4a9a, #3a3a6a, transparent);
+            margin: 2.8rem 0;
+        }
+
+        /* ===== MARCA-TEXTO ===== */
+        .destaque-texto {
+            background: linear-gradient(120deg, rgba(241, 196, 15, 0.25) 0%, rgba(241, 196, 15, 0.25) 100%);
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.3rem;
+            color: #f7e9b0;
+            font-weight: 500;
+        }
+
+        .destaque-azul {
+            background: rgba(52, 152, 219, 0.2);
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.3rem;
+            color: #85c1e9;
+        }
+
+        /* ===== SVG ÍCONES INLINE ===== */
+        .icon-svg {
+            display: inline-block;
+            width: 1.4rem;
+            height: 1.4rem;
+            vertical-align: middle;
+            flex-shrink: 0;
+            fill: currentColor;
+        }
+
+        /* ===== LAYOUT RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+                font-size: 1rem;
+            }
+            .container {
+                padding: 1.2rem 1rem;
+                border-radius: 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+            .tabela-moderna {
+                font-size: 0.85rem;
+            }
+            .tabela-moderna th,
+            .tabela-moderna td {
+                padding: 0.5rem 0.6rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .dica-box,
+            .observacao-box,
+            .conceito-card,
+            .citacao-box,
+            .info-box {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.8rem 0.6rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== ACESSIBILIDADE ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+            }
+        }
+
+        /* ===== SCROLL SUAVE ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== RODAPÉ ===== */
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #2a2a5a;
+            text-align: center;
+            color: #8a86a8;
+            font-size: 0.9rem;
+        }
+        .footer small {
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== TABELAS COMPARATIVAS ===== */
+        .comparativo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .comparativo-item {
+            background: #1a1a30;
+            padding: 1rem 1.2rem;
+            border-radius: 1rem;
+            border: 1px solid #2f2f5a;
+            text-align: center;
+        }
+
+        .comparativo-item .rotulo {
+            font-weight: 700;
+            color: #f0c27f;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .comparativo-item .valor {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e0dcec;
+            margin-top: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ===== CABEÇALHO ===== -->
+        <header>
+            <h1>Sistema Financeiro Nacional<br>e Produtos Bancários</h1>
+            <p class="subtitle">Apostila Completa para Concursos da Área Bancária</p>
+        </header>
+
+        <!-- ===== SUMÁRIO ===== -->
+        <nav class="toc" aria-label="Sumário">
+            <h2>Sumário</h2>
+            <div class="toc-grid">
+                <div class="toc-item"><span class="num">1</span> <a href="#cap1">Estrutura do SFN</a></div>
+                <div class="toc-item"><span class="num">2</span> <a href="#cap2">Produtos e Serviços</a></div>
+                <div class="toc-item"><span class="num">3</span> <a href="#cap3">PLD/FT</a></div>
+                <div class="toc-item"><span class="num">4</span> <a href="#cap4">Atendimento e Canais Digitais</a></div>
+                <div class="toc-item"><span class="num">5</span> <a href="#cap5">SFH e SCI</a></div>
+                <div class="toc-item"><span class="num">6</span> <a href="#cap6">Bancos de Desenvolvimento</a></div>
+                <div class="toc-item"><span class="num">7</span> <a href="#cap7">Estudos de Caso</a></div>
+                <div class="toc-item"><span class="num">8</span> <a href="#cap8">Macetes</a></div>
+                <div class="toc-item"><span class="num">9</span> <a href="#cap9">Resumo</a></div>
+                <div class="toc-item"><span class="num">10</span> <a href="#final">Considerações Finais</a></div>
+            </div>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 1 -->
+        <section id="cap1">
+            <h2>Capítulo 1: Estrutura e Organização do Sistema Financeiro Nacional (SFN)</h2>
+
+            <h3>1.1 Conceito e Finalidade do SFN</h3>
+            <p>O Sistema Financeiro Nacional (SFN) representa o conjunto de instituições, instrumentos financeiros e mecanismos que viabilizam a transferência de recursos entre agentes econômicos (superavitários e deficitários). Sua finalidade primordial é garantir o adequado funcionamento do mercado de crédito, capitais e seguros no país, promovendo o desenvolvimento econômico e a estabilidade financeira.</p>
+            <p>Para o profissional bancário, compreender a estrutura do SFN não é apenas uma exigência de concurso, mas uma necessidade prática para o exercício da função. Ao atender um cliente que deseja investir, contratar um empréstimo ou realizar uma operação de câmbio, o escriturário precisa saber qual instituição regula cada atividade, quais são os limites legais e como os mecanismos de proteção funcionam.</p>
+
+            <h4>Organização Hierárquica do SFN</h4>
+            <p>O SFN organiza-se em três categorias funcionais, que atuam de forma integrada e complementar:</p>
+
+            <table class="tabela-moderna">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Função Principal</th>
+                        <th>Exemplos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Agentes Normativos</strong></td>
+                        <td>Estabelecem diretrizes, políticas e regras gerais</td>
+                        <td>CMN, CNSP, CNPC</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Agentes Supervisores</strong></td>
+                        <td>Fiscalizam, monitoram e controlam o cumprimento das normas</td>
+                        <td>BACEN, CVM, SUSEP, PREVIC</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Agentes Operadores</strong></td>
+                        <td>Executam as operações financeiras, intermediando recursos</td>
+                        <td>Bancos, Caixas, Bolsas, Corretoras</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>1.2 Agentes Normativos do SFN</h3>
+
+            <div class="conceito-card">
+                <div class="titulo-box">
+                    <svg class="icon-svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Conselho Monetário Nacional (CMN)
+                </div>
+                <p>O CMN é o órgão normativo máximo do SFN, responsável por formular a política da moeda e do crédito. Sua atuação é estratégica e abrangente, definindo diretrizes que orientam todo o sistema financeiro.</p>
+                <p><strong>Composição do CMN:</strong></p>
+                <ul>
+                    <li>Ministro da Fazenda (Presidente)</li>
+                    <li>Ministro do Planejamento e Orçamento</li>
+                    <li>Presidente do Banco Central do Brasil</li>
+                </ul>
+                <p><strong>Principais Competências do CMN:</strong></p>
+                <ol>
+                    <li><strong>Política Monetária</strong>: Definir diretrizes para a execução da política monetária, cambial e creditícia do país.</li>
+                    <li><strong>Regulação do Crédito</strong>: Estabelecer normas sobre limites de crédito, taxas de juros e condições para operações financeiras.</li>
+                    <li><strong>Diretrizes para o BACEN</strong>: Orientar as ações do Banco Central na execução das políticas definidas.</li>
+                    <li><strong>Coordenação</strong>: Promover a articulação entre as políticas monetária, fiscal e cambial.</li>
+                    <li><strong>Moeda e Câmbio</strong>: Dispor sobre a regulamentação das operações de câmbio e o regime cambial.</li>
+                    <li><strong>Seguros e Previdência</strong>: Atuar em conjunto com o CNSP (Conselho Nacional de Seguros Privados) e CNPC (Conselho Nacional de Previdência Complementar) na regulação desses setores.</li>
+                </ol>
+                <div class="dica-box" style="margin-top:1rem;">
+                    <div class="titulo-box">Importante para prova</div>
+                    <p>O CMN <strong>NÃO</strong> executa políticas, apenas as formula. Quem executa é o BACEN. Essa distinção é frequentemente explorada pela Cesgranrio e outras bancas.</p>
+                </div>
+            </div>
+
+            <h4>Conselho Nacional de Seguros Privados (CNSP)</h4>
+            <p>Órgão normativo do sistema de seguros privados, com as seguintes atribuições:</p>
+            <ul>
+                <li>Fixar diretrizes e normas da política de seguros privados</li>
+                <li>Regular o funcionamento dos mercados de seguros, resseguros, previdência privada aberta e capitalização</li>
+                <li>Estabelecer diretrizes para a atuação da SUSEP (Superintendência de Seguros Privados)</li>
+                <li>Definir políticas de investimentos das seguradoras</li>
+            </ul>
+
+            <h4>Conselho Nacional de Previdência Complementar (CNPC)</h4>
+            <p>Órgão normativo da previdência complementar, responsável por:</p>
+            <ul>
+                <li>Estabelecer políticas e diretrizes para o regime de previdência complementar</li>
+                <li>Regular as entidades fechadas de previdência complementar (fundos de pensão)</li>
+                <li>Orientar a atuação da PREVIC (Superintendência Nacional de Previdência Complementar)</li>
+            </ul>
+
+            <div class="dica-box">
+                <div class="titulo-box">Dica de Prova – Cesgranrio</div>
+                <p>A banca Cesgranrio frequentemente cobra a distinção entre:</p>
+                <ul>
+                    <li><strong>CMN</strong>: normativo do SFN como um todo</li>
+                    <li><strong>CNSP</strong>: normativo específico de seguros</li>
+                    <li><strong>CNPC</strong>: normativo específico de previdência complementar</li>
+                </ul>
+                <p>Não confunda: o CNSP não regula previdência complementar aberta (essa é regulada pelo CNSP, mas a fechada pelo CNPC). A previdência complementar aberta é regulada pelo CNSP e supervisionada pela SUSEP, enquanto a fechada é regulada pelo CNPC e supervisionada pela PREVIC.</p>
+            </div>
+
+            <h3>1.3 Agentes Supervisores do SFN</h3>
+
+            <div class="conceito-card">
+                <div class="titulo-box">
+                    <svg class="icon-svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    Banco Central do Brasil (BACEN)
+                </div>
+                <p>O BACEN é a principal entidade supervisora do SFN, atuando como braço executor das políticas definidas pelo CMN. Sua natureza é de autarquia federal, vinculada ao Ministério da Fazenda, mas com autonomia operacional.</p>
+                <p><strong>Competências Essenciais do BACEN:</strong></p>
+                <ol>
+                    <li><strong>Execução da Política Monetária</strong>: Controlar a quantidade de moeda em circulação através de instrumentos como a Taxa Selic, operações de mercado aberto e recolhimentos compulsórios.</li>
+                    <li><strong>Execução da Política Cambial</strong>: Regular o mercado de câmbio, administrar as reservas internacionais e definir regras para operações cambiais.</li>
+                    <li><strong>Fiscalização do SFN</strong>: Supervisionar o funcionamento de todas as instituições financeiras, incluindo bancos, cooperativas de crédito, corretoras e distribuidoras.</li>
+                    <li><strong>Poder de Polícia Administrativa</strong>: Aplicar penalidades, realizar intervenções e decretar liquidações extrajudiciais quando necessário.</li>
+                    <li><strong>Emissão de Moeda</strong>: Ser o único órgão emissor de moeda no Brasil (em parceria com a Casa da Moeda).</li>
+                    <li><strong>Meios de Pagamento</strong>: Regular e supervisionar os meios de pagamento, incluindo TED, DOC, PIX e cheques.</li>
+                    <li><strong>Controle do Fluxo de Capitais</strong>: Monitorar e regular a entrada e saída de capitais estrangeiros no país.</li>
+                </ol>
+            </div>
+
+            <h4>Comissão de Valores Mobiliários (CVM)</h4>
+            <p>A CVM é uma autarquia federal vinculada ao Ministério da Fazenda, com atribuição de supervisionar e regular o mercado de valores mobiliários no Brasil.</p>
+            <p><strong>Competências da CVM:</strong></p>
+            <ul>
+                <li>Fiscalizar companhias abertas (com ações negociadas em bolsa)</li>
+                <li>Regular e supervisionar bolsas de valores (B3) e balcões organizados</li>
+                <li>Fiscalizar corretoras e distribuidoras de valores mobiliários</li>
+                <li>Regular e supervisionar fundos de investimento</li>
+                <li>Fiscalizar auditores independentes e agentes autônomos de investimento</li>
+                <li>Aplicar penalidades por infrações à legislação do mercado de capitais</li>
+            </ul>
+            <div class="observacao-box">
+                <div class="titulo-box">Esclarecimento importante</div>
+                <p>A CVM fiscaliza corretoras e distribuidoras de títulos no âmbito do mercado de valores mobiliários. O BACEN fiscaliza essas mesmas instituições no que tange ao mercado de câmbio. Portanto, há uma divisão de competências, não uma supervisão compartilhada.</p>
+            </div>
+
+            <h4>Superintendência de Seguros Privados (SUSEP)</h4>
+            <p>A SUSEP é o órgão fiscalizador do mercado de seguros, previdência complementar aberta e capitalização. Sua atuação inclui:</p>
+            <ul>
+                <li>Fiscalizar a constituição, organização e funcionamento das sociedades seguradoras</li>
+                <li>Supervisionar as operações de seguro, resseguro e capitalização</li>
+                <li>Aprovar produtos e tabelas de preços</li>
+                <li>Aplicar sanções e penalidades</li>
+            </ul>
+
+            <h4>Superintendência Nacional de Previdência Complementar (PREVIC)</h4>
+            <p>A PREVIC é a autarquia federal responsável pela supervisão das entidades fechadas de previdência complementar (fundos de pensão). Sua atuação inclui:</p>
+            <ul>
+                <li>Autorizar o funcionamento de entidades fechadas de previdência complementar</li>
+                <li>Fiscalizar a gestão dos recursos dos fundos de pensão</li>
+                <li>Aplicar sanções e medidas corretivas</li>
+                <li>Garantir a segurança e solvência dos planos previdenciários</li>
+            </ul>
+
+            <h3>1.4 Agentes Operadores do SFN</h3>
+            <p>Os agentes operadores são as instituições que efetivamente realizam a intermediação financeira no mercado. Eles podem ser classificados em diversos tipos, conforme sua natureza e finalidade.</p>
+
+            <h4>Instituições Financeiras Bancárias</h4>
+            <ul>
+                <li><strong>Bancos Múltiplos</strong>: Instituições que podem operar com diversas carteiras (comercial, investimento, câmbio, desenvolvimento). São as mais completas do sistema.</li>
+                <li><strong>Bancos Comerciais</strong>: Especializados em operações de crédito de curto prazo e captação de depósitos à vista. São os bancos tradicionais que atendem ao público em geral.</li>
+                <li><strong>Bancos de Investimento</strong>: Focados em operações de longo prazo, financiamento de projetos e subscrição de valores mobiliários.</li>
+                <li><strong>Bancos de Desenvolvimento</strong>: Instituições financeiras públicas, controladas por governos (estaduais ou federal), constituídas como sociedades anônimas. Têm como objetivo financiar programas de desenvolvimento econômico e social, prioritariamente para o setor privado.</li>
+                <li><strong>Caixas Econômicas</strong>: Instituições financeiras públicas (Caixa Econômica Federal e caixas estaduais) que operam com características de banco comercial, com foco em financiamento habitacional e poupança popular.</li>
+            </ul>
+
+            <h4>Instituições Financeiras Não Bancárias</h4>
+            <ul>
+                <li><strong>Cooperativas de Crédito</strong>: Associações de pessoas com direito de voto igualitário (um associado, um voto), sem fins lucrativos. São autorizadas e supervisionadas exclusivamente pelo BACEN.</li>
+                <li><strong>Sociedades de Crédito Imobiliário (SCI)</strong>: Integram o Sistema Financeiro de Habitação (SFH) e atuam como repassadoras de recursos para financiamento imobiliário. Frequentemente utilizam Letras de Crédito Imobiliário (LCI).</li>
+                <li><strong>Sociedades de Arrendamento Mercantil (Leasing)</strong>: Instituições que realizam operações de arrendamento mercantil, em que adquirem bens para alugar a clientes com opção de compra ao final do contrato.</li>
+                <li><strong>Sociedades de Capitalização</strong>: Emitem títulos de capitalização, produtos financeiros com características de sorteio e devolução de valores pagos.</li>
+            </ul>
+
+            <h4>Instituições Auxiliares</h4>
+            <ul>
+                <li><strong>Corretoras de Valores Mobiliários</strong>: Intermedeiam a compra e venda de ações, títulos e valores mobiliários. São fiscalizadas pela CVM no mercado de valores e pelo BACEN no câmbio.</li>
+                <li><strong>Distribuidoras de Títulos</strong>: Atuam na distribuição e colocação de títulos no mercado primário.</li>
+                <li><strong>Bolsa de Valores</strong>: Ambiente onde são negociados valores mobiliários (ações, títulos públicos, derivativos). No Brasil, a B3 (Brasil, Bolsa, Balcão) concentra essas operações.</li>
+                <li><strong>Agentes Autônomos de Investimento</strong>: Pessoas físicas ou jurídicas que intermedeiam negócios no mercado de capitais, vinculados a instituições financeiras.</li>
+            </ul>
+
+            <h3>1.5 Fundo Garantidor de Crédito (FGC)</h3>
+
+            <div class="conceito-card">
+                <div class="titulo-box">Natureza Jurídica e Finalidade</div>
+                <p>O Fundo Garantidor de Crédito (FGC) é uma entidade privada, sem fins lucrativos, constituída como associação civil. <strong>NÃO</strong> é órgão público nem entidade governamental.</p>
+                <p><strong>Finalidade do FGC:</strong></p>
+                <ul>
+                    <li>Administrar mecanismos de proteção a correntistas, poupadores e investidores</li>
+                    <li>Garantir o pagamento de créditos em caso de intervenção ou liquidação extrajudicial de instituições financeiras associadas</li>
+                    <li>Contribuir para a estabilidade do Sistema Financeiro Nacional</li>
+                </ul>
+            </div>
+
+            <h4>Limites de Garantia</h4>
+            <p>O FGC garante até <strong>R$ 250.000,00</strong> (duzentos e cinquenta mil reais) por pessoa física ou jurídica contra cada instituição associada ou conglomerado financeiro.</p>
+            <p><strong>Regras Específicas:</strong></p>
+            <ol>
+                <li><strong>Conta Conjunta</strong>: A garantia é limitada a R$ 250.000,00 por titular, dividida igualmente entre os titulares. O crédito é feito individualmente para cada titular.</li>
+                <li><strong>Limite Global</strong>: O limite de R$ 250.000,00 é por pessoa contra a mesma instituição. Se o cliente tiver múltiplas contas na mesma instituição, o limite é único.</li>
+                <li><strong>Produtos Cobertos</strong>: Depósitos à vista, depósitos de poupança, depósitos a prazo (CDB, RDB), Letras de Crédito Imobiliário (LCI), Letras de Crédito do Agronegócio (LCA) e letras hipotecárias.</li>
+                <li><strong>Produtos Não Cobertos</strong>: Fundos de investimento, ações, debêntures, títulos de capitalização, operações de derivativos e outros instrumentos financeiros sem cobertura específica.</li>
+            </ol>
+            <p><strong>Associações ao FGC:</strong> Todas as instituições financeiras autorizadas pelo BACEN a captar depósitos à vista, depósitos de poupança ou depósitos a prazo são obrigadas a associar-se ao FGC. Isso inclui bancos, caixas econômicas, cooperativas de crédito e outras. A Caixa Econômica Federal é associada ao FGC, assim como todas as demais instituições bancárias.</p>
+
+            <div class="dica-box">
+                <div class="titulo-box">Dica de Prova – Cesgranrio</div>
+                <p>A Cesgranrio frequentemente explora os seguintes pontos sobre o FGC:</p>
+                <ol>
+                    <li><strong>Natureza privada</strong> (nunca pública)</li>
+                    <li><strong>Limite de R$ 250.000,00</strong> por pessoa contra cada instituição</li>
+                    <li><strong>Conta conjunta</strong>: garantia dividida igualmente entre titulares</li>
+                    <li><strong>FGC não cobre</strong>: fundos de investimento, ações, títulos de capitalização</li>
+                    <li><strong>A Caixa Econômica Federal é associada</strong> ao FGC (não é excluída)</li>
+                </ol>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 2 -->
+        <section id="cap2">
+            <h2>Capítulo 2: Produtos e Serviços Bancários</h2>
+
+            <h3>2.1 Investimentos</h3>
+
+            <h4>Renda Fixa</h4>
+            <p><strong>Conceito</strong>: Títulos de renda fixa são aqueles em que a rentabilidade é conhecida ou pré-determinada no momento da aplicação, sendo atrelada a algum indexador (taxa de juros, inflação, etc.).</p>
+            <p><strong>Produtos Comuns:</strong></p>
+            <ul>
+                <li>CDB (Certificado de Depósito Bancário)</li>
+                <li>RDB (Recibo de Depósito Bancário)</li>
+                <li>LCI (Letra de Crédito Imobiliário)</li>
+                <li>LCA (Letra de Crédito do Agronegócio)</li>
+                <li>LC (Letra de Câmbio)</li>
+                <li>Títulos Públicos Federais (Tesouro Selic, Tesouro IPCA, Tesouro Prefixado)</li>
+            </ul>
+
+            <table class="tabela-moderna">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Emissor</th>
+                        <th>Garantia</th>
+                        <th>Carência</th>
+                        <th>Tributação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CDB</td>
+                        <td>Bancos</td>
+                        <td>FGC até R$ 250 mil</td>
+                        <td>Conforme regulamento</td>
+                        <td>IR regressivo (22,5% a 15%)</td>
+                    </tr>
+                    <tr>
+                        <td>RDB</td>
+                        <td>Bancos</td>
+                        <td>FGC até R$ 250 mil</td>
+                        <td>Sem resgate antecipado</td>
+                        <td>IR regressivo</td>
+                    </tr>
+                    <tr>
+                        <td>LCI</td>
+                        <td>Bancos/Financeiras</td>
+                        <td>FGC até R$ 250 mil</td>
+                        <td>Isenta IR</td>
+                        <td>Mínimo 12 meses (SFH)</td>
+                    </tr>
+                    <tr>
+                        <td>LCA</td>
+                        <td>Bancos/Financeiras</td>
+                        <td>FGC até R$ 250 mil</td>
+                        <td>Isenta IR</td>
+                        <td>Mínimo 12 meses</td>
+                    </tr>
+                    <tr>
+                        <td>Títulos Públicos</td>
+                        <td>Tesouro Nacional</td>
+                        <td>Governo Federal</td>
+                        <td>Conforme tipo</td>
+                        <td>IR regressivo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Renda Variável</h4>
+            <p><strong>Conceito</strong>: Títulos de renda variável são aqueles cujo valor e rentabilidade não são pré-definidos, variando conforme o desempenho da empresa emissora, condições de mercado e expectativas dos investidores.</p>
+            <p><strong>Produtos Comuns:</strong></p>
+            <ul>
+                <li>Ações (ordinárias - ON, preferenciais - PN)</li>
+                <li>Debêntures (títulos de dívida de empresas, combinam renda fixa e variável)</li>
+                <li>Fundos de Investimento em Ações</li>
+                <li>ETFs (Fundos de Índice)</li>
+                <li>BDRs (Brazilian Depositary Receipts)</li>
+            </ul>
+            <p><strong>Tributação de Ações:</strong></p>
+            <ol>
+                <li><strong>Isenção de Imposto de Renda</strong>: Operações de venda de ações com lucro líquido inferior a R$ 20.000,00 em um mês são isentas de Imposto de Renda.</li>
+                <li><strong>Alíquota Geral</strong>: 15% sobre o lucro em operações de day trade e em operações acima do limite de isenção.</li>
+                <li><strong>Liquidação Padrão na B3</strong>: D+2 (dois dias úteis após a negociação).</li>
+                <li><strong>Mercado Fracionário</strong>: Permite a compra de ações em quantidades abaixo do lote padrão (1 a 99 ações).</li>
+            </ol>
+
+            <h4>Fundos de Investimento</h4>
+            <p>Os fundos de investimento são condomínios que reúnem recursos de diversos investidores para aplicar em diferentes ativos. A gestão é profissional, realizada por um gestor contratado pela administradora do fundo.</p>
+            <p><strong>Classificação por Tipo de Ativo:</strong></p>
+            <ul>
+                <li>Fundos de Renda Fixa: Investem em títulos de renda fixa</li>
+                <li>Fundos de Ações: Investem majoritariamente em ações</li>
+                <li>Fundos Multimercados: Diversificam entre diferentes classes de ativos</li>
+                <li>Fundos Cambiais: Investem em moeda estrangeira</li>
+                <li>Fundos de Investimento Imobiliário (FIIs): Investem em imóveis e empreendimentos imobiliários</li>
+                <li>Fundos de Índice (ETFs): Passivos, replicam um índice de mercado</li>
+            </ul>
+            <p><strong>Taxas Cobradas:</strong></p>
+            <ul>
+                <li>Taxa de Administração: Percentual anual sobre o patrimônio</li>
+                <li>Taxa de Performance: Sobre o retorno acima do benchmark</li>
+                <li>Imposto de Renda: Regressivo (22,5% a 15%) para a maioria dos fundos</li>
+            </ul>
+
+            <h4>Previdência Complementar</h4>
+            <p><strong>Conceito</strong>: Planos de previdência complementar são produtos financeiros que complementam a aposentadoria do INSS, permitindo a acumulação de recursos ao longo da vida ativa.</p>
+            <p><strong>Modalidades:</strong></p>
+            <ol>
+                <li><strong>Plano Gerador de Benefício Livre (PGBL)</strong>:
+                    <ul>
+                        <li>Tributação sobre o valor total resgatado</li>
+                        <li>Permite dedução de até 12% da renda bruta na declaração de IR</li>
+                        <li>Indicado para quem faz declaração completa</li>
+                    </ul>
+                </li>
+                <li><strong>Vida Gerador de Benefício Livre (VGBL)</strong>:
+                    <ul>
+                        <li>Tributação apenas sobre o rendimento</li>
+                        <li>Não permite dedução no IR</li>
+                        <li>Indicado para quem faz declaração simplificada</li>
+                    </ul>
+                </li>
+            </ol>
+            <p><strong>Regimes de Tributação:</strong></p>
+            <ul>
+                <li><strong>Regime Progressivo</strong>: Alíquotas de IR de 0% a 27,5%, conforme a tabela do IRPF</li>
+                <li><strong>Regime Regressivo</strong>: Alíquotas decrescentes conforme o tempo de aplicação:
+                    <ul>
+                        <li>Até 2 anos: 35%</li>
+                        <li>2 a 4 anos: 30%</li>
+                        <li>4 a 6 anos: 25%</li>
+                        <li>6 a 8 anos: 20%</li>
+                        <li>8 a 10 anos: 15%</li>
+                        <li>Acima de 10 anos: 10%</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="dica-box">
+                <div class="titulo-box">Dica de Prova – Cesgranrio</div>
+                <p>A Cesgranrio costuma cobrar:</p>
+                <ul>
+                    <li>Isenção de IR para lucro em ações abaixo de R$ 20.000,00</li>
+                    <li>Distinção entre PGBL e VGBL (qual pode deduzir na declaração)</li>
+                    <li>Alíquotas do regime regressivo para previdência</li>
+                    <li>Diferença entre renda fixa e variável</li>
+                </ul>
+            </div>
+
+            <h3>2.2 Crédito e Financiamentos</h3>
+
+            <h4>Garantias em Operações de Crédito</h4>
+            <p>As garantias são mecanismos que reduzem o risco de inadimplência nas operações de crédito, dando ao credor a segurança de que poderá receber o valor emprestado caso o devedor não cumpra sua obrigação.</p>
+            <p><strong>Garantias Reais</strong>: Vinculadas a bens tangíveis que respondem pela dívida.</p>
+
+            <table class="tabela-moderna">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                        <th>Posse do Bem</th>
+                        <th>Propriedade do Bem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Penhor Mercantil</strong></td>
+                        <td>Bem móvel entregue ao credor</td>
+                        <td>Credor</td>
+                        <td>Devedor</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hipoteca</strong></td>
+                        <td>Bem imóvel em posse do devedor</td>
+                        <td>Devedor</td>
+                        <td>Devedor</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Alienação Fiduciária</strong></td>
+                        <td>Propriedade do bem fica com o credor</td>
+                        <td>Devedor</td>
+                        <td>Credor (até quitação)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="observacao-box">
+                <div class="titulo-box">Exemplo Prático: Alienação Fiduciária de Veículo</div>
+                <p>No financiamento de veículo, a propriedade do bem permanece com a instituição financeira (credor) até a quitação total da dívida. O devedor tem apenas a posse direta do bem, podendo usá-lo normalmente, mas não pode vendê-lo sem a autorização do credor. Isso garante ao credor a segurança de que, em caso de inadimplência, o bem poderá ser retomado (busca e apreensão) para quitar a dívida.</p>
+            </div>
+
+            <p><strong>Garantias Fidejussórias</strong>: Promessas de um terceiro de cumprir a obrigação, sem associação a um bem específico.</p>
+
+            <table class="tabela-moderna">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                        <th>Característica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Aval</strong></td>
+                        <td>Garantia pessoal em título de crédito</td>
+                        <td>O avalista assume a mesma obrigação do devedor principal</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fiança Bancária</strong></td>
+                        <td>Garantia pessoal de instituição financeira</td>
+                        <td>O banco garante o cumprimento das obrigações de seu cliente</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fiança Civil</strong></td>
+                        <td>Garantia pessoal de pessoa física ou jurídica</td>
+                        <td>O fiador assume a obrigação se o devedor não pagar</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <div class="titulo-box">Fiança Bancária</div>
+                <p>É a garantia fidejussória mais importante no ambiente bancário. Nela, uma instituição financeira garante a terceiros o cumprimento das obrigações de um cliente. Se o cliente não honrar o compromisso, o banco paga o valor devido. Não se trata de garantia real, pois não está vinculada a um bem tangível, e sim à confiança na instituição financeira.</p>
+            </div>
+
+            <h4>Crédito Rotativo do Cartão</h4>
+            <p>O crédito rotativo é a modalidade em que o banco financia automaticamente o saldo devedor da fatura do cartão de crédito que não foi integralmente pago.</p>
+            <p><strong>Resolução CMN nº 4.549/2017</strong>:</p>
+            <ul>
+                <li>Limita o período de manutenção do crédito rotativo a, no máximo, 30 dias</li>
+                <li>Objetivo: reduzir o endividamento excessivo dos consumidores e os riscos para as instituições financeiras emissoras de cartões</li>
+                <li>Após 30 dias, o saldo devedor deve ser parcelado com juros menores</li>
+            </ul>
+            <p><strong>Aspectos Práticos:</strong></p>
+            <ul>
+                <li>O pagamento mínimo da fatura não é fixado em 15% por norma geral (varia conforme a instituição)</li>
+                <li>O rotativo é uma das modalidades mais caras do sistema financeiro</li>
+                <li>Clientes podem negociar a dívida ou transferir saldo para outras instituições</li>
+            </ul>
+
+            <h4>Leasing (Arrendamento Mercantil)</h4>
+            <p>O leasing é uma operação financeira em que uma instituição (arrendadora) adquire um bem e o cede para uso de um cliente (arrendatário), mediante pagamento de prestações periódicas, com opção de compra ao final do contrato.</p>
+            <p><strong>Características Principais:</strong></p>
+            <ol>
+                <li><strong>Bem Adquirido pela Arrendadora</strong>: O bem fica de propriedade da instituição financeira durante todo o contrato.</li>
+                <li><strong>Uso pelo Arrendatário</strong>: O cliente utiliza o bem como se fosse seu, mas sem a propriedade.</li>
+                <li><strong>Opção de Compra</strong>: Ao final do contrato, o arrendatário pode adquirir o bem mediante pagamento do <strong>preço residual avençado</strong>.</li>
+                <li><strong>Preço Residual</strong>: Valor do bem ao final da vida útil ou valor de mercado (no leasing operacional). Não se baseia em custo médio, percentual de prestações, prêmio ou valor total do bem.</li>
+            </ol>
+            <p><strong>Tipos de Leasing:</strong></p>
+            <ul>
+                <li><strong>Leasing Financeiro</strong>: Contrato de longo prazo, com opção de compra ao final, e o arrendatário assume os riscos do bem.</li>
+                <li><strong>Leasing Operacional</strong>: Contrato de curto prazo, com manutenção e serviços incluídos, e a arrendadora assume os riscos do bem.</li>
+            </ul>
+            <div class="observacao-box">
+                <div class="titulo-box">Exemplo Prático</div>
+                <p>Uma empresa de transporte adquire 10 caminhões via leasing. Durante 36 meses, paga prestações mensais. Ao final, pode adquirir os caminhões pelo preço residual avençado (por exemplo, 20% do valor original). Se optar por não comprar, devolve os veículos.</p>
+            </div>
+
+            <div class="dica-box">
+                <div class="titulo-box">Dica de Prova – Cesgranrio</div>
+                <p>A Cesgranrio frequentemente cobra sobre:</p>
+                <ul>
+                    <li>Distinção entre garantias reais e fidejussórias</li>
+                    <li>Exemplos de cada tipo de garantia</li>
+                    <li>Alienação fiduciária: quem tem a propriedade (credor) e quem tem a posse (devedor)</li>
+                    <li>Fiança bancária como garantia fidejussória</li>
+                    <li>Limite de 30 dias para crédito rotativo</li>
+                    <li>Preço residual avençado no leasing</li>
+                    <li>Distinção entre leasing financeiro e operacional</li>
+                </ul>
+            </div>
+
+            <h3>2.3 Meios de Pagamento</h3>
+
+            <h4>TED, DOC e PIX</h4>
+            <p><strong>DOC (Documento de Ordem de Crédito):</strong></p>
+            <ul>
+                <li>Transferência entre contas do mesmo banco ou de bancos diferentes</li>
+                <li>Valor máximo: R$ 4.999,99</li>
+                <li>Processamento em D+1 (dia útil seguinte)</li>
+                <li>Pode ser feito para não correntistas</li>
+            </ul>
+            <p><strong>TED (Transferência Eletrônica Disponível):</strong></p>
+            <ul>
+                <li>Transferência entre contas de bancos diferentes</li>
+                <li>Sem limite de valor</li>
+                <li>Processamento em D+0 (mesmo dia)</li>
+                <li>Restrição de horário: geralmente até as 17h para processamento no mesmo dia</li>
+            </ul>
+            <p><strong>PIX:</strong></p>
+            <ul>
+                <li>Transferência instantânea 24/7</li>
+                <li>Sem limite de valor (ajustável pelo usuário)</li>
+                <li>Processamento em tempo real</li>
+                <li>Pode ser feito para qualquer pessoa, inclusive não correntistas</li>
+                <li>Isento de tarifa para pessoas físicas</li>
+            </ul>
+
+            <table class="tabela-moderna">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>DOC</th>
+                        <th>TED</th>
+                        <th>PIX</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Horário</td>
+                        <td>Dias úteis, até as 22h</td>
+                        <td>Dias úteis, até as 17h</td>
+                        <td>24/7</td>
+                    </tr>
+                    <tr>
+                        <td>Liquidação</td>
+                        <td>D+1</td>
+                        <td>D+0</td>
+                        <td>Instantânea</td>
+                    </tr>
+                    <tr>
+                        <td>Limite</td>
+                        <td>R$ 4.999,99</td>
+                        <td>Sem limite</td>
+                        <td>Sem limite</td>
+                    </tr>
+                    <tr>
+                        <td>Valor da Tarifa</td>
+                        <td>Normalmente menor</td>
+                        <td>Normalmente maior</td>
+                        <td>Gratuito para PF</td>
+                    </tr>
+                    <tr>
+                        <td>Destinatário</td>
+                        <td>Não precisa ser correntista</td>
+                        <td>Precisa ser correntista</td>
+                        <td>Não precisa ser correntista</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="observacao-box">
+                <div class="titulo-box">Esclarecimentos Importantes</div>
+                <ul>
+                    <li>A TED não é exclusiva para conta corrente; pode ser usada para crédito em conta de poupança também.</li>
+                    <li>O DOC não é prerrogativa apenas dos bancos; qualquer instituição financeira pode oferecer.</li>
+                    <li>O PIX é mais rápido que a TED, com funcionamento 24/7.</li>
+                </ul>
+            </div>
+
+            <h4>Cheques</h4>
+            <p><strong>Características Gerais:</strong></p>
+            <ul>
+                <li>Título de crédito com ordem de pagamento à vista</li>
+                <li>Não tem curso forçado (o sacado não é obrigado a aceitar)</li>
+                <li>Pode ser pago antes da data de emissão (pré-datado)</li>
+            </ul>
+            <p><strong>Cheque Cruzado:</strong></p>
+            <ul>
+                <li><strong>Cheque Cruzado Geral</strong>: Dois traços paralelos na parte frontal. Só pode ser pago mediante crédito em conta de um banco (não pode ser pago em dinheiro).</li>
+                <li><strong>Cheque Cruzado Especial</strong>: Dois traços paralelos com a indicação do nome de um banco entre eles. Só pode ser pago pelo banco sacado ao banco indicado ou, se este for o sacado, ao seu cliente mediante crédito em conta. O banco indicado pode, por endosso-mandato, definir outro banco para a cobrança.</li>
+            </ul>
+            <p><strong>Cheque Nominal e ao Portador:</strong></p>
+            <ul>
+                <li><strong>Ao Portador</strong>: Qualquer pessoa pode apresentar ao banco para receber o valor.</li>
+                <li><strong>Nominal à Ordem</strong>: Identifica o beneficiário, que pode endossar a terceiros.</li>
+                <li><strong>Obrigação</strong>: A partir de R$ 100,00 é obrigatória a indicação do beneficiário.</li>
+            </ul>
+            <p><strong>Cheque Pré-datado (Pós-datado):</strong></p>
+            <ul>
+                <li>O cheque contém data futura</li>
+                <li>Pode ser pago antes da data de emissão se apresentado</li>
+                <li>O banco não é obrigado a verificar a data de emissão para pagamento</li>
+                <li>A recusa de pagamento deve ser registrada no verso com o código de devolução</li>
+            </ul>
+            <p><strong>Pagamento e Devolução:</strong></p>
+            <ul>
+                <li>O cheque pode ser compensado em qualquer banco</li>
+                <li>A devolução deve ser justificada com código específico</li>
+                <li>Cheque sustado (por perda, furto, cancelamento) pode ser devolvido</li>
+                <li>O cheque não pode ser pago parcialmente</li>
+            </ul>
+
+            <div class="dica-box">
+                <div class="titulo-box">Dica de Prova – Cesgranrio</div>
+                <p>A Cesgranrio frequentemente cobra:</p>
+                <ul>
+                    <li>Distinção entre cruzamento geral e especial</li>
+                    <li>Características do cheque pré-datado (pode ser pago antes da data)</li>
+                    <li>Obrigação de indicação de beneficiário para cheques acima de R$ 100,00</li>
+                    <li>Características do PIX (gratuito para PF, 24/7)</li>
+                    <li>Diferenças entre TED, DOC e PIX</li>
+                </ul>
+            </div>
+
+            <h3>2.4 Cartões de Crédito e Débito</h3>
+
+            <h4>Modalidades de Cartão</h4>
+            <ul>
+                <li><strong>Cartão de Crédito</strong>: Linha de crédito rotativo pré-aprovada. Compras podem ser parceladas. Cobrança de juros sobre saldo devedor. Fatura mensal com pagamento mínimo.</li>
+                <li><strong>Cartão de Débito</strong>: Movimentação de recursos da conta corrente. Não oferece crédito, apenas facilita o pagamento. Funciona como substituto do dinheiro e cheque.</li>
+                <li><strong>Cartão de Crédito com Função Débito</strong>: Combina as duas funcionalidades em um único cartão. O cliente decide qual função usar a cada transação.</li>
+                <li><strong>Cartão Pré-pago</strong>: Recarregável com valor pré-determinado. Pode ser usado para compras e saques. Limite limitado ao valor carregado.</li>
+            </ul>
+
+            <h4>Regulação do Crédito Rotativo</h4>
+            <p><strong>Resolução CMN nº 4.549/2017</strong>:</p>
+            <ul>
+                <li>Limita o período de manutenção do crédito rotativo a no máximo 30 dias</li>
+                <li>Objetivo: reduzir endividamento excessivo e riscos para as instituições financeiras</li>
+            </ul>
+            <p><strong>Aspectos Práticos:</strong></p>
+            <ul>
+                <li>Após 30 dias, o saldo deve ser parcelado em condições menos onerosas</li>
+                <li>A emissão de cartão de débito não é obrigatória na abertura de conta corrente (depende da política do banco)</li>
+                <li>O pagamento mínimo não é fixado em 15% por norma geral</li>
+            </ul>
+
+            <h3>2.5 Mercado de Câmbio</h3>
+
+            <h4>Operações de Câmbio</h4>
+            <p><strong>Compra e Venda de Moeda Estrangeira:</strong></p>
+            <ul>
+                <li>Pessoas físicas e jurídicas podem comprar e vender moeda estrangeira</li>
+                <li>Sem limitação de valor</li>
+                <li>A contraparte deve ser instituição autorizada a operar no mercado de câmbio</li>
+                <li>A transação deve observar legalidade, fundamentação econômica e respaldo documental</li>
+            </ul>
+            <p><strong>Taxas de Câmbio:</strong></p>
+            <ul>
+                <li>As taxas PTAX divulgadas pelo Banco Central são médias e não obrigatórias para as instituições praticarem</li>
+                <li>Cada instituição pode praticar suas próprias taxas, desde que informadas ao cliente</li>
+                <li>O BCB exige documentação comprobatória das operações</li>
+            </ul>
+            <p><strong>Documentação Necessária:</strong></p>
+            <ul>
+                <li>Para pessoa física: documento de identidade, CPF, comprovante de residência</li>
+                <li>Para pessoa jurídica: CNPJ, contrato social, documentos dos representantes legais</li>
+                <li>Declaração sobre a natureza e finalidade da operação</li>
+                <li>Comprovação da origem dos recursos (para compra de moeda)</li>
+            </ul>
+
+            <h4>Conta em Moeda Estrangeira</h4>
+            <p><strong>Conta CC5 (Conta Corrente em Moeda Estrangeira):</strong></p>
+            <ul>
+                <li>Conta em moeda estrangeira (US$, EUR, etc.)</li>
+                <li>Mantida por residentes no exterior ou não residentes</li>
+                <li>Permite receber e enviar valores em moeda estrangeira</li>
+                <li>Sujeita a regras específicas do BACEN</li>
+            </ul>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 3 -->
+        <section id="cap3">
+            <h2>Capítulo 3: Prevenção à Lavagem de Dinheiro e Financiamento ao Terrorismo (PLD/FT)</h2>
+
+            <h3>3.1 Marco Regulatório</h3>
+
+            <div class="conceito-card">
+                <div class="titulo-box">Lei nº 9.613/1998 (Lei de Lavagem de Dinheiro)</div>
+                <p><strong>Principais Dispositivos:</strong></p>
+                <ul>
+                    <li>Define os crimes de lavagem de dinheiro e ocultação de bens</li>
+                    <li>Estabelece penas para os infratores (de 3 a 10 anos de reclusão)</li>
+                    <li>Prevê o confisco de bens e valores relacionados ao crime</li>
+                </ul>
+                <p><strong>Sujeitos Obrigados:</strong></p>
+                <ul>
+                    <li>Instituições financeiras (bancos, cooperativas, corretoras)</li>
+                    <li>Pessoas físicas e jurídicas que realizam operações financeiras</li>
+                    <li>Entidades que lidam com valores monetários</li>
+                </ul>
+                <p><strong>Condutas Criminosas:</strong></p>
+                <ul>
+                    <li>Ocultar ou dissimular a origem ilícita de bens, direitos ou valores</li>
+                    <li>Transformar recursos ilícitos em aparentemente lícitos</li>
+                    <li>Utilizar recursos ilícitos para financiar atividades criminosas</li>
+                </ul>
+            </div>
+
+            <h4>Circular BACEN nº 3.978/2020</h4>
+            <p>Esta circular é o principal normativo do BACEN sobre PLD/FT para instituições financeiras.</p>
+            <p><strong>Principais Exigências:</strong></p>
+            <ol>
+                <li><strong>Cultura Organizacional</strong>: As instituições devem promover uma cultura organizacional de prevenção à lavagem de dinheiro e ao financiamento do terrorismo, abrangendo funcionários, parceiros e prestadores de serviços terceirizados.</li>
+                <li><strong>Política de PLD/FT</strong>: Implementar política escrita, aprovada pela alta administração, com procedimentos claros de identificação, monitoramento e comunicação.</li>
+                <li><strong>Cadastro de Clientes</strong>: Manter cadastro atualizado e detalhado de clientes e operações.</li>
+                <li><strong>Monitoramento</strong>: Realizar monitoramento contínuo de operações suspeitas.</li>
+                <li><strong>Comunicação ao COAF</strong>: Comunicar operações suspeitas ao Conselho de Controle de Atividades Financeiras (COAF).</li>
+                <li><strong>Treinamento</strong>: Capacitar funcionários regularmente.</li>
+                <li><strong>Auditoria</strong>: Realizar auditoria independente dos procedimentos de PLD/FT.</li>
+            </ol>
+
+            <div class="observacao-box">
+                <div class="titulo-box">Esclarecimento sobre a Circular 3.978/2020</div>
+                <p>A Circular 3.978/2020 exige que as instituições financeiras promovam uma cultura organizacional de <strong>prevenção</strong> à lavagem de dinheiro e ao financiamento do terrorismo, abrangendo funcionários, parceiros e prestadores de serviços terceirizados.</p>
+                <p><strong>NÃO se trata de</strong>:</p>
+                <ul>
+                    <li>Adequação (é mais amplo que adequação)</li>
+                    <li>Ambientação (não é apenas adaptação)</li>
+                    <li>Financiamento (palavra-chave é prevenção)</li>
+                    <li>Previsão (não é apenas planejamento)</li>
+                </ul>
+                <p>A palavra-chave na prova é <strong>"prevenção"</strong>, pois a norma enfatiza a ação proativa da instituição.</p>
+            </div>
+
+            <h3>3.2 Procedimentos Práticos de PLD/FT</h3>
+
+            <h4>Identificação de Clientes</h4>
+            <p><strong>Documentação Obrigatória (Pessoa Física):</strong></p>
+            <ul>
+                <li>Documento de identidade oficial com foto</li>
+                <li>CPF</li>
+                <li>Comprovante de residência</li>
+                <li>Declaração de renda e patrimônio</li>
+            </ul>
+            <p><strong>Documentação Obrigatória (Pessoa Jurídica):</strong></p>
+            <ul>
+                <li>CNPJ</li>
+                <li>Contrato social</li>
+                <li>Comprovante de endereço</li>
+                <li>Documentos dos representantes legais</li>
+            </ul>
+            <p><strong>Dados Requeridos:</strong></p>
+            <ul>
+                <li>Nome completo, data de nascimento, nacionalidade</li>
+                <li>Profissão e atividade econômica</li>
+                <li>Origem dos recursos</li>
+                <li>Finalidade da conta</li>
+            </ul>
+
+            <h4>Monitoramento de Operações</h4>
+            <p><strong>Operações Suspeitas:</strong></p>
+            <ul>
+                <li>Depósitos e saques em valores elevados</li>
+                <li>Transferências para paraísos fiscais</li>
+                <li>Operações com entidades de risco</li>
+                <li>Movimentações incompatíveis com o perfil do cliente</li>
+                <li>Fragmentação de valores para evitar identificação</li>
+            </ul>
+            <p><strong>Canais de Comunicação:</strong></p>
+            <ul>
+                <li>COAF (Conselho de Controle de Atividades Financeiras) - órgão central</li>
+                <li>BACEN - para comunicações no âmbito do sistema financeiro</li>
+                <li>CVM - para mercado de valores mobiliários</li>
+                <li>SUSEP - para seguros e previdência</li>
+            </ul>
+
+            <h4>Penalidades</h4>
+            <p><strong>Multas:</strong></p>
+            <ul>
+                <li>Para pessoas físicas: até R$ 100.000,00</li>
+                <li>Para pessoas jurídicas: até R$ 1.000.000,00</li>
+            </ul>
+            <p><strong>Sanções:</strong></p>
+            <ul>
+                <li>Advertência</li>
+                <li>Suspensão ou proibição de atividades</li>
+                <li>Cassação da autorização de funcionamento</li>
+            </ul>
+
+            <div class="dica-box">
+                <div class="titulo-box">Dica de Prova – Cesgranrio</div>
+                <p>A Cesgranrio frequentemente cobra sobre PLD/FT:</p>
+                <ol>
+                    <li><strong>Circular BACEN nº 3.978/2020</strong>: promove cultura organizacional de <strong>prevenção</strong> à lavagem de dinheiro e ao financiamento do terrorismo.</li>
+                    <li><strong>Sujeitos obrigados</strong>: instituições financeiras, pessoas físicas e jurídicas que realizam operações financeiras.</li>
+                    <li><strong>COAF</strong> é o órgão central para comunicação de operações suspeitas.</li>
+                    <li><strong>Documentação obrigatória</strong> para abertura de conta: documentos de identidade, CPF/CNPJ e comprovantes.</li>
+                    <li><strong>Política de PLD/FT</strong> deve ser aprovada pela alta administração.</li>
+                </ol>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 4 -->
+        <section id="cap4">
+            <h2>Capítulo 4: Atendimento e Canais Digitais</h2>
+
+            <h3>4.1 Canais Digitais</h3>
+
+            <h4>Internet Banking e Mobile Banking</h4>
+            <p><strong>Internet Banking:</strong></p>
+            <ul>
+                <li>Acesso via navegador no computador</li>
+                <li>Permite consultar saldo, extrato, realizar transferências e pagamentos</li>
+                <li>Pode oferecer serviços mais complexos (aplicações, investimentos)</li>
+            </ul>
+            <p><strong>Mobile Banking:</strong></p>
+            <ul>
+                <li>Acesso via aplicativo de smartphone</li>
+                <li>Oferece serviços similares ao internet banking, mas adaptado ao dispositivo móvel</li>
+                <li>Funcionalidades como biometria, token digital, notificações push</li>
+            </ul>
+            <p><strong>Características Comuns:</strong></p>
+            <ul>
+                <li>Disponíveis para todos os bancos (tradicionais e digitais)</li>
+                <li>Não se limitam a transferências e consultas</li>
+                <li>A oferta de serviços varia conforme a política de cada banco</li>
+                <li>Autenticação forte (senha, token, biometria)</li>
+            </ul>
+            <p><strong>Segurança:</strong></p>
+            <ul>
+                <li>Criptografia de dados</li>
+                <li>Duplo fator de autenticação</li>
+                <li>Token (hardware ou software)</li>
+                <li>Monitoramento de transações suspeitas</li>
+                <li>Limites operacionais definidos pelo cliente</li>
+            </ul>
+
+            <h4>Direito de Cancelamento Digital</h4>
+            <p><strong>Regra Fundamental:</strong> Uma vez que o banco disponibiliza a contratação de um serviço ou produto em um canal digital (internet banking, mobile banking, etc.), o cliente deve ter acesso ao cancelamento desse mesmo serviço pelo mesmo canal digital.</p>
+            <p><strong>Justificativa:</strong> Garantir a autonomia, praticidade e equivalência dos direitos do consumidor no ambiente digital.</p>
+            <p><strong>Exceções:</strong></p>
+            <ul>
+                <li>Serviços que exigem formalidades específicas (ex: cartão de crédito com anuidade, contratos de longo prazo)</li>
+                <li>Produtos com regulamentação específica (ex: seguros com carência)</li>
+            </ul>
+            <p><strong>Práticas Veda das:</strong></p>
+            <ul>
+                <li>Cancelamento unilateral pelo banco sem autorização do cliente</li>
+                <li>Restrição do cancelamento apenas a canais presenciais</li>
+                <li>Dificultar intencionalmente o processo de cancelamento digital</li>
+            </ul>
+
+            <h3>4.2 Transformação Digital e Desafios dos Bancos Tradicionais</h3>
+
+            <h4>Sistemas Legados</h4>
+            <p><strong>O que são sistemas legados:</strong></p>
+            <ul>
+                <li>Sistemas antigos de TI, desenvolvidos há décadas</li>
+                <li>Construídos em linguagens e arquiteturas obsoletas</li>
+                <li>Frequentemente monolíticos e inflexíveis</li>
+                <li>Difíceis de modificar ou integrar com novas tecnologias</li>
+            </ul>
+            <p><strong>Desafios dos Bancos Tradicionais:</strong></p>
+            <ol>
+                <li><strong>Manutenção de Sistemas Legados</strong>: Os bancos precisam manter eficientemente sistemas antigos enquanto se modernizam.</li>
+                <li><strong>Dualidade Operacional</strong>: Manter sistemas antigos E construir sistemas modernos simultaneamente.</li>
+                <li><strong>Concorrência com Fintechs</strong>: As fintechs nasceram com sistemas modernos, sem o passivo dos sistemas legados.</li>
+                <li><strong>Custo e Tempo</strong>: Migrar sistemas legados é caro, complexo e demorado.</li>
+                <li><strong>Resistência Cultural</strong>: Colaboradores habituados aos sistemas antigos podem resistir a mudanças.</li>
+                <li><strong>Segurança e Conformidade</strong>: Sistemas novos precisam atender a todos os requisitos regulatórios.</li>
+            </ol>
+            <div class="observacao-box">
+                <div class="titulo-box">Exemplo Prático</div>
+                <p>Um grande banco tradicional pode gastar bilhões de reais e vários anos para migrar seu sistema de processamento de transações para uma nova tecnologia, enquanto uma fintech oferece soluções mais modernas desde o início.</p>
+            </div>
+
+            <div class="info-box">
+                <div class="titulo-box">O Maior Desafio dos Bancos Tradicionais</div>
+                <p>Conforme a banca IADES, o maior desafio dos bancos tradicionais perante fintechs e startups é a <strong>dualidade de manter sistemas antigos e construir sistemas modernos</strong> ao mesmo tempo.</p>
+                <p>NÃO é apenas:</p>
+                <ul>
+                    <li>Atrair jovens</li>
+                    <li>Questões de segurança</li>
+                    <li>Redução de custos</li>
+                </ul>
+                <p>É principalmente a <strong>dificuldade de modernização</strong> sem interromper as operações atuais.</p>
+            </div>
+
+            <h4>Estratégias de Transformação Digital</h4>
+            <ul>
+                <li><strong>Modernização de Sistemas</strong>: Migração gradual para arquiteturas baseadas em microserviços, adoção de computação em nuvem, digitalização de processos manuais, automação de tarefas repetitivas.</li>
+                <li><strong>Inovação Aberta</strong>: Parcerias com fintechs, criação de laboratórios de inovação, participação em ecossistemas de startups.</li>
+                <li><strong>Experiência do Cliente</strong>: Aplicativos mais intuitivos, atendimento omnichannel (presencial, online, mobile), personalização de serviços.</li>
+            </ul>
+
+            <h3>4.3 Atendimento ao Cliente e Resolução de Conflitos</h3>
+
+            <h4>Direitos do Consumidor no Ambiente Digital</h4>
+            <p><strong>CDC - Código de Defesa do Consumidor:</strong></p>
+            <ul>
+                <li>Aplica-se integralmente às relações bancárias</li>
+                <li>Direito à informação clara e adequada</li>
+                <li>Direito à proteção contra práticas abusivas</li>
+                <li>Direito de arrependimento (7 dias para compras fora do estabelecimento)</li>
+            </ul>
+            <p><strong>Aspectos Específicos para Serviços Digitais:</strong></p>
+            <ul>
+                <li>Informação transparente sobre taxas e tarifas</li>
+                <li>Clareza sobre prazos e condições contratuais</li>
+                <li>Acesso a informações de contratos e extratos</li>
+                <li>Possibilidade de contestar transações indevidas</li>
+            </ul>
+
+            <h4>Práticas Abusivas Veda das</h4>
+            <ol>
+                <li><strong>Venda Casada</strong>: Oferta de um produto condicionada à compra de outro.</li>
+                <li><strong>Omissão de Informações</strong>: Não informar taxas, prazos, condições.</li>
+                <li><strong>Publicidade Enganosa</strong>: Promessas que não podem ser cumpridas.</li>
+                <li><strong>Cobrança Indevida</strong>: Tarifas não informadas previamente.</li>
+                <li><strong>Dificultar Cancelamento</strong>: Criação de obstáculos para cancelar serviços.</li>
+                <li><strong>Alteração Unilateral</strong>: Mudanças contratuais sem comunicação prévia.</li>
+            </ol>
+
+            <h4>Sigilo Bancário e LGPD</h4>
+            <p><strong>Sigilo Bancário (Lei Complementar nº 105/2001):</strong></p>
+            <ul>
+                <li>Garantia de confidencialidade das informações financeiras</li>
+                <li>Compartilhamento apenas com autorização do cliente ou ordem judicial</li>
+                <li>Exceções: COAF (operações suspeitas), BACEN (fiscalização), autoridades judiciais</li>
+            </ul>
+            <p><strong>LGPD (Lei Geral de Proteção de Dados Pessoais - Lei nº 13.709/2018):</strong></p>
+            <ul>
+                <li>Protege dados pessoais de clientes e funcionários</li>
+                <li>Estabelece princípios de transparência, finalidade, adequação</li>
+                <li>Exige consentimento do titular para uso de dados</li>
+                <li>Garante direitos de acesso, correção, exclusão de dados</li>
+                <li>Prevê penalidades para uso indevido (multas, sanções)</li>
+            </ul>
+            <p><strong>Relação com o Atendimento Bancário:</strong></p>
+            <ul>
+                <li>Tratamento de dados deve ser transparente</li>
+                <li>Cliente deve ser informado sobre uso de seus dados</li>
+                <li>Dados sensíveis (financeiros, biométricos) merecem proteção especial</li>
+                <li>Políticas de privacidade devem ser claras e acessíveis</li>
+            </ul>
+
+            <div class="conceito-card">
+                <div class="titulo-box">Estudo de Caso: Resolução de Conflito Digital</div>
+                <p><strong>Cenário:</strong> Maria, cliente de um banco tradicional, contratou um serviço de investimento via mobile banking. Após 3 meses, percebeu que as taxas eram mais altas do que o informado inicialmente. Tentou cancelar pelo aplicativo, mas a opção não estava disponível.</p>
+                <p><strong>Solução Aplicável:</strong></p>
+                <ol>
+                    <li><strong>Direito de Cancelamento</strong>: Como a contratação foi digital, o cancelamento deve ser possível no mesmo canal.</li>
+                    <li><strong>Informação Transparente</strong>: O banco deve fornecer clareza sobre todas as taxas.</li>
+                    <li><strong>Práticas Abusivas</strong>: Impor dificuldades ao cancelamento é prática vedada.</li>
+                    <li><strong>CDC</strong>: Maria pode recorrer ao Procon ou ao Judiciário se o banco não resolver.</li>
+                    <li><strong>LGPD</strong>: Se o banco usou dados pessoais de forma inadequada, Maria pode solicitar correção e exclusão.</li>
+                </ol>
+            </div>
+
+            <div class="dica-box">
+                <div class="titulo-box">Dicas de Prova – Cesgranrio</div>
+                <p>A Cesgranrio frequentemente cobra os seguintes pontos sobre atendimento e canais digitais:</p>
+                <ol>
+                    <li><strong>Mobile/Internet Banking</strong>: Não são exclusivos de bancos digitais; todos os bancos oferecem.</li>
+                    <li><strong>Cancelamento Digital</strong>: O mesmo canal que contratou deve permitir cancelamento.</li>
+                    <li><strong>Sistemas Legados</strong>: O maior desafio não é segurança ou atração de jovens, mas a <strong>dualidade</strong> de manter sistemas antigos e construir sistemas modernos.</li>
+                    <li><strong>CDC</strong>: Aplica-se integralmente às relações bancárias.</li>
+                    <li><strong>LGPD</strong>: Estabelece direitos de acesso, correção e exclusão de dados.</li>
+                    <li><strong>Sigilo Bancário</strong>: Protegido pela LC 105/2001, com exceções previstas em lei.</li>
+                </ol>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 5 -->
+        <section id="cap5">
+            <h2>Capítulo 5: Sistema Financeiro de Habitação (SFH) e Sociedades de Crédito Imobiliário (SCI)</h2>
+
+            <h3>5.1 Estrutura do SFH</h3>
+
+            <h4>Origem e Finalidade</h4>
+            <p>O Sistema Financeiro de Habitação (SFH) foi criado pela Lei nº 4.380/1964, com os seguintes objetivos:</p>
+            <ol>
+                <li>Viabilizar a aquisição da casa própria, especialmente para famílias de baixa renda</li>
+                <li>Promover o desenvolvimento do setor imobiliário</li>
+                <li>Financiar a construção e aquisição de imóveis residenciais</li>
+                <li>Estabelecer um sistema de crédito habitacional com taxas de juros subsidiadas</li>
+            </ol>
+
+            <h4>Agentes do SFH</h4>
+            <p><strong>Órgão Normativo e Supervisor:</strong></p>
+            <ul>
+                <li>Conselho Monetário Nacional (CMN) - define as diretrizes</li>
+                <li>Banco Central do Brasil (BACEN) - fiscaliza e regulamenta</li>
+            </ul>
+            <p><strong>Operadores:</strong></p>
+            <ul>
+                <li><strong>Caixa Econômica Federal</strong> - principal agente do SFH, gerente do FGTS</li>
+                <li><strong>Sociedades de Crédito Imobiliário (SCI)</strong> - repassadoras de recursos</li>
+                <li><strong>Bancos Comerciais</strong> - podem atuar com recursos do FGTS e SBPE</li>
+                <li><strong>Bancos de Desenvolvimento</strong> - financiam projetos habitacionais</li>
+            </ul>
+
+            <h3>5.2 Sociedades de Crédito Imobiliário (SCI)</h3>
+
+            <h4>Conceito e Atuação</h4>
+            <p>As Sociedades de Crédito Imobiliário (SCI) são instituições financeiras que integram o SFH, atuando como repassadoras de recursos para financiamento imobiliário.</p>
+            <p><strong>Características Principais:</strong></p>
+            <ul>
+                <li>Captam recursos por meio de Letras de Crédito Imobiliário (LCI)</li>
+                <li>Concedem financiamentos para construção e aquisição de imóveis</li>
+                <li>Operam com recursos do SBPE (Sistema Brasileiro de Poupança e Empréstimo)</li>
+                <li>Podem operar com recursos do FGTS (Fundo de Garantia por Tempo de Serviço)</li>
+            </ul>
+            <p><strong>Finalidade da LCI:</strong></p>
+            <ul>
+                <li>A LCI é um título de crédito imobiliário</li>
+                <li>É emitida pelas SCI para captar recursos</li>
+                <li>Garantida por créditos imobiliários</li>
+                <li>Isenta de Imposto de Renda para o investidor</li>
+                <li>Protegida pelo FGC (até R$ 250.000,00)</li>
+            </ul>
+
+            <h4>Relação com o SFH</h4>
+            <p>As SCI integram o SFH de forma estrutural, pois:</p>
+            <ol>
+                <li><strong>Atuam na Repasse de Recursos</strong>: Utilizam recursos captados para financiar a compra de imóveis.</li>
+                <li><strong>Operam com Taxas Subsidiadas</strong>: As taxas são mais baixas que as de mercado.</li>
+                <li><strong>Atendem à Política Habitacional</strong>: Direcionam recursos para o setor habitacional.</li>
+                <li><strong>Utilizam Instrumentos Específicos</strong>: Emitem LCI, que são títulos do SFH.</li>
+                <li><strong>Estão Sujeitas à Regulação do SFH</strong>: Seguem as normas do CMN e do BACEN.</li>
+            </ol>
+            <div class="observacao-box">
+                <div class="titulo-box">Exemplo Prático</div>
+                <p>Uma SCI capta R$ 100 milhões em LCI no mercado. Esses recursos são utilizados para financiar 500 famílias na compra de imóveis de interesse social. As famílias pagam prestações mensais com taxas de juros mais baixas, e a SCI continua emitindo novas LCIs para manter o ciclo de financiamento.</p>
+            </div>
+
+            <h4>Produtos do SFH</h4>
+            <ul>
+                <li><strong>Letra de Crédito Imobiliário (LCI)</strong>: Título de renda fixa do SFH, isento de IR para investidores, garantia do FGC, prazo mínimo de 12 meses (para não resgate antecipado), valor mínimo de R$ 1.000,00 (pode variar).</li>
+                <li><strong>Cédula de Crédito Imobiliário (CCI)</strong>: Título de crédito que representa financiamento imobiliário, pode ser negociado no mercado secundário, garante a dívida do mutuário.</li>
+                <li><strong>Certificado de Recebíveis Imobiliários (CRI)</strong>: Título de renda fixa lastreado em recebíveis imobiliários, isento de IR para investidores, prazo e taxa variáveis, possibilidade de negociação em bolsa.</li>
+            </ul>
+
+            <h3>5.3 SBPE (Sistema Brasileiro de Poupança e Empréstimo)</h3>
+            <p>O SBPE é o sistema pelo qual as instituições financeiras utilizam os recursos da poupança (caderneta) para financiar a construção e aquisição de imóveis.</p>
+            <p><strong>Funcionamento:</strong></p>
+            <ol>
+                <li>Os depósitos de poupança são captados pelos bancos</li>
+                <li>Parte desses recursos é direcionada para financiamento imobiliário</li>
+                <li>As taxas de juros são limitadas pela legislação</li>
+                <li>Os contratos são indexados à TR (Taxa Referencial) + juros fixos</li>
+            </ol>
+            <p><strong>Vantagens do SBPE:</strong></p>
+            <ul>
+                <li>Taxas de juros mais baixas que as do mercado</li>
+                <li>Financiamentos de longo prazo (até 30 anos)</li>
+                <li>Flexibilidade de prazos e condições</li>
+            </ul>
+            <p><strong>Desvantagens:</strong></p>
+            <ul>
+                <li>A TR pode variar, afetando o valor das prestações</li>
+                <li>O valor financiado é limitado pelo valor do imóvel</li>
+                <li>A carência e as condições variam conforme a instituição</li>
+            </ul>
+
+            <div class="dica-box">
+                <div class="titulo-box">Dica de Prova – Cesgranrio</div>
+                <p>A Cesgranrio frequentemente cobra sobre o SFH:</p>
+                <ol>
+                    <li><strong>As SCI integram o SFH</strong> (é a associação correta)</li>
+                    <li><strong>LCI é isenta de IR</strong> (diferente de CDB, RDB)</li>
+                    <li><strong>Caixa Econômica Federal</strong> é a principal agente do SFH</li>
+                    <li><strong>SBPE</strong> utiliza recursos da poupança para financiamento imobiliário</li>
+                    <li><strong>TR</strong> (Taxa Referencial) é o indexador dos contratos do SFH</li>
+                </ol>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 6 -->
+        <section id="cap6">
+            <h2>Capítulo 6: Bancos de Desenvolvimento e Instituições Públicas</h2>
+
+            <h3>6.1 Bancos de Desenvolvimento</h3>
+
+            <h4>Conceito e Natureza Jurídica</h4>
+            <p>Os bancos de desenvolvimento são instituições financeiras públicas, geralmente controladas por governos estaduais ou pelo governo federal, constituídas sob a forma de sociedade anônima.</p>
+            <p><strong>Características Essenciais:</strong></p>
+            <ul>
+                <li><strong>Natureza Pública</strong>: Controlados por entes públicos</li>
+                <li><strong>Sociedade Anônima</strong>: Organizados como S.A.</li>
+                <li><strong>Sede</strong>: Na capital do estado que detém seu controle</li>
+                <li><strong>Finalidade</strong>: Financiar programas de desenvolvimento econômico e social</li>
+            </ul>
+
+            <h4>Objetivos e Atuação</h4>
+            <p><strong>Principais Objetivos:</strong></p>
+            <ul>
+                <li>Financiar projetos de desenvolvimento regional</li>
+                <li>Apoiar a infraestrutura e a indústria</li>
+                <li>Promover o desenvolvimento sustentável</li>
+                <li>Fomentar a geração de emprego e renda</li>
+                <li>Atender ao setor privado prioritariamente</li>
+            </ul>
+            <p><strong>Setores de Atuação:</strong></p>
+            <ul>
+                <li>Infraestrutura (energia, transporte, saneamento)</li>
+                <li>Indústria (modernização, expansão, inovação)</li>
+                <li>Agronegócio (financiamento, modernização)</li>
+                <li>Comércio e Serviços</li>
+                <li>Desenvolvimento Regional e Urbano</li>
+                <li>Inovação e Tecnologia</li>
+            </ul>
+
+            <h4>Exemplos de Bancos de Desenvolvimento</h4>
+            <ul>
+                <li><strong>BNDES (Banco Nacional de Desenvolvimento Econômico e Social)</strong>: Banco de desenvolvimento federal, maior banco de desenvolvimento da América Latina, financia projetos de grande porte e médios, atua com recursos do FAT (Fundo de Amparo ao Trabalhador) e outras fontes, tem natureza de sociedade anônima, mas com controle federal.</li>
+                <li><strong>Bancos Estaduais de Desenvolvimento</strong>: BDMG (Banco de Desenvolvimento de Minas Gerais), BRDE (Banco Regional de Desenvolvimento do Extremo Sul), BADESUL (Banco de Desenvolvimento do Rio Grande do Sul), BANESE (Banco do Estado de Sergipe) - embora seja mais banco comercial que de desenvolvimento, BANDES (Banco de Desenvolvimento do Espírito Santo).</li>
+            </ul>
+
+            <h4>Critérios de Elegibilidade</h4>
+            <p>Para ter acesso a recursos dos bancos de desenvolvimento, as empresas devem atender a critérios como:</p>
+            <ul>
+                <li>Viabilidade econômico-financeira do projeto</li>
+                <li>Alinhamento com as políticas de desenvolvimento</li>
+                <li>Geração de empregos e impacto social</li>
+                <li>Sustentabilidade ambiental</li>
+                <li>Capacidade de pagamento e garantias</li>
+            </ul>
+
+            <h3>6.2 Instituições Financeiras Públicas</h3>
+
+            <h4>Caixa Econômica Federal</h4>
+            <p><strong>Natureza:</strong> Instituição financeira pública federal, vinculada ao Ministério da Fazenda, forma de sociedade anônima.</p>
+            <p><strong>Atuação:</strong></p>
+            <ul>
+                <li>Agente do SFH e do FGTS</li>
+                <li>Operações de crédito habitacional</li>
+                <li>Poupança popular</li>
+                <li>Programas sociais (Bolsa Família, Minha Casa Minha Vida)</li>
+                <li>Operações de crédito para pessoas físicas e jurídicas</li>
+            </ul>
+            <p><strong>Características:</strong></p>
+            <ul>
+                <li>Não é banco comercial, mas opera como tal</li>
+                <li>É associada ao FGC</li>
+                <li>Tem caráter social e desenvolvimento</li>
+                <li>Gerencia recursos do FGTS</li>
+            </ul>
+
+            <h4>Banco do Brasil</h4>
+            <p><strong>Natureza:</strong> Sociedade de economia mista, controle federal, maior banco da América Latina.</p>
+            <p><strong>Atuação:</strong></p>
+            <ul>
+                <li>Banco comercial e de investimento</li>
+                <li>Operações de crédito</li>
+                <li>Serviços bancários em geral</li>
+                <li>Agente do governo em programas sociais</li>
+            </ul>
+            <p><strong>Características:</strong></p>
+            <ul>
+                <li>É banco comercial com capital misto</li>
+                <li>É associado ao FGC</li>
+                <li>Atua em todos os segmentos do mercado financeiro</li>
+            </ul>
+
+            <div class="dica-box">
+                <div class="titulo-box">Dica de Prova – Cesgranrio</div>
+                <p>A Cesgranrio frequentemente cobra sobre instituições públicas:</p>
+                <ol>
+                    <li><strong>Bancos de desenvolvimento são públicos</strong>, constituídos como S.A.</li>
+                    <li><strong>BNDES</strong> é o principal banco de desenvolvimento federal</li>
+                    <li><strong>Caixa Econômica Federal</strong> é agente do SFH e do FGTS</li>
+                    <li><strong>Banco do Brasil</strong> é sociedade de economia mista (capital público e privado)</li>
+                </ol>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 7 -->
+        <section id="cap7">
+            <h2>Capítulo 7: Exercícios Práticos e Estudos de Caso</h2>
+
+            <div class="conceito-card">
+                <div class="titulo-box">7.1 Estudo de Caso: Atendimento ao Cliente Idoso</div>
+                <p><strong>Cenário:</strong> Seu José, 72 anos, aposentado, procurou a agência para aplicar R$ 100.000,00 que recebeu de herança. O gerente sugeriu investimento em um fundo de ações, destacando as altas rentabilidades possíveis.</p>
+                <p><strong>Análise Crítica:</strong></p>
+                <ol>
+                    <li><strong>Perfil do Cliente</strong>: Seu José é idoso, aposentado, e provavelmente tem perfil conservador ou moderado.</li>
+                    <li><strong>Produto Sugerido</strong>: Fundo de ações é de alto risco e volatilidade.</li>
+                    <li><strong>Conformidade</strong>: A sugestão é inadequada ao perfil do cliente.</li>
+                    <li><strong>CDC</strong>: O banco deve fornecer informações claras sobre riscos.</li>
+                    <li><strong>PLD/FT</strong>: Deve haver identificação da origem dos recursos.</li>
+                </ol>
+                <p><strong>Solução Adequada:</strong></p>
+                <ol>
+                    <li><strong>Informar sobre riscos</strong>: Explicar que o investimento em ações pode perder valor.</li>
+                    <li><strong>Sugerir produtos adequados</strong>: Renda fixa (CDB, LCI, LCA) para perfil conservador.</li>
+                    <li><strong>Documentar</strong>: Registrar a recusa do cliente ao risco ou a recomendação do banco.</li>
+                    <li><strong>Respeitar</strong>: O cliente idoso tem direito a informação clara e proteção contra abusos.</li>
+                </ol>
+            </div>
+
+            <div class="conceito-card">
+                <div class="titulo-box">7.2 Estudo de Caso: Abertura de Conta Jurídica</div>
+                <p><strong>Cenário:</strong> Maria, empresária, abriu uma conta PJ para sua empresa de comércio varejista. Durante o processo, o banco solicitou documentação completa da empresa e dos sócios.</p>
+                <p><strong>Procedimentos Corretos:</strong></p>
+                <ol>
+                    <li><strong>Documentação da PJ</strong>: CNPJ, contrato social, comprovante de endereço.</li>
+                    <li><strong>Documentação dos Sócios</strong>: RG, CPF, comprovante de residência.</li>
+                    <li><strong>Cadastro PLD/FT</strong>: Identificação da atividade econômica, faturamento, origem dos recursos.</li>
+                    <li><strong>Comprovação de Atividade</strong>: Alvará de funcionamento (se aplicável).</li>
+                    <li><strong>Limites</strong>: Definir limites de movimentação compatíveis com o porte da empresa.</li>
+                    <li><strong>Atualização</strong>: Manter cadastro atualizado anualmente.</li>
+                </ol>
+            </div>
+
+            <div class="conceito-card">
+                <div class="titulo-box">7.3 Estudo de Caso: Transferência Internacional</div>
+                <p><strong>Cenário:</strong> João, cliente, deseja enviar USD 10.000,00 para seu filho que está estudando em Portugal.</p>
+                <p><strong>Procedimentos:</strong></p>
+                <ol>
+                    <li><strong>Identificação</strong>: Verificar se João é cliente regular do banco.</li>
+                    <li><strong>Documentação</strong>: Comprovação da origem dos recursos (declaração de imposto de renda, contracheque, etc.)</li>
+                    <li><strong>Finalidade</strong>: Declaração de que é para estudos no exterior.</li>
+                    <li><strong>Taxa de Câmbio</strong>: Aplicar a taxa de câmbio do banco (não a PTAX, que é apenas referencial).</li>
+                    <li><strong>IOC (Imposto sobre Operações Financeiras)</strong>: Aplicar alíquota de 1,1% (para PF).</li>
+                    <li><strong>Registro</strong>: Registrar a operação no sistema do BACEN.</li>
+                    <li><strong>Comunicação PLD/FT</strong>: Se houver suspeita de ilicitude, comunicar ao COAF.</li>
+                </ol>
+            </div>
+
+            <div class="conceito-card">
+                <div class="titulo-box">7.4 Estudo de Caso: Financiamento Imobiliário</div>
+                <p><strong>Cenário:</strong> Carlos, 35 anos, quer financiar um imóvel de R$ 500.000,00. Tem uma renda de R$ 10.000,00 por mês.</p>
+                <p><strong>Análise de Crédito:</strong></p>
+                <ol>
+                    <li><strong>Comprometimento de Renda</strong>: Prestação deve ser no máximo 30% da renda bruta (R$ 3.000,00).</li>
+                    <li><strong>Prazo</strong>: Até 30 anos (360 meses), desde que Carlos tenha idade para completar o financiamento (idades: até 70 anos).</li>
+                    <li><strong>Garantia</strong>: Hipoteca ou alienação fiduciária sobre o imóvel.</li>
+                    <li><strong>Taxa de Juros</strong>: TR + juros fixos (para SBPE) ou taxas do FGTS (para financiamento com FGTS).</li>
+                    <li><strong>Documentação</strong>: Comprovante de renda, declaração de imposto de renda, comprovante de endereço.</li>
+                    <li><strong>Análise de Risco</strong>: Histórico de crédito, relacionamento com o banco.</li>
+                </ol>
+                <p><strong>Resposta do Banco:</strong></p>
+                <ul>
+                    <li>Se a prestação ficar em R$ 3.000,00 (30% da renda), o financiamento é viável.</li>
+                    <li>Prazo sugerido: 360 meses (30 anos).</li>
+                    <li>Taxa de juros: 6,5% a.a. + TR.</li>
+                    <li>Garantia: Alienação fiduciária do imóvel.</li>
+                </ul>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 8 -->
+        <section id="cap8">
+            <h2>Capítulo 8: Macetes e Associações para Memorização</h2>
+
+            <div class="card-grid">
+                <div class="card-simples">
+                    <h4>SFN – Agentes</h4>
+                    <p><strong>"CVM não opera, supervê"</strong><br>CVM = supervisor (fiscaliza mercado de valores mobiliários). Não é operador.</p>
+                    <p><strong>"CMN norma, BACEN executa"</strong><br>CMN = normativo (define diretrizes); BACEN = supervisor e executor.</p>
+                </div>
+                <div class="card-simples">
+                    <h4>FGC</h4>
+                    <p><strong>"FGC privado, sem fins lucrativos"</strong><br>Entidade privada (não pública), sem fins lucrativos, garante até R$ 250.000,00 por pessoa/instituição.</p>
+                </div>
+                <div class="card-simples">
+                    <h4>Produtos Financeiros</h4>
+                    <p><strong>"CDB, RDB, LCI, LCA – renda fixa com garantia FGC"</strong><br>Proteção do FGC até R$ 250.000,00.</p>
+                    <p><strong>"Ações: renda variável, isenção até 20 mil"</strong><br>Isenção de IR até R$ 20.000,00/mês.</p>
+                </div>
+                <div class="card-simples">
+                    <h4>Previdência</h4>
+                    <p><strong>"PGBL deduz IR, VGBL não"</strong><br>PGBL: dedução de até 12% da renda bruta. VGBL: sem dedução, apenas sobre o rendimento.</p>
+                </div>
+                <div class="card-simples">
+                    <h4>Garantias</h4>
+                    <p><strong>"Real = bem, fidejussória = terceiro"</strong><br>Real: bem tangível (penhor, hipoteca, alienação fiduciária). Fidejussória: terceiro (aval, fiança).</p>
+                    <p><strong>"Alienação Fiduciária: credor proprietário"</strong><br>O credor (banco) tem a propriedade do bem; o devedor tem apenas a posse direta.</p>
+                </div>
+                <div class="card-simples">
+                    <h4>PLD/FT</h4>
+                    <p><strong>"Circular 3.978/2020: PREVENÇÃO"</strong><br>Palavra-chave: PREVENÇÃO à lavagem de dinheiro. Não é adequação, ambientação ou financiamento.</p>
+                    <p><strong>"COAF comunica, BACEN fiscaliza"</strong><br>COAF: recebe comunicações de operações suspeitas; BACEN: fiscaliza cumprimento das normas.</p>
+                </div>
+                <div class="card-simples">
+                    <h4>Meios de Pagamento</h4>
+                    <p><strong>"DOC D+1, TED D+0, PIX instantâneo"</strong><br>DOC: D+1 (próximo dia útil); TED: D+0 (mesmo dia); PIX: instantâneo (24/7).</p>
+                    <p><strong>"PIX não cobra PF, TED cobra"</strong><br>PIX: gratuito para pessoas físicas; TED: pode cobrar tarifa.</p>
+                </div>
+                <div class="card-simples">
+                    <h4>Cheque</h4>
+                    <p><strong>"Cheque cruzado: só crédito em conta"</strong><br>Cruzado geral: dois traços paralelos, só crédito em conta. Cruzado especial: banco indicado, só crédito para este banco.</p>
+                </div>
+                <div class="card-simples">
+                    <h4>Canais Digitais</h4>
+                    <p><strong>"Contratou digital, cancela digital"</strong><br>O mesmo canal que permite contratação, permite cancelamento.</p>
+                    <p><strong>"Sistemas legados: modernização x manutenção"</strong><br>Maior desafio: manter sistemas antigos E construir modernos.</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 9 -->
+        <section id="cap9">
+            <h2>Capítulo 9: Resumo dos Pontos Principais</h2>
+
+            <h3>9.1 Agentes do SFN</h3>
+            <table class="tabela-moderna">
+                <thead>
+                    <tr><th>Agente</th><th>Tipo</th><th>Função</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CMN</td><td>Normativo</td><td>Formula políticas e diretrizes</td></tr>
+                    <tr><td>BACEN</td><td>Supervisor</td><td>Executa e fiscaliza</td></tr>
+                    <tr><td>CVM</td><td>Supervisor</td><td>Fiscaliza mercado de valores mobiliários</td></tr>
+                    <tr><td>CNSP</td><td>Normativo</td><td>Regula seguros privados</td></tr>
+                    <tr><td>CNPC</td><td>Normativo</td><td>Regula previdência complementar fechada</td></tr>
+                    <tr><td>SUSEP</td><td>Supervisor</td><td>Fiscaliza seguros e previdência aberta</td></tr>
+                    <tr><td>PREVIC</td><td>Supervisor</td><td>Fiscaliza previdência complementar fechada</td></tr>
+                    <tr><td>Bancos</td><td>Operador</td><td>Executam operações financeiras</td></tr>
+                    <tr><td>Cooperativas</td><td>Operador</td><td>Intermedeiam operações (sem fins lucrativos)</td></tr>
+                    <tr><td>Bolsa (B3)</td><td>Operador</td><td>Ambiente de negociação de valores mobiliários</td></tr>
+                </tbody>
+            </table>
+
+            <h3>9.2 Produtos Financeiros</h3>
+            <table class="tabela-moderna">
+                <thead>
+                    <tr><th>Produto</th><th>Tipo</th><th>Garantia</th><th>IR</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CDB</td><td>Renda fixa</td><td>FGC</td><td>Sim (regressivo)</td></tr>
+                    <tr><td>RDB</td><td>Renda fixa</td><td>FGC</td><td>Sim (regressivo)</td></tr>
+                    <tr><td>LCI</td><td>Renda fixa</td><td>FGC</td><td>Isenta</td></tr>
+                    <tr><td>LCA</td><td>Renda fixa</td><td>FGC</td><td>Isenta</td></tr>
+                    <tr><td>Ações</td><td>Renda variável</td><td>Não</td><td>Até isenção de R$ 20.000/mês</td></tr>
+                    <tr><td>Fundos de Investimento</td><td>Varia</td><td>Não</td><td>Regressivo</td></tr>
+                </tbody>
+            </table>
+
+            <h3>9.3 Garantias</h3>
+            <table class="tabela-moderna">
+                <thead>
+                    <tr><th>Tipo</th><th>Subtipos</th><th>Característica</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Reais</td><td>Penhor, Hipoteca, Alienação Fiduciária</td><td>Vinculadas a bens tangíveis</td></tr>
+                    <tr><td>Fidejussórias</td><td>Aval, Fiança Civil, Fiança Bancária</td><td>Promessa de terceiro</td></tr>
+                </tbody>
+            </table>
+
+            <h3>9.4 Meios de Pagamento</h3>
+            <table class="tabela-moderna">
+                <thead>
+                    <tr><th>Meio</th><th>Prazo</th><th>Limite</th><th>Custo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>DOC</td><td>D+1</td><td>R$ 4.999,99</td><td>Normalmente menor</td></tr>
+                    <tr><td>TED</td><td>D+0</td><td>Sem limite</td><td>Normalmente maior</td></tr>
+                    <tr><td>PIX</td><td>Instantâneo</td><td>Sem limite</td><td>Gratuito para PF</td></tr>
+                </tbody>
+            </table>
+
+            <h3>9.5 PLD/FT</h3>
+            <table class="tabela-moderna">
+                <thead>
+                    <tr><th>Normativo</th><th>Exigência</th><th>Palavra-chave</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Lei 9.613/1998</td><td>Define crimes de lavagem de dinheiro</td><td>Ocultação, dissimulação</td></tr>
+                    <tr><td>Circular 3.978/2020</td><td>Cultura organizacional de prevenção</td><td>PREVENÇÃO</td></tr>
+                    <tr><td>Política de PLD/FT</td><td>Aprovada pela alta administração</td><td>Política</td></tr>
+                </tbody>
+            </table>
+
+            <h3>9.6 Canais Digitais</h3>
+            <table class="tabela-moderna">
+                <thead>
+                    <tr><th>Canal</th><th>Acesso</th><th>Características</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Internet Banking</td><td>Navegador (PC)</td><td>Serviços mais complexos</td></tr>
+                    <tr><td>Mobile Banking</td><td>Aplicativo (smartphone)</td><td>Serviços adaptados para mobile</td></tr>
+                    <tr><td>Cancelamento</td><td>Digital</td><td>Mesmo canal da contratação</td></tr>
+                </tbody>
+            </table>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CONSIDERAÇÕES FINAIS -->
+        <section id="final">
+            <h2>Considerações Finais</h2>
+            <p>Esta apostila foi desenvolvida para proporcionar uma compreensão profunda e abrangente do Sistema Financeiro Nacional, seus produtos e serviços, e a aplicação prática desses conhecimentos no dia a dia do profissional bancário.</p>
+
+            <div class="card-grid">
+                <div class="card-simples">
+                    <h4>Para o Concurso</h4>
+                    <ol>
+                        <li>Priorize a compreensão da estrutura do SFN, não apenas a memorização.</li>
+                        <li>Entenda a lógica por trás de cada produto e serviço, para aplicar em questões práticas.</li>
+                        <li>Conecte os temas: entenda como o crédito, investimentos e atendimento se relacionam.</li>
+                        <li>Pratique com estudos de caso: as bancas gostam de situações hipotéticas.</li>
+                        <li>Atenção às pegadinhas: confusões comuns como CMN x BACEN, CVM operadora, etc.</li>
+                        <li>Atualize-se: Normativos como a Circular 3.978/2020 estão em constante evolução.</li>
+                        <li>Memorize os limites e prazos: são cobrados frequentemente.</li>
+                    </ol>
+                </div>
+                <div class="card-simples">
+                    <h4>Para o Dia a Dia Bancário</h4>
+                    <ol>
+                        <li><strong>Atendimento ao Cliente</strong>: Use o conhecimento para orientar melhor os clientes.</li>
+                        <li><strong>Vendas</strong>: Entenda os produtos para oferecer a solução mais adequada.</li>
+                        <li><strong>Compliance</strong>: Siga as normas de PLD/FT para proteger a instituição e o cliente.</li>
+                        <li><strong>Transformação Digital</strong>: Esteja preparado para atender em canais digitais.</li>
+                        <li><strong>Resolução de Conflitos</strong>: Use o CDC e a LGPD para resolver questões com clientes.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="citacao-box">
+                <p>Bons estudos e sucesso no concurso!</p>
+            </div>
+
+            <p style="font-size:0.9rem; color:#8a86a8; margin-top:2rem;"><em>Material elaborado com base em normas e legislações vigentes até 2026. Em caso de atualizações, consulte os normativos mais recentes.</em></p>
+        </section>
+
+        <!-- ===== RODAPÉ ===== -->
+        <footer class="footer">
+            <p>Apostila Digital – Sistema Financeiro Nacional e Produtos Bancários</p>
+            <small>Conteúdo 100% preservado · Design otimizado para leitura em tablet</small>
+        </footer>
+
+    </div>
+    <!-- fim container -->
+</body>
+</html>
