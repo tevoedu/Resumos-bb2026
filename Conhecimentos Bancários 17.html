@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Completa de Conhecimentos Bancários</title>
+    <style>
+        /* ===== RESET ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+            background: #12161c;
+            color: #e8edf3;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e2630;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a6fa5;
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5f8bc9;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.01em;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-top: 0.4rem;
+            margin-bottom: 0.6rem;
+            background: linear-gradient(135deg, #f0c27f, #fc5c7d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #f0c27f;
+            border-bottom: 3px solid rgba(240, 194, 127, 0.25);
+            padding-bottom: 0.4rem;
+            margin-top: 3rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #b8d4f0;
+            margin-top: 2rem;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            color: #c8dbe9;
+            margin-top: 1.6rem;
+        }
+
+        h5 {
+            font-size: 1.05rem;
+            color: #d4e2ee;
+            margin-top: 1.4rem;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #dee6ef;
+        }
+
+        a {
+            color: #7ab7f0;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #aad0ff;
+            text-decoration: underline;
+        }
+
+        strong,
+        b {
+            color: #f5e7c8;
+            font-weight: 600;
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* ===== HEADER ===== */
+        .header-card {
+            background: linear-gradient(145deg, #1a232e, #0f151d);
+            border-radius: 28px;
+            padding: 2.8rem 2.8rem 2.2rem;
+            margin-bottom: 2.8rem;
+            border: 1px solid rgba(240, 194, 127, 0.15);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        .header-card::after {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -10%;
+            width: 50%;
+            height: 200%;
+            background: radial-gradient(ellipse at 70% 30%, rgba(240, 194, 127, 0.05), transparent 70%);
+            pointer-events: none;
+        }
+        .header-card .subhead {
+            font-size: 1.1rem;
+            color: #b0c7dd;
+            margin-top: 0.2rem;
+            margin-bottom: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+        .header-card .meta {
+            font-size: 0.95rem;
+            color: #8aa3be;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 1rem;
+            margin-top: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+        .header-card .meta span {
+            background: rgba(74, 111, 165, 0.18);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #b8cee8;
+            border: 1px solid rgba(74, 111, 165, 0.15);
+        }
+
+        /* ===== TOC ===== */
+        .toc-wrapper {
+            background: linear-gradient(145deg, #19222d, #10171f);
+            border-radius: 24px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.5);
+        }
+        .toc-wrapper h2 {
+            border-bottom: none;
+            margin-top: 0;
+            font-size: 1.6rem;
+            color: #f0c27f;
+            padding-bottom: 0.2rem;
+            -webkit-text-fill-color: #f0c27f;
+            background: none;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 0.6rem 1.8rem;
+            margin-top: 0.8rem;
+        }
+        .toc-grid a {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.4rem 0.2rem;
+            font-size: 0.95rem;
+            color: #c0d4e8;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .toc-grid a:hover {
+            border-bottom-color: #f0c27f;
+            color: #f5e7c8;
+            text-decoration: none;
+        }
+        .toc-grid .toc-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 1.8rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #f0c27f;
+            background: rgba(240, 194, 127, 0.12);
+            border-radius: 40px;
+            padding: 0.05rem 0.5rem;
+        }
+
+        /* ===== SECTION CARDS ===== */
+        .section-card {
+            background: linear-gradient(145deg, #17202a, #0f161e);
+            border-radius: 24px;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+            transition: border-color 0.2s;
+        }
+        .section-card:hover {
+            border-color: rgba(240, 194, 127, 0.08);
+        }
+        .section-card h2 {
+            margin-top: 0;
+            border-bottom-width: 2px;
+        }
+
+        /* ===== TABLES ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.6rem 0 2rem;
+            border-radius: 16px;
+            background: #0d141d;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        table.modern {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            min-width: 480px;
+        }
+        table.modern thead {
+            background: linear-gradient(135deg, #1f3142, #182433);
+        }
+        table.modern th {
+            padding: 0.9rem 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            color: #f0c27f;
+            border-bottom: 2px solid rgba(240, 194, 127, 0.2);
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+        table.modern td {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: #d2dfec;
+            vertical-align: top;
+        }
+        table.modern tr:last-child td {
+            border-bottom: none;
+        }
+        table.modern tbody tr:hover {
+            background: rgba(74, 111, 165, 0.07);
+        }
+        table.modern .highlight-cell {
+            background: rgba(240, 194, 127, 0.06);
+        }
+
+        /* ===== BLOCKS ===== */
+        .block-tip,
+        .block-obs,
+        .block-callout,
+        .block-important {
+            padding: 1.2rem 1.8rem;
+            margin: 1.6rem 0;
+            border-radius: 16px;
+            border-left: 5px solid;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .block-tip {
+            border-left-color: #7bcfa6;
+            background: rgba(123, 207, 166, 0.06);
+        }
+        .block-tip .block-label {
+            color: #7bcfa6;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+        .block-obs {
+            border-left-color: #f0a070;
+            background: rgba(240, 160, 112, 0.06);
+        }
+        .block-obs .block-label {
+            color: #f0a070;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+        .block-important {
+            border-left-color: #e8636b;
+            background: rgba(232, 99, 107, 0.07);
+        }
+        .block-important .block-label {
+            color: #e8636b;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+        .block-callout {
+            border-left-color: #7ab7f0;
+            background: rgba(122, 183, 240, 0.06);
+        }
+        .block-callout .block-label {
+            color: #7ab7f0;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+        .block-tip p,
+        .block-obs p,
+        .block-important p,
+        .block-callout p {
+            margin-bottom: 0.2rem;
+            color: #dce6f0;
+        }
+        .block-tip ul,
+        .block-obs ul,
+        .block-important ul,
+        .block-callout ul {
+            margin-top: 0.2rem;
+        }
+
+        /* ===== CARDS ===== */
+        .concept-card {
+            background: linear-gradient(145deg, #1b2532, #111a24);
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.6rem 0;
+            border: 1px solid rgba(240, 194, 127, 0.12);
+            box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.4);
+        }
+        .concept-card .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #f0c27f;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .concept-card p {
+            color: #d2dfec;
+            margin-bottom: 0.2rem;
+        }
+
+        /* ===== LISTS ===== */
+        ul,
+        ol {
+            margin: 0.6rem 0 1.2rem 1.4rem;
+            color: #d2dfec;
+        }
+        ul li,
+        ol li {
+            margin-bottom: 0.3rem;
+        }
+        ul ul,
+        ol ol {
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+        .check-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .check-list li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+        .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #7bcfa6;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* ===== DIVIDERS ===== */
+        .divider {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(240, 194, 127, 0.2), rgba(240, 194, 127, 0.4), rgba(240, 194, 127, 0.2), transparent);
+            margin: 2.6rem 0;
+        }
+        .divider-thin {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+            margin: 2rem 0;
+        }
+
+        /* ===== QUOTE ===== */
+        blockquote {
+            background: rgba(240, 194, 127, 0.05);
+            border-left: 4px solid #f0c27f;
+            padding: 1.2rem 2rem;
+            margin: 1.8rem 0;
+            border-radius: 0 16px 16px 0;
+            font-style: italic;
+            color: #d4e2ee;
+        }
+        blockquote p {
+            margin-bottom: 0;
+            color: #dce6f0;
+        }
+        blockquote cite {
+            display: block;
+            margin-top: 0.4rem;
+            font-style: normal;
+            font-size: 0.85rem;
+            color: #8aa3be;
+        }
+
+        /* ===== HIGHLIGHT (marker) ===== */
+        .highlight {
+            background: linear-gradient(120deg, rgba(240, 194, 127, 0.18) 0%, rgba(240, 194, 127, 0.08) 100%);
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            color: #f5e7c8;
+            font-weight: 500;
+        }
+
+        /* ===== KEYWORDS ===== */
+        .keyword {
+            display: inline-block;
+            background: rgba(74, 111, 165, 0.15);
+            padding: 0.05rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #b8d4f0;
+            border: 1px solid rgba(74, 111, 165, 0.15);
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== MACETE BOX ===== */
+        .macete {
+            background: linear-gradient(145deg, #1f2a38, #151e28);
+            border-radius: 18px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.6rem 0;
+            border: 1px solid rgba(240, 194, 127, 0.1);
+            box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .macete::before {
+            content: '🔑';
+            position: absolute;
+            top: -0.7rem;
+            left: 1.2rem;
+            background: #1f2a38;
+            padding: 0 0.4rem;
+            font-size: 1.2rem;
+        }
+        .macete .macete-title {
+            font-weight: 700;
+            color: #f0c27f;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.2rem;
+        }
+        .macete p,
+        .macete ul {
+            margin-bottom: 0.2rem;
+            color: #dce6f0;
+        }
+        .macete ul {
+            margin-top: 0.2rem;
+        }
+
+        /* ===== SVG DIAGRAMS ===== */
+        .diagram-container {
+            background: #0d141d;
+            border-radius: 20px;
+            padding: 1.8rem 1rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            overflow-x: auto;
+            text-align: center;
+        }
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ===== GRID for comparisons ===== */
+        .comp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.6rem 0;
+        }
+        .comp-grid .comp-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 1.2rem 1.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .comp-grid .comp-item h5 {
+            margin-top: 0;
+            color: #f0c27f;
+            font-size: 1rem;
+        }
+        .comp-grid .comp-item p {
+            margin-bottom: 0.2rem;
+            font-size: 0.92rem;
+        }
+        @media (max-width: 640px) {
+            .comp-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-note {
+            margin-top: 3.6rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6a7f96;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 2rem;
+        }
+        .footer-note strong {
+            color: #8aa3be;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 820px) {
+            body {
+                padding: 1.2rem 0.8rem 2.5rem;
+            }
+            .section-card {
+                padding: 1.6rem 1.2rem;
+            }
+            .header-card {
+                padding: 2rem 1.6rem;
+            }
+            .toc-wrapper {
+                padding: 1.4rem 1.2rem;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+            .block-tip,
+            .block-obs,
+            .block-important,
+            .block-callout {
+                padding: 1rem 1.2rem;
+            }
+            .concept-card {
+                padding: 1rem 1.2rem;
+            }
+            .macete {
+                padding: 1rem 1.2rem;
+            }
+            table.modern {
+                font-size: 0.8rem;
+                min-width: 320px;
+            }
+            table.modern th,
+            table.modern td {
+                padding: 0.6rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-card .meta {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+            .comp-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+            }
+            .section-card {
+                padding: 1.2rem 0.8rem;
+            }
+            blockquote {
+                padding: 0.8rem 1.2rem;
+            }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+                padding: 0.5in;
+            }
+            .section-card,
+            .header-card,
+            .toc-wrapper {
+                background: #f5f5f5 !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+            }
+            table.modern {
+                border: 1px solid #ccc;
+            }
+            table.modern th {
+                background: #e0e0e0 !important;
+                color: #111 !important;
+            }
+            table.modern td {
+                color: #222 !important;
+                border-bottom: 1px solid #ccc !important;
+            }
+            .block-tip,
+            .block-obs,
+            .block-important,
+            .block-callout {
+                border: 1px solid #999 !important;
+                background: #f0f0f0 !important;
+            }
+            .concept-card {
+                border: 1px solid #aaa !important;
+                background: #f0f0f0 !important;
+            }
+            .macete {
+                border: 1px solid #aaa !important;
+                background: #f0f0f0 !important;
+            }
+            .macete::before {
+                background: #f0f0f0 !important;
+            }
+            h1 {
+                -webkit-text-fill-color: #222 !important;
+                background: none !important;
+                color: #222 !important;
+            }
+            .diagram-container {
+                background: #f5f5f5 !important;
+                border: 1px solid #ccc !important;
+            }
+            .divider {
+                background: #ccc !important;
+            }
+            .footer-note {
+                border-top-color: #ccc !important;
+                color: #555 !important;
+            }
+            .header-card .meta span {
+                background: #e0e0e0 !important;
+                border-color: #ccc !important;
+                color: #333 !important;
+            }
+            .toc-grid a {
+                color: #222 !important;
+            }
+            .toc-grid a:hover {
+                border-bottom-color: #222 !important;
+            }
+            .highlight {
+                background: #f0e6d0 !important;
+                color: #111 !important;
+            }
+            .keyword {
+                background: #e0e0e0 !important;
+                border-color: #bbb !important;
+                color: #222 !important;
+            }
+            .check-list li::before {
+                color: #2a7a4a !important;
+            }
+            blockquote {
+                border-left-color: #888 !important;
+                background: #f0f0f0 !important;
+                color: #222 !important;
+            }
+            blockquote p {
+                color: #222 !important;
+            }
+            .comp-grid .comp-item {
+                border-color: #ccc !important;
+                background: #f8f8f8 !important;
+            }
+            .comp-grid .comp-item h5 {
+                color: #222 !important;
+            }
+        }
+
+        /* small inline svg icons */
+        .icon-svg {
+            display: inline-block;
+            width: 1.1em;
+            height: 1.1em;
+            vertical-align: middle;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* extra spacing for sub-sections */
+        .sub-section {
+            margin-top: 1.8rem;
+        }
+
+        /* inline code-like */
+        .mono {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.05rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.85em;
+            color: #c8dbe9;
+        }
+
+        /* small badge */
+        .badge {
+            display: inline-block;
+            background: rgba(240, 194, 127, 0.12);
+            padding: 0.1rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #f0c27f;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ========== HEADER ========== -->
+        <header class="header-card">
+            <h1>Apostila Completa de Conhecimentos Bancários</h1>
+            <p class="subhead">Para Concursos da Área Bancária</p>
+            <p style="color:#b0c7dd;font-size:1rem;margin-top:-0.2rem;">
+                Material desenvolvido com base nas principais bancas: Cesgranrio, FCC, FGV e Cebraspe
+            </p>
+            <div class="meta">
+                <span>📘 Conteúdo 100% preservado</span>
+                <span>🎯 Foco em concursos</span>
+                <span>📱 Otimizado para tablet</span>
+            </div>
+        </header>
+
+        <!-- ========== SUMÁRIO ========== -->
+        <nav class="toc-wrapper" aria-label="Sumário">
+            <h2>Sumário</h2>
+            <div class="toc-grid">
+                <a href="#s1"><span class="toc-num">1</span> Introdução ao SFN</a>
+                <a href="#s2"><span class="toc-num">2</span> Estrutura e Hierarquia do SFN</a>
+                <a href="#s3"><span class="toc-num">3</span> Instituições Financeiras Bancárias</a>
+                <a href="#s4"><span class="toc-num">4</span> Mercados Financeiros</a>
+                <a href="#s5"><span class="toc-num">5</span> Mercado de Câmbio</a>
+                <a href="#s6"><span class="toc-num">6</span> Prevenção à Lavagem de Dinheiro</a>
+                <a href="#s7"><span class="toc-num">7</span> Marketing Bancário e Atendimento</a>
+                <a href="#s8"><span class="toc-num">8</span> Inovações e Fintechs</a>
+                <a href="#s9"><span class="toc-num">9</span> Dicas e Macetes para Provas</a>
+                <a href="#conclusao"><span class="toc-num">•</span> Conclusão</a>
+                <a href="#apendice"><span class="toc-num">•</span> Apêndice: Simulado</a>
+                <a href="#glossario"><span class="toc-num">•</span> Glossário</a>
+            </div>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- ========== SEÇÃO 1 ========== -->
+        <section id="s1" class="section-card">
+            <h2>1. Introdução ao Sistema Financeiro Nacional</h2>
+
+            <h3>1.1 O que é o Sistema Financeiro Nacional?</h3>
+            <p>O Sistema Financeiro Nacional (SFN) é o conjunto de instituições, normas e mecanismos que viabilizam a circulação de recursos financeiros no país. Imagine o SFN como o "sistema circulatório" da economia brasileira: assim como o sangue precisa circular pelo corpo para levar oxigênio e nutrientes, o dinheiro precisa circular pela economia para financiar o consumo, o investimento e o desenvolvimento.</p>
+            <p>No dia a dia de um escriturário bancário, compreender o SFN não é apenas uma exigência de prova — é a base para explicar ao cliente por que determinada operação é viável ou não, por que as taxas de juros variam, e como o banco se insere nesse grande ecossistema financeiro.</p>
+
+            <div class="concept-card">
+                <div class="card-title">Os três pilares do SFN</div>
+                <div class="table-wrap">
+                    <table class="modern">
+                        <thead>
+                            <tr><th>Pilar</th><th>Função</th><th>Exemplo Prático</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Normativo</strong></td><td>Estabelece as regras</td><td>CMN define que a poupança deve render TR + 0,5% ao mês</td></tr>
+                            <tr><td><strong>Executor</strong></td><td>Coloca as regras em prática</td><td>Banco Central opera compra e venda de títulos para controlar a Selic</td></tr>
+                            <tr><td><strong>Operacional</strong></td><td>Atende diretamente o cidadão</td><td>Você, escriturário, abrindo uma conta ou vendendo um CDB</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>1.2 A Hierarquia do SFN</h3>
+            <p>A compreensão hierárquica é fundamental para provas da Cesgranrio, que frequentemente cobra a distinção entre as competências de cada órgão. Vamos entender essa estrutura de cima para baixo:</p>
+
+            <h4>1.2.1 Conselho Monetário Nacional (CMN)</h4>
+            <p>O CMN é o <strong>órgão normativo máximo</strong> do SFN. Pense nele como o "legislador" do sistema financeiro.</p>
+            <p><strong>Composição:</strong></p>
+            <ul>
+                <li>Ministro da Fazenda (Presidente)</li>
+                <li>Ministro do Planejamento e Orçamento</li>
+                <li>Presidente do Banco Central</li>
+            </ul>
+            <p><strong>Principais atribuições (decore!):</strong></p>
+            <ul class="check-list">
+                <li>Fixar as metas de inflação</li>
+                <li>Estabelecer as diretrizes da política cambial</li>
+                <li>Definir as normas de funcionamento das instituições financeiras</li>
+                <li>Estabelecer limites para operações de crédito</li>
+                <li>Definir a taxa de juros básica da economia (meta para a Selic)</li>
+                <li>Regular a formação do mercado de capitais</li>
+                <li>Disciplinar o crédito em todas as suas modalidades</li>
+            </ul>
+
+            <div class="block-obs">
+                <div class="block-label">⚠️ PEGADINHA CLÁSSICA DA CESGRANRIO</div>
+                <p>O CMN <strong>formula</strong> a política monetária, mas quem a <strong>executa</strong> é o Banco Central. Muitas questões trocam essas funções propositalmente.</p>
+            </div>
+
+            <p><strong>Exemplo prático:</strong> Quando o CMN decide aumentar a meta da Selic de 10% para 11% ao ano, isso não acontece automaticamente. O Banco Central, então, atua no mercado aberto (compra e venda de títulos públicos) para fazer com que a taxa de juros praticada no mercado se alinhe a essa nova meta.</p>
+
+            <h4>1.2.2 Banco Central do Brasil (Bacen)</h4>
+            <p>O Bacen é o <strong>órgão executor</strong> da política monetária e o <strong>regulador</strong> das instituições financeiras. É uma autarquia federal com personalidade jurídica de direito público.</p>
+            <p><strong>Principais atribuições:</strong></p>
+            <ul class="check-list">
+                <li>Executar a política monetária definida pelo CMN</li>
+                <li>Controlar a emissão de moeda (papel-moeda e moeda metálica)</li>
+                <li>Regular e fiscalizar as instituições financeiras</li>
+                <li>Realizar operações de câmbio e controle do fluxo de capitais estrangeiros</li>
+                <li>Administrar o Sistema de Pagamentos Brasileiro (SPB)</li>
+                <li>Custodiar e negociar títulos públicos federais (via SELIC)</li>
+                <li>Atuar como banco dos bancos (depósito das reservas compulsórias)</li>
+            </ul>
+
+            <div class="block-important">
+                <div class="block-label">⚠️ CUIDADO</div>
+                <p>O Bacen NÃO é um banco comercial. Ele não abre contas para pessoas físicas, não oferece empréstimos pessoais e não capta depósitos à vista do público em geral.</p>
+            </div>
+
+            <p><strong>Exemplo prático na agência:</strong> Quando você orienta um cliente sobre a taxa de juros de um financiamento imobiliário, na verdade está falando sobre um dos reflexos da política monetária definida pelo CMN e executada pelo Bacen. A Selic influencia diretamente a TR (Taxa Referencial) e, consequentemente, as taxas de financiamento.</p>
+
+            <h4>1.2.3 Comissão de Valores Mobiliários (CVM)</h4>
+            <p>A CVM é uma <strong>autarquia em regime especial</strong>, vinculada ao Ministério da Fazenda, com autonomia financeira e mandato fixo para seus dirigentes.</p>
+
+            <div class="macete">
+                <div class="macete-title">🔑 MACETE PARA PROVA</div>
+                <p>TODOS os supervisores do SFN (BCB, CVM, Susep, Previc) são autarquias em regime especial. A Cesgranrio adora cobrar essa classificação!</p>
+            </div>
+
+            <p><strong>Principais atribuições:</strong></p>
+            <ul class="check-list">
+                <li>Regular e fiscalizar o mercado de valores mobiliários (ações, debêntures, cotas de fundos, etc.)</li>
+                <li>Proteger os investidores contra emissões irregulares e práticas ilegais (insider trading, manipulação de mercado)</li>
+                <li>Assegurar a transparência das informações prestadas pelas companhias abertas</li>
+                <li>Credenciar e supervisionar as bolsas de valores e os intermediários financeiros (corretoras e distribuidoras)</li>
+            </ul>
+
+            <p><strong>Exemplo prático:</strong> Quando um cliente pergunta se um título de renda variável é seguro, você pode explicar que a CVM fiscaliza as empresas que emitem ações, garantindo que elas divulguem suas demonstrações financeiras corretamente.</p>
+
+            <hr class="divider-thin">
+
+            <h3>1.3 Quadro-Resumo das Instituições Normativas</h3>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Órgão</th><th>Classificação</th><th>Função Principal</th><th>Atua no Mercado</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CMN</strong></td><td>Órgão colegiado</td><td>Formulação de políticas monetária, cambial e creditícia</td><td>Todas as áreas</td></tr>
+                        <tr><td><strong>Bacen</strong></td><td>Autarquia em regime especial</td><td>Execução da política monetária, regulação e fiscalização</td><td>Monetário, cambial</td></tr>
+                        <tr><td><strong>CVM</strong></td><td>Autarquia em regime especial</td><td>Regulação e fiscalização do mercado de capitais</td><td>Capitais</td></tr>
+                        <tr><td><strong>Susep</strong></td><td>Autarquia</td><td>Regulação e fiscalização do mercado de seguros</td><td>Seguros</td></tr>
+                        <tr><td><strong>Previc</strong></td><td>Autarquia</td><td>Regulação e fiscalização das entidades fechadas de previdência complementar</td><td>Previdência</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== SEÇÃO 2 ========== -->
+        <section id="s2" class="section-card">
+            <h2>2. Estrutura e Hierarquia do SFN</h2>
+
+            <h3>2.1 Entendendo a Dinâmica de Funcionamento</h3>
+            <p>Para um escriturário bancário, entender o SFN não é apenas decorar siglas. É preciso compreender como as decisões tomadas no topo da pirâmide impactam o dia a dia da agência.</p>
+
+            <div class="concept-card">
+                <div class="card-title">Fluxo de uma decisão do CMN até o cliente</div>
+                <div class="diagram-container" style="background:transparent;padding:0.6rem 0;border:none;">
+                    <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                        <style>
+                            .flow-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; fill: #e8edf3; font-weight: 500; }
+                            .flow-arrow { stroke: #f0c27f; stroke-width: 2.5; fill: none; marker-end: url(#arrowF); }
+                            .flow-box { fill: #1a2532; stroke: rgba(240,194,127,0.25); stroke-width: 1.5; rx: 12; }
+                            .flow-label { fill: #b8d4f0; font-size: 12px; font-weight: 400; }
+                        </style>
+                        <defs>
+                            <marker id="arrowF" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+                                <path d="M0,0 L10,4 L0,8 Z" fill="#f0c27f" />
+                            </marker>
+                        </defs>
+                        <!-- boxes -->
+                        <rect x="30" y="20" width="140" height="48" class="flow-box" />
+                        <text x="100" y="49" text-anchor="middle" class="flow-text">CMN (define a política)</text>
+
+                        <rect x="270" y="20" width="180" height="48" class="flow-box" />
+                        <text x="360" y="49" text-anchor="middle" class="flow-text">Bacen (executa via mercado aberto)</text>
+
+                        <rect x="510" y="20" width="160" height="48" class="flow-box" />
+                        <text x="590" y="49" text-anchor="middle" class="flow-text">Taxa Selic é ajustada</text>
+
+                        <rect x="200" y="110" width="180" height="48" class="flow-box" />
+                        <text x="290" y="139" text-anchor="middle" class="flow-text">Bancos ajustam suas taxas</text>
+
+                        <rect x="460" y="110" width="200" height="48" class="flow-box" />
+                        <text x="560" y="139" text-anchor="middle" class="flow-text">Escriturário negocia com o cliente</text>
+
+                        <!-- arrows -->
+                        <path d="M170,44 L260,44" class="flow-arrow" />
+                        <path d="M450,44 L500,44" class="flow-arrow" />
+                        <path d="M590,68 L590,90 L380,90 L380,110" class="flow-arrow" />
+                        <path d="M380,158 L450,158" class="flow-arrow" />
+                    </svg>
+                </div>
+            </div>
+
+            <p><strong>Exemplo prático:</strong> Em 2020, com a pandemia, o CMN autorizou medidas excepcionais de alongamento de dívidas. O Bacen regulamentou a operação. Os bancos, então, puderam oferecer aos clientes a possibilidade de suspender temporariamente o pagamento de parcelas. O escriturário, na ponta, explicava essa possibilidade ao cliente e formalizava o acordo.</p>
+
+            <hr class="divider-thin">
+
+            <h3>2.2 As Carteiras dos Bancos Múltiplos</h3>
+            <p>O banco múltiplo é uma instituição que pode atuar em mais de uma carteira. É importante saber que:</p>
+
+            <div class="macete">
+                <div class="macete-title">🔑 REGRA DO BANCO MÚLTIPLO</div>
+                <p>Para ser um banco múltiplo, a instituição deve ter, <strong>obrigatoriamente</strong>, pelo menos uma das seguintes carteiras: <strong>comercial</strong> OU <strong>de investimento</strong>.</p>
+            </div>
+
+            <p>Isso significa que um banco múltiplo pode ser:</p>
+            <ul>
+                <li>Múltiplo com carteira comercial (mais comum)</li>
+                <li>Múltiplo com carteira de investimento</li>
+                <li>Múltiplo com ambas</li>
+            </ul>
+            <p><strong>Exemplo:</strong> O Banco do Brasil é um banco múltiplo com carteira comercial, atuando em diversas frentes.</p>
+
+            <hr class="divider-thin">
+
+            <h3>2.3 A CVM como Autarquia em Regime Especial</h3>
+            <p>A CVM é frequentemente objeto de questões. O que significa "autarquia em regime especial"?</p>
+            <p><strong>Características:</strong></p>
+            <ul>
+                <li><strong>Personalidade jurídica própria</strong> (pode ter patrimônio, contratar, processar e ser processada)</li>
+                <li><strong>Autonomia financeira</strong> (não depende do orçamento da União para sua manutenção)</li>
+                <li><strong>Mandato fixo para seus dirigentes</strong> (os diretores têm mandato de 5 anos, não coincidente com o do Presidente da República)</li>
+            </ul>
+
+            <div class="block-tip">
+                <div class="block-label">💡 DICA DE PROVA</div>
+                <p>A Cesgranrio adora perguntar: "A CVM, por possuir personalidade jurídica e patrimônio próprios, autonomia financeira e mandato fixo para seus dirigentes, é classificada como..." Resposta: <strong>autarquia em regime especial</strong>.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== SEÇÃO 3 ========== -->
+        <section id="s3" class="section-card">
+            <h2>3. Instituições Financeiras Bancárias</h2>
+
+            <h3>3.1 Bancos Comerciais</h3>
+            <h4>Características Essenciais</h4>
+            <p>Os bancos comerciais são a porta de entrada do sistema financeiro para a maioria dos cidadãos. São eles que oferecem a conta-corrente, o cartão de crédito, o financiamento de veículos, etc.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Aspecto</th><th>Detalhamento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Captação</strong></td><td>Depósitos à vista (contas-correntes), depósitos a prazo (CDBs), poupança</td></tr>
+                        <tr><td><strong>Aplicação</strong></td><td>Empréstimos e financiamentos de curto e médio prazo, capital de giro</td></tr>
+                        <tr><td><strong>Público</strong></td><td>Pessoa física e pessoa jurídica (empresas de todos os portes)</td></tr>
+                        <tr><td><strong>Serviços</strong></td><td>Conta-corrente, cartões, transferências, pagamentos, crédito</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>O Papel do Escriturário no Banco Comercial</h4>
+            <p>Quando você trabalha em uma agência bancária, está atuando em um banco comercial (ou em um banco múltiplo com carteira comercial). Suas funções típicas incluem:</p>
+            <ul class="check-list">
+                <li>Abrir contas-correntes</li>
+                <li>Oferecer produtos de crédito (cheque especial, CDC, capital de giro)</li>
+                <li>Vender produtos de investimento (CDB, LCI, LCA, fundos)</li>
+                <li>Orientar sobre serviços bancários (DOC, TED, Pix)</li>
+                <li>Atender clientes e resolver pendências</li>
+            </ul>
+
+            <hr class="divider-thin">
+
+            <h3>3.2 Bancos de Investimento</h3>
+            <p>Os bancos de investimento têm um foco completamente diferente dos bancos comerciais. Enquanto o banco comercial atende o público em geral, o banco de investimento atua em operações de maior porte, voltadas para o mercado de capitais.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Aspecto</th><th>Detalhamento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Captação</strong></td><td>Depósitos a prazo (CDBs), letras financeiras, debêntures</td></tr>
+                        <tr><td><strong>Aplicação</strong></td><td>Financiamentos de médio e longo prazo, capital fixo, projetos de investimento</td></tr>
+                        <tr><td><strong>Público</strong></td><td>Empresas de médio e grande porte, governos</td></tr>
+                        <tr><td><strong>Serviços</strong></td><td>Subscrição de ações, debêntures, assessoria em fusões e aquisições, estruturação de projetos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="block-important">
+                <div class="block-label">⚠️ DIFERENÇA CRUCIAL</div>
+                <p>Os bancos de investimento <strong>NÃO CAPTAM depósitos à vista</strong>. Ou seja, eles não oferecem contas-correntes para o público em geral!</p>
+            </div>
+
+            <p><strong>Exemplo Prático:</strong> Imagine que uma empresa de energia deseja construir uma nova usina hidrelétrica. O investimento é de R$ 500 milhões. A empresa procura um banco de investimento, que estrutura uma emissão de debêntures (títulos de dívida) para captar esses recursos no mercado de capitais.</p>
+
+            <hr class="divider-thin">
+
+            <h3>3.3 Bancos de Desenvolvimento</h3>
+            <p>Os bancos de desenvolvimento atuam no financiamento de projetos de interesse econômico e social.</p>
+            <p><strong>Principal exemplo:</strong> BNDES (Banco Nacional de Desenvolvimento Econômico e Social)</p>
+            <ul>
+                <li>Financiam projetos de longo prazo</li>
+                <li>Atuam em setores estratégicos (infraestrutura, energia, inovação)</li>
+                <li>São controlados por entes públicos (União, Estados)</li>
+            </ul>
+
+            <hr class="divider-thin">
+
+            <h3>3.4 Caixa Econômica Federal (CEF)</h3>
+            <p>A Caixa Econômica Federal merece atenção especial, pois é frequentemente cobrada em provas.</p>
+
+            <div class="concept-card">
+                <div class="card-title">Classificação e Natureza Jurídica</div>
+                <p style="font-size:1.05rem;font-weight:500;color:#f0c27f;">A Caixa Econômica Federal é uma <strong>empresa pública</strong>, com <strong>personalidade jurídica de direito privado</strong>.</p>
+                <p><strong>Por que isso importa?</strong></p>
+                <ul>
+                    <li>Empresa pública: criada por lei, com capital integralmente público (não tem participação privada)</li>
+                    <li>Personalidade de direito privado: rege-se majoritariamente pelas normas do direito privado (não é autarquia, fundação ou organização social)</li>
+                </ul>
+            </div>
+
+            <h4>Atuação da Caixa</h4>
+            <ul class="check-list">
+                <li><strong>Seguro-Desemprego</strong> e <strong>FGTS</strong>: administração das contas vinculadas</li>
+                <li><strong>Minha Casa Minha Vida</strong> (agora Casa Verde e Amarela): financiamento habitacional</li>
+                <li><strong>Poupança</strong>: principal captadora de poupança do país</li>
+                <li><strong>Loteria</strong>: exploração de loterias federais</li>
+                <li><strong>Assistência social</strong>: programas de transferência de renda (Bolsa Família)</li>
+            </ul>
+
+            <h4>Comparativo: Caixa vs. Banco do Brasil</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Aspecto</th><th>Caixa Econômica Federal</th><th>Banco do Brasil</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Natureza Jurídica</strong></td><td>Empresa pública</td><td>Sociedade de economia mista</td></tr>
+                        <tr><td><strong>Capital</strong></td><td>100% público</td><td>Misto (público + privado)</td></tr>
+                        <tr><td><strong>Atuação</strong></td><td>Política habitacional, FGTS, loterias, assistência social</td><td>Agronegócio, comércio exterior, bancário tradicional</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="block-tip">
+                <div class="block-label">💡 DICA DE PROVA</div>
+                <p>A Cesgranrio adora cobrar essa distinção: Caixa = empresa pública (100% União), Banco do Brasil = sociedade de economia mista (capital misto).</p>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>3.5 Bancos Múltiplos</h3>
+            <p>O banco múltiplo é uma figura jurídica que permite a uma instituição atuar em diferentes carteiras (comercial, investimento, câmbio, hipotecária, crédito imobiliário, entre outras).</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Carteira Obrigatória</th><th>Carteiras Adicionais (pode ter)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Comercial OU Investimento</td><td>Câmbio, Hipotecária, Crédito Imobiliário, Crédito, Investimento, Financeira, etc.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>Exemplo de Banco Múltiplo:</strong> O Itaú Unibanco é um banco múltiplo com:</p>
+            <ul>
+                <li>Carteira comercial</li>
+                <li>Carteira de investimento</li>
+                <li>Carteira de câmbio</li>
+                <li>Carteira de crédito imobiliário</li>
+            </ul>
+
+            <hr class="divider-thin">
+
+            <h3>3.6 Quadro-Resumo das Instituições Bancárias</h3>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Tipo</th><th>Captação</th><th>Aplicação</th><th>Público</th><th>Natureza</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Comercial</strong></td><td>Depósitos à vista, CDB, poupança</td><td>Capital de giro, curto prazo</td><td>PF e PJ em geral</td><td>Privado ou estatal</td></tr>
+                        <tr><td><strong>Investimento</strong></td><td>Depósitos a prazo</td><td>Capital fixo, médio/longo prazo</td><td>Empresas</td><td>Privado</td></tr>
+                        <tr><td><strong>Desenvolvimento</strong></td><td>Recursos próprios (orçamento), captação externa</td><td>Projetos de interesse social</td><td>Setores estratégicos</td><td>Estatal</td></tr>
+                        <tr><td><strong>Caixa</strong></td><td>Poupança, FGTS, captação</td><td>Habitação, saneamento, infraestrutura</td><td>PF, programas sociais</td><td>Empresa pública</td></tr>
+                        <tr><td><strong>BB</strong></td><td>Captação tradicional</td><td>Agronegócio, comércio exterior</td><td>PF e PJ</td><td>Sociedade de economia mista</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== SEÇÃO 4 ========== -->
+        <section id="s4" class="section-card">
+            <h2>4. Mercados Financeiros</h2>
+
+            <h3>4.1 Classificação dos Mercados</h3>
+            <p>O SFN é dividido em quatro mercados principais. Cada um tem sua função específica e seus ativos característicos.</p>
+
+            <h4>4.1.1 Mercado Monetário</h4>
+            <p><strong>Função:</strong> Controlar a liquidez da economia, ou seja, a quantidade de dinheiro em circulação.</p>
+            <p><strong>Ativos transacionados:</strong> Títulos públicos federais (operações de mercado aberto).</p>
+            <p><strong>Quem atua:</strong> Banco Central (como comprador e vendedor), bancos comerciais.</p>
+            <p><strong>Exemplo prático:</strong> Quando o Bacen quer reduzir a inflação, ele vende títulos públicos no mercado monetário. Isso retira dinheiro de circulação (as pessoas compram títulos e "guardam" o dinheiro), o que reduz o consumo e a pressão inflacionária.</p>
+
+            <h4>4.1.2 Mercado de Crédito</h4>
+            <p><strong>Função:</strong> Financiar o consumo, o capital de giro e os investimentos das empresas e pessoas físicas.</p>
+            <p><strong>Ativos transacionados:</strong> Empréstimos, financiamentos, capital de giro, cheque especial.</p>
+            <p><strong>Quem atua:</strong> Bancos comerciais, financeiras.</p>
+            <p><strong>Exemplo prático:</strong> Cliente faz um financiamento de veículo. O banco empresta o dinheiro (crédito) e recebe de volta com juros (aplicação).</p>
+
+            <h4>4.1.3 Mercado de Capitais</h4>
+            <p><strong>Função:</strong> Captar recursos de longo prazo para empresas, compartilhando riscos e ganhos com os investidores.</p>
+            <p><strong>Ativos transacionados:</strong> Ações, debêntures, BDRs, fundos de investimento, ETFs.</p>
+            <p><strong>Quem atua:</strong> Empresas, investidores, B3 (bolsa), CVM (regulador).</p>
+            <p><strong>Exemplo prático:</strong> Uma empresa emite ações na B3 para captar recursos para expansão. Os investidores compram essas ações, tornando-se sócios da empresa (compartilhando riscos e lucros).</p>
+            <p><strong>Diferença fundamental do Mercado de Crédito:</strong></p>
+            <ul>
+                <li>Mercado de Crédito: relação credor-devedor (banco empresta, cliente paga juros)</li>
+                <li>Mercado de Capitais: relação sócio (ou credor) da empresa (investidor assume riscos e ganhos)</li>
+            </ul>
+
+            <h4>4.1.4 Mercado de Câmbio</h4>
+            <p><strong>Função:</strong> Viabilizar a compra e venda de moedas estrangeiras.</p>
+            <p><strong>Ativos transacionados:</strong> Moedas estrangeiras (Dólar, Euro, Libra, etc.)</p>
+            <p><strong>Quem atua:</strong> Bancos credenciados, Bacen (regulação), B3 (contratos futuros).</p>
+            <p><strong>Exemplo prático:</strong> Um cliente que vai viajar para os EUA compra Dólar no banco. O banco vende a moeda estrangeira (taxa de venda) e compra Reais.</p>
+
+            <div class="macete">
+                <div class="macete-title">🔑 ENTENDA A LÓGICA DOS MERCADOS</div>
+                <p>O Mercado Monetário controla a liquidez (curto prazo), o Mercado de Crédito financia consumo e giro (curto/médio prazo), o Mercado de Capitais financia investimentos (longo prazo), e o Mercado de Câmbio viabiliza transações internacionais.</p>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>4.2 SELIC: Sistema Especial de Liquidação e de Custódia</h3>
+            <p>A SELIC é um dos sistemas mais importantes do SFN e frequentemente confundido com a Taxa Selic.</p>
+
+            <h4>O que é o Sistema SELIC?</h4>
+            <p>O <strong>Sistema Especial de Liquidação e de Custódia (SELIC)</strong> é o ambiente onde são:</p>
+            <ul>
+                <li><strong>Negociados</strong> os títulos públicos federais</li>
+                <li><strong>Custodiados</strong> esses títulos (armazenamento eletrônico)</li>
+                <li><strong>Liquidados</strong> as compras e vendas</li>
+            </ul>
+
+            <h4>O que é a Taxa SELIC?</h4>
+            <p>A <strong>Taxa SELIC</strong> é a taxa de juros básica da economia brasileira. Ela é definida pelo CMN (na reunião do Copom) e executada pelo Bacen via operações no Sistema SELIC.</p>
+
+            <div class="block-important">
+                <div class="block-label">🚨 CUIDADO! QUESTÃO CLÁSSICA DA CESGRANRIO</div>
+                <p>O Sistema SELIC é o mercado de títulos públicos federais. A Taxa SELIC é a taxa de juros básica. São coisas diferentes!</p>
+            </div>
+
+            <h4>SELIC vs. CETIP (B3)</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Aspecto</th><th>SELIC</th><th>CETIP/B3</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Ativos</strong></td><td>Títulos públicos federais</td><td>Títulos privados (CDBs, debêntures, etc.)</td></tr>
+                        <tr><td><strong>Gestão</strong></td><td>Bacen</td><td>B3 (antiga Cetip)</td></tr>
+                        <tr><td><strong>Natureza</strong></td><td>Pública</td><td>Privada</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>4.3 Mercado de Capitais em Detalhe</h3>
+
+            <h4>4.3.1 Como Funciona a Captação</h4>
+            <p>Quando uma empresa quer captar recursos no Mercado de Capitais, ela pode:</p>
+            <ol>
+                <li><strong>Emissão de ações:</strong> O investidor compra uma parte da empresa (vira sócio). Recebe dividendos se a empresa tiver lucro.</li>
+                <li><strong>Emissão de debêntures:</strong> O investidor empresta dinheiro para a empresa (vira credor). Recebe juros e tem o principal de volta no vencimento.</li>
+            </ol>
+
+            <h4>4.3.2 O Papel da CVM</h4>
+            <p>A CVM garante que as informações prestadas pelas empresas ao mercado sejam verdadeiras e completas. Isso é fundamental para proteger o investidor.</p>
+            <p><strong>Exemplo:</strong> Se uma empresa omite que perdeu um contrato importante e seu prejuízo será maior do que o divulgado, a CVM pode aplicar multas e até suspender a negociação dos papéis.</p>
+
+            <hr class="divider-thin">
+
+            <h3>4.4 Quadro-Resumo dos Mercados</h3>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Mercado</th><th>Função</th><th>Ativos</th><th>Atuação do Escriturário</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Monetário</strong></td><td>Controle de liquidez</td><td>Títulos públicos</td><td>Consequência: influencia as taxas de juros</td></tr>
+                        <tr><td><strong>Crédito</strong></td><td>Financiamento curto/médio prazo</td><td>Empréstimos, CDC, cheque especial</td><td>Oferecer crédito adequado ao cliente</td></tr>
+                        <tr><td><strong>Capitais</strong></td><td>Financiamento longo prazo</td><td>Ações, debêntures, fundos</td><td>Orientar sobre investimentos</td></tr>
+                        <tr><td><strong>Câmbio</strong></td><td>Troca de moedas</td><td>Moedas estrangeiras</td><td>Vender e comprar moeda estrangeira</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== SEÇÃO 5 ========== -->
+        <section id="s5" class="section-card">
+            <h2>5. Mercado de Câmbio</h2>
+
+            <h3>5.1 Fundamentos do Mercado de Câmbio</h3>
+            <p>O Mercado de Câmbio é onde ocorre a compra e venda de moedas estrangeiras. Para um escriturário, é fundamental entender as operações de câmbio, pois clientes viajam ao exterior, empresas importam e exportam, e investidores aplicam em ativos denominados em moeda estrangeira.</p>
+
+            <h4>5.1.1 Taxa de Câmbio</h4>
+            <p>A <strong>taxa de câmbio</strong> é o preço de uma moeda em termos de outra. No Brasil, é expressa em Reais por unidade de moeda estrangeira (ex: R$ 5,40/US$ 1,00).</p>
+            <p><strong>Dois conceitos importantes:</strong></p>
+            <ul>
+                <li><strong>Taxa de câmbio nominal:</strong> Preço em Reais de uma moeda estrangeira (ex: US$ 1 = R$ 5,40)</li>
+                <li><strong>Taxa de câmbio real:</strong> Taxa nominal ajustada pela inflação dos dois países. Indica o poder de compra relativo.</li>
+            </ul>
+
+            <h4>5.1.2 Cálculo de Conversão de Moedas</h4>
+            <div class="macete">
+                <div class="macete-title">🔑 MACETE PARA PROVA</div>
+                <p>"Se a tabela informa o valor de 1 moeda estrangeira em Reais, divida 1 por esse valor para descobrir quantas unidades da moeda estrangeira se compra com R$ 1,00."</p>
+            </div>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Moeda</th><th>Cotação (R$)</th><th>Quantidade com R$ 1,00</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Dólar (US$)</td><td>5,4000</td><td>1 / 5,40 = 0,1852 US$</td></tr>
+                        <tr><td>Euro (€)</td><td>6,2710</td><td>1 / 6,2710 = 0,1595 €</td></tr>
+                        <tr><td>Yuan Chinês (CNY)</td><td>0,8673</td><td>1 / 0,8673 = 1,1530 CNY</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>Aplicação prática:</strong> Um cliente pergunta: "Com R$ 10.000, quantos Euros posso comprar?" Você calcula: 10.000 / 6,2710 = 1.594,64 Euros.</p>
+
+            <div class="block-obs">
+                <div class="block-label">⚠️ CUIDADO COM A CESGRANRIO</div>
+                <p>A banca adora inverter a lógica. Em vez de perguntar "quantos Reais para comprar 1 Dólar", ela pergunta "quantos Dólares com 1 Real", e coloca alternativas que parecem corretas mas estão invertidas. Sempre faça a divisão!</p>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>5.2 Operações de Câmbio</h3>
+
+            <h4>5.2.1 Compra e Venda de Moeda Estrangeira</h4>
+            <p>Quando um banco opera câmbio, ele tem duas taxas:</p>
+            <ul>
+                <li><strong>Taxa de compra:</strong> O preço que o banco paga pela moeda estrangeira (menor)</li>
+                <li><strong>Taxa de venda:</strong> O preço que o banco cobra pela moeda estrangeira (maior)</li>
+            </ul>
+            <p><strong>Spread bancário = Taxa de venda - Taxa de compra</strong></p>
+            <p><strong>Exemplo:</strong></p>
+            <ul>
+                <li>Taxa de compra: R$ 5,30/US$</li>
+                <li>Taxa de venda: R$ 5,40/US$</li>
+                <li>Spread: R$ 0,10/US$ (lucro do banco)</li>
+            </ul>
+
+            <h4>5.2.2 Arbitragem Cambial</h4>
+            <p>A arbitragem consiste em comprar um ativo em um mercado e vendê-lo em outro para obter lucro imediato.</p>
+            <div class="macete">
+                <div class="macete-title">🔑 ENTENDA A ARBITRAGEM</div>
+                <p>"Compre barato em um lugar, venda caro em outro."</p>
+            </div>
+            <p><strong>Exemplo prático:</strong></p>
+            <ul>
+                <li>Operador compra Dólar em São Paulo: R$ 4,45/US$</li>
+                <li>Vende em Recife: R$ 4,55/US$</li>
+                <li>Lucro: R$ 0,10/US$ (lucro sem risco, aproveitando a diferença de preços)</li>
+            </ul>
+            <p><strong>Características da arbitragem:</strong></p>
+            <ul>
+                <li>Lucro imediato e teoricamente sem risco</li>
+                <li>Oportunidade de curta duração (o mercado se ajusta rapidamente)</li>
+                <li>Difere da especulação (que assume risco para lucrar com movimentos futuros)</li>
+            </ul>
+
+            <h4>5.2.3 Especulação Cambial</h4>
+            <p>A especulação envolve assumir risco para lucrar com a variação futura da taxa de câmbio.</p>
+            <p><strong>Exemplo:</strong></p>
+            <ul>
+                <li>Investidor acredita que o Dólar vai subir de R$ 5,40 para R$ 5,80</li>
+                <li>Compra Dólar hoje</li>
+                <li>Se a previsão se confirmar, vende no futuro com lucro</li>
+                <li>Se o Dólar cair, tem prejuízo</li>
+            </ul>
+
+            <h4>5.2.4 Hedging (Proteção Cambial)</h4>
+            <p>O hedging é uma estratégia de proteção contra riscos cambiais. É como um "seguro" contra flutuações indesejadas.</p>
+            <p><strong>Exemplo prático:</strong> Uma empresa brasileira exporta para os EUA e receberá US$ 1 milhão em 3 meses. Se o Dólar cair, a empresa receberá menos Reais. Para se proteger, ela pode:</p>
+            <ol>
+                <li>Fazer um <strong>contrato futuro</strong> na B3, fixando a taxa de câmbio para a data do recebimento</li>
+                <li>Comprar <strong>opções de câmbio</strong> (direito de vender Dólar a uma taxa pré-fixada)</li>
+            </ol>
+            <p><strong>Contratos de Cupom Cambial:</strong></p>
+            <ul>
+                <li>Representam a taxa de juros em moeda estrangeira (Dólar) que remunera investimentos no Brasil</li>
+                <li>O objetivo é <strong>proteger o investidor contra flutuações das taxas de juros referenciadas ao Dólar</strong></li>
+                <li>É uma operação de hedge (proteção), não de especulação ou arbitragem</li>
+            </ul>
+
+            <hr class="divider-thin">
+
+            <h3>5.3 Taxa de Câmbio Real de Equilíbrio</h3>
+            <p>A taxa de câmbio real de equilíbrio é aquela que equilibra a oferta e demanda por moeda estrangeira no longo prazo, considerando os fundamentos econômicos.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Comparação</th><th>Significado</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Taxa nominal &gt; Taxa de equilíbrio</td><td>Moeda nacional <strong>subvalorizada</strong> (mais Reais para comprar 1 US$)</td></tr>
+                        <tr><td>Taxa nominal &lt; Taxa de equilíbrio</td><td>Moeda nacional <strong>sobrevalorizada</strong> (menos Reais para comprar 1 US$)</td></tr>
+                        <tr><td>Taxa nominal = Taxa de equilíbrio</td><td>Moeda em <strong>paridade</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>Exemplo:</strong></p>
+            <ul>
+                <li>Taxa de equilíbrio: R$ 4,20/US$</li>
+                <li>Taxa nominal: R$ 5,40/US$</li>
+                <li>Como são necessários MAIS Reais para comprar um Dólar do que o equilíbrio indica → <strong>Real subvalorizado</strong></li>
+            </ul>
+
+            <div class="block-tip">
+                <div class="block-label">💡 EXPLICAÇÃO PARA O CLIENTE</div>
+                <p>"Se o Real está subvalorizado, seu poder de compra no exterior é menor. Um produto que custa US$ 100 vai custar R$ 540, em vez dos R$ 420 se estivesse em equilíbrio."</p>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>5.4 Ambiente Macroeconômico e Câmbio</h3>
+
+            <h4>5.4.1 Dimensões do Ambiente</h4>
+            <p>Quando analisamos uma flutuação cambial, como a valorização do Dólar para R$ 5,90 em um cenário de pandemia e recessão, estamos diante de um fenômeno do <strong>ambiente econômico</strong>.</p>
+            <ul>
+                <li>Influência da inflação</li>
+                <li>Taxas de juros (Selic)</li>
+                <li>Confiança dos investidores</li>
+                <li>Situação fiscal do país</li>
+                <li>Balanço de pagamentos</li>
+            </ul>
+
+            <h4>5.4.2 Impacto na Agência</h4>
+            <p>Quando o Dólar sobe:</p>
+            <ul>
+                <li>Clientes que viajam ao exterior compram menos moeda</li>
+                <li>Empresas importadoras têm custos maiores</li>
+                <li>Exportadores são beneficiados (recebem mais Reais por suas vendas)</li>
+                <li>Investimentos em moeda estrangeira se valorizam em Reais</li>
+            </ul>
+            <p>O escriturário precisa explicar esses impactos aos clientes, orientando sobre a melhor estratégia cambial para cada perfil.</p>
+
+            <hr class="divider-thin">
+
+            <h3>5.5 Quadro-Resumo das Operações Cambiais</h3>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Operação</th><th>Definição</th><th>Risco</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Arbitragem</strong></td><td>Lucro com diferença de preços em mercados diferentes</td><td>Quase zero</td><td>Comprar US$ em SP, vender em Recife</td></tr>
+                        <tr><td><strong>Especulação</strong></td><td>Lucro com variação futura da moeda</td><td>Alto</td><td>Comprar US$ na expectativa de alta</td></tr>
+                        <tr><td><strong>Hedging (Proteção)</strong></td><td>Proteção contra riscos cambiais</td><td>Baixo (objetivo é proteger, não lucrar)</td><td>Contrato futuro para fixar taxa de recebimento</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== SEÇÃO 6 ========== -->
+        <section id="s6" class="section-card">
+            <h2>6. Prevenção à Lavagem de Dinheiro (PLD)</h2>
+
+            <h3>6.1 A Carta-Circular Bacen nº 4.001/2020</h3>
+            <p>A Carta-Circular Bacen nº 4.001/2020 estabelece procedimentos para a prevenção à lavagem de dinheiro no âmbito do SFN. É fundamental que o escriturário conheça esses procedimentos, pois a aplicação incorreta pode resultar em penalidades para o banco e para o funcionário.</p>
+
+            <h4>6.1.1 O Conceito de Atipicidade</h4>
+            <p>A Carta-Circular estabelece que são <strong>indícios de ocorrência de crime de lavagem de dinheiro</strong> as operações que apresentem:</p>
+            <blockquote>
+                <p>"Atipicidade em relação à atividade econômica do cliente ou incompatibilidade com a sua capacidade financeira" (Art. 1º, alínea 'a')</p>
+            </blockquote>
+
+            <p><strong>O que é atipicidade?</strong></p>
+            <ul>
+                <li>É quando a transação <strong>não é comum ou esperada</strong> para aquele perfil de cliente</li>
+            </ul>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Situação</th><th>Classificação</th><th>Motivo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Aposentado que recebe R$ 2.000/mês faz um TED de R$ 500.000 para o exterior</td><td>Suspeita (atípica)</td><td>Incompatível com a capacidade financeira</td></tr>
+                        <tr><td>Empresa de pequeno porte com faturamento mensal de R$ 10.000 recebe depósito de R$ 1.000.000</td><td>Suspeita (atípica)</td><td>Desproporcional à atividade econômica</td></tr>
+                        <tr><td>Cliente com alta renda e movimentação habitual compra um imóvel de alto valor</td><td>Provavelmente normal</td><td>Compatível com seu perfil financeiro</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>6.1.2 Saques Desproporcionais</h4>
+            <p>A questão apresentada no flashcard é um exemplo clássico: <strong>saques desproporcionais ao movimento normal da conta</strong>.</p>
+            <p><strong>Por que isso é considerado suspeito?</strong></p>
+            <ul>
+                <li>O saque de valores em espécie é uma forma comum de "limpar" dinheiro (transformar dinheiro eletrônico em papel-moeda que não deixa rastro)</li>
+                <li>Se o cliente normalmente movimenta R$ 5.000/mês e faz um saque de R$ 500.000, isso é <strong>atípico</strong> para seu padrão de comportamento</li>
+            </ul>
+
+            <h4>6.1.3 Procedimentos do Escriturário</h4>
+            <p>Quando você identifica uma operação suspeita:</p>
+            <ol>
+                <li><strong>Identifique o cliente</strong> (documentos, informações cadastrais)</li>
+                <li><strong>Conheça o cliente</strong> (KYC - Know Your Client): qual é a atividade econômica, qual a renda, qual o padrão de movimentação</li>
+                <li><strong>Questione</strong> (mas com cuidado para não alertar o cliente): "O senhor poderia me informar a origem desses recursos?"</li>
+                <li><strong>Comunique</strong> ao setor de Compliance ou PLD do banco (nunca ao cliente!)</li>
+            </ol>
+
+            <div class="block-important">
+                <div class="block-label">⚠️ CUIDADO</div>
+                <p>O escriturário não deve "investigar" o cliente como um detetive. A comunicação com o setor de PLD deve ser feita de forma sigilosa e profissional. NUNCA diga ao cliente que está reportando uma transação suspeita.</p>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>6.2 A Lei de Lavagem de Dinheiro (Lei 9.613/98)</h3>
+            <p>Embora a Carta-Circular seja o foco do flashcard, é importante contextualizar com a Lei 9.613/98, que define os crimes de lavagem de dinheiro.</p>
+            <p><strong>Principais pontos para o concurso:</strong></p>
+            <ul>
+                <li><strong>Finalidade:</strong> Ocultar ou dissimular a natureza, origem, localização, disposição, movimentação ou propriedade de bens, direitos ou valores provenientes de infração penal</li>
+                <li><strong>Sujeitos obrigados:</strong> Instituições financeiras, corretoras, administradoras de cartões de crédito, etc.</li>
+                <li><strong>Deve-se comunicar ao COAF</strong> (Conselho de Controle de Atividades Financeiras) as operações suspeitas</li>
+            </ul>
+
+            <h4>6.2.1 Sigilo Bancário vs. Comunicação de Operações Suspeitas</h4>
+            <p>O sigilo bancário (Lei Complementar 105/2001) protege as informações do cliente. No entanto, a comunicação de operações suspeitas ao COAF é <strong>obrigatória</strong> e não constitui violação do sigilo.</p>
+            <div class="macete">
+                <div class="macete-title">🔑 ENTENDA A EXCEÇÃO</div>
+                <p>O sigilo bancário é a regra, mas a prevenção à lavagem de dinheiro é uma exceção legal. O banco DEVE reportar operações suspeitas, mesmo sem autorização judicial.</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== SEÇÃO 7 ========== -->
+        <section id="s7" class="section-card">
+            <h2>7. Marketing Bancário e Atendimento</h2>
+
+            <h3>7.1 O Composto de Marketing (4 Ps)</h3>
+            <p>O composto de marketing é fundamental para entender como os bancos posicionam seus produtos e serviços. Para a Cesgranrio, é importante conhecer os 4 Ps e saber aplicá-los ao contexto bancário.</p>
+
+            <h4>7.1.1 Produto</h4>
+            <p><strong>O que é no contexto bancário?</strong> O conjunto de serviços e produtos oferecidos pelo banco: contas, cartões, empréstimos, investimentos, seguros, etc.</p>
+            <p><strong>Exemplo:</strong> O "Produto" pode ser um pacote de conta-corrente com cartão de crédito, seguro e investimentos.</p>
+
+            <h4>7.1.2 Preço</h4>
+            <p><strong>O que é no contexto bancário?</strong> O custo para o cliente: tarifas, taxas de juros, spread, comissões.</p>
+            <p><strong>Exemplo:</strong> A tarifa de manutenção de conta, a taxa de juros do cheque especial, a taxa de administração de um fundo.</p>
+
+            <h4>7.1.3 Praça (Distribuição)</h4>
+            <div class="macete">
+                <div class="macete-title">🔑 É SOBRE ISSO</div>
+                <p>A <strong>Distribuição (Praça)</strong> é o elemento que abrange a localização, a disponibilidade e a acessibilidade das agências bancárias.</p>
+            </div>
+            <p><strong>No contexto bancário:</strong></p>
+            <ul>
+                <li>Agências físicas (localização estratégica)</li>
+                <li>Canais digitais (aplicativo, internet banking)</li>
+                <li>Correspondentes bancários (lotéricas, agências dos Correios)</li>
+                <li>ATM (caixas eletrônicos)</li>
+            </ul>
+            <p><strong>Exemplo:</strong> Um cliente pode acessar os serviços do banco:</p>
+            <ul>
+                <li>Pela agência física (presencial)</li>
+                <li>Pelo aplicativo (digital)</li>
+                <li>Pelo WhatsApp (atendimento)</li>
+                <li>Pelo caixa eletrônico (self-service)</li>
+            </ul>
+
+            <h4>7.1.4 Promoção</h4>
+            <p><strong>O que é no contexto bancário?</strong> A comunicação com o cliente: publicidade, marketing de relacionamento, campanhas promocionais.</p>
+            <p><strong>Exemplo:</strong> Anúncios na TV, e-mails marketing, ofertas exclusivas no aplicativo.</p>
+
+            <hr class="divider-thin">
+
+            <h3>7.2 Marketing de Relacionamento</h3>
+
+            <h4>7.2.1 O Que é Marketing de Relacionamento?</h4>
+            <p>O marketing de relacionamento tem como objetivo principal:</p>
+            <blockquote>
+                <p>Satisfazer as necessidades dos clientes no longo prazo</p>
+            </blockquote>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Marketing Tradicional</th><th>Marketing de Relacionamento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Foco na venda imediata</td><td>Foco no vínculo duradouro</td></tr>
+                        <tr><td>Transação única</td><td>Relacionamento contínuo</td></tr>
+                        <tr><td>Comissão imediata</td><td>Fidelização do cliente</td></tr>
+                        <tr><td>"Vender a qualquer custo"</td><td>"Atender e encantar"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>7.2.2 Aplicação Prática para o Escriturário</h4>
+            <p><strong>Situação real na agência:</strong></p>
+            <p><em>"João, escriturário do Banco X, tem um cliente que quer aplicar R$ 100.000. O produto que paga a maior comissão para João é um fundo de alto risco, que pode gerar perdas para o cliente. O que João deve fazer?"</em></p>
+            <p><strong>Resposta correta (Marketing de Relacionamento):</strong> João deve analisar o perfil do cliente e recomendar o produto mais adequado ao seu perfil de risco, mesmo que isso signifique menor comissão no curto prazo. Isso constrói confiança e fideliza o cliente.</p>
+            <p><strong>Resposta errada:</strong> João vende o fundo de alto risco para ganhar comissão, mesmo sabendo que o cliente é conservador. O cliente perde dinheiro, nunca mais volta ao banco e ainda pode abrir reclamações.</p>
+
+            <div class="block-tip">
+                <div class="block-label">💡 DICA DE PROVA</div>
+                <p>A Cesgranrio adora questões que abordam o conflito entre a meta de venda imediata e o marketing de relacionamento de longo prazo. A resposta sempre será: priorizar o relacionamento e a satisfação do cliente.</p>
+            </div>
+
+            <h4>7.2.3 Momento da Verdade</h4>
+            <p>O <strong>momento da verdade</strong> é qualquer episódio em que o cliente entra em contato com um aspecto da organização e forma uma opinião sobre o serviço.</p>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Momento da Verdade</th><th>Impacto</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Analista apresenta um fundo de investimento pessoalmente</td><td>O cliente avalia a competência do analista e a qualidade do serviço</td></tr>
+                        <tr><td>Cliente liga para o SAC e é atendido rapidamente</td><td>O cliente forma opinião sobre a eficiência do banco</td></tr>
+                        <tr><td>O aplicativo do banco trava durante uma transferência urgente</td><td>O cliente forma opinião negativa sobre a confiabilidade</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>Por que é importante?</strong></p>
+            <ul>
+                <li>A gestão desses momentos determina a satisfação do cliente</li>
+                <li>Cada interação pode fortalecer ou enfraquecer o relacionamento</li>
+                <li>O escriturário é responsável por muitos desses momentos</li>
+            </ul>
+
+            <hr class="divider-thin">
+
+            <h3>7.3 Gatilhos Mentais no Marketing Bancário</h3>
+            <p>Gatilhos mentais são estímulos psicológicos que influenciam a decisão de compra. A Cesgranrio costuma cobrar a identificação dos principais gatilhos.</p>
+
+            <h4>7.3.1 Escassez</h4>
+            <p><strong>Definição:</strong> A percepção de que a oferta é limitada cria um senso de urgência para não perder a oportunidade.</p>
+            <p><strong>Exemplo:</strong> Campanha: "<strong>Somente para 100 clientes</strong>" — serviço exclusivo e limitado.</p>
+            <p><strong>Aplicação bancária:</strong></p>
+            <ul>
+                <li>"Vagas limitadas para este fundo exclusivo"</li>
+                <li>"Últimas 50 cotas do CDB especial"</li>
+                <li>"Oferta válida até sexta-feira"</li>
+            </ul>
+
+            <h4>7.3.2 Urgência</h4>
+            <p><strong>Definição:</strong> A percepção de que há um prazo limitado para agir.</p>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Escassez</th><th>Urgência</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>"Somente para 100 clientes"</td><td>"Oferta válida até o dia 30"</td></tr>
+                        <tr><td>Quantidade limitada</td><td>Tempo limitado</td></tr>
+                        <tr><td>Exclusividade</td><td>Prazo de ação</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>7.3.3 Prova Social</h4>
+            <p><strong>Definição:</strong> As pessoas se baseiam na experiência de outras pessoas para tomar decisões.</p>
+            <p><strong>Exemplo:</strong> "Mais de 1 milhão de clientes já contrataram este seguro."</p>
+            <p><strong>Aplicação bancária:</strong></p>
+            <ul>
+                <li>Depoimentos de clientes satisfeitos</li>
+                <li>Números de clientes que já contrataram o produto</li>
+                <li>Selos de aprovação (ex: Prêmio Reclame Aqui)</li>
+            </ul>
+
+            <h4>7.3.4 Líder de Opinião</h4>
+            <p><strong>Definição:</strong> Pessoa que possui credibilidade e influência sobre um grupo, moldando sua opinião e comportamento.</p>
+            <p><strong>Exemplo:</strong> Influenciadores digitais que recomendam fundos de investimento.</p>
+            <p><strong>Aplicação bancária:</strong></p>
+            <ul>
+                <li>Youtubers que falam de investimentos</li>
+                <li>Bloggers financeiros</li>
+                <li>Personalidades que recomendam um determinado banco</li>
+            </ul>
+
+            <div class="block-obs">
+                <div class="block-label">⚠️ DIFERENÇA IMPORTANTE</div>
+                <p>Líder de opinião ≠ grupo de afinidade. O grupo de afinidade é um grupo com interesses comuns (ex: um clube de investidores). O líder de opinião é uma pessoa específica com capacidade de influenciar.</p>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>7.4 Quadro-Resumo dos Gatilhos Mentais</h3>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Gatilho</th><th>Definição</th><th>Exemplo Bancário</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Escassez</strong></td><td>Oferta limitada, produto exclusivo</td><td>"Somente 100 cotas disponíveis"</td></tr>
+                        <tr><td><strong>Urgência</strong></td><td>Prazo limitado para ação</td><td>"Oferta válida até amanhã"</td></tr>
+                        <tr><td><strong>Prova Social</strong></td><td>Baseado na opinião de outras pessoas</td><td>"Mais de 1 milhão de clientes"</td></tr>
+                        <tr><td><strong>Líder de Opinião</strong></td><td>Influência de uma pessoa de referência</td><td>"Investidor famoso recomenda"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== SEÇÃO 8 ========== -->
+        <section id="s8" class="section-card">
+            <h2>8. Inovações e Fintechs</h2>
+
+            <h3>8.1 O Fenômeno das Fintechs</h3>
+            <p>As Fintechs revolucionaram o setor bancário ao oferecer serviços financeiros com base em tecnologia, sem a estrutura pesada das agências tradicionais.</p>
+
+            <h4>8.1.1 Estratégia Genérica de Posicionamento</h4>
+            <p>A estratégia que permitiu às Fintechs competir com os bancos tradicionais foi a:</p>
+            <blockquote>
+                <p><strong>Liderança em custo</strong></p>
+            </blockquote>
+
+            <div class="comp-grid">
+                <div class="comp-item">
+                    <h5>🏛️ Banco Tradicional</h5>
+                    <ul>
+                        <li>Agências físicas caras</li>
+                        <li>Grande número de funcionários</li>
+                        <li>Estrutura hierárquica complexa</li>
+                        <li>Tarifas mais altas</li>
+                    </ul>
+                </div>
+                <div class="comp-item">
+                    <h5>📱 Fintech</h5>
+                    <ul>
+                        <li>Sem agências (100% digital)</li>
+                        <li>Equipe enxuta e tecnológica</li>
+                        <li>Processos ágeis e automatizados</li>
+                        <li>Tarifas mais baixas ou zero</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p><strong>Exemplo:</strong></p>
+            <ul>
+                <li>Nubank: sem agências, sem tarifas, oferecendo conta, cartão e investimentos</li>
+                <li>Banco do Brasil: agências em todo o país, estrutura complexa, tarifas (embora haja pacotes sem tarifa)</li>
+            </ul>
+
+            <h4>8.1.2 Liderança em Custo vs. Diferenciação</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Estratégia</th><th>Definição</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Liderança em custo</strong></td><td>Oferecer produtos similares a preços mais baixos</td><td>Fintechs com tarifas zero</td></tr>
+                        <tr><td><strong>Diferenciação</strong></td><td>Oferecer produtos únicos e exclusivos</td><td>Banco que cria um fundo exclusivo com retornos superiores</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Importante:</strong> A Fintech venceu pela redução de custos (sem agências), não necessariamente por ter produtos diferentes (o cartão de crédito da Nubank é similar ao de outros bancos).</p>
+
+            <hr class="divider-thin">
+
+            <h3>8.2 O Futuro do Setor Bancário</h3>
+
+            <h4>8.2.1 Open Banking</h4>
+            <p>O Open Banking (sistema financeiro aberto) permite que o cliente compartilhe seus dados financeiros com diferentes instituições, promovendo mais concorrência e melhores serviços.</p>
+            <p><strong>Impacto para o escriturário:</strong></p>
+            <ul>
+                <li>Mais concorrência (o cliente pode comparar produtos facilmente)</li>
+                <li>Necessidade de oferecer serviços de valor agregado</li>
+                <li>Maior importância do relacionamento e atendimento personalizado</li>
+            </ul>
+
+            <h4>8.2.2 Banking as a Service</h4>
+            <p>A tendência é que os serviços bancários estejam cada vez mais integrados ao dia a dia do cliente, em diferentes plataformas.</p>
+            <p><strong>Exemplo:</strong> Comprar um produto em um e-commerce e já ter a opção de parcelamento com o banco integrado ao processo de checkout.</p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== SEÇÃO 9 ========== -->
+        <section id="s9" class="section-card">
+            <h2>9. Dicas e Macetes para Provas</h2>
+
+            <h3>9.1 Como Lembrar das Principais Instituições do SFN</h3>
+
+            <div class="concept-card">
+                <div class="card-title">O Sistema Financeiro Nacional</div>
+                <div class="diagram-container" style="background:transparent;padding:0.4rem 0;border:none;">
+                    <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                        <style>
+                            .hier-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; fill: #e8edf3; font-weight: 500; }
+                            .hier-sub { font-size: 11px; fill: #b0c7dd; font-weight: 400; }
+                            .hier-box { fill: #1a2532; stroke: rgba(240,194,127,0.2); stroke-width: 1.5; rx: 10; }
+                            .hier-arrow { stroke: #f0c27f; stroke-width: 2; fill: none; marker-end: url(#arrowH); }
+                        </style>
+                        <defs>
+                            <marker id="arrowH" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+                                <path d="M0,0 L10,4 L0,8 Z" fill="#f0c27f" />
+                            </marker>
+                        </defs>
+                        <!-- CMN -->
+                        <rect x="260" y="10" width="180" height="48" class="hier-box" />
+                        <text x="350" y="30" text-anchor="middle" class="hier-text">CMN</text>
+                        <text x="350" y="48" text-anchor="middle" class="hier-sub">Conselho Monetário Nacional</text>
+                        <!-- arrow -->
+                        <path d="M350,58 L350,78" class="hier-arrow" />
+                        <!-- Bacen -->
+                        <rect x="230" y="82" width="240" height="48" class="hier-box" />
+                        <text x="350" y="102" text-anchor="middle" class="hier-text">Bacen — Executor e Regulador</text>
+                        <text x="350" y="120" text-anchor="middle" class="hier-sub">Banco Central do Brasil</text>
+                        <!-- arrows -->
+                        <path d="M350,130 L350,150" class="hier-arrow" />
+                        <!-- BB e Caixa -->
+                        <rect x="100" y="155" width="220" height="50" class="hier-box" />
+                        <text x="210" y="175" text-anchor="middle" class="hier-text">Banco do Brasil</text>
+                        <text x="210" y="195" text-anchor="middle" class="hier-sub">Sociedade de Economia Mista</text>
+
+                        <rect x="380" y="155" width="220" height="50" class="hier-box" />
+                        <text x="490" y="175" text-anchor="middle" class="hier-text">Caixa Econômica Federal</text>
+                        <text x="490" y="195" text-anchor="middle" class="hier-sub">Empresa Pública</text>
+
+                        <!-- CVM à parte -->
+                        <rect x="530" y="10" width="170" height="48" class="hier-box" />
+                        <text x="615" y="30" text-anchor="middle" class="hier-text">CVM</text>
+                        <text x="615" y="48" text-anchor="middle" class="hier-sub">Autarquia em Regime Especial</text>
+                        <text x="615" y="70" text-anchor="middle" class="hier-sub" style="font-size:10px;fill:#8aa3be;">Mercado de Capitais</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="macete">
+                <div class="macete-title">🔑 MACETE PARA DISTINGUIR</div>
+                <p><strong>"CMN = Norma, Bacen = Executa, BB = Misto, Caixa = Público"</strong></p>
+            </div>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Banco</th><th>Natureza</th><th>Macete</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Banco do Brasil</td><td>Sociedade de economia mista</td><td>"BB tem capital público e privado"</td></tr>
+                        <tr><td>Caixa Econômica Federal</td><td>Empresa pública</td><td>"Caixa é 100% do governo"</td></tr>
+                        <tr><td>Bancos comerciais</td><td>Podem ser privados ou estatais</td><td>Captam depósitos à vista</td></tr>
+                        <tr><td>Bancos de investimento</td><td>Privados</td><td>Captam depósitos a prazo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-title">Para lembrar as carteiras</div>
+                <div style="font-size:0.95rem;color:#d2dfec;">
+                    <p><strong>Banco Múltiplo</strong></p>
+                    <ul style="margin-top:0.2rem;">
+                        <li><strong>Obrigatoriamente:</strong> Comercial OU Investimento</li>
+                        <li><strong>Adicionalmente:</strong> Câmbio, Hipotecária, Crédito Imobiliário, etc.</li>
+                    </ul>
+                    <div class="macete" style="margin-top:0.8rem;">
+                        <div class="macete-title">🔑 MACETE</div>
+                        <p>"Banco Múltiplo = Pelo menos um dos dois: Comercial ou Investimento"</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>9.2 Cálculo de Conversão de Moedas</h3>
+            <div class="macete">
+                <div class="macete-title">🔑 MACETE FUNDAMENTAL</div>
+                <p><strong>"Da moeda estrangeira para Real → multiplica. Do Real para a moeda estrangeira → divide."</strong></p>
+            </div>
+            <p><strong>Passo a passo:</strong></p>
+            <ol>
+                <li>Identifique a cotação (ex: 1 Euro = R$ 6,2710)</li>
+                <li>Se a pergunta é "quantos Reais para comprar 100 Euros?": <strong>100 × 6,2710 = R$ 627,10</strong></li>
+                <li>Se a pergunta é "quantos Euros com R$ 100?": <strong>100 ÷ 6,2710 = 15,94 Euros</strong></li>
+            </ol>
+
+            <div class="block-obs">
+                <div class="block-label">⚠️ CUIDADO COM A CESGRANRIO</div>
+                <p>A banca frequentemente apresenta uma tabela e pergunta: "Com R$ 1,00, quantos Yuan chinês posso comprar?"</p>
+                <p style="font-size:0.9rem;background:rgba(255,255,255,0.03);padding:0.4rem 0.8rem;border-radius:8px;margin-top:0.2rem;">
+                    <strong>Moeda:</strong> Yuan | <strong>Cotação (R$):</strong> 0,8673
+                </p>
+                <ul>
+                    <li>Muitos alunos marcam "R$ 0,8673" (resposta errada)</li>
+                    <li>O correto é: <strong>1 ÷ 0,8673 = 1,1530 Yuan</strong></li>
+                    <li>SEMPRE faça a divisão: 1 / cotação</li>
+                </ul>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>9.3 Arbitragem, Especulação e Hedging</h3>
+            <div class="macete">
+                <div class="macete-title">🔑 MACETE PARA DIFERENCIAR</div>
+                <p><strong>"Arbitragem = hoje, cidades diferentes; Especulação = amanhã, risco; Hedging = proteção, seguro"</strong></p>
+            </div>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Operação</th><th>Tempo</th><th>Risco</th><th>Objetivo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Arbitragem</strong></td><td>Imediato</td><td>Quase zero</td><td>Lucro com diferença de preços</td></tr>
+                        <tr><td><strong>Especulação</strong></td><td>Futuro</td><td>Alto</td><td>Lucro com variação futura</td></tr>
+                        <tr><td><strong>Hedging</strong></td><td>Futuro</td><td>Baixo</td><td>Proteção contra risco</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Exemplo para memorizar:</strong></p>
+            <ul>
+                <li>Arbitragem: comprar Dólar em São Paulo, vender em Recife no mesmo dia</li>
+                <li>Especulação: comprar Dólar hoje, esperar subir, vender depois</li>
+                <li>Hedging: contrato futuro para fixar o preço do Dólar que você vai receber</li>
+            </ul>
+
+            <hr class="divider-thin">
+
+            <h3>9.4 Selic e Sistema SELIC</h3>
+            <div class="macete">
+                <div class="macete-title">🔑 MACETE</div>
+                <p><strong>"A SELIC (sistema) é o ambiente. A Taxa SELIC é o juro."</strong></p>
+            </div>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Conceito</th><th>O que é</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Sistema SELIC</strong></td><td>Ambiente de negociação e custódia</td><td>Onde se compram e vendem títulos públicos</td></tr>
+                        <tr><td><strong>Taxa SELIC</strong></td><td>Taxa de juros básica</td><td>10,75% ao ano (meta)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Na prova:</strong> Preste atenção se a questão está se referindo ao sistema (mercado de títulos) ou à taxa (juro básico).</p>
+
+            <hr class="divider-thin">
+
+            <h3>9.5 Estrutura de Mercados</h3>
+            <div class="macete">
+                <div class="macete-title">🔑 MACETE PARA LEMBRAR OS MERCADOS</div>
+                <p><strong>"Monetário é liquidez, Crédito é empréstimo, Capitais é ação, Câmbio é moeda"</strong></p>
+            </div>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Mercado</th><th>Função</th><th>Ativo típico</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Monetário</strong></td><td>Controlar liquidez</td><td>Títulos públicos</td></tr>
+                        <tr><td><strong>Crédito</strong></td><td>Financiar consumo e giro</td><td>Empréstimo, CDC</td></tr>
+                        <tr><td><strong>Capitais</strong></td><td>Financiar investimento</td><td>Ações, debêntures</td></tr>
+                        <tr><td><strong>Câmbio</strong></td><td>Trocar moedas</td><td>Dólar, Euro</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>9.6 Classificação das Instituições</h3>
+            <div class="macete">
+                <div class="macete-title">🔑 MACETE PARA A CESGRANRIO</div>
+                <p><strong>"CMN = normatiza, Bacen = fiscaliza e executa, CVM = fiscaliza mercado de capitais"</strong></p>
+            </div>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Órgão</th><th>Natureza</th><th>Função</th><th>Cobra na prova</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CMN</strong></td><td>Órgão colegiado (Ministros)</td><td>Formula política monetária</td><td>Quem formula vs. quem executa</td></tr>
+                        <tr><td><strong>Bacen</strong></td><td>Autarquia em regime especial</td><td>Executa política monetária</td><td>Não confundir com banco comercial</td></tr>
+                        <tr><td><strong>CVM</strong></td><td>Autarquia em regime especial</td><td>Regula mercado de capitais</td><td>Classificação (autarquia em regime especial)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>9.7 Atendimento e Marketing</h3>
+            <div class="macete">
+                <div class="macete-title">🔑 MACETE PARA OS GATILHOS MENTAIS</div>
+                <p><strong>"Escassez = quantidade, Urgência = tempo, Prova Social = outros clientes, Líder de Opinião = uma pessoa específica"</strong></p>
+            </div>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Gatilho</th><th>Identificação</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Escassez</strong></td><td>"Somente", "últimos", "exclusivo"</td><td>"Somente para 100 clientes"</td></tr>
+                        <tr><td><strong>Urgência</strong></td><td>"Até [data]", "por tempo limitado"</td><td>"Válido até sexta-feira"</td></tr>
+                        <tr><td><strong>Prova Social</strong></td><td>"Mais de X clientes"</td><td>"Mais de 1 milhão de clientes"</td></tr>
+                        <tr><td><strong>Líder de Opinião</strong></td><td>Uma pessoa específica, influenciador</td><td>"O influenciador X recomenda"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider-thin">
+
+            <h3>9.8 Resumo Final: O Que Mais Cai na Cesgranrio</h3>
+
+            <div class="concept-card">
+                <div class="card-title">TOP 5 ASSUNTOS MAIS COBRADOS</div>
+                <ol style="margin-top:0.2rem;">
+                    <li><strong>CMN vs. Bacen</strong> (quem formula, quem executa)</li>
+                    <li><strong>Classificação das instituições</strong> (empresa pública vs. sociedade de economia mista)</li>
+                    <li><strong>Mercados</strong> (Capitais vs. Crédito)</li>
+                    <li><strong>Cálculo de câmbio</strong> (divisão correta)</li>
+                    <li><strong>Marketing</strong> (momento da verdade, liderança em custo, gatilhos)</li>
+                </ol>
+            </div>
+
+            <div class="block-tip">
+                <div class="block-label">💡 DICAS DE ÚLTIMA HORA</div>
+                <ul>
+                    <li>Leia com atenção se a questão fala do <strong>Sistema SELIC</strong> ou da <strong>Taxa SELIC</strong></li>
+                    <li>Verifique se a questão inverteu as funções do CMN e do Bacen (isso é proposital!)</li>
+                    <li>No câmbio, SEMPRE desconfie se a resposta parece "óbvia" — a Cesgranrio adora inversões</li>
+                    <li>No marketing, a resposta correta geralmente envolve o relacionamento de longo prazo com o cliente</li>
+                    <li>Na PLD, o conceito de <strong>atipicidade</strong> é a chave para a classificação das operações suspeitas</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== CONCLUSÃO ========== -->
+        <section id="conclusao" class="section-card">
+            <h2>Conclusão</h2>
+            <p>Esta apostila foi desenvolvida para proporcionar uma compreensão aprofundada dos conhecimentos bancários exigidos em concursos públicos da área. Mais do que memorizar definições, o foco está em entender a lógica do Sistema Financeiro Nacional, as relações entre suas instituições e a aplicação prática desses conhecimentos no dia a dia da agência bancária.</p>
+
+            <p><strong>Lembre-se:</strong></p>
+            <ol>
+                <li>O SFN é hierárquico: CMN → Bacen → Instituições Financeiras</li>
+                <li>Os bancos têm naturezas jurídicas diferentes: saiba diferenciá-los</li>
+                <li>Os mercados têm funções específicas: monetário (liquidez), crédito (financiamento), capitais (investimento) e câmbio (moedas)</li>
+                <li>O câmbio exige atenção nos cálculos e na interpretação das operações</li>
+                <li>O marketing de relacionamento prioriza o cliente no longo prazo</li>
+                <li>A PLD exige atenção a operações atípicas</li>
+            </ol>
+
+            <div style="margin-top:1.6rem;padding:1rem;background:rgba(240,194,127,0.06);border-radius:16px;text-align:center;border:1px solid rgba(240,194,127,0.08);">
+                <p style="font-size:1.1rem;color:#f0c27f;font-weight:600;margin-bottom:0;">Bons estudos e sucesso na aprovação!</p>
+            </div>
+
+            <p style="margin-top:1.2rem;font-size:0.9rem;color:#8aa3be;text-align:center;">
+                <em>Material preparado especialmente para concursos da área bancária, com base nas principais bancas examinadoras do país.</em>
+            </p>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== APÊNDICE ========== -->
+        <section id="apendice" class="section-card">
+            <h2>Apêndice: Simulado de Revisão</h2>
+            <h3>Questões para Testar seus Conhecimentos</h3>
+
+            <div class="concept-card">
+                <p style="font-weight:600;color:#f0c27f;">Questão 1 (Cesgranrio - Estilo)</p>
+                <p>"A Caixa Econômica Federal, nos termos da legislação brasileira, é classificada como:"</p>
+                <ul style="list-style:none;padding-left:0.4rem;">
+                    <li>a) Autarquia federal</li>
+                    <li>b) Sociedade de economia mista</li>
+                    <li>c) <strong>Empresa pública</strong> ✓</li>
+                    <li>d) Organização social</li>
+                    <li>e) Fundação pública</li>
+                </ul>
+                <p style="margin-top:0.4rem;color:#7bcfa6;"><strong>Resposta:</strong> c) Empresa pública</p>
+            </div>
+
+            <div class="concept-card">
+                <p style="font-weight:600;color:#f0c27f;">Questão 2 (Cesgranrio - Estilo)</p>
+                <p>"O Conselho Monetário Nacional (CMN) e o Banco Central do Brasil (Bacen) têm, respectivamente, as funções de:"</p>
+                <ul style="list-style:none;padding-left:0.4rem;">
+                    <li>a) Executar a política monetária e formular a política cambial</li>
+                    <li>b) <strong>Formular a política monetária e executar a política monetária</strong> ✓</li>
+                    <li>c) Executar a política cambial e formular a política monetária</li>
+                    <li>d) Formular a política fiscal e executar a política monetária</li>
+                    <li>e) Executar a política fiscal e formular a política monetária</li>
+                </ul>
+                <p style="margin-top:0.4rem;color:#7bcfa6;"><strong>Resposta:</strong> b) Formular a política monetária e executar a política monetária</p>
+            </div>
+
+            <div class="concept-card">
+                <p style="font-weight:600;color:#f0c27f;">Questão 3 (Cesgranrio - Estilo)</p>
+                <p>"De acordo com a Carta-Circular Bacen nº 4.001/2020, uma operação financeira que apresenta saques desproporcionais ao movimento normal da conta de um cliente é considerada suspeita devido à sua característica de:"</p>
+                <ul style="list-style:none;padding-left:0.4rem;">
+                    <li>a) Ilicitude</li>
+                    <li>b) <strong>Atipicidade</strong> ✓</li>
+                    <li>c) Fragilidade</li>
+                    <li>d) Irregularidade formal</li>
+                    <li>e) Inconsistência documental</li>
+                </ul>
+                <p style="margin-top:0.4rem;color:#7bcfa6;"><strong>Resposta:</strong> b) Atipicidade</p>
+            </div>
+
+            <div class="concept-card">
+                <p style="font-weight:600;color:#f0c27f;">Questão 4 (Cesgranrio - Estilo)</p>
+                <p>"A campanha publicitária de um banco que divulga a exclusividade de um serviço com a mensagem 'Somente para 100 clientes' utiliza qual gatilho mental?"</p>
+                <ul style="list-style:none;padding-left:0.4rem;">
+                    <li>a) Urgência</li>
+                    <li>b) Prova social</li>
+                    <li>c) Líder de opinião</li>
+                    <li>d) <strong>Escassez</strong> ✓</li>
+                    <li>e) Afinidade</li>
+                </ul>
+                <p style="margin-top:0.4rem;color:#7bcfa6;"><strong>Resposta:</strong> d) Escassez</p>
+            </div>
+
+            <div class="concept-card">
+                <p style="font-weight:600;color:#f0c27f;">Questão 5 (Cesgranrio - Estilo)</p>
+                <p>"Considerando que a taxa de câmbio real de equilíbrio é estimada em R$ 4,20/US$ e a taxa nominal do dia é de R$ 5,40/US$, pode-se afirmar que o Real brasileiro está:"</p>
+                <ul style="list-style:none;padding-left:0.4rem;">
+                    <li>a) Sobrevalorizado</li>
+                    <li>b) <strong>Subvalorizado</strong> ✓</li>
+                    <li>c) Em paridade</li>
+                    <li>d) Apreciado</li>
+                    <li>e) Em equilíbrio</li>
+                </ul>
+                <p style="margin-top:0.4rem;color:#7bcfa6;"><strong>Resposta:</strong> b) Subvalorizado</p>
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== REFERÊNCIAS ========== -->
+        <section id="referencias" class="section-card">
+            <h2>Referências Normativas</h2>
+            <ul>
+                <li>Lei 4.595/64 (Dispõe sobre o Sistema Financeiro Nacional)</li>
+                <li>Lei 9.613/98 (Dispõe sobre crimes de lavagem de dinheiro)</li>
+                <li>Lei Complementar 105/2001 (Sigilo bancário)</li>
+                <li>Carta-Circular Bacen nº 4.001/2020 (Procedimentos de PLD)</li>
+                <li>Resoluções do CMN (diversas)</li>
+            </ul>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- ========== GLOSSÁRIO ========== -->
+        <section id="glossario" class="section-card">
+            <h2>Glossário Rápido</h2>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Termo</th><th>Definição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Arbitragem</strong></td><td>Compra e venda simultânea em diferentes mercados para lucrar com a diferença de preços</td></tr>
+                        <tr><td><strong>Atipicidade</strong></td><td>Transação não comum ou esperada para o perfil do cliente</td></tr>
+                        <tr><td><strong>Autarquia em regime especial</strong></td><td>Entidade com autonomia financeira, patrimônio próprio e mandato fixo para dirigentes</td></tr>
+                        <tr><td><strong>Empresa pública</strong></td><td>Entidade com capital 100% público, criada por lei</td></tr>
+                        <tr><td><strong>Hedging</strong></td><td>Proteção contra riscos cambiais (estratégia de "seguro")</td></tr>
+                        <tr><td><strong>Liderança em custo</strong></td><td>Estratégia de oferecer produtos similares a preços mais baixos</td></tr>
+                        <tr><td><strong>Momento da verdade</strong></td><td>Qualquer interação em que o cliente forma uma opinião sobre o serviço</td></tr>
+                        <tr><td><strong>Sociedade de economia mista</strong></td><td>Entidade com capital misto (público + privado)</td></tr>
+                        <tr><td><strong>Spread</strong></td><td>Diferença entre a taxa de compra e venda do banco</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="footer-note">
+            <p><strong>Apostila Completa de Conhecimentos Bancários</strong> — Material para concursos da área bancária.</p>
+            <p style="margin-top:0.2rem;">Conteúdo 100% preservado · Design otimizado para leitura em tablet</p>
+        </footer>
+
+    </div>
+</body>
+</html>
