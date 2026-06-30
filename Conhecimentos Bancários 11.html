@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Apostila de Conhecimentos Bancários – Seguros</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-size: 18px;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+            background: #0d1321;
+            color: #e4ddd0;
+            line-height: 1.65;
+            padding: 0 1.2rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 1024px;
+            width: 100%;
+            background: #141c2b;
+            border-radius: 2rem 2rem 1rem 1rem;
+            padding: 2.5rem 2.8rem 3.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(212, 167, 74, 0.08);
+            margin-top: 1.2rem;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a2335;
+            border-radius: 12px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b8963e;
+            border-radius: 12px;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            color: #efdba8;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #efdba8 0%, #c9a84c 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        h2 {
+            font-size: 1.85rem;
+            margin-top: 2.8rem;
+            margin-bottom: 0.9rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 3px solid rgba(201, 168, 76, 0.25);
+            color: #e8c86a;
+        }
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 0.7rem;
+            color: #dbb85a;
+        }
+        h4 {
+            font-size: 1.15rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #c9b07a;
+            font-weight: 600;
+        }
+        h5 {
+            font-size: 1rem;
+            margin-top: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: #b8a27a;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #d8d0c2;
+        }
+        a {
+            color: #7fc9f0;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(127, 201, 240, 0.25);
+            transition: border-color 0.2s;
+        }
+        a:hover {
+            border-bottom-color: #7fc9f0;
+        }
+        strong,
+        b {
+            color: #f0e0b8;
+            font-weight: 600;
+        }
+        em,
+        i {
+            color: #c9b88a;
+            font-style: italic;
+        }
+        small {
+            font-size: 0.85rem;
+            color: #a89f90;
+        }
+
+        /* ===== SUMÁRIO ===== */
+        .toc {
+            background: #1a2338;
+            border-radius: 1.4rem;
+            padding: 1.8rem 2.2rem;
+            margin: 2rem 0 2.8rem;
+            border-left: 6px solid #c9a84c;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+        .toc h2 {
+            border-bottom: none;
+            margin-top: 0;
+            margin-bottom: 0.6rem;
+            font-size: 1.5rem;
+            color: #efdba8;
+            -webkit-text-fill-color: #efdba8;
+            background: none;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.2rem 1.8rem;
+            padding-top: 0.2rem;
+        }
+        .toc-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            padding: 0.25rem 0;
+            font-size: 0.92rem;
+            color: #c9b88a;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .toc-item .num {
+            color: #c9a84c;
+            font-weight: 600;
+            min-width: 1.8rem;
+            font-size: 0.8rem;
+        }
+        .toc-item a {
+            color: #d8d0c2;
+            border-bottom: none;
+            transition: color 0.2s;
+        }
+        .toc-item a:hover {
+            color: #efdba8;
+        }
+        .toc-sub {
+            padding-left: 2rem;
+            font-size: 0.82rem;
+            color: #a89f90;
+        }
+        .toc-sub .num {
+            min-width: 1.2rem;
+            font-size: 0.7rem;
+        }
+
+        /* ===== DIVISOR ===== */
+        .divider {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.3), rgba(201, 168, 76, 0.6), rgba(201, 168, 76, 0.3), transparent);
+            margin: 2.6rem 0 2.2rem;
+        }
+        .divider-light {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.07), transparent);
+            margin: 1.8rem 0;
+        }
+
+        /* ===== BOXES ===== */
+        .box-tip,
+        .box-important,
+        .box-info,
+        .box-warning,
+        .box-definition,
+        .box-quote {
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.6rem;
+            margin: 1.4rem 0 1.8rem;
+            position: relative;
+            border-left: 6px solid transparent;
+        }
+        .box-tip {
+            background: #1a2a2a;
+            border-left-color: #4ecdc4;
+        }
+        .box-tip::before {
+            content: "💡";
+            position: absolute;
+            left: -0.2rem;
+            top: -0.6rem;
+            font-size: 1.6rem;
+            background: #141c2b;
+            padding: 0 0.3rem;
+            border-radius: 50%;
+            line-height: 1;
+        }
+        .box-important {
+            background: #2a1f1f;
+            border-left-color: #ff6b6b;
+        }
+        .box-important::before {
+            content: "⚠";
+            position: absolute;
+            left: -0.2rem;
+            top: -0.6rem;
+            font-size: 1.6rem;
+            background: #141c2b;
+            padding: 0 0.3rem;
+            border-radius: 50%;
+            line-height: 1;
+        }
+        .box-info {
+            background: #1a2338;
+            border-left-color: #4fc3f7;
+        }
+        .box-info::before {
+            content: "ℹ";
+            position: absolute;
+            left: -0.2rem;
+            top: -0.6rem;
+            font-size: 1.6rem;
+            background: #141c2b;
+            padding: 0 0.3rem;
+            border-radius: 50%;
+            line-height: 1;
+        }
+        .box-warning {
+            background: #2a241a;
+            border-left-color: #f4c542;
+        }
+        .box-warning::before {
+            content: "⚡";
+            position: absolute;
+            left: -0.2rem;
+            top: -0.6rem;
+            font-size: 1.6rem;
+            background: #141c2b;
+            padding: 0 0.3rem;
+            border-radius: 50%;
+            line-height: 1;
+        }
+        .box-definition {
+            background: #1a1f30;
+            border-left-color: #ce93d8;
+            border: 1px solid rgba(206, 147, 216, 0.15);
+        }
+        .box-definition::before {
+            content: "📘";
+            position: absolute;
+            left: -0.2rem;
+            top: -0.6rem;
+            font-size: 1.6rem;
+            background: #141c2b;
+            padding: 0 0.3rem;
+            border-radius: 50%;
+            line-height: 1;
+        }
+        .box-quote {
+            background: #1a1f2a;
+            border-left-color: #b8963e;
+            font-style: italic;
+            color: #d8d0c2;
+            border: 1px solid rgba(184, 150, 62, 0.12);
+        }
+        .box-quote::before {
+            content: "❝";
+            position: absolute;
+            left: 0.4rem;
+            top: -0.2rem;
+            font-size: 2.4rem;
+            color: #b8963e;
+            opacity: 0.4;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .box-quote p:last-child {
+            margin-bottom: 0;
+        }
+        .box-tip p:last-child,
+        .box-important p:last-child,
+        .box-info p:last-child,
+        .box-warning p:last-child,
+        .box-definition p:last-child {
+            margin-bottom: 0;
+        }
+        .box-tip strong,
+        .box-important strong,
+        .box-info strong,
+        .box-warning strong,
+        .box-definition strong {
+            color: #f0e0b8;
+        }
+
+        /* ===== CARDS ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.6rem 0;
+        }
+        .card-concept {
+            background: #1a2338;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.4rem;
+            border: 1px solid rgba(201, 168, 76, 0.12);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .card-concept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+        .card-concept h4 {
+            margin-top: 0;
+            color: #efdba8;
+            font-size: 1.05rem;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-concept p {
+            font-size: 0.92rem;
+            margin-bottom: 0.2rem;
+            color: #c9b88a;
+        }
+
+        /* ===== TABLES ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.6rem 0;
+            border-radius: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: #111a2a;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            min-width: 480px;
+        }
+        thead {
+            background: #1a2338;
+        }
+        th {
+            padding: 0.9rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #efdba8;
+            border-bottom: 2px solid rgba(201, 168, 76, 0.2);
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+        td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #d0c8b8;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tbody tr:hover {
+            background: rgba(201, 168, 76, 0.04);
+        }
+        .table-wrap .highlight-row td {
+            background: rgba(201, 168, 76, 0.06);
+        }
+
+        /* ===== LISTS ===== */
+        ul,
+        ol {
+            padding-left: 1.6rem;
+            margin: 0.6rem 0 1.2rem;
+            color: #d0c8b8;
+        }
+        li {
+            margin-bottom: 0.3rem;
+        }
+        ul ul,
+        ol ol {
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+        .check-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .check-list li {
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        .check-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: 700;
+        }
+        .x-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .x-list li {
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        .x-list li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #ff6b6b;
+            font-weight: 700;
+        }
+
+        /* ===== HIGHLIGHT (marca-texto) ===== */
+        .highlight {
+            background: linear-gradient(120deg, rgba(201, 168, 76, 0.25) 0%, rgba(201, 168, 76, 0.10) 80%);
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.3rem;
+            color: #f0e0b8;
+            font-weight: 500;
+        }
+        .highlight-gold {
+            background: rgba(201, 168, 76, 0.20);
+            padding: 0.1rem 0.4rem;
+            border-radius: 0.3rem;
+            color: #efdba8;
+        }
+
+        /* ===== CALLOUT ===== */
+        .callout {
+            background: #1a2338;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.6rem;
+            margin: 1.6rem 0;
+            border-left: 6px solid #4fc3f7;
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+        }
+        .callout-icon {
+            font-size: 1.8rem;
+            line-height: 1.2;
+            color: #4fc3f7;
+            flex-shrink: 0;
+        }
+        .callout-content {
+            flex: 1;
+        }
+        .callout-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== CITAÇÃO ===== */
+        .quote-block {
+            background: #1a1f2a;
+            border-radius: 1.2rem;
+            padding: 1.4rem 2rem;
+            margin: 1.6rem 0;
+            border-left: 6px solid #b8963e;
+            font-style: italic;
+            color: #d8d0c2;
+            font-size: 1.05rem;
+            position: relative;
+        }
+        .quote-block .source {
+            display: block;
+            margin-top: 0.6rem;
+            font-style: normal;
+            font-size: 0.85rem;
+            color: #a89f90;
+            text-align: right;
+        }
+
+        /* ===== SVG DIAGRAM CONTAINERS ===== */
+        .diagram-container {
+            background: #111a2a;
+            border-radius: 1.4rem;
+            padding: 1.8rem 1.2rem;
+            margin: 1.8rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== MISC ===== */
+        .badge {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.15);
+            color: #efdba8;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.7rem;
+            border-radius: 20px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            margin-right: 0.3rem;
+        }
+        .badge-blue {
+            background: rgba(79, 195, 247, 0.12);
+            color: #7fc9f0;
+            border-color: rgba(79, 195, 247, 0.12);
+        }
+        .badge-green {
+            background: rgba(78, 205, 196, 0.12);
+            color: #4ecdc4;
+            border-color: rgba(78, 205, 196, 0.12);
+        }
+        .badge-red {
+            background: rgba(255, 107, 107, 0.12);
+            color: #ff8a7a;
+            border-color: rgba(255, 107, 107, 0.12);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        .text-muted {
+            color: #a89f90;
+        }
+        .mt-0 {
+            margin-top: 0;
+        }
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 820px) {
+            .page {
+                padding: 1.6rem 1.2rem 2.2rem;
+                border-radius: 1.4rem;
+            }
+            html {
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .toc-sub {
+                padding-left: 1.2rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .toc {
+                padding: 1.2rem 1.2rem;
+            }
+            .diagram-container {
+                padding: 1rem 0.4rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .page {
+                padding: 1rem 0.8rem 1.6rem;
+                border-radius: 1rem;
+            }
+            html {
+                font-size: 15px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+                margin-top: 2rem;
+            }
+            h3 {
+                font-size: 1.05rem;
+            }
+            .box-tip,
+            .box-important,
+            .box-info,
+            .box-warning,
+            .box-definition,
+            .box-quote {
+                padding: 0.9rem 1rem;
+                margin: 1rem 0 1.4rem;
+            }
+            .callout {
+                flex-direction: column;
+                gap: 0.2rem;
+                padding: 1rem 1.2rem;
+            }
+            .table-wrap {
+                border-radius: 0.8rem;
+            }
+            table {
+                font-size: 0.8rem;
+                min-width: 360px;
+            }
+            th,
+            td {
+                padding: 0.5rem 0.6rem;
+            }
+            .toc-item {
+                font-size: 0.82rem;
+            }
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body {
+                background: #0d1321;
+                padding: 0.2in;
+            }
+            .page {
+                box-shadow: none;
+                border: 1px solid #333;
+                border-radius: 0;
+                padding: 0.3in;
+                margin: 0;
+                max-width: 100%;
+            }
+            .card-concept:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        /* ===== KEYWORD HIGHLIGHT ===== */
+        .keyword {
+            color: #efdba8;
+            font-weight: 600;
+            border-bottom: 1px dashed rgba(201, 168, 76, 0.25);
+        }
+
+        /* ===== ANEXO ===== */
+        .appendix {
+            background: #111a2a;
+            border-radius: 1.2rem;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 0.5rem;
+            border: 1px solid rgba(201, 168, 76, 0.08);
+        }
+        .appendix table {
+            min-width: unset;
+            font-size: 0.85rem;
+        }
+        .appendix th,
+        .appendix td {
+            padding: 0.5rem 0.8rem;
+        }
+        .appendix th {
+            background: #0d1321;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- ===== COVER / TITLE ===== -->
+        <header style="margin-bottom: 1.2rem;">
+            <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.2rem;">
+                <span style="font-size: 2rem; line-height: 1; opacity: 0.5;">⚖</span>
+                <span style="font-size: 0.75rem; color: #a89f90; letter-spacing: 0.15em; text-transform: uppercase; border-left: 2px solid rgba(201,168,76,0.25); padding-left: 0.8rem;">Conhecimentos Bancários</span>
+            </div>
+            <h1>Seguros: Fundamentos, Legislação e Aplicação Prática</h1>
+            <p style="font-size: 1.1rem; color: #b8a88a; margin-top: 0.2rem; border-left: 4px solid rgba(201,168,76,0.2); padding-left: 1rem;">
+                Material Teórico para Concursos da Área Bancária
+            </p>
+        </header>
+
+        <!-- ===== SUMÁRIO ===== -->
+        <section class="toc" id="sumario">
+            <h2>📑 Sumário</h2>
+            <div class="toc-grid">
+                <div class="toc-item"><span class="num">1.</span><a href="#cap1">Introdução ao Mercado de Seguros</a></div>
+                <div class="toc-item"><span class="num">2.</span><a href="#cap2">Estrutura Regulatória</a></div>
+                <div class="toc-sub"><span class="num">2.1</span><a href="#cap2-1">CNSP</a></div>
+                <div class="toc-sub"><span class="num">2.2</span><a href="#cap2-2">SUSEP</a></div>
+                <div class="toc-sub"><span class="num">2.3</span><a href="#cap2-3">Hierarquia Normativa</a></div>
+                <div class="toc-item"><span class="num">3.</span><a href="#cap3">Conceitos Fundamentais</a></div>
+                <div class="toc-sub"><span class="num">3.1</span><a href="#cap3-1">Definição e Natureza</a></div>
+                <div class="toc-sub"><span class="num">3.2</span><a href="#cap3-2">Mutualismo</a></div>
+                <div class="toc-sub"><span class="num">3.3</span><a href="#cap3-3">Elementos Essenciais</a></div>
+                <div class="toc-item"><span class="num">4.</span><a href="#cap4">Princípios Aplicáveis</a></div>
+                <div class="toc-sub"><span class="num">4.1</span><a href="#cap4-1">Indenitário</a></div>
+                <div class="toc-sub"><span class="num">4.2</span><a href="#cap4-2">Boa‑fé Objetiva</a></div>
+                <div class="toc-sub"><span class="num">4.3</span><a href="#cap4-3">Sub‑rogação</a></div>
+                <div class="toc-sub"><span class="num">4.4</span><a href="#cap4-4">Risco Específico</a></div>
+                <div class="toc-sub"><span class="num">4.5</span><a href="#cap4-5">Proporcionalidade</a></div>
+                <div class="toc-item"><span class="num">5.</span><a href="#cap5">Seguros de Danos</a></div>
+                <div class="toc-item"><span class="num">6.</span><a href="#cap6">Seguro de Vida e Pessoas</a></div>
+                <div class="toc-item"><span class="num">7.</span><a href="#cap7">Disposições Gerais (CC)</a></div>
+                <div class="toc-item"><span class="num">8.</span><a href="#cap8">Seguros Obrigatórios</a></div>
+                <div class="toc-item"><span class="num">9.</span><a href="#cap9">Instituições e Autorização</a></div>
+                <div class="toc-item"><span class="num">10.</span><a href="#cap10">Comercialização e Consumidor</a></div>
+                <div class="toc-item"><span class="num">11.</span><a href="#cap11">Estudos de Caso</a></div>
+                <div class="toc-item"><span class="num">12.</span><a href="#cap12">Resumo Esquemático</a></div>
+                <div class="toc-item"><span class="num">13.</span><a href="#cap13">Dicas de Prova</a></div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== CAPÍTULO 1 ===== -->
+        <section id="cap1">
+            <h2>1. Introdução ao Mercado de Seguros no Brasil</h2>
+            <p>O mercado de seguros privados desempenha um papel fundamental na economia brasileira, atuando como um importante mecanismo de proteção patrimonial e gestão de riscos. Para o profissional bancário, especialmente o Técnico Bancário (Escriturário, Agente Comercial ou similar), compreender os fundamentos do setor de seguros é essencial, uma vez que esses produtos são frequentemente ofertados no ambiente bancário, por meio de bancos com carteira de seguros ou parcerias com seguradoras.</p>
+
+            <div class="box-important">
+                <strong>A lógica do seguro no cotidiano bancário</strong>
+                <p>Imagine a seguinte situação: um cliente empreendedor, dono de uma pequena fábrica de móveis, procura sua agência para contratar um financiamento para ampliação do negócio. Durante a análise de crédito, você, como profissional bancário, identifica que a operação envolve garantias reais (máquinas e equipamentos) e que a proteção desses bens contra incêndios, roubos e danos elétricos seria fundamental para mitigar o risco da operação. Nesse momento, o conhecimento sobre produtos securitários permite que você ofereça uma solução completa ao cliente: crédito para expansão + seguro para proteção do patrimônio financiado.</p>
+                <p style="margin-top:0.6rem;">Essa integração entre crédito e seguros é uma realidade no dia a dia bancário e explica por que os concursos públicos para a área bancária cobram, com frequência crescente, conhecimentos sobre seguros privados.</p>
+            </div>
+
+            <div class="box-info">
+                <strong>O que você precisa saber para a prova</strong>
+                <p>A matéria de seguros nos concursos bancários costuma abordar:</p>
+                <ul>
+                    <li>A estrutura regulatória do setor (quem faz o quê)</li>
+                    <li>Os princípios fundamentais do contrato de seguro</li>
+                    <li>As regras específicas dos seguros de danos e de pessoas</li>
+                    <li>As disposições do Código Civil e do Código de Defesa do Consumidor aplicáveis</li>
+                    <li>Os seguros obrigatórios</li>
+                    <li>As regras de comercialização e os deveres de informação</li>
+                    <li>As peculiaridades das seguradoras como instituições financeiras</li>
+                </ul>
+                <p style="margin-top:0.4rem;">Vamos aprofundar cada um desses pontos.</p>
+            </div>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 2 ===== -->
+        <section id="cap2">
+            <h2>2. Estrutura Regulatória do Sistema de Seguros Privados</h2>
+            <p>O Sistema Nacional de Seguros Privados (SNSP) é composto por um conjunto de órgãos e entidades que atuam na regulação, fiscalização e operação do mercado securitário brasileiro. A estrutura desse sistema é definida, principalmente, pelo Decreto-Lei nº 73/66, que organizou o setor e criou seus principais órgãos reguladores.</p>
+
+            <!-- DIAGRAMA SVG: Estrutura Regulatória -->
+            <div class="diagram-container">
+                <svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                    <defs>
+                        <filter id="shadow1" x="-4%" y="-4%" width="108%" height="112%">
+                            <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+                        </filter>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1a2338"/>
+                            <stop offset="100%" stop-color="#0d1628"/>
+                        </linearGradient>
+                        <linearGradient id="gradGold" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#c9a84c"/>
+                            <stop offset="100%" stop-color="#e8c86a"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="720" height="380" rx="20" fill="#111a2a" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+                    <!-- Título -->
+                    <text x="360" y="44" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" font-weight="600" fill="#efdba8">Sistema Nacional de Seguros Privados</text>
+
+                    <!-- CNSP -->
+                    <rect x="60" y="80" width="260" height="110" rx="16" fill="url(#grad1)" stroke="#c9a84c" stroke-width="2" filter="url(#shadow1)"/>
+                    <text x="190" y="116" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#efdba8">CNSP</text>
+                    <text x="190" y="144" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#b8a88a">Conselho Nacional de</text>
+                    <text x="190" y="164" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#b8a88a">Seguros Privados</text>
+                    <text x="190" y="185" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#7fc9f0">Órgão Normativo / Deliberativo</text>
+
+                    <!-- SUSEP -->
+                    <rect x="400" y="80" width="260" height="110" rx="16" fill="url(#grad1)" stroke="#4fc3f7" stroke-width="2" filter="url(#shadow1)"/>
+                    <text x="530" y="116" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" font-weight="700" fill="#7fc9f0">SUSEP</text>
+                    <text x="530" y="144" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#b8a88a">Superintendência de</text>
+                    <text x="530" y="164" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#b8a88a">Seguros Privados</text>
+                    <text x="530" y="185" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#4ecdc4">Órgão Fiscalizador / Executor</text>
+
+                    <!-- Linha de conexão CNSP -> SUSEP -->
+                    <line x1="320" y1="135" x2="400" y2="135" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="6,4"/>
+                    <polygon points="396,130 408,135 396,140" fill="rgba(255,255,255,0.15)"/>
+
+                    <!-- Atribuições CNSP -->
+                    <rect x="60" y="230" width="260" height="120" rx="12" fill="#0d1628" stroke="rgba(201,168,76,0.12)" stroke-width="1" filter="url(#shadow1)"/>
+                    <text x="190" y="256" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" fill="#efdba8">Atribuições principais</text>
+                    <text x="80" y="282" font-family="Segoe UI, sans-serif" font-size="11" fill="#c9b88a">• Fixa diretrizes e normas da política</text>
+                    <text x="80" y="302" font-family="Segoe UI, sans-serif" font-size="11" fill="#c9b88a">• Define modalidades de operações</text>
+                    <text x="80" y="322" font-family="Segoe UI, sans-serif" font-size="11" fill="#c9b88a">• Aprova autorização (homologa)</text>
+                    <text x="80" y="342" font-family="Segoe UI, sans-serif" font-size="10" fill="#ff8a7a">✗ Não fixa prêmios</text>
+
+                    <!-- Atribuições SUSEP -->
+                    <rect x="400" y="230" width="260" height="120" rx="12" fill="#0d1628" stroke="rgba(79,195,247,0.12)" stroke-width="1" filter="url(#shadow1)"/>
+                    <text x="530" y="256" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" fill="#7fc9f0">Atribuições principais</text>
+                    <text x="420" y="282" font-family="Segoe UI, sans-serif" font-size="11" fill="#c9b88a">• Fiscaliza constituição e operação</text>
+                    <text x="420" y="302" font-family="Segoe UI, sans-serif" font-size="11" fill="#c9b88a">• Processa e instrui pedidos</text>
+                    <text x="420" y="322" font-family="Segoe UI, sans-serif" font-size="11" fill="#c9b88a">• Aplica penalidades</text>
+                    <text x="420" y="342" font-family="Segoe UI, sans-serif" font-size="10" fill="#4ecdc4">✓ Executa a política definida</text>
+                </svg>
+            </div>
+
+            <h3 id="cap2-1">2.1. Conselho Nacional de Seguros Privados (CNSP)</h3>
+            <p>O CNSP é o órgão máximo de deliberação do sistema de seguros privados no Brasil. Sua criação e atribuições estão previstas no Decreto-Lei nº 73/66, especialmente em seu artigo 32.</p>
+
+            <div class="box-definition">
+                <strong>Atribuição principal do CNSP</strong>
+                <p>Conforme o art. 32 do Decreto-Lei 73/66, o CNSP tem competência <strong>privativa</strong> para fixar as <strong>diretrizes e normas da política de seguros privados</strong>. Isso significa que é o CNSP quem estabelece as grandes diretrizes que orientarão todo o setor, definindo, por exemplo:</p>
+                <ul>
+                    <li>Os princípios gerais da política de seguros</li>
+                    <li>As modalidades de operações permitidas</li>
+                    <li>As condições gerais dos contratos</li>
+                    <li>Os requisitos mínimos para a autorização e funcionamento das seguradoras</li>
+                </ul>
+            </div>
+
+            <div class="box-warning">
+                <strong>O que o CNSP NÃO faz (pegadinha comum em provas!)</strong>
+                <p>É fundamental entender os limites da atuação do CNSP para não cair nas armadilhas das questões de concurso. O CNSP:</p>
+                <ul class="x-list">
+                    <li><strong>NÃO</strong> define a quantidade máxima de seguradoras que podem operar no mercado</li>
+                    <li><strong>NÃO</strong> estabelece estrutura de governança ou organogramas internos das seguradoras</li>
+                    <li><strong>NÃO</strong> regula eticamente os executivos do setor (essa é uma função de autorregulação)</li>
+                    <li><strong>NÃO</strong> fixa prêmios mínimos ou máximos para os seguros</li>
+                </ul>
+                <p style="margin-top:0.4rem;">Por que essa limitação existe? A definição de prêmios, por exemplo, decorre de cálculos atuariais complexos e da dinâmica do próprio mercado, não sendo adequado que um órgão regulador fixe valores específicos, o que poderia distorcer a concorrência e inviabilizar a atividade das seguradoras.</p>
+            </div>
+
+            <h4>Composição do CNSP</h4>
+            <ul>
+                <li>Ministro da Fazenda (Presidente)</li>
+                <li>Superintendente da SUSEP</li>
+                <li>Representante do Ministério da Justiça</li>
+                <li>Representante do Ministério do Planejamento</li>
+                <li>Representante do Banco Central do Brasil</li>
+                <li>Representante de outras pastas conforme legislação</li>
+            </ul>
+
+            <h4>Hierarquia normativa relevante:</h4>
+            <div class="box-info" style="font-family: monospace; font-size:0.95rem; text-align:center; letter-spacing:0.02em;">
+                Lei → Decreto-Lei → Resoluções do CNSP → Circulares da SUSEP
+            </div>
+
+            <h3 id="cap2-2">2.2. Superintendência de Seguros Privados (SUSEP)</h3>
+            <p>A SUSEP é a autarquia vinculada ao Ministério da Fazenda responsável pela fiscalização e controle do mercado de seguros, previdência complementar aberta e capitalização. É o órgão executor das políticas definidas pelo CNSP.</p>
+
+            <div class="box-info">
+                <strong>Principais funções da SUSEP:</strong>
+                <ol>
+                    <li>Fiscalizar a constituição, organização, funcionamento e operação das sociedades seguradoras</li>
+                    <li>Zelar pela solvência e liquidez das seguradoras</li>
+                    <li>Aplicar penalidades</li>
+                    <li>Autorizar a operação de novas seguradoras (após análise e parecer)</li>
+                    <li>Registrar apólices e aprovar planos de seguro</li>
+                    <li>Realizar o controle dos prêmios e das tarifas (dentro dos limites legais)</li>
+                </ol>
+            </div>
+
+            <div class="box-important">
+                <strong>Relação CNSP × SUSEP (decore esta distinção!)</strong>
+                <div style="overflow-x:auto; margin-top:0.6rem;">
+                    <table style="min-width:auto; width:100%; background:transparent; font-size:0.9rem;">
+                        <thead><tr><th style="background:#0d1628;">CNSP</th><th style="background:#0d1628;">SUSEP</th></tr></thead>
+                        <tbody>
+                            <tr><td>Órgão normativo / deliberativo</td><td>Órgão fiscalizador / executor</td></tr>
+                            <tr><td>Fixa diretrizes e normas da política</td><td>Fiscaliza e controla a execução</td></tr>
+                            <tr><td>Aprova a autorização (homologa)</td><td>Processa e instrui o pedido de autorização</td></tr>
+                            <tr><td>Define a política de seguros</td><td>Aplica a política definida</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top:0.6rem;"><strong>Decore:</strong> A SUSEP processa, instrui e opina; o CNSP aprecia e autoriza.</p>
+            </div>
+
+            <h3 id="cap2-3">2.3. Hierarquia Normativa e Competências</h3>
+            <p>Para a prova, é essencial compreender a distribuição de competências normativas:</p>
+            <ul>
+                <li><strong>Código Civil</strong> → Estabelece as regras gerais do contrato de seguro (arts. 757 a 802)</li>
+                <li><strong>Decreto-Lei 73/66</strong> → Organiza o Sistema Nacional de Seguros Privados e cria o CNSP e a SUSEP</li>
+                <li><strong>Resoluções do CNSP</strong> → Fixam as políticas e diretrizes do setor</li>
+                <li><strong>Circulares da SUSEP</strong> → Detalham a aplicação das políticas, com caráter técnico e operacional</li>
+            </ul>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 3 ===== -->
+        <section id="cap3">
+            <h2>3. Conceitos Fundamentais do Contrato de Seguro</h2>
+
+            <h3 id="cap3-1">3.1. Definição e Natureza Jurídica</h3>
+            <div class="box-definition">
+                <p>O contrato de seguro é um negócio jurídico <strong>bilateral, oneroso, aleatório, de adesão e formal</strong>, pelo qual uma parte (segurador) assume a obrigação de garantir o interesse legítimo da outra parte (segurado) contra determinados riscos, mediante o pagamento de um prêmio.</p>
+            </div>
+
+            <h4>Elementos básicos do contrato:</h4>
+            <div class="card-grid">
+                <div class="card-concept"><h4>1. Segurador</h4><p>A pessoa jurídica (seguradora) que assume o risco</p></div>
+                <div class="card-concept"><h4>2. Segurado</h4><p>O titular do interesse segurado, que pode ser o próprio contratante ou não</p></div>
+                <div class="card-concept"><h4>3. Prêmio</h4><p>O valor pago pelo segurado como contraprestação pela proteção</p></div>
+                <div class="card-concept"><h4>4. Risco</h4><p>O evento futuro e incerto coberto pelo seguro</p></div>
+                <div class="card-concept"><h4>5. Indenização</h4><p>O valor devido pelo segurador na ocorrência do sinistro</p></div>
+            </div>
+
+            <h3 id="cap3-2">3.2. O Princípio do Mutualismo</h3>
+            <p>O mutualismo é o fundamento econômico-social do seguro. Ele se expressa pela ideia de que os segurados contribuem solidariamente para a formação de um fundo comum, que será utilizado para indenizar aqueles que vierem a sofrer sinistros.</p>
+            <div class="quote-block">
+                <p>"Um por todos e todos por um."</p>
+            </div>
+
+            <div class="box-tip">
+                <strong>Explicação para o dia a dia bancário:</strong>
+                <p>Quando seu cliente contrata um seguro de automóvel, ele está se juntando a milhares de outros segurados. Cada um paga um prêmio (valor individual) que, somado, constitui uma enorme reserva financeira. Quando alguns desses segurados sofrem acidentes, o fundo comum paga as indenizações. A lógica é a diluição do risco entre muitos, tornando suportável o custo do sinistro para cada participante.</p>
+                <p style="margin-top:0.4rem;"><strong>Importante:</strong> sem o mutualismo, o seguro seria apenas uma poupança ou um fundo de reserva individual. É o mutualismo que confere ao seguro sua característica de proteção coletiva.</p>
+            </div>
+
+            <h3 id="cap3-3">3.3. Elementos Essenciais do Contrato</h3>
+            <p>O <strong>interesse segurado</strong> (ou interesse legítimo) é a relação econômica que une o segurado ao objeto do seguro. Não pode haver seguro sem interesse legítimo, sob pena de ser considerado inválido.</p>
+
+            <div class="box-info">
+                <strong>Exemplos de interesse legítimo:</strong>
+                <ul>
+                    <li>O proprietário de um imóvel tem interesse legítimo em segurá-lo</li>
+                    <li>O credor hipotecário tem interesse legítimo no seguro sobre o imóvel dado em garantia</li>
+                    <li>O arrendatário tem interesse legítimo no seguro do bem arrendado</li>
+                    <li>O pai tem interesse legítimo no seguro de vida do filho (desde que haja dependência econômica)</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 4 ===== -->
+        <section id="cap4">
+            <h2>4. Princípios Aplicáveis ao Contrato de Seguro</h2>
+
+            <h3 id="cap4-1">4.1. Princípio Indenitário</h3>
+            <p>O princípio indenitário estabelece que o seguro <strong>não pode ser fonte de enriquecimento sem causa</strong> para o segurado. A indenização deve limitar-se ao valor real do interesse segurado no momento do sinistro.</p>
+
+            <div class="quote-block">
+                <p><strong>Fundamento legal:</strong> Artigo 781 do Código Civil</p>
+                <p style="font-style:normal; font-size:0.95rem; margin-top:0.2rem;">"Art. 781. O valor da indenização, no seguro de dano, não pode ultrapassar o valor do interesse segurado no momento do sinistro."</p>
+            </div>
+
+            <div class="box-tip">
+                <strong>Aplicação prática:</strong>
+                <p>Imagine que um cliente segurou um veículo no valor de R$ 50.000,00 (valor de mercado na época da contratação). Dois anos depois, o carro sofre um acidente total. O valor de mercado do veículo no momento do sinistro é de R$ 38.000,00. O segurador pagará R$ 38.000,00, não R$ 50.000,00.</p>
+            </div>
+
+            <h4>Por que essa regra existe?</h4>
+            <ol>
+                <li><strong>Evita o enriquecimento ilícito</strong>: o segurado não pode lucrar com o sinistro</li>
+                <li><strong>Mantém o equilíbrio financeiro das seguradoras</strong>: se pudesse pagar mais do que o valor real do bem, o sistema se tornaria insustentável</li>
+                <li><strong>Reflete a realidade econômica</strong>: a indenização deve recompor o patrimônio do segurado, não criar novo patrimônio</li>
+            </ol>
+            <p><strong>Importante:</strong> O valor indenizado é o valor de mercado atual, não necessariamente o valor de novo. O segurado não recebe o valor de um bem novo se o seu bem era usado.</p>
+
+            <div class="box-warning">
+                <strong>Dica de prova (Cesgranrio/FGV):</strong> As bancas costumam explorar o princípio indenitário com questões que mencionam situações em que o segurado quer receber mais do que o valor de mercado do bem. Lembre-se: <span class="highlight">"indenização = valor de mercado no momento do sinistro"</span> e <span class="highlight">"vedação ao enriquecimento sem causa"</span>.
+            </div>
+
+            <h3 id="cap4-2">4.2. Princípio da Boa‑fé Objetiva</h3>
+            <p>O contrato de seguro exige o <strong>máximo de boa‑fé</strong> das partes, tanto na celebração quanto na execução. O segurado deve declarar todas as circunstâncias que possam influir na apreciação do risco, sob pena de perder o direito à indenização ou de ter o contrato anulado.</p>
+
+            <div class="quote-block">
+                <p><strong>Fundamento:</strong> O art. 765 do Código Civil estabelece:</p>
+                <p style="font-style:normal; font-size:0.95rem; margin-top:0.2rem;">"Art. 765. O segurado e o segurador são obrigados a guardar, na conclusão e na execução do contrato, a mais estrita boa‑fé."</p>
+            </div>
+
+            <h4>Consequências da violação da boa‑fé:</h4>
+            <ul>
+                <li>Omissão ou declaração inexata de circunstâncias relevantes: perda do direito à indenização</li>
+                <li>Agravamento do risco sem comunicação: redução proporcional da indenização</li>
+                <li>Sinistro provocado intencionalmente: perda do direito à indenização</li>
+            </ul>
+
+            <h3 id="cap4-3">4.3. Princípio da Sub‑rogação</h3>
+            <p>A sub‑rogação é o direito que a seguradora adquire, após indenizar o segurado por dano causado por terceiro, de assumir os direitos do segurado contra esse terceiro para pleitear judicialmente o ressarcimento do valor pago.</p>
+
+            <div class="quote-block">
+                <p><strong>Fundamento legal:</strong> Art. 786 do Código Civil</p>
+                <p style="font-style:normal; font-size:0.95rem; margin-top:0.2rem;">"Art. 786. Paga a indenização, o segurador sub‑roga‑se, até o valor que pagou, nos direitos e ações que o segurado, contra o causador do dano, possuir."</p>
+            </div>
+
+            <h4>Raciocínio lógico:</h4>
+            <ol>
+                <li>Terceiro causou dano ao segurado</li>
+                <li>Seguradora indeniza o segurado</li>
+                <li>Seguradora assume os direitos do segurado contra o terceiro</li>
+                <li>Seguradora ajuíza ação de regresso contra o terceiro</li>
+            </ol>
+
+            <div class="box-info">
+                <strong>Por que a sub‑rogação existe?</strong>
+                <ol>
+                    <li><strong>Evita a impunidade do causador do dano</strong>: o responsável pelo prejuízo deve arcar com as consequências</li>
+                    <li><strong>Equilíbrio financeiro do sistema</strong>: permite que a seguradora recupere valores desembolsados</li>
+                    <li><strong>Justiça distributiva</strong>: quem causou o dano deve responder por ele</li>
+                </ol>
+                <p style="margin-top:0.4rem;"><strong>Importante:</strong> O segurado não pode prejudicar os direitos da seguradora após ser indenizado, ou seja, não pode desistir do direito de ação contra o terceiro sem autorização da seguradora.</p>
+            </div>
+
+            <h3 id="cap4-4">4.4. Princípio do Risco Específico</h3>
+            <p>A responsabilidade do segurador se limita aos riscos <strong>expressamente previstos na apólice</strong>. Isso significa que apenas os eventos descritos no contrato estão cobertos.</p>
+
+            <h4>Por que essa limitação é necessária?</h4>
+            <ul>
+                <li><strong>Resguardar a estabilidade de resultados e a solvência do negócio de seguro</strong>: permitindo calcular prêmios com base nos riscos assumidos</li>
+                <li><strong>Manter equilíbrio entre receitas e despesas</strong>: garantindo que a seguradora consiga honrar seus compromissos</li>
+                <li><strong>Permitir a formação de reservas adequadas</strong>: as provisões técnicas são calculadas com base nos riscos assumidos</li>
+            </ul>
+
+            <h3 id="cap4-5">4.5. Princípio da Proporcionalidade</h3>
+            <p>A indenização deve ser proporcional ao valor do interesse segurado. Se o valor segurado for inferior ao valor real do bem (<strong>subseguro</strong>), a indenização será reduzida proporcionalmente.</p>
+
+            <div class="box-tip">
+                <strong>Exemplo prático:</strong>
+                <ul>
+                    <li>Bem avaliado em R$ 100.000,00</li>
+                    <li>Segurado por R$ 60.000,00 (subseguro de 40%)</li>
+                    <li>Sinistro parcial de R$ 50.000,00</li>
+                    <li>Indenização = R$ 50.000,00 × 60% = <strong>R$ 30.000,00</strong></li>
+                </ul>
+                <p style="margin-top:0.4rem;"><strong>Razão:</strong> o segurado pagou prêmio correspondente a apenas 60% do valor do bem, portanto só pode receber 60% do valor do dano.</p>
+            </div>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 5 ===== -->
+        <section id="cap5">
+            <h2>5. Seguros de Danos (Patrimoniais)</h2>
+
+            <h3>5.1. Conceito e Características</h3>
+            <p>O seguro de danos é a modalidade de seguro que tem por objeto a proteção do patrimônio do segurado contra prejuízos decorrentes da ocorrência de riscos especificados. Ele é regido pelo princípio indenitário, ou seja, a indenização não pode ultrapassar o valor do bem ou do prejuízo efetivamente sofrido.</p>
+
+            <h4>Principais modalidades:</h4>
+            <div class="card-grid">
+                <div class="card-concept"><h4>Automóveis</h4><p>Proteção contra danos ao veículo</p></div>
+                <div class="card-concept"><h4>Incêndio e riscos diversos</h4><p>Cobertura para imóveis e conteúdos</p></div>
+                <div class="card-concept"><h4>Responsabilidade civil</h4><p>Danos causados a terceiros</p></div>
+                <div class="card-concept"><h4>Transporte</h4><p>Mercadorias em trânsito</p></div>
+                <div class="card-concept"><h4>Crédito</h4><p>Inadimplência de devedores</p></div>
+                <div class="card-concept"><h4>Garantia</h4><p>Garantia de obrigações contratuais</p></div>
+            </div>
+
+            <h3>5.2. Limitação da Indenização</h3>
+            <div class="box-definition">
+                <p><strong>Regra geral:</strong> O valor da indenização não pode ultrapassar o valor real do bem segurado no momento do sinistro (art. 781 do CC).</p>
+            </div>
+            <h4>Pontos importantes para prova:</h4>
+            <ol>
+                <li><strong>Valor de mercado</strong>: é o valor de referência, não o valor de aquisição ou o valor de novo</li>
+                <li><strong>Momento do sinistro</strong>: o valor considerado é o da data do evento, não o da contratação</li>
+                <li><strong>Vedação ao enriquecimento sem causa</strong>: o segurado não pode lucrar com o sinistro</li>
+            </ol>
+            <p><strong>Cuidado:</strong> Alguns seguros podem oferecer "valor de novo" ou "valor de reposição" como opção contratual, mas isso é uma exceção que deve estar expressamente prevista na apólice (art. 781, parágrafo único).</p>
+
+            <h3>5.3. Risco e suas Exclusões</h3>
+            <p>O risco, no contrato de seguro, é o evento futuro e incerto que, uma vez ocorrido, enseja a obrigação de indenizar.</p>
+
+            <h4>Características do risco:</h4>
+            <ul>
+                <li><strong>Incerteza</strong>: pode ou não ocorrer</li>
+                <li><strong>Futuro</strong>: não pode ser um fato já ocorrido</li>
+                <li><strong>Lícito</strong>: não pode ser evento ilícito (crime, por exemplo)</li>
+                <li><strong>Possível</strong>: não pode ser impossível</li>
+                <li><strong>Determinado ou determinável</strong>: deve ser especificado na apólice</li>
+            </ul>
+
+            <div class="box-important">
+                <strong>Exclusões de riscos (o que não é coberto):</strong>
+                <ul>
+                    <li>Dolo ou culpa grave do segurado (a depender do contrato)</li>
+                    <li>Eventos bélicos, nucleares e atos terroristas</li>
+                    <li>Vícios intrínsecos da coisa</li>
+                    <li>Desgaste natural ou uso normal</li>
+                    <li>Guerra, revolução, motim</li>
+                    <li>Danos decorrentes de caso fortuito ou força maior (em algumas modalidades)</li>
+                </ul>
+            </div>
+
+            <h3>5.4. Vício Intrínseco</h3>
+            <div class="quote-block">
+                <p>O art. 784 do Código Civil estabelece uma exclusão específica:</p>
+                <p style="font-style:normal; font-size:0.95rem; margin-top:0.2rem;">"Art. 784. Não se inclui na garantia o sinistro provocado por vício intrínseco da coisa segurada, não declarado pelo segurado."</p>
+            </div>
+
+            <div class="box-definition">
+                <strong>O que é vício intrínseco?</strong>
+                <p>É um defeito próprio da coisa que não se encontra normalmente em outras da mesma espécie. É um problema inerente à natureza ou à qualidade do objeto segurado.</p>
+            </div>
+
+            <h4>Exemplos:</h4>
+            <ul>
+                <li>Ferrugem em uma estrutura metálica mal fabricada</li>
+                <li>Rachadura em uma parede por falha no material de construção</li>
+                <li>Incêndio causado por curto-circuito em uma instalação elétrica defeituosa</li>
+            </ul>
+
+            <div class="box-warning">
+                <strong>Relevância para a prova:</strong>
+                <p>A banca pode apresentar uma situação hipotética em que um sinistro é causado por um problema que existia na própria coisa. A resposta correta será que esse sinistro <strong>NÃO</strong> está coberto pelo seguro, a menos que o segurado tenha declarado o vício no momento da contratação.</p>
+            </div>
+
+            <h3>5.5. Transferência do Contrato de Seguro</h3>
+            <div class="quote-block">
+                <p>O art. 785 do Código Civil permite a transferência do contrato de seguro de danos a terceiro com a alienação ou cessão do interesse segurado.</p>
+                <p style="font-style:normal; font-size:0.95rem; margin-top:0.2rem;">"Art. 785. Salvo disposição em contrário, admite-se a transferência do contrato a terceiro com a alienação ou cessão do interesse segurado."</p>
+            </div>
+
+            <h4>Modalidades de transferência:</h4>
+            <ol>
+                <li><strong>Apólice nominativa</strong>: a transferência produz efeitos mediante aviso escrito ao segurador</li>
+                <li><strong>Apólice à ordem</strong>: a transferência se dá por endosso</li>
+            </ol>
+
+            <div class="box-tip">
+                <strong>Exemplo prático:</strong>
+                <p>João vende seu carro para Maria. O seguro do veículo, em princípio, pode ser transferido para Maria, desde que o contrato não disponha em contrário. Para que a transferência seja válida, deve-se dar aviso escrito à seguradora.</p>
+                <p style="margin-top:0.4rem;"><strong>Cuidado:</strong> A transferência não é automática. É necessário o aviso e, em alguns casos, a anuência da seguradora, especialmente se houver alteração no risco.</p>
+            </div>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 6 ===== -->
+        <section id="cap6">
+            <h2>6. Seguro de Vida e Pessoas</h2>
+
+            <h3>6.1. Natureza e Características</h3>
+            <p>O seguro de vida é um seguro de pessoas, que difere fundamentalmente do seguro de danos porque a vida humana não tem valor econômico preciso. Por isso, <strong>não se aplica o princípio indenitário</strong> da mesma forma, sendo possível fixar um capital livremente.</p>
+
+            <div class="box-definition">
+                <strong>Características do seguro de vida:</strong>
+                <ol>
+                    <li><strong>Não se aplica o princípio indenitário</strong>: o valor segurado é determinado livremente</li>
+                    <li><strong>O capital segurado é uma soma fixa</strong>: não depende do valor de mercado de um bem</li>
+                    <li><strong>Natureza de contrato de soma</strong>: o segurador paga o valor contratado, não o prejuízo efetivo</li>
+                    <li><strong>Não há sub‑rogação</strong>: por não envolver dano a um bem, não há direito de regresso</li>
+                    <li><strong>Beneficiário necessário</strong>: o seguro de vida sempre terá um beneficiário</li>
+                </ol>
+                <p style="margin-top:0.4rem;"><strong>Fundamento:</strong> Código Civil, arts. 790 a 793.</p>
+            </div>
+
+            <h3>6.2. Designação de Beneficiários</h3>
+            <p>O seguro de vida é um contrato que necessariamente tem um beneficiário, que pode ser:</p>
+            <ol>
+                <li><strong>Pessoa natural</strong>: designada nominalmente</li>
+                <li><strong>Pessoa jurídica</strong>: a critério do segurado</li>
+                <li><strong>Por classes</strong>: "meus filhos", "meus herdeiros", etc.</li>
+            </ol>
+
+            <div class="box-important">
+                <strong>Regras importantes sobre o beneficiário:</strong>
+                <ul>
+                    <li><strong>Art. 791:</strong> Se o segurado não designar beneficiário, ou se a designação não for válida, o capital será pago aos herdeiros legítimos do segurado.</li>
+                    <li><strong>Art. 792:</strong> O segurado pode mudar o beneficiário a qualquer tempo, salvo se tiver renunciado a esse direito no contrato.</li>
+                    <li><strong>Art. 793:</strong> É válida a instituição do companheiro como beneficiário, desde que o segurado seja separado judicialmente ou de fato no momento da contratação.</li>
+                </ul>
+            </div>
+
+            <div class="box-warning">
+                <strong>Caso especial (pegadinha de prova):</strong>
+                <p>"É válida a indicação do companheiro como beneficiário de seguro de vida quando o segurado é casado, mas separado de fato?"</p>
+                <p><strong>Resposta:</strong> Sim, é válida, pois o art. 793 do Código Civil considera válida a instituição do companheiro como beneficiário se ao tempo do contrato o segurado era separado judicialmente ou já se encontrava separado de fato, sendo irrelevante a inexistência de separação judicial.</p>
+                <p style="margin-top:0.4rem;"><span class="highlight">Macete para prova:</span> "Separado de fato ou judicialmente → companheiro pode ser beneficiário."</p>
+            </div>
+
+            <h3>6.3. Particularidades</h3>
+            <ul>
+                <li><strong>Garantia de pagamento (art. 798):</strong> O segurador deve pagar o capital independentemente do cumprimento de outras obrigações, salvo se houver cláusula em contrário.</li>
+                <li><strong>Crédito de beneficiário impenhorável:</strong> O capital segurado não pode ser penhorado ou sequestrado para pagamento de dívidas do segurado ou do beneficiário (LC 129/2010, art. 2º, I e II).</li>
+                <li><strong>Caso de suicídio (art. 798, parágrafo único):</strong> A seguradora não paga o capital nos dois primeiros anos de vigência do contrato se o segurado cometer suicídio (exceto se comprovada insanidade mental). Após dois anos, paga.</li>
+            </ul>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 7 ===== -->
+        <section id="cap7">
+            <h2>7. Disposições Gerais do Contrato de Seguro (Código Civil)</h2>
+
+            <h3>7.1. Obrigação de Indenizar</h3>
+            <p>A seguradora é obrigada a indenizar o sinistro que estiver coberto pelas condições expressas no contrato de seguros (apólice), independentemente:</p>
+            <ul>
+                <li>Da nacionalidade do segurado</li>
+                <li>Da idade do segurado</li>
+                <li>Da identidade entre proponente e segurado</li>
+                <li>Do prazo decorrido desde a vigência</li>
+                <li>Da possibilidade de ressarcimento à seguradora</li>
+            </ul>
+            <p><strong>Fundamento:</strong> Arts. 757 e 758 do Código Civil.</p>
+            <div class="box-info">
+                <strong>Importante:</strong> A obrigação de indenizar está condicionada à ocorrência de sinistro coberto. Não há obrigação se o evento não estiver previsto na apólice.
+            </div>
+
+            <h3>7.2. Pagamento da Indenização</h3>
+            <div class="quote-block">
+                <p>O art. 802 do Código Civil estabelece:</p>
+                <p style="font-style:normal; font-size:0.95rem; margin-top:0.2rem;">"Art. 802. O segurador é obrigado a pagar em dinheiro o prejuízo resultante do risco assumido, salvo se houver convenção expressa de reposição da coisa."</p>
+            </div>
+
+            <h4>Formas de pagamento:</h4>
+            <ol>
+                <li><strong>Padrão</strong>: pagamento em dinheiro</li>
+                <li><strong>Excepcional</strong>: reposição da coisa, se expressamente convencionado</li>
+            </ol>
+
+            <div class="box-warning">
+                <strong>Dica de prova:</strong> A CESGRANRIO frequentemente cobra a literalidade do dispositivo. A afirmativa "o segurador sempre paga em dinheiro" é <strong>FALSA</strong>, pois há a exceção da reposição da coisa. A regra geral é o pagamento em dinheiro, salvo convenção expressa de reposição.
+            </div>
+
+            <h3>7.3. Recondução Tácita</h3>
+            <p>O Código Civil <strong>NÃO</strong> prevê a recondução tácita do contrato de seguro. A renovação depende de manifestação expressa das partes (art. 789).</p>
+
+            <div class="box-important">
+                <p>"Art. 789. O contrato de seguro vigorará pelo prazo nele estipulado, podendo ser renovado, tácita ou expressamente?"</p>
+                <p><strong>Resposta:</strong> Não. A afirmativa "o Código Civil prevê a recondução tácita do contrato de seguro" é <strong>FALSA</strong>. O CC não prevê a recondução tácita, ou seja, a renovação automática do contrato sem manifestação das partes.</p>
+                <p style="margin-top:0.4rem;"><strong>Prática bancária:</strong> Na rotina da agência, quando um cliente tem um seguro que vence, o banco deve buscar a manifestação expressa do cliente para renovação. Não se pode presumir a renovação.</p>
+            </div>
+
+            <h3>7.4. Redução do Prêmio</h3>
+            <p>A diminuição do risco no curso do contrato <strong>NÃO</strong> acarreta automaticamente a redução do prêmio.</p>
+            <div class="quote-block">
+                <p><strong>Fundamento:</strong> Art. 770, § 2º do Código Civil.</p>
+                <p style="font-style:normal; font-size:0.95rem; margin-top:0.2rem;">"Se a diminuição do risco no curso do contrato resultar da própria natureza do negócio, o prêmio não se reduz, salvo estipulação em contrário."</p>
+            </div>
+
+            <div class="box-warning">
+                <strong>Pegadinha de prova:</strong> Muitas questões sugerem que a redução do risco implica redução automática do prêmio. A resposta correta é que <strong>NÃO</strong>, pois depende de previsão contratual.
+            </div>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 8 ===== -->
+        <section id="cap8">
+            <h2>8. Seguros Obrigatórios</h2>
+            <p>Os seguros obrigatórios são aqueles que a lei impõe a determinadas pessoas ou atividades. A lista pode variar conforme a legislação, mas alguns são cobrados com frequência em concursos.</p>
+
+            <h3>8.1. Seguro Rural Obrigatório</h3>
+            <p>O seguro rural obrigatório cobre danos causados por:</p>
+            <ul>
+                <li><strong>Pragas</strong>: doenças, invasões de insetos, fungos, etc.</li>
+                <li><strong>Fenômenos climáticos</strong>: seca, geada, granizo, ventos fortes, etc.</li>
+                <li><strong>Outros eventos</strong>: incêndios, inundações, etc.</li>
+            </ul>
+
+            <div class="box-info">
+                <strong>Pontos importantes:</strong>
+                <ol>
+                    <li><strong>Abrange cooperativas agrícolas</strong>: não se restringe a pessoas físicas (Decreto 61.867/67)</li>
+                    <li><strong>Não se restringe à pecuária</strong>: abrange também a agricultura</li>
+                    <li><strong>Cobertura específica</strong>: somente os eventos previstos em regulamento</li>
+                </ol>
+                <p style="margin-top:0.2rem;"><strong>Base legal:</strong> Decreto 61.867/67.</p>
+            </div>
+
+            <h3>8.2. Seguro de Garantia na Construção Civil</h3>
+            <p><strong>Seguro obrigatório:</strong> O seguro de garantia do pagamento a cargo de mutuário da construção civil, incluindo a obrigação imobiliária (Decreto-lei 73/66).</p>
+
+            <div class="box-tip">
+                <strong>O que isso significa?</strong>
+                <p>Na prática, quando uma pessoa contrata um financiamento imobiliário, é comum que o banco exija um seguro que garanta o pagamento do saldo devedor em caso de morte ou invalidez permanente do mutuário. Esse seguro também protege a obrigação imobiliária (financiamento).</p>
+            </div>
+
+            <h4>Seguros obrigatórios na construção civil:</h4>
+            <ol>
+                <li>Seguro de garantia do pagamento a cargo do mutuário (obrigatório)</li>
+                <li>Seguro de responsabilidade civil do construtor (também obrigatório)</li>
+                <li>Seguro de responsabilidade civil de proprietário/transportador aéreo (quando aplicável)</li>
+            </ol>
+            <div class="box-important">
+                <strong>Fique atento:</strong> A assertiva de que esses seguros são facultativos é <strong>FALSA</strong>.
+            </div>
+
+            <h3>8.3. Seguro de Responsabilidade Civil</h3>
+            <p>O seguro de responsabilidade civil pode ser obrigatório em algumas situações:</p>
+            <ol>
+                <li><strong>Proprietário de veículo automotor</strong>: DPVAT (extinto, mas substituído por outros mecanismos)</li>
+                <li><strong>Operador de aeronaves</strong>: seguro obrigatório de responsabilidade civil</li>
+                <li><strong>Profissionais regulamentados</strong>: em algumas profissões (advogados, médicos, etc.)</li>
+            </ol>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 9 ===== -->
+        <section id="cap9">
+            <h2>9. Instituições e Autorização para Operação</h2>
+
+            <h3>9.1. Forma Jurídica das Seguradoras</h3>
+            <div class="quote-block">
+                <p>O Decreto-Lei 73/66, art. 24, estabelece:</p>
+                <p style="font-style:normal; font-size:0.95rem; margin-top:0.2rem;">"Art. 24. As sociedades seguradoras serão constituídas sob a forma de sociedades anônimas."</p>
+            </div>
+            <p><strong>Exceção:</strong> As sociedades cooperativas só podem operar em:</p>
+            <ol>
+                <li>Seguros agrícolas</li>
+                <li>Seguros de saúde</li>
+                <li>Seguros de acidentes do trabalho</li>
+            </ol>
+
+            <div class="box-important">
+                <strong>Vedações importantes (pegadinha em prova):</strong>
+                <ul class="x-list">
+                    <li><strong>VEDADO</strong>: sociedades limitadas (LTDA)</li>
+                    <li><strong>VEDADO</strong>: sociedades individuais (EIRELI)</li>
+                    <li><strong>VEDADO</strong>: sociedades fechadas (com restrição de capital)</li>
+                </ul>
+                <p style="margin-top:0.4rem;"><span class="highlight">Somente S.A. (exceção: cooperativas) podem operar seguros no Brasil.</span></p>
+            </div>
+
+            <h3>9.2. Processo de Autorização</h3>
+            <p>O pedido de autorização para funcionamento de uma sociedade seguradora segue o seguinte procedimento:</p>
+            <ol>
+                <li><strong>A sociedade interessada</strong> formula o pedido à SUSEP</li>
+                <li><strong>A SUSEP processa e instrui o pedido</strong>, verificando os requisitos legais</li>
+                <li><strong>A SUSEP encaminha o pedido</strong> à apreciação do CNSP</li>
+                <li><strong>O CNSP</strong> decide sobre a autorização (aprova ou denega)</li>
+            </ol>
+            <div class="box-info">
+                <strong>Decore:</strong> SUSEP processa e opina; CNSP aprecia e autoriza.<br>
+                <strong>Base legal:</strong> Decreto 60.459/67, art. 4º.
+            </div>
+
+            <!-- DIAGRAMA SVG: Processo de Autorização -->
+            <div class="diagram-container">
+                <svg viewBox="0 0 740 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                    <defs>
+                        <filter id="shadow2" x="-4%" y="-4%" width="108%" height="112%">
+                            <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.30"/>
+                        </filter>
+                        <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#1a2a4a"/>
+                            <stop offset="100%" stop-color="#0d1a30"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="740" height="320" rx="18" fill="#111a2a" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+                    <!-- Título -->
+                    <text x="370" y="38" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#efdba8">Processo de Autorização de Seguradora</text>
+
+                    <!-- Caixa 1: Interessado -->
+                    <rect x="30" y="70" width="140" height="70" rx="12" fill="url(#gradBlue)" stroke="#4fc3f7" stroke-width="1.5" filter="url(#shadow2)"/>
+                    <text x="100" y="98" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#7fc9f0">1. Interessado</text>
+                    <text x="100" y="118" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#b8a88a">Solicita à SUSEP</text>
+
+                    <!-- Caixa 2: SUSEP -->
+                    <rect x="230" y="70" width="140" height="70" rx="12" fill="url(#gradBlue)" stroke="#4ecdc4" stroke-width="1.5" filter="url(#shadow2)"/>
+                    <text x="300" y="98" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#4ecdc4">2. SUSEP</text>
+                    <text x="300" y="118" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#b8a88a">Processa e instrui</text>
+
+                    <!-- Caixa 3: CNSP -->
+                    <rect x="430" y="70" width="140" height="70" rx="12" fill="url(#gradBlue)" stroke="#c9a84c" stroke-width="1.5" filter="url(#shadow2)"/>
+                    <text x="500" y="98" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#efdba8">3. CNSP</text>
+                    <text x="500" y="118" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#b8a88a">Aprecia e autoriza</text>
+
+                    <!-- Caixa 4: Resultado -->
+                    <rect x="610" y="70" width="100" height="70" rx="12" fill="url(#gradBlue)" stroke="#ff8a7a" stroke-width="1.5" filter="url(#shadow2)"/>
+                    <text x="660" y="98" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#ff8a7a">4. Resultado</text>
+                    <text x="660" y="118" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#b8a88a">Aprova / Denega</text>
+
+                    <!-- Setas -->
+                    <polygon points="172,105 225,105 215,100 225,105 215,110" fill="rgba(255,255,255,0.2)"/>
+                    <polygon points="372,105 425,105 415,100 425,105 415,110" fill="rgba(255,255,255,0.2)"/>
+                    <polygon points="572,105 605,105 595,100 605,105 595,110" fill="rgba(255,255,255,0.2)"/>
+
+                    <!-- Legenda -->
+                    <text x="50" y="215" font-family="Segoe UI, sans-serif" font-size="11" fill="#a89f90">Legenda:</text>
+                    <rect x="50" y="228" width="14" height="14" rx="4" fill="none" stroke="#4fc3f7" stroke-width="1.5"/>
+                    <text x="70" y="240" font-family="Segoe UI, sans-serif" font-size="11" fill="#b8a88a">Solicitação</text>
+                    <rect x="170" y="228" width="14" height="14" rx="4" fill="none" stroke="#4ecdc4" stroke-width="1.5"/>
+                    <text x="190" y="240" font-family="Segoe UI, sans-serif" font-size="11" fill="#b8a88a">Instrução</text>
+                    <rect x="290" y="228" width="14" height="14" rx="4" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+                    <text x="310" y="240" font-family="Segoe UI, sans-serif" font-size="11" fill="#b8a88a">Decisão</text>
+
+                    <!-- Detalhes -->
+                    <text x="50" y="280" font-family="Segoe UI, sans-serif" font-size="10" fill="#7fc9f0">SUSEP → processa, instrui, opina</text>
+                    <text x="50" y="298" font-family="Segoe UI, sans-serif" font-size="10" fill="#efdba8">CNSP → aprecia e autoriza</text>
+                </svg>
+            </div>
+
+            <h3>9.3. Capital e Depósitos</h3>
+            <h4>Integralização do capital:</h4>
+            <ol>
+                <li><strong>Mínimo de 50%</strong> do capital deve ser integralizado no ato da subscrição</li>
+                <li><strong>Restante</strong>: em até um ano da autorização</li>
+            </ol>
+            <h4>Depósito da parte realizada:</h4>
+            <ul>
+                <li>Deve ser feito no <strong>Banco do Brasil</strong></li>
+                <li>Se não houver autorização, o depósito é <strong>restituído</strong></li>
+            </ul>
+
+            <h3>9.4. Filiais no Exterior</h3>
+            <p>As seguradoras brasileiras podem estabelecer filiais no exterior, desde que:</p>
+            <ol>
+                <li>Obtenham autorização do <strong>Ministro da Indústria e Comércio</strong> (atualmente, Ministério da Fazenda, dependendo da estrutura governamental)</li>
+                <li>A autorização seja precedida de <strong>requerimento à SUSEP</strong>, que opinará sobre o pedido</li>
+            </ol>
+            <p><strong>Base legal:</strong> Decreto-Lei 73/66, art. 31.</p>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 10 ===== -->
+        <section id="cap10">
+            <h2>10. Comercialização de Seguros e Relação com o Consumidor</h2>
+
+            <h3>10.1. Aplicação do Código de Defesa do Consumidor</h3>
+            <p>A contratação de seguros é considerada uma <strong>relação de consumo</strong>, portanto está sujeita ao <strong>Código de Defesa do Consumidor</strong> (Lei 8.078/90).</p>
+
+            <div class="box-info">
+                <strong>Consequências práticas:</strong>
+                <ol>
+                    <li><strong>Informações claras</strong>: a seguradora deve fornecer informações claras sobre direitos, deveres, limitações e coberturas</li>
+                    <li><strong>Proteção contra cláusulas abusivas</strong>: cláusulas que colocam o consumidor em desvantagem exagerada são nulas</li>
+                    <li><strong>Inversão do ônus da prova</strong>: em favor do consumidor em certas situações</li>
+                    <li><strong>Responsabilidade solidária</strong>: do segurador e do corretor ou representante</li>
+                </ol>
+                <p style="margin-top:0.4rem;"><strong>Importante:</strong> O segurado é considerado consumidor, mesmo que seja uma pessoa jurídica, se a contratação não estiver relacionada à sua atividade empresarial (depende do caso).</p>
+            </div>
+
+            <h3>10.2. Comercialização Consultiva</h3>
+            <p>A comercialização consultiva de seguros é aquela em que o vendedor compreende plenamente as necessidades de proteção do cliente e indica os seguros mais adequados.</p>
+
+            <h4>Características:</h4>
+            <ul>
+                <li><strong>Orientação especializada</strong>: baseada em conhecimento técnico</li>
+                <li><strong>Análise de riscos</strong>: avaliação das exposições do cliente</li>
+                <li><strong>Relacionamento de confiança</strong>: construção de vínculo de longo prazo</li>
+                <li><strong>Solução personalizada</strong>: o produto é adaptado às necessidades do cliente</li>
+            </ul>
+
+            <div class="box-important">
+                <strong>O que NÃO é venda consultiva:</strong>
+                <ul class="x-list">
+                    <li>Venda impulsiva</li>
+                    <li>Venda indutiva (induzir o cliente a comprar o que não precisa)</li>
+                    <li>Venda meramente tradicional (o cliente sempre compra o mesmo, independentemente da mudança de necessidades)</li>
+                </ul>
+            </div>
+
+            <div class="box-definition">
+                <strong>Conceito fundamental do seguro na venda consultiva:</strong>
+                <p>O conceito fundamental oferecido na venda de seguros é a oferta de <strong>tranquilidade</strong>, por meio da proteção de patrimônio, responsabilidades e vidas, e não:</p>
+                <ul class="x-list">
+                    <li>O valor do prêmio</li>
+                    <li>A ascensão social</li>
+                    <li>O bem-estar por financiamento</li>
+                    <li>A segurança genérica de produtos</li>
+                    <li>O aumento de patrimônio</li>
+                </ul>
+                <p style="margin-top:0.4rem;"><strong>Por quê?</strong> O seguro visa proteger o que já se possui contra eventos imprevistos. A tranquilidade é o valor essencial que o produto oferece.</p>
+            </div>
+
+            <h3>10.3. Seguros Complexos</h3>
+            <p>A comercialização de seguros complexos deve ser:</p>
+            <ul>
+                <li><strong>Especializada</strong>: realizada por profissionais com conhecimento profundo</li>
+                <li><strong>Atenta aos detalhes</strong>: técnicos, comerciais e operacionais</li>
+                <li><strong>Baseada em compreensão real dos riscos</strong>: exige análise aprofundada</li>
+            </ul>
+
+            <h4>Exemplos de seguros complexos:</h4>
+            <ul>
+                <li>Seguros de grandes riscos empresariais</li>
+                <li>Seguros de responsabilidade civil profissional</li>
+                <li>Seguros de riscos operacionais</li>
+                <li>Seguros de crédito e garantia</li>
+            </ul>
+
+            <div class="box-warning">
+                <strong>O que NÃO é recomendado para seguros complexos:</strong>
+                <ul class="x-list">
+                    <li>Comercialização generalista</li>
+                    <li>Venda baseada apenas em antiguidade do cliente</li>
+                    <li>Desconsideração dos riscos específicos</li>
+                </ul>
+            </div>
+
+            <h3>10.4. Proibição de Venda Casada</h3>
+            <p>A venda casada é a prática de condicionar a contratação de um produto ou serviço financeiro à aquisição de seguro.</p>
+
+            <div class="box-important">
+                <strong>Exemplo:</strong>
+                <p>"Para contratar o financiamento do veículo, o senhor precisa contratar o seguro do carro conosco."</p>
+                <p><strong>Fundamento legal:</strong> Art. 39 do Código de Defesa do Consumidor (inciso I e IV).</p>
+            </div>
+
+            <h4>Por que é proibida?</h4>
+            <ol>
+                <li>Fere o direito de escolha do consumidor</li>
+                <li>Não agrega valor real (o seguro pode ser adquirido de outra seguradora)</li>
+                <li>Pode encarecer a operação</li>
+                <li>Viola a liberdade de contratar</li>
+            </ol>
+
+            <h4>Sanções:</h4>
+            <ul>
+                <li>Multa administrativa</li>
+                <li>Indenização por danos morais e materiais</li>
+                <li>Nulidade da cláusula que condicionou a venda</li>
+            </ul>
+            <p><strong>Posicionamento do Banco Central e SUSEP:</strong> Ambos os órgãos têm atuado na repressão à venda casada, especialmente em operações de crédito e consórcios.</p>
+
+            <h3>10.5. Ouvidoria e Canais de Atendimento</h3>
+            <p>A Ouvidoria tem como função principal atuar na solução de eventuais conflitos na relação entre consumidores e empresas.</p>
+
+            <h4>Características da Ouvidoria:</h4>
+            <ol>
+                <li><strong>Mediadora</strong>: busca soluções justas para desentendimentos</li>
+                <li><strong>Última instância</strong>: atua após os canais primários de atendimento</li>
+                <li><strong>Independente</strong>: deve atuar com isenção em relação à área comercial</li>
+                <li><strong>Fiscalizadora</strong>: pode recomendar alterações em processos</li>
+            </ol>
+
+            <div class="box-warning">
+                <strong>O que a Ouvidoria NÃO é:</strong>
+                <ul class="x-list">
+                    <li>Atendimento comum (SAC)</li>
+                    <li>Ferramenta de chat ou atendimento instantâneo</li>
+                    <li>Canal para vendas ou ofertas</li>
+                </ul>
+            </div>
+
+            <div class="box-tip">
+                <strong>Exemplo prático:</strong>
+                <p>"O cliente reclama sobre uma indenização que considera insuficiente. Ele já contatou o SAC, o gerente da agência e o atendimento da seguradora, mas não resolveu. O próximo passo é a Ouvidoria."</p>
+                <p style="margin-top:0.4rem;"><strong>Regulamentação:</strong> A Ouvidoria das seguradoras é regulamentada pela SUSEP, que exige a sua existência e funcionamento adequado.</p>
+            </div>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 11 ===== -->
+        <section id="cap11">
+            <h2>11. Estudos de Caso e Aplicação Prática</h2>
+
+            <div class="card-concept" style="margin-bottom:1.6rem;">
+                <h4>CASO 1: Princípio Indenitário e Sub‑rogação</h4>
+                <p><strong>Situação:</strong> "Carlos é proprietário de um veículo avaliado em R$ 80.000,00. Ele contratou um seguro com valor segurado de R$ 80.000,00. Em um acidente, seu carro foi atingido por um caminhão de uma transportadora. O perito avaliou o prejuízo em R$ 50.000,00. A seguradora pagou R$ 50.000,00 a Carlos. A seguradora pode cobrar da transportadora? Qual o valor?"</p>
+                <p><strong>Solução:</strong></p>
+                <ol>
+                    <li>A seguradora pagou R$ 50.000,00, que é o valor do dano (dentro do limite de R$ 80.000,00)</li>
+                    <li>Pelo princípio da sub‑rogação, a seguradora assume os direitos de Carlos contra a transportadora</li>
+                    <li>Pode cobrar até R$ 50.000,00 (valor que pagou), não mais que isso</li>
+                </ol>
+                <p><strong>Resposta:</strong> A seguradora pode cobrar da transportadora até o limite do que pagou a Carlos (R$ 50.000,00).</p>
+            </div>
+
+            <div class="card-concept" style="margin-bottom:1.6rem;">
+                <h4>CASO 2: Vício Intrínseco</h4>
+                <p><strong>Situação:</strong> "Maria segurou sua casa contra incêndio. Um incêndio ocorreu devido a uma falha na instalação elétrica, que já apresentava problemas de curto-circuito desde a construção. O segurador se recusou a pagar."</p>
+                <p><strong>Solução:</strong> O segurador está correto, pois o incêndio foi causado por vício intrínseco da coisa segurada (defeito na instalação elétrica), não declarado por Maria no momento da contratação (art. 784 do CC).</p>
+                <p><strong>Resposta:</strong> A seguradora não é obrigada a pagar, pois o sinistro foi provocado por vício intrínseco não declarado.</p>
+            </div>
+
+            <div class="card-concept" style="margin-bottom:1.6rem;">
+                <h4>CASO 3: Obrigação de Indenizar</h4>
+                <p><strong>Situação:</strong> "Pedro, 70 anos, contratou um seguro de vida com capital de R$ 200.000,00. Faleceu naturalmente. A seguradora alega que a idade avançada era um risco excluído."</p>
+                <p><strong>Solução:</strong> A seguradora deve pagar, pois a idade do segurado não é motivo para exclusão de cobertura, a menos que expressamente previsto no contrato. A obrigação de indenizar independe da idade do segurado.</p>
+                <p><strong>Resposta:</strong> A seguradora é obrigada a pagar o capital segurado (R$ 200.000,00).</p>
+            </div>
+
+            <div class="card-concept" style="margin-bottom:0.4rem;">
+                <h4>CASO 4: Comercialização Consultiva</h4>
+                <p><strong>Situação:</strong> "Durante uma reunião, o cliente João informa que tem uma pequena fábrica de móveis, uma casa e um carro. O gerente oferece um seguro residencial apenas."</p>
+                <p><strong>Análise:</strong> O gerente não realizou uma comercialização consultiva adequada. Deveria ter analisado todas as exposições a riscos do cliente:</p>
+                <ul>
+                    <li>Seguro residencial (casa)</li>
+                    <li>Seguro de automóvel</li>
+                    <li>Seguro empresarial (fábrica de móveis)</li>
+                    <li>Seguro de responsabilidade civil (possíveis danos a terceiros)</li>
+                    <li>Seguro de vida (proteção da família)</li>
+                </ul>
+                <p><strong>Resposta:</strong> A abordagem foi inadequada, pois não considerou todas as necessidades de proteção do cliente.</p>
+            </div>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 12 ===== -->
+        <section id="cap12">
+            <h2>12. Resumo Esquemático</h2>
+
+            <div class="box-info">
+                <strong>MAPA MENTAL: SEGUROS PARA CONCURSOS</strong>
+            </div>
+
+            <!-- DIAGRAMA SVG: Mapa Mental simplificado -->
+            <div class="diagram-container">
+                <svg viewBox="0 0 740 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                    <defs>
+                        <filter id="shadow3" x="-4%" y="-4%" width="108%" height="112%">
+                            <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.30"/>
+                        </filter>
+                    </defs>
+                    <rect width="740" height="400" rx="16" fill="#111a2a" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+                    <!-- Centro -->
+                    <circle cx="370" cy="200" r="48" fill="#1a2338" stroke="#c9a84c" stroke-width="2.5" filter="url(#shadow3)"/>
+                    <text x="370" y="196" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#efdba8">SEGUROS</text>
+                    <text x="370" y="214" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#b8a88a">Concursos</text>
+
+                    <!-- Ramo 1: Estrutura -->
+                    <line x1="322" y1="180" x2="200" y2="120" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+                    <rect x="70" y="88" width="140" height="60" rx="10" fill="#0d1628" stroke="#4fc3f7" stroke-width="1.5" filter="url(#shadow3)"/>
+                    <text x="140" y="112" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="#7fc9f0">ESTRUTURA</text>
+                    <text x="140" y="130" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#b8a88a">CNSP + SUSEP</text>
+
+                    <!-- Ramo 2: Princípios -->
+                    <line x1="322" y1="200" x2="180" y2="200" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+                    <rect x="50" y="178" width="140" height="60" rx="10" fill="#0d1628" stroke="#4ecdc4" stroke-width="1.5" filter="url(#shadow3)"/>
+                    <text x="120" y="202" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="#4ecdc4">PRINCÍPIOS</text>
+                    <text x="120" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#b8a88a">Indenitário, Boa‑fé</text>
+
+                    <!-- Ramo 3: Danos -->
+                    <line x1="418" y1="180" x2="540" y2="120" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+                    <rect x="500" y="88" width="140" height="60" rx="10" fill="#0d1628" stroke="#ff8a7a" stroke-width="1.5" filter="url(#shadow3)"/>
+                    <text x="570" y="112" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="#ff8a7a">SEGURO DE DANOS</text>
+                    <text x="570" y="130" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#b8a88a">Patrimonial</text>
+
+                    <!-- Ramo 4: Vida -->
+                    <line x1="418" y1="200" x2="560" y2="200" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+                    <rect x="540" y="178" width="140" height="60" rx="10" fill="#0d1628" stroke="#ce93d8" stroke-width="1.5" filter="url(#shadow3)"/>
+                    <text x="610" y="202" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="#ce93d8">SEGURO DE VIDA</text>
+                    <text x="610" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#b8a88a">Pessoas</text>
+
+                    <!-- Ramo 5: Obrigatórios -->
+                    <line x1="418" y1="220" x2="540" y2="280" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+                    <rect x="500" y="268" width="140" height="60" rx="10" fill="#0d1628" stroke="#f4c542" stroke-width="1.5" filter="url(#shadow3)"/>
+                    <text x="570" y="292" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="#f4c542">OBRIGATÓRIOS</text>
+                    <text x="570" y="310" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#b8a88a">Rural, Construção</text>
+
+                    <!-- Ramo 6: CDC -->
+                    <line x1="322" y1="220" x2="180" y2="280" stroke="rgba(201,168,76,0.3)" stroke-width="1.5"/>
+                    <rect x="50" y="268" width="140" height="60" rx="10" fill="#0d1628" stroke="#81c784" stroke-width="1.5" filter="url(#shadow3)"/>
+                    <text x="120" y="292" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" font-weight="600" fill="#81c784">CDC</text>
+                    <text x="120" y="310" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9" fill="#b8a88a">Consumidor</text>
+                </svg>
+            </div>
+
+            <!-- Tabela de Comparação: Danos × Pessoas -->
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Seguro de Danos</th><th>Seguro de Pessoas</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Princípio regente</strong></td><td>Indenitário</td><td>Soma fixa (não indenitário)</td></tr>
+                        <tr><td><strong>Valor</strong></td><td>Valor de mercado do bem no sinistro</td><td>Capital contratado</td></tr>
+                        <tr><td><strong>Sub‑rogação</strong></td><td>Sim</td><td>Não</td></tr>
+                        <tr><td><strong>Beneficiário</strong></td><td>O segurado (ou credor)</td><td>O(s) beneficiário(s) designado(s)</td></tr>
+                        <tr><td><strong>Exemplo</strong></td><td>Seguro auto, incêndio</td><td>Seguro de vida</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabela: Forma das Seguradoras -->
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Regra / Exceção</th><th>Forma Jurídica</th><th>Observação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="badge">REGRRA GERAL</span></td><td>Sociedade Anônima (S.A.)</td><td>Obrigatória para seguradoras</td></tr>
+                        <tr><td><span class="badge badge-green">EXCEÇÃO</span></td><td>Cooperativas</td><td>Apenas agrícola, saúde, acidentes do trabalho</td></tr>
+                        <tr><td><span class="badge badge-red">VEDADOS</span></td><td>LTDA, EIRELI, sociedades fechadas</td><td>Não podem operar seguros</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabela: Dispositivos do CC -->
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Art.</th><th>Assunto</th><th>O que diz</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>781</strong></td><td>Limitação da indenização</td><td>Não pode ultrapassar o valor do interesse segurado</td></tr>
+                        <tr><td><strong>782</strong></td><td>Novo seguro</td><td>Deve comunicar ao primeiro segurador</td></tr>
+                        <tr><td><strong>784</strong></td><td>Vício intrínseco</td><td>Não coberto</td></tr>
+                        <tr><td><strong>785</strong></td><td>Transferência</td><td>Admitida com aviso (nominativa) ou endosso (à ordem)</td></tr>
+                        <tr><td><strong>786</strong></td><td>Sub‑rogação</td><td>Seguradora assume direitos do segurado</td></tr>
+                        <tr><td><strong>793</strong></td><td>Beneficiário companheiro</td><td>Válido se separado judicial/de fato</td></tr>
+                        <tr><td><strong>802</strong></td><td>Pagamento da indenização</td><td>Em dinheiro, salvo reposição convencionada</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Seguros Obrigatórios</h4>
+            <ol>
+                <li>Seguro de garantia do pagamento na construção civil</li>
+                <li>Seguro rural obrigatório (pragas)</li>
+                <li>Seguro de responsabilidade civil (diversos casos)</li>
+            </ol>
+
+            <h4>Vedações Importantes</h4>
+            <ul class="x-list">
+                <li><strong>Venda casada</strong>: proibida (CDC, art. 39)</li>
+                <li><strong>Recondução tácita</strong>: não prevista no CC</li>
+                <li><strong>Redução automática do prêmio</strong>: não ocorre</li>
+                <li><strong>Seguro com defeito intrínseco</strong>: não coberto</li>
+            </ul>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== CAPÍTULO 13 ===== -->
+        <section id="cap13">
+            <h2>13. Dicas de Prova e Pegadinhas de Banca</h2>
+
+            <h3>O QUE MAIS CAI EM CONCURSOS?</h3>
+
+            <div class="card-grid">
+                <div class="card-concept">
+                    <h4>CESGRANRIO (frequência alta)</h4>
+                    <ul style="font-size:0.85rem; padding-left:1.2rem;">
+                        <li>Distinção CNSP × SUSEP</li>
+                        <li>Art. 781 (princípio indenitário)</li>
+                        <li>Art. 802 (pagamento)</li>
+                        <li>Vício intrínseco (art. 784)</li>
+                        <li>Sub‑rogação (art. 786)</li>
+                        <li>Art. 793 (companheiro como beneficiário)</li>
+                        <li>Seguros obrigatórios</li>
+                    </ul>
+                </div>
+                <div class="card-concept">
+                    <h4>FCC (frequência média)</h4>
+                    <ul style="font-size:0.85rem; padding-left:1.2rem;">
+                        <li>Forma jurídica das seguradoras</li>
+                        <li>Processo de autorização</li>
+                        <li>Venda casada (CDC)</li>
+                        <li>Art. 789 (recondução tácita)</li>
+                        <li>Art. 770 (redução de prêmio)</li>
+                    </ul>
+                </div>
+                <div class="card-concept">
+                    <h4>FGV (frequência média-alta)</h4>
+                    <ul style="font-size:0.85rem; padding-left:1.2rem;">
+                        <li>Princípios: mutualismo, indenitário, sub‑rogação</li>
+                        <li>Código do Consumidor aplicável</li>
+                        <li>Ouvidoria: mediação, última instância</li>
+                        <li>Comercialização consultiva</li>
+                    </ul>
+                </div>
+                <div class="card-concept">
+                    <h4>CEBRASPE (CESPE/UnB)</h4>
+                    <ul style="font-size:0.85rem; padding-left:1.2rem;">
+                        <li>Julgamento de assertivas</li>
+                        <li>Citações literais dos artigos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>PEGADINHAS CLÁSSICAS</h3>
+
+            <div class="box-warning">
+                <p><strong>1. "O CNSP fixa os prêmios dos seguros"</strong></p>
+                <p><span class="highlight">FALSO!</span> O CNSP fixa as diretrizes e normas da política, não os prêmios (que são calculados atuarialmente).</p>
+            </div>
+            <div class="box-warning">
+                <p><strong>2. "A seguradora é obrigada a indenizar qualquer sinistro"</strong></p>
+                <p><span class="highlight">FALSO!</span> Só os sinistros cobertos pelas condições expressas na apólice.</p>
+            </div>
+            <div class="box-warning">
+                <p><strong>3. "A redução do risco implica redução automática do prêmio"</strong></p>
+                <p><span class="highlight">FALSO!</span> Não é automática; depende de cláusula contratual.</p>
+            </div>
+            <div class="box-warning">
+                <p><strong>4. "O seguro de vida não tem beneficiário"</strong></p>
+                <p><span class="highlight">FALSO!</span> Todo seguro de vida tem beneficiário (designado ou os herdeiros).</p>
+            </div>
+            <div class="box-warning">
+                <p><strong>5. "Toda seguradora é S.A. necessariamente"</strong></p>
+                <p><span class="highlight">FALSO!</span> Há exceção: cooperativas (seguros agrícolas, saúde, acidentes do trabalho).</p>
+            </div>
+            <div class="box-warning">
+                <p><strong>6. "A venda casada é permitida se o cliente concordar"</strong></p>
+                <p><span class="highlight">FALSO!</span> É proibida, independentemente da concordância do consumidor.</p>
+            </div>
+            <div class="box-warning">
+                <p><strong>7. "A Ouvidoria é o primeiro canal de atendimento"</strong></p>
+                <p><span class="highlight">FALSO!</span> A Ouvidoria é a última instância, após os canais primários.</p>
+            </div>
+            <div class="box-warning">
+                <p><strong>8. "A transferência do seguro de dano é automática"</strong></p>
+                <p><span class="highlight">FALSO!</span> Depende de aviso (nominativo) ou endosso (à ordem).</p>
+            </div>
+
+            <h3>MACETES PARA MEMORIZAÇÃO</h3>
+
+            <div class="box-tip">
+                <strong>Macete para atribuições do CNSP:</strong>
+                <p><span class="highlight">"CNSP NÃO fixa..."</span></p>
+                <ul>
+                    <li><strong>N</strong>ão fixa prêmios</li>
+                    <li><strong>A</strong> quantidade de seguradoras</li>
+                    <li><strong>O</strong> organograma das seguradoras (não define estrutura interna)</li>
+                </ul>
+            </div>
+
+            <div class="box-tip">
+                <strong>Macete para a sub‑rogação:</strong>
+                <p><span class="highlight">"PAGOU = SUB-ROGOU"</span></p>
+                <p>A seguradora paga a indenização e assume os direitos do segurado contra o causador do dano.</p>
+            </div>
+
+            <div class="box-tip">
+                <strong>Macete para princípio indenitário:</strong>
+                <p><span class="highlight">"INDENIZAÇÃO = VALOR DE MERCADO NO SINISTRO"</span> (e não valor de novo)</p>
+            </div>
+
+            <div class="box-tip">
+                <strong>Macete para benefício no seguro de vida:</strong>
+                <p><span class="highlight">"SEPARADO DE FATO OU JUDICIALMENTE = COMPANHEIRO VÁLIDO"</span></p>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <!-- ===== CONSIDERAÇÕES FINAIS ===== -->
+        <section style="margin-top:2.4rem;">
+            <h2>Considerações Finais</h2>
+            <p>O domínio do conteúdo de seguros é fundamental para o profissional bancário, tanto para a atuação no dia a dia da agência quanto para o sucesso nas provas de concursos públicos. Este material foi desenvolvido para proporcionar:</p>
+            <ol>
+                <li><strong>Compreensão profunda</strong> dos conceitos e princípios</li>
+                <li><strong>Conexão com a realidade</strong> do mercado bancário</li>
+                <li><strong>Aplicação prática</strong> em situações de atendimento e venda</li>
+                <li><strong>Preparação específica</strong> para as principais bancas</li>
+                <li><strong>Memorização eficiente</strong> com macetes e esquemas</li>
+            </ol>
+            <p>Lembre-se: o conhecimento sobre seguros não é apenas teórico. Ele faz parte da rotina do escriturário bancário, que frequentemente precisa:</p>
+            <ul>
+                <li>Explicar coberturas e exclusões para clientes</li>
+                <li>Oferecer produtos de proteção patrimonial</li>
+                <li>Cumprir normas de compliance e prevenção à lavagem de dinheiro</li>
+                <li>Identificar oportunidades de negócio no relacionamento com o cliente</li>
+            </ul>
+            <p>Aprofunde-se nos temas, pratique com questões de provas anteriores e mantenha-se atualizado sobre as normas do CNSP e da SUSEP. Com dedicação e este material como base, você estará preparado para enfrentar as questões mais complexas sobre seguros nos concursos bancários.</p>
+            <p style="margin-top:1.2rem; color: #efdba8; font-weight:500;">Bons estudos e sucesso na sua jornada!</p>
+            <p style="font-size:0.85rem; color:#a89f90; margin-top:0.2rem;">Este material foi elaborado com base na legislação vigente (Decreto-Lei 73/66, Código Civil, Código de Defesa do Consumidor, entre outros) e nas exigências das principais bancas examinadoras para concursos da área bancária.</p>
+        </section>
+
+        <hr class="divider-light">
+
+        <!-- ===== ANEXO ===== -->
+        <section class="appendix" id="anexo">
+            <h3 style="margin-top:0; color:#efdba8;">Anexo: Relação de Artigos Relevantes</h3>
+            <div class="table-wrap" style="margin-top:0.6rem; border-radius:0.8rem;">
+                <table style="min-width:unset; font-size:0.85rem;">
+                    <thead>
+                        <tr><th>Assunto</th><th>Dispositivo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Obrigação do segurador</td><td>CC, art. 757</td></tr>
+                        <tr><td>Boa‑fé objetiva</td><td>CC, art. 765</td></tr>
+                        <tr><td>Limitação da indenização</td><td>CC, art. 781</td></tr>
+                        <tr><td>Novo seguro</td><td>CC, art. 782</td></tr>
+                        <tr><td>Vício intrínseco</td><td>CC, art. 784</td></tr>
+                        <tr><td>Transferência do contrato</td><td>CC, art. 785</td></tr>
+                        <tr><td>Sub‑rogação</td><td>CC, art. 786</td></tr>
+                        <tr><td>Recondução tácita</td><td>CC, art. 789</td></tr>
+                        <tr><td>Beneficiário no seguro de vida</td><td>CC, arts. 790‑793</td></tr>
+                        <tr><td>Pagamento da indenização</td><td>CC, art. 802</td></tr>
+                        <tr><td>Atribuições do CNSP</td><td>DL 73/66, art. 32</td></tr>
+                        <tr><td>Forma das seguradoras</td><td>DL 73/66, art. 24</td></tr>
+                        <tr><td>Filiais no exterior</td><td>DL 73/66, art. 31</td></tr>
+                        <tr><td>Venda casada</td><td>CDC, art. 39</td></tr>
+                        <tr><td>Seguro rural obrigatório</td><td>Decreto 61.867/67</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr class="divider" style="margin-top:2.6rem;">
+
+        <footer style="text-align:center; padding-top:0.6rem; font-size:0.75rem; color:#6a6a7a; letter-spacing:0.03em;">
+            <span style="border:1px solid rgba(255,255,255,0.05); padding:0.2rem 1.2rem; border-radius:30px;">Apostila Digital · Conhecimentos Bancários · Seguros</span>
+        </footer>
+
+    </div>
+    <!-- fim .page -->
+</body>
+</html>
