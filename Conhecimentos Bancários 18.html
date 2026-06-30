@@ -1,0 +1,2475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila de Conhecimentos Bancários</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0e1219;
+            --bg-secondary: #151d27;
+            --bg-card: #1c2633;
+            --bg-card-hover: #24303f;
+            --bg-highlight: #1a2a3a;
+            --bg-code: #0d141e;
+
+            --text-primary: #e8edf4;
+            --text-secondary: #b8c7dd;
+            --text-muted: #7a8ba3;
+            --text-inverse: #0e1219;
+
+            --accent-gold: #d4a94b;
+            --accent-gold-dim: #a8843a;
+            --accent-blue: #4e8fc9;
+            --accent-blue-dim: #3a6f9e;
+            --accent-teal: #4fb3a8;
+            --accent-teal-dim: #3a8f85;
+            --accent-rose: #c97a8a;
+            --accent-rose-dim: #a86272;
+            --accent-green: #5fb87a;
+            --accent-green-dim: #479160;
+            --accent-orange: #d4904b;
+            --accent-purple: #8f7ac9;
+            --accent-red: #c96a6a;
+
+            --border-subtle: #2a3648;
+            --border-medium: #3a4a60;
+            --border-strong: #5a6a80;
+
+            --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.5);
+            --shadow-float: 0 12px 40px rgba(0, 0, 0, 0.6);
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            --font-main: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: 'Georgia', 'Times New Roman', serif;
+            --font-mono: 'Consolas', 'Courier New', monospace;
+
+            --max-width: 820px;
+            --side-padding: 28px;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 0;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-gold-dim);
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--side-padding);
+        }
+
+        /* ===== HEADER / COVER ===== */
+        .cover {
+            padding: 60px 0 40px;
+            border-bottom: 2px solid var(--border-subtle);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+            border-radius: 4px;
+        }
+
+        .cover-badge {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--text-inverse);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+        }
+
+        .cover h1 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .cover h1 .highlight {
+            color: var(--accent-gold);
+        }
+
+        .cover-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 6px;
+        }
+
+        .cover-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+        }
+
+        .cover-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cover-meta svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 30px 32px;
+            margin-bottom: 44px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+        }
+
+        .toc-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toc-title svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--accent-gold);
+            flex-shrink: 0;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 24px;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 0;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .toc-item:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent-gold-dim);
+        }
+
+        .toc-item .num {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.8rem;
+            min-width: 24px;
+        }
+
+        .toc-item .toc-dot {
+            color: var(--text-muted);
+            font-size: 0.6rem;
+            margin: 0 2px;
+        }
+
+        @media (max-width: 600px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+            .cover h1 {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 .chapter-num {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            background: var(--bg-card);
+            padding: 2px 14px;
+            border-radius: 30px;
+            border: 1px solid var(--border-subtle);
+            letter-spacing: 0.5px;
+        }
+
+        h2 svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--accent-gold);
+            flex-shrink: 0;
+        }
+
+        h3 {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 32px;
+            margin-bottom: 12px;
+            padding-left: 4px;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 14px;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-top: 24px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h4 svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent-teal);
+            flex-shrink: 0;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        strong,
+        b {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        em {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        /* ===== LINKS ===== */
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* ===== DIVIDERS ===== */
+        .divider {
+            margin: 44px 0 32px;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+        }
+
+        .divider-thick {
+            margin: 48px 0 36px;
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold-dim), var(--accent-gold), var(--accent-gold-dim));
+            border-radius: 4px;
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 22px 26px;
+            margin: 20px 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+            transition: border-color 0.25s;
+        }
+
+        .card:hover {
+            border-color: var(--border-medium);
+        }
+
+        .card-gold {
+            border-left: 5px solid var(--accent-gold);
+        }
+        .card-blue {
+            border-left: 5px solid var(--accent-blue);
+        }
+        .card-teal {
+            border-left: 5px solid var(--accent-teal);
+        }
+        .card-rose {
+            border-left: 5px solid var(--accent-rose);
+        }
+        .card-green {
+            border-left: 5px solid var(--accent-green);
+        }
+        .card-purple {
+            border-left: 5px solid var(--accent-purple);
+        }
+        .card-orange {
+            border-left: 5px solid var(--accent-orange);
+        }
+        .card-red {
+            border-left: 5px solid var(--accent-red);
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== INFO / TIP / OBSERVATION BOXES ===== */
+        .box {
+            border-radius: var(--radius-md);
+            padding: 18px 22px;
+            margin: 20px 0;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-secondary);
+        }
+
+        .box-tip {
+            border-left: 5px solid var(--accent-teal);
+            background: rgba(79, 179, 168, 0.07);
+        }
+        .box-tip .box-label {
+            color: var(--accent-teal);
+        }
+
+        .box-important {
+            border-left: 5px solid var(--accent-rose);
+            background: rgba(201, 122, 138, 0.07);
+        }
+        .box-important .box-label {
+            color: var(--accent-rose);
+        }
+
+        .box-warning {
+            border-left: 5px solid var(--accent-orange);
+            background: rgba(212, 144, 75, 0.07);
+        }
+        .box-warning .box-label {
+            color: var(--accent-orange);
+        }
+
+        .box-info {
+            border-left: 5px solid var(--accent-blue);
+            background: rgba(78, 143, 201, 0.07);
+        }
+        .box-info .box-label {
+            color: var(--accent-blue);
+        }
+
+        .box-success {
+            border-left: 5px solid var(--accent-green);
+            background: rgba(95, 184, 122, 0.07);
+        }
+        .box-success .box-label {
+            color: var(--accent-green);
+        }
+
+        .box-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .box-label svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== HIGHLIGHT (marker) ===== */
+        .marker {
+            background: linear-gradient(120deg, rgba(212, 169, 75, 0.25) 0%, rgba(212, 169, 75, 0.25) 100%);
+            padding: 1px 6px;
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .marker-blue {
+            background: linear-gradient(120deg, rgba(78, 143, 201, 0.25) 0%, rgba(78, 143, 201, 0.25) 100%);
+        }
+        .marker-teal {
+            background: linear-gradient(120deg, rgba(79, 179, 168, 0.25) 0%, rgba(79, 179, 168, 0.25) 100%);
+        }
+        .marker-rose {
+            background: linear-gradient(120deg, rgba(201, 122, 138, 0.25) 0%, rgba(201, 122, 138, 0.25) 100%);
+        }
+        .marker-green {
+            background: linear-gradient(120deg, rgba(95, 184, 122, 0.25) 0%, rgba(95, 184, 122, 0.25) 100%);
+        }
+        .marker-orange {
+            background: linear-gradient(120deg, rgba(212, 144, 75, 0.25) 0%, rgba(212, 144, 75, 0.25) 100%);
+        }
+        .marker-purple {
+            background: linear-gradient(120deg, rgba(143, 122, 201, 0.25) 0%, rgba(143, 122, 201, 0.25) 100%);
+        }
+
+        /* ===== QUOTE ===== */
+        .quote {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            padding: 20px 28px;
+            margin: 24px 0;
+            border-radius: var(--radius-md);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 3rem;
+            font-family: var(--font-heading);
+            color: var(--accent-gold-dim);
+            position: absolute;
+            top: -6px;
+            left: 12px;
+            opacity: 0.5;
+            line-height: 1;
+        }
+
+        .quote cite {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-family: var(--font-main);
+            text-align: right;
+        }
+
+        /* ===== TABLES ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 22px 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+            box-shadow: var(--shadow-card);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            min-width: 420px;
+        }
+
+        thead {
+            background: var(--bg-secondary);
+            border-bottom: 2px solid var(--border-medium);
+        }
+
+        th {
+            text-align: left;
+            padding: 14px 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .table-wrap .highlight-row td {
+            background: rgba(212, 169, 75, 0.06);
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        /* ===== LISTS ===== */
+        ul,
+        ol {
+            margin: 10px 0 16px 24px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        ul li::marker {
+            color: var(--accent-gold);
+        }
+
+        ol li::marker {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-check li {
+            padding-left: 28px;
+            position: relative;
+        }
+        .list-check li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .list-x {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-x li {
+            padding-left: 28px;
+            position: relative;
+        }
+        .list-x li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: var(--accent-rose);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* ===== BADGE / TAG ===== */
+        .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 12px;
+            border-radius: 30px;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .tag-gold {
+            background: var(--accent-gold);
+            color: var(--text-inverse);
+            border-color: var(--accent-gold);
+        }
+        .tag-blue {
+            background: var(--accent-blue);
+            color: #fff;
+            border-color: var(--accent-blue);
+        }
+        .tag-teal {
+            background: var(--accent-teal);
+            color: #fff;
+            border-color: var(--accent-teal);
+        }
+        .tag-rose {
+            background: var(--accent-rose);
+            color: #fff;
+            border-color: var(--accent-rose);
+        }
+        .tag-green {
+            background: var(--accent-green);
+            color: #fff;
+            border-color: var(--accent-green);
+        }
+
+        /* ===== CALLOUT ===== */
+        .callout {
+            display: flex;
+            gap: 14px;
+            padding: 16px 20px;
+            margin: 18px 0;
+            border-radius: var(--radius-md);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            align-items: flex-start;
+        }
+
+        .callout-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            margin-top: 2px;
+        }
+
+        .callout-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--accent-gold);
+        }
+
+        .callout-content {
+            flex: 1;
+        }
+        .callout-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== MIND MAP SVG ===== */
+        .svg-container {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 20px 16px;
+            margin: 24px 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+            overflow-x: auto;
+        }
+
+        .svg-container svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+
+        /* ===== DIAGRAM SVG ===== */
+        .diagram-container {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 24px 20px;
+            margin: 24px 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+            overflow-x: auto;
+        }
+
+        .diagram-container svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+
+        /* ===== SYNTHESIS GRID ===== */
+        .synthesis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .synthesis-item {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 16px 18px;
+            border: 1px solid var(--border-subtle);
+            transition: border-color 0.2s;
+        }
+
+        .synthesis-item:hover {
+            border-color: var(--border-medium);
+        }
+
+        .synthesis-item .term {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .synthesis-item .def {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .synthesis-item .macete {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            margin-top: 4px;
+            font-style: italic;
+            display: block;
+            border-top: 1px dashed var(--border-subtle);
+            padding-top: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .synthesis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== EXERCISE ===== */
+        .exercise {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            margin: 18px 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .exercise .q {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .exercise .options {
+            list-style: none;
+            padding-left: 0;
+            margin: 6px 0 10px;
+        }
+
+        .exercise .options li {
+            padding: 4px 0 4px 28px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .exercise .options li::before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid var(--border-medium);
+        }
+
+        .exercise .options li.correct::before {
+            border-color: var(--accent-green);
+            background: var(--accent-green);
+        }
+
+        .exercise .options li.wrong::before {
+            border-color: var(--accent-rose);
+            background: var(--accent-rose);
+        }
+
+        .exercise .answer {
+            margin-top: 10px;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--accent-gold);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .exercise .answer strong {
+            color: var(--accent-gold);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            margin-top: 56px;
+            padding: 32px 0 40px;
+            border-top: 2px solid var(--border-subtle);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent-gold-dim);
+            margin: 0 auto 14px;
+            border-radius: 4px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 720px) {
+            :root {
+                --side-padding: 18px;
+            }
+            .cover {
+                padding: 40px 0 30px;
+            }
+            .cover h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.45rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+            .toc {
+                padding: 20px;
+            }
+            .card {
+                padding: 16px 18px;
+            }
+            .box {
+                padding: 14px 16px;
+            }
+            .quote {
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+            .callout {
+                flex-direction: column;
+                gap: 6px;
+            }
+            .callout-icon {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover h1 {
+                font-size: 1.25rem;
+            }
+            .cover-subtitle {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
+            h3 {
+                font-size: 1.05rem;
+            }
+            .table-wrap table {
+                font-size: 0.82rem;
+                min-width: 320px;
+            }
+            th,
+            td {
+                padding: 8px 12px;
+            }
+            .synthesis-item {
+                padding: 12px 14px;
+            }
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+            .cover h1 {
+                color: #111;
+            }
+            .cover-badge {
+                background: #d4a94b;
+                color: #111;
+            }
+            .toc {
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+            }
+            .card {
+                background: #f9f9f9;
+                border: 1px solid #ddd;
+            }
+            .box {
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+            }
+            .table-wrap {
+                border: 1px solid #ddd;
+            }
+            thead {
+                background: #eee;
+            }
+            th {
+                color: #111;
+            }
+            td {
+                color: #222;
+            }
+            .svg-container,
+            .diagram-container {
+                background: #fafafa;
+                border: 1px solid #ddd;
+            }
+            .quote {
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+                color: #222;
+            }
+            .callout {
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+            }
+            .exercise {
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+            }
+            .exercise .answer {
+                background: #fafafa;
+            }
+            .footer {
+                border-top: 1px solid #ddd;
+                color: #666;
+            }
+            .cover::after {
+                background: #d4a94b;
+            }
+            .divider-thick {
+                background: #d4a94b;
+            }
+            .synthesis-item {
+                background: #f9f9f9;
+                border: 1px solid #ddd;
+            }
+            .synthesis-item .term {
+                color: #b8860b;
+            }
+            .marker {
+                background: rgba(212, 169, 75, 0.2);
+            }
+            .marker-blue {
+                background: rgba(78, 143, 201, 0.2);
+            }
+            .marker-teal {
+                background: rgba(79, 179, 168, 0.2);
+            }
+            .marker-rose {
+                background: rgba(201, 122, 138, 0.2);
+            }
+            .marker-green {
+                background: rgba(95, 184, 122, 0.2);
+            }
+            .marker-orange {
+                background: rgba(212, 144, 75, 0.2);
+            }
+            .marker-purple {
+                background: rgba(143, 122, 201, 0.2);
+            }
+            .cover-meta span {
+                color: #444;
+            }
+            .cover-meta svg {
+                fill: #444;
+            }
+            .toc-item {
+                color: #333;
+            }
+            .toc-item:hover {
+                color: #000;
+            }
+            .toc-item .num {
+                color: #b8860b;
+            }
+            h2 {
+                color: #111;
+                border-bottom: 2px solid #ddd;
+            }
+            h2 .chapter-num {
+                background: #eee;
+                border: 1px solid #ddd;
+                color: #111;
+            }
+            h2 svg {
+                fill: #b8860b;
+            }
+            h3 {
+                color: #111;
+                border-left-color: #4e8fc9;
+            }
+            h4 {
+                color: #222;
+            }
+            h4 svg {
+                fill: #4fb3a8;
+            }
+            p {
+                color: #222;
+            }
+            strong,
+            b {
+                color: #111;
+            }
+            em {
+                color: #b8860b;
+            }
+            .tag {
+                background: #eee;
+                color: #333;
+                border: 1px solid #ccc;
+            }
+            .tag-gold {
+                background: #d4a94b;
+                color: #111;
+                border-color: #d4a94b;
+            }
+            .tag-blue {
+                background: #4e8fc9;
+                color: #fff;
+                border-color: #4e8fc9;
+            }
+            .tag-teal {
+                background: #4fb3a8;
+                color: #fff;
+                border-color: #4fb3a8;
+            }
+            .tag-rose {
+                background: #c97a8a;
+                color: #fff;
+                border-color: #c97a8a;
+            }
+            .tag-green {
+                background: #5fb87a;
+                color: #fff;
+                border-color: #5fb87a;
+            }
+            .box-tip {
+                border-left-color: #4fb3a8;
+                background: rgba(79, 179, 168, 0.05);
+            }
+            .box-important {
+                border-left-color: #c97a8a;
+                background: rgba(201, 122, 138, 0.05);
+            }
+            .box-warning {
+                border-left-color: #d4904b;
+                background: rgba(212, 144, 75, 0.05);
+            }
+            .box-info {
+                border-left-color: #4e8fc9;
+                background: rgba(78, 143, 201, 0.05);
+            }
+            .box-success {
+                border-left-color: #5fb87a;
+                background: rgba(95, 184, 122, 0.05);
+            }
+            .list-check li::before {
+                color: #5fb87a;
+            }
+            .list-x li::before {
+                color: #c97a8a;
+            }
+            ul li::marker {
+                color: #b8860b;
+            }
+            ol li::marker {
+                color: #4e8fc9;
+            }
+            .card-gold {
+                border-left-color: #d4a94b;
+            }
+            .card-blue {
+                border-left-color: #4e8fc9;
+            }
+            .card-teal {
+                border-left-color: #4fb3a8;
+            }
+            .card-rose {
+                border-left-color: #c97a8a;
+            }
+            .card-green {
+                border-left-color: #5fb87a;
+            }
+            .card-purple {
+                border-left-color: #8f7ac9;
+            }
+            .card-orange {
+                border-left-color: #d4904b;
+            }
+            .card-red {
+                border-left-color: #c96a6a;
+            }
+            .exercise .options li.correct::before {
+                border-color: #5fb87a;
+                background: #5fb87a;
+            }
+            .exercise .options li.wrong::before {
+                border-color: #c97a8a;
+                background: #c97a8a;
+            }
+            .exercise .answer {
+                border-left-color: #d4a94b;
+            }
+            .exercise .answer strong {
+                color: #b8860b;
+            }
+            .cover::after {
+                background: #d4a94b;
+            }
+            .divider-thick {
+                background: #d4a94b;
+            }
+            .quote::before {
+                color: #d4a94b;
+            }
+            .callout-icon svg {
+                fill: #b8860b;
+            }
+            .toc-title {
+                color: #b8860b;
+            }
+            .toc-title svg {
+                fill: #b8860b;
+            }
+            .cover-badge {
+                background: #d4a94b;
+                color: #111;
+            }
+            .cover h1 .highlight {
+                color: #b8860b;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== COVER ===== -->
+        <header class="cover">
+            <div class="cover-badge">Material exclusivo</div>
+            <h1>Apostila de <span class="highlight">Conhecimentos Bancários</span></h1>
+            <p class="cover-subtitle">Para concursos da área bancária</p>
+            <div class="cover-meta">
+                <span>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6l5.25 3.15L17 12.23l-4-2.37V7z"/></svg>
+                    Última atualização: conforme normas do BCB e CMN vigentes
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    Técnico Bancário (Escriturário, Agente Comercial e afins)
+                </span>
+            </div>
+        </header>
+
+        <!-- ===== TABLE OF CONTENTS ===== -->
+        <nav class="toc" aria-label="Sumário">
+            <div class="toc-title">
+                <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h10v2H4v-2z"/></svg>
+                Sumário
+            </div>
+            <div class="toc-grid">
+                <a href="#cap1" class="toc-item"><span class="num">1</span> Fundamentos do SFN e Serviços Bancários</a>
+                <a href="#cap1-1" class="toc-item"><span class="num">1.1</span> Coprodução nos Serviços Financeiros</a>
+                <a href="#cap1-2" class="toc-item"><span class="num">1.2</span> Operações de Crédito e Garantias</a>
+                <a href="#cap1-3" class="toc-item"><span class="num">1.3</span> Regime Cambial e Política Monetária</a>
+                <a href="#cap1-4" class="toc-item"><span class="num">1.4</span> Inovações Tecnológicas e Meios de Pagamento</a>
+                <a href="#mindmap" class="toc-item"><span class="num">2</span> Mapa Mental de Conceitos‑Chave</a>
+                <a href="#questions" class="toc-item"><span class="num">3</span> Questões Comentadas (CESGRANRIO)</a>
+                <a href="#synthesis" class="toc-item"><span class="num">4</span> Síntese para Revisão Rápida</a>
+                <a href="#exercises" class="toc-item"><span class="num">5</span> Exercícios de Fixação</a>
+                <a href="#final-notes" class="toc-item"><span class="num">6</span> Notas Finais</a>
+            </div>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- CHAPTER 1 -->
+        <!-- ============================================================ -->
+
+        <section id="cap1">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h10v2H4v-2z"/></svg>
+                Capítulo 1: Fundamentos do Sistema Financeiro e Serviços Bancários
+                <span class="chapter-num">Cap 1</span>
+            </h2>
+        </section>
+
+        <!-- ===== 1. A NATUREZA DOS SERVIÇOS BANCÁRIOS ===== -->
+        <section id="cap1-1">
+            <h3>1. A Natureza dos Serviços Bancários e a Evolução do Atendimento</h3>
+
+            <h4>1.1 A Coprodução nos Serviços Financeiros</h4>
+
+            <div class="card card-gold">
+                <div class="card-title">O Conceito Fundamental</div>
+                <p>Quando falamos em serviços bancários, estamos diante de uma das áreas mais dinâmicas do setor de serviços. Diferentemente de produtos físicos, como um carro ou um eletrodoméstico, os serviços bancários possuem características singulares que os distinguem no mercado.</p>
+                <p>Um desses conceitos fundamentais, frequentemente cobrado em provas da Cesgranrio e outras bancas, é a <strong>coprodução</strong>. Mas o que exatamente isso significa no contexto bancário?</p>
+                <p><span class="marker">Coprodução</span> é a participação ativa do cliente na produção ou entrega de um serviço. Em outras palavras, o cliente deixa de ser um mero receptor passivo do serviço e assume tarefas que, em outro momento histórico, eram realizadas exclusivamente pelos funcionários da instituição financeira.</p>
+            </div>
+
+            <h4>A Revolução dos Caixas Automáticos</h4>
+            <p>O exemplo mais clássico e didático de coprodução no setor bancário é a introdução dos caixas automáticos (ATMs). Antes de sua disseminação, o cliente que desejava realizar um saque precisava:</p>
+            <ol>
+                <li>Dirigir-se ao balcão da agência</li>
+                <li>Aguardar na fila</li>
+                <li>Apresentar-se ao caixa</li>
+                <li>Entregar seu documento e cartão</li>
+                <li>Solicitar verbalmente o valor desejado</li>
+                <li>Aguardar a contagem e entrega do dinheiro pelo funcionário</li>
+            </ol>
+            <p>Com a chegada dos caixas automáticos, todo esse processo foi transformado. Agora, o próprio cliente:</p>
+            <ol>
+                <li>Insere seu cartão no equipamento</li>
+                <li>Digita sua senha</li>
+                <li>Seleciona a opção de saque</li>
+                <li>Informa o valor desejado</li>
+                <li>Retira o dinheiro diretamente do equipamento</li>
+            </ol>
+            <p><strong>O cliente tornou-se coautor do serviço</strong>, assumindo responsabilidades que antes eram exclusivas do banco.</p>
+
+            <h4>Coprodução no Dia a Dia Bancário</h4>
+            <p>Além dos caixas automáticos, a coprodução se manifesta em diversas outras situações na rotina bancária:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Situação de Coprodução</th>
+                            <th>Atividade do Cliente</th>
+                            <th>Atividade que Substituiu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Internet Banking</strong></td>
+                            <td>Realizar transferências, pagamentos e consultas</td>
+                            <td>Atendimento presencial no balcão</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mobile Banking</strong></td>
+                            <td>Acesso a informações e transações via smartphone</td>
+                            <td>Deslocamento até a agência</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chatbots e Atendimento Digital</strong></td>
+                            <td>Solicitar informações e resolver problemas simples</td>
+                            <td>Atendimento por telefonista ou caixa</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Depósito em ATM</strong></td>
+                            <td>Inserir envelope com dinheiro/cheques</td>
+                            <td>Depósito entregue diretamente ao caixa</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autoatendimento de Seguros</strong></td>
+                            <td>Contratar seguros simples pela internet</td>
+                            <td>Mediação do gerente para contratação</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Por que a Coprodução é Importante para o Banco?</h4>
+            <p>A coprodução não é apenas uma mudança operacional; ela representa uma transformação estratégica no modelo de negócios das instituições financeiras. Vejamos seus principais impactos:</p>
+
+            <div class="card card-blue">
+                <div class="card-title">1. Eficiência Operacional</div>
+                <ul>
+                    <li>Redução de custos com pessoal</li>
+                    <li>Diminuição do tempo médio de atendimento</li>
+                    <li>Otimização do espaço físico das agências</li>
+                </ul>
+            </div>
+
+            <div class="card card-teal">
+                <div class="card-title">2. Disponibilidade Ampliada</div>
+                <ul>
+                    <li>Serviços disponíveis 24 horas por dia, 7 dias por semana</li>
+                    <li>Acesso remoto, eliminando barreiras geográficas</li>
+                </ul>
+            </div>
+
+            <div class="card card-green">
+                <div class="card-title">3. Empoderamento do Cliente</div>
+                <ul>
+                    <li>Maior controle sobre suas finanças</li>
+                    <li>Autonomia para realizar operações sem intermediação</li>
+                </ul>
+            </div>
+
+            <div class="card card-purple">
+                <div class="card-title">4. Redirecionamento do Atendimento</div>
+                <ul>
+                    <li>Funcionários liberados para atendimentos mais complexos</li>
+                    <li>Foco em consultoria e relacionamento</li>
+                </ul>
+            </div>
+
+            <div class="box box-important">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Cuidado com a Pegadinha: O que NÃO é Coprodução
+                </div>
+                <p>A Cesgranrio frequentemente testa a compreensão do conceito de coprodução apresentando termos que parecem similares, mas possuem significados completamente diferentes. Fique atento:</p>
+                <div class="table-wrap" style="margin-top:10px;">
+                    <table>
+                        <thead>
+                            <tr><th>Termo</th><th>Significado</th><th>Distinção da Coprodução</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Coopetição</strong></td>
+                                <td>Competição e cooperação entre empresas simultaneamente</td>
+                                <td>Refere-se a relações entre empresas, não entre empresa e cliente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Estocagem</strong></td>
+                                <td>Armazenagem de produtos físicos</td>
+                                <td>Característica de bens físicos, não de serviços</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Homogeneidade</strong></td>
+                                <td>Uniformidade, igualdade entre serviços</td>
+                                <td>A coprodução gera experiências personalizadas, não homogêneas</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Simultaneidade</strong></td>
+                                <td>Produção e consumo ocorrendo no mesmo momento</td>
+                                <td>Característica dos serviços em geral, não específica da coprodução</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><span class="marker marker-gold">Macete para Prova:</span> Se a questão perguntar sobre a característica que distingue a prestação moderna de serviços bancários, especialmente com a introdução de tecnologias como ATMs e internet banking, a resposta é <strong>coprodução</strong>. Lembre-se: o cliente virou coautor do serviço!</p>
+            </div>
+
+            <h4>Coprodução e a Experiência do Cliente</h4>
+            <p>É fundamental compreender que a coprodução não significa simplesmente "transferir trabalho para o cliente". Uma boa estratégia de coprodução deve considerar:</p>
+            <ul>
+                <li><span class="marker marker-blue">Usabilidade:</span> As interfaces devem ser intuitivas e amigáveis</li>
+                <li><span class="marker marker-teal">Segurança:</span> O cliente precisa sentir-se protegido ao realizar operações</li>
+                <li><span class="marker marker-green">Suporte:</span> Deve haver canais de atendimento para dúvidas e problemas</li>
+                <li><span class="marker marker-rose">Educação Financeira:</span> O cliente precisa entender o que está fazendo</li>
+            </ul>
+            <p>Bancos que negligenciam esses aspectos podem gerar frustração e insatisfação, transformando a coprodução em um ponto de atrito no relacionamento com o cliente.</p>
+
+            <div class="callout">
+                <div class="callout-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                </div>
+                <div class="callout-content">
+                    <strong>Exemplo Prático:</strong> Imagine que um banco lança um aplicativo de investimentos com coprodução total (o cliente faz todas as operações sozinho). Se o app for confuso e o cliente perder dinheiro por não entender as taxas, a experiência será negativa. Já se o app oferecer simuladores, explicações claras e um chat para tirar dúvidas, a coprodução será positiva.
+                </div>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ===== 2. OPERAÇÕES DE CRÉDITO E GARANTIAS ===== -->
+        <section id="cap1-2">
+            <h3>2. Operações de Crédito e Garantias no Sistema Financeiro</h3>
+
+            <h4>2.1 Crédito Direto ao Consumidor (CDC)</h4>
+
+            <div class="card card-gold">
+                <div class="card-title">O Que é o CDC?</div>
+                <p>O <strong>Crédito Direto ao Consumidor (CDC)</strong> é uma modalidade de financiamento destinada à aquisição de bens e serviços por pessoas físicas. É a operação de crédito mais comum para a compra de veículos, eletrodomésticos, eletrônicos e outros bens de consumo durável.</p>
+                <p>A principal característica que distingue o CDC de outras operações de crédito é <span class="marker">a dispensa de avalista</span>.</p>
+            </div>
+
+            <h4>Como Funciona o CDC na Prática?</h4>
+            <p>Quando um cliente contrata um CDC, o banco financia a compra de um bem ou serviço, e o cliente paga esse valor em parcelas mensais, acrescido de juros e tarifas. Veja o fluxo completo:</p>
+
+            <div class="diagram-container">
+                <svg viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <style>
+                            .flow-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #e8edf4; }
+                            .flow-title { font-family: 'Segoe UI', Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #d4a94b; }
+                            .flow-box { fill: #1c2633; stroke: #3a4a60; stroke-width: 1.5; rx: 8; }
+                            .flow-arrow { stroke: #5a6a80; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+                            .flow-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #7a8ba3; }
+                        </style>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#5a6a80"/>
+                        </marker>
+                    </defs>
+
+                    <!-- Boxes -->
+                    <rect class="flow-box" x="20" y="20" width="200" height="52" />
+                    <text class="flow-title" x="120" y="42" text-anchor="middle">1. Identificação do Cliente</text>
+                    <text class="flow-text" x="120" y="60" text-anchor="middle">Análise cadastral e renda</text>
+
+                    <rect class="flow-box" x="260" y="20" width="200" height="52" />
+                    <text class="flow-title" x="360" y="42" text-anchor="middle">2. Escolha do Bem/Serviço</text>
+                    <text class="flow-text" x="360" y="60" text-anchor="middle">Veículos, eletrônicos, etc.</text>
+
+                    <rect class="flow-box" x="500" y="20" width="200" height="52" />
+                    <text class="flow-title" x="600" y="42" text-anchor="middle">3. Análise de Crédito</text>
+                    <text class="flow-text" x="600" y="60" text-anchor="middle">Serasa, SPC, capacidade</text>
+
+                    <rect class="flow-box" x="20" y="140" width="200" height="52" />
+                    <text class="flow-title" x="120" y="162" text-anchor="middle">4. Contratação</text>
+                    <text class="flow-text" x="120" y="180" text-anchor="middle">Condições, juros, parcelas</text>
+
+                    <rect class="flow-box" x="260" y="140" width="200" height="52" />
+                    <text class="flow-title" x="360" y="162" text-anchor="middle">5. Pagamento das Parcelas</text>
+                    <text class="flow-text" x="360" y="180" text-anchor="middle">Débito automático</text>
+
+                    <rect class="flow-box" x="500" y="140" width="200" height="52" />
+                    <text class="flow-title" x="600" y="162" text-anchor="middle">6. Quitação</text>
+                    <text class="flow-text" x="600" y="180" text-anchor="middle">Dívida encerrada</text>
+
+                    <!-- Arrows -->
+                    <path class="flow-arrow" d="M220,46 L250,46" />
+                    <path class="flow-arrow" d="M460,46 L490,46" />
+                    <path class="flow-arrow" d="M120,72 L120,130" />
+                    <path class="flow-arrow" d="M360,72 L360,130" />
+                    <path class="flow-arrow" d="M600,72 L600,130" />
+                    <path class="flow-arrow" d="M220,166 L250,166" />
+                    <path class="flow-arrow" d="M460,166 L490,166" />
+
+                    <!-- Labels -->
+                    <text class="flow-label" x="235" y="38" text-anchor="middle">→</text>
+                    <text class="flow-label" x="475" y="38" text-anchor="middle">→</text>
+                    <text class="flow-label" x="112" y="104" text-anchor="middle">↓</text>
+                    <text class="flow-label" x="352" y="104" text-anchor="middle">↓</text>
+                    <text class="flow-label" x="592" y="104" text-anchor="middle">↓</text>
+                    <text class="flow-label" x="235" y="158" text-anchor="middle">→</text>
+                    <text class="flow-label" x="475" y="158" text-anchor="middle">→</text>
+
+                    <!-- Footer -->
+                    <rect class="flow-box" x="140" y="250" width="440" height="40" fill="#0d141e" stroke="#3a4a60" stroke-width="1.5" rx="8" />
+                    <text class="flow-text" x="360" y="276" text-anchor="middle" font-weight="600" fill="#d4a94b">CDC: Financiamento com dispensa de avalista</text>
+                </svg>
+            </div>
+
+            <h4>Prazos e Condições do CDC</h4>
+            <p>O CDC está sujeito a algumas regras importantes:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhamento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Prazo Máximo</strong></td><td>Geralmente 60 meses (5 anos)</td></tr>
+                        <tr class="highlight-row"><td><strong>Avalista</strong></td><td><span class="marker">Dispensado</span> (principal característica!)</td></tr>
+                        <tr><td><strong>Análise Cadastral</strong></td><td>Obrigatória</td></tr>
+                        <tr><td><strong>Identificação do Cliente</strong></td><td>Exigida, com comprovação de dados</td></tr>
+                        <tr><td><strong>Garantia</strong></td><td>Pode ser real (alienação fiduciária) ou pessoal</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-important">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Cuidado com a Pegadinha!
+                </div>
+                <p>Muitas questões afirmam que o CDC exige avalista e isso está <strong>ERRADO</strong>. Lembre-se: a dispensa de avalista é a marca registrada do CDC. Se uma questão disser que o CDC exige avalista ou fiador, é quase certeza de erro (a menos que seja um caso específico que não corresponda à regra geral).</p>
+            </div>
+
+            <h4>CDC vs. Outras Modalidades de Crédito</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Modalidade</th><th>Exige Avalista?</th><th>Garantia Típica</th><th>Finalidade</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row"><td><strong>CDC</strong></td><td><span class="marker">Não</span></td><td>Alienação Fiduciária</td><td>Compra de bens duráveis</td></tr>
+                        <tr><td><strong>Crédito Pessoal</strong></td><td>Pode exigir</td><td>Não exige, mas pode ter avalista</td><td>Uso livre pelo cliente</td></tr>
+                        <tr><td><strong>Financiamento Imobiliário</strong></td><td>Pode exigir</td><td>Hipoteca</td><td>Compra de imóveis</td></tr>
+                        <tr><td><strong>Crédito Consignado</strong></td><td>Não</td><td>Desconto em folha</td><td>Uso livre, com desconto automático</td></tr>
+                        <tr><td><strong>Cheque Especial</strong></td><td>Não</td><td>Não exige</td><td>Limite rotativo para emergências</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr class="divider">
+
+            <h4>2.2 Garantias em Operações de Crédito</h4>
+
+            <div class="card card-blue">
+                <div class="card-title">O Sistema de Garantias no SFN</div>
+                <p>No Sistema Financeiro Nacional, as garantias são mecanismos que protegem o credor (banco) contra o risco de inadimplência do devedor (cliente). Elas são essenciais para que o banco possa conceder crédito com segurança, e são frequentemente cobradas em provas.</p>
+                <p>As garantias podem ser classificadas em duas grandes categorias:</p>
+                <div class="table-wrap" style="margin-top:10px;">
+                    <table>
+                        <thead>
+                            <tr><th>Categoria</th><th>Característica</th><th>Exemplos</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Garantias Pessoais</strong></td>
+                                <td>Uma pessoa responde pela dívida com seu patrimônio</td>
+                                <td>Aval, Fiança</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Garantias Reais</strong></td>
+                                <td>Um bem específico é vinculado à dívida</td>
+                                <td>Hipoteca, Penhor, Alienação Fiduciária</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h5>2.2.1 Alienação Fiduciária</h5>
+            <div class="card card-teal">
+                <div class="card-title">O que é?</div>
+                <p>A alienação fiduciária é a garantia mais comum em financiamentos de veículos e bens móveis. Nessa modalidade, o devedor (fiduciante) transfere ao credor (fiduciário) a propriedade do bem, mas mantém a posse direta do mesmo.</p>
+            </div>
+
+            <p><strong>Como Funciona na Prática:</strong></p>
+            <ol>
+                <li>O cliente compra um bem (ex: carro) com financiamento do banco</li>
+                <li>O cliente recebe a posse e o uso do bem (pode dirigir o carro)</li>
+                <li>A propriedade do bem fica com o banco (consta no documento)</li>
+                <li>O cliente paga as parcelas mensais</li>
+                <li>Ao final, quando tudo é quitado, a propriedade passa integralmente para o cliente</li>
+            </ol>
+
+            <p><strong>Características Essenciais:</strong></p>
+            <ul>
+                <li><span class="marker marker-teal">Posse Direta:</span> O devedor tem o bem em sua posse e pode usá-lo</li>
+                <li><span class="marker marker-blue">Propriedade Fiduciária:</span> O credor é o proprietário durante o financiamento</li>
+                <li><span class="marker marker-rose">Efeito de Inadimplência:</span> Se o cliente não pagar, o credor pode apreender o bem</li>
+                <li><span class="marker marker-orange">Destinação:</span> O bem apreendido é vendido para cobrir o débito</li>
+            </ul>
+
+            <div class="callout">
+                <div class="callout-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                </div>
+                <div class="callout-content">
+                    <strong>Exemplo Prático:</strong> Maria comprou um carro de R$ 50.000 financiado pelo Banco X. Ela paga parcelas mensais e usa o carro normalmente. Consta no documento que o carro está alienado ao Banco X. Se Maria não pagar 3 parcelas, o banco pode apreender o veículo. O banco vende o carro por R$ 40.000 e abate esse valor da dívida de Maria. Se sobrar diferença, ela ainda deve ao banco.
+                </div>
+            </div>
+
+            <p><strong>Diferença entre Alienação Fiduciária e outras garantias:</strong></p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Alienação Fiduciária</th><th>Hipoteca</th><th>Penhor</th><th>Aval</th><th>Fiança</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tipo de Garantia</strong></td>
+                            <td>Real</td><td>Real</td><td>Real</td><td>Pessoal</td><td>Pessoal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bem Vinculado</strong></td>
+                            <td>Móvel ou Imóvel</td><td>Imóvel</td><td>Móvel</td><td>Nenhum (pessoa)</td><td>Nenhum (pessoa)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Posse</strong></td>
+                            <td>Devedor mantém</td><td>Devedor mantém</td><td>Credor recebe</td><td>N/A</td><td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Propriedade</strong></td>
+                            <td>Credor inicialmente</td><td>Devedor</td><td>Credor</td><td>N/A</td><td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quem Responde</strong></td>
+                            <td>Bem específico</td><td>Bem específico</td><td>Bem específico</td><td>Avalista</td><td>Fiador</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>2.2.2 Aval</h5>
+            <div class="card card-rose">
+                <div class="card-title">O que é?</div>
+                <p>O aval é uma garantia pessoal firmada em títulos de crédito (cheques, notas promissórias, duplicatas). O <strong>avalista</strong> é uma pessoa que assina o título garantindo o pagamento, assumindo a mesma obrigação do devedor principal.</p>
+            </div>
+            <ul>
+                <li>É uma garantia <span class="marker marker-rose">pessoal</span>, não vinculada a um bem específico</li>
+                <li>É firmada <span class="marker marker-rose">no próprio título</span> de crédito</li>
+                <li>O avalista responde com <span class="marker marker-rose">todo seu patrimônio</span></li>
+                <li>Tem o mesmo peso da obrigação principal</li>
+            </ul>
+
+            <h5>2.2.3 Fiança</h5>
+            <div class="card card-purple">
+                <div class="card-title">O que é?</div>
+                <p>A fiança é outra garantia pessoal, mas firmada em <strong>contrato específico</strong> (não em título de crédito). O <strong>fiador</strong> é a pessoa que se compromete a pagar a dívida caso o devedor não o faça.</p>
+            </div>
+
+            <p><strong>Diferenças Cruciais entre Aval e Fiança:</strong></p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Aspecto</th><th>Aval</th><th>Fiança</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Instrumento</strong></td><td>Título de crédito</td><td>Contrato</td></tr>
+                        <tr><td><strong>Formalidade</strong></td><td>Assinatura no título</td><td>Documento separado</td></tr>
+                        <tr><td><strong>Abrangência</strong></td><td>Toda a dívida</td><td>Pode ser limitada</td></tr>
+                        <tr><td><strong>Direito de Regresso</strong></td><td>Sim</td><td>Sim</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>2.2.4 Hipoteca</h5>
+            <div class="card card-orange">
+                <div class="card-title">O que é?</div>
+                <p>A hipoteca é uma garantia real que vincula um <strong>bem imóvel</strong> ao pagamento de uma dívida.</p>
+            </div>
+            <ul>
+                <li>Aplicável apenas a bens imóveis</li>
+                <li>O devedor mantém posse e uso do imóvel</li>
+                <li>O imóvel fica como garantia em caso de inadimplência</li>
+                <li>É registrada em cartório (matrícula do imóvel)</li>
+            </ul>
+
+            <h5>2.2.5 Penhor Mercantil</h5>
+            <div class="card card-red">
+                <div class="card-title">O que é?</div>
+                <p>O penhor mercantil é uma garantia real que vincula um <strong>bem móvel</strong> ao pagamento de uma dívida, com a particularidade de que o bem deve ser entregue ao credor.</p>
+            </div>
+            <ul>
+                <li>Aplicável a bens móveis</li>
+                <li>O bem deve ser entregue ao credor (o devedor perde a posse)</li>
+                <li>O credor guarda o bem como garantia</li>
+                <li>Quando a dívida é quitada, o bem é devolvido ao devedor</li>
+            </ul>
+
+            <div class="box box-tip">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Macete para Prova
+                </div>
+                <p>Decore a associação:</p>
+                <ul>
+                    <li><span class="marker marker-gold">Automóvel</span> → <strong>Alienação Fiduciária</strong></li>
+                    <li><span class="marker marker-orange">Imóvel</span> → <strong>Hipoteca</strong></li>
+                    <li><span class="marker marker-rose">Joias/Mercadorias</span> → <strong>Penhor</strong></li>
+                    <li><span class="marker marker-blue">Títulos de Crédito</span> → <strong>Aval</strong></li>
+                    <li><span class="marker marker-purple">Contrato</span> → <strong>Fiança</strong></li>
+                </ul>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ===== 3. REGIME CAMBIAL E POLÍTICA MONETÁRIA ===== -->
+        <section id="cap1-3">
+            <h3>3. Regime Cambial e Política Monetária</h3>
+
+            <h4>3.1 O Regime de Câmbio Flutuante no Brasil</h4>
+
+            <div class="card card-gold">
+                <div class="card-title">Histórico e Funcionamento</div>
+                <p>Desde 1999, o Brasil adota o regime de <strong>câmbio flutuante</strong> (ou cambial flexível). Mas o que isso significa na prática?</p>
+                <p><span class="marker">Câmbio Flutuante:</span> A taxa de câmbio (preço da moeda estrangeira em relação ao real) é determinada livremente pela <strong>oferta e demanda</strong> no mercado, sem fixação oficial por parte do governo ou do Banco Central.</p>
+            </div>
+
+            <p><strong>Como Funciona:</strong></p>
+            <ol>
+                <li><strong>Oferta de Moeda Estrangeira:</strong> Exportações brasileiras, entrada de investimentos estrangeiros, empréstimos externos, turistas estrangeiros no Brasil</li>
+                <li><strong>Demanda por Moeda Estrangeira:</strong> Importações de produtos, viagens internacionais, pagamentos de dívidas externas, investimentos de brasileiros no exterior</li>
+                <li><strong>Equilíbrio:</strong> Se a oferta é maior que a demanda → o real se valoriza (dólar cai). Se a demanda é maior que a oferta → o real se desvaloriza (dólar sobe)</li>
+            </ol>
+
+            <div class="box box-info">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    O "Dirty Floating" (Flutuação Suja)
+                </div>
+                <p>Embora o regime seja tecnicamente de câmbio flutuante, o Banco Central pode intervir no mercado em momentos de <strong>volatilidade excessiva</strong>. Essa intervenção caracteriza o que chamamos de <strong>"dirty floating"</strong> ou <strong>flutuação suja</strong>.</p>
+                <p><strong>Formas de Intervenção do BC:</strong></p>
+                <ul>
+                    <li><span class="marker marker-blue">Swap Cambial:</span> Venda de contratos de dólar sem entrega física</li>
+                    <li><span class="marker marker-teal">Leilão de Linha:</span> Empréstimo de dólares aos bancos</li>
+                    <li><span class="marker marker-orange">Intervenção Direta:</span> Compra ou venda de dólares com entrega física</li>
+                    <li><span class="marker marker-rose">Depósito Compulsório:</span> Ajuste na alíquota para operações em moeda estrangeira</li>
+                </ul>
+                <p><span class="marker marker-gold">Atenção!</span> É fundamental lembrar que a taxa de câmbio <strong>NÃO é fixada</strong> pelo Banco Central. Mesmo com intervenções, o BC atua para suavizar flutuações, não para impor um valor específico.</p>
+            </div>
+
+            <h4>Consequências da Valorização e Desvalorização</h4>
+
+            <div class="card card-green">
+                <div class="card-title">Valorização do Real (Dólar Cari)</div>
+                <ul>
+                    <li><span class="marker marker-rose">Exportações caem</span> — Produtos brasileiros ficam mais caros no exterior</li>
+                    <li><span class="marker marker-teal">Importações crescem</span> — Produtos estrangeiros ficam mais baratos</li>
+                    <li><span class="marker marker-blue">Inflação controlada</span> — Bens importados mais baratos puxam o IPCA para baixo</li>
+                    <li><span class="marker marker-orange">Turismo internacional</span> — Brasileiros viajam mais, estrangeiros vêm menos</li>
+                </ul>
+            </div>
+
+            <div class="card card-rose">
+                <div class="card-title">Desvalorização do Real (Dólar Cario)</div>
+                <ul>
+                    <li><span class="marker marker-green">Exportações crescem</span> — Produtos brasileiros ficam mais baratos no exterior</li>
+                    <li><span class="marker marker-rose">Importações caem</span> — Produtos estrangeiros ficam mais caros</li>
+                    <li><span class="marker marker-orange">Inflação pressionada</span> — Bens importados mais caros elevam o IPCA</li>
+                    <li><span class="marker marker-blue">Turismo internacional</span> — Brasileiros viajam menos, estrangeiros vêm mais</li>
+                </ul>
+            </div>
+
+            <div class="callout">
+                <div class="callout-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                </div>
+                <div class="callout-content">
+                    <strong>Exemplo Prático:</strong> Suponha que o real se desvalorize 20% frente ao dólar. Um exportador brasileiro de soja que vende para a China verá sua receita em reais aumentar significativamente, pois receberá mais reais por cada dólar obtido. Já um consumidor brasileiro que importa eletrônicos verá os preços subirem.
+                </div>
+            </div>
+
+            <div class="box box-important">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Cuidado com a Pegadinha!
+                </div>
+                <p>Muitas questões afirmam que alta inflação leva à desvalorização cambial e à queda das exportações. Isso está <strong>INCORRETO</strong>. Na verdade, a inflação diferencial pode contribuir para a apreciação real da moeda, embora tenha efeitos negativos para o consumidor doméstico.</p>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Macete para Prova
+                </div>
+                <p>Lembre-se da relação direta:</p>
+                <ul>
+                    <li>Real <span class="marker marker-rose">desvaloriza</span> → Exportações <span class="marker marker-green">aumentam</span></li>
+                    <li>Real <span class="marker marker-teal">valoriza</span> → Exportações <span class="marker marker-rose">diminuem</span></li>
+                </ul>
+                <p>Essa relação é um clássico em provas! Se a questão negar essa influência, é quase certeza de erro.</p>
+            </div>
+
+            <hr class="divider">
+
+            <h4>3.2 Política Monetária Convencional e Não Convencional</h4>
+
+            <div class="card card-blue">
+                <div class="card-title">Política Monetária Convencional</div>
+                <p>A política monetária é o conjunto de ações do Banco Central para controlar a quantidade de moeda e crédito na economia, influenciando a inflação e o nível de atividade econômica.</p>
+            </div>
+
+            <p><strong>Ferramentas Convencionais:</strong></p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Instrumento</th><th>Descrição</th><th>Efeito Principal</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Taxa Selic</strong></td><td>Taxa básica de juros</td><td>Controla o custo do dinheiro</td></tr>
+                        <tr><td><strong>Operações de Mercado Aberto (Open Market)</strong></td><td>Compra e venda de títulos públicos</td><td>Controla a liquidez</td></tr>
+                        <tr><td><strong>Depósito Compulsório</strong></td><td>Percentual dos depósitos que os bancos devem reservar</td><td>Controla a capacidade de crédito</td></tr>
+                        <tr><td><strong>Redesconto</strong></td><td>Empréstimos do BC aos bancos</td><td>Fornece liquidez de emergência</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Operações de Open Market (Mercado Aberto)</h5>
+            <p>O <strong>open market</strong> é a operação de compra e venda de <strong>títulos públicos</strong> pelo Banco Central no mercado financeiro.</p>
+
+            <div class="card card-green">
+                <div class="card-title">Como Funciona:</div>
+                <ol>
+                    <li><strong>O BC quer aumentar a liquidez (estimular economia):</strong> Compra títulos públicos dos bancos, paga com dinheiro, o dinheiro circula no sistema financeiro, os bancos têm mais recursos para emprestar</li>
+                    <li><strong>O BC quer reduzir a liquidez (conter inflação):</strong> Vende títulos públicos aos bancos, recebe dinheiro dos bancos, o dinheiro "some" do sistema financeiro, os bancos têm menos recursos para emprestar</li>
+                </ol>
+            </div>
+
+            <div class="box box-info">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Características do Open Market
+                </div>
+                <ul>
+                    <li>É uma política monetária <span class="marker marker-blue">convencional</span></li>
+                    <li>Envolve apenas <span class="marker marker-gold">títulos públicos</span></li>
+                    <li>É usado rotineiramente para ajustes de liquidez</li>
+                    <li>É uma ferramenta de curto prazo</li>
+                </ul>
+            </div>
+
+            <h5>Política Monetária Não Convencional</h5>
+            <p>A política monetária não convencional surge quando as ferramentas tradicionais já estão esgotadas ou são insuficientes. Isso ocorre tipicamente em situações de crise profunda.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Aspecto</th><th>Política Convencional</th><th>Política Não Convencional</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Ferramenta</strong></td><td>Taxa de juros, open market</td><td>Compra de ativos diversos</td></tr>
+                        <tr><td><strong>Ativos Comprados</strong></td><td>Apenas títulos públicos</td><td>Títulos públicos e privados</td></tr>
+                        <tr><td><strong>Contexto</strong></td><td>Situação normal</td><td>Crises extremas</td></tr>
+                        <tr><td><strong>Objetivo</strong></td><td>Ajuste de liquidez</td><td>Expansão da base monetária</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>Quantitative Easing (Flexibilização Quantitativa)</h5>
+            <div class="card card-gold">
+                <div class="card-title">O que é</div>
+                <p>É a compra massiva de ativos financeiros pelo banco central, incluindo <strong>títulos privados</strong>, para injetar liquidez na economia quando a taxa de juros já está muito baixa (próxima a zero) e não pode mais ser reduzida.</p>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Diferença Crucial
+                </div>
+                <div class="table-wrap" style="margin-top:8px;">
+                    <table>
+                        <thead>
+                            <tr><th>Característica</th><th>Open Market (Convencional)</th><th>Quantitative Easing (Não Convencional)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Ativos Comprados</strong></td><td>Apenas títulos públicos</td><td>Títulos públicos e privados</td></tr>
+                            <tr><td><strong>Objetivo</strong></td><td>Ajuste de liquidez de curto prazo</td><td>Expansão da base monetária</td></tr>
+                            <tr><td><strong>Contexto</strong></td><td>Normal</td><td>Crise extrema</td></tr>
+                            <tr><td><strong>Taxa de Juros</strong></td><td>Pode ser ajustada</td><td>Já está no limite (próximo a zero)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="callout">
+                <div class="callout-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                </div>
+                <div class="callout-content">
+                    <strong>Exemplo Histórico:</strong> Durante a crise financeira de 2008 e posteriormente na pandemia de COVID-19, o Federal Reserve (Banco Central dos EUA) adotou Quantitative Easing, comprando títulos públicos e privados para evitar um colapso do sistema financeiro.
+                </div>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Macete para Prova
+                </div>
+                <ul>
+                    <li><span class="marker marker-blue">Open Market</span> → <strong>títulos públicos</strong></li>
+                    <li><span class="marker marker-gold">Quantitative Easing</span> → <strong>títulos públicos e privados</strong></li>
+                </ul>
+                <p>A banca frequentemente cobra exatamente essa distinção!</p>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ===== 4. INOVAÇÕES TECNOLÓGICAS ===== -->
+        <section id="cap1-4">
+            <h3>4. Inovações Tecnológicas e Meios de Pagamento</h3>
+
+            <h4>4.1 O Pix: A Revolução dos Pagamentos Instantâneos</h4>
+
+            <div class="card card-gold">
+                <div class="card-title">O Que é o Pix?</div>
+                <p>O <strong>Pix</strong> é um sistema de pagamento instantâneo criado e gerido pelo <strong>Banco Central do Brasil</strong>. Foi lançado em novembro de 2020 e representa uma das maiores inovações no sistema financeiro brasileiro das últimas décadas.</p>
+            </div>
+
+            <p><strong>Características Fundamentais:</strong></p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhamento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Disponibilidade</strong></td><td>24 horas por dia, 7 dias por semana</td></tr>
+                        <tr><td><strong>Velocidade</strong></td><td>Transações liquidadas em segundos</td></tr>
+                        <tr><td><strong>Gratuidade</strong></td><td>Gratuito para pessoas físicas em transações comuns</td></tr>
+                        <tr><td><strong>Segurança</strong></td><td>Gerenciado pelo Banco Central, com criptografia</td></tr>
+                        <tr><td><strong>Universalidade</strong></td><td>Disponível para qualquer pessoa ou empresa</td></tr>
+                        <tr><td><strong>Integração</strong></td><td>Conecta todos os participantes do SFN</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Como Funciona o Pix?</h4>
+            <ol>
+                <li><strong>O Cliente:</strong> Abre uma conta em uma instituição financeira participante, cadastra uma chave Pix (CPF, e-mail, telefone ou chave aleatória), realiza transferências via aplicativo ou internet banking</li>
+                <li><strong>O Fluxo:</strong> Pagador inicia a transação no app do banco, informa a chave Pix do recebedor, confirma o valor, o sistema valida a chave, o dinheiro é transferido instantaneamente, ambas as partes recebem confirmação</li>
+                <li><strong>Os Participantes:</strong> Pagador, Recebedor, Instituições Financeiras, BCB</li>
+            </ol>
+
+            <div class="box box-important">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    IMPORTANTE
+                </div>
+                <p>A Cesgranrio enfatiza que o Pix é uma <strong>iniciativa do Banco Central</strong>, e não de bancos comerciais ou de investimento. Essa é uma pegadinha frequente!</p>
+            </div>
+
+            <h4>Pix vs. Cartões de Débito</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Aspecto</th><th>Pix</th><th>Cartão de Débito</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Disponibilidade</strong></td><td>24/7, todos os dias</td><td>Geralmente 24/7, mas com processamento em lotes</td></tr>
+                        <tr><td><strong>Horário de Liquidação</strong></td><td>Instantânea (segundos)</td><td>Pode levar até 1 dia útil</td></tr>
+                        <tr><td><strong>Intermediários</strong></td><td>Nenhum (direto BCB)</td><td>Vários (bandeira, adquirente, etc.)</td></tr>
+                        <tr><td><strong>Custo para Cliente</strong></td><td>Gratuito (PJ tem limites)</td><td>Pode ter tarifas (anualidade, etc.)</td></tr>
+                        <tr><td><strong>Origem</strong></td><td>Iniciativa do BCB</td><td>Iniciativa privada (bandeiras)</td></tr>
+                        <tr><td><strong>Uso</strong></td><td>Transferências, pagamentos, saques</td><td>Pagamentos em estabelecimentos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Tipos de Chaves Pix</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Chave</th><th>Descrição</th><th>Vantagem</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CPF/CNPJ</strong></td><td>Número do documento</td><td>Fácil de lembrar</td></tr>
+                        <tr><td><strong>E-mail</strong></td><td>Endereço eletrônico</td><td>Pode ser alterado</td></tr>
+                        <tr><td><strong>Número de Telefone</strong></td><td>Celular com DDD</td><td>Muito usado em transações</td></tr>
+                        <tr><td><strong>Chave Aleatória</strong></td><td>Código gerado pelo sistema</td><td>Máxima segurança</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Macete para Prova
+                </div>
+                <p><strong>Pix = Banco Central, 24/7, instantâneo, gratuito (para PF).</strong> Memorize essas quatro palavras-chave!</p>
+            </div>
+
+            <hr class="divider-thick">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 5. MAPA MENTAL -->
+        <!-- ============================================================ -->
+
+        <section id="mindmap">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Mapa Mental de Conceitos‑Chave
+                <span class="chapter-num">Mapa</span>
+            </h2>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 800 620" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <style>
+                            .mm-title { font-family: 'Georgia', serif; font-size: 18px; font-weight: 700; fill: #d4a94b; }
+                            .mm-node { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #e8edf4; }
+                            .mm-node-bold { font-weight: 700; fill: #e8edf4; }
+                            .mm-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #7a8ba3; }
+                            .mm-box { fill: #1c2633; stroke: #3a4a60; stroke-width: 1.5; rx: 6; }
+                            .mm-box-gold { fill: #1c2633; stroke: #d4a94b; stroke-width: 2; rx: 6; }
+                            .mm-box-blue { fill: #1c2633; stroke: #4e8fc9; stroke-width: 2; rx: 6; }
+                            .mm-box-teal { fill: #1c2633; stroke: #4fb3a8; stroke-width: 2; rx: 6; }
+                            .mm-box-rose { fill: #1c2633; stroke: #c97a8a; stroke-width: 2; rx: 6; }
+                            .mm-box-green { fill: #1c2633; stroke: #5fb87a; stroke-width: 2; rx: 6; }
+                            .mm-box-orange { fill: #1c2633; stroke: #d4904b; stroke-width: 2; rx: 6; }
+                            .mm-box-purple { fill: #1c2633; stroke: #8f7ac9; stroke-width: 2; rx: 6; }
+                            .mm-line { stroke: #3a4a60; stroke-width: 1.5; fill: none; }
+                            .mm-line-gold { stroke: #d4a94b; stroke-width: 2; fill: none; }
+                        </style>
+                    </defs>
+
+                    <!-- CENTER -->
+                    <rect class="mm-box-gold" x="300" y="10" width="200" height="44" />
+                    <text class="mm-title" x="400" y="38" text-anchor="middle">Conceitos-Chave</text>
+
+                    <!-- LINES from center -->
+                    <path class="mm-line-gold" d="M350,54 L350,90 L180,90" />
+                    <path class="mm-line-gold" d="M450,54 L450,90 L620,90" />
+                    <path class="mm-line" d="M350,54 L350,140 L180,140" />
+                    <path class="mm-line" d="M450,54 L450,140 L620,140" />
+                    <path class="mm-line" d="M350,54 L350,190 L180,190" />
+                    <path class="mm-line" d="M450,54 L450,190 L620,190" />
+                    <path class="mm-line" d="M350,54 L350,240 L180,240" />
+                    <path class="mm-line" d="M450,54 L450,240 L620,240" />
+
+                    <!-- NODES Level 1 -->
+                    <!-- 1. Coprodução -->
+                    <rect class="mm-box" x="40" y="70" width="160" height="40" />
+                    <text class="mm-node-bold" x="120" y="95" text-anchor="middle">Coprodução</text>
+                    <text class="mm-label" x="120" y="130" text-anchor="middle">Cliente participa ativamente</text>
+
+                    <!-- 2. Garantias -->
+                    <rect class="mm-box" x="40" y="120" width="160" height="40" />
+                    <text class="mm-node-bold" x="120" y="145" text-anchor="middle">Garantias</text>
+                    <text class="mm-label" x="120" y="180" text-anchor="middle">Pessoais vs. Reais</text>
+
+                    <!-- 3. CDC -->
+                    <rect class="mm-box" x="40" y="170" width="160" height="40" />
+                    <text class="mm-node-bold" x="120" y="195" text-anchor="middle">CDC</text>
+                    <text class="mm-label" x="120" y="230" text-anchor="middle">Dispensa avalista</text>
+
+                    <!-- 4. Câmbio Flutuante -->
+                    <rect class="mm-box" x="40" y="220" width="160" height="40" />
+                    <text class="mm-node-bold" x="120" y="245" text-anchor="middle">Câmbio Flutuante</text>
+                    <text class="mm-label" x="120" y="280" text-anchor="middle">Oferta x Demanda</text>
+
+                    <!-- 5. Política Monetária -->
+                    <rect class="mm-box" x="610" y="70" width="160" height="40" />
+                    <text class="mm-node-bold" x="690" y="95" text-anchor="middle">Política Monetária</text>
+                    <text class="mm-label" x="690" y="130" text-anchor="middle">Convencional / QE</text>
+
+                    <!-- 6. Pix -->
+                    <rect class="mm-box" x="610" y="120" width="160" height="40" />
+                    <text class="mm-node-bold" x="690" y="145" text-anchor="middle">Pix</text>
+                    <text class="mm-label" x="690" y="180" text-anchor="middle">BC, 24/7, grátis</text>
+
+                    <!-- 7. Alienação Fiduciária -->
+                    <rect class="mm-box" x="610" y="170" width="160" height="40" />
+                    <text class="mm-node-bold" x="690" y="195" text-anchor="middle">Alienação Fiduciária</text>
+                    <text class="mm-label" x="690" y="230" text-anchor="middle">Carro → posse, não propriedade</text>
+
+                    <!-- 8. Aval / Fiança -->
+                    <rect class="mm-box" x="610" y="220" width="160" height="40" />
+                    <text class="mm-node-bold" x="690" y="245" text-anchor="middle">Aval / Fiança</text>
+                    <text class="mm-label" x="690" y="280" text-anchor="middle">Garantias pessoais</text>
+
+                    <!-- Level 2 - Details -->
+                    <!-- Coprodução details -->
+                    <rect class="mm-box-blue" x="40" y="300" width="160" height="44" />
+                    <text class="mm-node" x="120" y="318" text-anchor="middle">ATMs, Internet Banking</text>
+                    <text class="mm-node" x="120" y="336" text-anchor="middle">Cliente como coautor</text>
+
+                    <!-- Garantias details -->
+                    <rect class="mm-box-rose" x="40" y="360" width="160" height="44" />
+                    <text class="mm-node" x="120" y="378" text-anchor="middle">Pessoais: Aval, Fiança</text>
+                    <text class="mm-node" x="120" y="396" text-anchor="middle">Reais: Hipoteca, Penhor</text>
+
+                    <!-- CDC details -->
+                    <rect class="mm-box-green" x="40" y="420" width="160" height="44" />
+                    <text class="mm-node" x="120" y="438" text-anchor="middle">Prazo: até 60 meses</text>
+                    <text class="mm-node" x="120" y="456" text-anchor="middle">Sem avalista!</text>
+
+                    <!-- Câmbio details -->
+                    <rect class="mm-box-orange" x="40" y="480" width="160" height="44" />
+                    <text class="mm-node" x="120" y="498" text-anchor="middle">Valorização ↓ Exportações</text>
+                    <text class="mm-node" x="120" y="516" text-anchor="middle">Desvalorização ↑ Exportações</text>
+
+                    <!-- Política Monetária details -->
+                    <rect class="mm-box-blue" x="610" y="300" width="160" height="44" />
+                    <text class="mm-node" x="690" y="318" text-anchor="middle">Open Market: títulos públicos</text>
+                    <text class="mm-node" x="690" y="336" text-anchor="middle">QE: títulos públicos + privados</text>
+
+                    <!-- Pix details -->
+                    <rect class="mm-box-teal" x="610" y="360" width="160" height="44" />
+                    <text class="mm-node" x="690" y="378" text-anchor="middle">Criado pelo BCB</text>
+                    <text class="mm-node" x="690" y="396" text-anchor="middle">Instantâneo e gratuito</text>
+
+                    <!-- Alienação details -->
+                    <rect class="mm-box-gold" x="610" y="420" width="160" height="44" />
+                    <text class="mm-node" x="690" y="438" text-anchor="middle">Garantia real</text>
+                    <text class="mm-node" x="690" y="456" text-anchor="middle">Posse com o devedor</text>
+
+                    <!-- Aval/Fiança details -->
+                    <rect class="mm-box-purple" x="610" y="480" width="160" height="44" />
+                    <text class="mm-node" x="690" y="498" text-anchor="middle">Aval: título de crédito</text>
+                    <text class="mm-node" x="690" y="516" text-anchor="middle">Fiança: contrato</text>
+
+                    <!-- Connecting lines level 2 -->
+                    <path class="mm-line" d="M120,110 L120,290" />
+                    <path class="mm-line" d="M120,160 L120,350" />
+                    <path class="mm-line" d="M120,210 L120,410" />
+                    <path class="mm-line" d="M120,260 L120,470" />
+                    <path class="mm-line" d="M690,110 L690,290" />
+                    <path class="mm-line" d="M690,160 L690,350" />
+                    <path class="mm-line" d="M690,210 L690,410" />
+                    <path class="mm-line" d="M690,260 L690,470" />
+
+                    <!-- Subtle footer -->
+                    <text class="mm-label" x="400" y="600" text-anchor="middle">Mapa mental para revisão rápida</text>
+                </svg>
+            </div>
+
+            <hr class="divider-thick">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 6. QUESTÕES COMENTADAS -->
+        <!-- ============================================================ -->
+
+        <section id="questions">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Questões Comentadas (CESGRANRIO)
+                <span class="chapter-num">Questões</span>
+            </h2>
+
+            <!-- Q1 -->
+            <div class="exercise">
+                <div class="q">Questão 1</div>
+                <p>(CESGRANRIO - Adaptada) A introdução de caixas automáticos nos bancos é um exemplo de:</p>
+                <ul class="options">
+                    <li>a) Estocagem</li>
+                    <li>b) Homogeneidade</li>
+                    <li>c) Coopetição</li>
+                    <li class="correct">d) Coprodução</li>
+                    <li>e) Simultaneidade</li>
+                </ul>
+                <div class="answer">
+                    <strong>Resolução:</strong> A resposta correta é a letra <strong>d) Coprodução</strong>, pois o cliente assume uma tarefa que antes era do funcionário (o saque), tornando-se coautor do serviço.<br><br>
+                    <strong>Por que as outras estão erradas?</strong><br>
+                    a) Estocagem: refere-se a produtos físicos, não a serviços<br>
+                    b) Homogeneidade: uniformidade, não se aplica ao caso<br>
+                    c) Coopetição: relação entre empresas (competição + cooperação)<br>
+                    e) Simultaneidade: produção e consumo simultâneos, mas não é o foco aqui
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="exercise">
+                <div class="q">Questão 2</div>
+                <p>(CESGRANRIO - Adaptada) O Crédito Direto ao Consumidor (CDC) se caracteriza, entre outros aspectos, por:</p>
+                <ul class="options">
+                    <li>a) Exigir avalista obrigatoriamente</li>
+                    <li>b) Exigir fiador com comprovação de renda</li>
+                    <li class="correct">c) Dispensar avalista</li>
+                    <li>d) Exigir garantia hipotecária</li>
+                    <li>e) Ser destinado exclusivamente a empresas</li>
+                </ul>
+                <div class="answer">
+                    <strong>Resolução:</strong> A resposta correta é a letra <strong>c) Dispensar avalista</strong>. Essa é a principal característica do CDC, que o diferencia de outras modalidades de crédito.<br><br>
+                    <strong>Por que as outras estão erradas?</strong><br>
+                    a) e b): Contrariam a regra fundamental do CDC<br>
+                    d): Hipoteca é garantia para imóveis, não para o CDC (que usa alienação fiduciária)<br>
+                    e): O CDC é voltado para consumo, não para empresas
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="exercise">
+                <div class="q">Questão 3</div>
+                <p>(CESGRANRIO - Adaptada) Em relação ao regime de câmbio flutuante adotado no Brasil desde 1999, é correto afirmar que:</p>
+                <ul class="options">
+                    <li>a) O Banco Central fixa a taxa de câmbio diariamente</li>
+                    <li>b) A taxa de câmbio é determinada exclusivamente pelo mercado, sem qualquer intervenção do BC</li>
+                    <li class="correct">c) A taxa de câmbio é determinada pela oferta e demanda, mas o BC pode intervir em momentos de volatilidade excessiva</li>
+                    <li>d) A taxa de câmbio é definida pelo Conselho Monetário Nacional</li>
+                    <li>e) O câmbio flutuante significa que a taxa nunca se altera</li>
+                </ul>
+                <div class="answer">
+                    <strong>Resolução:</strong> A resposta correta é a letra <strong>c)</strong>. O Brasil adota um câmbio flutuante com a possibilidade de intervenção do BC (dirty floating).<br><br>
+                    <strong>Por que as outras estão erradas?</strong><br>
+                    a) e d): O BC e o CMN não fixam a taxa<br>
+                    b): O BC pode intervir, embora não fixe a taxa<br>
+                    e): O câmbio flutuante se altera conforme o mercado
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="exercise">
+                <div class="q">Questão 4</div>
+                <p>(CESGRANRIO - Adaptada) O Quantitative Easing, como política monetária não convencional, caracteriza-se por:</p>
+                <ul class="options">
+                    <li>a) Compra apenas de títulos públicos pelo Banco Central</li>
+                    <li>b) Aumento da taxa básica de juros</li>
+                    <li class="correct">c) Compra de títulos públicos e privados pelo Banco Central</li>
+                    <li>d) Redução do depósito compulsório</li>
+                    <li>e) Venda de títulos públicos para conter a inflação</li>
+                </ul>
+                <div class="answer">
+                    <strong>Resolução:</strong> A resposta correta é a letra <strong>c)</strong>, pois o Quantitative Easing envolve a compra de títulos públicos e privados.<br><br>
+                    <strong>Por que as outras estão erradas?</strong><br>
+                    a): Isso descreve o open market (política convencional)<br>
+                    b): QE ocorre quando as taxas já estão baixas<br>
+                    d): Isso não é característico do QE<br>
+                    e): Isso descreve uma política contracionista, não expansiva
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="exercise">
+                <div class="q">Questão 5</div>
+                <p>(CESGRANRIO - Adaptada) O Pix é:</p>
+                <ul class="options">
+                    <li>a) Uma iniciativa de bancos privados para transferências</li>
+                    <li class="correct">b) Um sistema de pagamento criado pelo Banco Central</li>
+                    <li>c) Um cartão de crédito sem bandeira</li>
+                    <li>d) Uma moeda digital brasileira</li>
+                    <li>e) Um serviço exclusivo para empresas</li>
+                </ul>
+                <div class="answer">
+                    <strong>Resolução:</strong> A resposta correta é a letra <strong>b)</strong>. O Pix foi criado e é gerenciado pelo Banco Central do Brasil.<br><br>
+                    <strong>Por que as outras estão erradas?</strong><br>
+                    a): É uma iniciativa do BC, não dos bancos privados<br>
+                    c): Não é um cartão<br>
+                    d): É um sistema de pagamento, não uma moeda<br>
+                    e): É para pessoas físicas e jurídicas
+                </div>
+            </div>
+
+            <hr class="divider-thick">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 7. SÍNTESE -->
+        <!-- ============================================================ -->
+
+        <section id="synthesis">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Síntese para Revisão Rápida
+                <span class="chapter-num">Revisão</span>
+            </h2>
+
+            <div class="synthesis-grid">
+                <div class="synthesis-item">
+                    <span class="term">Coprodução</span>
+                    <span class="def">Cliente participa ativamente do serviço</span>
+                    <span class="macete">"Cliente faz parte"</span>
+                </div>
+                <div class="synthesis-item">
+                    <span class="term">Alienação Fiduciária</span>
+                    <span class="def">Garantia real com posse do devedor</span>
+                    <span class="macete">"Carro no nome do banco, mas você dirige"</span>
+                </div>
+                <div class="synthesis-item">
+                    <span class="term">CDC</span>
+                    <span class="def">Crédito para consumo, dispensa avalista</span>
+                    <span class="macete">"Sem fiador"</span>
+                </div>
+                <div class="synthesis-item">
+                    <span class="term">Câmbio Flutuante</span>
+                    <span class="def">Taxa definida por oferta e demanda</span>
+                    <span class="macete">"Mercado decide"</span>
+                </div>
+                <div class="synthesis-item">
+                    <span class="term">Dirty Floating</span>
+                    <span class="def">Câmbio flutuante com intervenção do BC</span>
+                    <span class="macete">"BC pode intervir"</span>
+                </div>
+                <div class="synthesis-item">
+                    <span class="term">Open Market</span>
+                    <span class="def">Compra/venda de títulos públicos</span>
+                    <span class="macete">"Só títulos do governo"</span>
+                </div>
+                <div class="synthesis-item">
+                    <span class="term">Quantitative Easing</span>
+                    <span class="def">Compra de títulos públicos e privados</span>
+                    <span class="macete">"Títulos do governo e privados"</span>
+                </div>
+                <div class="synthesis-item">
+                    <span class="term">Pix</span>
+                    <span class="def">Pagamento instantâneo criado pelo BC</span>
+                    <span class="macete">"BC, 24/7, grátis"</span>
+                </div>
+            </div>
+
+            <hr class="divider-thick">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 8. EXERCÍCIOS DE FIXAÇÃO -->
+        <!-- ============================================================ -->
+
+        <section id="exercises">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Exercícios de Fixação
+                <span class="chapter-num">Fixação</span>
+            </h2>
+
+            <div class="card card-blue">
+                <div class="card-title">Verdadeiro ou Falso?</div>
+                <ol>
+                    <li>( ) A coprodução é a participação do cliente na produção do serviço.</li>
+                    <li>( ) O CDC exige avalista obrigatoriamente.</li>
+                    <li>( ) No câmbio flutuante, o Banco Central fixa a taxa de câmbio.</li>
+                    <li>( ) O Quantitative Easing envolve a compra de títulos privados.</li>
+                    <li>( ) O Pix é uma iniciativa dos bancos comerciais.</li>
+                </ol>
+                <p style="margin-top:12px;"><strong>Respostas:</strong></p>
+                <ol>
+                    <li><span class="marker marker-green">V</span></li>
+                    <li><span class="marker marker-rose">F</span> (dispensa avalista)</li>
+                    <li><span class="marker marker-rose">F</span> (a taxa é definida pelo mercado)</li>
+                    <li><span class="marker marker-green">V</span></li>
+                    <li><span class="marker marker-rose">F</span> (é do Banco Central)</li>
+                </ol>
+            </div>
+
+            <div class="card card-purple">
+                <div class="card-title">Associação</div>
+                <p>Relacione as garantias com suas características:</p>
+                <ol>
+                    <li>Alienação Fiduciária</li>
+                    <li>Aval</li>
+                    <li>Fiança</li>
+                    <li>Hipoteca</li>
+                    <li>Penhor</li>
+                </ol>
+                <p style="margin-top:8px;">( ) Garantia pessoal em título de crédito<br>
+                    ( ) Garantia real sobre imóvel<br>
+                    ( ) Garantia real sobre bem móvel com posse do devedor<br>
+                    ( ) Garantia pessoal em contrato<br>
+                    ( ) Garantia real sobre bem móvel sem posse do devedor</p>
+                <p style="margin-top:12px;"><strong>Respostas:</strong></p>
+                <ol>
+                    <li>(2) Aval</li>
+                    <li>(4) Hipoteca</li>
+                    <li>(1) Alienação Fiduciária</li>
+                    <li>(3) Fiança</li>
+                    <li>(5) Penhor</li>
+                </ol>
+            </div>
+
+            <hr class="divider-thick">
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- 9. NOTAS FINAIS -->
+        <!-- ============================================================ -->
+
+        <section id="final-notes">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Notas Finais para o Estudante
+                <span class="chapter-num">Final</span>
+            </h2>
+
+            <div class="card card-gold">
+                <div class="card-title">1. Conceitos centrais</div>
+                <p>Coprodução, garantias, câmbio flutuante, políticas monetárias e Pix são os temas mais recorrentes em provas da Cesgranrio.</p>
+            </div>
+
+            <div class="card card-rose">
+                <div class="card-title">2. Pegadinhas clássicas</div>
+                <ul>
+                    <li><span class="marker marker-gold">CDC não exige avalista</span></li>
+                    <li><span class="marker marker-blue">Pix é iniciativa do BC, não dos bancos</span></li>
+                    <li><span class="marker marker-orange">Câmbio flutuante não é fixado pelo BC</span></li>
+                    <li><span class="marker marker-teal">Quantitative Easing envolve títulos privados</span></li>
+                </ul>
+            </div>
+
+            <div class="card card-green">
+                <div class="card-title">3. Estudo de caso</div>
+                <p>Sempre associe cada conceito a situações práticas do dia a dia bancário:</p>
+                <ul>
+                    <li><span class="marker marker-blue">Coprodução:</span> cliente usando o app, ATM, ou internet banking</li>
+                    <li><span class="marker marker-gold">Garantias:</span> como um banco protege seus empréstimos</li>
+                    <li><span class="marker marker-orange">Câmbio:</span> como as flutuações afetam exportações e importações</li>
+                    <li><span class="marker marker-teal">Pix:</span> como as transações instantâneas transformam o dia a dia</li>
+                </ul>
+            </div>
+
+            <div class="box box-tip">
+                <div class="box-label">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    Dica final
+                </div>
+                <p>A Cesgranrio costuma cobrar a <strong>aplicação prática</strong> dos conceitos, não apenas a definição. Treine com situações hipotéticas!</p>
+            </div>
+
+            <hr class="divider">
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <div class="footer-divider"></div>
+            <p><strong>Material preparado para concursos da área bancária.</strong></p>
+            <p>Foco: Técnico Bancário (Escriturário, Agente Comercial e afins).</p>
+            <p style="margin-top:6px; font-size:0.8rem; color:var(--text-muted);">Última atualização: conforme normas do BCB e CMN vigentes.</p>
+        </footer>
+
+    </div>
+    <!-- /container -->
+
+</body>
+</html>
