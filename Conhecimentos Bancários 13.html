@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila de Conhecimentos Bancários Avançados</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f1a1f;
+            color: #d4e2e8;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 960px;
+            width: 100%;
+            background: #16252c;
+            border-radius: 2rem;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            transition: padding 0.2s;
+        }
+
+        /* ===== TIPOGRAFIA ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #f0f7fa;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            margin-top: 1.6em;
+            margin-bottom: 0.5em;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            margin-top: 0.2em;
+            margin-bottom: 0.3em;
+            color: #ffd78a;
+            letter-spacing: -0.01em;
+            border-left: 6px solid #f9b84a;
+            padding-left: 1.2rem;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            color: #b5d9e8;
+            border-bottom: 2px solid #2f4a55;
+            padding-bottom: 0.3rem;
+            margin-top: 1.8em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #9fc9db;
+            margin-top: 1.4em;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            color: #b0d0dd;
+            margin-top: 1.2em;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d0e0e6;
+        }
+
+        a {
+            color: #f9b84a;
+            text-decoration: none;
+            border-bottom: 1px dotted #f9b84a55;
+        }
+        a:hover {
+            color: #ffd78a;
+            border-bottom-color: #f9b84a;
+        }
+
+        strong {
+            color: #ffe8b0;
+            font-weight: 600;
+        }
+
+        /* ===== CORES DE DESTAQUE (sem branco puro) ===== */
+        .highlight {
+            background: #1d3a44;
+            color: #f5e6c8;
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            border-left: 3px solid #f9b84a;
+        }
+
+        .highlight-yellow {
+            background: #2f3d2a;
+            color: #f5e6b0;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .highlight-blue {
+            background: #1a3540;
+            color: #b8dcec;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        /* ===== SUMÁRIO ===== */
+        .toc {
+            background: #1d2e36;
+            border-radius: 1.5rem;
+            padding: 1.8rem 2.2rem;
+            margin: 1.8rem 0 2.5rem 0;
+            border: 1px solid #2f4a55;
+        }
+
+        .toc-title {
+            font-size: 1.4rem;
+            color: #ffd78a;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            letter-spacing: 0.03em;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .toc-title svg {
+            width: 28px;
+            height: 28px;
+            fill: #f9b84a;
+            flex-shrink: 0;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 1.5rem;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+            padding: 0.25rem 0;
+            border-bottom: 1px solid #1d2e36;
+            color: #c0d8e0;
+            font-size: 0.95rem;
+        }
+
+        .toc-item .num {
+            color: #f9b84a;
+            font-weight: 600;
+            min-width: 1.6rem;
+        }
+
+        .toc-item a {
+            color: #c0d8e0;
+            border-bottom: none;
+            transition: color 0.15s;
+        }
+        .toc-item a:hover {
+            color: #ffd78a;
+        }
+
+        @media (max-width: 640px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 1.5rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+                padding-left: 0.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* ===== BLOCOS E CARDS ===== */
+        .card {
+            background: #1b2d35;
+            border-radius: 1.2rem;
+            padding: 1.5rem 1.8rem;
+            margin: 1.6rem 0;
+            border-left: 5px solid #f9b84a;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-blue {
+            border-left-color: #5b9abd;
+            background: #1a2d38;
+        }
+
+        .card-green {
+            border-left-color: #7cb48c;
+            background: #192e2e;
+        }
+
+        .card-purple {
+            border-left-color: #b08ac9;
+            background: #1f2838;
+        }
+
+        .card-title {
+            font-weight: 600;
+            color: #f0f7fa;
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-title svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== BOX DE DICA ===== */
+        .tip-box {
+            background: #1a2f2c;
+            border-radius: 1rem;
+            padding: 1.2rem 1.6rem;
+            margin: 1.4rem 0;
+            border: 1px solid #3b5a4e;
+            border-left: 6px solid #7cb48c;
+        }
+
+        .tip-box .label {
+            font-weight: 600;
+            color: #b5e0b5;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .tip-box .label svg {
+            width: 20px;
+            height: 20px;
+            fill: #7cb48c;
+            flex-shrink: 0;
+        }
+
+        /* ===== OBSERVAÇÃO ===== */
+        .obs-box {
+            background: #1f2d38;
+            border-radius: 1rem;
+            padding: 1.2rem 1.6rem;
+            margin: 1.4rem 0;
+            border-left: 6px solid #5b9abd;
+            border: 1px solid #2f4a5a;
+        }
+
+        .obs-box .label {
+            font-weight: 600;
+            color: #a8d0e8;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .obs-box .label svg {
+            width: 20px;
+            height: 20px;
+            fill: #5b9abd;
+            flex-shrink: 0;
+        }
+
+        /* ===== CITAÇÃO ===== */
+        blockquote {
+            background: #1a2630;
+            border-radius: 1rem;
+            padding: 1.2rem 2rem;
+            margin: 1.6rem 0;
+            border-left: 8px solid #f9b84a;
+            font-style: italic;
+            color: #d4e2e8;
+            quotes: "“" "”" "‘" "’";
+            position: relative;
+        }
+        blockquote::before {
+            content: "“";
+            font-size: 3rem;
+            line-height: 0.8;
+            color: #f9b84a55;
+            position: absolute;
+            left: 0.5rem;
+            top: 0.1rem;
+        }
+        blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== TABELAS MODERNAS ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.8rem 0;
+            border-radius: 1rem;
+            background: #1a2a32;
+            border: 1px solid #2f4a55;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 480px;
+        }
+
+        th {
+            background: #1f3640;
+            color: #f0f7fa;
+            font-weight: 600;
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 2px solid #3a5a68;
+        }
+
+        td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #263d47;
+            color: #d0e0e6;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-highlight {
+            background: #1e3540;
+        }
+
+        /* ===== LINHA DIVISÓRIA ===== */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, #2f4a55, #f9b84a55, #2f4a55);
+            margin: 2.5rem 0;
+            border: none;
+            border-radius: 2px;
+        }
+
+        /* ===== LISTAS ===== */
+        ul,
+        ol {
+            margin: 0.8rem 0 1.2rem 1.8rem;
+            color: #d0e0e6;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        ul li::marker {
+            color: #f9b84a;
+        }
+
+        .list-check {
+            list-style: none;
+            margin-left: 0;
+        }
+        .list-check li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+        .list-check li::before {
+            content: "✓";
+            color: #7cb48c;
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .list-bullet {
+            list-style: none;
+            margin-left: 0;
+        }
+        .list-bullet li {
+            padding-left: 1.6rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+        .list-bullet li::before {
+            content: "◆";
+            color: #f9b84a;
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+            top: 0.05rem;
+        }
+
+        /* ===== SVG / DIAGRAMA ===== */
+        .diagram-container {
+            background: #122229;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1rem;
+            margin: 2rem 0;
+            border: 1px solid #2f4a55;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.8rem 1.2rem;
+                border-radius: 1.2rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+            .card {
+                padding: 1.2rem 1.2rem;
+            }
+            blockquote {
+                padding: 1rem 1.2rem 1rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.8rem 0.5rem;
+            }
+            .container {
+                padding: 1rem 0.8rem;
+                border-radius: 1rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+                padding-left: 0.5rem;
+                border-left-width: 4px;
+            }
+            .toc {
+                padding: 1rem 1rem;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr;
+                gap: 0.1rem;
+            }
+        }
+
+        /* ===== SCROLL SUAVE ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== MNEMÔNICO / MACETE ===== */
+        .mnemonic {
+            background: #1f2e2a;
+            border-radius: 1rem;
+            padding: 0.8rem 1.4rem;
+            border: 1px dashed #7cb48c;
+            color: #d4ece0;
+            font-weight: 500;
+            margin: 0.8rem 0;
+        }
+        .mnemonic strong {
+            color: #f9b84a;
+        }
+
+        /* ===== LEGIBILIDADE EXTRA ===== */
+        .small-note {
+            font-size: 0.9rem;
+            color: #a8c0c8;
+        }
+
+        /* ===== IMAGEM / SVG DE FUNDO ===== */
+        .decor-line {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 0.5rem 0 1.2rem 0;
+        }
+        .decor-line span {
+            flex: 1;
+            height: 1px;
+            background: #2f4a55;
+        }
+        .decor-line .dot {
+            width: 8px;
+            height: 8px;
+            background: #f9b84a;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ============================================================ -->
+        <!-- TÍTULO PRINCIPAL -->
+        <!-- ============================================================ -->
+        <h1>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="#f9b84a" style="display:inline-block;vertical-align:middle;margin-right:0.3rem;">
+                <path d="M12 2L2 7v10l10 5 10-5V7l-10-5zm0 2.18l7 3.5-7 3.5-7-3.5 7-3.5zM4 9.32l7 3.5v6.86l-7-3.5V9.32zm10 3.5l7-3.5v6.86l-7 3.5V12.82z"/>
+            </svg>
+            Apostila de Conhecimentos Bancários Avançados
+        </h1>
+        <p style="font-size:1.15rem;color:#b8d0d8;margin-top:-0.2rem;">
+            Produtos, Serviços e Regulação no Sistema Financeiro Nacional
+        </p>
+        <p style="font-size:0.95rem;color:#8aaab8;margin-top:0.1rem;">
+            Volume Único – Preparação para Concursos de Escriturário e Agente Comercial (Cesgranrio, FCC, FGV, Cebraspe e afins)
+        </p>
+
+        <div class="divider"></div>
+
+        <!-- ============================================================ -->
+        <!-- SUMÁRIO -->
+        <!-- ============================================================ -->
+        <div class="toc" id="sumario">
+            <div class="toc-title">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="#f9b84a">
+                    <path d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h10v2H4v-2z"/>
+                </svg>
+                Sumário
+            </div>
+            <div class="toc-grid">
+                <div class="toc-item"><span class="num">1.</span><a href="#cap1">O Mercado de Seguros no Brasil</a></div>
+                <div class="toc-item"><span class="num">1.1</span><a href="#cap1-1">Estrutura Regulatória: CNSP</a></div>
+                <div class="toc-item"><span class="num">1.2</span><a href="#cap1-2">Conceitos: Risco, Objeto, Apólice</a></div>
+                <div class="toc-item"><span class="num">1.3</span><a href="#cap1-3">Coberturas e Exclusões</a></div>
+                <div class="toc-item"><span class="num">1.4</span><a href="#cap1-4">Aplicação Prática e Armadilhas</a></div>
+                <div class="toc-item"><span class="num">2.</span><a href="#cap2">Inovações Financeiras e Sistema de Pagamentos</a></div>
+                <div class="toc-item"><span class="num">2.1</span><a href="#cap2-1">PIX: Características e Funcionamento</a></div>
+                <div class="toc-item"><span class="num">2.2</span><a href="#cap2-2">Tarifação no PIX</a></div>
+                <div class="toc-item"><span class="num">2.3</span><a href="#cap2-3">IPs, SCDs e SEPs</a></div>
+                <div class="toc-item"><span class="num">2.4</span><a href="#cap2-4">Open Finance</a></div>
+                <div class="toc-item"><span class="num">3.</span><a href="#cap3">Conduta Ética, Compliance e Obrigações</a></div>
+                <div class="toc-item"><span class="num">3.1</span><a href="#cap3-1">Guia de Conduta Ética do Banestes</a></div>
+                <div class="toc-item"><span class="num">3.2</span><a href="#cap3-2">Resolução CMN nº 4.949/2021</a></div>
+                <div class="toc-item"><span class="num">3.3</span><a href="#cap3-3">FATCA e Troca Internacional</a></div>
+                <div class="toc-item"><span class="num">3.4</span><a href="#cap3-4">Dicas de Prova e Normativos</a></div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 1 -->
+        <!-- ============================================================ -->
+        <h2 id="cap1">Capítulo 1 – O Mercado de Seguros no Brasil</h2>
+
+        <h3 id="cap1-1">1.1. Estrutura Regulatória: O Conselho Nacional de Seguros Privados (CNSP)</h3>
+
+        <p>O Sistema Nacional de Seguros Privados é estruturado a partir de um órgão normativo máximo, o <strong>Conselho Nacional de Seguros Privados (CNSP)</strong>. Vinculado ao Ministério da Fazenda (atualmente integrado ao Ministério da Economia, mas as provas costumam manter a referência ao Ministério da Fazenda como entidade supervisora original), o CNSP desempenha uma função central e estratégica: <strong>fixar as diretrizes e normas da política de seguros privados no Brasil</strong>. Esta competência abrange não apenas os seguros propriamente ditos, mas também a <strong>previdência privada aberta, a capitalização e o resseguro</strong>. O CNSP é, portanto, o formulador das regras gerais, o arquiteto da política de seguros, enquanto a execução e fiscalização cotidianas cabem à Superintendência de Seguros Privados (SUSEP), sua entidade supervisora.</p>
+
+        <div class="card card-blue">
+            <div class="card-title">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#5b9abd"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Atenção Cesgranrio
+            </div>
+            <p>Por que esta distinção é tão importante para quem vai prestar concurso? Porque as bancas, especialmente a Cesgranrio, exploram a separação entre a <strong>função normativa (CNSP)</strong> e a <strong>função executiva/fiscalizadora (SUSEP)</strong>. É extremamente comum a elaboração de alternativas que atribuem ao CNSP a fiscalização direta das sociedades seguradoras ou, inversamente, à SUSEP a competência para editar normas gerais do setor. Ambas as alternativas são incorretas. O CNSP estabelece as diretrizes, e a SUSEP as implementa e fiscaliza o seu cumprimento. Guarde isso como um mantra.</p>
+        </div>
+
+        <p>No dia a dia da agência bancária, ao oferecer um seguro residencial, de vida ou automóvel, o escriturário não precisa recitar as competências do CNSP ao cliente. No entanto, a conformidade (compliance) das ofertas, a transparência das informações e o próprio desenho dos produtos que estão na prateleira do banco seguem, obrigatoriamente, as diretrizes fixadas pelo CNSP. Compreender essa hierarquia regulatória permite ao profissional do banco saber exatamente a quais regras ele e os produtos que comercializa estão submetidos, diferenciando obrigações de mera liberalidade contratual.</p>
+
+        <div class="divider"></div>
+
+        <h3 id="cap1-2">1.2. Conceitos Fundamentais: Risco, Objeto do Seguro e Apólice</h3>
+
+        <p>Antes de avançar para as coberturas e exclusões, é necessário dominar três conceitos que formam a base teórica de qualquer contrato de seguro: <strong>risco, objeto do seguro e apólice</strong>.</p>
+
+        <h4>Risco</h4>
+        <p>No contexto securitário, risco é a <strong>possibilidade de ocorrência de um evento futuro e incerto capaz de causar diminuição patrimonial</strong>. Repare nos três elementos: <em>futuro</em> (ainda não aconteceu e não se sabe se acontecerá), <em>incerto</em> (não há certeza da ocorrência) e <em>diminuição patrimonial</em> (gera uma perda mensurável para o segurado). A seguradora aceita assumir esse risco mediante o pagamento do prêmio pelo segurado, operando um mecanismo de mutualismo, no qual os recursos de muitos segurados compõem um fundo para indenizar aqueles que efetivamente sofrerem o sinistro. A Cesgranrio adora perguntar se o seguro cobre eventos certos e previsíveis. Não cobre. Se o evento é certo ou já ocorreu, não há risco, e, portanto, não há seguro. Exemplo: segurar um imóvel já inundado é inviável tecnicamente e ilegal contratualmente.</p>
+
+        <h4>Objeto do Seguro</h4>
+        <p>Enquanto o risco é o evento temido, o objeto do seguro é a <strong>designação genérica de qualquer interesse segurado</strong>. Em outras palavras, é aquilo que está sendo protegido: pode ser um bem (imóvel, automóvel, mercadoria), uma pessoa (vida, integridade física, saúde), ou uma responsabilidade civil (obrigação de indenizar terceiros por danos causados). A correta identificação do objeto do seguro é essencial na contratação, pois define o escopo da cobertura. Um seguro de automóvel tem por objeto o veículo descrito na apólice; um seguro de responsabilidade civil profissional tem por objeto a obrigação de indenizar clientes por danos decorrentes de erros no exercício da profissão. Na prova, a banca pode descrever uma situação e perguntar qual é o objeto do seguro naquele caso; a resposta deve identificar o interesse segurado, e não o risco.</p>
+
+        <h4>Apólice</h4>
+        <p>A apólice é o documento que <strong>formaliza o contrato de seguro</strong>. Ela é constituída de elementos essenciais: a <strong>capa ou frontispício</strong>, que contém um resumo das principais informações, e as <strong>condições contratuais detalhadas</strong> (clausulado). A apólice registra, obrigatoriamente, informações como: identificação do segurado e da seguradora, ramo do seguro, descrição do objeto segurado, vigência (período de cobertura), prêmio (valor pago pelo segurado) e importâncias seguradas (limite máximo de indenização para cada cobertura). É fundamental para o escriturário entender que a apólice é o documento que confere direitos ao segurado. Muitas vezes, na prática bancária, o cliente recebe apenas um resumo ou certificado; cabe ao profissional saber que a apólice completa está disponível e que suas cláusulas prevalecem.</p>
+
+        <!-- Tabela 1 -->
+        <div class="table-wrap">
+            <table>
+                <caption style="caption-side:bottom;padding-top:0.6rem;color:#8aaab8;font-size:0.9rem;">Quadro 1 – Resumo: Risco x Objeto do Seguro x Apólice</caption>
+                <thead>
+                    <tr><th>Conceito</th><th>Definição</th><th>Exemplo Prático</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Risco</strong></td><td>Evento futuro e incerto que causa diminuição patrimonial.</td><td>Colisão de veículo, incêndio em imóvel, morte acidental.</td></tr>
+                    <tr><td><strong>Objeto do seguro</strong></td><td>Bem, pessoa ou responsabilidade segurada.</td><td>O veículo segurado; a vida do segurado; a responsabilidade civil de um médico.</td></tr>
+                    <tr><td><strong>Apólice</strong></td><td>Documento que formaliza o contrato, com capa/frontispício e clausulado.</td><td>Contém dados do segurado, ramo, vigência, prêmio e importância segurada.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 id="cap1-3">1.3. Coberturas e Exclusões: Furto, Roubo e Atos Dolosos do Segurado</h3>
+
+        <p>Um dos pontos mais cobrados em provas sobre seguros é a correta distinção entre <strong>furto</strong> e <strong>roubo</strong> e suas implicações para a cobertura securitária, bem como a exclusão expressa de cobertura para <strong>atos dolosos do segurado</strong>.</p>
+
+        <h4>Furto e Roubo: uma distinção penal com reflexos contratuais</h4>
+        <p>O Código Penal brasileiro define:</p>
+        <ul>
+            <li><strong>Furto</strong>: subtração de coisa alheia móvel <strong>sem violência ou grave ameaça</strong> à pessoa.</li>
+            <li><strong>Roubo</strong>: subtração de coisa alheia móvel <strong>mediante violência ou grave ameaça</strong> à pessoa.</li>
+        </ul>
+        <p>Essas definições são transportadas para os contratos de seguro. No seguro de automóvel, por exemplo, é comum que as coberturas de furto e roubo sejam contratadas separadamente ou em conjunto, mas a seguradora pode estipular prêmios diferentes, justamente pela diferença de gravidade e de frequência dos eventos. O roubo, por envolver violência ou ameaça, é considerado um risco mais gravoso, e portanto as coberturas costumam ser mais caras. A Cesgranrio gosta de afirmar que “furto e roubo são igualmente graves”. Essa afirmação é <strong>falsa</strong>. O roubo é mais grave, e tal distinção é relevante para a precificação e a análise de sinistros.</p>
+
+        <div class="mnemonic">
+            <strong>🧠 Macete:</strong> <em>“Roubo tem R de Raiva (violência), Furto é F de Furtivo (sem ninguém ver)”.</em> Outro erro é achar que o seguro cobre apenas roubo e não furto simples, ou vice-versa. Na verdade, é a apólice que definirá quais modalidades estão cobertas, sendo comum a oferta de planos “contra roubo e furto” ou apenas “contra roubo”.
+        </div>
+
+        <h4>Atos dolosos do segurado: a exclusão máxima</h4>
+        <p>Uma regra básica e inafastável no direito securitário é que <strong>não há cobertura para atos dolosos do segurado</strong>. O dolo, no direito, é a vontade livre e consciente de praticar um ato e obter o resultado. Se o segurado provoca intencionalmente o sinistro (ex.: ateia fogo no próprio veículo para receber o valor da indenização) ou agrava deliberadamente o risco (ex.: dirige em alta velocidade em local proibido, assumindo o risco do acidente para fins de indenização), a seguradora não pagará a indenização. Esta exclusão decorre do princípio da boa-fé contratual e do próprio conceito de risco: o seguro cobre eventos <strong>não intencionais</strong>, aqueles que fogem ao controle do segurado. A Cesgranrio costuma apresentar uma situação hipotética e perguntar se há cobertura. A “pegadinha” está em incluir expressões como “propositalmente”, “deliberadamente” ou “intencionalmente” na conduta do segurado.</p>
+
+        <div class="card card-green">
+            <div class="card-title">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#7cb48c"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Coberturas que <strong>não</strong> são excluídas
+            </div>
+            <ul class="list-check">
+                <li>Colisões causadas pelo segurado, desde que sem dolo;</li>
+                <li>Roubo e furto qualificado;</li>
+                <li>Danos a terceiros (responsabilidade civil), desde que sem dolo;</li>
+                <li>Incêndio em imóveis alugados (cobertura de incêndio, em regra, não exclui culpa do inquilino, apenas dolo).</li>
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 id="cap1-4">1.4. Aplicação Prática na Rotina Bancária e Armadilhas de Prova</h3>
+
+        <p>Imagine a seguinte situação na agência: o cliente José, escriturário do Banestes, recebe um correntista que deseja contratar um seguro residencial. Durante o atendimento, o cliente pergunta: “Se alguém arrombar minha porta e levar a TV, isso é furto ou roubo? Está coberto?” José deve explicar que, se o arrombamento ocorreu sem que houvesse violência contra a pessoa (ninguém foi agredido), trata-se de furto qualificado (com rompimento de obstáculo). Se o cliente estava em casa e foi rendido pelo ladrão, trata-se de roubo. Ele deve verificar na apólice se ambas as modalidades estão cobertas. Em seguida, o cliente questiona: “E se eu mesmo quebrar a TV de propósito pra receber o dinheiro?” José, com toda a tranquilidade, explica que ato intencional (doloso) não tem cobertura. Essa é uma situação de venda consultiva em que o conhecimento técnico fideliza o cliente e evita problemas futuros.</p>
+
+        <div class="card card-purple">
+            <div class="card-title">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#b08ac9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Estudo de Caso – Prova Cesgranrio
+            </div>
+            <p><strong>“Cláudia contratou seguro de automóvel com cobertura para roubo. Certa noite, ao parar no semáforo, foi abordada por um indivíduo que, mediante grave ameaça com arma de fogo, subtraiu o veículo. Ela acionou a seguradora, que se recusou a pagar, alegando que o evento se tratava de furto com ameaça, não roubo, e que a apólice não cobria furto. Assiste razão à seguradora?”</strong></p>
+            <p><strong>Resposta:</strong> Não. A situação descrita é claramente roubo, pois houve grave ameaça à pessoa. A seguradora deve indenizar. A banca Cesgranrio adora esse tipo de caso para confundir os conceitos.</p>
+        </div>
+
+        <div class="tip-box">
+            <div class="label">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#7cb48c"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Dicas de Prova – Cesgranrio
+            </div>
+            <ol>
+                <li><strong>CNSP x SUSEP</strong>: O CNSP fixa as diretrizes; a SUSEP fiscaliza. Não inverta.</li>
+                <li><strong>Furto x Roubo</strong>: furto = sem violência/ameaça; roubo = com violência/ameaça. Roubo é mais grave. Fique atento a alternativas que igualam a gravidade.</li>
+                <li><strong>Atos dolosos do segurado</strong>: não têm cobertura. Atos culposos (negligência, imprudência) têm cobertura.</li>
+                <li><strong>Apólice</strong>: documento que formaliza o contrato. Contém capa, segurado, ramo, objeto, vigência, prêmio e importância segurada. Cuidado com alternativas que omitem um desses elementos essenciais.</li>
+                <li><strong>Objeto do seguro x risco</strong>: se a questão descrever “evento que causa perda”, é risco; se descrever “bem protegido”, é objeto.</li>
+            </ol>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 2 -->
+        <!-- ============================================================ -->
+        <h2 id="cap2">Capítulo 2 – Inovações Financeiras e o Sistema de Pagamentos</h2>
+
+        <p>O Banco Central do Brasil, no exercício de sua competência legal de regular e supervisionar o Sistema Financeiro Nacional e o Sistema de Pagamentos Brasileiro, tem promovido profundas transformações no cotidiano bancário. O PIX, as instituições de pagamento, as fintechs de crédito e o Open Finance são realidades que já fazem parte da rotina do escriturário. Compreendê-los em profundidade é indispensável não apenas para a prova, mas para o atendimento de qualidade.</p>
+
+        <h3 id="cap2-1">2.1. O PIX: Características, Funcionamento e Aspectos Comerciais</h3>
+
+        <p>O PIX é um <strong>pagamento instantâneo criado pelo Banco Central do Brasil</strong>, cujo objetivo é transferir recursos entre contas transacionais em poucos segundos, de forma ininterrupta. Sua principal inovação é a disponibilidade <strong>24 horas por dia, 7 dias por semana, inclusive em feriados</strong>. Diferencia-se radicalmente das Transferências Eletrônicas Disponíveis (TED) e Documentos de Ordem de Crédito (DOC), que operam apenas em dias úteis e possuem horários limitados.</p>
+
+        <h4>Características fundamentais</h4>
+        <ul class="list-bullet">
+            <li><strong>Instantaneidade</strong>: a liquidação ocorre em tempo real, com os recursos disponíveis ao recebedor em até 10 segundos, em média.</li>
+            <li><strong>Disponibilidade contínua</strong>: 24 horas, todos os dias do ano.</li>
+            <li><strong>Gratuidade para pessoas físicas</strong> (regra geral para transferências e pagamentos, salvo exceções legais de tarifação), conforme diretriz do Banco Central.</li>
+            <li><strong>Não obrigatoriedade de chave PIX</strong>: Ao contrário do que muitos pensam, <strong>não é indispensável cadastrar uma chave PIX para enviar ou receber recursos</strong>. É possível realizar um PIX informando os dados da conta transacional do recebedor (banco, agência, conta). A chave PIX é apenas um facilitador, um apelido que substitui esses dados, tornando o processo mais ágil e seguro. A Cesgranrio frequentemente explora essa falsa obrigatoriedade como “pegadinha”. O aluno deve memorizar: <strong>“A chave PIX é opcional; o PIX pode ser feito com dados da conta.”</strong></li>
+        </ul>
+
+        <p>Do ponto de vista comercial, o escriturário deve saber orientar o cliente empresarial sobre as vantagens do PIX para seu negócio: redução de custos em relação a outras modalidades de recebimento (como cartões de crédito e boletos), liquidação instantânea que melhora o fluxo de caixa, e segurança, já que as transações são autenticadas e irrevogáveis. Além disso, pode auxiliar no cadastramento de chaves PIX (CPF, e-mail, número de celular ou chave aleatória), explicando que cada chave é única e vinculada a uma única conta, mas o cliente pode ter múltiplas chaves de tipos diferentes para a mesma conta.</p>
+
+        <div class="divider"></div>
+
+        <h3 id="cap2-2">2.2. Tarifação no PIX: Regras para Pessoas Físicas e Jurídicas</h3>
+
+        <p>A política de tarifas do PIX é um tema minado de detalhes para a prova. A regra geral, estabelecida pelo Banco Central, é que <strong>pessoas físicas são isentas de tarifas para envio e recebimento de PIX</strong>, quando realizam transações de cunho pessoal. No entanto, se a pessoa física utiliza o PIX para fins comerciais (ex.: vendedor ambulante), a instituição financeira pode enquadrar a conta como de pessoa jurídica e cobrar tarifas. Mas o que cai em prova é a situação das pessoas jurídicas.</p>
+
+        <p>Para <strong>pessoas jurídicas (empresas)</strong>, as instituições financeiras <strong>podem cobrar tarifas tanto no envio quanto no recebimento</strong> de pagamentos ou transferências via PIX. Esta é uma informação que contraria o senso comum de que o recebimento é sempre gratuito. O Banco Central não proíbe a tarifação no recebimento para empresas; apenas exige que a tarifa seja previamente informada e esteja em linha com a regulamentação de tarifas bancárias (Resolução CMN nº 3.919/2010 e normativos posteriores). A Cesgranrio adora afirmar que “empresas não podem ser tarifadas no recebimento de PIX”. Essa afirmação é <strong>falsa</strong>. O correto é: <strong>empresas podem ser tarifadas no envio e no recebimento, desde que haja transparência e prévia informação</strong>.</p>
+
+        <div class="obs-box">
+            <div class="label">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#5b9abd"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Atenção
+            </div>
+            <p><strong>O Banco Central veda a cobrança de tarifas diferenciadas para transações PIX apenas em razão do horário ou do dia da semana.</strong> Ou seja, não pode haver tarifa mais cara para PIX noturno ou de feriado. A cobrança deve ser uniforme, independentemente do momento da transação.</p>
+        </div>
+
+        <p>Na rotina bancária, o escriturário deve estar preparado para esclarecer essas dúvidas, especialmente de microempreendedores individuais (MEI) que muitas vezes confundem sua situação de pessoa física com a jurídica. A correta orientação evita conflitos e fortalece a imagem de consultor financeiro do banco.</p>
+
+        <!-- Tabela 2 -->
+        <div class="table-wrap">
+            <table>
+                <caption style="caption-side:bottom;padding-top:0.6rem;color:#8aaab8;font-size:0.9rem;">Quadro 2 – Tarifação do PIX: Pessoa Física x Pessoa Jurídica</caption>
+                <thead>
+                    <tr><th>Tipo de Cliente</th><th>Envio</th><th>Recebimento</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Pessoa Física (uso pessoal)</td><td>Isento (regra geral)</td><td>Isento (regra geral)</td></tr>
+                    <tr><td>Pessoa Jurídica (empresas)</td><td>Pode ser tarifado</td><td>Pode ser tarifado</td></tr>
+                    <tr><td colspan="3" style="font-size:0.9rem;color:#a8c0c8;">Observações: Tarifa deve ser previamente informada. Não pode variar por horário/dia. O BC não proíbe tarifa no recebimento.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 id="cap2-3">2.3. Instituições de Pagamento (IPs), SCDs e SEPs: Natureza Jurídica, Limites e Atuação</h3>
+
+        <p>O ecossistema de pagamentos e crédito foi ampliado com a criação de figuras jurídicas específicas, regulamentadas pelo Banco Central. O escriturário precisa diferenciar claramente as atividades que cada tipo de instituição pode ou não exercer, pois essa é uma tônica constante da Cesgranrio.</p>
+
+        <h4>Instituições de Pagamento (IPs)</h4>
+        <p>São instituições autorizadas pelo Banco Central a prestar serviços de <strong>gerenciamento de contas de pagamento e de transações de pagamento</strong>. As contas de pagamento são contas eletrônicas utilizadas para movimentar recursos, mas que, diferentemente das contas-correntes e de poupança (contas de depósito), <strong>não permitem a concessão de empréstimos ou financiamentos ao titular da conta</strong>. Essa é a principal limitação: uma IP <strong>pode gerir conta de pagamento, mas não pode conceder empréstimos e financiamentos a seus clientes</strong>. A atividade de crédito é privativa de instituições financeiras. A Cesgranrio testa esse limite regulatório com afirmações do tipo “As IPs podem oferecer crédito aos seus usuários”. A afirmativa é <strong>falsa</strong>. As IPs podem, no máximo, intermediar a contratação de crédito com uma instituição financeira parceira, mas não conceder diretamente.</p>
+
+        <h4>Sociedade de Crédito Direto (SCD)</h4>
+        <p>A SCD é uma instituição financeira que <strong>realiza operações de crédito com recursos próprios</strong>, ou seja, não capta recursos do público. Ela pode prestar serviços de análise de crédito, cobrança e correspondente bancário para terceiros, além de atuar como agente de seguros. Sua principal característica é que utiliza capital próprio para emprestar. Por não captar junto ao público, seu risco sistêmico é menor, o que justifica exigências regulatórias proporcionais.</p>
+
+        <h4>Sociedade de Empréstimo entre Pessoas (SEP)</h4>
+        <p>A SEP, por sua vez, <strong>capta recursos do público exclusivamente para vinculá-los a operações de empréstimo entre pessoas</strong>. Ou seja, ela atua como uma plataforma de intermediação de crédito peer-to-peer (P2P), conectando investidores (credores) a tomadores (devedores). A origem dos recursos são terceiros, e a destinação é exclusivamente a operações de crédito. A SEP não empresta recursos próprios; ela promove o encontro entre as partes.</p>
+
+        <p>Ambas, SCD e SEP, necessitam de autorização do Banco Central para funcionar. A distinção chave para a prova está na <strong>origem dos recursos</strong>:</p>
+        <ul class="list-bullet">
+            <li><strong>SCD</strong>: recursos próprios (capital dos sócios).</li>
+            <li><strong>SEP</strong>: recursos de terceiros (captação do público).</li>
+        </ul>
+
+        <div class="mnemonic">
+            <strong>🧠 Macete:</strong> <em>“SCD – Só Com Dinheiro (próprio); SEP – Só Empréstimo de Pessoas (dinheiro de terceiros).”</em> A Cesgranrio costuma embaralhar essas definições, afirmando que a SEP empresta recursos próprios ou que a SCD capta do público. Ambas são incorretas. A SEP capta, mas não empresta diretamente; ela vincula o recurso captado a operações de crédito. Já a SCD empresta com capital próprio.
+        </div>
+
+        <!-- Tabela 3 -->
+        <div class="table-wrap">
+            <table>
+                <caption style="caption-side:bottom;padding-top:0.6rem;color:#8aaab8;font-size:0.9rem;">Quadro 3 – Comparativo: IP, SCD e SEP</caption>
+                <thead>
+                    <tr><th>Característica</th><th>IP</th><th>SCD</th><th>SEP</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Natureza jurídica</strong></td><td>Instituição de pagamento</td><td>Instituição financeira</td><td>Instituição financeira</td></tr>
+                    <tr><td><strong>Atividade principal</strong></td><td>Gerenciar contas de pagamento e transações</td><td>Conceder crédito com recursos próprios</td><td>Captar recursos do público e vinculá-los a empréstimos</td></tr>
+                    <tr><td><strong>Pode conceder crédito?</strong></td><td>Não (vedado)</td><td>Sim (com capital próprio)</td><td>Indiretamente (vinculando o captado a operações de crédito)</td></tr>
+                    <tr><td><strong>Capta recursos do público?</strong></td><td>Não</td><td>Não</td><td>Sim, exclusivamente para empréstimos</td></tr>
+                    <tr><td><strong>Autorização BCB</strong></td><td>Sim</td><td>Sim</td><td>Sim</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 id="cap2-4">2.4. Open Finance: Autorização do Cliente, Participação Voluntária e Integração</h3>
+
+        <p>O Open Finance (anteriormente Open Banking) é um sistema que permite o <strong>compartilhamento padronizado de dados e serviços financeiros entre instituições autorizadas</strong>, sempre mediante autorização expressa do cliente. Seu objetivo é aumentar a competição, a transparência e a oferta de produtos personalizados.</p>
+
+        <h4>Autorização do cliente: o pilar fundamental</h4>
+        <p>No Open Finance, o compartilhamento de informações <strong>depende da autorização explícita e inequívoca do cliente</strong>, e não da simples concordância da instituição detentora dos dados. O cliente é o dono dos seus dados e decide com quem quer compartilhá-los, por quanto tempo e para quais finalidades. A Cesgranrio frequentemente testa essa premissa com afirmações do tipo: “O compartilhamento depende apenas da instituição financeira titular dos dados”. Tal afirmação é <strong>falsa</strong>. O titular dos dados é o cliente; a instituição é apenas a custodiante.</p>
+
+        <div class="card card-blue">
+            <div class="card-title">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#5b9abd"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Direito do cliente
+            </div>
+            <p>O cliente pode, a qualquer momento, <strong>interromper o compartilhamento</strong>, mesmo antes do prazo originalmente acordado. Essa flexibilidade é um direito fundamental do consumidor no ecossistema do Open Finance e costuma ser explorada em prova: “O cliente pode revogar o consentimento a qualquer momento?” Sim, pode.</p>
+        </div>
+
+        <h4>Participação voluntária</h4>
+        <p>A participação das instituições no Open Finance <strong>é voluntária, não obrigatória</strong>. O Banco Central estabelece os padrões e as regras, mas as instituições decidem se aderem ou não ao ecossistema. No entanto, uma vez que aderem, devem cumprir integralmente as regras de governança e compartilhamento. A movimentação de contas, por outro lado, pode ser feita a partir de aplicativos ou sites de <strong>outras instituições autorizadas</strong>, mesmo que o cliente não esteja acessando diretamente o app do banco onde possui conta. Isso significa que um usuário pode, por exemplo, visualizar o saldo de sua conta no Banco A pelo aplicativo do Banco B, desde que autorizado. Essa integração é a essência do Open Finance e o diferencia do sistema tradicional, em que cada conta era acessada apenas pelo canal da própria instituição.</p>
+
+        <div class="tip-box">
+            <div class="label">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#7cb48c"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Dicas de Prova – Cesgranrio (PIX, IPs, Open Finance)
+            </div>
+            <ol>
+                <li><strong>PIX</strong>: funciona 24/7, inclusive feriados. Chave PIX é opcional. Pessoa física isenta; pessoa jurídica pode ser tarifada no envio e recebimento.</li>
+                <li><strong>IPs</strong>: gerem contas de pagamento, mas não podem conceder empréstimos/financiamentos.</li>
+                <li><strong>SCD</strong>: crédito direto com capital próprio.</li>
+                <li><strong>SEP</strong>: capta do público e vincula a empréstimos (peer-to-peer).</li>
+                <li><strong>Open Finance</strong>: compartilhamento depende de autorização do cliente, que pode interromper a qualquer momento. Participação voluntária das instituições. Movimentação pode ser feita por app de outras instituições.</li>
+            </ol>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 3 -->
+        <!-- ============================================================ -->
+        <h2 id="cap3">Capítulo 3 – Conduta Ética, Compliance e Obrigações Regulatórias Específicas</h2>
+
+        <p>O concurso para o Banestes ou para qualquer outra instituição financeira exige do candidato não apenas conhecimentos técnicos, mas o domínio das normas de conduta ética e dos mecanismos de prevenção a ilícitos financeiros. Esta seção aborda o Guia de Conduta Ética do Banestes (parcialmente válido como exemplo para outras instituições) e duas obrigações regulatórias de extrema importância: a Resolução CMN nº 4.949/2021 e o FATCA.</p>
+
+        <h3 id="cap3-1">3.1. O Guia de Conduta Ética do Banestes e seus Princípios Fundamentais</h3>
+
+        <p>O Guia de Conduta Ética do Banestes materializa os valores e as regras que devem nortear a atuação de todos os seus colaboradores, especialmente aqueles que lidam diretamente com o público. Para fins de prova, destacam-se três vedações e recomendações expressas:</p>
+
+        <ol>
+            <li><strong>É vedado induzir o cliente a erro ou garantir resultados futuros</strong>.
+                <br>Esta regra reflete o princípio da transparência e da boa-fé objetiva, previstos no Código de Defesa do Consumidor. No ambiente bancário, é proibido fazer promessas irreais de rentabilidade em investimentos, omitir riscos de produtos financeiros ou utilizar argumentos enganosos para vender um produto. A Cesgranrio gosta de apresentar situações hipotéticas como: “O escriturário afirmou ao cliente que aquele CDB renderia, com certeza, 2% ao mês, sem mencionar os riscos”. Isso viola o guia de conduta e é passível de sanção.</li>
+            <li><strong>Deve-se evitar a transferência de contas por motivo de mudança de gerente ou movimentação de gerentes</strong>.
+                <br>Na prática bancária, é comum que clientes sigam seus gerentes quando estes mudam de agência. O Guia de Conduta do Banestes recomenda que essa prática seja evitada, pois pode gerar insatisfação do cliente (que é forçado a trocar de agência contra sua vontade) e desequilíbrio na carteira de clientes das agências. O atendimento deve ser centrado no cliente, não no gerente. O escriturário deve orientar o cliente a permanecer na agência de origem, a menos que haja uma razão legítima e espontânea para a transferência.</li>
+            <li><strong>O Banestes deve cumprir a legislação internacional, fornecendo dados de clientes cidadãos americanos ao Fisco dos EUA, conforme o FATCA</strong> (Foreign Account Tax Compliance Act).
+                <br>O FATCA é um acordo internacional que obriga instituições financeiras estrangeiras a reportarem ao governo americano informações sobre contas de cidadãos ou residentes fiscais dos EUA. O Banestes, como participante do sistema financeiro global, está sujeito a essa obrigação. A Cesgranrio pode testar esse conhecimento com uma afirmativa do tipo: “O banco brasileiro não é obrigado a fornecer dados de clientes estrangeiros a governos estrangeiros”. Essa afirmação é <strong>falsa</strong>, justamente em razão de acordos como o FATCA.</li>
+        </ol>
+
+        <div class="card card-green">
+            <div class="card-title">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#7cb48c"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verdades do Guia de Conduta
+            </div>
+            <p>As três afirmativas acima, em conjunto, são <strong>todas verdadeiras</strong>.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <h3 id="cap3-2">3.2. Resolução CMN nº 4.949/2021: Prevenção à Lavagem de Dinheiro e Fases do Relacionamento</h3>
+
+        <p>A Resolução CMN nº 4.949/2021 (que consolidou e atualizou normas anteriores) dispõe sobre os procedimentos que as instituições financeiras devem adotar para a prevenção da lavagem de dinheiro e do financiamento do terrorismo (PLD/FT). Para o escriturário, é crucial entender que a política de PLD/FT permeia <strong>todas as fases do relacionamento com o cliente</strong>: <strong>pré-contratação, contratação e pós-contratação</strong>. A banca Cesgranrio elabora uma “pegadinha” clássica: afirmar que a resolução se aplica apenas às fases de contratação e pós-contratação. A assertiva é <strong>falsa</strong>. Aplica-se desde a fase de pré-contratação (conheça seu cliente – KYC), passando pela contratação (análise e classificação de risco) e continuando na pós-contratação (monitoramento contínuo das operações).</p>
+
+        <div class="card card-purple">
+            <div class="card-title">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#b08ac9"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Pegadinhas Cesgranrio sobre a Resolução 4.949/2021
+            </div>
+            <ul class="list-check">
+                <li><strong>“A Resolução aplica-se apenas às fases de contratação e pós-contratação.”</strong> → <span style="color:#f08080;">FALSA</span>.</li>
+                <li><strong>“A identificação de beneficiários não se aplica a contas pré-pagas.”</strong> → <span style="color:#f08080;">FALSA</span>.</li>
+                <li><strong>“O banco não pode recusar cheques.”</strong> → <span style="color:#f08080;">FALSA</span>.</li>
+            </ul>
+        </div>
+
+        <p>Outro ponto cobrado é a identificação de beneficiários. A resolução estabelece que a identificação é obrigatória <strong>também para contas pré-pagas</strong>. A Cesgranrio pode afirmar que “a identificação de beneficiários não se aplica a contas pré-pagas”. Essa afirmação é <strong>falsa</strong>. A rastreabilidade é uma exigência geral, e as contas pré-pagas não são exceção.</p>
+
+        <p>Por fim, uma particularidade sobre cheques: o art. 5º, §1º, III da Resolução prevê a possibilidade de o banco <strong>recusar cheques</strong>. A alegação de que “o banco não pode recusar cheques” é <strong>falsa</strong>. Há situações previstas em que a recusa é lícita, especialmente em casos de suspeita de irregularidades ou descumprimento de requisitos formais. A banca explora o conhecimento literal do normativo para induzir o candidato ao erro.</p>
+
+        <div class="divider"></div>
+
+        <h3 id="cap3-3">3.3. FATCA e a Troca Internacional de Informações Fiscais</h3>
+
+        <p>O Foreign Account Tax Compliance Act (FATCA) é uma lei dos Estados Unidos que visa coibir a evasão fiscal de cidadãos norte-americanos no exterior. As instituições financeiras brasileiras que aderem ao acordo (ou que desejam manter correspondência com bancos americanos) assumem a obrigação de identificar clientes que possam ser cidadãos ou residentes fiscais norte-americanos e reportar suas informações financeiras à Receita Federal do Brasil, que as repassa ao Internal Revenue Service (IRS). A omissão pode gerar penalidades severas, incluindo a retenção de 30% sobre remessas financeiras oriundas dos EUA. Assim, é <strong>verdadeira</strong> a afirmativa de que o Banestes deve fornecer dados de clientes americanos ao Fisco dos EUA, conforme o FATCA.</p>
+
+        <div class="divider"></div>
+
+        <h3 id="cap3-4">3.4. Dicas de Prova e Interpretação de Normativos</h3>
+
+        <ul class="list-bullet">
+            <li><strong>Guia de Conduta</strong>: vedação a induzir erro, vedação a garantir resultados, evitar transferência de contas por mudança de gerente, cumprir FATCA. Tudo verdade.</li>
+            <li><strong>Resolução 4.949/2021</strong>: aplica-se a todas as fases (pré, contra, pós); identificação de beneficiários inclui pré-pagas; banco pode recusar cheques. As três pegadinhas citadas são todas falsas.</li>
+            <li><strong>FATCA</strong>: a obrigação de reportar dados de cidadãos americanos é real e decorre de acordos internacionais.</li>
+        </ul>
+
+        <div class="card card-blue">
+            <div class="card-title">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="#5b9abd"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Estudo de Caso – Atendimento Ético e PLD
+            </div>
+            <p><em>“Maria, escriturária do Banestes, atende um potencial cliente que deseja abrir uma conta-corrente. Durante a entrevista, o cliente se recusa a informar sua profissão e a origem dos recursos que depositará. Maria, com base na Resolução 4.949/2021, explica que tais informações são necessárias para a fase de pré-contratação e que, sem elas, a abertura da conta não poderá prosseguir. O cliente alega que seus dados são sigilosos. Maria deve manter a recusa?”</em></p>
+            <p><strong>Sim</strong>, Maria está correta. A política de PLD/FT exige a coleta de informações completas sobre o cliente e a origem dos recursos. A recusa do cliente em fornecê-las constitui um fator de risco, e a instituição deve abster-se de iniciar o relacionamento ou, se já iniciado, proceder ao encerramento da conta e à comunicação ao COAF, se for o caso. Além disso, Maria respeita o Guia de Conduta Ética ao não prometer facilidades indevidas e ao agir com transparência.</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- ============================================================ -->
+        <!-- ENCERRAMENTO -->
+        <!-- ============================================================ -->
+        <div style="background:#1a2a2f;border-radius:1.5rem;padding:1.8rem 2rem;margin-top:2.5rem;border:1px solid #2f4a55;">
+            <p style="font-size:1.05rem;color:#d4e2e8;margin:0;">
+                Com este material, você, futuro escriturário ou agente comercial, dispõe de uma base sólida para enfrentar as provas mais exigentes da área bancária. Estude com atenção, realize simulados e, principalmente, relacione sempre o conteúdo teórico com a prática diária da agência. <strong style="color:#ffd78a;">Bons estudos!</strong>
+            </p>
+            <div style="display:flex;justify-content:flex-end;margin-top:0.6rem;">
+                <svg width="48" height="24" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="6" cy="12" r="4" fill="#f9b84a" opacity="0.3"/>
+                    <circle cx="24" cy="12" r="4" fill="#f9b84a" opacity="0.6"/>
+                    <circle cx="42" cy="12" r="4" fill="#f9b84a" opacity="0.9"/>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
