@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila de Informática para Concursos</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0f0e17;
+            color: #e0e0e0;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            font-size: 1.05rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        /* ===== TIPOGRAFIA ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #fffffe;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            background: linear-gradient(135deg, #ff8906, #f9a825);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 0;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #4fc3f7;
+            border-bottom: 3px solid #4fc3f7;
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #ffb74d;
+            margin-top: 2rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            color: #ce93d8;
+            margin-top: 1.5rem;
+        }
+
+        h5 {
+            font-size: 1.1rem;
+            color: #81c784;
+            margin-top: 1.2rem;
+        }
+
+        p,
+        li {
+            color: #d0d0d0;
+            margin-bottom: 0.75rem;
+        }
+
+        a {
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== SUMÁRIO ===== */
+        .toc {
+            background: #16213e;
+            border-radius: 1.5rem;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 2.5rem 0;
+            border-left: 6px solid #ff8906;
+        }
+        .toc-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ff8906;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.4rem 1.5rem;
+        }
+        .toc-grid a {
+            display: block;
+            padding: 0.3rem 0;
+            color: #b0c4de;
+            font-size: 0.95rem;
+            border-bottom: 1px dashed #2a3a5e;
+            transition: color 0.2s;
+        }
+        .toc-grid a:hover {
+            color: #ff8906;
+            text-decoration: none;
+        }
+        .toc-grid .toc-chapter {
+            font-weight: 600;
+            color: #fffffe;
+        }
+
+        /* ===== ELEMENTOS DE DESTAQUE ===== */
+        .highlight {
+            background: rgba(255, 215, 0, 0.25);
+            color: #ffd700;
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .marker {
+            background: rgba(255, 137, 6, 0.2);
+            border-left: 4px solid #ff8906;
+            padding: 0.1rem 0.8rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* ===== CAIXAS ===== */
+        .box {
+            border-radius: 1rem;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 6px solid #4fc3f7;
+        }
+        .box-tip {
+            border-left-color: #81c784;
+            background: rgba(129, 199, 132, 0.08);
+        }
+        .box-tip .box-title {
+            color: #81c784;
+        }
+        .box-warning {
+            border-left-color: #ffb74d;
+            background: rgba(255, 183, 77, 0.08);
+        }
+        .box-warning .box-title {
+            color: #ffb74d;
+        }
+        .box-important {
+            border-left-color: #ef5350;
+            background: rgba(239, 83, 80, 0.08);
+        }
+        .box-important .box-title {
+            color: #ef5350;
+        }
+        .box-note {
+            border-left-color: #ce93d8;
+            background: rgba(206, 147, 216, 0.08);
+        }
+        .box-note .box-title {
+            color: #ce93d8;
+        }
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .box-title svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: #16213e;
+            border-radius: 1.2rem;
+            padding: 1.5rem 1.8rem;
+            margin: 1.5rem 0;
+            border: 1px solid #2a3a5e;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffb74d;
+            margin-bottom: 0.75rem;
+        }
+
+        /* ===== TABELAS ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 1rem;
+            background: #16213e;
+            padding: 0.2rem;
+        }
+        table.modern {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            background: transparent;
+        }
+        table.modern th {
+            background: #0f3460;
+            color: #fffffe;
+            font-weight: 600;
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 2px solid #4fc3f7;
+        }
+        table.modern td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #2a3a5e;
+            color: #d0d0d0;
+        }
+        table.modern tr:last-child td {
+            border-bottom: none;
+        }
+        table.modern tr:hover td {
+            background: rgba(79, 195, 247, 0.05);
+        }
+
+        /* ===== CITAÇÕES ===== */
+        .quote {
+            background: #16213e;
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border-left: 6px solid #ff8906;
+            font-style: italic;
+            color: #b0c4de;
+            position: relative;
+        }
+        .quote::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: #ff8906;
+            position: absolute;
+            top: -0.2rem;
+            left: 0.5rem;
+            opacity: 0.3;
+            font-family: serif;
+        }
+        .quote p {
+            margin-bottom: 0;
+            padding-left: 2.5rem;
+        }
+
+        /* ===== CÓDIGO / FÓRMULAS ===== */
+        .code {
+            background: #0b0c10;
+            border-radius: 0.75rem;
+            padding: 0.6rem 1.2rem;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            color: #ffd54f;
+            display: inline-block;
+            font-size: 0.95rem;
+            border: 1px solid #2a3a5e;
+            letter-spacing: 0.3px;
+        }
+        .code-block {
+            display: block;
+            margin: 0.8rem 0;
+            padding: 0.8rem 1.2rem;
+            background: #0b0c10;
+            border-radius: 0.75rem;
+            border: 1px solid #2a3a5e;
+            color: #ffd54f;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        /* ===== LISTAS ===== */
+        ul,
+        ol {
+            padding-left: 1.8rem;
+            margin: 0.8rem 0 1.2rem 0;
+        }
+        ul li,
+        ol li {
+            margin-bottom: 0.4rem;
+        }
+        ul li::marker {
+            color: #ff8906;
+        }
+        ol li::marker {
+            color: #4fc3f7;
+            font-weight: 600;
+        }
+
+        /* ===== SVG ===== */
+        .svg-container {
+            background: #16213e;
+            border-radius: 1.2rem;
+            padding: 1.5rem 1rem;
+            margin: 1.8rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #2a3a5e;
+            overflow-x: auto;
+        }
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== DIVISÓRIA ===== */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4fc3f7, transparent);
+            margin: 2.5rem 0;
+            opacity: 0.4;
+        }
+        .divider-light {
+            height: 1px;
+            background: #2a3a5e;
+            margin: 1.5rem 0;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+                font-size: 0.98rem;
+            }
+            .container {
+                padding: 1.5rem 1.2rem;
+                border-radius: 1.2rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+            .box {
+                padding: 1rem 1.2rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .container {
+                padding: 1rem 0.8rem;
+            }
+        }
+
+        /* ===== SCROLL SUAVE ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== MISC ===== */
+        .text-center {
+            text-align: center;
+        }
+        .mt-1 {
+            margin-top: 1rem;
+        }
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .gap-1 {
+            gap: 1rem;
+        }
+        .inline-svg {
+            display: inline-block;
+            vertical-align: middle;
+            width: 1.2em;
+            height: 1.2em;
+            fill: currentColor;
+            margin-right: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ========== CABEÇALHO ========== -->
+        <header>
+            <h1>📘 APOSTILA COMPLETA DE INFORMÁTICA PARA CONCURSOS</h1>
+            <p style="font-size:1.2rem; color:#b0c4de; margin-top:0.2rem;">
+                Tema: Produtividade e Segurança no Ambiente Digital
+            </p>
+            <div class="divider"></div>
+        </header>
+
+        <!-- ========== SUMÁRIO ========== -->
+        <nav class="toc" id="sumario">
+            <div class="toc-title">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff8906" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+                SUMÁRIO
+            </div>
+            <div class="toc-grid">
+                <a href="#cap1" class="toc-chapter">Capítulo 1 · Excel</a>
+                <a href="#cap1-1">1.1 Introdução</a>
+                <a href="#cap1-2">1.2 Fórmulas e Operações</a>
+                <a href="#cap1-3">1.3 Funções Avançadas</a>
+                <a href="#cap1-4">1.4 Validação e Filtros</a>
+                <a href="#cap1-5">1.5 Modos de Exibição</a>
+
+                <a href="#cap2" class="toc-chapter">Capítulo 2 · Navegadores</a>
+                <a href="#cap2-1">2.1 Principais Navegadores</a>
+                <a href="#cap2-2">2.2 URL</a>
+                <a href="#cap2-3">2.3 Cookies</a>
+
+                <a href="#cap3" class="toc-chapter">Capítulo 3 · E-mail</a>
+                <a href="#cap3-1">3.1 Conceitos Fundamentais</a>
+                <a href="#cap3-2">3.2 Limites de Anexos</a>
+
+                <a href="#cap4" class="toc-chapter">Capítulo 4 · Redes</a>
+                <a href="#cap4-1">4.1 Protocolos</a>
+                <a href="#cap4-2">4.2 Diagnóstico</a>
+
+                <a href="#cap5" class="toc-chapter">Capítulo 5 · Segurança</a>
+                <a href="#cap5-1">5.1 Firewall</a>
+                <a href="#cap5-2">5.2 Gerenciador de Tarefas</a>
+                <a href="#cap5-3">5.3 Armazenamento em Nuvem</a>
+
+                <a href="#cap6" class="toc-chapter">Capítulo 6 · Word</a>
+                <a href="#cap7" class="toc-chapter">Capítulo 7 · PowerPoint</a>
+                <a href="#cap8" class="toc-chapter">Capítulo 8 · Formatos</a>
+
+                <a href="#cap9" class="toc-chapter">Capítulo 9 · Tabelas Rápidas</a>
+                <a href="#cap10" class="toc-chapter">Capítulo 10 · Verificação</a>
+                <a href="#apendice" class="toc-chapter">Apêndice · Questões</a>
+            </div>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 1 -->
+        <!-- ============================================================ -->
+        <section id="cap1">
+            <h2>CAPÍTULO 1: MICROSOFT EXCEL – FUNDAMENTOS E FUNÇÕES ESSENCIAIS</h2>
+
+            <h3 id="cap1-1">1.1 INTRODUÇÃO AO EXCEL</h3>
+            <p>O Microsoft Excel é uma ferramenta indispensável no ambiente administrativo, sendo amplamente cobrada em concursos públicos por sua relevância no tratamento de dados, cálculos financeiros e organização de informações. Neste capítulo, abordaremos desde os conceitos mais básicos até situações complexas frequentemente exploradas pelas principais bancas examinadoras.</p>
+
+            <h4>1.1.1 A Estrutura de uma Planilha Eletrônica</h4>
+            <p>Uma planilha eletrônica é organizada em:</p>
+            <ul>
+                <li><strong>Linhas</strong>: identificadas por números (1, 2, 3...)</li>
+                <li><strong>Colunas</strong>: identificadas por letras (A, B, C...)</li>
+                <li><strong>Células</strong>: interseção de uma linha e uma coluna (ex: A1, B2, C3)</li>
+            </ul>
+            <p>Cada célula pode conter:</p>
+            <ul>
+                <li><strong>Texto</strong> (dados alfanuméricos)</li>
+                <li><strong>Números</strong> (valores numéricos)</li>
+                <li><strong>Fórmulas</strong> (operações matemáticas e funções)</li>
+                <li><strong>Datas e horas</strong> (tratadas como números especiais)</li>
+            </ul>
+
+            <div class="box box-tip">
+                <div class="box-title">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    MACETE DE MEMORIZAÇÃO
+                </div>
+                <p><strong>"LINHA NÚMERO, COLUNA LETRA"</strong> – As linhas são numeradas (como degraus de escada) e as colunas são letradas (como um alfabeto vertical).</p>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap1-2">1.2 FÓRMULAS E OPERAÇÕES MATEMÁTICAS NO EXCEL</h3>
+
+            <h4>1.2.1 A Regra Fundamental: O Sinal de Igualdade (=)</h4>
+            <p>Toda fórmula ou função no Excel <strong>OBRIGATORIAMENTE</strong> começa com o sinal de igualdade (=). Este é um dos pontos mais cobrados em provas e um dos erros mais comuns entre usuários iniciantes.</p>
+            <p><strong>Exemplo incorreto:</strong> <code class="code">A1+B1</code> (sem o sinal de =) → O Excel interpretará como texto, não realizará o cálculo.</p>
+            <p><strong>Exemplo correto:</strong> <code class="code">=A1+B1</code> → O Excel realizará a soma dos valores contidos nas células A1 e B1.</p>
+
+            <h4>1.2.2 Operadores Matemáticos no Excel</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead>
+                        <tr><th>Operador</th><th>Função</th><th>Exemplo</th><th>Resultado</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>+</code></td><td>Adição</td><td><code>=5+3</code></td><td>8</td></tr>
+                        <tr><td><code>-</code></td><td>Subtração</td><td><code>=10-4</code></td><td>6</td></tr>
+                        <tr><td><code>*</code></td><td>Multiplicação</td><td><code>=6*7</code></td><td>42</td></tr>
+                        <tr><td><code>/</code></td><td>Divisão</td><td><code>=15/3</code></td><td>5</td></tr>
+                        <tr><td><code>^</code></td><td>Potenciação</td><td><code>=2^3</code></td><td>8</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-warning">
+                <div class="box-title">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    ATENÇÃO ÀS PEGADINHAS DE PROVA!
+                </div>
+                <p>As bancas frequentemente confundem os candidatos com os seguintes símbolos:</p>
+                <p><strong>QUESTÃO TÍPICA DE CONCURSO:</strong><br>
+                "Para realizar uma multiplicação simples na célula C2, o usuário digitou <code>#5*3</code> e pressionou Enter. Qual o resultado obtido?"</p>
+                <p><strong>RESPOSTA:</strong> Nenhum cálculo será realizado. O Excel exibirá o conteúdo como texto, pois:
+                <br>1. A fórmula não começa com <code>=</code>
+                <br>2. O símbolo <code>#</code> não é reconhecido como operador matemático</p>
+            </div>
+
+            <h4>1.2.3 Precedência de Operadores (Ordem dos Cálculos)</h4>
+            <p>O Excel segue a ordem matemática padrão (PEMDAS):</p>
+            <ol>
+                <li><strong>P</strong>arênteses</li>
+                <li><strong>E</strong>xponenciação (<code>^</code>)</li>
+                <li><strong>M</strong>ultiplicação e <strong>D</strong>ivisão (<code>*</code> e <code>/</code>)</li>
+                <li><strong>A</strong>dição e <strong>S</strong>ubtração (<code>+</code> e <code>-</code>)</li>
+            </ol>
+            <p><strong>Exemplo prático:</strong></p>
+            <div class="code-block">=2+3*4 → Primeiro 3*4=12, depois 2+12=14
+=(2+3)*4 → Primeiro 2+3=5, depois 5*4=20</div>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de precedência de operadores">
+                    <rect x="10" y="10" width="160" height="50" rx="10" fill="#0f3460" stroke="#4fc3f7" stroke-width="2"/>
+                    <text x="90" y="42" fill="#fffffe" font-size="16" font-weight="600" text-anchor="middle" font-family="system-ui">1. Parênteses</text>
+                    <line x1="180" y1="35" x2="220" y2="35" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+                    <rect x="230" y="10" width="160" height="50" rx="10" fill="#0f3460" stroke="#4fc3f7" stroke-width="2"/>
+                    <text x="310" y="42" fill="#fffffe" font-size="16" font-weight="600" text-anchor="middle" font-family="system-ui">2. Exponenciação</text>
+                    <line x1="400" y1="35" x2="440" y2="35" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+                    <rect x="450" y="10" width="140" height="50" rx="10" fill="#0f3460" stroke="#4fc3f7" stroke-width="2"/>
+                    <text x="520" y="42" fill="#fffffe" font-size="16" font-weight="600" text-anchor="middle" font-family="system-ui">3. * e /</text>
+                    <line x1="450" y1="80" x2="520" y2="120" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+                    <rect x="450" y="100" width="140" height="50" rx="10" fill="#0f3460" stroke="#ffb74d" stroke-width="2"/>
+                    <text x="520" y="132" fill="#fffffe" font-size="16" font-weight="600" text-anchor="middle" font-family="system-ui">4. + e -</text>
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4fc3f7"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
+            <h4>1.2.4 Referências de Células nas Fórmulas</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Tipo</th><th>Notação</th><th>Comportamento ao Copiar</th></tr></thead>
+                    <tbody>
+                        <tr><td>Relativa</td><td><code>A1</code></td><td>Ajusta automaticamente</td></tr>
+                        <tr><td>Absoluta</td><td><code>$A$1</code></td><td>Permanece fixa</td></tr>
+                        <tr><td>Mista</td><td><code>$A1</code> ou <code>A$1</code></td><td>Apenas linha ou coluna fixa</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Exemplo de aplicação:</strong><br>
+            Se você tem uma taxa de desconto fixa na célula <code>$B$1</code> e deseja aplicá-la a vários produtos:<br>
+            <code>=A2*$B$1</code> → Ao arrastar para baixo, A2 vira A3, A4, mas <code>$B$1</code> permanece fixo.</p>
+
+            <h4>1.2.5 Estudo de Caso: Cálculo de Folha de Pagamento</h4>
+            <div class="card">
+                <div class="card-title">Situação hipotética de prova</div>
+                <p>"Um servidor público precisa calcular o salário líquido dos funcionários onde:</p>
+                <ul>
+                    <li>Salário bruto está na coluna B</li>
+                    <li>Desconto de INSS é 11% (fixo)</li>
+                    <li>Desconto de IRRF segue tabela progressiva</li>
+                </ul>
+                <p><strong>Solução:</strong></p>
+                <ul>
+                    <li>Para INSS: <code>=B2*$G$1</code> (onde G1 contém 11%)</li>
+                    <li>Para IRRF: usar função SE aninhada</li>
+                    <li>Salário líquido: <code>=B2-C2-D2</code> (bruto – INSS – IRRF)</li>
+                </ul>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap1-3">1.3 FUNÇÕES AVANÇADAS DO EXCEL</h3>
+
+            <h4>1.3.1 Funções de Pesquisa e Referência</h4>
+            <h5>PROCV (PROCURAR VERTICAL)</h5>
+            <p>Esta é a função mais cobrada em concursos e uma das mais mal compreendidas.</p>
+            <p><strong>Sintaxe Completa:</strong></p>
+            <div class="code-block">=PROCV(valor_procurado; matriz_tabela; núm_índice_coluna; [procurar_intervalo])</div>
+
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Argumento</th><th>Descrição</th><th>Obrigatório?</th><th>Exemplo</th></tr></thead>
+                    <tbody>
+                        <tr><td>valor_procurado</td><td>Valor a ser encontrado na primeira coluna</td><td>SIM</td><td>"Produto A", 123, A2</td></tr>
+                        <tr><td>matriz_tabela</td><td>Intervalo onde a pesquisa ocorrerá</td><td>SIM</td><td>A2:D100, Tabela1</td></tr>
+                        <tr><td>núm_índice_coluna</td><td>Coluna da qual extrair o resultado (1ª coluna = 1)</td><td>SIM</td><td>3 (traz o valor da 3ª coluna)</td></tr>
+                        <tr><td>procurar_intervalo</td><td>FALSO = exato; VERDADEIRO = aproximado</td><td>NÃO (padrão VERDADEIRO)</td><td>FALSO</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>EXEMPLO PRÁTICO DO DIA A DIA:</strong></p>
+            <p>Suponha que você tem uma lista de produtos com seus preços:</p>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Coluna A</th><th>Coluna B</th><th>Coluna C</th></tr></thead>
+                    <tbody>
+                        <tr><td>Código</td><td>Produto</td><td>Preço</td></tr>
+                        <tr><td>101</td><td>Caneta</td><td>R$ 2,50</td></tr>
+                        <tr><td>102</td><td>Lápis</td><td>R$ 1,80</td></tr>
+                        <tr><td>103</td><td>Borracha</td><td>R$ 3,00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Para buscar o preço do produto 102:<br>
+            <code class="code">=PROCV(102; A2:C4; 3; FALSO)</code></p>
+            <p><strong>Resultado:</strong> R$ 1,80</p>
+
+            <div class="box box-important">
+                <div class="box-title">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    ERROS MAIS COMUNS E SUAS CAUSAS
+                </div>
+                <div class="table-wrap">
+                    <table class="modern">
+                        <thead><tr><th>Erro</th><th>Causa</th><th>Solução</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>#N/D</strong></td><td>Valor não encontrado</td><td>Verificar se o valor existe na 1ª coluna</td></tr>
+                            <tr><td><strong>#REF!</strong></td><td>Coluna de índice inválida</td><td>Ajustar o número da coluna (não pode exceder o número de colunas da matriz)</td></tr>
+                            <tr><td><strong>#VALOR!</strong></td><td>Argumento incorreto</td><td>Verificar tipo de dado do valor procurado</td></tr>
+                            <tr><td><strong>Resultado errado</strong></td><td>4º argumento omitido ou VERDADEIRO</td><td>Usar FALSO para correspondência exata</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="box box-warning">
+                <div class="box-title">PEGADINHA CLÁSSICA DE PROVA</div>
+                <p><strong>QUESTÃO:</strong> "Um usuário utilizou a fórmula <code>=PROCV(A2; D2:G100; 5; FALSO)</code>. Qual o resultado?"</p>
+                <p><strong>RESPOSTA:</strong> <code>#REF!</code> – A matriz D2:G100 possui apenas 4 colunas (D, E, F, G), mas o índice solicitado é 5, ultrapassando o limite.</p>
+            </div>
+
+            <h5>1.3.2 PROCV vs. PROCH vs. CORRESP</h5>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Função</th><th>Direção da Pesquisa</th><th>Uso Típico</th></tr></thead>
+                    <tbody>
+                        <tr><td>PROCV</td><td>Vertical (colunas)</td><td>Buscar dados em tabelas onde a chave está na 1ª coluna</td></tr>
+                        <tr><td>PROCH</td><td>Horizontal (linhas)</td><td>Buscar dados em tabelas onde a chave está na 1ª linha</td></tr>
+                        <tr><td>CORRESP</td><td>Posição (linha/coluna)</td><td>Retornar a posição de um valor em um intervalo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5>1.3.3 Função SE (Condicional)</h5>
+            <p>A função SE é uma das mais versáteis e frequentemente combinada com outras funções.</p>
+            <p><strong>Sintaxe:</strong></p>
+            <div class="code-block">=SE(teste_lógico; valor_se_verdadeiro; valor_se_falso)</div>
+            <p><strong>Exemplo prático – Aprovação em Concurso:</strong></p>
+            <div class="code-block">=SE(B2>=70; "APROVADO"; "REPROVADO")</div>
+            <p>Se a nota em B2 for maior ou igual a 70, exibe "APROVADO"; caso contrário, "REPROVADO".</p>
+            <p><strong>Funções SE Aninhadas (Múltiplas Condições):</strong></p>
+            <div class="code-block">=SE(B2>=90; "A"; SE(B2>=80; "B"; SE(B2>=70; "C"; "D")))</div>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap1-4">1.4 VALIDAÇÃO DE DADOS E FILTROS</h3>
+
+            <h4>1.4.1 Validação de Dados – Controle de Entrada</h4>
+            <p>A validação de dados é um recurso que <strong>restringe o tipo de informação</strong> que pode ser inserida em uma célula, garantindo a integridade dos dados.</p>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Tipo</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+                    <tbody>
+                        <tr><td>Número inteiro</td><td>Apenas números sem casas decimais</td><td>Idade, quantidade</td></tr>
+                        <tr><td>Número decimal</td><td>Números com casas decimais</td><td>Preço, peso</td></tr>
+                        <tr><td>Data</td><td>Data válida</td><td>Data de nascimento</td></tr>
+                        <tr><td>Hora</td><td>Horário válido</td><td>Horário de entrada</td></tr>
+                        <tr><td>Texto</td><td>Comprimento do texto</td><td>Limitar a 50 caracteres</td></tr>
+                        <tr><td>Lista</td><td>Valores de uma lista predefinida</td><td>Status: Ativo/Inativo</td></tr>
+                        <tr><td>Fórmula</td><td>Baseada em uma fórmula personalizada</td><td>Célula deve ser maior que outra</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-warning">
+                <div class="box-title">NUNCA CAIA NESTA PEGADINHA</div>
+                <p><strong>Afirmação FALSA em provas:</strong><br>
+                "A validação de dados permite apenas números inteiros, não texto ou datas."</p>
+                <p><strong>Correção:</strong> A validação permite <strong>todos</strong> os tipos mencionados acima, incluindo texto, datas e listas personalizadas.</p>
+            </div>
+
+            <h4>1.4.2 Filtros – Análise Seletiva de Dados</h4>
+            <p>O filtro permite <strong>exibir apenas as linhas que atendem a critérios específicos</strong>, ocultando temporariamente as demais.</p>
+            <p><strong>Características Importantes:</strong></p>
+            <ol>
+                <li><strong>NÃO apaga dados</strong> – apenas oculta visualmente</li>
+                <li><strong>Pode ser aplicado a qualquer tipo de dado</strong> (números, texto, datas)</li>
+                <li><strong>Permite múltiplos critérios simultâneos</strong></li>
+                <li><strong>É reversível</strong> – basta remover o filtro</li>
+            </ol>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Tipo de Dado</th><th>Critérios Possíveis</th></tr></thead>
+                    <tbody>
+                        <tr><td>Texto</td><td>Começa com, contém, termina com, igual a</td></tr>
+                        <tr><td>Número</td><td>Maior que, menor que, entre, igual a</td></tr>
+                        <tr><td>Data</td><td>Antes de, depois de, entre, este mês, este ano</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>ESTUDO DE CASO: Classificação de Servidores</h4>
+            <div class="card">
+                <div class="card-title">Situação</div>
+                <p>Um órgão público possui uma planilha com todos os servidores e deseja:</p>
+                <ol>
+                    <li>Classificar em ordem alfabética pelo nome</li>
+                    <li>Filtrar apenas servidores da Secretaria de Saúde</li>
+                </ol>
+                <p><strong>Procedimento Correto:</strong></p>
+                <ol>
+                    <li>Selecionar a planilha inteira (Ctrl+T)</li>
+                    <li>Guia <strong>Dados</strong> → <strong>Filtro</strong> (ou Ctrl+Shift+L)</li>
+                    <li>Na coluna "Nome", clicar na seta do filtro e escolher "Classificar de A a Z"</li>
+                    <li>Na coluna "Secretaria", clicar na seta e desmarcar todas as opções, exceto "Saúde"</li>
+                </ol>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap1-5">1.5 MODOS DE EXIBIÇÃO E COLABORAÇÃO NO EXCEL 365</h3>
+
+            <h4>1.5.1 Modos de Exibição Personalizados</h4>
+            <p>Com o Excel 365 e a colaboração em tempo real, surgiu a necessidade de <strong>exibições personalizadas</strong> que não interfiram no trabalho dos demais usuários.</p>
+            <p><strong>Como criar um modo de exibição pessoal:</strong></p>
+            <ol>
+                <li>Guia <strong>Exibir</strong></li>
+                <li>Botão <strong>Novo</strong> (na seção de Modos de Exibição)</li>
+                <li>Aplicar classificações e filtros desejados</li>
+                <li>Salvar como modo temporário</li>
+            </ol>
+            <p><strong>Vantagens:</strong></p>
+            <ul>
+                <li>A classificação/filtro afeta apenas sua visualização</li>
+                <li>Outros colaboradores veem a planilha original</li>
+                <li>Não é necessário copiar a planilha</li>
+            </ul>
+
+            <h4>1.5.2 Comparação: Modo de Exibição vs. Cópia de Planilha</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Aspecto</th><th>Modo de Exibição Personalizado</th><th>Cópia da Planilha</th></tr></thead>
+                    <tbody>
+                        <tr><td>Impacto em outros usuários</td><td>Nenhum</td><td>Cria arquivo separado</td></tr>
+                        <tr><td>Uso de memória</td><td>Baixo</td><td>Alto (duplica dados)</td></tr>
+                        <tr><td>Atualização de dados</td><td>Automática (mesmos dados)</td><td>Requer sincronização</td></tr>
+                        <tr><td>Versão em provas</td><td>Excel 365</td><td>Versões anteriores</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 2 -->
+        <!-- ============================================================ -->
+        <section id="cap2">
+            <h2>CAPÍTULO 2: NAVEGADORES E INTERNET</h2>
+
+            <h3 id="cap2-1">2.1 PRINCIPAIS NAVEGADORES</h3>
+
+            <h4>2.1.1 Classificação de Navegadores</h4>
+            <p>Navegador (browser) é o <strong>software que permite acessar páginas web</strong> interpretando códigos HTML, CSS e JavaScript.</p>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Navegador</th><th>Desenvolvedor</th><th>Característica</th></tr></thead>
+                    <tbody>
+                        <tr><td>Google Chrome</td><td>Google</td><td>Mais utilizado mundialmente</td></tr>
+                        <tr><td>Microsoft Edge</td><td>Microsoft</td><td>Substituiu o Internet Explorer</td></tr>
+                        <tr><td>Mozilla Firefox</td><td>Mozilla</td><td>Open-source, foco em privacidade</td></tr>
+                        <tr><td>Safari</td><td>Apple</td><td>Padrão em dispositivos Apple</td></tr>
+                        <tr><td>Opera</td><td>Opera Software</td><td>Inclui VPN gratuita</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-warning">
+                <div class="box-title">⚠️ CUIDADO COM A CONFUSÃO EM PROVAS!</div>
+                <div class="table-wrap">
+                    <table class="modern">
+                        <thead><tr><th>Item</th><th>É Navegador?</th><th>Classificação Correta</th></tr></thead>
+                        <tbody>
+                            <tr><td>Internet Explorer</td><td>✅ SIM</td><td>Navegador (descontinuado)</td></tr>
+                            <tr><td>Webmail</td><td>❌ NÃO</td><td>Serviço de e-mail via web</td></tr>
+                            <tr><td>Microsoft OneNote</td><td>❌ NÃO</td><td>Aplicativo de anotações</td></tr>
+                            <tr><td>Google Chrome</td><td>✅ SIM</td><td>Navegador</td></tr>
+                            <tr><td>Mozilla Firefox</td><td>✅ SIM</td><td>Navegador</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h4>2.1.2 Microsoft Edge – Configurações Específicas</h4>
+            <p>O Microsoft Edge, navegador padrão do Windows 10/11, utiliza o mecanismo de pesquisa definido como <strong>padrão</strong> nas configurações.</p>
+            <p><strong>Configuração Padrão:</strong></p>
+            <ul>
+                <li><strong>Mecanismo padrão de fábrica:</strong> Bing</li>
+                <li><strong>Possibilidade de alteração:</strong> Sim, pelo usuário</li>
+            </ul>
+            <p><strong>Como alterar o mecanismo de pesquisa no Edge:</strong></p>
+            <ol>
+                <li>Configurações (três pontinhos)</li>
+                <li>Configurações → Privacidade, pesquisa e serviços</li>
+                <li>Barra de endereços e pesquisa</li>
+                <li>Mecanismo de pesquisa usado na barra de endereços</li>
+                <li>Selecionar Google, Yahoo, DuckDuckGo, etc.</li>
+            </ol>
+            <div class="box box-warning">
+                <div class="box-title">PEGADINHA FREQUENTE</div>
+                <p><strong>Afirmação FALSA:</strong><br>
+                "No Microsoft Edge, as pesquisas na barra de endereços utilizam exclusivamente o Bing."</p>
+                <p><strong>CORREÇÃO:</strong> Utilizam o mecanismo de pesquisa <strong>configurado como padrão</strong>, que é o Bing por padrão, mas pode ser alterado.</p>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap2-2">2.2 URL – LOCALIZADOR UNIFORME DE RECURSOS</h3>
+
+            <h4>2.2.1 Definição Técnica</h4>
+            <p><strong>URL (Uniform Resource Locator)</strong> é a string de texto que identifica de maneira <strong>única e exclusiva</strong> um documento ou recurso na Web.</p>
+            <p><strong>Em português:</strong> Localizador Uniforme de Recursos</p>
+
+            <h4>2.2.2 Estrutura de uma URL</h4>
+            <div class="code-block">https://www.gov.br/servidor/publico/index.html?pagina=2#secao3</div>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Componente</th><th>Exemplo</th><th>Função</th></tr></thead>
+                    <tbody>
+                        <tr><td>Protocolo</td><td><code>https://</code></td><td>Define como a comunicação ocorrerá</td></tr>
+                        <tr><td>Domínio</td><td><code>www.gov.br</code></td><td>Identifica o servidor</td></tr>
+                        <tr><td>Caminho</td><td><code>/servidor/publico/</code></td><td>Localização do recurso no servidor</td></tr>
+                        <tr><td>Arquivo</td><td><code>index.html</code></td><td>Nome do recurso específico</td></tr>
+                        <tr><td>Parâmetros</td><td><code>?pagina=2</code></td><td>Dados adicionais para o servidor</td></tr>
+                        <tr><td>Âncora</td><td><code>#secao3</code></td><td>Localização dentro da página</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estrutura de uma URL">
+                    <rect x="10" y="10" width="100" height="50" rx="8" fill="#0f3460" stroke="#4fc3f7" stroke-width="2"/>
+                    <text x="60" y="42" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Protocolo</text>
+                    <text x="60" y="78" fill="#b0c4de" font-size="11" text-anchor="middle" font-family="system-ui">https://</text>
+                    <line x1="120" y1="35" x2="160" y2="35" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow2)"/>
+                    <rect x="170" y="10" width="120" height="50" rx="8" fill="#0f3460" stroke="#4fc3f7" stroke-width="2"/>
+                    <text x="230" y="42" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Domínio</text>
+                    <text x="230" y="78" fill="#b0c4de" font-size="11" text-anchor="middle" font-family="system-ui">www.gov.br</text>
+                    <line x1="300" y1="35" x2="340" y2="35" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow2)"/>
+                    <rect x="350" y="10" width="140" height="50" rx="8" fill="#0f3460" stroke="#4fc3f7" stroke-width="2"/>
+                    <text x="420" y="42" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Caminho</text>
+                    <text x="420" y="78" fill="#b0c4de" font-size="11" text-anchor="middle" font-family="system-ui">/servidor/publico/</text>
+                    <line x1="500" y1="35" x2="540" y2="35" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow2)"/>
+                    <rect x="550" y="10" width="120" height="50" rx="8" fill="#0f3460" stroke="#4fc3f7" stroke-width="2"/>
+                    <text x="610" y="42" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Arquivo</text>
+                    <text x="610" y="78" fill="#b0c4de" font-size="11" text-anchor="middle" font-family="system-ui">index.html</text>
+                    <line x1="680" y1="35" x2="720" y2="35" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow2)"/>
+                    <rect x="10" y="110" width="120" height="50" rx="8" fill="#0f3460" stroke="#ffb74d" stroke-width="2"/>
+                    <text x="70" y="142" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Parâmetros</text>
+                    <text x="70" y="178" fill="#b0c4de" font-size="11" text-anchor="middle" font-family="system-ui">?pagina=2</text>
+                    <rect x="170" y="110" width="120" height="50" rx="8" fill="#0f3460" stroke="#81c784" stroke-width="2"/>
+                    <text x="230" y="142" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Âncora</text>
+                    <text x="230" y="178" fill="#b0c4de" font-size="11" text-anchor="middle" font-family="system-ui">#secao3</text>
+                    <defs>
+                        <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4fc3f7"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
+            <h4>O QUE NÃO É UMA URL?</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Item</th><th>Classificação Correta</th></tr></thead>
+                    <tbody>
+                        <tr><td>Servidor</td><td>Computador que hospeda recursos</td></tr>
+                        <tr><td>Ferramenta de pesquisa</td><td>Como Google, Bing</td></tr>
+                        <tr><td>Formato de arquivo</td><td>Como PDF, JPG, PNG</td></tr>
+                        <tr><td>Protocolo</td><td>Como HTTP, FTP, SMTP</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap2-3">2.3 COOKIES – ARMAZENAMENTO LOCAL</h3>
+
+            <h4>2.3.1 Definição e Funcionamento</h4>
+            <p><strong>Cookie</strong> é um pequeno arquivo de texto armazenado no computador do usuário por um website.</p>
+            <p><strong>Finalidades principais:</strong></p>
+            <ol>
+                <li><strong>Registrar preferências</strong> – Idioma, tema, configurações</li>
+                <li><strong>Manter sessão</strong> – Login ativo, carrinho de compras</li>
+                <li><strong>Rastreamento</strong> – Análise de comportamento para publicidade</li>
+            </ol>
+
+            <h4>2.3.2 Tipos de Cookies</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Tipo</th><th>Duração</th><th>Exemplo</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sessão</td><td>Até fechar o navegador</td><td>Itens no carrinho</td></tr>
+                        <tr><td>Persistentes</td><td>Data definida</td><td>"Lembrar-me" de login</td></tr>
+                        <tr><td>De terceiros</td><td>Variável</td><td>Cookies de anúncios</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>2.3.3 O QUE NÃO É COOKIE?</h4>
+            <div class="box box-warning">
+                <div class="box-title">Confusão comum em provas</div>
+                <ul>
+                    <li>❌ Extensão do navegador</li>
+                    <li>❌ Histórico de navegação</li>
+                    <li>❌ Item de segurança criptográfico</li>
+                    <li>❌ Programa malicioso (vírus)</li>
+                </ul>
+            </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 3 -->
+        <!-- ============================================================ -->
+        <section id="cap3">
+            <h2>CAPÍTULO 3: E-MAIL – COMUNICAÇÃO PROFISSIONAL</h2>
+
+            <h3 id="cap3-1">3.1 CONCEITOS FUNDAMENTAIS</h3>
+
+            <h4>3.1.1 Campos de uma Mensagem de E-mail</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Campo</th><th>Função</th><th>Visibilidade</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Para</strong></td><td>Destinatários principais</td><td>Todos veem</td></tr>
+                        <tr><td><strong>Cc</strong> (Cópia)</td><td>Destinatários em conhecimento</td><td>Todos veem</td></tr>
+                        <tr><td><strong>Cco</strong> (Cópia Oculta)</td><td>Destinatários que devem ser ocultados</td><td>Apenas o remetente sabe</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>3.1.2 Diferença Crucial: Cc vs. Cco</h4>
+            <div class="card">
+                <div class="card-title">Cc (Com Cópia)</div>
+                <ul>
+                    <li>Todos os destinatários <strong>veem</strong> quem mais recebeu</li>
+                    <li>Útil para comunicação em equipe</li>
+                    <li>Transparente e colaborativo</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title">Cco (Com Cópia Oculta)</div>
+                <ul>
+                    <li>Destinatários <strong>não veem</strong> os demais</li>
+                    <li>Cada um vê apenas seu próprio endereço</li>
+                    <li>Essencial para privacidade e envios em massa</li>
+                </ul>
+            </div>
+
+            <h4>ESTUDO DE CASO: Envio de Comunicado Oficial</h4>
+            <div class="card">
+                <div class="card-title">Situação</div>
+                <p>Um diretor precisa enviar um comunicado para 100 funcionários, mas não deseja que os endereços de e-mail sejam expostos.</p>
+                <p><strong>Procedimento Correto:</strong></p>
+                <ol>
+                    <li>Deixar os campos <strong>Para</strong> e <strong>Cc</strong> em branco</li>
+                    <li>Preencher <strong>apenas o campo Cco</strong> com todos os 100 endereços</li>
+                    <li>Escrever a mensagem normalmente</li>
+                    <li>Enviar</li>
+                </ol>
+                <p><strong>Resultado:</strong> Cada funcionário vê apenas seu próprio e-mail no campo Cco. O remetente tem a lista completa. Os destinatários não sabem quem mais recebeu.</p>
+            </div>
+
+            <div class="box box-warning">
+                <div class="box-title">⚠️ PEGADINHA DE PROVA</div>
+                <p><strong>Afirmação FALSA:</strong><br>
+                "Para ocultar todos os destinatários, basta colocar os e-mails no campo Cco, e preencher o campo Para com o próprio e-mail."</p>
+                <p><strong>CORREÇÃO:</strong> Para ocultar <strong>todos</strong> os destinatários, o correto é deixar Para e Cc em branco e colocar <strong>todos</strong> os endereços em Cco.</p>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap3-2">3.2 LIMITES DE ANEXOS E ESTRATÉGIAS</h3>
+
+            <h4>3.2.1 Limite Comum em Servidores</h4>
+            <p>A maioria dos servidores de e-mail (incluindo órgãos públicos) possui limite de <strong>até 30MB por mensagem</strong>.</p>
+
+            <h4>3.2.2 O QUE NÃO FUNCIONA PARA CONTORNAR O LIMITE</h4>
+            <div class="box box-important">
+                <p>❌ <strong>"Copiar outro e-mail da prefeitura na mensagem"</strong> – O limite não dobra com mais destinatários; o servidor analisa cada mensagem individualmente.</p>
+            </div>
+
+            <h4>3.2.3 Estratégias Corretas para Arquivos Grandes</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Estratégia</th><th>Quando Usar</th><th>Como Fazer</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Dividir em múltiplos e-mails</strong></td><td>Arquivo de 35MB</td><td>Dividir em 2 partes de 17,5MB</td></tr>
+                        <tr><td><strong>Compactar</strong></td><td>Arquivo de 35MB → &lt;30MB</td><td>Usar WinRAR, 7-Zip, compactação ZIP</td></tr>
+                        <tr><td><strong>Repositório + Link</strong></td><td>Arquivos muito grandes</td><td>Upload em nuvem (Google Drive, OneDrive) e enviar link</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>3.2.4 Fluxograma de Decisão para Anexos</h4>
+            <div class="svg-container">
+                <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fluxograma de decisão para anexos">
+                    <rect x="250" y="10" width="200" height="50" rx="25" fill="#0f3460" stroke="#4fc3f7" stroke-width="2"/>
+                    <text x="350" y="42" fill="#fffffe" font-size="14" font-weight="600" text-anchor="middle" font-family="system-ui">Arquivo a ser enviado</text>
+                    <line x1="350" y1="60" x2="350" y2="90" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow3)"/>
+                    <polygon points="350,90 250,140 450,140" fill="#0f3460" stroke="#ffb74d" stroke-width="2"/>
+                    <text x="350" y="125" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">É menor que 30MB?</text>
+                    <line x1="450" y1="140" x2="530" y2="140" stroke="#81c784" stroke-width="2" marker-end="url(#arrow3)"/>
+                    <text x="490" y="130" fill="#81c784" font-size="12" font-weight="600" text-anchor="middle" font-family="system-ui">SIM</text>
+                    <rect x="540" y="115" width="140" height="50" rx="25" fill="#0f3460" stroke="#81c784" stroke-width="2"/>
+                    <text x="610" y="147" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Enviar anexo</text>
+                    <line x1="350" y1="140" x2="350" y2="190" stroke="#ffb74d" stroke-width="2" marker-end="url(#arrow3)"/>
+                    <text x="320" y="180" fill="#ffb74d" font-size="12" font-weight="600" text-anchor="end" font-family="system-ui">NÃO</text>
+                    <polygon points="350,190 250,240 450,240" fill="#0f3460" stroke="#ffb74d" stroke-width="2"/>
+                    <text x="350" y="225" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Pode compactar?</text>
+                    <line x1="450" y1="240" x2="530" y2="240" stroke="#81c784" stroke-width="2" marker-end="url(#arrow3)"/>
+                    <text x="490" y="230" fill="#81c784" font-size="12" font-weight="600" text-anchor="middle" font-family="system-ui">SIM</text>
+                    <rect x="540" y="215" width="140" height="50" rx="25" fill="#0f3460" stroke="#81c784" stroke-width="2"/>
+                    <text x="610" y="247" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Compactar e enviar</text>
+                    <line x1="350" y1="240" x2="350" y2="290" stroke="#ffb74d" stroke-width="2" marker-end="url(#arrow3)"/>
+                    <text x="320" y="280" fill="#ffb74d" font-size="12" font-weight="600" text-anchor="end" font-family="system-ui">NÃO</text>
+                    <polygon points="350,290 250,340 450,340" fill="#0f3460" stroke="#ffb74d" stroke-width="2"/>
+                    <text x="350" y="325" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Pode dividir?</text>
+                    <line x1="450" y1="340" x2="530" y2="340" stroke="#81c784" stroke-width="2" marker-end="url(#arrow3)"/>
+                    <text x="490" y="330" fill="#81c784" font-size="12" font-weight="600" text-anchor="middle" font-family="system-ui">SIM</text>
+                    <rect x="540" y="315" width="140" height="50" rx="25" fill="#0f3460" stroke="#81c784" stroke-width="2"/>
+                    <text x="610" y="347" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Dividir e enviar</text>
+                    <line x1="350" y1="340" x2="350" y2="390" stroke="#ffb74d" stroke-width="2" marker-end="url(#arrow3)"/>
+                    <text x="320" y="380" fill="#ffb74d" font-size="12" font-weight="600" text-anchor="end" font-family="system-ui">NÃO</text>
+                    <rect x="10" y="350" width="260" height="50" rx="25" fill="#0f3460" stroke="#ef5350" stroke-width="2"/>
+                    <text x="140" y="382" fill="#fffffe" font-size="13" font-weight="600" text-anchor="middle" font-family="system-ui">Upload em nuvem + link</text>
+                    <defs>
+                        <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4fc3f7"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 4 -->
+        <!-- ============================================================ -->
+        <section id="cap4">
+            <h2>CAPÍTULO 4: REDES DE COMPUTADORES</h2>
+
+            <h3 id="cap4-1">4.1 PROTOCOLOS DE REDE</h3>
+
+            <h4>4.1.1 DHCP – Configuração Automática de Rede</h4>
+            <p><strong>DHCP (Dynamic Host Configuration Protocol)</strong> é o protocolo responsável por atribuir automaticamente:</p>
+            <ul>
+                <li>Endereço IP</li>
+                <li>Máscara de sub-rede</li>
+                <li>Gateway padrão</li>
+                <li>Servidores DNS</li>
+            </ul>
+            <p><strong>Funcionamento:</strong></p>
+            <ol>
+                <li>Computador solicita configuração (DHCP Discover)</li>
+                <li>Servidor DHCP oferece um IP (DHCP Offer)</li>
+                <li>Computador aceita (DHCP Request)</li>
+                <li>Servidor confirma (DHCP Acknowledgment)</li>
+            </ol>
+
+            <h4>4.1.2 Comparação: Configuração Dinâmica vs. Estática</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Aspecto</th><th>Dinâmica (DHCP)</th><th>Estática (Manual)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Configuração</td><td>Automática</td><td>Manual</td></tr>
+                        <tr><td>Ideal para</td><td>Grandes redes</td><td>Servidores, impressoras</td></tr>
+                        <tr><td>Risco de conflito</td><td>Baixo (servidor gerencia)</td><td>Alto (IP duplicado)</td></tr>
+                        <tr><td>Mobilidade</td><td>Alta (funciona em qualquer rede)</td><td>Baixa (fixo)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>4.1.3 Protocolos de Rede – Tabela Resumo</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Protocolo</th><th>Função</th><th>Porta</th></tr></thead>
+                    <tbody>
+                        <tr><td>HTTP</td><td>Transmissão de páginas web</td><td>80</td></tr>
+                        <tr><td>HTTPS</td><td>HTTP seguro (criptografado)</td><td>443</td></tr>
+                        <tr><td>FTP</td><td>Transferência de arquivos</td><td>20/21</td></tr>
+                        <tr><td>SMTP</td><td>Envio de e-mails</td><td>25</td></tr>
+                        <tr><td>POP3</td><td>Recebimento de e-mails</td><td>110</td></tr>
+                        <tr><td>IMAP</td><td>Recebimento/gerenciamento de e-mails</td><td>143</td></tr>
+                        <tr><td>DNS</td><td>Resolução de nomes para IPs</td><td>53</td></tr>
+                        <tr><td>DHCP</td><td>Configuração automática de rede</td><td>67/68</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>4.1.4 O QUE NÃO É DHCP</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Item</th><th>Classificação Correta</th></tr></thead>
+                    <tbody>
+                        <tr><td>DNS</td><td>Resolve nomes de domínio em IP</td></tr>
+                        <tr><td>VPN</td><td>Conexão segura via internet</td></tr>
+                        <tr><td>Wi-Fi</td><td>Tecnologia de rede sem fio</td></tr>
+                        <tr><td>FTTH</td><td>Fibra óptica (Fiber to the Home)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap4-2">4.2 DIAGNÓSTICO DE PROBLEMAS DE REDE</h3>
+
+            <h4>4.2.1 Método de Resolução de Problemas</h4>
+            <div class="card">
+                <div class="card-title">Situação</div>
+                <p>Um site XYZ não responde, mas outro site ABC funciona perfeitamente.</p>
+                <p><strong>Análise Lógica:</strong></p>
+                <div class="table-wrap">
+                    <table class="modern">
+                        <thead><tr><th>Observação</th><th>Conclusão</th></tr></thead>
+                        <tbody>
+                            <tr><td>ABC funciona</td><td>Rede local está ok</td></tr>
+                            <tr><td>ABC funciona</td><td>Conexão com internet está ok</td></tr>
+                            <tr><td>XYZ não funciona</td><td>DNS pode estar ok (outros sites funcionam)</td></tr>
+                            <tr><td>XYZ não funciona</td><td><strong>Servidor XYZ está com problema</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>RESPOSTA CORRETA:</strong> A conexão do website XYZ com a internet está interrompida.</p>
+            </div>
+
+            <h4>4.2.2 Erros Comuns de Interpretação</h4>
+            <div class="box box-warning">
+                <div class="box-title">Erro 1</div>
+                <p>"O problema é na minha rede local"<br>
+                <strong>Correção:</strong> Se outros sites funcionam, a rede local está ok</p>
+            </div>
+            <div class="box box-warning">
+                <div class="box-title">Erro 2</div>
+                <p>"O DNS está com problema"<br>
+                <strong>Correção:</strong> Se outros sites abrem, o DNS está funcionando</p>
+            </div>
+            <div class="box box-warning">
+                <div class="box-title">Erro 3</div>
+                <p>"Meu computador está com vírus"<br>
+                <strong>Correção:</strong> Se apenas um site específico não funciona, é problema do site</p>
+            </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 5 -->
+        <!-- ============================================================ -->
+        <section id="cap5">
+            <h2>CAPÍTULO 5: SEGURANÇA DA INFORMAÇÃO E SISTEMAS OPERACIONAIS</h2>
+
+            <h3 id="cap5-1">5.1 FIREWALL DO WINDOWS</h3>
+
+            <h4>5.1.1 Perfis de Rede do Firewall</h4>
+            <p>O Firewall do Windows possui três perfis com níveis de segurança diferentes:</p>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Perfil</th><th>Características</th><th>Quando Usar</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Público</strong></td><td>Mais restritivo, oculta computador, bloqueia compartilhamento</td><td>Redes públicas (aeroportos, cafés)</td></tr>
+                        <tr><td><strong>Privado</strong></td><td>Permite detecção, compartilhamento de arquivos/impressoras</td><td>Redes domésticas ou corporativas confiáveis</td></tr>
+                        <tr><td><strong>Domínio</strong></td><td>Configurações gerenciadas pelo domínio</td><td>Redes corporativas com Active Directory</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>5.1.2 Características do Perfil Público</h4>
+            <ul>
+                <li>✅ <strong>Mantém o computador oculto</strong> de outros dispositivos</li>
+                <li>✅ <strong>Não permite</strong> compartilhamento de arquivos e impressoras</li>
+                <li>✅ <strong>Não permite</strong> descoberta de rede</li>
+                <li>✅ Mais restritivo → mais seguro</li>
+            </ul>
+
+            <h4>5.1.3 Comparativo de Segurança</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Recurso</th><th>Perfil Público</th><th>Perfil Privado</th></tr></thead>
+                    <tbody>
+                        <tr><td>Descoberta de rede</td><td>❌ Bloqueada</td><td>✅ Permitida</td></tr>
+                        <tr><td>Compartilhamento</td><td>❌ Bloqueado</td><td>✅ Permitido</td></tr>
+                        <tr><td>Visibilidade</td><td>Oculta</td><td>Visível</td></tr>
+                        <tr><td>Nível de segurança</td><td>Alto</td><td>Médio</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box box-warning">
+                <div class="box-title">PEGADINHA DE PROVA</div>
+                <p><strong>QUESTÃO:</strong> "Qual perfil de rede do Firewall do Windows mantém o computador oculto de outros dispositivos e não permite compartilhamento de arquivos e impressoras?"</p>
+                <p><strong>RESPOSTA:</strong> Perfil Público</p>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap5-2">5.2 GERENCIADOR DE TAREFAS</h3>
+
+            <h4>5.2.1 Funções e Monitoramento</h4>
+            <p>O <strong>Gerenciador de Tarefas (Task Manager)</strong> é a ferramenta nativa do Windows para monitorar:</p>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Guia</th><th>O que Monitora</th></tr></thead>
+                    <tbody>
+                        <tr><td>Processos</td><td>Aplicativos e processos em execução</td></tr>
+                        <tr><td>Desempenho</td><td>Uso de CPU, memória, disco, rede</td></tr>
+                        <tr><td>Histórico de Aplicativos</td><td>Uso de recursos por aplicativo</td></tr>
+                        <tr><td>Inicializar</td><td>Programas que iniciam com o Windows</td></tr>
+                        <tr><td>Usuários</td><td>Sessões de usuários ativos</td></tr>
+                        <tr><td>Detalhes</td><td>Processos com mais detalhes</td></tr>
+                        <tr><td>Serviços</td><td>Serviços do Windows em execução</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>5.2.2 Diferenciação de Ferramentas</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Ferramenta</th><th>Função Principal</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Gerenciador de Tarefas</strong></td><td>Monitora desempenho e gerencia processos</td></tr>
+                        <tr><td>Gerenciador de Dispositivos</td><td>Gerencia drivers de hardware</td></tr>
+                        <tr><td>Gerenciador do Computador</td><td>Conjunto de ferramentas administrativas</td></tr>
+                        <tr><td>Monitor de Desempenho</td><td>Análise detalhada de desempenho</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>5.2.3 Como Acessar</h4>
+            <ul>
+                <li><strong>Atalho:</strong> <code class="code">Ctrl + Shift + Esc</code></li>
+                <li><strong>Menu:</strong> Clique direito na barra de tarefas → Gerenciador de Tarefas</li>
+                <li><strong>Atalho alternativo:</strong> <code class="code">Ctrl + Alt + Del</code> → Gerenciador de Tarefas</li>
+            </ul>
+
+            <div class="divider-light"></div>
+
+            <h3 id="cap5-3">5.3 ARMAZENAMENTO EM NUVEM</h3>
+
+            <h4>5.3.1 Cálculo de Capacidade – Estudo de Caso</h4>
+            <div class="card">
+                <div class="card-title">Problema</div>
+                <p>Você tem 50 GB disponíveis em nuvem. Qual conjunto de arquivos pode ser armazenado?</p>
+                <div class="table-wrap">
+                    <table class="modern">
+                        <thead><tr><th>Opção</th><th>Cálculo</th><th>Resultado</th><th>Cabe em 50GB?</th></tr></thead>
+                        <tbody>
+                            <tr><td>A) 50 arquivos de 50 MB</td><td>50 × 50 MB = 2.500 MB ≈ 2,5 GB</td><td>2,5 GB</td><td>✅ SIM</td></tr>
+                            <tr><td>B) 2 arquivos de 25 TB</td><td>2 × 25 TB = 50 TB</td><td>50 TB</td><td>❌ NÃO</td></tr>
+                            <tr><td>C) 100 arquivos de 1 GB</td><td>100 × 1 GB = 100 GB</td><td>100 GB</td><td>❌ NÃO</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h4>5.3.2 Unidades de Medida – Tabela de Conversão</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Unidade</th><th>Equivalência</th></tr></thead>
+                    <tbody>
+                        <tr><td>1 KB (Kilobyte)</td><td>1024 bytes</td></tr>
+                        <tr><td>1 MB (Megabyte)</td><td>1024 KB</td></tr>
+                        <tr><td>1 GB (Gigabyte)</td><td>1024 MB</td></tr>
+                        <tr><td>1 TB (Terabyte)</td><td>1024 GB</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="box box-tip">
+                <div class="box-title">MACETE PARA MEMORIZAÇÃO</div>
+                <p><strong>"Sobe UM, desce TUDO"</strong> – Multiplica por 1024 para converter para unidade menor, divide por 1024 para unidade maior.</p>
+            </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 6 -->
+        <!-- ============================================================ -->
+        <section id="cap6">
+            <h2>CAPÍTULO 6: MICROSOFT WORD – FERRAMENTAS DE FORMATAÇÃO</h2>
+
+            <h3>6.1 PINCEL DE FORMATAÇÃO</h3>
+
+            <h4>6.1.1 O que é e Como Funciona</h4>
+            <p>O <strong>Pincel de Formatação</strong> é uma ferramenta do Word que <strong>copia todo o conjunto de formatações</strong> de um texto para outro.</p>
+            <p><strong>Formatações copiadas:</strong></p>
+            <ul>
+                <li>✅ Tipo e tamanho da fonte</li>
+                <li>✅ Negrito, itálico, sublinhado</li>
+                <li>✅ Cor do texto e do fundo</li>
+                <li>✅ <strong>Espaçamento entre linhas e parágrafos</strong></li>
+                <li>✅ <strong>Recuos</strong> (esquerda, direita, primeira linha)</li>
+                <li>✅ Alinhamento</li>
+                <li>✅ Marcadores e numeração</li>
+            </ul>
+
+            <h4>6.1.2 Como Usar</h4>
+            <ol>
+                <li>Selecionar o texto com a formatação desejada</li>
+                <li>Clicar no <strong>Pincel de Formatação</strong> (guia Página Inicial)</li>
+                <li>Clicar no texto onde deseja aplicar a formatação</li>
+            </ol>
+            <p><strong>Dica:</strong> Clique duas vezes no pincel para aplicar a formatação em múltiplos locais.</p>
+
+            <h4>6.1.3 O que o Pincel de Formatação NÃO COPIA</h4>
+            <ul>
+                <li>❌ Conteúdo do texto (apenas a formatação)</li>
+                <li>❌ Estilos de parágrafo (apenas formatação direta)</li>
+                <li>❌ Imagens e objetos (apenas texto)</li>
+            </ul>
+
+            <div class="box box-warning">
+                <div class="box-title">PEGADINHA DE PROVA</div>
+                <p><strong>QUESTÃO:</strong> "No Word 2016, ao copiar a formatação de um parágrafo com negrito e recuo de primeira linha e aplicá-la a outro, quais mudanças são aplicadas?"</p>
+                <p><strong>RESPOSTA:</strong> São aplicadas <strong>todas</strong> as formatações do parágrafo original: negrito, recuo de primeira linha, espaçamento e demais atributos.</p>
+            </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 7 -->
+        <!-- ============================================================ -->
+        <section id="cap7">
+            <h2>CAPÍTULO 7: MICROSOFT POWERPOINT – APRESENTAÇÕES</h2>
+
+            <h3>7.1 PAINEL DE ANOTAÇÕES</h3>
+
+            <h4>7.1.1 Função e Utilização</h4>
+            <p>O <strong>Painel de Anotação</strong> (também chamado de Painel de Notas) permite que o apresentador insira:</p>
+            <ul>
+                <li><strong>Lembretes</strong> sobre cada slide</li>
+                <li><strong>Roteiro</strong> da apresentação</li>
+                <li><strong>Dados complementares</strong> que não devem aparecer para o público</li>
+            </ul>
+            <p><strong>Localização:</strong></p>
+            <ul>
+                <li>Parte inferior da janela do PowerPoint</li>
+                <li>Visível apenas no <strong>Modo de Exibição do Apresentador</strong></li>
+                <li><strong>Não</strong> aparece durante a apresentação normal</li>
+            </ul>
+
+            <h4>7.1.2 Comparação: Painel de Anotação vs. Comentários</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Recurso</th><th>Visibilidade</th><th>Propósito</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Painel de Anotação</strong></td><td>Apenas apresentador</td><td>Roteiro, lembretes</td></tr>
+                        <tr><td>Comentários</td><td>Colaboradores</td><td>Revisão, feedback</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>7.1.3 Modo de Exibição do Apresentador</h4>
+            <p><strong>Recursos disponíveis:</strong></p>
+            <ul>
+                <li>Slide atual (visto pelo público)</li>
+                <li>Slide seguinte (prévia)</li>
+                <li><strong>Painel de Anotação</strong> (privado)</li>
+                <li>Tempo decorrido</li>
+                <li>Ferramentas de navegação</li>
+                <li>Caneta/laser (para apontar no slide)</li>
+            </ul>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 8 -->
+        <!-- ============================================================ -->
+        <section id="cap8">
+            <h2>CAPÍTULO 8: FORMATOS DE ARQUIVO</h2>
+
+            <h3>8.1 FORMATOS DE ÁUDIO</h3>
+
+            <h4>8.1.1 WAV – Padrão sem Compressão</h4>
+            <p><strong>WAV (Waveform Audio File Format)</strong> é um formato de áudio <strong>sem compressão</strong> (não comprimido).</p>
+            <p><strong>Características:</strong></p>
+            <ul>
+                <li>✅ Alta qualidade de áudio</li>
+                <li>✅ Compatível com a maioria dos players</li>
+                <li>❌ Tamanho de arquivo grande</li>
+            </ul>
+
+            <h4>8.1.2 Comparação de Formatos de Áudio</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Formato</th><th>Compressão</th><th>Qualidade</th><th>Tamanho</th><th>Uso Típico</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>WAV</strong></td><td>Sem compressão</td><td>Excelente</td><td>Grande</td><td>Áudio profissional</td></tr>
+                        <tr><td>MP3</td><td>Com perda</td><td>Boa</td><td>Pequeno</td><td>Streaming, música</td></tr>
+                        <tr><td>AAC</td><td>Com perda</td><td>Média-Alta</td><td>Pequeno</td><td>Apple, YouTube</td></tr>
+                        <tr><td>FLAC</td><td>Sem perda (lossless)</td><td>Excelente</td><td>Médio</td><td>Audífilos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>8.1.3 O QUE NÃO É FORMATO DE ÁUDIO</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Extensão</th><th>Tipo</th><th>Classificação</th></tr></thead>
+                    <tbody>
+                        <tr><td>.mp4</td><td>Vídeo</td><td>Formato de contêiner multimídia</td></tr>
+                        <tr><td>.jpg</td><td>Imagem</td><td>Formato de imagem</td></tr>
+                        <tr><td>.pdf</td><td>Documento</td><td>Formato de documento</td></tr>
+                        <tr><td>.aac</td><td>Áudio</td><td>Formato de áudio (comprimido)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 9 -->
+        <!-- ============================================================ -->
+        <section id="cap9">
+            <h2>CAPÍTULO 9: TABELAS DE CONSULTA RÁPIDA</h2>
+
+            <h3>9.1 ATALHOS DE TECLADO ESSENCIAIS</h3>
+
+            <h4>Windows Geral</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Atalho</th><th>Função</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>Ctrl + C</code></td><td>Copiar</td></tr>
+                        <tr><td><code>Ctrl + X</code></td><td>Recortar</td></tr>
+                        <tr><td><code>Ctrl + V</code></td><td>Colar</td></tr>
+                        <tr><td><code>Ctrl + Z</code></td><td>Desfazer</td></tr>
+                        <tr><td><code>Ctrl + Y</code></td><td>Refazer</td></tr>
+                        <tr><td><code>Ctrl + A</code></td><td>Selecionar tudo</td></tr>
+                        <tr><td><code>Ctrl + P</code></td><td>Imprimir</td></tr>
+                        <tr><td><code>Alt + Tab</code></td><td>Alternar entre janelas</td></tr>
+                        <tr><td><code>Windows + D</code></td><td>Mostrar área de trabalho</td></tr>
+                        <tr><td><code>Windows + E</code></td><td>Abrir Explorador de Arquivos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Excel</h4>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Atalho</th><th>Função</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>Ctrl + ;</code></td><td>Inserir data atual</td></tr>
+                        <tr><td><code>Ctrl + Shift + ;</code></td><td>Inserir hora atual</td></tr>
+                        <tr><td><code>Ctrl + Shift + $</code></td><td>Formatar como moeda</td></tr>
+                        <tr><td><code>Ctrl + Shift + %</code></td><td>Formatar como porcentagem</td></tr>
+                        <tr><td><code>Ctrl + Shift + L</code></td><td>Ativar/desativar filtro</td></tr>
+                        <tr><td><code>Ctrl + T</code></td><td>Criar tabela</td></tr>
+                        <tr><td><code>F2</code></td><td>Editar célula</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3>9.2 EXTENSÕES DE ARQUIVOS – GUIA RÁPIDO</h3>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Extensão</th><th>Tipo</th><th>Programa Associado</th></tr></thead>
+                    <tbody>
+                        <tr><td>.docx</td><td>Documento Word</td><td>Microsoft Word</td></tr>
+                        <tr><td>.xlsx</td><td>Planilha Excel</td><td>Microsoft Excel</td></tr>
+                        <tr><td>.pptx</td><td>Apresentação PowerPoint</td><td>Microsoft PowerPoint</td></tr>
+                        <tr><td>.pdf</td><td>Documento portátil</td><td>Adobe Acrobat</td></tr>
+                        <tr><td>.jpg/.jpeg</td><td>Imagem</td><td>Visualizador de fotos</td></tr>
+                        <tr><td>.png</td><td>Imagem (transparência)</td><td>Visualizador de fotos</td></tr>
+                        <tr><td>.mp3</td><td>Áudio</td><td>Windows Media Player</td></tr>
+                        <tr><td>.mp4</td><td>Vídeo</td><td>Windows Media Player</td></tr>
+                        <tr><td>.zip</td><td>Arquivo compactado</td><td>WinRAR, 7-Zip</td></tr>
+                        <tr><td>.exe</td><td>Executável</td><td>Windows</td></tr>
+                        <tr><td>.html</td><td>Página web</td><td>Navegador</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 10 -->
+        <!-- ============================================================ -->
+        <section id="cap10">
+            <h2>CAPÍTULO 10: LISTA DE VERIFICAÇÃO PARA PROVAS</h2>
+
+            <h3>10.1 PONTOS CRÍTICOS MAIS COBRADOS</h3>
+
+            <div class="card">
+                <div class="card-title">Excel</div>
+                <ul>
+                    <li>☐ Toda fórmula começa com <code>=</code></li>
+                    <li>☐ Multiplicação usa <code>*</code> (não <code>#</code> ou <code>@</code>)</li>
+                    <li>☐ PROCV: entender todos os argumentos</li>
+                    <li>☐ Diferença entre FALSO e VERDADEIRO no PROCV</li>
+                    <li>☐ Validação de dados aceita números, texto e datas</li>
+                    <li>☐ Filtros podem ser aplicados a qualquer tipo de dado</li>
+                    <li>☐ Diferença entre Cc e Cco</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Navegadores</div>
+                <ul>
+                    <li>☐ Edge padrão = Bing, mas configurável</li>
+                    <li>☐ Safari é navegador (Apple)</li>
+                    <li>☐ Webmail não é navegador</li>
+                    <li>☐ URL ≠ servidor, protocolo ou ferramenta de busca</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Segurança</div>
+                <ul>
+                    <li>☐ Firewall: perfil público = mais restritivo</li>
+                    <li>☐ DHCP = configuração automática de IP</li>
+                    <li>☐ Gerenciador de Tarefas = monitoramento de desempenho</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">E-mail</div>
+                <ul>
+                    <li>☐ Cco oculta <strong>todos</strong> os destinatários</li>
+                    <li>☐ Limite de anexo = 30MB (servidores comuns)</li>
+                    <li>☐ Copiar e-mail não dobra limite</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Ferramentas</div>
+                <ul>
+                    <li>☐ Pincel de Formatação copia <strong>todo</strong> o conjunto</li>
+                    <li>☐ Painel de Anotação é para o apresentador</li>
+                    <li>☐ WAV = áudio sem compressão</li>
+                </ul>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <h3>10.2 MACETES DE MEMORIZAÇÃO</h3>
+            <div class="table-wrap">
+                <table class="modern">
+                    <thead><tr><th>Tópico</th><th>Macete</th></tr></thead>
+                    <tbody>
+                        <tr><td>Fórmulas</td><td>"= INICIO" (fórmula começa com =)</td></tr>
+                        <tr><td>Multiplicação</td><td>"Asterisco é estrela da multiplicação"</td></tr>
+                        <tr><td>PROCV</td><td>"V de Vertical"</td></tr>
+                        <tr><td>PROCH</td><td>"H de Horizontal"</td></tr>
+                        <tr><td>Cco</td><td>"Cco = Cópia COberta"</td></tr>
+                        <tr><td>Público</td><td>"Público = Perigoso, mais restrito"</td></tr>
+                        <tr><td>DHCP</td><td>"Dá Hora Certa e IP" (configuração automática)</td></tr>
+                        <tr><td>WAV</td><td>"Wave = Áudio Verdadeiro" (sem compressão)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="divider"></div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- APÊNDICE -->
+        <!-- ============================================================ -->
+        <section id="apendice">
+            <h2>APÊNDICE: ANÁLISE DE QUESTÕES TÍPICAS</h2>
+
+            <div class="card">
+                <div class="card-title">Questão 1 (Cesgranrio)</div>
+                <p>"Um servidor precisa classificar os dados da coluna C em ordem alfabética e, em seguida, somar os valores da coluna D. Qual o procedimento correto?"</p>
+                <p><strong>Análise:</strong></p>
+                <ol>
+                    <li>Selecionar toda a planilha (dados relacionados)</li>
+                    <li>Guia Dados → Classificar (coluna C, A a Z)</li>
+                    <li>Para somar: <code>=SOMA(D:D)</code> ou selecionar intervalo</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Questão 2 (FCC)</div>
+                <p>"Em uma mensagem de e-mail, o campo Cco deve ser utilizado quando:"</p>
+                <p><strong>Análise:</strong><br>
+                Quando se deseja que os destinatários não vejam os endereços dos demais, mantendo a privacidade.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Questão 3 (Vunesp)</div>
+                <p>"No Windows 10, um computador conectado a uma rede de aeroporto deve utilizar qual perfil de firewall?"</p>
+                <p><strong>Análise:</strong><br>
+                Perfil Público, por ser mais restritivo e seguro para ambientes não confiáveis.</p>
+            </div>
+
+            <div class="divider"></div>
+            <p style="text-align:center; color:#6a7a8e; font-size:0.9rem; margin-top:2rem;">
+                <strong>FIM DA APOSTILA</strong><br>
+                <span style="font-size:0.8rem;">Material preparado com base em conteúdos de concursos públicos. A reprodução total ou parcial deste material requer autorização prévia.</span>
+            </p>
+        </section>
+
+    </div>
+</body>
+</html>
