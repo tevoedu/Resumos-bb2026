@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Digital - Conhecimentos Bancários</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0d1a;
+            color: #e8e8f0;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== TIPOGRAFIA ===== */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            color: #f5b342;
+            letter-spacing: -0.5px;
+            border-bottom: 3px solid #f5b34255;
+            padding-bottom: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.0rem;
+            color: #5fc3e4;
+            margin-top: 3rem;
+            padding-left: 0.5rem;
+            border-left: 6px solid #5fc3e4;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #a8d8ea;
+            margin-top: 2rem;
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            color: #cfd8dc;
+            margin-top: 1.6rem;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #d4d4dc;
+        }
+
+        strong {
+            color: #ffb74d;
+            font-weight: 600;
+        }
+
+        em {
+            color: #90caf9;
+            font-style: italic;
+        }
+
+        a {
+            color: #81d4fa;
+            text-decoration: none;
+            border-bottom: 1px dotted #81d4fa55;
+        }
+
+        a:hover {
+            color: #b3e5fc;
+            border-bottom-color: #b3e5fc;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f5b34244, #5fc3e444, #f5b34244);
+            margin: 3rem 0;
+        }
+
+        /* ===== SUMÁRIO ===== */
+        .toc {
+            background: #16162e;
+            border-radius: 20px;
+            padding: 2rem 2rem 1.8rem;
+            margin: 2.5rem 0 3rem;
+            border: 1px solid #2a2a4a;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border-left-color: #f5b342;
+            color: #f5b342;
+            font-size: 1.8rem;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.8rem 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .toc-grid a {
+            display: block;
+            padding: 0.4rem 0;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+            color: #b0bec5;
+        }
+
+        .toc-grid a:hover {
+            color: #fff;
+            border-bottom-color: #f5b34277;
+        }
+
+        .toc-grid .modulo-badge {
+            display: inline-block;
+            background: #f5b34222;
+            color: #f5b342;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            margin-right: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== BOXES ===== */
+        .box {
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.8rem 0;
+            border-left: 6px solid transparent;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(2px);
+        }
+
+        .box-dica {
+            border-color: #4db6ac;
+            background: #0f2626;
+        }
+        .box-dica .box-title {
+            color: #4db6ac;
+        }
+
+        .box-importante {
+            border-color: #e57373;
+            background: #2a1414;
+        }
+        .box-importante .box-title {
+            color: #e57373;
+        }
+
+        .box-atencao {
+            border-color: #ffb74d;
+            background: #2a1f0f;
+        }
+        .box-atencao .box-title {
+            color: #ffb74d;
+        }
+
+        .box-observacao {
+            border-color: #64b5f6;
+            background: #0f1f2e;
+        }
+        .box-observacao .box-title {
+            color: #64b5f6;
+        }
+
+        .box-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .box-title svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== CITAÇÃO ===== */
+        .citacao {
+            margin: 2rem 0;
+            padding: 1.2rem 2rem;
+            border-left: 6px solid #f5b342;
+            background: rgba(245, 179, 66, 0.06);
+            border-radius: 0 16px 16px 0;
+            font-style: italic;
+            color: #cfd8dc;
+            font-size: 1.05rem;
+        }
+
+        .citacao .autor {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: normal;
+            font-weight: 600;
+            color: #f5b342;
+            font-size: 0.95rem;
+        }
+
+        /* ===== TABELAS ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.8rem 0;
+            border-radius: 16px;
+            background: #14142a;
+            border: 1px solid #2a2a4a;
+        }
+
+        table.modern-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 500px;
+        }
+
+        table.modern-table thead {
+            background: #1e1e3a;
+        }
+
+        table.modern-table th {
+            padding: 1rem 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            color: #f5b342;
+            border-bottom: 2px solid #f5b34244;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        table.modern-table td {
+            padding: 0.9rem 1.2rem;
+            border-bottom: 1px solid #252545;
+            color: #d4d4dc;
+        }
+
+        table.modern-table tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        table.modern-table tbody tr:nth-child(even) {
+            background: #0f0f22;
+        }
+
+        table.modern-table tbody tr:hover {
+            background: #1a1a36;
+        }
+
+        /* ===== LISTAS ===== */
+        ul,
+        ol {
+            padding-left: 1.8rem;
+            margin: 1rem 0 1.5rem;
+            color: #d4d4dc;
+        }
+
+        ul li,
+        ol li {
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::marker {
+            color: #f5b342;
+        }
+
+        ol li::marker {
+            color: #5fc3e4;
+            font-weight: 600;
+        }
+
+        .lista-destaque {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .lista-destaque li {
+            padding: 0.6rem 0 0.6rem 2.2rem;
+            position: relative;
+            border-bottom: 1px solid #252545;
+        }
+
+        .lista-destaque li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #f5b342;
+            font-weight: 700;
+        }
+
+        /* ===== CARDS ===== */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: #16162e;
+            border-radius: 18px;
+            padding: 1.6rem 1.8rem;
+            border: 1px solid #2a2a4a;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            border-color: #f5b34255;
+        }
+
+        .card h4 {
+            margin-top: 0;
+            color: #f5b342;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #2a2a4a;
+            padding-bottom: 0.5rem;
+        }
+
+        .card p {
+            margin-bottom: 0.5rem;
+            color: #cfd8dc;
+            font-size: 0.95rem;
+        }
+
+        /* ===== DESTAQUES INLINE ===== */
+        .highlight {
+            background: rgba(245, 179, 66, 0.2);
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            color: #ffcc80;
+            font-weight: 500;
+        }
+
+        .highlight-blue {
+            background: rgba(100, 181, 246, 0.2);
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            color: #90caf9;
+        }
+
+        /* ===== SVG DIAGRAMAS ===== */
+        .diagram-container {
+            background: #111125;
+            border-radius: 24px;
+            padding: 1.5rem 1rem;
+            margin: 2.5rem 0;
+            border: 1px solid #2a2a4a;
+            overflow-x: auto;
+            text-align: center;
+        }
+
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .diagram-container .diagram-title {
+            color: #a8d8ea;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* ===== SEPARADORES ===== */
+        .divider-wave {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            color: #2a2a4a;
+        }
+
+        .divider-wave .line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f5b34244, transparent);
+        }
+
+        .divider-wave svg {
+            fill: #f5b34244;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2.0rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            h4 {
+                font-size: 1.1rem;
+            }
+
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .box {
+                padding: 1.2rem;
+            }
+
+            table.modern-table {
+                font-size: 0.85rem;
+                min-width: 400px;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diagram-container {
+                padding: 0.8rem 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table.modern-table {
+                font-size: 0.75rem;
+                min-width: 300px;
+            }
+
+            table.modern-table th,
+            table.modern-table td {
+                padding: 0.5rem 0.6rem;
+            }
+        }
+
+        /* ===== ACESSIBILIDADE ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+
+        /* ===== SCROLL SUAVE ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ===== BOTÃO DE VOLTA (opcional) ===== */
+        .back-to-top {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #81d4fa;
+            border-bottom: 1px dotted #81d4fa55;
+            padding-bottom: 0.2rem;
+        }
+
+        /* ===== PEGADINHA ===== */
+        .pegadinha {
+            background: #2a1414;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            border-left: 4px solid #e57373;
+            margin: 1.2rem 0;
+        }
+
+        .pegadinha strong {
+            color: #ff8a80;
+        }
+
+        .pegadinha .rotulo {
+            font-weight: 700;
+            color: #e57373;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- CABEÇALHO -->
+    <!-- ============================================================ -->
+    <header>
+        <h1>📘 Apostila Digital<br><span style="font-size:1.2rem;color:#a8d8ea;">Conhecimentos Bancários para Concursos</span></h1>
+        <p style="font-size:1.1rem;color:#b0bec5;margin-top:0.2rem;">
+            Material de altíssimo nível — base sólida, teoria e prática para sua aprovação.
+        </p>
+        <hr>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- SUMÁRIO INTELIGENTE -->
+    <!-- ============================================================ -->
+    <nav class="toc" aria-label="Sumário">
+        <h2>📑 Sumário</h2>
+        <div class="toc-grid">
+            <a href="#modulo1"><span class="modulo-badge">Módulo I</span> Previdência Complementar</a>
+            <a href="#modulo2"><span class="modulo-badge">Módulo II</span> Ética &amp; Integridade</a>
+            <a href="#modulo3"><span class="modulo-badge">Módulo III</span> Produtos de Captação</a>
+            <a href="#modulo4"><span class="modulo-badge">Módulo IV</span> Fundos de Investimento</a>
+            <a href="#modulo5"><span class="modulo-badge">Módulo V</span> Serviços &amp; Economia</a>
+        </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- INTRODUÇÃO -->
+    <!-- ============================================================ -->
+    <section>
+        <p style="font-size:1.1rem;color:#cfd8dc;">
+            Prezado(a) aluno(a),
+        </p>
+        <p>
+            Seja bem-vindo(a) a este material didático de altíssimo nível, meticulosamente elaborado para a sua aprovação nos principais concursos da área bancária. Aqui, não trabalhamos com resumos ou fragmentos de conhecimento. Nosso compromisso é com a construção de uma base sólida e profunda, que lhe permitirá não apenas acertar as questões mais complexas de bancas como Cesgranrio, FCC, FGV e Cebraspe, mas também compreender a lógica e a aplicação prática de cada conceito no seu futuro ambiente de trabalho.
+        </p>
+        <p>
+            Abordaremos temas que são o coração da rotina de uma agência bancária, destrinchando produtos, serviços, normativos e, principalmente, a ética que deve permear cada ação de um profissional do setor financeiro. Prepare-se para uma jornada de aprendizado que conecta a teoria à prática, a legislação ao atendimento, e o conhecimento à sua tão sonhada posse.
+        </p>
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO I -->
+    <!-- ============================================================ -->
+    <section id="modulo1">
+        <h2>Módulo I: Previdência Complementar Aberta – O Pilar do Planejamento Financeiro de Longo Prazo</h2>
+        <p>
+            A previdência complementar é um dos produtos mais nobres da prateleira de um agente comercial bancário. Diferentemente de uma simples aplicação financeira, ela representa a construção de um patrimônio com um objetivo claro e de longo prazo: a manutenção do padrão de vida na aposentadoria ou a realização de um projeto de vida futuro. Dominar as nuances entre os planos PGBL e VGBL é, portanto, não só uma exigência de prova, mas uma necessidade prática para uma consultoria de qualidade.
+        </p>
+
+        <!-- 1.1 -->
+        <h3>1.1. A Essência dos Planos: PGBL x VGBL e a Variável Fiscal</h3>
+        <p>
+            A grande diferença entre o Plano Gerador de Benefício Livre (PGBL) e o Vida Gerador de Benefício Livre (VGBL) reside no tratamento tributário, e essa é a variável que ditará a indicação de um ou outro para cada perfil de cliente. Ambos são veículos de acumulação de longo prazo, mas o momento em que a tributação do Imposto de Renda (IR) impacta o investidor é completamente distinto.
+        </p>
+        <div class="box box-observacao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Por que essa diferença existe?
+            </div>
+            <p>
+                O governo federal, por meio da legislação do Imposto de Renda, utiliza o PGBL como um incentivo fiscal à poupança de longo prazo. A lógica é simples: o Estado "abdica" de parte da arrecadação no presente (ao permitir a dedução das contribuições) para estimular o cidadão a formar uma reserva que reduzirá a pressão sobre a previdência social no futuro. Já o VGBL é um seguro de vida com acumulação de capital, cuja vantagem fiscal se manifesta no resgate.
+            </p>
+        </div>
+
+        <!-- 1.2 -->
+        <h3>1.2. PGBL: A Vantagem Fiscal na Entrada (Dedução na Declaração de Ajuste Anual)</h3>
+        <p>
+            O PGBL é, por excelência, o produto indicado para o cliente que declara o Imposto de Renda no <strong>modelo completo de declaração</strong>.
+        </p>
+        <div class="box box-dica">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Como funciona na prática?
+            </div>
+            <p>
+                As contribuições feitas ao PGBL ao longo de um ano-calendário podem ser integralmente deduzidas da base de cálculo do IR devido na Declaração de Ajuste Anual do exercício seguinte. No entanto, existe um limite legal crucial, e é aqui que mora a principal "pegadinha" de prova:
+                <br><strong>Limite de Dedução:</strong> O valor total das contribuições ao PGBL que poderá ser abatido é de, no máximo, <span class="highlight">12% da sua Renda Bruta Anual Tributável</span>.
+            </p>
+        </div>
+
+        <div class="box box-importante">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Aplicação na Agência Bancária (Estudo de Caso)
+            </div>
+            <p>
+                Imagine que um cliente, o Sr. Álvaro, chega à agência e lhe procura. Ele é um engenheiro que recebe salário e eventuais participações nos lucros, totalizando uma renda bruta anual de R$ 120.000,00. Ele entrega a declaração de IR no modelo completo.
+                <br>– Você, como agente comercial, identifica que ele pode se beneficiar do PGBL.
+                <br>– O potencial máximo de dedução do Sr. Álvaro será de 12% x R$ 120.000,00 = <span class="highlight">R$ 14.400,00 por ano</span> (ou R$ 1.200,00 por mês).
+                <br>– Se ele aportar exatamente R$ 14.400,00 em 12 parcelas mensais no PGBL, este valor será integralmente subtraído da sua renda tributável, reduzindo o imposto a pagar ou aumentando a restituição.
+            </p>
+        </div>
+
+        <p>
+            <strong>Por que isso importa para você, futuro(a) escriturário(a)?</strong>
+            <br>Porque a correta indicação do PGBL para um cliente que não utiliza o modelo completo, ou que já não tem base de cálculo suficiente para abater (como um profissional autônomo que recolhe por carnê-leão sem excedente), gerará um benefício fiscal nulo. Pior: o cliente fará um investimento de longo prazo cuja tributação futura será desvantajosa, pois, como veremos, no PGBL o IR incide sobre o montante total acumulado.
+        </p>
+
+        <!-- 1.3 -->
+        <h3>1.3. VGBL: A Vantagem Fiscal na Saída (Tributação Apenas sobre os Rendimentos)</h3>
+        <p>
+            O VGBL, por sua vez, é o plano ideal para clientes que:
+        </p>
+        <ol>
+            <li>Declaram o IR pelo <strong>modelo simplificado</strong>.</li>
+            <li>São <strong>isentos</strong> de declarar IR.</li>
+            <li>Já recolhem IR na fonte e não fazem a declaração de ajuste.</li>
+            <li>Desejam aportar um valor superior a 12% da sua renda bruta anual em previdência, pois no VGBL <strong>não há limite de dedução fiscal</strong>.</li>
+        </ol>
+        <div class="box box-dica">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Como funciona na prática?
+            </div>
+            <p>
+                As contribuições realizadas ao VGBL <strong>não são dedutíveis</strong> da base de cálculo do IR. Em contrapartida, no momento do resgate ou do recebimento da renda, o IR incidirá <strong>exclusivamente sobre a parcela dos rendimentos (juros, lucros)</strong> que o capital acumulou ao longo do tempo.
+            </p>
+        </div>
+        <div class="box box-observacao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Contextualizando com o Mercado Brasileiro
+            </div>
+            <p>
+                Esta característica torna o VGBL extremamente atrativo para planejamentos de longo prazo, pois a base de cálculo do IR é muito menor. Quanto maior o prazo e maior a rentabilidade acumulada, mais evidente se torna essa vantagem.
+            </p>
+        </div>
+
+        <!-- 1.4 -->
+        <h3>1.4. Comparação Detalhada no Momento do Resgate</h3>
+        <p>
+            Este é o ponto mais crítico e o favorito das bancas examinadoras. A distinção da base de cálculo do IR na saída define a escolha do plano.
+        </p>
+        <ul>
+            <li><strong>PGBL:</strong> A tributação do IR incide sobre o <strong>valor total resgatado ou a renda total recebida</strong>. Ou seja, o IR "morde" o capital que você aplicou E todos os rendimentos que ele gerou. A lógica fiscal é: <em>"Você não pagou IR na entrada, então irá pagar sobre tudo na saída"</em>.</li>
+            <li><strong>VGBL:</strong> A tributação do IR incide <strong>apenas sobre os rendimentos</strong> auferidos pelo investimento. O valor do capital investido, que já foi tributado ao longo da vida laboral do cotista (ou é isento), retorna para ele livre de novo IR. A lógica é: <em>"Você já pagou IR sobre este capital, então só pagará sobre o lucro que ele gerou"</em>.</li>
+        </ul>
+
+        <div class="table-wrap">
+            <table class="modern-table">
+                <caption style="caption-side:bottom;margin-top:0.6rem;color:#78909c;font-size:0.9rem;">Tabela Comparativa Definitiva: PGBL x VGBL para Concursos e para a Prática</caption>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>PGBL</th>
+                        <th>VGBL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Indicação Principal</strong></td>
+                        <td>Cliente com renda tributável que declara IR no <strong>modelo completo</strong>.</td>
+                        <td>Cliente do modelo <strong>simplificado</strong>, isentos, ou que já investem mais de 12% da renda.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dedução das Contribuições</strong></td>
+                        <td><span class="highlight">Sim.</span> Até o limite de <strong>12% da Renda Bruta Anual</strong>.</td>
+                        <td><span class="highlight-blue">Não.</span> As contribuições não são dedutíveis.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Base de Cálculo do IR no Resgate</strong></td>
+                        <td>Sobre o <strong>valor total</strong> (Capital + Rendimentos).</td>
+                        <td>Apenas sobre os <strong>rendimentos</strong> (Lucro).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lógica Fiscal</strong></td>
+                        <td>Postergação do pagamento do IR. Tributa-se tudo no futuro.</td>
+                        <td>Incentivo ao investimento de longo prazo. Tributa-se apenas o ganho real.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 1.5 -->
+        <h3>1.5. Desmistificando Erros Comuns e "Pegadinhas" de Prova</h3>
+        <p>
+            É fundamental que você esteja atento(a) às armadilhas que as bancas elaboradoras constroem para testar seu conhecimento.
+        </p>
+
+        <div class="pegadinha">
+            <span class="rotulo">🚨 ERRO COMUM 1</span>
+            <strong>"O VGBL é um plano que tributa o valor total no resgate."</strong> <span style="color:#ff8a80;">FALSO.</span> Esta é a característica do PGBL. A Cesgranrio adora inverter esses conceitos.
+        </div>
+
+        <div class="pegadinha">
+            <span class="rotulo">🚨 ERRO COMUM 2</span>
+            <strong>"O VGBL é restrito a investimentos em renda fixa."</strong> <span style="color:#ff8a80;">FALSO.</span> Esta é uma confusão conceitual. Tanto fundos PGBL quanto VGBL podem investir em uma ampla gama de ativos, como renda fixa, ações, multimercado e até no exterior, dependendo da política de investimento do fundo escolhido. A diferença está única e exclusivamente no tratamento tributário, e não na composição da carteira.
+        </div>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO II -->
+    <!-- ============================================================ -->
+    <section id="modulo2">
+        <h2>Módulo II: Ética, Conduta e Integridade – A Espinha Dorsal da Rotina Bancária</h2>
+        <p>
+            Em um ambiente onde a confiança é o ativo mais valioso, a conduta ética não é uma opção, mas um pilar inegociável. As instituições financeiras são regidas por rigorosos códigos e normativos, e a compreensão das instâncias de apuração e responsabilização é essencial para a sua vida funcional e para a sua prova.
+        </p>
+
+        <!-- 2.1 -->
+        <h3>2.1. A Comissão de Ética: O Tribunal da Conduta Profissional</h3>
+        <p>
+            Ao se deparar com uma situação de desvio de conduta, como um funcionário que solicita ou recebe vantagem indevida para acelerar uma operação de crédito, é crucial saber a quem compete a apuração e o julgamento.
+        </p>
+        <div class="box box-importante">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Qual a função precípua da Comissão de Ética?
+            </div>
+            <p>
+                A Comissão de Ética é o órgão colegiado interno, instituído pelo Código de Conduta Ética e Integridade do banco, responsável por:
+            </p>
+            <ul>
+                <li><strong>Receber</strong> denúncias sobre violações ao código de conduta.</li>
+                <li><strong>Investigar</strong> e apurar a materialidade dos fatos.</li>
+                <li><strong>Julgar</strong> os desvios éticos.</li>
+                <li><strong>Aplicar</strong> as sanções disciplinares previstas no normativo interno, que podem ir desde uma advertência até a demissão por justa causa.</li>
+            </ul>
+        </div>
+
+        <div class="box box-observacao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Por que não é a auditoria ou o superior imediato?
+            </div>
+            <p>
+                Esta é a clássica distinção que as bancas testam.
+            </p>
+            <ul>
+                <li><strong>Auditoria Independente:</strong> Seu papel é externo e focado na análise das demonstrações financeiras, verificando se elas refletem a real posição patrimonial e financeira do banco. Ela não julga pessoas ou condutas antiéticas de colaboradores.</li>
+                <li><strong>Supervisora ou Gerente Direta:</strong> Possui o dever de liderança e deve orientar a equipe sobre condutas esperadas e, ao tomar conhecimento de um desvio, tem a obrigação de encaminhar a denúncia aos canais competentes (como a Comissão de Ética, Canal de Denúncias ou Ouvidoria). Contudo, <strong>não lhe cabe o poder de julgar e aplicar sanções éticas</strong>.</li>
+                <li><strong>Comissão de Controles Internos e Compliance:</strong> É a área que desenha as políticas, mapeia os riscos (incluindo o risco de compliance), monitora a aderência dos processos às normas e reporta à alta administração. Ela atua na prevenção e no monitoramento, mas a instância julgadora das infrações ao código de conduta é a Comissão de Ética.</li>
+            </ul>
+        </div>
+
+        <!-- DIAGRAMA SVG: Comissão de Ética -->
+        <div class="diagram-container">
+            <div class="diagram-title">📌 Esquema de Apuração de Conduta</div>
+            <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                <!-- Caixa Denúncia -->
+                <rect x="20" y="100" width="140" height="70" rx="12" fill="#2a1f0f" stroke="#f5b342" stroke-width="2"/>
+                <text x="90" y="132" fill="#ffcc80" font-size="16" font-weight="bold" text-anchor="middle">Denúncia</text>
+                <text x="90" y="154" fill="#cfd8dc" font-size="13" text-anchor="middle">(suborno, desvio)</text>
+
+                <!-- Seta Denúncia → Comissão -->
+                <line x1="160" y1="135" x2="210" y2="135" stroke="#f5b342" stroke-width="2" marker-end="url(#seta1)"/>
+                <defs>
+                    <marker id="seta1" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#f5b342"/>
+                    </marker>
+                    <marker id="seta2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#5fc3e4"/>
+                    </marker>
+                </defs>
+
+                <!-- Caixa Comissão de Ética (central) -->
+                <rect x="220" y="90" width="200" height="90" rx="14" fill="#1a1a36" stroke="#5fc3e4" stroke-width="2.5"/>
+                <text x="320" y="125" fill="#5fc3e4" font-size="18" font-weight="bold" text-anchor="middle">Comissão de Ética</text>
+                <text x="320" y="150" fill="#cfd8dc" font-size="13" text-anchor="middle">Julga e sanciona</text>
+                <text x="320" y="170" fill="#90caf9" font-size="12" text-anchor="middle">(advertência a demissão)</text>
+
+                <!-- Seta Comissão → Julgamento -->
+                <line x1="420" y1="135" x2="480" y2="135" stroke="#5fc3e4" stroke-width="2" marker-end="url(#seta2)"/>
+
+                <!-- Caixa Julgamento -->
+                <rect x="490" y="100" width="160" height="70" rx="12" fill="#0f2626" stroke="#4db6ac" stroke-width="2"/>
+                <text x="570" y="132" fill="#4db6ac" font-size="16" font-weight="bold" text-anchor="middle">Sanção Aplicada</text>
+                <text x="570" y="154" fill="#cfd8dc" font-size="13" text-anchor="middle">justa causa / advertência</text>
+
+                <!-- Linhas para os outros atores -->
+                <text x="60" y="240" fill="#78909c" font-size="13" text-anchor="middle">Auditoria → Verifica Balanços</text>
+                <text x="300" y="240" fill="#78909c" font-size="13" text-anchor="middle">Gerente → Orienta e Reporta</text>
+                <text x="540" y="240" fill="#78909c" font-size="13" text-anchor="middle">Compliance → Monitora e Prevê</text>
+
+                <!-- Linhas tracejadas -->
+                <line x1="90" y1="200" x2="90" y2="228" stroke="#78909c" stroke-width="1.5" stroke-dasharray="4,4"/>
+                <line x1="320" y1="200" x2="320" y2="228" stroke="#78909c" stroke-width="1.5" stroke-dasharray="4,4"/>
+                <line x1="570" y1="200" x2="570" y2="228" stroke="#78909c" stroke-width="1.5" stroke-dasharray="4,4"/>
+            </svg>
+        </div>
+
+        <!-- 2.2 -->
+        <h3>2.2. O "Tone from the Top": A Alta Administração como Guardiã da Integridade</h3>
+        <p>
+            Um programa de integridade só é efetivo quando abraçado pela cúpula da instituição. Este conceito, conhecido como <strong>"tone from the top"</strong> (tom que vem do topo), é cobrado literalmente em provas.
+        </p>
+        <div class="box box-importante">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                De quem é a responsabilidade final?
+            </div>
+            <p>
+                Da <strong>Alta Administração</strong> (Conselho de Administração e Diretoria Executiva).
+            </p>
+        </div>
+        <p>
+            <strong>Por que a responsabilidade é dela e não dos órgãos de controle?</strong>
+        </p>
+        <ul>
+            <li><strong>Alta Administração:</strong> É ela quem define o apetite ao risco, aprova o código de conduta, aloca recursos humanos e financeiros para o programa de integridade, e deve liderar pelo exemplo, demonstrando publicamente seu compromisso com a ética. A responsabilidade é intransferível.</li>
+            <li><strong>Auditoria Interna:</strong> Avalia a efetividade dos controles internos, incluindo os controles do programa de integridade, mas não é a responsável por ele.</li>
+            <li><strong>Conselho Fiscal:</strong> Tem a função de fiscalizar os atos da administração e opinar sobre as demonstrações financeiras, não de executar ou liderar o programa.</li>
+            <li><strong>Gestor de Riscos:</strong> Operacionaliza a gestão dos riscos, incluindo o risco de compliance, mas sob a supervisão e responsabilidade última da alta administração.</li>
+        </ul>
+        <p>
+            A base legal e normativa para essa responsabilidade advém da <strong>Lei Anticorrupção (Lei nº 12.846/2013)</strong> e dos normativos do Banco Central que tratam de governança corporativa e controles internos.
+        </p>
+
+        <!-- 2.3 -->
+        <h3>2.3. A Ética em um Ambiente Multicultural: Atualização e Abrangência</h3>
+        <p>
+            Em um mundo globalizado, com equipes em trabalho presencial e remoto, a revisão contínua das políticas de conduta é uma necessidade operacional.
+        </p>
+        <div class="box box-dica">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Postura da Gestão
+            </div>
+            <p>
+                Um gerente que busca revisar as políticas de conduta e ética de um banco com atuação multicultural deve adotar uma abordagem baseada em:
+            </p>
+            <ol>
+                <li><strong>Ações Cotidianas e Treinamento:</strong> A ética não se consolida com um manual estático guardado na gaveta. Ela é vivida por meio de treinamentos comportamentais, palestras, discussões de dilemas éticos e comunicação constante, adaptando a linguagem para diferentes públicos e culturas, mas sem jamais relativizar os princípios fundamentais.</li>
+                <li><strong>Revisão Contínua:</strong> As políticas não são dogmas imutáveis. Elas devem ser periodicamente revisadas para se adequarem a novos riscos (como os trazidos pelo trabalho remoto), novas leis e novas realidades de mercado.</li>
+            </ol>
+        </div>
+
+        <div class="box box-atencao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Visões Incorretas e Anacrônicas (As Pegadinhas)
+            </div>
+            <ul class="lista-destaque">
+                <li><strong>"Diferenças éticas e culturais empobrecem a instituição."</strong> <span style="color:#ff8a80;">FALSO:</span> a diversidade de perspectivas enriquece o ambiente e fortalece a cultura de integridade, desde que alicerçada em um código de conduta sólido e universal.</li>
+                <li><strong>"A política deve refletir apenas a realidade da sede do banco."</strong> <span style="color:#ff8a80;">FALSO:</span> uma política de conduta eficaz é global, mas sua implementação deve considerar as nuances legais e culturais locais.</li>
+                <li><strong>"A ética é estática e os valores definidos na fundação do banco não precisam ser revistos."</strong> <span style="color:#ff8a80;">FALSO:</span> os valores fundamentais podem ser perenes, mas as políticas que os operacionalizam devem evoluir.</li>
+                <li><strong>"O home office afasta a necessidade de revisão das políticas de conduta."</strong> <span style="color:#ff8a80;">FALSO:</span> o trabalho remoto cria novos cenários de risco, como confidencialidade da informação, assédio virtual e jornada de trabalho, exigindo regras ainda mais claras e atualizadas.</li>
+            </ul>
+        </div>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO III -->
+    <!-- ============================================================ -->
+    <section id="modulo3">
+        <h2>Módulo III: Produtos de Captação – Dominando as Opções de Investimento e Garantia</h2>
+        <p>
+            Neste módulo, analisaremos produtos que são a base da captação de recursos em uma agência. Compreender suas minúcias, diferenças e indicações específicas é o que diferencia um escriturário comum de um consultor de valor.
+        </p>
+
+        <!-- 3.1 -->
+        <h3>3.1. Recibo de Depósito Bancário (RDB): O "Primo" do CDB nas Cooperativas</h3>
+        <p>
+            O RDB é um título de renda fixa frequentemente negligenciado, mas que surge em questões de prova para confundir o candidato.
+        </p>
+        <div class="box box-observacao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Características Fundamentais do RDB
+            </div>
+            <ul>
+                <li><strong>Emissor Exclusivo:</strong> Ao contrário do CDB, que é emitido por bancos múltiplos, comerciais e de investimento, o RDB é um título privativo das <strong>cooperativas de crédito</strong> e, em alguns contextos históricos, de bancos de desenvolvimento.</li>
+                <li><strong>Natureza:</strong> É um título de renda fixa, onde o investidor "empresta" dinheiro à cooperativa por um prazo determinado, recebendo juros em contrapartida.</li>
+                <li><strong>Proteção do FGC:</strong> Sim, os RDBs emitidos por cooperativas de crédito são cobertos pelo Fundo Garantidor de Créditos (FGC) até o limite de <span class="highlight">R$ 250 mil</span> por CPF, por instituição financeira, com um teto global de R$ 1 milhão a cada 4 anos.</li>
+                <li><strong>Inalienabilidade e Intransferibilidade:</strong> Esta é a maior peculiaridade do RDB. Ele é <strong>nominal e intransferível</strong>. Você não pode vender, doar ou transferir um RDB para outra pessoa. É um contrato pessoal entre o investidor e a cooperativa.</li>
+                <li><strong>Resgate Antecipado:</strong> É tratado como uma exceção. Só pode ocorrer com a <strong>concordância expressa da instituição emissora</strong> e, se autorizado, implicará na <strong>perda integral dos rendimentos (juros)</strong> acumulados até a data, retornando ao investidor apenas o valor principal corrigido, se for o caso.</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+            <table class="modern-table">
+                <caption style="caption-side:bottom;margin-top:0.6rem;color:#78909c;font-size:0.9rem;">Tabela Comparativa: CDB x RDB – Para Não Errar na Prova</caption>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>CDB</th>
+                        <th>RDB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Emissor</strong></td>
+                        <td>Bancos Múltiplos, Comerciais, de Investimento.</td>
+                        <td><span class="highlight">Cooperativas de Crédito.</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Garantia FGC</strong></td>
+                        <td>Sim (até R$ 250 mil).</td>
+                        <td>Sim (até R$ 250 mil).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Titularidade</strong></td>
+                        <td>Transferível. Pode ser negociado no mercado secundário ou ter liquidez diária.</td>
+                        <td><span class="highlight-blue">Inalienável e intransferível.</span> Contrato personalíssimo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Resgate Antecipado</strong></td>
+                        <td>Condições pactuadas no momento da aplicação.</td>
+                        <td><span class="highlight-blue">Excepcional.</span> Depende de concordância da cooperativa e implica a <strong>perda total dos juros</strong>.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 3.2 -->
+        <h3>3.2. Caderneta de Poupança: O Clássico Regulado pela Taxa Selic</h3>
+        <p>
+            A poupança, apesar de sua simplicidade, é um dos produtos mais rentáveis em cenários de queda de juros para pequenos investidores, pois é isenta de IR. Sua regra de remuneração é atrelada à meta da Taxa Selic e é um prato cheio para a Cesgranrio.
+        </p>
+        <div class="box box-importante">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Regra de Ouro da Remuneração
+            </div>
+            <p>
+                A forma de cálculo do rendimento mensal da poupança é binária e depende de um único fator: a <strong>meta da Taxa Selic ao ano</strong>.
+            </p>
+        </div>
+
+        <div class="table-wrap">
+            <table class="modern-table">
+                <thead>
+                    <tr><th>Cenário</th><th>Regra de Remuneração Mensal</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Meta Selic &gt; 8,5% ao ano</strong></td>
+                        <td><span class="highlight">0,5% ao mês</span> + <strong>Taxa Referencial (TR)</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meta Selic ≤ 8,5% ao ano</strong></td>
+                        <td><span class="highlight-blue">70% da meta da Taxa Selic ao mês</span> + <strong>Taxa Referencial (TR)</strong>.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box box-atencao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Aniversário da Poupança
+            </div>
+            <p>
+                O crédito dos juros é feito <strong>mensalmente</strong>, na data de aniversário da aplicação. Este é um ponto crucial para o atendimento: um saque realizado um dia antes do aniversário perde todo o rendimento daquele mês.
+            </p>
+        </div>
+
+        <div class="box box-observacao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Desconstruindo os Erros Comuns de Prova
+            </div>
+            <ul>
+                <li><strong>"A remuneração da poupança é formada apenas pela TR."</strong> <span style="color:#ff8a80;">FALSO.</span> A TR é um componente adicional, mas a parcela principal é a regra dos 0,5% ou 70% do CDI.</li>
+                <li><strong>"O rendimento é creditado semestralmente."</strong> <span style="color:#ff8a80;">FALSO.</span> É <strong>mensalmente</strong>. (Atenção: algumas aplicações antigas tinham regras diferentes, mas a regra geral vigente é o crédito mensal).</li>
+            </ul>
+        </div>
+
+        <div class="box box-dica">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Aplicação Prática e de Vendas
+            </div>
+            <p>
+                Em um cenário de Selic a 2% ao ano, a poupança nova rende 70% disso (1,4% a.a.) + TR. Um Fundo DI, que rende 100% do CDI (que é muito próximo da Selic), terá rentabilidade bruta de 2% a.a., mas sofrerá a incidência de IR regressivo. Para um cliente com pouco capital e curto prazo, a isenção de IR da poupança pode torná-la mais vantajosa que um fundo DI. Saber fazer essa conta mentalmente é o que o destacará.
+            </p>
+        </div>
+
+        <!-- 3.3 -->
+        <h3>3.3. Títulos de Capitalização: Modalidades e Prazos Mínimos</h3>
+        <p>
+            O título de capitalização não é um investimento, mas um produto de acumulação com sorteio, que exige conhecimento técnico para ser bem recomendado. As modalidades são definidas pela SUSEP e possuem prazos mínimos de vigência distintos.
+        </p>
+
+        <div class="box box-dica">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Modalidades e Indicação (Estudo de Caso)
+            </div>
+            <p>
+                Uma cliente, Dona Sílvia, chega até você com um objetivo claro: "Quero comprar uma nova máquina de lavar daqui a seis meses. Vi um produto em que pago parcelado, concorro a prêmios e no final posso usar o dinheiro para comprar o bem. O que você tem?".
+                <br><br>Você, de imediato, deve pensar na modalidade <strong>Compra Programada</strong>. Por quê?
+            </p>
+            <ul>
+                <li><strong>Prazo Mínimo:</strong> <span class="highlight">6 meses</span>, que se encaixa perfeitamente no horizonte temporal da cliente.</li>
+                <li><strong>Funcionalidade:</strong> Permite depósitos periódicos, tem correção por juros contratuais, oferece sorteios e, ao final, o titular pode resgatar o valor em dinheiro ou utilizá-lo como parte do pagamento para adquirir o bem/serviço programado.</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+            <table class="modern-table">
+                <caption style="caption-side:bottom;margin-top:0.6rem;color:#78909c;font-size:0.9rem;">Tabela Resumo: Modalidades e Prazos de Capitalização</caption>
+                <thead>
+                    <tr><th>Modalidade</th><th>Prazo Mínimo de Vigência</th><th>Foco Principal</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Tradicional</strong></td><td>12 meses</td><td>Acumulação de capital com sorteios. Devolução de parte ou totalidade dos pagamentos.</td></tr>
+                    <tr><td><strong>Popular</strong></td><td>12 meses</td><td>Voltada para o público de baixa renda, com pagamentos acessíveis.</td></tr>
+                    <tr><td><span class="highlight">Compra Programada</span></td><td><span class="highlight">6 meses</span></td><td>Planejamento para aquisição futura de bem ou serviço. Pode receber o valor ou o bem.</td></tr>
+                    <tr><td><strong>Instrumento de Garantia</strong></td><td><span class="highlight-blue">6 meses</span></td><td>Utilizado exclusivamente para garantir contratos, como locação. Não é foco em acumulação.</td></tr>
+                    <tr><td><strong>Incentivo</strong></td><td><span class="highlight-blue">2 meses</span></td><td>Vinculado a eventos promocionais de curta duração (ex: Dia das Mães).</td></tr>
+                    <tr><td><strong>Filantropia</strong></td><td><span class="highlight-blue">2 meses</span></td><td>Parte dos recursos é destinada a instituições beneficentes. Foco na doação e sorteio.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO IV -->
+    <!-- ============================================================ -->
+    <section id="modulo4">
+        <h2>Módulo IV: Fundos de Investimento – A Classificação Essencial da CVM</h2>
+        <p>
+            A classificação dos fundos de investimento pela Comissão de Valores Mobiliários (CVM) é um tema estruturante. A classificação se dá pela política de investimento do fundo, expressa em seu regulamento e lâmina de informações essenciais.
+        </p>
+
+        <!-- 4.1 -->
+        <h3>4.1. O Critério da Composição da Carteira</h3>
+        <p>
+            A CVM determina que os fundos sejam classificados de acordo com o tipo de ativo financeiro predominante em sua carteira. A regra é baseada em percentuais mínimos que o fundo deve manter.
+        </p>
+
+        <div class="table-wrap">
+            <table class="modern-table">
+                <thead>
+                    <tr><th>Classe do Fundo</th><th>Exigência da CVM (Percentuais Mínimos)</th><th>Características Principais</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Renda Fixa</strong></td>
+                        <td>Mínimo <span class="highlight">80%</span> em ativos de renda fixa.</td>
+                        <td>Baixo risco relativo, foco em juros e inflação. Sujeito ao "come-cotas" semestral.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cambial</strong></td>
+                        <td>Mínimo <span class="highlight">80%</span> em ativos atrelados à variação de moedas estrangeiras.</td>
+                        <td>Foco em proteção contra a desvalorização do Real (hedge cambial).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ações</strong></td>
+                        <td>Mínimo <span class="highlight">67%</span> em ações, bônus de subscrição, recibos de ações, etc.</td>
+                        <td>Alto risco e potencial de retorno no longo prazo. <strong>Isento de come-cotas.</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Multimercado</strong></td>
+                        <td><span class="highlight-blue">Não atinge</span> nenhum dos percentuais mínimos acima.</td>
+                        <td>Política de investimento flexível, combina múltiplos fatores de risco (juros, câmbio, bolsa) sem um fator dominante.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DIAGRAMA SVG: Classificação CVM -->
+        <div class="diagram-container">
+            <div class="diagram-title">📊 Classificação de Fundos pela CVM</div>
+            <svg viewBox="0 0 720 350" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                <!-- Raiz -->
+                <rect x="260" y="10" width="200" height="56" rx="28" fill="#1a1a36" stroke="#f5b342" stroke-width="2.5"/>
+                <text x="360" y="46" fill="#f5b342" font-size="18" font-weight="bold" text-anchor="middle">Fundos de Investimento</text>
+
+                <!-- Linhas da raiz para os ramos -->
+                <line x1="300" y1="66" x2="160" y2="120" stroke="#5fc3e4" stroke-width="2"/>
+                <line x1="360" y1="66" x2="360" y2="120" stroke="#5fc3e4" stroke-width="2"/>
+                <line x1="420" y1="66" x2="560" y2="120" stroke="#5fc3e4" stroke-width="2"/>
+                <line x1="390" y1="66" x2="480" y2="120" stroke="#5fc3e4" stroke-width="2"/>
+
+                <!-- Renda Fixa -->
+                <rect x="60" y="130" width="200" height="80" rx="12" fill="#0f2626" stroke="#4db6ac" stroke-width="2"/>
+                <text x="160" y="160" fill="#4db6ac" font-size="16" font-weight="bold" text-anchor="middle">Renda Fixa</text>
+                <text x="160" y="182" fill="#cfd8dc" font-size="13" text-anchor="middle">≥ 80% em renda fixa</text>
+                <text x="160" y="200" fill="#90caf9" font-size="12" text-anchor="middle">come-cotas semestral</text>
+
+                <!-- Cambial -->
+                <rect x="280" y="130" width="160" height="80" rx="12" fill="#1a2a3a" stroke="#64b5f6" stroke-width="2"/>
+                <text x="360" y="160" fill="#64b5f6" font-size="16" font-weight="bold" text-anchor="middle">Cambial</text>
+                <text x="360" y="182" fill="#cfd8dc" font-size="13" text-anchor="middle">≥ 80% em moedas</text>
+                <text x="360" y="200" fill="#90caf9" font-size="12" text-anchor="middle">hedge cambial</text>
+
+                <!-- Ações -->
+                <rect x="480" y="130" width="160" height="80" rx="12" fill="#2a1a2a" stroke="#e57373" stroke-width="2"/>
+                <text x="560" y="160" fill="#e57373" font-size="16" font-weight="bold" text-anchor="middle">Ações</text>
+                <text x="560" y="182" fill="#cfd8dc" font-size="13" text-anchor="middle">≥ 67% em ações</text>
+                <text x="560" y="200" fill="#90caf9" font-size="12" text-anchor="middle">isento de come-cotas</text>
+
+                <!-- Multimercado -->
+                <rect x="380" y="240" width="160" height="70" rx="12" fill="#2a1f0f" stroke="#ffb74d" stroke-width="2"/>
+                <text x="460" y="270" fill="#ffb74d" font-size="16" font-weight="bold" text-anchor="middle">Multimercado</text>
+                <text x="460" y="292" fill="#cfd8dc" font-size="13" text-anchor="middle">não atinge nenhum mínimo</text>
+
+                <line x1="360" y1="210" x2="460" y2="240" stroke="#ffb74d" stroke-width="2" stroke-dasharray="6,4"/>
+            </svg>
+        </div>
+
+        <!-- 4.2 -->
+        <h3>4.2. Interpretando um Fundo Multimercado (Análise de Caso)</h3>
+        <p>
+            Considere o seguinte fundo descrito em uma prova:
+        </p>
+        <ul>
+            <li><em>Composição:</em> 75% em títulos públicos, 20% em derivativos de câmbio, 5% em ações.</li>
+            <li><em>Estratégia:</em> Long Short (operações compradas e vendidas) e uso esporádico de derivativos.</li>
+            <li><em>Tributação:</em> Sujeito ao come-cotas semestral.</li>
+        </ul>
+        <div class="box box-importante">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Classificação e Justificativa Lógica
+            </div>
+            <p>
+                A pergunta da banca será: este fundo é de que tipo? A resposta é <strong>Multimercado</strong>.
+            </p>
+            <ul>
+                <li><strong>Por que não é Renda Fixa?</strong> Porque os 75% em títulos públicos não atingem o mínimo de 80% exigido para essa classe.</li>
+                <li><strong>Por que não é Ações?</strong> Porque os 5% estão muito aquém dos 67% mínimos.</li>
+                <li><strong>Por que não é Cambial?</strong> Porque a exposição cambial de 20% não atinge os 80% necessários.</li>
+            </ul>
+        </div>
+
+        <div class="box box-atencao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                A "Pegadinha" do Come-Cotas
+            </div>
+            <p>
+                A banca pode tentar associar o come-cotas a um fundo de ações. <strong>Atenção:</strong> Fundos de ações <strong>NÃO</strong> possuem a antecipação semestral do IR (come-cotas). O IR de um fundo de ações incide apenas no resgate. Já os fundos de longo prazo (renda fixa, multimercado) têm a incidência do come-cotas nos meses de maio e novembro.
+            </p>
+        </div>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO V -->
+    <!-- ============================================================ -->
+    <section id="modulo5">
+        <h2>Módulo V: Serviços Bancários e Conceitos Fundamentais de Economia</h2>
+        <p>
+            Finalizamos com dois temas centrais: o pacote de serviços essenciais garantido pelo Banco Central e as funções clássicas da moeda.
+        </p>
+
+        <!-- 5.1 -->
+        <h3>5.1. Pacote de Serviços Essenciais (Resolução BACEN nº 3.919/2010 e alterações)</h3>
+        <p>
+            O Banco Central obriga as instituições financeiras a oferecerem um pacote mínimo e gratuito de serviços para contas de depósitos à vista para pessoas físicas. A literalidade dos números é o que cai em prova.
+        </p>
+
+        <div class="box box-importante">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Limites Gratuitos Mensais por Conta
+            </div>
+            <ul>
+                <li><strong>Cartão de Débito:</strong> Fornecimento de 1 (um) cartão e sua segunda via, exceto em casos decorrentes de perda, roubo ou danificação por culpa do cliente.</li>
+                <li><strong>Saques:</strong> <span class="highlight">4 (quatro) saques</span>, em guichê de caixa ou terminal de autoatendimento.</li>
+                <li><strong>Extratos:</strong> Fornecimento de <span class="highlight">2 (dois) extratos</span> dos últimos 30 dias.</li>
+                <li><strong>Transferências:</strong> <span class="highlight">2 (duas) transferências</span> entre contas <strong>do mesmo banco</strong>.</li>
+                <li><strong>Cheques:</strong> Fornecimento de <span class="highlight">10 (dez) folhas de cheque</span> por mês.</li>
+                <li><strong>Outros Serviços Incondicionalmente Gratuitos:</strong> Consultas via internet banking, fornecimento de 1 extrato anual consolidado de tarifas cobradas.</li>
+            </ul>
+        </div>
+
+        <div class="box box-atencao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Pegadinhas da Cesgranrio
+            </div>
+            <ul>
+                <li><strong>"Transferências entre bancos diferentes."</strong> <span style="color:#ff8a80;">FALSO:</span> são apenas entre contas da <strong>MESMA instituição</strong>.</li>
+                <li><strong>"Extrato de um período maior."</strong> <span style="color:#ff8a80;">FALSO:</span> são apenas dos últimos 30 dias.</li>
+                <li><strong>"Pix é sempre gratuito para pessoa física."</strong> <span style="color:#ffb74d;">ATENÇÃO:</span> a Resolução garante a gratuidade do Pix quando feito por meios eletrônicos. A regra geral é a gratuidade para PF, mas as exceções e a literalidade da resolução para este pacote são focos de cobrança.</li>
+            </ul>
+        </div>
+
+        <!-- 5.2 -->
+        <h3>5.2. As Três Funções Clássicas da Moeda</h3>
+        <p>
+            A moeda desempenha funções essenciais em uma economia, e a banca testa a capacidade de distingui-las em cenários hipotéticos.
+        </p>
+
+        <div class="card-grid">
+            <div class="card">
+                <h4>🔄 Meio de Troca</h4>
+                <p>A moeda é aceita por todos como forma de pagamento, eliminando a necessidade de escambo.</p>
+                <p><em>Exemplo:</em> "O cliente pagou um café com uma nota de R$ 5,00".</p>
+            </div>
+            <div class="card">
+                <h4>📏 Unidade de Conta</h4>
+                <p>A moeda serve como padrão para precificar bens e serviços, permitindo comparar valores.</p>
+                <p><em>Exemplo:</em> "O valor de mercado de uma Ferrari é R$ 4 milhões, enquanto um Gol é R$ 50 mil".</p>
+            </div>
+            <div class="card">
+                <h4>🏦 Reserva de Valor</h4>
+                <p>Capacidade de preservar poder de compra ao longo do tempo, permitindo adiar o consumo. Afetada pela inflação.</p>
+                <p><em>Exemplo:</em> "José guardou R$ 10.000,00 por um ano para dar de entrada em um carro".</p>
+            </div>
+        </div>
+
+        <div class="box box-observacao">
+            <div class="box-title">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Distinção Sutil
+            </div>
+            <p>
+                A distinção entre <strong>unidade de conta</strong> e <strong>reserva de valor</strong> é a mais sutil. Na unidade de conta, a moeda é a "régua" usada para medir o valor agora. Na reserva de valor, a moeda é o veículo que transporta o poder de compra do presente para o futuro.
+            </p>
+        </div>
+
+        <!-- DIAGRAMA SVG: Funções da Moeda -->
+        <div class="diagram-container">
+            <div class="diagram-title">💰 As Três Funções da Moeda</div>
+            <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                <!-- Círculo Meio de Troca -->
+                <circle cx="140" cy="130" r="80" fill="#0f2626" stroke="#4db6ac" stroke-width="3"/>
+                <text x="140" y="115" fill="#4db6ac" font-size="16" font-weight="bold" text-anchor="middle">Meio de Troca</text>
+                <text x="140" y="140" fill="#cfd8dc" font-size="13" text-anchor="middle">Pagamento</text>
+                <text x="140" y="160" fill="#90caf9" font-size="12" text-anchor="middle">elimina escambo</text>
+
+                <!-- Círculo Unidade de Conta -->
+                <circle cx="350" cy="130" r="80" fill="#1a2a3a" stroke="#64b5f6" stroke-width="3"/>
+                <text x="350" y="115" fill="#64b5f6" font-size="16" font-weight="bold" text-anchor="middle">Unidade de Conta</text>
+                <text x="350" y="140" fill="#cfd8dc" font-size="13" text-anchor="middle">Medida de Valor</text>
+                <text x="350" y="160" fill="#90caf9" font-size="12" text-anchor="middle">compara preços</text>
+
+                <!-- Círculo Reserva de Valor -->
+                <circle cx="560" cy="130" r="80" fill="#2a1a2a" stroke="#e57373" stroke-width="3"/>
+                <text x="560" y="115" fill="#e57373" font-size="16" font-weight="bold" text-anchor="middle">Reserva de Valor</text>
+                <text x="560" y="140" fill="#cfd8dc" font-size="13" text-anchor="middle">Preservação</text>
+                <text x="560" y="160" fill="#90caf9" font-size="12" text-anchor="middle">poder de compra futuro</text>
+
+                <!-- Conexões entre círculos -->
+                <line x1="220" y1="130" x2="270" y2="130" stroke="#f5b342" stroke-width="2" stroke-dasharray="4,4"/>
+                <line x1="430" y1="130" x2="480" y2="130" stroke="#f5b342" stroke-width="2" stroke-dasharray="4,4"/>
+                <line x1="280" y1="180" x2="340" y2="180" stroke="#f5b342" stroke-width="2" stroke-dasharray="4,4"/>
+                <line x1="480" y1="180" x2="520" y2="180" stroke="#f5b342" stroke-width="2" stroke-dasharray="4,4"/>
+            </svg>
+        </div>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ENCERRAMENTO -->
+    <!-- ============================================================ -->
+    <section>
+        <div class="box box-dica" style="border-color:#f5b342;background:#1a1a2e;">
+            <div class="box-title" style="color:#f5b342;">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Mensagem Final
+            </div>
+            <p style="font-size:1.05rem;">
+                Este material foi desenhado para ser o seu guia definitivo. Leia, releia, faça anotações e, principalmente, resolva questões à luz dessas explicações. O conhecimento solidificado aqui não lhe trará apenas a aprovação, mas a confiança para trilhar uma carreira de sucesso no sistema financeiro.
+            </p>
+            <p style="font-weight:600;color:#f5b342;margin-top:0.5rem;">Bons estudos!</p>
+        </div>
+
+        <div style="text-align:center;margin:2.5rem 0 1rem;">
+            <a href="#" class="back-to-top">⬆ Voltar ao topo</a>
+        </div>
+        <hr style="margin-top:2rem;">
+        <p style="text-align:center;color:#455a64;font-size:0.85rem;">
+            Apostila Digital — Conhecimentos Bancários · Todos os direitos reservados ao conteúdo original.
+        </p>
+    </section>
+
+</body>
+</html>
