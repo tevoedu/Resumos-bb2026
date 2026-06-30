@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5" />
+    <title>Apostila Conhecimentos Bancários</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #12121a;
+            color: #e6e6ea;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            line-height: 1.65;
+            padding: 2rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        a {
+            color: #7fc9ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* cabeçalho */
+        .book-header {
+            text-align: center;
+            padding: 2.5rem 0 2rem;
+            border-bottom: 2px solid #2a2a3a;
+            margin-bottom: 2.5rem;
+        }
+        .book-header h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f9b84a, #fdd47a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+        .book-header .sub {
+            font-size: 1.2rem;
+            color: #b0b0c8;
+            letter-spacing: 1px;
+        }
+
+        /* sumário */
+        .toc {
+            background: #1c1c2a;
+            border-radius: 18px;
+            padding: 2rem 2rem 1.5rem;
+            margin-bottom: 3rem;
+            border-left: 6px solid #f9b84a;
+        }
+        .toc h2 {
+            font-size: 1.7rem;
+            color: #f9b84a;
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 0.5rem 1.5rem;
+        }
+        .toc-grid a {
+            display: block;
+            padding: 0.4rem 0;
+            color: #c8d0e0;
+            border-bottom: 1px solid #2a2a3e;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .toc-grid a:hover {
+            color: #f9b84a;
+            border-bottom-color: #f9b84a;
+            text-decoration: none;
+        }
+
+        /* títulos */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+        h1 {
+            font-size: 2.4rem;
+            color: #f9b84a;
+            border-bottom: 2px solid #2a2a40;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.9rem;
+            color: #4fc3f7;
+            margin-top: 2.8rem;
+            border-left: 6px solid #4fc3f7;
+            padding-left: 1rem;
+        }
+        h3 {
+            font-size: 1.4rem;
+            color: #aed581;
+            margin-top: 2rem;
+        }
+        h4 {
+            font-size: 1.2rem;
+            color: #ffb74d;
+            margin-top: 1.5rem;
+        }
+
+        /* parágrafos e listas */
+        p {
+            margin-bottom: 1rem;
+        }
+        ul,
+        ol {
+            margin: 0.8rem 0 1.2rem 1.8rem;
+        }
+        li {
+            margin-bottom: 0.35rem;
+        }
+
+        /* blocos de citação / destaque */
+        blockquote {
+            background: #1e1e30;
+            border-left: 6px solid #7fc9ff;
+            padding: 1rem 1.6rem;
+            margin: 1.6rem 0;
+            border-radius: 10px;
+            font-style: normal;
+            color: #d4d8e8;
+        }
+        blockquote strong {
+            color: #ffb74d;
+        }
+
+        .box-dica {
+            background: #1e2a2e;
+            border-left: 6px solid #4dd0e1;
+            padding: 1rem 1.6rem;
+            margin: 1.6rem 0;
+            border-radius: 10px;
+        }
+        .box-dica strong {
+            color: #4dd0e1;
+        }
+
+        .box-atencao {
+            background: #2a1e20;
+            border-left: 6px solid #ef5350;
+            padding: 1rem 1.6rem;
+            margin: 1.6rem 0;
+            border-radius: 10px;
+        }
+        .box-atencao strong {
+            color: #ef9a9a;
+        }
+
+        .box-macete {
+            background: #1e2a1e;
+            border-left: 6px solid #aed581;
+            padding: 1rem 1.6rem;
+            margin: 1.6rem 0;
+            border-radius: 10px;
+        }
+        .box-macete strong {
+            color: #aed581;
+        }
+
+        .box-caso {
+            background: #231f2a;
+            border-left: 6px solid #ce93d8;
+            padding: 1rem 1.6rem;
+            margin: 1.6rem 0;
+            border-radius: 10px;
+        }
+        .box-caso strong {
+            color: #ce93d8;
+        }
+
+        .box-erro {
+            background: #2a1c22;
+            border-left: 6px solid #ff8a80;
+            padding: 1rem 1.6rem;
+            margin: 1.6rem 0;
+            border-radius: 10px;
+        }
+        .box-erro strong {
+            color: #ff8a80;
+        }
+
+        /* tabelas */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.8rem 0;
+            border-radius: 12px;
+            background: #1a1a28;
+            border: 1px solid #2e2e44;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 500px;
+        }
+        th {
+            background: #2a2a42;
+            color: #f9b84a;
+            font-weight: 600;
+            text-align: left;
+            padding: 0.8rem 1rem;
+            border-bottom: 2px solid #3a3a5a;
+        }
+        td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #2a2a3e;
+            vertical-align: top;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:nth-child(even) td {
+            background: #14141e;
+        }
+
+        /* cards / quadros */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin: 1.8rem 0;
+        }
+        .card-item {
+            background: #1a1a2a;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #2e2e48;
+        }
+        .card-item h4 {
+            margin-top: 0;
+            color: #4fc3f7;
+            font-size: 1.1rem;
+        }
+
+        /* sumário interno de capítulos (pequeno) */
+        .mini-toc {
+            background: #161622;
+            border-radius: 12px;
+            padding: 0.8rem 1.5rem;
+            margin: 1rem 0 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 1.2rem;
+        }
+        .mini-toc a {
+            color: #b0c4de;
+            font-size: 0.9rem;
+        }
+        .mini-toc a:hover {
+            color: #f9b84a;
+        }
+
+        /* SVGs */
+        .fig-container {
+            background: #161622;
+            border-radius: 16px;
+            padding: 1.5rem 0.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid #2a2a44;
+        }
+        .fig-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* divisórias */
+        .divider {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2a2a42, #4fc3f7, #2a2a42);
+            margin: 2.8rem 0;
+            opacity: 0.4;
+        }
+
+        /* responsividade */
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .book-header h1 {
+                font-size: 1.9rem;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+            table {
+                font-size: 0.85rem;
+                min-width: 0;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            blockquote,
+            .box-dica,
+            .box-atencao,
+            .box-macete,
+            .box-caso,
+            .box-erro {
+                padding: 0.8rem 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .book-header h1 {
+                font-size: 1.6rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="book-header">
+        <h1>APOSTILA COMPLETA DE CONHECIMENTOS BANCÁRIOS PARA CONCURSOS</h1>
+        <div class="sub">Material Didático para Técnico Bancário (Escriturário, Agente Comercial e afins)</div>
+    </header>
+
+    <!-- SUMÁRIO -->
+    <nav class="toc" aria-label="Sumário">
+        <h2>📖 Sumário</h2>
+        <div class="toc-grid">
+            <a href="#cap1">1. Introdução ao Sistema Financeiro Nacional e Política Monetária</a>
+            <a href="#cap2">2. Produtos e Serviços Bancários</a>
+            <a href="#cap3">3. Garantias Bancárias e Operações de Crédito</a>
+            <a href="#cap4">4. Processo de Vendas e Atendimento Bancário</a>
+            <a href="#cap5">5. Marketing Bancário e Segmentação de Clientes</a>
+            <a href="#cap6">6. Prevenção à Lavagem de Dinheiro (PLD)</a>
+            <a href="#cap7">7. Ouvidoria e Canais de Atendimento</a>
+            <a href="#cap8">8. Código de Defesa do Consumidor Aplicado ao Setor Bancário</a>
+            <a href="#cap9">9. Inovações Tecnológicas e Meios de Pagamento</a>
+            <a href="#cap10">10. Política Socioambiental e Responsabilidade Social</a>
+            <a href="#resumos">Quadros‑resumo</a>
+            <a href="#macetes">Macetes para memorização</a>
+            <a href="#questoes">Questões comentadas</a>
+            <a href="#referencias">Referências normativas</a>
+        </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 1 -->
+    <section id="cap1">
+        <h1>CAPÍTULO 1: INTRODUÇÃO AO SISTEMA FINANCEIRO NACIONAL E POLÍTICA MONETÁRIA</h1>
+
+        <h2>1.1 A Taxa Selic e seu Papel na Economia Brasileira</h2>
+
+        <h3>O que é a Taxa Selic?</h3>
+        <p>A <strong>Taxa Selic</strong> (Sistema Especial de Liquidação e de Custódia) representa a taxa básica de juros da economia brasileira. Mais tecnicamente, é a taxa média ajustada dos financiamentos diários apurados no Sistema Especial de Liquidação e de Custódia para títulos públicos federais.</p>
+        <p>Para compreender sua importância, imagine que a Selic funciona como o "preço do dinheiro" no país. Quando o Banco Central aumenta essa taxa, o dinheiro fica mais caro; quando reduz, fica mais barato.</p>
+
+        <h3>Quem Define a Taxa Selic?</h3>
+        <p>A Taxa Selic é determinada pelo <strong>Copom (Comitê de Política Monetária)</strong> do Banco Central do Brasil, que se reúne regularmente a cada 45 dias, totalizando <strong>8 reuniões ordinárias por ano</strong>.</p>
+        <div class="box-atencao">
+            <strong>Importante para provas:</strong> O Copom é composto pelo Presidente do Banco Central e pelos diretores das áreas de Política Monetária, Política Econômica, Regulação, Fiscalização e Relacionamento com Investidores.
+        </div>
+
+        <h3>Como a Taxa Selic Impacta o Dia a Dia Bancário?</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Efeito</th><th>Impacto Prático</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Crédito</strong></td><td>Quanto maior a Selic, maiores as taxas de juros cobradas em empréstimos e financiamentos</td></tr>
+                    <tr><td><strong>Investimentos</strong></td><td>Títulos de renda fixa (como CDB, Tesouro Direto) acompanham a Selic</td></tr>
+                    <tr><td><strong>Poupança</strong></td><td>A rentabilidade da poupança é afetada quando a Selic está abaixo de 8,5% ao ano</td></tr>
+                    <tr><td><strong>Inflação</strong></td><td>O BC utiliza a Selic para controlar a inflação (metas de inflação)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box-macete">
+            <strong>Macete para Memorizar:</strong><br />
+            <em>"SELIC SOBE → CRÉDITO CARO → CONSUMO CAI → INFLAÇÃO CONTROLADA"</em>
+        </div>
+
+        <hr class="divider" />
+
+        <h2>1.2 Políticas Monetárias Convencionais e Não Convencionais</h2>
+
+        <h3>Política Monetária Convencional</h3>
+        <p>A política monetária convencional utiliza instrumentos tradicionais para influenciar as condições de liquidez e crédito na economia. O principal instrumento é a <strong>taxa de juros de curto prazo</strong> (no Brasil, a Taxa Selic).</p>
+        <p>Além da taxa de juros, o Banco Central pode utilizar:</p>
+        <ul>
+            <li><strong>Depósitos compulsórios</strong>: percentual que os bancos são obrigados a depositar no BC</li>
+            <li><strong>Operações de mercado aberto (open market)</strong>: compra e venda de títulos públicos</li>
+            <li><strong>Redesconto</strong>: empréstimos do BC aos bancos</li>
+        </ul>
+
+        <h3>Política Monetária Não Convencional</h3>
+        <p>Quando os instrumentos tradicionais perdem eficácia (especialmente quando a taxa de juros está próxima de zero), os bancos centrais recorrem a medidas não convencionais:</p>
+
+        <h4>1. Quantitative Easing (Flexibilização Quantitativa)</h4>
+        <p>Consiste na compra em larga escala de títulos públicos e privados pelo banco central, com o objetivo de injetar liquidez na economia e estimular o crédito.</p>
+        <ul>
+            <li>Utilizado quando a taxa de juros já está muito baixa</li>
+            <li>Expande a base monetária</li>
+            <li>Busca reduzir as taxas de juros de longo prazo</li>
+        </ul>
+
+        <h4>2. Forward Guidance (Orientação a Termo)</h4>
+        <p>É a comunicação pública do Banco Central sobre suas <strong>intenções futuras</strong> de política monetária. O objetivo é influenciar as expectativas dos agentes econômicos.</p>
+        <div class="box-caso">
+            <strong>Exemplo prático:</strong> O Banco Central anuncia que manterá a taxa Selic em determinado patamar por um período específico, mesmo que as condições econômicas atuais permitissem outra decisão.
+        </div>
+        <div class="box-dica">
+            <strong>Dica Cesgranrio:</strong> A banca costuma cobrar a diferença entre as políticas. Questão típica apresenta situações e pergunta qual política está sendo aplicada.
+        </div>
+
+        <h4>3. Helicopter Money (Dinheiro de Helicóptero)</h4>
+        <p>Consiste na distribuição direta de dinheiro à população. É uma ideia discutida academicamente, mas <strong>não é amplamente utilizada</strong> na prática.</p>
+
+        <h3>Quadro Comparativo: Políticas Monetárias</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo</th><th>Instrumento</th><th>Objetivo</th><th>Quando Usar</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Convencional</strong></td><td>Taxa de juros</td><td>Controlar inflação e estimular economia</td><td>Situação normal</td></tr>
+                    <tr><td><strong>Quantitative Easing</strong></td><td>Compra de títulos</td><td>Aumentar liquidez</td><td>Taxa de juros próxima de zero</td></tr>
+                    <tr><td><strong>Forward Guidance</strong></td><td>Comunicação pública</td><td>Orientar expectativas</td><td>Qualquer momento</td></tr>
+                    <tr><td><strong>Helicopter Money</strong></td><td>Distribuição direta de dinheiro</td><td>Estimular consumo</td><td>Crises severas (não utilizado)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box-erro">
+            <strong>Pegadinha Comum em Provas:</strong><br />
+            ❌ <strong>ERRADO:</strong> "O Quantitative Easing é uma política monetária convencional."<br />
+            ✅ <strong>CORRETO:</strong> "O Quantitative Easing é uma política monetária não convencional que envolve a compra de títulos pelo banco central."
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 2 -->
+    <section id="cap2">
+        <h1>CAPÍTULO 2: PRODUTOS E SERVIÇOS BANCÁRIOS</h1>
+
+        <h2>2.1 Cartões de Débito e Crédito: Características e Distinções</h2>
+
+        <h3>Cartão de Débito</h3>
+        <p>O cartão de débito é um instrumento de pagamento que permite ao titular realizar transações utilizando <strong>recursos imediatamente disponíveis em sua conta corrente</strong>.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Aspecto</th><th>Descrição</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Limite</strong></td><td>Não possui limite de crédito; opera dentro do saldo disponível</td></tr>
+                    <tr><td><strong>Pagamento</strong></td><td>Débito imediato na conta do titular</td></tr>
+                    <tr><td><strong>Parcelamento</strong></td><td>Não é possível parcelar compras</td></tr>
+                    <tr><td><strong>Juros</strong></td><td>Não há cobrança de juros sobre o valor utilizado</td></tr>
+                    <tr><td><strong>Cheque Especial</strong></td><td>Pode ser acionado se o saldo for insuficiente, mas é uma linha de crédito separada</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="box-atencao">
+            <strong>Importante:</strong> O cartão de débito é um produto de <strong>meio de pagamento</strong>, não de crédito. Mesmo que haja cheque especial vinculado à conta, esta é uma funcionalidade distinta.
+        </div>
+
+        <h3>Cartão de Crédito</h3>
+        <p>O cartão de crédito é um instrumento que permite ao titular realizar compras e pagamentos com <strong>recursos disponibilizados pelo emissor</strong>, mediante compromisso de pagamento futuro.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Aspecto</th><th>Descrição</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Limite</strong></td><td>Possui limite de crédito previamente aprovado</td></tr>
+                    <tr><td><strong>Pagamento</strong></td><td>Cobrança futura, com fatura mensal</td></tr>
+                    <tr><td><strong>Parcelamento</strong></td><td>Permite parcelamento das compras</td></tr>
+                    <tr><td><strong>Juros</strong></td><td>Cobrança de juros sobre saldos remanescentes e rotativo</td></tr>
+                    <tr><td><strong>Anuidade</strong></td><td>Cobrança administrativa prevista em contrato</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>O que NÃO é Correto Afirmar sobre Cartão de Crédito?</h4>
+        <div class="box-erro">
+            <strong>Erro comum em provas:</strong> Afirmar que o consumidor <strong>não pode pagar valor superior ao mínimo</strong> estipulado na fatura.<br /><br />
+            Na verdade, o consumidor pode pagar <strong>qualquer valor entre o mínimo e o total da fatura</strong>. Essa liberdade de escolha é garantida ao consumidor, sendo uma pegadinha clássica das bancas.
+        </div>
+
+        <h3>Comparativo entre Modalidades de Cartão</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Característica</th><th>Débito</th><th>Crédito</th><th>Pré-Pago</th></tr></thead>
+                <tbody>
+                    <tr><td>Limite</td><td>Saldo disponível</td><td>Limite aprovado</td><td>Valor recarregado</td></tr>
+                    <tr><td>Cobrança</td><td>Imediata</td><td>Futura</td><td>Antecipada</td></tr>
+                    <tr><td>Parcelamento</td><td>Não</td><td>Sim</td><td>Não</td></tr>
+                    <tr><td>Juros</td><td>Não</td><td>Sim (rotativo)</td><td>Não</td></tr>
+                    <tr><td>Recarga</td><td>Não necessária</td><td>Não necessária</td><td>Obrigatória</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="divider" />
+
+        <h2>2.2 PIX: O Sistema de Pagamentos Instantâneos</h2>
+
+        <h3>O que é o PIX?</h3>
+        <p>O PIX é um sistema de pagamentos instantâneos criado pelo Banco Central do Brasil, que permite transferências e pagamentos em <strong>tempo real</strong>, 24 horas por dia, 7 dias por semana, incluindo feriados.</p>
+
+        <h3>Características Fundamentais do PIX</h3>
+        <ol>
+            <li><strong>Disponibilidade 24x7</strong>: Opera todos os dias, inclusive finais de semana e feriados</li>
+            <li><strong>Chaves de Endereçamento</strong>: Permite identificar contas através de:
+                <ul>
+                    <li>CPF ou CNPJ</li>
+                    <li>Número de celular</li>
+                    <li>E-mail</li>
+                    <li>Chave aleatória</li>
+                </ul>
+            </li>
+            <li><strong>Integração ao SPB</strong>: Faz parte do Sistema de Pagamentos Brasileiro</li>
+            <li><strong>Mecanismo de Estorno (MED)</strong>: Sistema de devolução para casos de:
+                <ul>
+                    <li>Erro na operação</li>
+                    <li>Fraude comprovada</li>
+                    <li>Falha técnica</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h4>O que o PIX NÃO É?</h4>
+        <div class="box-erro">
+            ❌ <strong>Não é correto afirmar:</strong><br />
+            - "PIX só permite transferências para contas do mesmo banco"<br />
+            - "PIX não possui mecanismo de estorno"<br />
+            - "PIX opera apenas em horário comercial"<br />
+            - "PIX não faz parte do Sistema de Pagamentos Brasileiro"
+        </div>
+
+        <div class="box-caso">
+            <strong>Caso Prático de Atendimento</strong><br />
+            <strong>Situação:</strong> Cliente chega à agência informando que transferiu R$ 5.000,00 via PIX para a chave errada e quer o dinheiro de volta.<br /><br />
+            <strong>Orientação do Escriturário:</strong><br />
+            - Verificar se a operação se enquadra no MED<br />
+            - Se for erro legítimo, acionar o mecanismo de devolução<br />
+            - Se o valor já tiver sido retirado pela outra parte, orientar sobre procedimentos legais<br />
+            - Informar que o MED não é automático e depende da análise do caso
+        </div>
+
+        <hr class="divider" />
+
+        <h2>2.3 Crédito Rural: Abrangência e Características</h2>
+
+        <h3>O que é o Crédito Rural?</h3>
+        <p>O crédito rural é destinado a financiar atividades do setor agropecuário, abrangendo desde a aquisição de insumos até investimentos em infraestrutura e comercialização.</p>
+
+        <h3>Abrangência do Crédito Rural</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Categoria</th><th>Exemplos</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Custeio</strong></td><td>Aquisição de sementes, fertilizantes, defensivos</td></tr>
+                    <tr><td><strong>Investimento</strong></td><td>Compra de máquinas, construção de silos, irrigação</td></tr>
+                    <tr><td><strong>Comercialização</strong></td><td>Estocagem de produtos para venda futura</td></tr>
+                    <tr><td><strong>Industrialização</strong></td><td>Beneficiamento de produtos agropecuários</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Programas Específicos</h3>
+        <ul>
+            <li><strong>PRONAF</strong> (Programa Nacional de Fortalecimento da Agricultura Familiar)</li>
+            <li><strong>PRONAMP</strong> (Programa Nacional de Apoio ao Médio Produtor Rural)</li>
+            <li><strong>PCA</strong> (Programa de Crédito Agropecuário)</li>
+        </ul>
+
+        <h3>Taxas de Juros no Crédito Rural</h3>
+        <p>Diferentemente do que algumas provas sugerem, o crédito rural <strong>NÃO utiliza apenas a TLP</strong> (Taxa de Longo Prazo). As taxas variam conforme o programa:</p>
+        <ul>
+            <li><strong>TLP</strong> (Taxa de Longo Prazo)</li>
+            <li><strong>Taxa Selic</strong></li>
+            <li><strong>TFB</strong> (Taxa de Juros de Longo Prazo)</li>
+            <li><strong>TFBD</strong> (Taxa de Juros de Longo Prazo com adicional de risco)</li>
+            <li>Taxas específicas de cada programa (ex: PRONAF tem taxas subsidiadas)</li>
+        </ul>
+
+        <div class="box-erro">
+            <strong>Erros Comuns em Provas</strong><br />
+            ❌ "O crédito rural é restrito a grandes produtores" → <strong>FALSO</strong>. Atende pequenos, médios e grandes.<br />
+            ❌ "Os recursos são exclusivamente governamentais" → <strong>FALSO</strong>. Podem vir de fontes privadas também.<br />
+            ❌ "A TLP é a única taxa aplicável" → <strong>FALSO</strong>. Diversas taxas são utilizadas.
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 3 -->
+    <section id="cap3">
+        <h1>CAPÍTULO 3: GARANTIAS BANCÁRIAS E OPERAÇÕES DE CRÉDITO</h1>
+
+        <h2>3.1 Classificação das Garantias</h2>
+        <p>As garantias bancárias são mecanismos que reduzem o risco de inadimplência nas operações de crédito. Dividem-se em duas grandes categorias:</p>
+
+        <h3>3.1.1 Garantias Pessoais (Fidejussórias)</h3>
+        <p>São garantias que envolvem a pessoa do garantidor, ou seja, alguém que se responsabiliza pelo pagamento da dívida caso o devedor principal não o faça.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo</th><th>Definição</th><th>Aplicação</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Aval</strong></td><td>Garantia pessoal em títulos de crédito</td><td>O avalista torna-se responsável pelo pagamento nas mesmas condições do avalizado</td></tr>
+                    <tr><td><strong>Fiança</strong></td><td>Garantia pessoal em contratos</td><td>O fiador responsabiliza-se pelo pagamento nas mesmas condições do afiançado</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="box-atencao">
+            <strong>Distinção Crucial para Provas:</strong><br />
+            <strong>Aval</strong> → Títulos de crédito (ex: nota promissória, duplicata)<br />
+            <strong>Fiança</strong> → Contratos em geral (ex: contrato de locação, contrato de empréstimo)
+        </div>
+
+        <h3>3.1.2 Garantias Reais</h3>
+        <p>São garantias que recaem sobre bens (móveis ou imóveis), conferindo ao credor um direito real sobre o bem dado em garantia.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo</th><th>Definição</th><th>Bem</th><th>Característica</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Penhor</strong></td><td>Garantia real sobre bens móveis</td><td>Joias, relógios, metais preciosos, veículos</td><td>O bem é entregue ao credor (desapossamento)</td></tr>
+                    <tr><td><strong>Hipoteca</strong></td><td>Garantia real sobre bens imóveis</td><td>Terrenos, casas, edifícios</td><td>O bem permanece com o devedor (extrajudicial)</td></tr>
+                    <tr><td><strong>Alienação Fiduciária</strong></td><td>Transferência da propriedade ao credor</td><td>Móveis ou imóveis</td><td>Pode ser executada extrajudicialmente</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>3.1.3 Penhor: A Garantia das Joias</h3>
+        <p>O penhor é uma modalidade de garantia real que recai sobre <strong>bens móveis</strong>. A Caixa Econômica Federal é tradicionalmente associada a essa modalidade, especialmente com joias, relógios, pedras e metais preciosos.</p>
+        <ul>
+            <li>O bem é <strong>entregue ao credor</strong> (tradição)</li>
+            <li>O devedor perde a posse do bem</li>
+            <li>O valor do empréstimo é geralmente inferior ao valor do bem</li>
+            <li>Se a dívida não for paga, o credor pode se apropriar do bem</li>
+        </ul>
+
+        <h3>3.1.4 Quadro Comparativo: Garantias</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Característica</th><th>Penhor</th><th>Hipoteca</th><th>Alienação Fiduciária</th><th>Aval</th><th>Fiança</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Natureza</strong></td><td>Real</td><td>Real</td><td>Real</td><td>Pessoal</td><td>Pessoal</td></tr>
+                    <tr><td><strong>Bem</strong></td><td>Móvel</td><td>Imóvel</td><td>Móvel ou Imóvel</td><td>–</td><td>–</td></tr>
+                    <tr><td><strong>Posse</strong></td><td>Credor fica com o bem</td><td>Devedor mantém posse</td><td>Devedor mantém posse (posse direta)</td><td>–</td><td>–</td></tr>
+                    <tr><td><strong>Execução</strong></td><td>Judicial ou extrajudicial</td><td>Extrajudicial</td><td>Compulsória por decisão judicial</td><td>Judicial</td><td>Judicial</td></tr>
+                    <tr><td><strong>Instrumento</strong></td><td>Contrato</td><td>Contrato</td><td>Contrato</td><td>Título de crédito</td><td>Contrato</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box-macete">
+            <strong>Dica para Memorizar</strong><br />
+            <em>"Pessoal é Pessoa"</em> → Aval e fiança envolvem <strong>pessoas</strong> como garantidoras<br />
+            <em>"Real é Bem"</em> → Penhor, hipoteca e alienação fiduciária envolvem <strong>bens</strong>
+        </div>
+
+        <div class="box-caso">
+            <strong>Caso Prático</strong><br />
+            <strong>Situação:</strong> Um cliente procura o banco para obter um empréstimo de R$ 50.000,00. Ele possui um imóvel avaliado em R$ 200.000,00 e também pode apresentar um fiador.<br /><br />
+            <strong>Análise do Escriturário:</strong><br />
+            - Se optar pela hipoteca, o cliente mantém a posse do imóvel<br />
+            - Se optar por fiança, precisará de um fiador com capacidade financeira<br />
+            - O banco deve avaliar qual modalidade oferece melhor segurança<br />
+            - Em caso de inadimplência, a hipoteca permite execução extrajudicial, enquanto a fiança exige ação judicial
+        </div>
+
+        <!-- Diagrama SVG: Classificação das Garantias -->
+        <div class="fig-container">
+            <h4 style="margin-top:0; color:#f9b84a;">Classificação das Garantias</h4>
+            <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
+                <!-- fundo -->
+                <rect width="700" height="380" fill="none" />
+                <!-- raiz -->
+                <rect x="280" y="10" width="140" height="44" rx="10" fill="#2a2a4a" stroke="#f9b84a" stroke-width="2" />
+                <text x="350" y="38" fill="#f9b84a" font-size="16" font-weight="600" text-anchor="middle">Garantias</text>
+                <!-- linhas -->
+                <line x1="350" y1="54" x2="200" y2="100" stroke="#4fc3f7" stroke-width="2" />
+                <line x1="350" y1="54" x2="500" y2="100" stroke="#4fc3f7" stroke-width="2" />
+                <!-- ramo pessoais -->
+                <rect x="110" y="100" width="180" height="44" rx="10" fill="#1e2a2e" stroke="#4fc3f7" stroke-width="2" />
+                <text x="200" y="127" fill="#4fc3f7" font-size="16" font-weight="600" text-anchor="middle">Pessoais (Fidejussórias)</text>
+                <!-- linhas pessoais -->
+                <line x1="200" y1="144" x2="140" y2="190" stroke="#aed581" stroke-width="2" />
+                <line x1="200" y1="144" x2="260" y2="190" stroke="#aed581" stroke-width="2" />
+                <!-- aval -->
+                <rect x="70" y="190" width="140" height="44" rx="10" fill="#1e1e2a" stroke="#aed581" stroke-width="2" />
+                <text x="140" y="218" fill="#aed581" font-size="15" font-weight="500" text-anchor="middle">Aval (títulos)</text>
+                <!-- fiança -->
+                <rect x="190" y="190" width="140" height="44" rx="10" fill="#1e1e2a" stroke="#aed581" stroke-width="2" />
+                <text x="260" y="218" fill="#aed581" font-size="15" font-weight="500" text-anchor="middle">Fiança (contratos)</text>
+                <!-- ramo reais -->
+                <rect x="410" y="100" width="180" height="44" rx="10" fill="#1e2a2a" stroke="#ffb74d" stroke-width="2" />
+                <text x="500" y="127" fill="#ffb74d" font-size="16" font-weight="600" text-anchor="middle">Reais (bens)</text>
+                <!-- linhas reais -->
+                <line x1="500" y1="144" x2="380" y2="200" stroke="#ce93d8" stroke-width="2" />
+                <line x1="500" y1="144" x2="500" y2="200" stroke="#ce93d8" stroke-width="2" />
+                <line x1="500" y1="144" x2="620" y2="200" stroke="#ce93d8" stroke-width="2" />
+                <!-- penhor -->
+                <rect x="300" y="200" width="160" height="44" rx="10" fill="#1e1e2a" stroke="#ce93d8" stroke-width="2" />
+                <text x="380" y="228" fill="#ce93d8" font-size="15" font-weight="500" text-anchor="middle">Penhor (móvel)</text>
+                <!-- hipoteca -->
+                <rect x="420" y="200" width="160" height="44" rx="10" fill="#1e1e2a" stroke="#ce93d8" stroke-width="2" />
+                <text x="500" y="228" fill="#ce93d8" font-size="15" font-weight="500" text-anchor="middle">Hipoteca (imóvel)</text>
+                <!-- alienação -->
+                <rect x="540" y="200" width="160" height="44" rx="10" fill="#1e1e2a" stroke="#ce93d8" stroke-width="2" />
+                <text x="620" y="228" fill="#ce93d8" font-size="13" font-weight="500" text-anchor="middle">Alienação Fiduciária</text>
+                <!-- legenda -->
+                <text x="350" y="310" fill="#888" font-size="12" text-anchor="middle">Garantias pessoais envolvem pessoas; reais envolvem bens.</text>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 4 -->
+    <section id="cap4">
+        <h1>CAPÍTULO 4: PROCESSO DE VENDAS E ATENDIMENTO BANCÁRIO</h1>
+
+        <h2>4.1 As 7 Etapas do Processo de Vendas</h2>
+        <p>O processo de vendas é uma sequência estruturada de etapas que um profissional de vendas percorre para converter um potencial cliente em cliente efetivo.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Etapa</th><th>Descrição</th><th>Atividade Principal</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>1. Prospecção</strong></td><td>Busca ativa por potenciais clientes</td><td>Identificar leads, mapear oportunidades</td></tr>
+                    <tr><td><strong>2. Pré-abordagem</strong></td><td>Planejamento e preparação</td><td>Estudar o cliente, definir objetivos, preparar materiais</td></tr>
+                    <tr><td><strong>3. Abordagem</strong></td><td>Primeiro contato</td><td>Criar rapport, quebrar o gelo, identificar necessidades</td></tr>
+                    <tr><td><strong>4. Apresentação</strong></td><td>Demonstração da solução</td><td>Conectar características a benefícios</td></tr>
+                    <tr><td><strong>5. Superação de Objeções</strong></td><td>Lidar com resistências</td><td>Escuta empática, argumentação, esclarecimento de dúvidas</td></tr>
+                    <tr><td><strong>6. Fechamento</strong></td><td>Finalização do negócio</td><td>Solicitar a compra, formalizar a venda</td></tr>
+                    <tr><td><strong>7. Pós-venda</strong></td><td>Relacionamento contínuo</td><td>Acompanhamento, fidelização, novos negócios</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Atenção à Pré-abordagem na Cesgranrio</h3>
+        <p>A banca Cesgranrio tem uma interpretação específica para a pré-abordagem que pode diferir da visão geral de mercado:</p>
+        <ul>
+            <li><strong>Visão Geral:</strong> Pré-abordagem = pesquisar sobre o cliente e sua empresa para uma abordagem personalizada.</li>
+            <li><strong>Visão Cesgranrio (provas):</strong> Pré-abordagem = estudo dos produtos e serviços da própria instituição e definição de objetivos da abordagem.</li>
+        </ul>
+        <div class="box-dica">
+            <strong>Importante:</strong> Nas provas da Cesgranrio, a pré-abordagem é o momento de:<br />
+            - Estudar os produtos do banco<br />
+            - Definir o que se quer alcançar<br />
+            - Preparar materiais e argumentos<br /><br />
+            Enquanto a abordagem é o momento de:<br />
+            - Captar informações sobre o cliente<br />
+            - Identificar necessidades específicas<br />
+            - Estabelecer relação inicial
+        </div>
+
+        <h4>4.2 Estratégias de Pré-abordagem</h4>
+        <p><strong>Para a banca Cesgranrio, a melhor estratégia de pré-abordagem é:</strong></p>
+        <ol>
+            <li>Estudar os produtos e serviços da instituição</li>
+            <li>Definir objetivos claros para a abordagem</li>
+            <li>Preparar materiais de apoio</li>
+            <li>Planejar estratégias de argumentação</li>
+        </ol>
+        <div class="box-erro">
+            <strong>O que NÃO é pré-abordagem segundo a Cesgranrio:</strong><br />
+            - Pesquisar sobre o cliente (isso seria parte da abordagem)<br />
+            - Levantar necessidades específicas (abordagem)<br />
+            - Adaptar a apresentação ao perfil (abordagem)
+        </div>
+
+        <h3>4.3 Rapport no Atendimento Bancário</h3>
+        <p>O rapport é a capacidade de estabelecer uma relação de confiança e empatia com o cliente. No contexto bancário, é fundamental para:</p>
+        <ul>
+            <li>Criar um ambiente de confiança</li>
+            <li>Identificar necessidades reais</li>
+            <li>Aumentar as chances de fechamento</li>
+            <li>Fidelizar o cliente a longo prazo</li>
+        </ul>
+        <p><strong>Técnicas para estabelecer rapport:</strong></p>
+        <ul>
+            <li>Espelhamento (postura, linguagem)</li>
+            <li>Escuta ativa</li>
+            <li>Mostrar compreensão genuína</li>
+            <li>Validar os sentimentos do cliente</li>
+        </ul>
+
+        <!-- Diagrama SVG: Fluxo do processo de vendas -->
+        <div class="fig-container">
+            <h4 style="margin-top:0; color:#f9b84a;">Fluxo do Processo de Vendas (7 etapas)</h4>
+            <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
+                <rect width="800" height="450" fill="none" />
+                <!-- seta 1 -->
+                <rect x="60" y="20" width="160" height="44" rx="10" fill="#1e2a3a" stroke="#4fc3f7" stroke-width="2" />
+                <text x="140" y="48" fill="#4fc3f7" font-size="14" font-weight="600" text-anchor="middle">1. Prospecção</text>
+                <line x1="220" y1="42" x2="270" y2="42" stroke="#f9b84a" stroke-width="2" marker-end="url(#arrow)" />
+                <!-- seta 2 -->
+                <rect x="280" y="20" width="180" height="44" rx="10" fill="#1e2a3a" stroke="#4fc3f7" stroke-width="2" />
+                <text x="370" y="48" fill="#4fc3f7" font-size="14" font-weight="600" text-anchor="middle">2. Pré-abordagem</text>
+                <line x1="460" y1="42" x2="510" y2="42" stroke="#f9b84a" stroke-width="2" marker-end="url(#arrow)" />
+                <!-- seta 3 -->
+                <rect x="520" y="20" width="170" height="44" rx="10" fill="#1e2a3a" stroke="#4fc3f7" stroke-width="2" />
+                <text x="605" y="48" fill="#4fc3f7" font-size="14" font-weight="600" text-anchor="middle">3. Abordagem</text>
+                <!-- linha desce -->
+                <line x1="605" y1="64" x2="605" y2="110" stroke="#f9b84a" stroke-width="2" marker-end="url(#arrow)" />
+                <!-- seta 4 -->
+                <rect x="470" y="110" width="180" height="44" rx="10" fill="#1e2a3a" stroke="#aed581" stroke-width="2" />
+                <text x="560" y="138" fill="#aed581" font-size="14" font-weight="600" text-anchor="middle">4. Apresentação</text>
+                <line x1="560" y1="154" x2="560" y2="200" stroke="#f9b84a" stroke-width="2" marker-end="url(#arrow)" />
+                <!-- seta 5 -->
+                <rect x="460" y="200" width="200" height="44" rx="10" fill="#1e2a3a" stroke="#ffb74d" stroke-width="2" />
+                <text x="560" y="228" fill="#ffb74d" font-size="13" font-weight="600" text-anchor="middle">5. Superação de Objeções</text>
+                <line x1="560" y1="244" x2="560" y2="290" stroke="#f9b84a" stroke-width="2" marker-end="url(#arrow)" />
+                <!-- seta 6 -->
+                <rect x="480" y="290" width="160" height="44" rx="10" fill="#1e2a3a" stroke="#ce93d8" stroke-width="2" />
+                <text x="560" y="318" fill="#ce93d8" font-size="14" font-weight="600" text-anchor="middle">6. Fechamento</text>
+                <line x1="560" y1="334" x2="560" y2="380" stroke="#f9b84a" stroke-width="2" marker-end="url(#arrow)" />
+                <!-- seta 7 -->
+                <rect x="470" y="380" width="180" height="44" rx="10" fill="#1e2a3a" stroke="#f9b84a" stroke-width="2" />
+                <text x="560" y="408" fill="#f9b84a" font-size="14" font-weight="600" text-anchor="middle">7. Pós-venda</text>
+                <!-- definição da seta -->
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#f9b84a" />
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+
+        <hr class="divider" />
+
+        <h2>4.2 Inbound Marketing vs Outbound Marketing</h2>
+
+        <h3>Inbound Marketing (Marketing de Atração)</h3>
+        <p>É uma estratégia que atrai clientes através de conteúdo relevante, fazendo com que o cliente procure a empresa.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Componente</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>SEO</strong></td><td>Otimização para mecanismos de busca</td><td>Conteúdo que aparece no Google</td></tr>
+                    <tr><td><strong>Marketing de Conteúdo</strong></td><td>Criação de conteúdo relevante</td><td>Artigos, vídeos, infográficos</td></tr>
+                    <tr><td><strong>E-mail Marketing</strong></td><td>Comunicação com leads</td><td>Newsletters, nutrição de leads</td></tr>
+                    <tr><td><strong>Distribuição de E-books</strong></td><td>Conteúdo aprofundado</td><td>Material gratuito em troca de dados</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Outbound Marketing (Marketing de Saída)</h3>
+        <p>É uma estratégia que "empurra" a mensagem para o consumidor, interrompendo sua atividade.</p>
+        <ul>
+            <li>Publicidade em rádio e TV</li>
+            <li>Telemarketing ativo</li>
+            <li>Anúncios em sites (pop-ups)</li>
+            <li>Outdoor</li>
+        </ul>
+
+        <div class="box-erro">
+            <strong>O que NÃO é Inbound Marketing?</strong><br />
+            ❌ <strong>Publicidade paga em redes de radiodifusão (rádio, TV)</strong> → Isso é outbound marketing<br />
+            Pois o inbound marketing se caracteriza pela atração orgânica, não pela interrupção.
+        </div>
+
+        <h3>Quadro Comparativo</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Aspecto</th><th>Inbound Marketing</th><th>Outbound Marketing</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Abordagem</strong></td><td>Atrai o cliente</td><td>Interrompe o cliente</td></tr>
+                    <tr><td><strong>Custo</strong></td><td>Geralmente menor</td><td>Geralmente maior</td></tr>
+                    <tr><td><strong>Alcance</strong></td><td>Mais segmentado</td><td>Mais amplo</td></tr>
+                    <tr><td><strong>Resultado</strong></td><td>Mais sustentável</td><td>Mais imediato</td></tr>
+                    <tr><td><strong>Exemplo</strong></td><td>Blog, SEO, redes sociais</td><td>TV, rádio, telemarketing</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="divider" />
+
+        <h2>4.3 Gatilhos Mentais Aplicados a Vendas Bancárias</h2>
+        <p>Os gatilhos mentais são estímulos que influenciam o comportamento de decisão do consumidor. No contexto bancário, são utilizados para aumentar a eficácia das vendas.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Gatilho</th><th>Definição</th><th>Exemplo Bancário</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Escassez</strong></td><td>Produto limitado em quantidade</td><td>"Últimas cotas disponíveis do CDB com taxa especial"</td></tr>
+                    <tr><td><strong>Urgência</strong></td><td>Prazo limitado para ação</td><td>"Oferta válida apenas até o fim do mês"</td></tr>
+                    <tr><td><strong>Prova Social</strong></td><td>Depoimentos e avaliações</td><td>"Mais de 1.000 clientes já contrataram este produto"</td></tr>
+                    <tr><td><strong>Ancoragem</strong></td><td>Dependência da primeira informação</td><td>Apresentar primeiro o produto mais caro, depois o mais barato</td></tr>
+                    <tr><td><strong>Autoridade</strong></td><td>Figuras de autoridade reconhecidas</td><td>"Recomendado pelo seu gerente de conta"</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="box-dica">
+            <strong>Dica para Provas: Escassez vs Urgência</strong><br />
+            <table style="background:transparent; border:none; min-width:0;">
+                <tr><td><strong>Escassez</strong></td><td>Quantidade limitada</td><td>"Últimas unidades"</td><td>"Número limitado de vagas"</td></tr>
+                <tr><td><strong>Urgência</strong></td><td>Prazo limitado</td><td>"Oferta por tempo limitado"</td><td>"Válido apenas hoje"</td></tr>
+            </table>
+            <p style="margin-top:0.5rem;">Cesgranrio frequentemente cobra essa distinção.</p>
+        </div>
+
+        <div class="box-caso">
+            <strong>Exemplo de Aplicação em Vendas Bancárias</strong><br />
+            <strong>Situação:</strong> O gerente deseja aumentar as vendas de um produto de investimento.<br /><br />
+            <strong>Aplicação de Gatilhos:</strong><br />
+            - <strong>Escassez:</strong> "Este fundo de investimento tem cotas limitadas"<br />
+            - <strong>Urgência:</strong> "A taxa especial é válida apenas até sexta-feira"<br />
+            - <strong>Prova Social:</strong> "Muitos clientes do seu perfil estão investindo"<br />
+            - <strong>Autoridade:</strong> "Meu gerente recomendou este produto para mim"
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 5 -->
+    <section id="cap5">
+        <h1>CAPÍTULO 5: MARKETING BANCÁRIO E SEGMENTAÇÃO DE CLIENTES</h1>
+
+        <h2>5.1 Segmentação de Mercado Bancário</h2>
+        <p>A segmentação de mercado é o processo de dividir o mercado em grupos com características semelhantes para oferecer produtos e serviços personalizados.</p>
+
+        <h3>Desafios da Segmentação no Setor Bancário</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Desafio</th><th>Descrição</th><th>Impacto</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Dados Precisos</strong></td><td>Obter informações confiáveis sobre comportamento e preferências</td><td>Dificuldade na personalização</td></tr>
+                    <tr><td><strong>Concorrência com Fintechs</strong></td><td>Empresas de tecnologia oferecem soluções mais ágeis</td><td>Pressão por inovação</td></tr>
+                    <tr><td><strong>Análise de Dados</strong></td><td>Volume massivo de dados para processar</td><td>Investimento em tecnologia e IA</td></tr>
+                    <tr><td><strong>Personalização</strong></td><td>Adaptar produtos a diferentes perfis</td><td>Complexidade operacional</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Como a Tecnologia Ajuda</h3>
+        <ul>
+            <li><strong>Big Data:</strong> Análise de grandes volumes de dados</li>
+            <li><strong>Inteligência Artificial:</strong> Identificação de padrões de comportamento</li>
+            <li><strong>Machine Learning:</strong> Previsão de necessidades futuras</li>
+            <li><strong>Analytics:</strong> Métricas de engajamento e conversão</li>
+        </ul>
+
+        <div class="box-caso">
+            <strong>Caso Prático: Segmentação em uma Agência</strong><br />
+            <strong>Situação:</strong> Uma agência bancária deseja aumentar a venda de produtos de investimento.<br /><br />
+            <strong>Segmentação Aplicada:</strong><br />
+            - <strong>Clientes Jovens (18-30 anos):</strong> Foco em produtos digitais, investimentos de baixo valor, educação financeira<br />
+            - <strong>Clientes de Meia Idade (30-50 anos):</strong> Previdência privada, investimentos de médio prazo<br />
+            - <strong>Clientes Sênior (50+ anos):</strong> Renda fixa, segurança, atendimento presencial<br />
+            - <strong>Empresários:</strong> Conta jurídica, crédito para capital de giro, investimentos para empresa<br /><br />
+            <strong>Resultado:</strong> Cada segmento recebe ofertas adequadas ao seu perfil, aumentando a taxa de conversão.
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 6 -->
+    <section id="cap6">
+        <h1>CAPÍTULO 6: PREVENÇÃO À LAVAGEM DE DINHEIRO (PLD)</h1>
+
+        <h2>6.1 Lavagem de Dinheiro no Setor Bancário</h2>
+        <p>A lavagem de dinheiro é o processo de ocultar ou dissimular a origem ilícita de recursos financeiros, dando-lhes aparência de legitimidade. O setor bancário é um dos principais alvos das normas de PLD.</p>
+
+        <h3>Etapas da Lavagem de Dinheiro</h3>
+        <ol>
+            <li><strong>Colocação (Placement):</strong> Inserção do dinheiro ilícito no sistema financeiro</li>
+            <li><strong>Ocultação (Layering):</strong> Realização de operações complexas para dificultar o rastreamento</li>
+            <li><strong>Integração (Integration):</strong> Reinserção dos recursos na economia como se fossem lícitos</li>
+        </ol>
+
+        <div class="box-atencao">
+            <strong>A Carta Circular nº 4.001/2020 do Banco Central</strong><br />
+            Esta norma estabelece procedimentos e controles para prevenção à lavagem de dinheiro, com ênfase em operações em espécie.
+        </div>
+
+        <h2>6.2 Indícios de Lavagem de Dinheiro - Carta Circular 4.001/2020</h2>
+
+        <h3>Situações com Indícios de PLD</h3>
+        <p>A Carta Circular nº 4.001/2020 indica que são indícios de lavagem de dinheiro as seguintes situações envolvendo operações em espécie com contas de depósito ou pagamento:</p>
+
+        <ol>
+            <li><strong>Depósitos em espécie em contas de clientes que exerçam atividade comercial com bens de luxo ou alto valor</strong></li>
+        </ol>
+        <p><strong>Exemplos:</strong></p>
+        <ul>
+            <li>Obras de arte</li>
+            <li>Imóveis</li>
+            <li>Barcos e iates</li>
+            <li>Joias</li>
+            <li>Automóveis de luxo</li>
+            <li>Aeronaves</li>
+        </ul>
+        <p><strong>Raciocínio:</strong> Esses bens facilitam a dissimulação de grandes valores, exigindo menos esforço para lavar quantias expressivas do que operações com itens de baixo valor.</p>
+
+        <h3>Por que esses bens são monitorados?</h3>
+        <p>O COAF (Conselho de Controle de Atividades Financeiras) monitora especificamente o mercado de bens de luxo e alto valor porque:</p>
+        <ul>
+            <li><strong>Alto valor unitário:</strong> Permite movimentar grandes somas com poucas transações</li>
+            <li><strong>Dificuldade de precificação:</strong> Avaliação subjetiva facilita a dissimulação</li>
+            <li><strong>Mercado menos regulado:</strong> Comparado ao sistema financeiro tradicional</li>
+        </ul>
+
+        <div class="box-atencao">
+            <strong>Atenção: Conceitos que Confundem em Prova</strong>
+            <table style="background:transparent; border:none; min-width:0; margin-top:0.5rem;">
+                <tr><td><strong>Conceito</strong></td><td><strong>Significado Correto</strong></td><td><strong>Erro Comum</strong></td></tr>
+                <tr><td>Valores a comunicar ao COAF</td><td>Operações acima de R$ 100.000,00 (PF) ou R$ 250.000,00 (PJ)</td><td>Pensar que qualquer valor deve ser comunicado</td></tr>
+                <tr><td>Estratificação</td><td>Divisão de grandes valores em operações menores</td><td>Confundir com "depósitos de várias origens"</td></tr>
+                <tr><td>Suficiência patrimonial</td><td>Capacidade de gerar os recursos movimentados</td><td>Confundir com "movimentações compatíveis com a renda"</td></tr>
+            </table>
+        </div>
+
+        <h3>6.3 Análise de Questões sobre PLD</h3>
+        <div class="box-erro">
+            <strong>Por que as alternativas incorretas estão erradas?</strong><br /><br />
+            <strong>Alternativa A:</strong> "Boletos não podem ser usados para dissimular recursos."<br />
+            ❌ <strong>Erro:</strong> Boletos podem, sim, ser utilizados para dissimular recursos. A alternativa nega uma possibilidade real.<br /><br />
+            <strong>Alternativa B:</strong> "Saques em valores superiores aos limites para comunicação ao COAF."<br />
+            ❌ <strong>Erro:</strong> O correto seria "saques em valores inferiores aos limites" para evitar comunicação ao COAF. O suspeito é fracionar operações para ficar abaixo do limite.<br /><br />
+            <strong>Alternativa C:</strong> "Receber depósitos de uma única origem."<br />
+            ❌ <strong>Erro:</strong> O suspeito é receber depósitos de <strong>várias origens</strong> (estratificação). Uma única origem pode ser lícita (salário, transferência).<br /><br />
+            <strong>Alternativa D:</strong> "Depósitos em espécie na conta de forma única."<br />
+            ❌ <strong>Erro:</strong> O correto seria "de forma repetitiva". O fracionamento em múltiplas operações é que caracteriza suspeita.
+        </div>
+
+        <div class="box-dica">
+            <strong>Termo Técnico: "Smurfing"</strong><br />
+            O termo "smurfing" (ou "estratificação") refere-se à prática de fracionar grandes valores em várias operações menores para evitar o atingimento dos limites que gerariam comunicação obrigatória ao COAF.
+        </div>
+
+        <h3>6.4 Outras Práticas Suspeitas</h3>
+        <p>Além das situações previstas na Carta Circular 4.001/2020, são considerados indícios de lavagem de dinheiro:</p>
+        <ul>
+            <li>Movimentação incompatível com a renda declarada</li>
+            <li>Operações com empresas offshore em paraísos fiscais</li>
+            <li>Utilização de contas de terceiros (laranjas)</li>
+            <li>Depósitos fracionados em várias contas diferentes</li>
+            <li>Falta de justificativa para operações atípicas</li>
+        </ul>
+
+        <div class="box-caso">
+            <strong>Caso Prático: Identificação de PLD</strong><br />
+            <strong>Situação:</strong> Um cliente com renda declarada de R$ 5.000,00/mês passa a depositar R$ 50.000,00 mensais em espécie em sua conta corrente, em depósitos de R$ 9.999,00.<br /><br />
+            <strong>Análise do Escriturário:</strong><br />
+            - Há incompatibilidade patrimonial (renda x movimentação)<br />
+            - Há fracionamento (depósitos abaixo de R$ 10.000,00)<br />
+            - Há repetição (depósitos mensais)<br /><br />
+            <strong>Procedimento:</strong> Comunicação interna ao COAF via sistema de PLD do banco.
+        </div>
+
+        <!-- Diagrama SVG: Etapas da Lavagem -->
+        <div class="fig-container">
+            <h4 style="margin-top:0; color:#f9b84a;">Etapas da Lavagem de Dinheiro</h4>
+            <svg viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto;">
+                <rect width="700" height="250" fill="none" />
+                <!-- Colocação -->
+                <rect x="30" y="80" width="170" height="60" rx="12" fill="#1e2a2e" stroke="#ef5350" stroke-width="2" />
+                <text x="115" y="105" fill="#ef5350" font-size="16" font-weight="700" text-anchor="middle">Colocação</text>
+                <text x="115" y="127" fill="#ccc" font-size="12" text-anchor="middle">(Placement)</text>
+                <!-- seta 1 -->
+                <line x1="200" y1="110" x2="260" y2="110" stroke="#f9b84a" stroke-width="3" marker-end="url(#arrowL)" />
+                <!-- Ocultação -->
+                <rect x="265" y="80" width="170" height="60" rx="12" fill="#1e2a2e" stroke="#ffb74d" stroke-width="2" />
+                <text x="350" y="105" fill="#ffb74d" font-size="16" font-weight="700" text-anchor="middle">Ocultação</text>
+                <text x="350" y="127" fill="#ccc" font-size="12" text-anchor="middle">(Layering)</text>
+                <!-- seta 2 -->
+                <line x1="435" y1="110" x2="495" y2="110" stroke="#f9b84a" stroke-width="3" marker-end="url(#arrowL)" />
+                <!-- Integração -->
+                <rect x="500" y="80" width="170" height="60" rx="12" fill="#1e2a2e" stroke="#aed581" stroke-width="2" />
+                <text x="585" y="105" fill="#aed581" font-size="16" font-weight="700" text-anchor="middle">Integração</text>
+                <text x="585" y="127" fill="#ccc" font-size="12" text-anchor="middle">(Integration)</text>
+                <!-- descrição -->
+                <text x="350" y="200" fill="#aaa" font-size="13" text-anchor="middle">Processo de dar aparência lícita a recursos ilícitos</text>
+                <defs>
+                    <marker id="arrowL" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#f9b84a" />
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 7 -->
+    <section id="cap7">
+        <h1>CAPÍTULO 7: OUVIDORIA E CANAIS DE ATENDIMENTO</h1>
+
+        <h2>7.1 Resolução CMN nº 4.860/2020 - Ouvidoria</h2>
+
+        <h3>Obrigatoriedade da Ouvidoria</h3>
+        <p>Segundo a Resolução CMN nº 4.860/2020, são obrigadas a constituir componente organizacional de ouvidoria:</p>
+        <p><strong>Instituições autorizadas a funcionar pelo Banco Central que tenham clientes:</strong></p>
+        <ul>
+            <li>Pessoas naturais (inclusive empresários individuais)</li>
+            <li>Pessoas jurídicas classificadas como microempresas e empresas de pequeno porte (Lei Complementar nº 123/2006)</li>
+        </ul>
+
+        <div class="box-erro">
+            <strong>O que a Ouvidoria NÃO É</strong><br />
+            ❌ <strong>Não é:</strong> Um canal primário de atendimento<br />
+            ✅ <strong>É:</strong> Um canal de <strong>última instância</strong> para demandas não solucionadas nos canais primários
+        </div>
+
+        <h3>Finalidade da Ouvidoria</h3>
+        <ul>
+            <li>Receber reclamações não resolvidas</li>
+            <li>Atuar como instância final interna</li>
+            <li>Garantir que as demandas sejam tratadas</li>
+            <li>Propor melhorias nos processos</li>
+        </ul>
+
+        <h3>Estrutura da Ouvidoria</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Requisito</th><th>Descrição</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Independência</strong></td><td>Não subordinada à área de negócios</td></tr>
+                    <tr><td><strong>Autonomia</strong></td><td>Capacidade de tomar decisões</td></tr>
+                    <tr><td><strong>Acesso</strong></td><td>Canais de fácil acesso aos clientes</td></tr>
+                    <tr><td><strong>Transparência</strong></td><td>Prazos e procedimentos claros</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="divider" />
+
+        <h2>7.2 SARB 27/2023 - Telemarketing Bancário</h2>
+
+        <h3>Horários Permitidos para Telemarketing</h3>
+        <p>Conforme o art. 18 da SARB 27/2023 (Autorregulação Bancária), as ações de telemarketing realizadas por instituições financeiras signatárias devem obedecer aos seguintes horários:</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Dia da Semana</th><th>Horário Permitido</th></tr></thead>
+                <tbody>
+                    <tr><td>Segunda a Sexta</td><td>09h às 21h</td></tr>
+                    <tr><td>Sábado</td><td>10h às 16h</td></tr>
+                    <tr><td>Domingo e Feriados</td><td>Não permitido</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Cadastro "Não Perturbe"</h3>
+        <p>O cliente pode se cadastrar no serviço "Não Perturbe" para não receber ligações de telemarketing. As instituições signatárias da SARB 27/2023 devem respeitar esse cadastro.</p>
+
+        <div class="box-dica">
+            <strong>Dica para Provas</strong><br />
+            <strong>Cesgranrio costuma cobrar a literalidade dos horários:</strong><br />
+            ❌ <strong>ERRADO:</strong> "Telemarketing pode ser realizado das 08h às 20h"<br />
+            ✅ <strong>CORRETO:</strong> "Telemarketing pode ser realizado das 09h às 21h em dias úteis"<br /><br />
+            <strong>Especial atenção aos horários de sábado:</strong> das 10h às 16h.
+        </div>
+
+        <div class="box-caso">
+            <strong>Caso Prático: Atendimento e Ouvidoria</strong><br />
+            <strong>Situação:</strong> Cliente reclama de ligações de telemarketing fora do horário permitido.<br /><br />
+            <strong>Fluxo de Atendimento:</strong><br />
+            1. Canal primário: SAC do banco<br />
+            2. Se não resolvido: Ouvidoria<br />
+            3. A ouvidoria verifica a situação<br />
+            4. Orienta o cliente sobre o cadastro "Não Perturbe"<br />
+            5. Encaminha para área de conformidade<br /><br />
+            <strong>Resultado:</strong> Correção do procedimento e prevenção de novas ocorrências.
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 8 -->
+    <section id="cap8">
+        <h1>CAPÍTULO 8: CÓDIGO DE DEFESA DO CONSUMIDOR APLICADO AO SETOR BANCÁRIO</h1>
+
+        <h2>8.1 O CDC no Setor Bancário</h2>
+        <p>O Código de Defesa do Consumidor (Lei nº 8.078/1990) se aplica integralmente às relações entre bancos e clientes, com algumas particularidades.</p>
+
+        <h3>Principais Aplicações no Setor Bancário</h3>
+        <ul>
+            <li>Ofertas e publicidade de produtos financeiros</li>
+            <li>Práticas abusivas (ex: juros excessivos)</li>
+            <li>Cobranças indevidas</li>
+            <li>Vícios dos serviços bancários</li>
+            <li>Responsabilidade dos bancos por danos</li>
+        </ul>
+
+        <h2>8.2 Vício do Produto/Serviço Bancário</h2>
+
+        <h3>Conceito</h3>
+        <p>Vício é um defeito que torna o produto ou serviço inadequado ao consumo ou prejudica seu valor. No setor bancário, vícios podem ocorrer em:</p>
+        <ul>
+            <li>Erros em processamento de pagamentos</li>
+            <li>Cobranças indevidas</li>
+            <li>Falhas em sistemas de internet banking</li>
+            <li>Problemas em cartões</li>
+        </ul>
+
+        <h3>Prazo para Sanar o Vício</h3>
+        <p>O art. 18 do CDC estabelece que o fornecedor tem <strong>30 dias</strong> para sanar o vício do produto.</p>
+
+        <h4>Não Sanado o Vício, o Consumidor Pode Exigir:</h4>
+        <blockquote>
+            <strong>Alternativamente e à sua escolha:</strong><br />
+            <strong>I</strong> – Substituição do produto por outro da mesma espécie em perfeitas condições<br />
+            <strong>II</strong> – Restituição imediata da quantia paga, atualizada, sem prejuízo de perdas e danos<br />
+            <strong>III</strong> – Abatimento proporcional do preço
+        </blockquote>
+
+        <div class="box-atencao">
+            <strong>Atenção: Prazo pode ser alterado por acordo entre as partes</strong><br />
+            O prazo de 30 dias pode ser reduzido ou ampliado por acordo entre as partes. Esse é um detalhe que frequentemente cai em provas.
+        </div>
+
+        <h3>8.2.1 Vício no Serviço Bancário (Art. 20 do CDC)</h3>
+        <p>Para serviços, o CDC estabelece que:</p>
+        <ul>
+            <li>Os serviços são considerados defeituosos quando não fornecem a utilidade que se espera</li>
+            <li>Quando não atendem à finalidade declarada</li>
+            <li>Quando apresentam falhas que diminuem seu valor</li>
+        </ul>
+
+        <div class="box-caso">
+            <strong>Caso Prático: Vício em Serviço Bancário</strong><br />
+            <strong>Situação:</strong> O cliente teve seu cartão de crédito bloqueado indevidamente, gerando cobranças de juros e multas por atraso.<br /><br />
+            <strong>Aplicação do CDC:</strong><br />
+            1. O banco deve sanar o vício (desbloquear o cartão e estornar cobranças)<br />
+            2. Prazo: 30 dias para a correção<br />
+            3. Se não sanado: cliente pode exigir restituição, abatimento ou substituição<br />
+            4. Além disso: direito a indenização por danos morais e materiais
+        </div>
+
+        <h3>Relação com Outras Normas</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Norma</th><th>Relação com o CDC</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Lei da PLD</strong></td><td>O cumprimento das normas de PLD não afasta a aplicação do CDC</td></tr>
+                    <tr><td><strong>Lei do Sigilo Bancário</strong></td><td>O CDC não permite violação do sigilo, mas exige transparência</td></tr>
+                    <tr><td><strong>Resoluções do CMN</strong></td><td>Não podem contrariar o CDC, pois este tem hierarquia de lei ordinária</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 9 -->
+    <section id="cap9">
+        <h1>CAPÍTULO 9: INOVAÇÕES TECNOLÓGICAS E MEIOS DE PAGAMENTO</h1>
+
+        <h2>9.1 Criptomoedas e Moedas Digitais</h2>
+
+        <h3>Classificação dos Ativos Digitais</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo</th><th>Características</th><th>Exemplos</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Criptomoedas Descentralizadas</strong></td><td>Sem entidade central, alta volatilidade</td><td>Bitcoin, Ethereum</td></tr>
+                    <tr><td><strong>Stablecoins</strong></td><td>Valor ancorado em ativos tradicionais</td><td>USDT, USDC</td></tr>
+                    <tr><td><strong>Moedas Digitais (CBDC)</strong></td><td>Emitidas por bancos centrais, centralizadas</td><td>DREX (Brasil), E-krona (Suécia)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>9.1.1 Stablecoins</h3>
+        <p><strong>Definição:</strong> Criptomoedas com valor ancorado em ativos tradicionais (dólar, ouro, outras moedas) para reduzir a volatilidade.</p>
+        <ul>
+            <li>Não são imunes à volatilidade</li>
+            <li>Geralmente envolvem entidades centrais (emissor)</li>
+            <li>Servem como "porto seguro" no mercado cripto</li>
+        </ul>
+        <p><strong>Preocupações Regulatórias:</strong></p>
+        <ul>
+            <li>Segurança cibernética</li>
+            <li>Estabilidade financeira</li>
+            <li>Proteção ao consumidor</li>
+            <li>Ameaça à soberania monetária</li>
+        </ul>
+
+        <div class="box-atencao">
+            <strong>Distinção Crucial para Provas:</strong>
+            <table style="background:transparent; border:none; min-width:0; margin-top:0.5rem;">
+                <tr><td><strong>Stablecoin</strong></td><td><strong>Moeda Digital (DREX)</strong></td><td><strong>Criptomoeda (Bitcoin)</strong></td></tr>
+                <tr><td>Ancorada em ativo</td><td>Emitida por BC</td><td>Descentralizada</td></tr>
+                <tr><td>Menos volátil</td><td>Controle estatal</td><td>Alta volatilidade</td></tr>
+                <tr><td>Entidade central</td><td>Curso forçado</td><td>Sem curso forçado</td></tr>
+                <tr><td>Privada</td><td>Pública</td><td>Descentralizada</td></tr>
+            </table>
+        </div>
+
+        <h2>9.2 DREX - Moeda Digital Brasileira</h2>
+        <p>O DREX é a moeda digital do Banco Central do Brasil, desenvolvida para:</p>
+        <ul>
+            <li>Modernizar o sistema financeiro</li>
+            <li>Facilitar pagamentos e transferências</li>
+            <li>Permitir programabilidade (contratos inteligentes)</li>
+            <li>Aumentar a eficiência do sistema</li>
+        </ul>
+        <p><strong>Características:</strong></p>
+        <ul>
+            <li>Emitida pelo Banco Central</li>
+            <li>Curso forçado (como o Real físico)</li>
+            <li>Centralizada</li>
+            <li>Tecnologia DLT (Distributed Ledger Technology)</li>
+        </ul>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 10 -->
+    <section id="cap10">
+        <h1>CAPÍTULO 10: POLÍTICA SOCIOAMBIENTAL E RESPONSABILIDADE SOCIAL</h1>
+
+        <h2>10.1 Política de Responsabilidade Social, Ambiental e Climática - Caixa</h2>
+
+        <h3>Diretrizes e Vedações</h3>
+        <p>A Política de Responsabilidade Social, Ambiental e Climática da Caixa Econômica Federal estabelece diretrizes rigorosas para financiamentos e parcerias.</p>
+
+        <div class="box-atencao">
+            <strong>Vedação Expressa:</strong><br />
+            A Caixa <strong>NÃO</strong> contrata ou realiza parcerias com empresas que utilizem:<br />
+            - Mão de obra em condição degradante<br />
+            - Trabalho análogo à escravidão<br />
+            - Práticas discriminatórias de qualquer natureza
+        </div>
+
+        <h3>Consequência para Empresas com Problemas Trabalhistas</h3>
+        <p>Uma empresa que apresenta problemas com trabalho degradante ou análogo à escravidão terá seu <strong>financiamento vedado</strong> pela Caixa.</p>
+
+        <h3>Período de Revisão da Política</h3>
+        <p>A política deve ser revisada a cada <strong>3 anos</strong>, com informe semestral à Alta Administração.</p>
+
+        <h3>Aplicação no Dia a Dia da Agência</h3>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Situação</th><th>Ação do Escriturário</th></tr></thead>
+                <tbody>
+                    <tr><td>Cliente empresário solicita financiamento</td><td>Verificar se há pendências socioambientais</td></tr>
+                    <tr><td>Empresa com processo trabalhista ativo</td><td>Consultar a área de crédito sobre a vedação</td></tr>
+                    <tr><td>Cliente com práticas discriminatórias comprovadas</td><td>Comunicação à área de conformidade</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- QUADROS-RESUMO -->
+    <section id="resumos">
+        <h1>QUADRO-RESUMO GERAL PARA PROVAS</h1>
+
+        <h2>Resumo: Garantias Bancárias</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo</th><th>Nome</th><th>Bem</th><th>Execução</th><th>Instrumento</th></tr></thead>
+                <tbody>
+                    <tr><td>Pessoal</td><td>Aval</td><td>–</td><td>Judicial</td><td>Título de crédito</td></tr>
+                    <tr><td>Pessoal</td><td>Fiança</td><td>–</td><td>Judicial</td><td>Contrato</td></tr>
+                    <tr><td>Real</td><td>Penhor</td><td>Móvel (entregue)</td><td>Judicial/Extrajudicial</td><td>Contrato</td></tr>
+                    <tr><td>Real</td><td>Hipoteca</td><td>Imóvel</td><td>Extrajudicial</td><td>Contrato</td></tr>
+                    <tr><td>Real</td><td>Alienação Fiduciária</td><td>Móvel/Imóvel</td><td>Compulsória judicial</td><td>Contrato</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Resumo: Políticas Monetárias</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Política</th><th>Instrumento</th><th>Característica</th></tr></thead>
+                <tbody>
+                    <tr><td>Convencional</td><td>Taxa de juros</td><td>Situação normal</td></tr>
+                    <tr><td>Quantitative Easing</td><td>Compra de títulos</td><td>Taxa de juros próxima de zero</td></tr>
+                    <tr><td>Forward Guidance</td><td>Comunicação</td><td>Orientação de expectativas</td></tr>
+                    <tr><td>Helicopter Money</td><td>Distribuição direta</td><td>Não utilizado na prática</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Resumo: Produtos Bancários</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Produto</th><th>Característica Principal</th><th>Diferenciador</th></tr></thead>
+                <tbody>
+                    <tr><td>Débito</td><td>Saldo disponível</td><td>Débito imediato</td></tr>
+                    <tr><td>Crédito</td><td>Limite aprovado</td><td>Cobrança futura</td></tr>
+                    <tr><td>PIX</td><td>Transferência instantânea</td><td>24x7, chaves</td></tr>
+                    <tr><td>Poupança</td><td>Segurança e liquidez diária</td><td>Baixa rentabilidade</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Resumo: Etapas do Processo de Vendas (Cesgranrio)</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Etapa</th><th>O que ocorre</th></tr></thead>
+                <tbody>
+                    <tr><td>Prospecção</td><td>Busca ativa por clientes</td></tr>
+                    <tr><td>Pré-abordagem</td><td>Estudo dos produtos e objetivos</td></tr>
+                    <tr><td>Abordagem</td><td>Primeiro contato, identificação de necessidades</td></tr>
+                    <tr><td>Apresentação</td><td>Demonstração da solução</td></tr>
+                    <tr><td>Superação de Objeções</td><td>Lidar com dúvidas e resistências</td></tr>
+                    <tr><td>Fechamento</td><td>Finalização do negócio</td></tr>
+                    <tr><td>Pós-venda</td><td>Fidelização</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Resumo: Horários Telemarketing (SARB 27/2023)</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Dia</th><th>Horário</th></tr></thead>
+                <tbody>
+                    <tr><td>Segunda a Sexta</td><td>09h às 21h</td></tr>
+                    <tr><td>Sábado</td><td>10h às 16h</td></tr>
+                    <tr><td>Domingo/Feriados</td><td>Não permitido</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MACETES -->
+    <section id="macetes">
+        <h1>MACETES PARA MEMORIZAÇÃO</h1>
+
+        <div class="box-macete">
+            <strong>Para Garantias Reais</strong><br />
+            <em>"PENHOR PODE PEgar"</em> → Penhor é para bens que podem ser pegos (móveis)<br />
+            <em>"HIPO de HIPO"</em> → Hipoteca é para imóveis (não se entrega o bem)<br />
+            <em>"AliENADA"</em> → Alienação fiduciária transfere propriedade ao credor
+        </div>
+
+        <div class="box-macete">
+            <strong>Para PLD</strong><br />
+            <em>"Valores GRAVES"</em> → Bens de luxo monitorados: <strong>G</strong>randes (imóveis), <strong>R</strong>iquezas (joias), <strong>A</strong>eronaves, <strong>V</strong>eículos, <strong>E</strong>mbarcações, <strong>S</strong> (obras de arte)<br />
+            <em>"FRACIONOU, SUSPEITOU"</em> → Depósitos fracionados podem indicar "smurfing"
+        </div>
+
+        <div class="box-macete">
+            <strong>Para Processo de Vendas</strong><br />
+            <em>"PAPAS F"</em> → Prospecção, Pré-abordagem, Abordagem, Apresentação, Superação de Objeções, Fechamento, Pós-venda
+        </div>
+
+        <div class="box-macete">
+            <strong>Para Horários</strong><br />
+            <em>"09 às 21, 10 às 16"</em> → Segunda a sexta: 09-21; Sábado: 10-16
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- QUESTÕES COMENTADAS -->
+    <section id="questoes">
+        <h1>QUESTÕES COMENTADAS (ESTILO CESGRANRIO)</h1>
+
+        <div class="box-caso">
+            <strong>Questão 1 - Garantias</strong><br />
+            "Um cliente oferece uma joia como garantia de um empréstimo no banco. O bem fica em poder da instituição até a quitação da dívida. Essa modalidade é chamada de:"<br /><br />
+            a) Aval<br />
+            b) Fiança<br />
+            c) Penhor<br />
+            d) Hipoteca<br />
+            e) Alienação fiduciária<br /><br />
+            <strong>Resposta: C - Penhor</strong><br />
+            <strong>Comentário:</strong> O penhor é a garantia real sobre bens móveis em que o bem é entregue ao credor (desapossamento). Aval e fiança são garantias pessoais; hipoteca e alienação fiduciária têm características diferentes.
+        </div>
+
+        <div class="box-caso">
+            <strong>Questão 2 - PLD</strong><br />
+            "Segundo a Carta Circular nº 4.001/2020, constitui indício de lavagem de dinheiro:"<br /><br />
+            a) Depósitos em espécie em contas de clientes que exerçam atividade de comércio<br />
+            b) Depósitos em espécie em contas de clientes que exerçam atividade comercial com bens de luxo<br />
+            c) Depósitos em espécie em contas de clientes com movimentação financeira compatível com a renda<br />
+            d) Depósitos em espécie realizados diretamente no guichê do caixa<br />
+            e) Depósitos em espécie realizados em horário de expediente bancário<br /><br />
+            <strong>Resposta: B - Depósitos em espécie em contas de clientes que exerçam atividade comercial com bens de luxo</strong><br />
+            <strong>Comentário:</strong> A Carta Circular 4.001/2020 indica como indício depósitos em espécie em contas de clientes que exerçam atividade comercial com bens de luxo ou alto valor (obras de arte, imóveis, barcos, joias, automóveis ou aeronaves).
+        </div>
+
+        <div class="box-caso">
+            <strong>Questão 3 - Telemarketing</strong><br />
+            "Conforme a SARB 27/2023, as ações de telemarketing realizadas por instituições financeiras signatárias podem ser realizadas aos sábados no seguinte horário:"<br /><br />
+            a) 09h às 18h<br />
+            b) 09h às 21h<br />
+            c) 10h às 16h<br />
+            d) 08h às 20h<br />
+            e) 10h às 18h<br /><br />
+            <strong>Resposta: C - 10h às 16h</strong><br />
+            <strong>Comentário:</strong> A SARB 27/2023 estabelece que o telemarketing é permitido de segunda a sexta das 09h às 21h e aos sábados das 10h às 16h.
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- REFERÊNCIAS -->
+    <section id="referencias">
+        <h1>REFERÊNCIAS NORMATIVAS</h1>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Norma</th><th>Assunto</th></tr></thead>
+                <tbody>
+                    <tr><td>Lei nº 8.078/1990</td><td>Código de Defesa do Consumidor</td></tr>
+                    <tr><td>Lei Complementar nº 123/2006</td><td>MEI, microempresa e pequena empresa</td></tr>
+                    <tr><td>Resolução CMN nº 4.860/2020</td><td>Ouvidoria</td></tr>
+                    <tr><td>Carta Circular BCB nº 4.001/2020</td><td>Prevenção à lavagem de dinheiro</td></tr>
+                    <tr><td>SARB 27/2023</td><td>Telemarketing</td></tr>
+                    <tr><td>Lei nº 9.613/1998</td><td>Lavagem de dinheiro</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONSIDERAÇÕES FINAIS -->
+    <section>
+        <h1>CONSIDERAÇÕES FINAIS PARA O CANDIDATO</h1>
+
+        <h2>Dicas de Prova - Cesgranrio</h2>
+        <ol>
+            <li><strong>Leia atentamente o enunciado:</strong> A Cesgranrio frequentemente coloca pegadinhas em pequenos detalhes.</li>
+            <li><strong>Atenção às competências:</strong> Distinga claramente as atribuições do CMN, Banco Central, COAF e SUSEP.</li>
+            <li><strong>Prazos:</strong> Memorize os prazos (30 dias para vício no CDC, 8 reuniões anuais do Copom).</li>
+            <li><strong>Comparações:</strong> Esteja atento à diferença entre conceitos similares (aval x fiança, escassez x urgência, stablecoin x moeda digital).</li>
+            <li><strong>Literalidade:</strong> Quando a questão se refere a lei específica, a literalidade do texto é fundamental.</li>
+            <li><strong>Casos práticos:</strong> Treine com situações do dia a dia bancário, pois as questões frequentemente apresentam casos concretos.</li>
+            <li><strong>Hierarquia normativa:</strong> Lembre-se que leis &gt; decretos &gt; resoluções &gt; normas internas.</li>
+        </ol>
+
+        <hr class="divider" />
+
+        <p style="text-align:center; color:#aaa; font-size:0.95rem;">
+            <em>Esta apostila foi elaborada com base em conhecimento técnico especializado e flashcards de estudo, organizados para proporcionar uma aprendizagem completa e aprofundada para concursos da área bancária.</em><br /><br />
+            <strong style="color:#f9b84a;">Bons estudos e sucesso na sua aprovação!</strong>
+        </p>
+    </section>
+
+    <!-- rodapé decorativo -->
+    <div style="border-top:1px solid #2a2a42; margin-top:3rem; padding-top:1.5rem; text-align:center; color:#555; font-size:0.8rem;">
+        Conteúdo integral • Versão para estudo em tablet
+    </div>
+
+</body>
+</html>
