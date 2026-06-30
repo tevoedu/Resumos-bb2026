@@ -1,0 +1,2715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Apostila Completa de Conhecimentos Bancários</title>
+    <style>
+        /* ── Reset & Base ── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-primary: #0d1421;
+            --bg-secondary: #162030;
+            --bg-card: #1c2a3f;
+            --bg-card-hover: #233653;
+            --bg-elevated: #253b55;
+            --bg-input: #1a2a3f;
+            --text-primary: #eae8e4;
+            --text-secondary: #c5c2bc;
+            --text-muted: #9a9690;
+            --gold: #d4a853;
+            --gold-light: #e8c97a;
+            --gold-dim: #a8853a;
+            --teal: #4ecdc4;
+            --teal-dim: #3a9e97;
+            --coral: #ff6b6b;
+            --coral-dim: #cc5555;
+            --purple: #a78bfa;
+            --purple-dim: #7c5fcf;
+            --blue: #60a5fa;
+            --blue-dim: #3b82d6;
+            --green: #34d399;
+            --green-dim: #1fa87a;
+            --orange: #fb923c;
+            --orange-dim: #d9772b;
+            --pink: #f472b6;
+            --pink-dim: #cc4d8f;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-medium: rgba(255, 255, 255, 0.10);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.45);
+            --shadow-elevated: 0 16px 48px rgba(0, 0, 0, 0.55);
+            --radius: 14px;
+            --radius-sm: 8px;
+            --font-base: 'Segoe UI', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+            --font-heading: 'Georgia', 'Times New Roman', serif;
+            --transition: 0.2s ease;
+        }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-base);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 2rem 1.5rem 4rem;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dim);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
+
+        /* ── Tipografia ── */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: 0.01em;
+            margin: 2rem 0 1rem;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: var(--gold);
+            text-align: center;
+            margin: 0 0 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        h1 .subhead {
+            display: block;
+            font-size: 1rem;
+            font-family: var(--font-base);
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+            letter-spacing: 0.04em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            border-bottom: 2px solid var(--gold-dim);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        h2 .section-number {
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-right: 0.5rem;
+            font-family: var(--font-base);
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            color: var(--teal);
+            margin-top: 2.2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: var(--blue);
+            margin-top: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h5 {
+            font-size: 1rem;
+            color: var(--purple);
+            margin-top: 1.2rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin: 0 0 1rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--gold-light);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        strong,
+        b {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        em,
+        i {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-medium), transparent);
+            margin: 2.5rem 0;
+        }
+
+        /* ── Sumário ── */
+        .toc {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 2rem 2rem 1.8rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid var(--border-medium);
+            box-shadow: var(--shadow-card);
+        }
+
+        .toc-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin: 0 0 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .toc-title svg {
+            flex-shrink: 0;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 1.5rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc-grid li {
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+
+        .toc-grid li a {
+            color: var(--text-secondary);
+            transition: color var(--transition), padding-left var(--transition);
+            display: inline-block;
+            padding-left: 0;
+        }
+
+        .toc-grid li a:hover {
+            color: var(--gold-light);
+            padding-left: 4px;
+            text-decoration: none;
+        }
+
+        .toc-grid li .toc-num {
+            color: var(--text-muted);
+            margin-right: 0.4rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+            .toc {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        /* ── Cards / Caixas ── */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.6rem 1.8rem;
+            margin: 1.6rem 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+            transition: border-color var(--transition), background var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--border-medium);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-title svg {
+            flex-shrink: 0;
+        }
+
+        /* ── Caixas especiais ── */
+        .box-tip {
+            background: rgba(52, 211, 153, 0.08);
+            border-left: 4px solid var(--green);
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 1.4rem 0;
+        }
+        .box-tip .box-label {
+            color: var(--green);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .box-warning {
+            background: rgba(255, 107, 107, 0.08);
+            border-left: 4px solid var(--coral);
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 1.4rem 0;
+        }
+        .box-warning .box-label {
+            color: var(--coral);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .box-info {
+            background: rgba(96, 165, 250, 0.08);
+            border-left: 4px solid var(--blue);
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 1.4rem 0;
+        }
+        .box-info .box-label {
+            color: var(--blue);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .box-important {
+            background: rgba(167, 139, 250, 0.08);
+            border-left: 4px solid var(--purple);
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 1.4rem 0;
+        }
+        .box-important .box-label {
+            color: var(--purple);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .box-highlight {
+            background: rgba(212, 168, 83, 0.06);
+            border: 1px solid rgba(212, 168, 83, 0.2);
+            padding: 1.2rem 1.5rem;
+            border-radius: var(--radius-sm);
+            margin: 1.4rem 0;
+        }
+
+        /* ── Citações ── */
+        .blockquote {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            padding: 1.4rem 1.8rem;
+            margin: 1.6rem 0;
+            border-left: 4px solid var(--gold-dim);
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        .blockquote cite {
+            display: block;
+            margin-top: 0.4rem;
+            font-style: normal;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Tabelas ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.6rem 0;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            min-width: 480px;
+        }
+
+        thead {
+            background: var(--bg-elevated);
+        }
+
+        th {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: var(--gold-light);
+            border-bottom: 2px solid var(--gold-dim);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+        }
+
+        td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .table-wrap .table-caption {
+            padding: 0.6rem 1rem 0.2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* ── Listas ── */
+        ul,
+        ol {
+            padding-left: 1.6rem;
+            margin: 0.8rem 0 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        ul li::marker {
+            color: var(--gold-dim);
+        }
+
+        ol li::marker {
+            color: var(--gold-dim);
+            font-weight: 600;
+        }
+
+        /* ── Marcadores visuais inline ── */
+        .marker-gold {
+            background: rgba(212, 168, 83, 0.2);
+            padding: 0.05rem 0.4rem;
+            border-radius: 4px;
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        .marker-teal {
+            background: rgba(78, 205, 196, 0.18);
+            padding: 0.05rem 0.4rem;
+            border-radius: 4px;
+            color: var(--teal);
+            font-weight: 500;
+        }
+
+        .marker-coral {
+            background: rgba(255, 107, 107, 0.18);
+            padding: 0.05rem 0.4rem;
+            border-radius: 4px;
+            color: var(--coral);
+            font-weight: 500;
+        }
+
+        .marker-purple {
+            background: rgba(167, 139, 250, 0.18);
+            padding: 0.05rem 0.4rem;
+            border-radius: 4px;
+            color: var(--purple);
+            font-weight: 500;
+        }
+
+        .marker-blue {
+            background: rgba(96, 165, 250, 0.18);
+            padding: 0.05rem 0.4rem;
+            border-radius: 4px;
+            color: var(--blue);
+            font-weight: 500;
+        }
+
+        .marker-green {
+            background: rgba(52, 211, 153, 0.18);
+            padding: 0.05rem 0.4rem;
+            border-radius: 4px;
+            color: var(--green);
+            font-weight: 500;
+        }
+
+        /* ── Divider elegante ── */
+        .divider-elegant {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.8rem 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+        .divider-elegant::before,
+        .divider-elegant::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-medium), transparent);
+        }
+        .divider-elegant svg {
+            flex-shrink: 0;
+        }
+
+        /* ── SVG Diagramas ── */
+        .diagram-container {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 1.5rem 1rem;
+            margin: 1.8rem 0;
+            border: 1px solid var(--border-subtle);
+            overflow-x: auto;
+            text-align: center;
+        }
+
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .diagram-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin: 0 0 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* ── Cards de conceitos importantes ── */
+        .concept-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.4rem 1.6rem;
+            margin: 1.4rem 0;
+            border: 1px solid var(--border-medium);
+            box-shadow: var(--shadow-card);
+            transition: border-color var(--transition);
+        }
+        .concept-card:hover {
+            border-color: rgba(212, 168, 83, 0.25);
+        }
+        .concept-card .concept-title {
+            font-family: var(--font-heading);
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .concept-card .concept-title svg {
+            flex-shrink: 0;
+        }
+        .concept-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Glossário ── */
+        .glossary-term {
+            font-weight: 700;
+            color: var(--gold-light);
+            font-family: var(--font-heading);
+        }
+
+        /* ── Tags de capítulo ── */
+        .chapter-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            padding: 0.15rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 0.3rem;
+        }
+
+        /* ── Responsivo ── */
+        @media (max-width: 768px) {
+            body {
+                padding: 1.2rem 0.8rem 3rem;
+                font-size: 16px;
+            }
+            .container {
+                max-width: 100%;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+            .card {
+                padding: 1.2rem 1.2rem;
+            }
+            .box-tip,
+            .box-warning,
+            .box-info,
+            .box-important {
+                padding: 1rem 1.2rem;
+            }
+            .toc {
+                padding: 1.2rem 1rem;
+            }
+            table {
+                font-size: 0.85rem;
+                min-width: 360px;
+            }
+            th,
+            td {
+                padding: 0.5rem 0.7rem;
+            }
+            .concept-card {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.8rem 0.5rem 2.5rem;
+                font-size: 15px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
+            h3 {
+                font-size: 1.05rem;
+            }
+            .card {
+                padding: 0.9rem 1rem;
+            }
+            table {
+                font-size: 0.8rem;
+                min-width: 280px;
+            }
+            th,
+            td {
+                padding: 0.4rem 0.5rem;
+            }
+        }
+
+        /* ── Print-friendly ── */
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+                padding: 0.5in;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .card,
+            .concept-card,
+            .toc,
+            .diagram-container,
+            .box-tip,
+            .box-warning,
+            .box-info,
+            .box-important,
+            .blockquote {
+                background: #f4f4f4 !important;
+                border-color: #ccc !important;
+                box-shadow: none !important;
+                color: #111 !important;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            .toc-title,
+            .card-title,
+            .concept-title,
+            .box-label,
+            th {
+                color: #1a1a1a !important;
+            }
+            p,
+            li,
+            td,
+            .text-secondary {
+                color: #222 !important;
+            }
+            .marker-gold,
+            .marker-teal,
+            .marker-coral,
+            .marker-purple,
+            .marker-blue,
+            .marker-green {
+                background: #e0e0e0 !important;
+                color: #111 !important;
+            }
+            a {
+                color: #0055aa !important;
+            }
+            .divider-elegant::before,
+            .divider-elegant::after {
+                background: #aaa !important;
+            }
+            .chapter-tag {
+                background: #ddd !important;
+                color: #333 !important;
+            }
+            hr {
+                background: #ccc !important;
+            }
+        }
+
+        /* ── Suporte para zoom ── */
+        @media screen and (min-width: 1200px) {
+            html {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ============================================================ -->
+        <!-- TÍTULO PRINCIPAL                                              -->
+        <!-- ============================================================ -->
+        <header style="text-align:center; margin-bottom:0.5rem;">
+            <h1 style="margin-bottom:0.2rem;">
+                Apostila Completa de Conhecimentos Bancários
+                <span class="subhead">Para Concursos da Área Bancária (Cesgranrio, FCC, FGV, Cebraspe)</span>
+            </h1>
+            <div style="margin-top:0.4rem; display:flex; justify-content:center; gap:0.8rem; flex-wrap:wrap;">
+                <span style="font-size:0.8rem; color:var(--text-muted); background:var(--bg-secondary); padding:0.2rem 1rem; border-radius:20px; border:1px solid var(--border-subtle);">📘 Material atualizado</span>
+                <span style="font-size:0.8rem; color:var(--text-muted); background:var(--bg-secondary); padding:0.2rem 1rem; border-radius:20px; border:1px solid var(--border-subtle);">🎯 Foco em concursos</span>
+            </div>
+        </header>
+
+        <!-- ============================================================ -->
+        <!-- SUMÁRIO                                                       -->
+        <!-- ============================================================ -->
+        <nav class="toc" aria-label="Sumário">
+            <div class="toc-title">
+                <!-- Ícone livro SVG -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    <line x1="10" y1="8" x2="16" y2="8" />
+                    <line x1="10" y1="12" x2="16" y2="12" />
+                    <line x1="10" y1="16" x2="13" y2="16" />
+                </svg>
+                Sumário
+            </div>
+            <ul class="toc-grid">
+                <li><a href="#capitulo1"><span class="toc-num">1.</span> SFN e Base Monetária</a></li>
+                <li><a href="#capitulo2"><span class="toc-num">2.</span> Mercado de Câmbio</a></li>
+                <li><a href="#capitulo3"><span class="toc-num">3.</span> Produtos de Renda Fixa</a></li>
+                <li><a href="#capitulo4"><span class="toc-num">4.</span> Mercado de Capitais</a></li>
+                <li><a href="#capitulo5"><span class="toc-num">5.</span> Crédito e Financiamentos</a></li>
+                <li><a href="#capitulo6"><span class="toc-num">6.</span> Gestão de Clientes e Deserção</a></li>
+                <li><a href="#capitulo7"><span class="toc-num">7.</span> Prevenção à Lavagem de Dinheiro</a></li>
+                <li><a href="#capitulo8"><span class="toc-num">8.</span> Open Finance e Serviços Digitais</a></li>
+                <li><a href="#capitulo9"><span class="toc-num">9.</span> Garantias e Aval</a></li>
+                <li><a href="#capitulo10"><span class="toc-num">10.</span> Dicas de Prova e Macetes</a></li>
+                <li><a href="#glossario"><span class="toc-num">11.</span> Glossário Bancário</a></li>
+                <li><a href="#estudo-caso"><span class="toc-num">12.</span> Estudo de Caso Integrado</a></li>
+            </ul>
+        </nav>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 1                                                    -->
+        <!-- ============================================================ -->
+        <section id="capitulo1">
+            <span class="chapter-tag">Capítulo 1</span>
+            <h2> Sistema Financeiro Nacional e Base Monetária</h2>
+
+            <h3>1.1 A Estrutura do Sistema Financeiro Nacional</h3>
+            <p>O Sistema Financeiro Nacional (SFN) é o conjunto de instituições financeiras, públicas e privadas, e instrumentos normativos que viabilizam a transferência de recursos entre os agentes econômicos (poupadores e tomadores). Sua estrutura é hierarquizada, com órgãos normativos no topo e entidades supervisoras e operacionais na base.</p>
+
+            <h4>1.1.1 Órgãos Normativos</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Órgão</th><th>Função Principal</th><th>Competência Específica</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CMN</strong> (Conselho Monetário Nacional)</td><td>Órgão máximo do SFN</td><td>Fixar diretrizes da política monetária, cambial e creditícia</td></tr>
+                        <tr><td><strong>CNSP</strong> (Conselho Nacional de Seguros Privados)</td><td>Normatizar seguros</td><td>Regular o mercado de seguros, previdência complementar e capitalização</td></tr>
+                        <tr><td><strong>CNPC</strong> (Conselho Nacional de Previdência Complementar)</td><td>Normatizar previdência fechada</td><td>Regular os fundos de pensão</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>1.1.2 Órgãos Executores e Supervisores</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Órgão</th><th>Função</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Banco Central (Bacen)</strong></td><td>Executar política monetária, supervisionar instituições financeiras, administrar reservas internacionais</td></tr>
+                        <tr><td><strong>CVM</strong> (Comissão de Valores Mobiliários)</td><td>Regulamentar e fiscalizar o mercado de capitais</td></tr>
+                        <tr><td><strong>SUSEP</strong></td><td>Fiscalizar seguros, previdência e capitalização</td></tr>
+                        <tr><td><strong>PREVIC</strong></td><td>Fiscalizar entidades de previdência complementar fechada</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-warning">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    PEGADINHA DE PROVA
+                </div>
+                <p>O Banco Central <strong>NÃO emite títulos públicos</strong> (quem emite é o Tesouro Nacional). O Banco Central pode emitir títulos de sua própria responsabilidade (como as Letras Financeiras do Tesouro — LFT, que na verdade são emitidas pelo Tesouro) — cuidado! Na verdade, o Bacen não emite títulos; ele opera com títulos públicos no mercado aberto.</p>
+            </div>
+
+            <h3>1.2 Base Monetária: Conceito e Composição</h3>
+            <p>A <strong>base monetária</strong> é o passivo monetário do Banco Central. Representa o total de moeda na economia e serve como base para a expansão dos meios de pagamento.</p>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Fórmula da Base Monetária
+                </div>
+                <p style="font-size:1.2rem; font-weight:600; color:var(--gold-light); text-align:center; margin:0.2rem 0 0.2rem;">
+                    BASE MONETÁRIA = MOEDA EM CIRCULAÇÃO + RESERVAS BANCÁRIAS
+                </p>
+            </div>
+
+            <p><strong>1. Moeda em Circulação (Papel-Moeda Emitido):</strong></p>
+            <ul>
+                <li>Cédulas e moedas metálicas em poder do público</li>
+                <li>Inclui o numerário que está fora do Banco Central</li>
+            </ul>
+
+            <p><strong>2. Reservas Bancárias (Depósitos dos Bancos no Bacen):</strong></p>
+            <ul>
+                <li><span class="marker-gold">Depósitos Compulsórios:</span> percentual dos depósitos à vista que os bancos são obrigados a manter no Bacen</li>
+                <li><span class="marker-teal">Depósitos Voluntários:</span> recursos que os bancos mantêm voluntariamente no Bacen (geralmente para compensação de cheques ou por estratégia de liquidez)</li>
+                <li><span class="marker-blue">Reservas Excedentes:</span> montante que os bancos mantêm além do exigido</li>
+            </ul>
+
+            <!-- Diagrama SVG: Base Monetária -->
+            <div class="diagram-container">
+                <div class="diagram-title">Estrutura da Base Monetária</div>
+                <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama da Base Monetária">
+                    <rect x="20" y="20" width="600" height="200" rx="16" fill="#1c2a3f" stroke="#2a3f5f" stroke-width="1.5"/>
+                    <text x="320" y="56" text-anchor="middle" fill="#d4a853" font-size="20" font-weight="700" font-family="Georgia,serif">BASE MONETÁRIA</text>
+                    <rect x="60" y="80" width="220" height="110" rx="10" fill="#162030" stroke="#3a5a7a" stroke-width="1.2"/>
+                    <text x="170" y="106" text-anchor="middle" fill="#e8c97a" font-size="15" font-weight="600">MOEDA EM CIRCULAÇÃO</text>
+                    <text x="170" y="128" text-anchor="middle" fill="#c5c2bc" font-size="12">Cédulas · Moedas</text>
+                    <text x="170" y="148" text-anchor="middle" fill="#9a9690" font-size="11">em poder do público</text>
+                    <text x="170" y="174" text-anchor="middle" fill="#9a9690" font-size="11">fora do Banco Central</text>
+                    <rect x="340" y="80" width="240" height="110" rx="10" fill="#162030" stroke="#3a5a7a" stroke-width="1.2"/>
+                    <text x="460" y="106" text-anchor="middle" fill="#4ecdc4" font-size="15" font-weight="600">RESERVAS BANCÁRIAS</text>
+                    <text x="460" y="128" text-anchor="middle" fill="#c5c2bc" font-size="12">Compulsórios · Voluntários</text>
+                    <text x="460" y="148" text-anchor="middle" fill="#c5c2bc" font-size="12">Excedentes</text>
+                    <text x="460" y="174" text-anchor="middle" fill="#9a9690" font-size="11">depósitos dos bancos no Bacen</text>
+                </svg>
+            </div>
+
+            <h4>Importante Distinção:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Conceito</th><th>Composição</th><th>NÃO Inclui</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Base Monetária (M0)</strong></td><td>Moeda em circulação + Reservas bancárias</td><td>Títulos públicos, depósitos à vista</td></tr>
+                        <tr><td><strong>M1</strong></td><td>Papel-moeda em poder do público + Depósitos à vista</td><td>Depósitos de poupança, títulos</td></tr>
+                        <tr><td><strong>M2</strong></td><td>M1 + Depósitos de poupança + Títulos privados</td><td>Títulos públicos</td></tr>
+                        <tr><td><strong>M3</strong></td><td>M2 + Cotas de fundos de renda fixa + Títulos públicos</td><td>Operações compromissadas</td></tr>
+                        <tr><td><strong>M4</strong></td><td>M3 + Títulos públicos de alta liquidez</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-tip">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    DICA DE PROVA
+                </div>
+                <p>Quando a questão perguntar <em>"o que compõe a base monetária?"</em>, lembre-se: <strong>moeda manual + reservas bancárias</strong>. Títulos públicos NÃO fazem parte da base monetária — eles são instrumentos de política monetária, mas não integram a base.</p>
+            </div>
+
+            <h3>1.3 Entesouramento e Liquidez</h3>
+            <p>O <strong>entesouramento</strong> (ou <strong>tesouramento</strong>) é o ato de reter moeda (nacional ou estrangeira) fora do sistema financeiro, sem aplicação produtiva.</p>
+
+            <h4>Por que ocorre o entesouramento?</h4>
+            <p>Em períodos de <strong>crise e incerteza</strong>, os agentes econômicos tendem a entesourar moeda por dois motivos principais:</p>
+            <ol>
+                <li><strong>Busca por liquidez:</strong> necessidade de ter disponibilidade imediata de recursos para fazer face a despesas</li>
+                <li><strong>Proteção contra perdas:</strong> medo de desvalorização de ativos financeiros</li>
+            </ol>
+
+            <h4>Funções da Moeda e Entesouramento:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Função da Moeda</th><th>Relação com Entesouramento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Meio de troca</strong></td><td>A moeda facilita transações (não é o foco do entesouramento)</td></tr>
+                        <tr><td><strong>Unidade de conta</strong></td><td>Serve para precificar bens (não é o foco)</td></tr>
+                        <tr><td><span class="marker-gold">Reserva de valor</span></td><td>A moeda pode ser guardada para consumo futuro (é a função principal do entesouramento)</td></tr>
+                        <tr><td><span class="marker-teal">Liquidez imediata</span></td><td>A moeda é o ativo mais líquido (fator decisivo em crise)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-info">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    CORRELAÇÃO IMPORTANTE
+                </div>
+                <p>Embora o entesouramento esteja associado à função <strong>reserva de valor</strong>, o principal fator explicativo em períodos de crise é a <strong>liquidez</strong>. Ou seja: as pessoas não guardam dinheiro <em>"porque ele valoriza"</em> (reserva de valor), mas sim <em>"porque precisam ter dinheiro disponível a qualquer momento"</em> (liquidez).</p>
+            </div>
+
+            <div class="box-warning">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    PEGADINHA DE PROVA
+                </div>
+                <p>A Cesgranrio adora cobrar a diferença entre <em>"entesourar como reserva de valor"</em> e <em>"entesourar por motivo de liquidez"</em>. A chave está no contexto da questão: se fala em crise, a resposta tende a ser <strong>"liquidez"</strong>.</p>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 2                                                    -->
+        <!-- ============================================================ -->
+        <section id="capitulo2">
+            <span class="chapter-tag">Capítulo 2</span>
+            <h2> Mercado de Câmbio e Taxas de Câmbio</h2>
+
+            <h3>2.1 O Mercado de Câmbio</h3>
+            <p>O mercado de câmbio é onde se negociam moedas estrangeiras. Nele, interagem agentes que ofertam e demandam divisas.</p>
+
+            <h4>2.1.1 Ofertadores de Moeda Estrangeira (Fazem ENTRAR divisas no país)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Agente</th><th>Exemplo Prático</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="marker-green">Exportadores</span></td><td>Empresa brasileira vende soja para a China e recebe dólares</td></tr>
+                        <tr><td><span class="marker-green">Turistas estrangeiros no Brasil</span></td><td>Americano vem ao Brasil e troca dólares por reais</td></tr>
+                        <tr><td><span class="marker-green">Investidores estrangeiros</span></td><td>Fundo americano compra ações da Petrobras na B3</td></tr>
+                        <tr><td><span class="marker-green">Multinacionais brasileiras no exterior</span></td><td>Empresa brasileira com filial nos EUA remete lucros ao Brasil</td></tr>
+                        <tr><td><span class="marker-green">Bancos estrangeiros</span></td><td>Instituição estrangeira traz recursos para operar no Brasil</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>2.1.2 Demandadores de Moeda Estrangeira (Fazem SAIR divisas do país)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Agente</th><th>Exemplo Prático</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="marker-coral">Importadores</span></td><td>Empresa brasileira compra computadores da China e precisa pagar em dólar</td></tr>
+                        <tr><td><span class="marker-coral">Turistas brasileiros no exterior</span></td><td>Brasileiro viaja para a Europa e compra euros</td></tr>
+                        <tr><td><span class="marker-coral">Investidores brasileiros no exterior</span></td><td>Brasileiro compra imóvel em Miami</td></tr>
+                        <tr><td><span class="marker-coral">Multinacionais estrangeiras no Brasil</span></td><td>Shell remete lucros para sua matriz na Holanda</td></tr>
+                        <tr><td><span class="marker-coral">Bancos brasileiros no exterior</span></td><td>Banco do Brasil precisa pagar obrigações em dólar</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-tip">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    MACETE PARA PROVA
+                </div>
+                <ul style="margin:0.2rem 0 0 1.2rem;">
+                    <li><span class="marker-green">Oferta de moeda estrangeira</span> = quem traz dinheiro para o Brasil = <strong>ENTRADA de dólar</strong> = aumenta a oferta de moeda estrangeira = pressão para <strong>baixar</strong> a cotação</li>
+                    <li><span class="marker-coral">Demanda de moeda estrangeira</span> = quem leva dinheiro para fora = <strong>SAÍDA de dólar</strong> = aumenta a demanda por moeda estrangeira = pressão para <strong>subir</strong> a cotação</li>
+                </ul>
+            </div>
+
+            <h4>Quadro-Resumo para Cesgranrio:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Agente</th><th>Oferta de Divisas</th><th>Demanda de Divisas</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Exportador</td><td>✅</td><td>❌</td></tr>
+                        <tr><td>Importador</td><td>❌</td><td>✅</td></tr>
+                        <tr><td>Turista estrangeiro no Brasil</td><td>✅</td><td>❌</td></tr>
+                        <tr><td>Turista brasileiro no exterior</td><td>❌</td><td>✅</td></tr>
+                        <tr><td>Investidor estrangeiro no Brasil</td><td>✅</td><td>❌</td></tr>
+                        <tr><td>Investidor brasileiro no exterior</td><td>❌</td><td>✅</td></tr>
+                        <tr><td>Multinacional brasileira no exterior (remessas)</td><td>✅</td><td>❌</td></tr>
+                        <tr><td>Multinacional estrangeira no Brasil (remessas)</td><td>❌</td><td>✅</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2.2 Taxa de Câmbio: Nominal vs. Real</h3>
+
+            <h4>2.2.1 Taxa de Câmbio Nominal</h4>
+            <p>É o <strong>preço relativo de duas moedas</strong>, ou seja, a cotação propriamente dita.</p>
+            <ul>
+                <li><strong>Exemplo:</strong> R$ 5,00/US$ 1,00</li>
+                <li><strong>O que mostra:</strong> quantas unidades de moeda nacional são necessárias para comprar uma unidade de moeda estrangeira</li>
+                <li><strong>NÃO considera:</strong> a inflação dos países</li>
+            </ul>
+
+            <h4>2.2.2 Taxa de Câmbio Real</h4>
+            <p>É a taxa nominal <strong>ajustada pela diferença de preços (inflação)</strong> entre os dois países.</p>
+            <ul>
+                <li><strong>Fórmula conceitual:</strong> Taxa de Câmbio Real = Taxa Nominal × (Índice de Preços do País Estrangeiro ÷ Índice de Preços do País Nacional)</li>
+                <li><strong>O que mostra:</strong> o <strong>poder de compra</strong> da moeda nacional em relação à estrangeira</li>
+                <li><strong>Reflete:</strong> a competitividade dos produtos de um país em relação a outro</li>
+            </ul>
+
+            <!-- Diagrama SVG: Câmbio Nominal vs Real -->
+            <div class="diagram-container">
+                <div class="diagram-title">Taxa de Câmbio: Nominal × Real</div>
+                <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparação entre taxa nominal e real">
+                    <rect x="10" y="10" width="330" height="210" rx="12" fill="#1c2a3f" stroke="#3a5a7a" stroke-width="1.2"/>
+                    <text x="175" y="44" text-anchor="middle" fill="#e8c97a" font-size="16" font-weight="700" font-family="Georgia,serif">TAXA NOMINAL</text>
+                    <text x="175" y="70" text-anchor="middle" fill="#c5c2bc" font-size="13">"Quanto custa 1 dólar em reais?"</text>
+                    <text x="175" y="98" text-anchor="middle" fill="#d4a853" font-size="18" font-weight="600">R$ 5,00 = US$ 1,00</text>
+                    <text x="175" y="126" text-anchor="middle" fill="#9a9690" font-size="12">NÃO leva em conta a inflação</text>
+                    <text x="175" y="150" text-anchor="middle" fill="#9a9690" font-size="12">É a cotação que você vê no banco</text>
+                    <rect x="360" y="10" width="330" height="210" rx="12" fill="#162030" stroke="#d4a853" stroke-width="1.2"/>
+                    <text x="525" y="44" text-anchor="middle" fill="#d4a853" font-size="16" font-weight="700" font-family="Georgia,serif">TAXA REAL</text>
+                    <text x="525" y="70" text-anchor="middle" fill="#c5c2bc" font-size="13">"Quantos produtos brasileiros valem</text>
+                    <text x="525" y="92" text-anchor="middle" fill="#c5c2bc" font-size="13">1 produto americano?"</text>
+                    <text x="525" y="120" text-anchor="middle" fill="#4ecdc4" font-size="14">Leva em conta a inflação</text>
+                    <text x="525" y="146" text-anchor="middle" fill="#9a9690" font-size="12">Reflete o poder de compra (PPC)</text>
+                    <text x="525" y="170" text-anchor="middle" fill="#9a9690" font-size="12">Mostra a competitividade das exportações</text>
+                </svg>
+            </div>
+
+            <h3>2.3 Efeitos da Valorização/Desvalorização Cambial</h3>
+
+            <h4>2.3.1 Apreciação (Valorização) da Moeda Nacional</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Efeito</th><th>Consequência</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Exportações</strong></td><td>Produtos nacionais ficam mais caros em moeda estrangeira → <span class="marker-coral">caem</span></td></tr>
+                        <tr><td><strong>Importações</strong></td><td>Produtos estrangeiros ficam mais baratos em moeda nacional → <span class="marker-green">aumentam</span></td></tr>
+                        <tr><td><strong>Turismo internacional</strong></td><td>Brasileiros viajam mais para o exterior; estrangeiros vêm menos ao Brasil</td></tr>
+                        <tr><td><strong>Conta Corrente</strong></td><td>Tendência de piora (déficit)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>2.3.2 Depreciação (Desvalorização) da Moeda Nacional</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Efeito</th><th>Consequência</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Exportações</strong></td><td>Produtos nacionais ficam mais baratos em moeda estrangeira → <span class="marker-green">aumentam</span></td></tr>
+                        <tr><td><strong>Importações</strong></td><td>Produtos estrangeiros ficam mais caros em moeda nacional → <span class="marker-coral">caem</span></td></tr>
+                        <tr><td><strong>Turismo internacional</strong></td><td>Brasileiros viajam menos ao exterior; estrangeiros vêm mais ao Brasil</td></tr>
+                        <tr><td><strong>Conta Corrente</strong></td><td>Tendência de melhora (superávit)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-info">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    RELAÇÃO FUNDAMENTAL (Cesgranrio)
+                </div>
+                <p><span class="marker-gold">Valorização da moeda → Exportações encarecem → Queda nas exportações</span></p>
+                <p><span class="marker-teal">Desvalorização da moeda → Exportações barateiam → Aumento das exportações</span></p>
+            </div>
+
+            <div class="box-tip">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    MACETE
+                </div>
+                <ul style="margin:0.2rem 0 0 1.2rem;">
+                    <li><span class="marker-gold">APRECIAÇÃO</span> = "A" = "Atrás" (exportações ficam para trás, perdem competitividade)</li>
+                    <li><span class="marker-teal">DEPRECIAÇÃO</span> = "D" = "Dentro" (exportações entram com mais facilidade, ganham competitividade)</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 3                                                    -->
+        <!-- ============================================================ -->
+        <section id="capitulo3">
+            <span class="chapter-tag">Capítulo 3</span>
+            <h2> Produtos Financeiros de Renda Fixa</h2>
+
+            <h3>3.1 Títulos Públicos Federais</h3>
+
+            <h4>3.1.1 LTN (Letra do Tesouro Nacional)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Indexação</strong></td><td><span class="marker-gold">Pré-fixada</span> (rentabilidade definida na compra)</td></tr>
+                        <tr><td><strong>Prazo</strong></td><td>Até 1 ano (originalmente)</td></tr>
+                        <tr><td><strong>Rentabilidade</strong></td><td>Definida no momento da compra, paga no vencimento</td></tr>
+                        <tr><td><strong>Valor</strong></td><td>Deságio sobre o valor de face (R$ 1.000,00)</td></tr>
+                        <tr><td><strong>Mercado secundário</strong></td><td>Pode ser negociada antes do vencimento</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Relação Inversa: Taxa de Juros × Preço do Título Prefixado
+                </div>
+                <p style="margin-bottom:0.3rem;">Esta é uma relação FUNDAMENTAL para provas:</p>
+                <ul style="margin:0 0 0.2rem 1.2rem;">
+                    <li>Se a <span class="marker-teal">TAXA DE JUROS (Selic) CAI</span> → o preço da LTN <strong>SOBE</strong> no mercado secundário</li>
+                    <li>Se a <span class="marker-coral">TAXA DE JUROS (Selic) SOBE</span> → o preço da LTN <strong>CAI</strong> no mercado secundário</li>
+                </ul>
+                <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.3rem;"><strong>Por quê?</strong> Imagine que você comprou uma LTN que paga 10% ao ano. Se a Selic cai para 8%, o seu título de 10% se torna mais atrativo do que os novos títulos que pagam 8%. Portanto, quem quiser comprar seu título vai pagar MAIS por ele.</p>
+            </div>
+
+            <h4>3.1.2 LFT (Letra Financeira do Tesouro)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Indexação</strong></td><td><span class="marker-teal">Pós-fixada</span> (segue a Selic)</td></tr>
+                        <tr><td><strong>Prazo</strong></td><td>Não tem prazo fixo definido (pode ser resgatada a qualquer momento)</td></tr>
+                        <tr><td><strong>Rentabilidade</strong></td><td>Acompanha a Selic diariamente</td></tr>
+                        <tr><td><strong>Valor</strong></td><td>Atualizado diariamente pela Selic</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Comparação LTN × LFT (Questão Cesgranrio Clássica)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Critério</th><th>LTN</th><th>LFT</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Indexação</strong></td><td>Pré-fixada</td><td>Pós-fixada</td></tr>
+                        <tr><td><strong>Rentabilidade</strong></td><td>Fixa no momento da compra</td><td>Acompanha a Selic</td></tr>
+                        <tr><td><strong>Risco de marcação a mercado</strong></td><td>Alto (variação de preço com juros)</td><td>Baixo (preço próximo ao valor de face)</td></tr>
+                        <tr><td><strong>Preço no mercado secundário</strong></td><td>Varia inversamente com a Selic</td><td>Varia com a Selic (mas como remuneração, não como preço)</td></tr>
+                        <tr><td><strong>Indicado para</strong></td><td>Quem acredita na queda da Selic</td><td>Quem quer proteção contra alta da Selic</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>3.1.3 NTN e Outros Títulos Públicos</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Sigla</th><th>Nome</th><th>Indexação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>NTN-B</strong></td><td>Nota do Tesouro Nacional - Série B</td><td>IPCA + juros</td></tr>
+                        <tr><td><strong>NTN-C</strong></td><td>Nota do Tesouro Nacional - Série C</td><td>IGP-M + juros</td></tr>
+                        <tr><td><strong>NTN-F</strong></td><td>Nota do Tesouro Nacional - Série F</td><td>Prefixada</td></tr>
+                        <tr><td><strong>LFT</strong></td><td>Letra Financeira do Tesouro</td><td>Selic</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>3.2 CDI (Certificado de Depósito Interfinanceiro)</h3>
+            <p>O CDI é um <strong>título emitido pelos bancos para captar recursos entre si</strong>, nas operações de curtíssimo prazo do mercado interbancário.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Emissor</strong></td><td>Bancos (instituições financeiras)</td></tr>
+                        <tr><td><strong>Prazo</strong></td><td>Curtíssimo prazo (geralmente 1 dia)</td></tr>
+                        <tr><td><strong>Taxa</strong></td><td><span class="marker-gold">Taxa DI (over)</span> — taxa de juros do mercado interbancário</td></tr>
+                        <tr><td><strong>Isenção de IR</strong></td><td>✅ <strong>Sim</strong> (é isento de Imposto de Renda para quem emite)</td></tr>
+                        <tr><td><strong>Função</strong></td><td>Referência de curto prazo para o sistema financeiro</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-warning">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    DIFERENÇA FUNDAMENTAL (Cesgranrio)
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; margin-top:0.3rem;">
+                    <div style="background:var(--bg-card); padding:0.6rem 0.8rem; border-radius:var(--radius-sm);">
+                        <strong style="color:var(--gold);">CDI</strong>
+                        <ul style="margin:0.2rem 0 0 1.2rem; font-size:0.9rem;">
+                            <li>Emitido por bancos para <strong>outros bancos</strong></li>
+                            <li>Curto prazo (até 1 dia)</li>
+                            <li>Isento de IR</li>
+                            <li>Referência para o mercado</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--bg-card); padding:0.6rem 0.8rem; border-radius:var(--radius-sm);">
+                        <strong style="color:var(--teal);">CDB</strong>
+                        <ul style="margin:0.2rem 0 0 1.2rem; font-size:0.9rem;">
+                            <li>Emitido por bancos para o <strong>público</strong></li>
+                            <li>Diversos prazos</li>
+                            <li>Incidência de IR (regressivo)</li>
+                            <li>Produto de investimento para o cliente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3>3.3 CDB (Certificado de Depósito Bancário)</h3>
+            <p>O CDB é um título de renda fixa emitido por bancos para captar recursos do público. É um dos investimentos mais populares no Brasil.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Emissor</strong></td><td>Bancos e instituições financeiras</td></tr>
+                        <tr><td><strong>Indexação</strong></td><td>Pós-fixado (CDI + %) ou prefixado</td></tr>
+                        <tr><td><strong>Garantia</strong></td><td><span class="marker-gold">FGC</span> (Fundo Garantidor de Créditos) — até R$ 250 mil por CPF/CNPJ por instituição</td></tr>
+                        <tr><td><strong>Liquidez</strong></td><td>Depende do prazo contratado (pode ter liquidez diária ou não)</td></tr>
+                        <tr><td><strong>IR</strong></td><td>Incidência regressiva (de 22,5% a 15%)</td></tr>
+                        <tr><td><strong>Tipo</strong></td><td>Renda fixa</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Tabela de IR para CDB (Regressiva):</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Prazo</th><th>Alíquota de IR</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Até 180 dias</td><td>22,5%</td></tr>
+                        <tr><td>De 181 a 360 dias</td><td>20,0%</td></tr>
+                        <tr><td>De 361 a 720 dias</td><td>17,5%</td></tr>
+                        <tr><td>Acima de 720 dias</td><td>15,0%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>CDB vs. RDB:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>CDB</th><th>RDB (Recibo de Depósito Bancário)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Forma</strong></td><td>Título (negociável)</td><td>Recibo (não negociável)</td></tr>
+                        <tr><td><strong>Liquidez</strong></td><td>Pode ser negociado</td><td>Só pode ser resgatado na instituição emissora</td></tr>
+                        <tr><td><strong>Garantia</strong></td><td>FGC</td><td>FGC</td></tr>
+                        <tr><td><strong>IR</strong></td><td>Mesma regra</td><td>Mesma regra</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>3.4 LCI e LCA</h3>
+
+            <h4>LCI (Letra de Crédito Imobiliário)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Emissor</strong></td><td>Instituições financeiras</td></tr>
+                        <tr><td><strong>Destinação</strong></td><td>Recursos destinados ao financiamento imobiliário</td></tr>
+                        <tr><td><strong>Garantia</strong></td><td>FGC (até o limite)</td></tr>
+                        <tr><td><strong>IR</strong></td><td><span class="marker-green">ISENTO</span> para pessoas físicas</td></tr>
+                        <tr><td><strong>Liquidez</strong></td><td>Geralmente com carência (prazo mínimo)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>LCA (Letra de Crédito do Agronegócio)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Emissor</strong></td><td>Instituições financeiras</td></tr>
+                        <tr><td><strong>Destinação</strong></td><td>Recursos destinados ao financiamento do agronegócio</td></tr>
+                        <tr><td><strong>Garantia</strong></td><td>FGC (até o limite)</td></tr>
+                        <tr><td><strong>IR</strong></td><td><span class="marker-green">ISENTO</span> para pessoas físicas</td></tr>
+                        <tr><td><strong>Liquidez</strong></td><td>Geralmente com carência</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Tabela Comparativa: Investimentos de Renda Fixa</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Produto</th><th>Emissor</th><th>IR</th><th>FGC</th><th>Liquidez</th><th>Indexação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CDB</strong></td><td>Banco</td><td>Sim</td><td>Sim</td><td>Variável</td><td>CDI, Prefixado</td></tr>
+                        <tr><td><strong>RDB</strong></td><td>Banco</td><td>Sim</td><td>Sim</td><td>Variável</td><td>CDI, Prefixado</td></tr>
+                        <tr><td><span class="marker-green">LCI</span></td><td>Banco</td><td>Isento</td><td>Sim</td><td>Carência</td><td>CDI, Prefixado, IPCA</td></tr>
+                        <tr><td><span class="marker-green">LCA</span></td><td>Banco</td><td>Isento</td><td>Sim</td><td>Carência</td><td>CDI, Prefixado, IPCA</td></tr>
+                        <tr><td><strong>LTN</strong></td><td>Tesouro</td><td>Sim</td><td>Tesouro</td><td>Diária</td><td>Prefixada</td></tr>
+                        <tr><td><strong>LFT</strong></td><td>Tesouro</td><td>Sim</td><td>Tesouro</td><td>Diária</td><td>Selic</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 4                                                    -->
+        <!-- ============================================================ -->
+        <section id="capitulo4">
+            <span class="chapter-tag">Capítulo 4</span>
+            <h2> Mercado de Capitais e Investimentos</h2>
+
+            <h3>4.1 Ações: Classificação</h3>
+
+            <h4>4.1.1 Ações Ordinárias (ON)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Direito a voto</strong></td><td>✅ Sim (em Assembleias Gerais)</td></tr>
+                        <tr><td><strong>Preferência nos lucros</strong></td><td>Não (exceto se houver cláusula específica)</td></tr>
+                        <tr><td><strong>Sufixo</strong></td><td><span class="marker-gold">3</span> (ex: PETR3, VALE3)</td></tr>
+                        <tr><td><strong>Perfil do investidor</strong></td><td>Quem quer ter poder de decisão na empresa</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>4.1.2 Ações Preferenciais (PN)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Direito a voto</strong></td><td>❌ Não (em geral)</td></tr>
+                        <tr><td><strong>Preferência nos lucros</strong></td><td>✅ Sim (recebem dividendos antes das ordinárias)</td></tr>
+                        <tr><td><strong>Sufixo</strong></td><td><span class="marker-teal">4</span> (ex: PETR4, VALE4)</td></tr>
+                        <tr><td><strong>Perfil do investidor</strong></td><td>Quem quer prioridade no recebimento de proventos</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>4.1.3 Ações de Fruição ou Gozo</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Direito a voto</strong></td><td>❌ Não</td></tr>
+                        <tr><td><strong>Direito a lucros</strong></td><td>✅ Sim (apenas participação nos lucros, sem voto)</td></tr>
+                        <tr><td><strong>Natureza</strong></td><td>São ações que já foram integralmente amortizadas, mas ainda dão direito a lucros</td></tr>
+                        <tr><td><strong>Sufixo</strong></td><td>Varia conforme a empresa</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Quadro Comparativo de Ações:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Tipo</th><th>Voto</th><th>Preferência em Dividendos</th><th>Capital Social</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>ON</strong></td><td>✅ Sim</td><td>❌ Não (normalmente)</td><td>Participa</td></tr>
+                        <tr><td><strong>PN</strong></td><td>❌ Não</td><td>✅ Sim</td><td>Participa</td></tr>
+                        <tr><td><strong>Fruição</strong></td><td>❌ Não</td><td>✅ Sim</td><td>Não participa</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-tip">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    DICA DE PROVA
+                </div>
+                <p>A Cesgranrio costuma cobrar a distinção entre ordinárias e preferenciais. O sufixo (3 ou 4) não é o foco da prova, mas sim as características de cada tipo.</p>
+            </div>
+
+            <h3>4.2 Debêntures</h3>
+            <p>São <strong>títulos de dívida</strong> emitidos por <strong>empresas não financeiras</strong> (sociedades anônimas) para captar recursos de médio e longo prazo.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Emissor</strong></td><td>Empresas não financeiras (SA de capital aberto ou fechado)</td></tr>
+                        <tr><td><strong>Prazo</strong></td><td>Médio/Longo prazo</td></tr>
+                        <tr><td><strong>Remuneração</strong></td><td>Prefixada, pós-fixada (CDI, IPCA) ou participação nos lucros</td></tr>
+                        <tr><td><strong>Garantia</strong></td><td>Pode ser: real, fidejussória, flutuante ou quirografária</td></tr>
+                        <tr><td><strong>IR</strong></td><td>Incide sobre os rendimentos</td></tr>
+                        <tr><td><strong>FGC</strong></td><td>❌ Não tem garantia do FGC</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Tipos de Debêntures:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Tipo</th><th>Garantia</th><th>Risco</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Garantia real</strong></td><td>Bem específico da empresa (imóvel, máquina)</td><td>Menor risco</td></tr>
+                        <tr><td><strong>Garantia flutuante</strong></td><td>Patrimônio da empresa (de forma geral)</td><td>Risco médio</td></tr>
+                        <tr><td><strong>Garantia fidejussória</strong></td><td>Garantia de terceiros</td><td>Risco médio</td></tr>
+                        <tr><td><strong>Quirografárias</strong></td><td>Sem garantia específica</td><td>Maior risco</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-info">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    Debêntures Incentivadas
+                </div>
+                <ul>
+                    <li>São debêntures emitidas para financiar projetos de infraestrutura</li>
+                    <li><span class="marker-green">ISENTAS DE IR</span> para pessoas físicas</li>
+                    <li>Atendem a requisitos específicos do governo (setores de energia, transporte, etc.)</li>
+                </ul>
+            </div>
+
+            <h3>4.3 Commercial Papers</h3>
+            <p>São <strong>títulos de dívida de curto prazo</strong>, emitidos por empresas (geralmente não financeiras) para captar recursos para <strong>capital de giro</strong>.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Emissor</strong></td><td>Empresas não financeiras</td></tr>
+                        <tr><td><strong>Prazo</strong></td><td>Curto prazo (geralmente até 360 dias)</td></tr>
+                        <tr><td><strong>Valor</strong></td><td>Geralmente de alto valor unitário</td></tr>
+                        <tr><td><strong>Remuneração</strong></td><td>Prefixada (deságio)</td></tr>
+                        <tr><td><strong>Garantia</strong></td><td>Não tem garantia (quirografário)</td></tr>
+                        <tr><td><strong>Investidor</strong></td><td>Geralmente institucional (fundos, grandes investidores)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>4.4 BDRs (Brazilian Depositary Receipts)</h3>
+            <p>São <strong>recibos</strong> que representam <strong>ações de empresas estrangeiras</strong> negociadas no Brasil.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Ativo subjacente</strong></td><td>Ação de empresa estrangeira</td></tr>
+                        <tr><td><strong>Negociação</strong></td><td>Na B3, em reais</td></tr>
+                        <tr><td><strong>Nível</strong></td><td>Nível I, II, III ou BDR Não Patrocinado</td></tr>
+                        <tr><td><strong>Vantagem</strong></td><td>Permite investir em ações estrangeiras sem sair do Brasil</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Níveis de BDR:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Nível</th><th>Característica</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Nível I</strong></td><td>Negociação em balcão, sem captação de recursos</td></tr>
+                        <tr><td><strong>Nível II</strong></td><td>Negociação em bolsa, sem captação de recursos</td></tr>
+                        <tr><td><strong>Nível III</strong></td><td>Com captação de recursos (follow on)</td></tr>
+                        <tr><td><strong>Não patrocinado</strong></td><td>Não há acordo com a empresa emissora das ações</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-info">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    COMPARAÇÃO IMPORTANTE
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem; margin-top:0.3rem;">
+                    <div style="background:var(--bg-card); padding:0.6rem 0.8rem; border-radius:var(--radius-sm);">
+                        <strong style="color:var(--gold);">Debêntures</strong>
+                        <ul style="margin:0.2rem 0 0 1.2rem; font-size:0.85rem;">
+                            <li>Dívida</li>
+                            <li>Médio/Longo prazo</li>
+                            <li>Empresa não financeira</li>
+                            <li>Rendimento (juros)</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--bg-card); padding:0.6rem 0.8rem; border-radius:var(--radius-sm);">
+                        <strong style="color:var(--teal);">Commercial Papers</strong>
+                        <ul style="margin:0.2rem 0 0 1.2rem; font-size:0.85rem;">
+                            <li>Dívida</li>
+                            <li>Curto prazo</li>
+                            <li>Empresa não financeira</li>
+                            <li>Rendimento (juros)</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--bg-card); padding:0.6rem 0.8rem; border-radius:var(--radius-sm);">
+                        <strong style="color:var(--purple);">BDRs</strong>
+                        <ul style="margin:0.2rem 0 0 1.2rem; font-size:0.85rem;">
+                            <li>Recibo de ação</li>
+                            <li>Sem prazo definido</li>
+                            <li>Empresa estrangeira</li>
+                            <li>Variação + dividendos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3>4.5 Opções sobre Ações</h3>
+            <p>As opções são <strong>contratos derivativos</strong> que dão ao comprador o <strong>direito (mas não a obrigação)</strong> de comprar ou vender um ativo por um preço pré-determinado.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Natureza</strong></td><td>Contrato derivativo</td></tr>
+                        <tr><td><strong>Direito</strong></td><td>O comprador tem direito, mas não obrigação de exercer</td></tr>
+                        <tr><td><strong>Obrigação</strong></td><td>O vendedor tem obrigação de cumprir se o comprador exercer</td></tr>
+                        <tr><td><strong>Preço de exercício</strong></td><td>Fixado no momento da compra</td></tr>
+                        <tr><td><strong>Prazo</strong></td><td>Data de vencimento predeterminada</td></tr>
+                        <tr><td><strong>Prêmio</strong></td><td>Valor pago pelo direito</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Tipos de Opções:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Tipo</th><th>O que dá o direito de...</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="marker-green">Opção de Compra (Call)</span></td><td>Comprar o ativo pelo preço de exercício</td></tr>
+                        <tr><td><span class="marker-coral">Opção de Venda (Put)</span></td><td>Vender o ativo pelo preço de exercício</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Posições em Opções:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Posição</th><th>Significado</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Comprador de Call</strong></td><td>Direito de <span class="marker-green">COMPRAR</span> por preço fixo</td></tr>
+                        <tr><td><strong>Vendedor de Call</strong></td><td>Obrigação de <span class="marker-coral">VENDER</span> por preço fixo</td></tr>
+                        <tr><td><strong>Comprador de Put</strong></td><td>Direito de <span class="marker-coral">VENDER</span> por preço fixo</td></tr>
+                        <tr><td><strong>Vendedor de Put</strong></td><td>Obrigação de <span class="marker-green">COMPRAR</span> por preço fixo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-warning">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    PEGADINHA DE PROVA
+                </div>
+                <p>Opção NÃO é o mesmo que ação. Opção é um <strong>DIREITO</strong>, enquanto ação é uma <strong>PARTE DO CAPITAL</strong> da empresa.</p>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 5                                                    -->
+        <!-- ============================================================ -->
+        <section id="capitulo5">
+            <span class="chapter-tag">Capítulo 5</span>
+            <h2> Crédito e Financiamentos</h2>
+
+            <h3>5.1 CDC (Crédito Direto ao Consumidor)</h3>
+            <p>O CDC é uma modalidade de empréstimo destinada à <strong>aquisição de bens duráveis ou serviços</strong> por pessoas físicas ou jurídicas.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Finalidade</strong></td><td>Compra de bens duráveis (veículos, eletrodomésticos, móveis) ou serviços</td></tr>
+                        <tr><td><strong>Garantia</strong></td><td>O próprio bem financiado (alienação fiduciária)</td></tr>
+                        <tr><td><strong>Tomador</strong></td><td>Pessoa física ou jurídica</td></tr>
+                        <tr><td><strong>Taxa</strong></td><td>Geralmente pré-fixada, com CET (Custo Efetivo Total)</td></tr>
+                        <tr><td><strong>Prazo</strong></td><td>Médio a longo prazo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Como funciona o CDC na prática:</h4>
+            <ol>
+                <li>O cliente escolhe o bem (ex: carro)</li>
+                <li>O banco financia o valor (ou parte)</li>
+                <li>O bem fica como garantia (alienação fiduciária)</li>
+                <li>O cliente paga as parcelas</li>
+                <li>Ao final, o bem é liberado definitivamente</li>
+            </ol>
+
+            <h4>CDC vs. CDB (Distinção Crucial para Prova)</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Critério</th><th>CDC</th><th>CDB</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Significado</strong></td><td>Crédito Direto ao Consumidor</td><td>Certificado de Depósito Bancário</td></tr>
+                        <tr><td><strong>Natureza</strong></td><td>Empréstimo/Financiamento</td><td>Investimento</td></tr>
+                        <tr><td><strong>Finalidade</strong></td><td>Comprar bens/serviços</td><td>Aplicar recursos</td></tr>
+                        <tr><td><strong>Quem toma</strong></td><td>Cliente do banco</td><td>Investidor</td></tr>
+                        <tr><td><strong>Garantia</strong></td><td>O bem financiado</td><td>FGC</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-warning">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    ERRO CLÁSSICO EM PROVA
+                </div>
+                <p>Confundir <strong>CDC</strong> (Crédito Direto ao Consumidor) com <strong>CDB</strong> (Certificado de Depósito Bancário). A Cesgranrio adora essa pegadinha!</p>
+            </div>
+
+            <h3>5.2 Hot Money</h3>
+            <p>O <strong>hot money</strong> é um empréstimo de curtíssimo prazo (geralmente 1 a 30 dias) concedido por bancos para empresas, com juros diários.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Prazo</strong></td><td>Curtíssimo (1 a 30 dias)</td></tr>
+                        <tr><td><strong>Finalidade</strong></td><td>Capital de giro emergencial</td></tr>
+                        <tr><td><strong>Taxa</strong></td><td>Atrelada à taxa DI (over)</td></tr>
+                        <tr><td><strong>Custo</strong></td><td>Alto (juros diários)</td></tr>
+                        <tr><td><strong>Tomador</strong></td><td>Empresas</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Quando usar Hot Money?</h4>
+            <ul>
+                <li>Necessidade de caixa de curto prazo</li>
+                <li>Atraso no recebimento de valores</li>
+                <li>Oportunidade de negócio temporária</li>
+            </ul>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 6                                                    -->
+        <!-- ============================================================ -->
+        <section id="capitulo6">
+            <span class="chapter-tag">Capítulo 6</span>
+            <h2> Gestão de Clientes e Deserção</h2>
+
+            <h3>6.1 Conceito de Deserção de Clientes</h3>
+            <p>A <strong>deserção</strong> (ou "churn") é o processo pelo qual um cliente deixa de se relacionar com a instituição financeira.</p>
+
+            <p>No contexto bancário, compreender os tipos de deserção é fundamental para:</p>
+            <ol>
+                <li>Elaborar estratégias de retenção</li>
+                <li>Identificar pontos de melhoria nos serviços</li>
+                <li>Aumentar o lifetime value (LTV) do cliente</li>
+                <li>Reduzir custos de aquisição de novos clientes</li>
+            </ol>
+
+            <h3>6.2 Tipos de Deserção</h3>
+
+            <h4>6.2.1 Deserção por Preço</h4>
+            <p><strong>Definição:</strong> O cliente sai por considerar que os preços/taxas praticados não são competitivos.</p>
+            <p><strong>Exemplo:</strong> Cliente que transfere seu financiamento imobiliário para outro banco por causa da taxa de juros mais baixa.</p>
+            <p><strong>Como evitar:</strong> Política de preços competitiva; negociação de taxas para clientes com bom relacionamento; ofertas exclusivas.</p>
+
+            <h4>6.2.2 Deserção por Produto</h4>
+            <p><strong>Definição:</strong> O cliente sai por insatisfação com o produto adquirido.</p>
+            <p><strong>Exemplo:</strong> Cliente que fecha uma conta porque o banco não oferece o tipo de investimento que ele deseja.</p>
+            <p><strong>Como evitar:</strong> Portfólio diversificado de produtos; atualização constante da oferta; cross-selling (venda cruzada).</p>
+
+            <h4>6.2.3 Deserção por Serviço</h4>
+            <p><strong>Definição:</strong> O cliente sai por insatisfação com o atendimento ou serviços prestados.</p>
+            <p><strong>Exemplo:</strong> Cliente que encerra sua conta após sucessivas falhas no atendimento presencial ou digital.</p>
+            <p><strong>Como evitar:</strong> Treinamento de equipe; ouvidoria atuante; pesquisas de satisfação; atendimento multicanal.</p>
+
+            <h4>6.2.4 Deserção de Mercado</h4>
+            <p><strong>Definição:</strong> O cliente sai porque o mercado mudou e a instituição não se adaptou.</p>
+            <p><strong>Exemplo:</strong> Empresa que encerra operações no país ou muda seu modelo de negócios.</p>
+            <p><strong>Como evitar:</strong> Monitoramento de tendências; adaptação contínua; inovação.</p>
+
+            <h4>6.2.5 Deserção Tecnológica</h4>
+            <p><strong>Definição:</strong> O cliente sai porque a instituição não oferece as soluções tecnológicas esperadas.</p>
+            <p><strong>Exemplo:</strong> Cliente que migra para fintech porque o banco tradicional não tem aplicativo de qualidade.</p>
+            <p><strong>Como evitar:</strong> Investimento em tecnologia; transformação digital; Open Finance (integração com outras plataformas).</p>
+
+            <h4>6.2.6 Deserção Organizacional ⭐</h4>
+            <p><strong>Definição:</strong> O cliente sai por decisões estratégicas de alto nível, relações interpessoais entre líderes ou fatores políticos.</p>
+            <ul>
+                <li>Não está relacionada à qualidade do produto/serviço</li>
+                <li>Geralmente envolve altos executivos</li>
+                <li>Baseada em relações pessoais, políticas ou estratégicas</li>
+            </ul>
+
+            <div class="box-info">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    Exemplo Clássico (Cesgranrio)
+                </div>
+                <p><em>"A empresa Y, que mantinha relacionamento com o banco A há 15 anos, decidiu operar exclusivamente com o banco B após a nomeação de um novo CEO que mantém relações de amizade com o presidente do banco B."</em></p>
+                <p><strong>Resposta:</strong> Deserção Organizacional</p>
+            </div>
+
+            <h4>6.2.7 Deserção Oculta</h4>
+            <p><strong>Definição:</strong> O cliente sai, mas o motivo NÃO é claramente comunicado ou identificado pela instituição.</p>
+            <ul>
+                <li>O cliente não informa o motivo</li>
+                <li>A deserção pode ser gradual</li>
+                <li>Difícil de identificar sem análise de dados</li>
+            </ul>
+            <p><strong>Como identificar:</strong> Análise de comportamento (cessação de compras, redução de transações); pesquisas de satisfação; entrevistas de saída.</p>
+
+            <h4>6.2.8 Deserção Transnacional</h4>
+            <p><strong>Definição:</strong> A deserção envolve operações internacionais ou mudanças entre empresas de diferentes países.</p>
+            <p><strong>Exemplo:</strong> Multinacional que transfere sua conta de banco brasileiro para um banco internacional.</p>
+            <ul>
+                <li>Geralmente envolve grandes empresas</li>
+                <li>Pode estar relacionada a decisões globais</li>
+                <li>Complexa para a instituição local reverter</li>
+            </ul>
+
+            <h4>6.3 Quadro-Resumo dos Tipos de Deserção</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Tipo</th><th>Causa Principal</th><th>Exemplo</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Preço</strong></td><td>Taxas/juros não competitivos</td><td>Muda por conta de tarifas menores</td></tr>
+                        <tr><td><strong>Produto</strong></td><td>Insatisfação com o produto</td><td>Não tem o investimento desejado</td></tr>
+                        <tr><td><strong>Serviço</strong></td><td>Mau atendimento</td><td>Encerra conta após atendimento ruim</td></tr>
+                        <tr><td><strong>Mercado</strong></td><td>Mudanças no setor</td><td>Empresa sai do país</td></tr>
+                        <tr><td><strong>Tecnológica</strong></td><td>Falta de soluções digitais</td><td>Migra para fintech</td></tr>
+                        <tr><td><span class="marker-gold">Organizacional</span></td><td>Decisões de alta liderança</td><td>Amizade entre CEOs</td></tr>
+                        <tr><td><span class="marker-purple">Oculta</span></td><td>Motivo não identificado</td><td>Cliente simplesmente deixa de usar</td></tr>
+                        <tr><td><span class="marker-teal">Transnacional</span></td><td>Operações internacionais</td><td>Multinacional troca de banco</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-tip">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    DICA DE PROVA
+                </div>
+                <p>A Cesgranrio explora principalmente:</p>
+                <ol>
+                    <li><strong>Deserção organizacional</strong> (relações interpessoais/políticas)</li>
+                    <li><strong>Deserção oculta</strong> (motivo não identificado)</li>
+                    <li><strong>Deserção transnacional</strong> (operações internacionais)</li>
+                </ol>
+                <p style="margin-top:0.2rem;">As outras tendem a aparecer como distratores.</p>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 7                                                    -->
+        <!-- ============================================================ -->
+        <section id="capitulo7">
+            <span class="chapter-tag">Capítulo 7</span>
+            <h2> Prevenção à Lavagem de Dinheiro (PLD)</h2>
+
+            <h3>7.1 Conceito de Lavagem de Dinheiro</h3>
+            <p>A <strong>lavagem de dinheiro</strong> (ou branqueamento de capitais) é o processo pelo qual recursos de origem ilícita são dissimulados para aparentar origem lícita.</p>
+
+            <p><strong>Base Legal:</strong></p>
+            <ul>
+                <li><strong>Lei nº 9.613/1998</strong> (Lei de Lavagem de Dinheiro)</li>
+                <li>Atualizada pela <strong>Lei nº 12.683/2012</strong></li>
+                <li>Regulamentada por normativos do Bacen e da CVM</li>
+            </ul>
+
+            <h3>7.2 As Três Etapas da Lavagem de Dinheiro</h3>
+
+            <!-- Diagrama SVG: 3 etapas da lavagem -->
+            <div class="diagram-container">
+                <div class="diagram-title">As 3 Etapas da Lavagem de Dinheiro</div>
+                <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama das três etapas da lavagem de dinheiro">
+                    <rect x="10" y="10" width="700" height="260" rx="14" fill="#1c2a3f" stroke="#2a3f5f" stroke-width="1.5"/>
+                    <text x="360" y="46" text-anchor="middle" fill="#d4a853" font-size="20" font-weight="700" font-family="Georgia,serif">LAVAGEM DE DINHEIRO</text>
+
+                    <!-- Etapa 1: Colocação -->
+                    <rect x="30" y="70" width="200" height="170" rx="10" fill="#162030" stroke="#d4a853" stroke-width="1.5"/>
+                    <text x="130" y="100" text-anchor="middle" fill="#e8c97a" font-size="15" font-weight="700">COLOCAÇÃO</text>
+                    <text x="130" y="124" text-anchor="middle" fill="#c5c2bc" font-size="11">(PLACEMENT)</text>
+                    <text x="130" y="150" text-anchor="middle" fill="#9a9690" font-size="11">Inserção do dinheiro</text>
+                    <text x="130" y="170" text-anchor="middle" fill="#9a9690" font-size="11">no sistema financeiro</text>
+                    <text x="130" y="198" text-anchor="middle" fill="#c5c2bc" font-size="10">Depósitos fracionados</text>
+                    <text x="130" y="216" text-anchor="middle" fill="#c5c2bc" font-size="10">Compra de bens em dinheiro</text>
+
+                    <!-- Seta 1 → 2 -->
+                    <line x1="230" y1="155" x2="270" y2="155" stroke="#d4a853" stroke-width="2" marker-end="url(#arrow-gold)"/>
+
+                    <!-- Etapa 2: Ocultação -->
+                    <rect x="270" y="70" width="200" height="170" rx="10" fill="#162030" stroke="#4ecdc4" stroke-width="1.5"/>
+                    <text x="370" y="100" text-anchor="middle" fill="#4ecdc4" font-size="15" font-weight="700">OCULTAÇÃO</text>
+                    <text x="370" y="124" text-anchor="middle" fill="#c5c2bc" font-size="11">(LAYERING)</text>
+                    <text x="370" y="150" text-anchor="middle" fill="#9a9690" font-size="11">Disfarce da origem</text>
+                    <text x="370" y="170" text-anchor="middle" fill="#9a9690" font-size="11">dos recursos</text>
+                    <text x="370" y="198" text-anchor="middle" fill="#c5c2bc" font-size="10">Múltiplas transferências</text>
+                    <text x="370" y="216" text-anchor="middle" fill="#c5c2bc" font-size="10">Empresas de fachada</text>
+
+                    <!-- Seta 2 → 3 -->
+                    <line x1="470" y1="155" x2="510" y2="155" stroke="#4ecdc4" stroke-width="2" marker-end="url(#arrow-teal)"/>
+
+                    <!-- Etapa 3: Integração -->
+                    <rect x="510" y="70" width="190" height="170" rx="10" fill="#162030" stroke="#34d399" stroke-width="1.5"/>
+                    <text x="605" y="100" text-anchor="middle" fill="#34d399" font-size="15" font-weight="700">INTEGRAÇÃO</text>
+                    <text x="605" y="124" text-anchor="middle" fill="#c5c2bc" font-size="11">(INTEGRATION)</text>
+                    <text x="605" y="150" text-anchor="middle" fill="#9a9690" font-size="11">Reinserção do dinheiro</text>
+                    <text x="605" y="170" text-anchor="middle" fill="#9a9690" font-size="11">"limpo" na economia</text>
+                    <text x="605" y="198" text-anchor="middle" fill="#c5c2bc" font-size="10">Investimento em negócios</text>
+                    <text x="605" y="216" text-anchor="middle" fill="#c5c2bc" font-size="10">Compra de imóveis</text>
+
+                    <!-- Defs para setas -->
+                    <defs>
+                        <marker id="arrow-gold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#d4a853"/>
+                        </marker>
+                        <marker id="arrow-teal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4ecdc4"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="box-tip">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    MACETE PARA LEMBRAR
+                </div>
+                <p><span class="marker-gold">C</span>olocação = <span class="marker-gold">C</span>omeço (entrada no sistema)</p>
+                <p><span class="marker-teal">O</span>cultação = <span class="marker-teal">O</span>cultar (disfarçar a origem)</p>
+                <p><span class="marker-green">I</span>ntegração = <span class="marker-green">I</span>nvestir (reinserir na economia)</p>
+                <p style="margin-top:0.3rem; font-weight:600; color:var(--gold-light);">COI → 🐦 "COI" como o pássaro que voa, lembrando que o dinheiro "voa" para ficar limpo</p>
+            </div>
+
+            <h3>7.3 Subdivisões da Lavagem de Dinheiro</h3>
+            <p>A Lei nº 9.613/1998 subdivide a lavagem de dinheiro em <strong>2 categorias</strong>:</p>
+
+            <div class="card">
+                <h5 style="color:var(--gold); margin-top:0;">Categoria 1: Conversão em Bens</h5>
+                <ul>
+                    <li>Transformar dinheiro em bens materiais</li>
+                    <li>Exemplo: comprar imóveis, veículos, joias</li>
+                </ul>
+                <h5 style="color:var(--teal); margin-top:0.6rem;">Categoria 2: Movimentação do Dinheiro/Valores/Direitos</h5>
+                <ul>
+                    <li>Movimentar recursos financeiros</li>
+                    <li>Exemplo: transferências bancárias, aplicações financeiras</li>
+                </ul>
+            </div>
+
+            <h3>7.4 Indícios de Lavagem de Dinheiro</h3>
+
+            <div class="box-warning">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    Carta Circular nº 4.001/2020 (Bacen)
+                </div>
+                <p><strong>Indícios de Suspeita (art. 1º, I, "a"):</strong></p>
+                <p><em>"Atipicidade em relação à atividade econômica ou incompatibilidade com a capacidade financeira do cliente."</em></p>
+                <p style="margin-top:0.4rem;">Em outras palavras: quando há <strong>transferência de valores sem relação com a capacidade econômica do cliente</strong>.</p>
+            </div>
+
+            <h4>Exemplos Práticos:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Situação</th><th>Indício</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Cliente com renda de R$ 3.000,00 movimenta R$ 1.000.000,00</td><td>🚨 Suspeita</td></tr>
+                        <tr><td>Empresa que faturou R$ 100.000,00 no ano movimenta R$ 5.000.000,00</td><td>🚨 Suspeita</td></tr>
+                        <tr><td>Cliente declara renda de R$ 50.000,00/ano, mas deposita R$ 500.000,00/mês</td><td>🚨 Suspeita</td></tr>
+                        <tr><td>Aposentada faz transferências internacionais frequentes</td><td>🚨 Suspeita</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Outros Indícios de Suspeita:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Indício</th><th>Descrição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="marker-gold">Operações fracionadas</span></td><td>Depósitos ou transferências em valores abaixo do limite de reporte</td></tr>
+                        <tr><td><span class="marker-coral">Mudança repentina de perfil</span></td><td>Cliente que muda drasticamente seu padrão de movimentação</td></tr>
+                        <tr><td><span class="marker-teal">Transferências para paraísos fiscais</span></td><td>Envio de recursos para países com sigilo bancário</td></tr>
+                        <tr><td><span class="marker-purple">Negócios com baixa aderência</span></td><td>Atividade econômica incompatível com as movimentações</td></tr>
+                        <tr><td><span class="marker-blue">Pessoa jurídica recém-criada</span></td><td>Movimentações elevadas em empresa com pouco tempo de existência</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>7.5 Responsabilidades dos Funcionários Bancários</h3>
+
+            <h4>Deveres:</h4>
+            <ol>
+                <li><span class="marker-gold">Conhecer o cliente (KYC - Know Your Client)</span></li>
+                <li><span class="marker-teal">Monitorar movimentações atípicas</span></li>
+                <li><span class="marker-coral">Reportar operações suspeitas</span></li>
+                <li><span class="marker-purple">Manter sigilo sobre as investigações</span></li>
+                <li><span class="marker-blue">Atualizar cadastro dos clientes</span></li>
+            </ol>
+
+            <h4>Comunicação ao COAF:</h4>
+            <p>O <strong>COAF</strong> (Conselho de Controle de Atividades Financeiras) é o órgão responsável por receber e processar as informações sobre operações suspeitas.</p>
+            <ul>
+                <li>As instituições financeiras devem comunicar ao COAF:
+                    <ul>
+                        <li>Operações acima de R$ 100.000,00 (em espécie)</li>
+                        <li>Operações com indícios de lavagem de dinheiro</li>
+                        <li>Transferências internacionais</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="box-info">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    Sigilo Bancário × PLD
+                </div>
+                <p>O sigilo bancário <strong>pode</strong> ser quebrado nos casos de:</p>
+                <ul>
+                    <li>Suspeita de lavagem de dinheiro</li>
+                    <li>Investigação criminal</li>
+                    <li>Decisão judicial</li>
+                    <li>Requisição do COAF (em alguns casos)</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 8                                                    -->
+        <!-- ============================================================ -->
+        <section id="capitulo8">
+            <span class="chapter-tag">Capítulo 8</span>
+            <h2> Open Finance e Serviços Digitais</h2>
+
+            <h3>8.1 O que é Open Finance?</h3>
+            <p>O <strong>Open Finance</strong> (anteriormente chamado de Open Banking) é um sistema que permite o compartilhamento de dados financeiros entre instituições participantes, com o consentimento do cliente.</p>
+
+            <h4>Objetivos do Open Finance:</h4>
+            <ol>
+                <li>Aumentar a concorrência no setor financeiro</li>
+                <li>Ampliar a oferta de produtos e serviços</li>
+                <li>Dar mais controle ao cliente sobre seus dados</li>
+                <li>Promover inovação e inclusão financeira</li>
+            </ol>
+
+            <h3>8.2 Princípios do Open Finance</h3>
+            <p>A Cesgranrio costuma cobrar a lista de princípios.</p>
+
+            <div class="card">
+                <h5 style="color:var(--gold); margin-top:0;">Lista Completa dos Princípios do Open Finance:</h5>
+                <ol style="columns:2 180px; column-gap:1.5rem;">
+                    <li>Transparência</li>
+                    <li>Qualidade dos dados</li>
+                    <li>Segurança</li>
+                    <li>Privacidade</li>
+                    <li>Tratamento não discriminatório</li>
+                    <li>Livre acesso</li>
+                    <li>Necessidade</li>
+                    <li>Adequação</li>
+                    <li>Finalidade</li>
+                    <li>Responsabilização</li>
+                    <li>Prevenção</li>
+                </ol>
+            </div>
+
+            <div class="box-warning">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    Princípio da Unilateralidade: ⚠️
+                </div>
+                <p>O princípio da <strong>UNILATERALIDADE NÃO deve ser seguido</strong> no Open Finance.</p>
+                <p><strong>Por quê?</strong> O Open Finance é baseado em:</p>
+                <ul>
+                    <li><span class="marker-teal">Colaboração</span> entre instituições</li>
+                    <li><span class="marker-blue">Interoperabilidade</span> de sistemas</li>
+                    <li><span class="marker-gold">Mutualidade</span> (ganhos para todos os lados)</li>
+                </ul>
+                <p style="margin-top:0.3rem;">A unilateralidade iria contra os fundamentos do sistema, que é bilateral (instituição-cliente-instituição).</p>
+            </div>
+
+            <div class="box-warning" style="border-left-color:var(--gold);">
+                <div class="box-label" style="color:var(--gold);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    PEGADINHA DE PROVA
+                </div>
+                <p>A Cesgranrio costuma incluir <strong>"unilateralidade"</strong> como distrator nas questões sobre princípios do Open Finance. Lembre-se: o modelo é <strong>COLABORATIVO</strong>, não unilateral.</p>
+            </div>
+
+            <h3>8.3 Operações Tipicamente Digitais vs. Não Digitais</h3>
+
+            <h4>Operações Essencialmente Digitais:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Operação</th><th>Característica</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><span class="marker-green">PIX</span></td><td>Transferência instantânea, totalmente digital</td></tr>
+                        <tr><td><span class="marker-teal">Blockchain</span></td><td>Tecnologia de registro descentralizado</td></tr>
+                        <tr><td><span class="marker-blue">Cartão Digital</span></td><td>Pagamentos sem meio físico</td></tr>
+                        <tr><td><span class="marker-purple">Marketplace</span></td><td>Plataforma digital de compra e venda</td></tr>
+                        <tr><td><span class="marker-gold">Pagamento por aproximação</span></td><td>NFC (Near Field Communication)</td></tr>
+                        <tr><td><span class="marker-coral">Home Broker</span></td><td>Negociação de ativos via internet</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Operação Tipicamente NÃO Digital:</h4>
+            <div class="card" style="border-left:4px solid var(--coral);">
+                <p style="margin:0; font-weight:600; color:var(--coral);">Compensação de cheque administrativo</p>
+                <p style="margin:0.2rem 0 0; font-size:0.95rem;">Requer trâmite físico do título entre bancos</p>
+            </div>
+
+            <div class="box-info">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    Por que o cheque administrativo não é 100% digital?
+                </div>
+                <ol>
+                    <li>O título físico precisa ser entregue ao banco</li>
+                    <li>A compensação envolve: entrada do cheque no banco, apresentação à Câmara de Compensação, devolução em caso de insuficiência de fundos</li>
+                    <li>Processo regulado por normativos que ainda preveem o papel</li>
+                </ol>
+            </div>
+
+            <div class="box-tip">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    CESGRANRIO
+                </div>
+                <p>A questão clássica pergunta <em>"qual destas operações NÃO é tipicamente digital?"</em> A resposta costuma ser a <strong>compensação de cheque administrativo</strong>, pois mesmo com mecanismos eletrônicos, o trâmite físico do título ainda existe.</p>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 9                                                    -->
+        <!-- ============================================================ -->
+        <section id="capitulo9">
+            <span class="chapter-tag">Capítulo 9</span>
+            <h2> Garantias e Aval</h2>
+
+            <h3>9.1 Conceito de Aval</h3>
+            <p>O <strong>aval</strong> é uma <strong>garantia pessoal</strong> dada em <strong>títulos de crédito</strong>. O avalista (quem dá o aval) se obriga <strong>solidariamente</strong> ao pagamento do título.</p>
+
+            <h4>Onde se aplica o Aval:</h4>
+            <ul>
+                <li>Nota Promissória</li>
+                <li>Letra de Câmbio</li>
+                <li>Duplicata</li>
+                <li>Cheque</li>
+            </ul>
+
+            <div class="box-warning">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    IMPORTANTE
+                </div>
+                <p>O aval SÓ existe em <strong>TÍTULOS DE CRÉDITO</strong>.</p>
+            </div>
+
+            <h4>Características do Aval:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Natureza</strong></td><td>Garantia pessoal</td></tr>
+                        <tr><td><strong>Instrumento</strong></td><td>Título de crédito</td></tr>
+                        <tr><td><strong>Responsabilidade</strong></td><td><span class="marker-gold">Solidária</span> (não há direito de ordem)</td></tr>
+                        <tr><td><strong>Forma</strong></td><td>Assinatura no título (com a expressão "por aval")</td></tr>
+                        <tr><td><strong>Benefício</strong></td><td>Pode ser dado a qualquer dos coobrigados</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>9.2 Conceito de Fiança</h3>
+            <p>A <strong>fiança</strong> é uma garantia pessoal em <strong>contratos</strong> (não em títulos de crédito). O fiador se obriga perante o credor a cumprir a obrigação se o devedor não o fizer.</p>
+
+            <h4>Características da Fiança:</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>Detalhe</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Natureza</strong></td><td>Garantia pessoal</td></tr>
+                        <tr><td><strong>Instrumento</strong></td><td>Contrato</td></tr>
+                        <tr><td><strong>Responsabilidade</strong></td><td>Pode ser <strong>simples ou solidária</strong></td></tr>
+                        <tr><td><strong>Forma</strong></td><td>Expressa (prevista no Código Civil)</td></tr>
+                        <tr><td><strong>Benefício</strong></td><td>Direito de ordem (benefício de excussão — o credor deve executar primeiro o devedor)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>9.3 Comparação: Aval × Fiança</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Critério</th><th>AVAL</th><th>FIANÇA</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Instrumento</strong></td><td>Título de crédito</td><td>Contrato</td></tr>
+                        <tr><td><strong>Responsabilidade</strong></td><td><span class="marker-gold">Solidária</span> (sempre)</td><td>Pode ser simples ou solidária</td></tr>
+                        <tr><td><strong>Benefício de ordem</strong></td><td>❌ Não existe</td><td>✅ Existe (na fiança simples)</td></tr>
+                        <tr><td><strong>Formalidade</strong></td><td>Assinatura no título</td><td>Contrato formal</td></tr>
+                        <tr><td><strong>Exemplos</strong></td><td>Nota promissória, cheque</td><td>Contrato de aluguel, contrato bancário</td></tr>
+                        <tr><td><strong>Código</strong></td><td>Lei Uniforme de Genebra, Código Civil</td><td>Código Civil</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="box-tip">
+                <div class="box-label">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                    MACETE PARA PROVA
+                </div>
+                <ul style="margin:0.2rem 0 0 1.2rem;">
+                    <li><span class="marker-gold">AVAL</span> → em <strong>Título</strong> → <span class="marker-gold">A</span>val = <span class="marker-gold">A</span>ssinatura no <strong>T</strong>ítulo</li>
+                    <li><span class="marker-teal">FIANÇA</span> → em <strong>Contrato</strong> → <span class="marker-teal">F</span>iança = <span class="marker-teal">F</span>irma no <strong>C</strong>ontrato</li>
+                    <li><span class="marker-gold">AVAL é SEMPRE SOLIDÁRIO</span> (não tem direito de ordem)</li>
+                    <li><span class="marker-teal">FIANÇA pode ser SIMPLES</span> (com direito de ordem)</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 10                                                   -->
+        <!-- ============================================================ -->
+        <section id="capitulo10">
+            <span class="chapter-tag">Capítulo 10</span>
+            <h2> Dicas de Prova, Erros Comuns e Macetes</h2>
+
+            <h3>10.1 Erros Mais Comuns em Prova</h3>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Erro 1: Confundir CDC com CDB
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; margin:0.3rem 0 0;">
+                    <div style="background:var(--bg-secondary); padding:0.4rem 0.6rem; border-radius:var(--radius-sm);">
+                        <strong style="color:var(--gold);">CDC</strong>
+                        <ul style="margin:0.1rem 0 0 1rem; font-size:0.9rem;">
+                            <li>Crédito Direto ao Consumidor</li>
+                            <li>Empréstimo para compra de bens</li>
+                            <li>Pagamento de parcelas</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--bg-secondary); padding:0.4rem 0.6rem; border-radius:var(--radius-sm);">
+                        <strong style="color:var(--teal);">CDB</strong>
+                        <ul style="margin:0.1rem 0 0 1rem; font-size:0.9rem;">
+                            <li>Certificado de Depósito Bancário</li>
+                            <li>Investimento de renda fixa</li>
+                            <li>Recebimento de juros</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="margin-top:0.4rem; font-size:0.9rem; color:var(--text-muted);"><strong>Como lembrar:</strong> CDC = Cliente Deve Comprar (crédito para compra) | CDB = Cliente Deposita no Banco (investimento)</p>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Erro 2: Acreditar que a LTN perde valor com a queda da Selic
+                </div>
+                <p>❌ <strong>ERRADO:</strong> "Se a Selic cai, a LTN perde valor"</p>
+                <p>✅ <strong>CORRETO:</strong> "Se a Selic cai, a LTN <strong>GANHA</strong> valor"</p>
+                <p style="font-size:0.9rem; color:var(--text-muted);"><strong>Relação:</strong> Título prefixado → Queda da Selic → Aumento do preço do título</p>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Erro 3: Pensar que são 4 estágios de lavagem de dinheiro
+                </div>
+                <p>❌ <strong>ERRADO:</strong> 4 estágios (colocação, ocultação, integração e ???)</p>
+                <p>✅ <strong>CORRETO:</strong> 3 estágios (colocação, ocultação, integração)</p>
+                <p style="font-size:0.9rem; color:var(--text-muted);"><strong>Cuidado:</strong> "Aquisição de bens" e "investimentos" fazem parte da <strong>integração</strong>, não são um estágio separado.</p>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Erro 4: Confundir taxa nominal com taxa real
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; margin:0.3rem 0 0;">
+                    <div style="background:var(--bg-secondary); padding:0.4rem 0.6rem; border-radius:var(--radius-sm);">
+                        <strong style="color:var(--gold);">Taxa Nominal</strong>
+                        <ul style="margin:0.1rem 0 0 1rem; font-size:0.9rem;">
+                            <li>Cotação da moeda</li>
+                            <li>"Preço" da moeda</li>
+                            <li>R$ 5,00 = US$ 1,00</li>
+                        </ul>
+                    </div>
+                    <div style="background:var(--bg-secondary); padding:0.4rem 0.6rem; border-radius:var(--radius-sm);">
+                        <strong style="color:var(--teal);">Taxa Real</strong>
+                        <ul style="margin:0.1rem 0 0 1rem; font-size:0.9rem;">
+                            <li>Cotação ajustada pela inflação</li>
+                            <li>"Poder de compra" da moeda</li>
+                            <li>R$ 5,00 compra menos que US$ 1,00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Erro 5: Acreditar que o Banco Central emite títulos públicos
+                </div>
+                <p>❌ <strong>ERRADO:</strong> O Banco Central emite títulos públicos</p>
+                <p>✅ <strong>CORRETO:</strong> O <strong>Tesouro Nacional</strong> emite títulos públicos. O Bacen opera com esses títulos no mercado aberto.</p>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Erro 6: Pensar que o aval pode ser dado em qualquer contrato
+                </div>
+                <p>❌ <strong>ERRADO:</strong> Aval pode ser dado em contratos também</p>
+                <p>✅ <strong>CORRETO:</strong> Aval SÓ existe em <strong>TÍTULOS DE CRÉDITO</strong></p>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Erro 7: Achar que o Open Finance é unilateral
+                </div>
+                <p>❌ <strong>ERRADO:</strong> Open Finance é unilateral (cada instituição decide se participa ou não)</p>
+                <p>✅ <strong>CORRETO:</strong> Open Finance é colaborativo, multilateral e exige interoperabilidade</p>
+            </div>
+
+            <h3>10.2 Macetes para Memorização</h3>
+
+            <div class="card">
+                <h5 style="color:var(--gold); margin-top:0;">Macete 1: Tipos de Deserção</h5>
+                <p><strong>"POe MasTOC"</strong> (Pões o Manto de OC):</p>
+                <ul style="columns:2 140px;">
+                    <li><span class="marker-gold">P</span>reço</li>
+                    <li><span class="marker-purple">O</span>culto</li>
+                    <li><span class="marker-teal">M</span>ercado</li>
+                    <li><span class="marker-blue">S</span>erviço</li>
+                    <li><span class="marker-coral">T</span>ecnológica</li>
+                    <li><span class="marker-gold">O</span>rganizacional</li>
+                    <li><span class="marker-green">C</span>???</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h5 style="color:var(--gold); margin-top:0;">Macete 2: Estágios da Lavagem de Dinheiro</h5>
+                <p><strong>"COI"</strong> (pássaro):</p>
+                <ul>
+                    <li><span class="marker-gold">C</span>olocação → <span class="marker-gold">C</span>omeço</li>
+                    <li><span class="marker-teal">O</span>cultação → <span class="marker-teal">O</span>cultar</li>
+                    <li><span class="marker-green">I</span>ntegração → <span class="marker-green">I</span>nvestir</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h5 style="color:var(--gold); margin-top:0;">Macete 3: Princípios do Open Finance</h5>
+                <p><strong>"LI NA FINAL Q SE NÃO, RESTRA PREVENÇÃO"</strong></p>
+                <ul style="columns:2 150px;">
+                    <li><span class="marker-gold">L</span>ivre acesso</li>
+                    <li><span class="marker-teal">N</span>ecessidade</li>
+                    <li><span class="marker-blue">A</span>dequação</li>
+                    <li><span class="marker-purple">F</span>inalidade</li>
+                    <li><span class="marker-coral">Q</span>ualidade dos dados</li>
+                    <li><span class="marker-green">S</span>egurança</li>
+                    <li><span class="marker-gold">N</span>ão discriminação</li>
+                    <li><span class="marker-teal">R</span>esponsabilização</li>
+                    <li><span class="marker-blue">T</span>ransparência</li>
+                    <li><span class="marker-purple">P</span>revenção</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h5 style="color:var(--gold); margin-top:0;">Macete 4: Apreciação × Depreciação</h5>
+                <ul>
+                    <li><span class="marker-gold">A</span>preciação → <span class="marker-gold">A</span>trás (exportações ficam para trás, perdem competitividade)</li>
+                    <li><span class="marker-teal">D</span>epreciação → <span class="marker-teal">D</span>entro (exportações entram com mais facilidade)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h5 style="color:var(--gold); margin-top:0;">Macete 5: Aval × Fiança</h5>
+                <ul>
+                    <li><span class="marker-gold">A</span>val → <span class="marker-gold">A</span>ssinatura no <strong>T</strong>ítulo → Título de Crédito</li>
+                    <li><span class="marker-teal">F</span>iança → <span class="marker-teal">F</span>irma no <strong>C</strong>ontrato → Contrato</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h5 style="color:var(--gold); margin-top:0;">Macete 6: CDI vs. CDB</h5>
+                <ul>
+                    <li><span class="marker-gold">CDI</span> = Certificado de Depósito <strong>Interfinanceiro</strong> (entre bancos)</li>
+                    <li><span class="marker-teal">CDB</span> = Certificado de Depósito <strong>Bancário</strong> (para o público)</li>
+                </ul>
+            </div>
+
+            <h3>10.3 Armadilhas Mais Frequentes da Cesgranrio</h3>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Armadilha 1: Troca de Competências entre CMN e Bacen
+                </div>
+                <div class="table-wrap" style="margin:0.4rem 0 0;">
+                    <table>
+                        <thead>
+                            <tr><th>Competência</th><th>CMN</th><th>Bacen</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Fixar diretrizes da política monetária</td><td>✅</td><td>❌</td></tr>
+                            <tr><td>Executar política monetária</td><td>❌</td><td>✅</td></tr>
+                            <tr><td>Estabelecer limites de exposição cambial</td><td>✅</td><td>❌</td></tr>
+                            <tr><td>Fiscalizar instituições financeiras</td><td>❌</td><td>✅</td></tr>
+                            <tr><td>Expedir normas sobre crédito rural</td><td>✅</td><td>❌</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Armadilha 2: Composição da Base Monetária
+                </div>
+                <ul>
+                    <li><span class="marker-green">Inclui:</span> Moeda em circulação + Reservas bancárias</li>
+                    <li><span class="marker-coral">NÃO INCLUI:</span> Títulos públicos, depósitos à vista, poupança</li>
+                </ul>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Armadilha 3: Sigilo Bancário × PLD
+                </div>
+                <p>O sigilo bancário <strong>pode</strong> ser quebrado quando:</p>
+                <ul>
+                    <li>Há suspeita de lavagem de dinheiro</li>
+                    <li>Autorização judicial</li>
+                    <li>Requisição do COAF (em determinadas situações)</li>
+                </ul>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Armadilha 4: Taxa de Câmbio Nominal
+                </div>
+                <p>A taxa nominal <strong>não considera</strong> a inflação. A <strong>taxa real</strong> é que considera.</p>
+            </div>
+
+            <div class="concept-card">
+                <div class="concept-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--coral);"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Armadilha 5: Isenção de IR
+                </div>
+                <div class="table-wrap" style="margin:0.4rem 0 0;">
+                    <table>
+                        <thead>
+                            <tr><th>Produto</th><th>Isento de IR para PF</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>LCI</td><td>✅</td></tr>
+                            <tr><td>LCA</td><td>✅</td></tr>
+                            <tr><td>CDB</td><td>❌</td></tr>
+                            <tr><td>RDB</td><td>❌</td></tr>
+                            <tr><td>Poupança</td><td>✅ (até limites)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- GLOSSÁRIO                                                     -->
+        <!-- ============================================================ -->
+        <section id="glossario">
+            <span class="chapter-tag">Glossário</span>
+            <h2> Glossário Bancário</h2>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem 1.5rem;">
+                <div><span class="glossary-term">Base Monetária</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Moeda em circulação + reservas bancárias</span></div>
+                <div><span class="glossary-term">Taxa de Câmbio Nominal</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Preço relativo de duas moedas (cotação)</span></div>
+                <div><span class="glossary-term">Taxa de Câmbio Real</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Cotação ajustada pela inflação dos países</span></div>
+                <div><span class="glossary-term">LTN</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Letra do Tesouro Nacional (título prefixado)</span></div>
+                <div><span class="glossary-term">LFT</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Letra Financeira do Tesouro (título pós-fixado, atrelado à Selic)</span></div>
+                <div><span class="glossary-term">CDI</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Certificado de Depósito Interfinanceiro (referência de curtíssimo prazo)</span></div>
+                <div><span class="glossary-term">CDB</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Certificado de Depósito Bancário (investimento de renda fixa)</span></div>
+                <div><span class="glossary-term">CDC</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Crédito Direto ao Consumidor (financiamento para compra de bens)</span></div>
+                <div><span class="glossary-term">Aval</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Garantia pessoal em títulos de crédito (solidária)</span></div>
+                <div><span class="glossary-term">Fiança</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Garantia pessoal em contratos (pode ser simples ou solidária)</span></div>
+                <div><span class="glossary-term">Debêntures</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Títulos de dívida de médio/longo prazo emitidos por empresas não financeiras</span></div>
+                <div><span class="glossary-term">Commercial Papers</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Títulos de dívida de curto prazo para capital de giro</span></div>
+                <div><span class="glossary-term">BDR</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Brazilian Depositary Receipts (recibos de ações estrangeiras)</span></div>
+                <div><span class="glossary-term">Opções</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Contratos derivativos que dão direito (mas não obrigação) de comprar/vender</span></div>
+                <div><span class="glossary-term">Hot Money</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Empréstimo de curtíssimo prazo com juros diários</span></div>
+                <div><span class="glossary-term">Colocação</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Primeira etapa da lavagem: inserção do dinheiro no sistema</span></div>
+                <div><span class="glossary-term">Ocultação</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Segunda etapa: disfarce da origem dos recursos</span></div>
+                <div><span class="glossary-term">Integração</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Terceira etapa: reinserção do dinheiro "limpo"</span></div>
+                <div><span class="glossary-term">COAF</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Conselho de Controle de Atividades Financeiras (recebe comunicações de suspeita)</span></div>
+                <div><span class="glossary-term">Open Finance</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Compartilhamento de dados financeiros com consentimento do cliente</span></div>
+                <div><span class="glossary-term">Selic</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Sistema Especial de Liquidação e Custódia (taxa básica de juros)</span></div>
+                <div><span class="glossary-term">FGC</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Fundo Garantidor de Créditos (garante até R$ 250 mil por CPF/CNPJ)</span></div>
+                <div><span class="glossary-term">CVM</span><br><span style="color:var(--text-secondary); font-size:0.95rem;">Comissão de Valores Mobiliários (reguladora do mercado de capitais)</span></div>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- ESTUDO DE CASO                                                -->
+        <!-- ============================================================ -->
+        <section id="estudo-caso">
+            <span class="chapter-tag">Estudo de Caso</span>
+            <h2> Estudo de Caso Integrado</h2>
+
+            <div class="card">
+                <h5 style="color:var(--gold); margin-top:0;">Cenário:</h5>
+                <p><em>"Marcos é escriturário de uma agência bancária há 5 anos. Ele atende diversos perfis de clientes diariamente. Em sua mesa, chegam hoje três situações distintas:</em></p>
+                <ol>
+                    <li><em>Dona Maria, 72 anos, aposentada, quer aplicar R$ 50.000,00 em um título de renda fixa com segurança e boa rentabilidade.</em></li>
+                    <li><em>João Pedro, empresário do setor de tecnologia, precisa de R$ 200.000,00 para capital de giro emergencial, com prazo de 15 dias.</em></li>
+                    <li><em>Ana Paula, 28 anos, quer financiar um carro no valor de R$ 80.000,00.</em></li>
+                    <li><em>Um cliente empresário de médio porte mudou sua movimentação financeira para outro banco após a nomeação do novo CEO, que é amigo do presidente da concorrente.</em></li>
+                </ol>
+                <p><em>Além disso, Marcos deve verificar se uma das movimentações do dia apresenta indícios de lavagem de dinheiro."</em></p>
+            </div>
+
+            <h4>Análise Caso 1: Dona Maria (Aposentada, 72 anos)</h4>
+            <p><strong>Perfil:</strong> Aposentada, baixa tolerância a risco, necessidade de segurança.</p>
+            <p><strong>Produto sugerido:</strong> LCI ou LCA (isento de IR) com garantia do FGC, ou Tesouro Selic (LFT) para liquidez diária.</p>
+            <ul>
+                <li>Pelo Estatuto do Idoso, deve-se dar atendimento preferencial</li>
+                <li>Verificar se o produto é adequado ao perfil (suitability)</li>
+                <li>Informar sobre as garantias do FGC</li>
+                <li>Explicar o IR (LCI/LCA são isentos)</li>
+            </ul>
+
+            <h4>Análise Caso 2: João Pedro (Empresário, capital de giro)</h4>
+            <p><strong>Perfil:</strong> Empresário, necessidade de capital de giro emergencial.</p>
+            <p><strong>Produto sugerido:</strong> Hot Money (curtíssimo prazo, 15 dias).</p>
+            <ul>
+                <li>Taxa de juros diária (taxa over)</li>
+                <li>Avaliação do risco de crédito</li>
+                <li>Garantias exigidas</li>
+                <li>Prazos curtos exigem rápida aprovação</li>
+            </ul>
+
+            <h4>Análise Caso 3: Ana Paula (Financiamento de veículo)</h4>
+            <p><strong>Perfil:</strong> Jovem, busca financiamento para bem durável.</p>
+            <p><strong>Produto sugerido:</strong> CDC (Crédito Direto ao Consumidor).</p>
+            <ul>
+                <li>O veículo fica como garantia (alienação fiduciária)</li>
+                <li>Taxa de juros e CET (Custo Efetivo Total)</li>
+                <li>Prazo e parcelas adequados à renda</li>
+                <li>Verificar restrições no SPC/Serasa</li>
+            </ul>
+
+            <h4>Análise Caso 4: Deserção do Cliente Empresário</h4>
+            <p><strong>Tipo de deserção:</strong> <span class="marker-gold">Organizacional</span> (motivada por decisão de alto nível, amizade entre CEO e presidente do outro banco).</p>
+            <ul>
+                <li>Fortalecer o relacionamento com os executivos da empresa</li>
+                <li>Oferecer vantagens exclusivas</li>
+                <li>Manter canais de comunicação ativos</li>
+            </ul>
+
+            <h4>Análise Caso 5: Indício de Lavagem de Dinheiro</h4>
+            <p><strong>Situação:</strong> Cliente com renda declarada de R$ 5.000,00/mês movimentou R$ 500.000,00 em 3 dias.</p>
+            <p><strong>Análise:</strong> Há <strong>incompatibilidade entre a capacidade econômica do cliente e a movimentação financeira</strong>, conforme Carta Circular nº 4.001/2020, art. 1º, I, "a".</p>
+            <p><strong>Procedimento de Marcos:</strong></p>
+            <ol>
+                <li>Identificar a atipicidade da movimentação</li>
+                <li>Verificar se há documentação que justifique (venda de imóvel, herança, etc.)</li>
+                <li>Se não houver justificativa, acionar o setor de PLD</li>
+                <li>Comunicar ao COAF, se necessário</li>
+                <li>Manter sigilo sobre a investigação</li>
+            </ol>
+
+            <h4>Conclusão do Estudo de Caso</h4>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Cliente</th><th>Produto/Serviço</th><th>Consideração Especial</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Dona Maria (72 anos)</td><td>LCI/LCA ou Tesouro Selic</td><td>Estatuto do Idoso, suitability</td></tr>
+                        <tr><td>João Pedro (empresário)</td><td>Hot Money</td><td>Curto prazo, risco de crédito</td></tr>
+                        <tr><td>Ana Paula (28 anos)</td><td>CDC</td><td>Alienação fiduciária, CET</td></tr>
+                        <tr><td>Empresário (deserção)</td><td>Estratégia de retenção</td><td>Deserção organizacional</td></tr>
+                        <tr><td>Cliente suspeito</td><td>Procedimento PLD</td><td>Comunicação ao COAF</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- RESPOSTAS RÁPIDAS                                             -->
+        <!-- ============================================================ -->
+        <section>
+            <h2 style="border-bottom-color:var(--gold);">📝 Respostas Rápidas para Revisão</h2>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem 1.5rem;">
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--gold);">
+                    <div style="font-weight:600; color:var(--gold); font-size:0.85rem;">O que compõe a base monetária?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Moeda em circulação + reservas bancárias</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--teal);">
+                    <div style="font-weight:600; color:var(--teal); font-size:0.85rem;">Diferença entre taxa nominal e real?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Nominal = cotação; Real = poder de compra</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--blue);">
+                    <div style="font-weight:600; color:var(--blue); font-size:0.85rem;">O que é uma LTN?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Título público prefixado</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--purple);">
+                    <div style="font-weight:600; color:var(--purple); font-size:0.85rem;">O que é uma LFT?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Título público pós-fixado (atrelado à Selic)</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--gold);">
+                    <div style="font-weight:600; color:var(--gold); font-size:0.85rem;">Preço da LTN se a Selic cai?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Aumenta (relação inversa)</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--coral);">
+                    <div style="font-weight:600; color:var(--coral); font-size:0.85rem;">Estágios da lavagem de dinheiro?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Colocação, Ocultação, Integração</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--teal);">
+                    <div style="font-weight:600; color:var(--teal); font-size:0.85rem;">O que é CDC?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Crédito Direto ao Consumidor (empréstimo para bens duráveis)</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--blue);">
+                    <div style="font-weight:600; color:var(--blue); font-size:0.85rem;">O que é CDB?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Certificado de Depósito Bancário (investimento de renda fixa)</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--gold);">
+                    <div style="font-weight:600; color:var(--gold); font-size:0.85rem;">Aval é garantia em...</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Títulos de crédito</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--teal);">
+                    <div style="font-weight:600; color:var(--teal); font-size:0.85rem;">Fiança é garantia em...</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Contratos</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--coral);">
+                    <div style="font-weight:600; color:var(--coral); font-size:0.85rem;">Princípio NÃO faz parte do Open Finance?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Unilateralidade</div>
+                </div>
+                <div style="background:var(--bg-card); padding:0.5rem 0.8rem; border-radius:var(--radius-sm); border-left:3px solid var(--purple);">
+                    <div style="font-weight:600; color:var(--purple); font-size:0.85rem;">Operação NÃO tipicamente digital?</div>
+                    <div style="color:var(--text-secondary); font-size:0.92rem;">Compensação de cheque administrativo</div>
+                </div>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- ============================================================ -->
+        <!-- CONSIDERAÇÕES FINAIS                                          -->
+        <!-- ============================================================ -->
+        <section style="margin-top:3rem;">
+            <h2 style="border-bottom-color:var(--gold);">Considerações Finais</h2>
+
+            <div class="card" style="border-left:4px solid var(--gold);">
+                <p style="font-size:1.05rem;">Prezado(a) candidato(a),</p>
+                <p>Esta apostila foi desenvolvida para proporcionar uma compreensão profunda, didática e aplicada dos conhecimentos bancários exigidos em concursos públicos, com ênfase no padrão da Cesgranrio.</p>
+
+                <p><strong>Lembre-se:</strong></p>
+                <ol>
+                    <li><span class="marker-gold">Estude o conteúdo com calma</span> — Cada capítulo foi pensado para ser compreendido antes de avançar.</li>
+                    <li><span class="marker-teal">Pratique com questões</span> — A teoria precisa ser aplicada em exercícios.</li>
+                    <li><span class="marker-blue">Revise os macetes</span> — Eles foram elaborados para facilitar a memorização na hora da prova.</li>
+                    <li><span class="marker-coral">Leia as pegadinhas</span> — Conhecer os erros comuns é tão importante quanto saber o certo.</li>
+                    <li><span class="marker-purple">Aplique ao dia a dia</span> — Visualize cada conceito em situações reais de agência.</li>
+                </ol>
+
+                <p style="font-size:1.1rem; font-family:var(--font-heading); color:var(--gold-light); text-align:center; margin-top:1.2rem;">Bons estudos e boa prova!</p>
+            </div>
+
+            <div class="blockquote" style="text-align:center;">
+                "O sucesso é a soma de pequenos esforços repetidos dia após dia."
+                <cite>— Autor desconhecido</cite>
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1.2rem; margin-top:1rem; font-size:0.85rem; color:var(--text-muted);">
+                <span>📚 Material didático elaborado por professor especialista em concursos bancários</span>
+                <span>📍 Foco: Cesgranrio, FCC, FGV, Cebraspe e bancas similares</span>
+                <span>📅 Última atualização: 2026</span>
+            </div>
+
+            <div style="margin-top:1.2rem; padding:0.8rem 1.2rem; background:var(--bg-secondary); border-radius:var(--radius-sm); border:1px solid var(--border-subtle); font-size:0.85rem; color:var(--text-muted); text-align:center;">
+                <strong>Nota:</strong> Este material é de uso exclusivo para estudo e preparação para concursos públicos. A reprodução total ou parcial depende de autorização expressa.
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- RODAPÉ                                                        -->
+        <!-- ============================================================ -->
+        <hr style="margin-top:3rem;">
+
+        <footer style="text-align:center; padding:1.5rem 0 0.5rem; color:var(--text-muted); font-size:0.85rem;">
+            <p style="margin:0;">Apostila Completa de Conhecimentos Bancários — © 2026</p>
+            <p style="margin:0.2rem 0 0; font-size:0.75rem;">Preparatório para Concursos da Área Bancária</p>
+        </footer>
+
+    </div>
+    <!-- /container -->
+
+</body>
+</html>
