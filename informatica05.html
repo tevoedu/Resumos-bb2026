@@ -1,0 +1,2200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Completa de Informática para Concursos</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: #f0f6fc;
+            border-bottom: 3px solid #58a6ff;
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #58a6ff;
+            margin-top: 2.8rem;
+            border-left: 6px solid #58a6ff;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #f0883e;
+            margin-top: 2rem;
+            padding-left: 0.5rem;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 0.3rem;
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            color: #d2a8ff;
+            margin-top: 1.6rem;
+        }
+
+        h5 {
+            font-size: 1.1rem;
+            color: #7ee787;
+            margin-top: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul,
+        ol {
+            margin: 0.8rem 0 1.2rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.3rem;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #30363d, #58a6ff, #30363d);
+            margin: 2.5rem 0;
+        }
+
+        /* ===== SUMÁRIO ===== */
+        #sumario {
+            background: #161b22;
+            border-radius: 16px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 2.5rem;
+            border: 1px solid #30363d;
+        }
+
+        #sumario h2 {
+            color: #f0f6fc;
+            border-left: none;
+            padding-left: 0;
+            margin-top: 0;
+            border-bottom: 2px solid #58a6ff;
+            padding-bottom: 0.3rem;
+            font-size: 1.6rem;
+        }
+
+        #sumario ul {
+            columns: 2 250px;
+            column-gap: 2rem;
+            list-style: none;
+            margin: 1rem 0 0;
+            padding: 0;
+        }
+
+        #sumario li {
+            break-inside: avoid;
+            margin-bottom: 0.5rem;
+            padding: 0.2rem 0;
+            border-bottom: 1px dashed #21262d;
+        }
+
+        #sumario a {
+            color: #e6edf3;
+            display: block;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        #sumario a:hover {
+            background: #1f2937;
+            text-decoration: none;
+            color: #58a6ff;
+        }
+
+        /* ===== TABELAS ===== */
+        .tabela-moderna {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0 1.8rem;
+            font-size: 0.95rem;
+            background: #161b22;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .tabela-moderna thead {
+            background: #1f2937;
+        }
+
+        .tabela-moderna th {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #f0f6fc;
+            border-bottom: 2px solid #58a6ff;
+        }
+
+        .tabela-moderna td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .tabela-moderna tbody tr:nth-child(even) {
+            background: #0d1117;
+        }
+
+        .tabela-moderna tbody tr:hover {
+            background: #1f2937;
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: #161b22;
+            border-radius: 14px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.2rem 0 1.8rem;
+            border-left: 5px solid #58a6ff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h4,
+        .card h5 {
+            margin-top: 0;
+        }
+
+        .card-verde {
+            border-left-color: #3fb950;
+        }
+
+        .card-laranja {
+            border-left-color: #f0883e;
+        }
+
+        .card-roxo {
+            border-left-color: #d2a8ff;
+        }
+
+        .card-vermelho {
+            border-left-color: #f85149;
+        }
+
+        /* ===== DICA / OBSERVAÇÃO / CALLout ===== */
+        .dica,
+        .observacao,
+        .callout {
+            border-radius: 12px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.4rem 0;
+            border-left: 6px solid;
+            background: #161b22;
+        }
+
+        .dica {
+            border-left-color: #3fb950;
+        }
+        .dica::before {
+            content: "💡 Dica: ";
+            font-weight: 700;
+            color: #3fb950;
+        }
+
+        .observacao {
+            border-left-color: #f0883e;
+        }
+        .observacao::before {
+            content: "⚠️ Observação: ";
+            font-weight: 700;
+            color: #f0883e;
+        }
+
+        .callout {
+            border-left-color: #58a6ff;
+            background: #0d1117;
+            border: 1px solid #30363d;
+        }
+        .callout::before {
+            content: "📌 ";
+            font-weight: 700;
+            color: #58a6ff;
+        }
+
+        /* ===== CITAÇÃO ===== */
+        .citacao {
+            font-style: italic;
+            padding: 1rem 1.8rem;
+            margin: 1.4rem 0;
+            border-left: 6px solid #d2a8ff;
+            background: #0d1117;
+            border-radius: 0 12px 12px 0;
+            color: #c9d1d9;
+        }
+
+        .citacao cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: normal;
+            font-weight: 500;
+            color: #58a6ff;
+        }
+
+        /* ===== DESTAQUE (marca-texto) ===== */
+        .destaque {
+            background: linear-gradient(120deg, rgba(88, 166, 255, 0.25) 0%, rgba(88, 166, 255, 0.15) 100%);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #f0f6fc;
+        }
+
+        .destaque-verde {
+            background: rgba(63, 185, 80, 0.25);
+        }
+
+        .destaque-laranja {
+            background: rgba(240, 136, 62, 0.25);
+        }
+
+        .destaque-roxo {
+            background: rgba(210, 168, 255, 0.25);
+        }
+
+        /* ===== LISTAS COM ÍCONES ===== */
+        .lista-icones {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .lista-icones li {
+            padding: 0.4rem 0 0.4rem 2.2rem;
+            position: relative;
+        }
+
+        .lista-icones li::before {
+            position: absolute;
+            left: 0;
+            top: 0.4rem;
+            font-size: 1.2rem;
+            color: #58a6ff;
+        }
+
+        .lista-icones li.check::before {
+            content: "✓";
+            color: #3fb950;
+            font-weight: 700;
+        }
+
+        .lista-icones li.cross::before {
+            content: "✗";
+            color: #f85149;
+            font-weight: 700;
+        }
+
+        .lista-icones li.arrow::before {
+            content: "→";
+            color: #f0883e;
+            font-weight: 700;
+        }
+
+        .lista-icones li.bullet::before {
+            content: "●";
+            color: #58a6ff;
+            font-size: 1rem;
+        }
+
+        /* ===== GRID DE CARDS ===== */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin: 1.2rem 0;
+        }
+
+        .grid-cards .card {
+            margin: 0;
+        }
+
+        /* ===== SVG responsivo ===== */
+        .diagrama-svg {
+            background: #161b22;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border: 1px solid #30363d;
+            overflow-x: auto;
+            text-align: center;
+        }
+
+        .diagrama-svg svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* ===== BOTÃO VOLTAR AO TOPO ===== */
+        .voltar-topo {
+            display: inline-block;
+            margin-top: 2.5rem;
+            padding: 0.6rem 1.8rem;
+            background: #1f2937;
+            color: #58a6ff;
+            border-radius: 30px;
+            border: 1px solid #30363d;
+            font-weight: 500;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .voltar-topo:hover {
+            background: #2d3748;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 1rem 3rem;
+                font-size: 0.98rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+                padding-left: 0.6rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            h4 {
+                font-size: 1.1rem;
+            }
+
+            #sumario ul {
+                columns: 1;
+            }
+
+            .tabela-moderna {
+                font-size: 0.85rem;
+            }
+            .tabela-moderna th,
+            .tabela-moderna td {
+                padding: 0.5rem 0.6rem;
+            }
+
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .diagrama-svg {
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.92rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+            }
+            .card {
+                padding: 1rem;
+            }
+            .dica,
+            .observacao,
+            .callout {
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        /* ===== MISC ===== */
+        .alinha-centro {
+            text-align: center;
+        }
+
+        .mt-0 {
+            margin-top: 0;
+        }
+
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        .separador {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #30363d, transparent);
+            margin: 2rem 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #1f2937;
+            color: #58a6ff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.15rem 0.7rem;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+            border: 1px solid #30363d;
+            margin-right: 0.3rem;
+        }
+
+        /* Link âncora suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header style="margin-bottom:2rem;">
+        <h1>Apostila Completa de Informática para Concursos</h1>
+        <p style="font-size:1.2rem; color:#8b949e; margin-top:-0.2rem;">
+            Módulo: Sistemas Operacionais, Redes e Ferramentas de Produtividade
+        </p>
+        <hr style="margin:1.2rem 0 0;">
+    </header>
+
+    <!-- ===== SUMÁRIO ===== -->
+    <nav id="sumario">
+        <h2>📖 Sumário</h2>
+        <ul>
+            <li><a href="#cap1">Capítulo 1: Segurança e Gerenciamento no Windows</a></li>
+            <li><a href="#cap2">Capítulo 2: Redes de Computadores e Sistemas de Arquivos</a></li>
+            <li><a href="#cap3">Capítulo 3: Microsoft Word e Editores de Texto</a></li>
+            <li><a href="#cap4">Capítulo 4: Microsoft Excel e Planilhas Eletrônicas</a></li>
+            <li><a href="#cap5">Capítulo 5: Segurança da Informação</a></li>
+            <li><a href="#cap6">Capítulo 6: Conceitos Gerais</a></li>
+            <li><a href="#cap7">Capítulo 7: Navegadores e Pesquisas</a></li>
+            <li><a href="#cap8">Capítulo 8: Resumo de Atalhos e Macetes</a></li>
+            <li><a href="#cap9">Capítulo 9: Quadros Resumo para Fixação</a></li>
+            <li><a href="#exercicios">Exercícios de Fixação</a></li>
+            <li><a href="#consideracoes">Considerações Finais</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 1 -->
+    <!-- ============================================================ -->
+    <section id="cap1">
+        <h2>Capítulo 1: Segurança e Gerenciamento no Windows</h2>
+
+        <!-- 1.1 -->
+        <h3>1.1 Bloqueio de Estação de Trabalho: Protegendo seus Dados ao se Ausentar</h3>
+
+        <h4>O que é?</h4>
+        <p>O bloqueio de estação de trabalho é um recurso de segurança do Windows que permite proteger o computador quando o usuário precisa se ausentar temporariamente, sem encerrar os programas em execução ou perder o trabalho não salvo.</p>
+
+        <h4>Para que serve?</h4>
+        <p>Imagine que você está digitando um relatório importante no Word, com várias abas do navegador abertas para pesquisa, e precisa ir ao banheiro ou atender uma ligação urgente. Se simplesmente se levantar, qualquer pessoa que passar pode ter acesso aos seus documentos, e-mails e informações confidenciais. O bloqueio impede esse acesso, exigindo a senha novamente para desbloquear.</p>
+
+        <h4>Como fazer?</h4>
+        <p>Existem duas formas principais de bloquear o Windows:</p>
+
+        <div class="card card-verde">
+            <h5 style="margin-top:0;">Método 1: Atalho Direto (Recomendado)</h5>
+            <ul class="lista-icones">
+                <li class="bullet">Pressione as teclas <span class="destaque">Windows + L</span> simultaneamente</li>
+                <li class="bullet">Esta é a forma mais rápida e prática</li>
+            </ul>
+        </div>
+
+        <div class="card card-laranja">
+            <h5 style="margin-top:0;">Método 2: Tela de Segurança</h5>
+            <ul class="lista-icones">
+                <li class="bullet">Pressione <span class="destaque">Ctrl + Alt + Del</span></li>
+                <li class="bullet">No menu que aparece, selecione a opção <strong>"Bloquear"</strong></li>
+            </ul>
+        </div>
+
+        <h4>O que acontece?</h4>
+        <p>Ao bloquear o computador:</p>
+        <ul>
+            <li>Todos os programas e documentos permanecem abertos exatamente como estavam</li>
+            <li>A tela do computador é substituída pela tela de login do Windows</li>
+            <li>Para reacessar, o usuário deve digitar sua senha novamente</li>
+            <li>Nenhum programa é fechado ou interrompido</li>
+        </ul>
+
+        <div class="dica">
+            <strong>Macete para memorizar</strong><br>
+            <span class="destaque">Windows + L</span> = <strong>L</strong>ock (bloquear em inglês)<br>
+            <span class="destaque">Ctrl + Alt + Del</span> = "Três dedos" para a tela de segurança, onde está a opção "Bloquear"
+        </div>
+
+        <hr>
+
+        <!-- 1.2 -->
+        <h3>1.2 Sair (Logoff) vs. Bloquear: Entendendo as Diferenças</h3>
+        <p>É fundamental não confundir "Bloquear" com "Sair" (Logoff/Sign out). A confusão entre esses comandos é uma das pegadinhas mais comuns em provas.</p>
+
+        <div class="card card-vermelho">
+            <h5>Sair (Logoff/Sign Out)</h5>
+            <p><strong>O que faz:</strong></p>
+            <ul>
+                <li>Encerra completamente a sessão do usuário atual</li>
+                <li>Fecha TODOS os aplicativos e documentos abertos</li>
+                <li>Retorna à tela de login inicial do Windows</li>
+                <li>Exige que o usuário faça login novamente para reiniciar todos os programas</li>
+            </ul>
+            <p><strong>Quando usar:</strong></p>
+            <ul>
+                <li>Ao finalizar o expediente</li>
+                <li>Quando outro usuário precisará usar o computador</li>
+                <li>Para liberar recursos do sistema</li>
+            </ul>
+            <div class="observacao" style="margin-top:0.8rem;">
+                <strong>Atenção:</strong> O comando "Sair" <strong>NÃO</strong> é adequado para ausências temporárias, pois interrompe todo o trabalho em andamento.
+            </div>
+        </div>
+
+        <h4>Quadro Comparativo: Bloquear vs. Sair</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Bloquear</th>
+                    <th>Sair (Logoff)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Programas abertos</td>
+                    <td>Mantém abertos</td>
+                    <td>Fecha todos</td>
+                </tr>
+                <tr>
+                    <td>Documentos não salvos</td>
+                    <td>Permanecem abertos</td>
+                    <td>Podem ser perdidos</td>
+                </tr>
+                <tr>
+                    <td>Tempo para retornar</td>
+                    <td>Imediato (digitar senha)</td>
+                    <td>Demorado (reiniciar tudo)</td>
+                </tr>
+                <tr>
+                    <td>Segurança</td>
+                    <td>Alta (exige senha)</td>
+                    <td>Alta (exige login)</td>
+                </tr>
+                <tr>
+                    <td>Uso recomendado</td>
+                    <td>Ausências rápidas</td>
+                    <td>Fim do expediente</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <!-- 1.3 -->
+        <h3>1.3 Suspender: Economia de Energia vs. Segurança</h3>
+
+        <h4>O que é Suspender?</h4>
+        <p>Suspender é um estado de baixo consumo de energia que mantém o estado do sistema, mas reduz drasticamente o consumo elétrico.</p>
+
+        <h4>Características do Suspender:</h4>
+        <ul>
+            <li>O computador entra em modo de "sono"</li>
+            <li>Os programas ficam em aberto, mas em estado de pausa</li>
+            <li>O consumo de energia é mínimo</li>
+            <li>Para reativar, basta mover o mouse ou pressionar qualquer tecla</li>
+        </ul>
+
+        <h4>Diferença Crucial para Provas:</h4>
+        <p>Apesar de manter os programas abertos, o <strong>Suspender</strong> tem um objetivo PRINCIPAL diferente do <strong>Bloquear</strong>:</p>
+
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Bloquear</th>
+                    <th>Suspender</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Objetivo principal</td>
+                    <td><strong>Segurança imediata</strong></td>
+                    <td>Economia de energia</td>
+                </tr>
+                <tr>
+                    <td>Estado de energia</td>
+                    <td>Não altera</td>
+                    <td>Reduz drasticamente</td>
+                </tr>
+                <tr>
+                    <td>Exige senha ao reativar?</td>
+                    <td>Sim (sempre)</td>
+                    <td>Depende da configuração</td>
+                </tr>
+                <tr>
+                    <td>Adequado para ausência rápida?</td>
+                    <td><strong>SIM (recomendado)</strong></td>
+                    <td>Não (foco é energia)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="observacao">
+            <strong>Pegadinha de Prova:</strong> Muitas questões tentam confundir o candidato afirmando que "Suspender" é a melhor opção para uma ausência temporária. A resposta correta é que, para segurança imediata, o comando adequado é <strong>Bloquear</strong>.
+        </div>
+
+        <hr>
+
+        <!-- 1.4 -->
+        <h3>1.4 Painel de Controle vs. Configurações</h3>
+
+        <div class="grid-cards">
+            <div class="card">
+                <h4 style="margin-top:0;">Painel de Controle</h4>
+                <p><strong>Definição:</strong> Ferramenta clássica do Windows que reúne miniaplicativos (applets) para gerenciar configurações do sistema.</p>
+                <p><strong>Principais funções:</strong></p>
+                <ul>
+                    <li>Ajustar aparência e personalização</li>
+                    <li>Gerenciar dispositivos de hardware</li>
+                    <li>Adicionar ou remover programas (Programas e Recursos)</li>
+                    <li>Configurar contas de usuário</li>
+                    <li>Definir opções de rede</li>
+                </ul>
+                <p><strong>Como acessar:</strong></p>
+                <ul>
+                    <li>Pressione <span class="destaque">Windows + X</span> e selecione "Painel de Controle"</li>
+                    <li>Ou pesquise "Painel de Controle" na barra de pesquisa</li>
+                </ul>
+            </div>
+            <div class="card card-roxo">
+                <h4 style="margin-top:0;">Configurações</h4>
+                <p><strong>Definição:</strong> Aplicativo moderno introduzido no Windows 10, com interface mais amigável e touch-friendly.</p>
+                <p><strong>Características:</strong></p>
+                <ul>
+                    <li>Interface mais visual e intuitiva</li>
+                    <li>Integração com a Microsoft Cloud</li>
+                    <li>Substitui gradualmente o Painel de Controle</li>
+                    <li>Mais focado em configurações do dia a dia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout">
+            <strong>Qual é o correto para concursos?</strong><br>
+            Em provas, quando a questão se refere à ferramenta "clássica" para gerenciar aparência, hardware e programas, o termo CORRETO é <strong>"Painel de Controle"</strong>. Embora o aplicativo "Configurações" exista, o nome cobrado tradicionalmente em concursos é o Painel de Controle.
+        </div>
+
+        <hr>
+
+        <!-- 1.5 -->
+        <h3>1.5 Ferramentas Administrativas</h3>
+
+        <h4>O que são?</h4>
+        <p>É uma pasta especial do Windows que contém ferramentas voltadas para usuários avançados e administradores de sistema.</p>
+
+        <h4>Principais Ferramentas:</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Ferramenta</th>
+                    <th>Função</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Agendador de Tarefas</td>
+                    <td>Executa tarefas automaticamente em horários programados</td>
+                </tr>
+                <tr>
+                    <td>Visualizador de Eventos</td>
+                    <td>Registra e exibe logs do sistema</td>
+                </tr>
+                <tr>
+                    <td>Gerenciamento do Computador</td>
+                    <td>Conjunto de ferramentas administrativas</td>
+                </tr>
+                <tr>
+                    <td>Otimizar Unidades</td>
+                    <td>Desfragmenta e otimiza discos</td>
+                </tr>
+                <tr>
+                    <td>Firewall do Windows</td>
+                    <td>Gerencia regras de segurança de rede</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="observacao">
+            <strong>Atenção para Provas:</strong> As Ferramentas Administrativas <strong>NÃO</strong> são a ferramenta principal para:
+            <ul>
+                <li>Desinstalar programas (isso é feito em Programas e Recursos do Painel de Controle)</li>
+                <li>Mudar a aparência da tela (isso é feito em Personalização)</li>
+                <li>Configurar rede básica (isso é feito em Central de Rede e Compartilhamento)</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <!-- 1.6 -->
+        <h3>1.6 Navegação e Gerenciamento de Arquivos no Windows</h3>
+
+        <h4>Explorador de Arquivos (Windows Explorer)</h4>
+        <p><strong>O que é:</strong> O Explorador de Arquivos é o gerenciador de arquivos do Windows, permitindo navegar, organizar e manipular pastas e arquivos.</p>
+
+        <div class="card card-verde">
+            <h5 style="margin-top:0;">Atalho Principal</h5>
+            <p><span class="destaque">Windows + E</span> = Abre o Explorador de Arquivos diretamente</p>
+        </div>
+
+        <h4>Outros Atalhos Importantes:</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Atalho</th>
+                    <th>Função</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Windows + E</td>
+                    <td>Abrir Explorador de Arquivos</td>
+                </tr>
+                <tr>
+                    <td>Windows + D</td>
+                    <td>Mostrar área de trabalho</td>
+                </tr>
+                <tr>
+                    <td>Windows + R</td>
+                    <td>Abrir "Executar"</td>
+                </tr>
+                <tr>
+                    <td>Windows + L</td>
+                    <td>Bloquear o computador</td>
+                </tr>
+                <tr>
+                    <td>Windows + S</td>
+                    <td>Abrir pesquisa</td>
+                </tr>
+                <tr>
+                    <td>Windows + W</td>
+                    <td>Abrir workspace (Windows Ink)</td>
+                </tr>
+                <tr>
+                    <td>Windows + X</td>
+                    <td>Abrir menu do usuário avançado</td>
+                </tr>
+                <tr>
+                    <td>Windows + I</td>
+                    <td>Abrir Configurações</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Caminhos no Windows</h4>
+        <p><strong>Como representar um caminho corretamente:</strong></p>
+        <p>No Windows, os caminhos seguem o padrão:</p>
+        <ul>
+            <li>Letra da unidade seguida de dois-pontos (<code>:</code>)</li>
+            <li>Barras invertidas (<code>\</code>) para separar pastas</li>
+            <li>Nome do arquivo com sua extensão</li>
+        </ul>
+        <div class="card">
+            <p><strong>Exemplo correto:</strong><br>
+                <code style="background:#1f2937;padding:0.2rem 0.8rem;border-radius:6px;display:inline-block;">F:\Dados\Pessoais\Carta.docx</code>
+            </p>
+            <p><strong>Exemplo incorreto:</strong><br>
+                <code style="background:#1f2937;padding:0.2rem 0.8rem;border-radius:6px;display:inline-block;color:#f85149;">F:/Dados/Pessoais/Carta.docx</code> (barras normais - padrão Linux/Internet)
+            </p>
+        </div>
+
+        <h4>Renomear Arquivos</h4>
+        <p><strong>É possível renomear um arquivo?</strong> Sim, desde que o arquivo não esteja em uso.</p>
+        <p><strong>Como renomear:</strong></p>
+        <ul>
+            <li>Clique com o botão direito no arquivo</li>
+            <li>Selecione "Renomear"</li>
+            <li>Ou pressione a tecla <span class="destaque">F2</span></li>
+            <li>Digite o novo nome</li>
+            <li>Pressione Enter</li>
+        </ul>
+
+        <h4>Limitações de Pastas</h4>
+        <p><strong>Quantos arquivos cabem em uma pasta?</strong></p>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Sistema de Arquivos</th>
+                    <th>Limite Máximo de Arquivos por Pasta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>FAT32</td>
+                    <td>~65.000 arquivos</td>
+                </tr>
+                <tr>
+                    <td>NTFS</td>
+                    <td>Mais de 4 bilhões de arquivos</td>
+                </tr>
+                <tr>
+                    <td>exFAT</td>
+                    <td>Praticamente ilimitado</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="callout">
+            <strong>Conclusão:</strong> A afirmação de que uma pasta pode conter no máximo 16 arquivos é <strong>FALSA</strong> e uma pegadinha comum.
+        </div>
+
+        <hr>
+
+        <!-- 1.7 -->
+        <h3>1.7 Ferramenta de Captura (Snipping Tool)</h3>
+
+        <h4>O que é?</h4>
+        <p>A Ferramenta de Captura (Snipping Tool) é um aplicativo do Windows que permite capturar partes específicas da tela, oferecendo mais opções que o simples Print Screen.</p>
+
+        <h4>Funcionalidades:</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Tipo de Captura</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Recorte Retangular</td>
+                    <td>Seleciona uma área retangular</td>
+                </tr>
+                <tr>
+                    <td>Recorte de Forma Livre</td>
+                    <td>Desenha uma forma personalizada</td>
+                </tr>
+                <tr>
+                    <td>Recorte de Janela</td>
+                    <td>Captura uma janela inteira específica</td>
+                </tr>
+                <tr>
+                    <td>Recorte de Tela Inteira</td>
+                    <td>Captura todo o monitor</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Como acessar:</h4>
+        <ul>
+            <li>Pesquise "Ferramenta de Captura" no menu Iniciar</li>
+            <li>Ou pressione <span class="destaque">Windows + Shift + S</span> (no Windows 10/11)</li>
+        </ul>
+
+        <h4>Diferença do Print Screen:</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Recurso</th>
+                    <th>Print Screen</th>
+                    <th>Ferramenta de Captura</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Captura</td>
+                    <td>Tela inteira</td>
+                    <td>Área selecionável</td>
+                </tr>
+                <tr>
+                    <td>Edição</td>
+                    <td>Nenhuma</td>
+                    <td>Permite anotações básicas</td>
+                </tr>
+                <tr>
+                    <td>Salvamento</td>
+                    <td>Copia para área de transferência</td>
+                    <td>Permite salvar como arquivo</td>
+                </tr>
+                <tr>
+                    <td>Versatilidade</td>
+                    <td>Baixa</td>
+                    <td>Alta</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 2 -->
+    <!-- ============================================================ -->
+    <section id="cap2">
+        <h2>Capítulo 2: Redes de Computadores e Sistemas de Arquivos</h2>
+
+        <!-- 2.1 -->
+        <h3>2.1 Protocolos de Rede para Webmail</h3>
+
+        <h4>Entendendo o Webmail</h4>
+        <p><strong>O que é Webmail?</strong> É um serviço de e-mail acessado através de um navegador web, sem necessidade de configurar um cliente de e-mail específico (como Outlook ou Thunderbird).</p>
+        <p><strong>Exemplos:</strong> Gmail, Outlook.com, Yahoo Mail, Webmail corporativo.</p>
+
+        <h4>Protocolos Envolvidos no Envio de um E-mail</h4>
+        <p>Quando você envia um e-mail via Webmail, dois protocolos diferentes são utilizados em etapas distintas:</p>
+
+        <div class="card card-verde">
+            <h5>Etapa 1: Navegador → Servidor Web</h5>
+            <ul>
+                <li><strong>Protocolo:</strong> HTTP (Hypertext Transfer Protocol)</li>
+                <li><strong>Função:</strong> Transmitir os dados do formulário preenchido (destinatário, assunto, corpo do e-mail, anexos) do seu navegador até o servidor web do provedor de e-mail</li>
+            </ul>
+        </div>
+
+        <div class="card card-laranja">
+            <h5>Etapa 2: Servidor Web → Servidor de E-mail do Destinatário</h5>
+            <ul>
+                <li><strong>Protocolo:</strong> SMTP (Simple Mail Transfer Protocol)</li>
+                <li><strong>Função:</strong> Encaminhar a mensagem do servidor de e-mail do remetente para o servidor de e-mail do destinatário</li>
+            </ul>
+        </div>
+
+        <h4>Fluxo Completo do Envio de E-mail por Webmail</h4>
+        <div class="diagrama-svg">
+            <svg viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                <!-- Linhas de conexão -->
+                <line x1="90" y1="50" x2="190" y2="50" stroke="#58a6ff" stroke-width="2" stroke-dasharray="6,4"/>
+                <text x="140" y="38" text-anchor="middle" fill="#8b949e" font-size="12">HTTP</text>
+
+                <line x1="290" y1="50" x2="390" y2="50" stroke="#f0883e" stroke-width="2" stroke-dasharray="6,4"/>
+                <text x="340" y="38" text-anchor="middle" fill="#8b949e" font-size="12">SMTP</text>
+
+                <line x1="490" y1="50" x2="590" y2="50" stroke="#f0883e" stroke-width="2" stroke-dasharray="6,4"/>
+                <text x="540" y="38" text-anchor="middle" fill="#8b949e" font-size="12">SMTP</text>
+
+                <line x1="690" y1="50" x2="760" y2="50" stroke="#3fb950" stroke-width="2" stroke-dasharray="6,4"/>
+                <text x="725" y="38" text-anchor="middle" fill="#8b949e" font-size="12">entrega</text>
+
+                <!-- Caixas -->
+                <rect x="10" y="30" width="80" height="40" rx="8" fill="#1f2937" stroke="#58a6ff" stroke-width="1.5"/>
+                <text x="50" y="55" text-anchor="middle" fill="#f0f6fc" font-size="13">Usuário</text>
+
+                <rect x="190" y="30" width="100" height="40" rx="8" fill="#1f2937" stroke="#58a6ff" stroke-width="1.5"/>
+                <text x="240" y="55" text-anchor="middle" fill="#f0f6fc" font-size="13">Navegador</text>
+
+                <rect x="390" y="30" width="100" height="40" rx="8" fill="#1f2937" stroke="#f0883e" stroke-width="1.5"/>
+                <text x="440" y="55" text-anchor="middle" fill="#f0f6fc" font-size="13">Servidor Web</text>
+
+                <rect x="590" y="30" width="100" height="40" rx="8" fill="#1f2937" stroke="#f0883e" stroke-width="1.5"/>
+                <text x="640" y="55" text-anchor="middle" fill="#f0f6fc" font-size="13">Servidor Remetente</text>
+
+                <rect x="760" y="30" width="40" height="40" rx="8" fill="#1f2937" stroke="#3fb950" stroke-width="1.5"/>
+                <text x="780" y="55" text-anchor="middle" fill="#f0f6fc" font-size="13">Destino</text>
+
+                <!-- Legendas -->
+                <text x="50" y="110" text-anchor="middle" fill="#8b949e" font-size="11">Usuário preenche</text>
+                <text x="50" y="125" text-anchor="middle" fill="#8b949e" font-size="11">formulário</text>
+
+                <text x="240" y="110" text-anchor="middle" fill="#8b949e" font-size="11">Submissão</text>
+                <text x="240" y="125" text-anchor="middle" fill="#8b949e" font-size="11">HTTP</text>
+
+                <text x="440" y="110" text-anchor="middle" fill="#8b949e" font-size="11">Encaminha</text>
+                <text x="440" y="125" text-anchor="middle" fill="#8b949e" font-size="11">SMTP</text>
+
+                <text x="640" y="110" text-anchor="middle" fill="#8b949e" font-size="11">Roteia</text>
+                <text x="640" y="125" text-anchor="middle" fill="#8b949e" font-size="11">SMTP</text>
+            </svg>
+        </div>
+
+        <h4>Quadro Resumo dos Protocolos</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Protocolo</th>
+                    <th>Função</th>
+                    <th>Quando é usado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTTP</td>
+                    <td>Transferência de dados web</td>
+                    <td>Submissão do formulário no navegador</td>
+                </tr>
+                <tr>
+                    <td>SMTP</td>
+                    <td>Envio de e-mails</td>
+                    <td>Entre servidores de e-mail</td>
+                </tr>
+                <tr>
+                    <td>POP3</td>
+                    <td>Download de e-mails</td>
+                    <td>Cliente de e-mail para baixar mensagens</td>
+                </tr>
+                <tr>
+                    <td>IMAP</td>
+                    <td>Sincronização de e-mails</td>
+                    <td>Cliente de e-mail para acessar mensagens na nuvem</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="observacao">
+            <strong>Pegadinha de Prova:</strong> Muitos candidatos erram ao pensar que o protocolo para enviar e-mail via Webmail é o SMTP desde o início. A resposta correta é que o navegador usa <strong>HTTP</strong> para submeter o formulário, e somente depois o servidor web usa <strong>SMTP</strong> para enviar o e-mail.
+        </div>
+
+        <hr>
+
+        <!-- 2.2 -->
+        <h3>2.2 Intranet vs. Internet</h3>
+
+        <div class="grid-cards">
+            <div class="card">
+                <h4 style="margin-top:0;">Internet</h4>
+                <p><strong>Definição:</strong> Rede mundial de computadores, pública e global, que interconecta dispositivos ao redor do mundo utilizando o protocolo TCP/IP.</p>
+                <p><strong>Características:</strong></p>
+                <ul>
+                    <li>Pública (acessível a qualquer pessoa)</li>
+                    <li>Global (alcance mundial)</li>
+                    <li>Aberta (qualquer conteúdo pode ser hospedado)</li>
+                    <li>Descentralizada</li>
+                </ul>
+            </div>
+            <div class="card card-roxo">
+                <h4 style="margin-top:0;">Intranet</h4>
+                <p><strong>Definição (segundo Batista, 2012):</strong> Rede corporativa que utiliza a tecnologia e a infraestrutura de transferência de dados da Internet para a comunicação interna da própria empresa ou para a comunicação com outras empresas, sendo uma rede privada e de uso exclusivo de uma organização.</p>
+                <p><strong>Características:</strong></p>
+                <ul>
+                    <li>Privada (acesso restrito)</li>
+                    <li>Corporativa (uso exclusivo da organização)</li>
+                    <li>Segura (controle de acesso rigoroso)</li>
+                    <li>Rápida (tráfego interno otimizado)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Principais Diferenças</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Internet</th>
+                    <th>Intranet</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Acesso</td>
+                    <td>Público</td>
+                    <td>Privado (restrito)</td>
+                </tr>
+                <tr>
+                    <td>Alcance</td>
+                    <td>Global</td>
+                    <td>Organização específica</td>
+                </tr>
+                <tr>
+                    <td>Segurança</td>
+                    <td>Baixa (aberta)</td>
+                    <td>Alta (controlada)</td>
+                </tr>
+                <tr>
+                    <td>Conteúdo</td>
+                    <td>Geral</td>
+                    <td>Corporativo</td>
+                </tr>
+                <tr>
+                    <td>Usuários</td>
+                    <td>Qualquer pessoa</td>
+                    <td>Funcionários autorizados</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Redes Empresariais e Conexão com a Internet</h4>
+        <div class="card card-laranja">
+            <p><strong>Pergunta comum em provas:</strong> Uma rede de computadores em uma empresa pode ou não estar conectada à Internet?</p>
+            <p><strong>Resposta: SIM!</strong></p>
+            <ul>
+                <li>Algumas empresas mantêm redes <strong>isoladas</strong> (sem conexão com a Internet) por motivos de segurança</li>
+                <li>Outras precisam de acesso à Internet para operações do dia a dia</li>
+                <li>A decisão depende das necessidades específicas de cada organização</li>
+            </ul>
+        </div>
+
+        <h4>Diversidade em Redes</h4>
+        <div class="card card-verde">
+            <p><strong>Sistemas Operacionais diferentes podem coexistir?</strong><br>
+                <span class="destaque destaque-verde">SIM!</span> Uma rede pode ter computadores com Windows, Linux e macOS simultaneamente.</p>
+            <p><strong>Conexões cabeadas e sem fio podem coexistir?</strong><br>
+                <span class="destaque destaque-verde">SIM!</span> Uma rede pode ter conexões Ethernet (cabo) e Wi-Fi (sem fio) de forma híbrida.</p>
+        </div>
+
+        <hr>
+
+        <!-- 2.3 -->
+        <h3>2.3 Sistemas de Arquivos: Compatibilidade e Escolha</h3>
+
+        <h4>O que é um Sistema de Arquivos?</h4>
+        <p>É a estrutura organizacional que define como os dados são armazenados, organizados e acessados em um dispositivo de armazenamento.</p>
+
+        <h4>Principais Sistemas de Arquivos</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Sistema de Arquivos</th>
+                    <th>Nativo de</th>
+                    <th>Características</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>NTFS</strong></td>
+                    <td>Windows</td>
+                    <td>Journaling, criptografia, compressão, permissões</td>
+                </tr>
+                <tr>
+                    <td><strong>FAT32</strong></td>
+                    <td>Windows (antigo)</td>
+                    <td>Compatibilidade universal, sem journaling</td>
+                </tr>
+                <tr>
+                    <td><strong>exFAT</strong></td>
+                    <td>Windows (moderno)</td>
+                    <td>Para dispositivos removíveis, sem limite de 4GB</td>
+                </tr>
+                <tr>
+                    <td><strong>EXT4</strong></td>
+                    <td>Linux</td>
+                    <td>Journaling, alta performance</td>
+                </tr>
+                <tr>
+                    <td><strong>BtrFS</strong></td>
+                    <td>Linux</td>
+                    <td>Snapshots, compressão, checksums</td>
+                </tr>
+                <tr>
+                    <td><strong>HFS+/APFS</strong></td>
+                    <td>macOS</td>
+                    <td>Journaling, criptografia</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Escolhendo o Sistema de Arquivos para Pendrive</h4>
+        <div class="card">
+            <p><strong>Situação:</strong> Você precisa usar um pendrive em computadores com Windows 10 e Linux SUSE SLES 15 SP2, com capacidade de ler <strong>E ESCREVER</strong> em ambos.</p>
+        </div>
+
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Sistema de Arquivos</th>
+                    <th>Compatibilidade Windows</th>
+                    <th>Compatibilidade Linux</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>NTFS</td>
+                    <td>Nativa (leitura/escrita)</td>
+                    <td>Limitada (leitura/escrita com drivers)</td>
+                </tr>
+                <tr>
+                    <td>FAT32</td>
+                    <td>Nativa (leitura/escrita)</td>
+                    <td>Nativa (leitura/escrita)</td>
+                </tr>
+                <tr>
+                    <td>exFAT</td>
+                    <td>Nativa (leitura/escrita)</td>
+                    <td>Suporte limitado (requer instalação)</td>
+                </tr>
+                <tr>
+                    <td>EXT4</td>
+                    <td>Não nativa</td>
+                    <td>Nativa</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="card card-verde">
+            <h5 style="margin-top:0;">Resposta correta: FAT32</h5>
+            <ul>
+                <li>O FAT32 é universalmente suportado por <strong>qualquer</strong> sistema operacional</li>
+                <li>Permite leitura e escrita nos dois sentidos (Windows → Linux e Linux → Windows)</li>
+                <li>Não requer drivers ou configurações adicionais</li>
+            </ul>
+        </div>
+
+        <div class="observacao">
+            <strong>Limitação do FAT32:</strong> Arquivos individuais não podem ter mais de 4GB. Para arquivos maiores, considere exFAT (mas verifique a compatibilidade com o Linux).
+        </div>
+
+        <div class="callout">
+            <strong>Pegadinha de Prova:</strong> Muitos candidatos acham que NTFS é a melhor opção porque é o sistema padrão do Windows. Porém, para COMPATIBILIDADE TOTAL entre Windows e Linux, o FAT32 é a escolha correta.
+        </div>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 3 -->
+    <!-- ============================================================ -->
+    <section id="cap3">
+        <h2>Capítulo 3: Microsoft Word e Editores de Texto</h2>
+
+        <!-- 3.1 -->
+        <h3>3.1 Guia Página Inicial: Principais Comandos</h3>
+
+        <p>A guia "Página Inicial" (ou "Início") é a principal e mais utilizada do Microsoft Word, contendo os comandos mais frequentes para formatação de texto.</p>
+
+        <h4>Principais Grupos e Comandos:</h4>
+
+        <div class="grid-cards">
+            <div class="card">
+                <h5 style="margin-top:0;">1. Grupo Área de Transferência</h5>
+                <ul>
+                    <li><strong>Colar</strong> (Ctrl+V)</li>
+                    <li><strong>Recortar</strong> (Ctrl+X)</li>
+                    <li><strong>Copiar</strong> (Ctrl+C)</li>
+                    <li><strong>Pincel de Formatação</strong> (Ctrl+Shift+C / Ctrl+Shift+V)</li>
+                </ul>
+            </div>
+            <div class="card card-roxo">
+                <h5 style="margin-top:0;">2. Grupo Fonte</h5>
+                <ul>
+                    <li><strong>Negrito</strong> (Ctrl+N) - Atenção: em alguns teclados é Ctrl+B</li>
+                    <li><strong>Itálico</strong> (Ctrl+I)</li>
+                    <li><strong>Sublinhado</strong> (Ctrl+S)</li>
+                    <li><strong>Cor da Fonte</strong></li>
+                    <li><strong>Tamanho da Fonte</strong></li>
+                </ul>
+            </div>
+            <div class="card card-laranja">
+                <h5 style="margin-top:0;">3. Grupo Parágrafo</h5>
+                <ul>
+                    <li><strong>Marcadores</strong> e <strong>Numeração</strong></li>
+                    <li><strong>Alinhamento</strong> (Esquerda, Centralizado, Direita, Justificado)</li>
+                    <li><strong>Espaçamento entre Linhas</strong> (ícone com setas verticais e linhas horizontais)</li>
+                    <li><strong>Aumentar/Reduzir Recuo</strong></li>
+                    <li><strong>Bordas</strong></li>
+                </ul>
+            </div>
+            <div class="card card-verde">
+                <h5 style="margin-top:0;">4. Grupo Estilos</h5>
+                <ul>
+                    <li><strong>Estilos Rápidos</strong></li>
+                    <li><strong>Aplicar estilos pré-definidos</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <h4>Ícone de Espaçamento entre Linhas</h4>
+        <p><strong>Descrição:</strong> Ícone que apresenta duas setas verticais (para cima e para baixo) e linhas horizontais simulando texto.</p>
+        <p><strong>Função:</strong> Alterar o espaçamento entre as linhas do parágrafo.</p>
+        <p><strong>Como usar:</strong></p>
+        <ul>
+            <li>Selecione o parágrafo desejado</li>
+            <li>Clique no ícone</li>
+            <li>Escolha a medida do espaçamento (ex.: 1,0; 1,5; 2,0)</li>
+            <li>Ou selecione "Opções de Espaçamento entre Linhas" para configurações avançadas</li>
+        </ul>
+
+        <hr>
+
+        <!-- 3.2 -->
+        <h3>3.2 Recursos Avançados do Word</h3>
+
+        <h4>"Ler em Voz Alta" (Read Aloud)</h4>
+        <p><strong>O que é:</strong> Recurso que realiza a leitura do texto em voz alta, destacando a palavra que está sendo lida.</p>
+        <p><strong>Localização no Word:</strong></p>
+        <ul>
+            <li>Guia <strong>Exibir</strong></li>
+            <li>Grupo <strong>Avançada</strong></li>
+            <li>Recurso <strong>Leitura Avançada</strong></li>
+            <li>Opção <strong>"Ler em Voz Alta"</strong></li>
+        </ul>
+        <div class="observacao">
+            <strong>Observação para Provas:</strong> O recurso "Ler em Voz Alta" NÃO está na guia "Revisão" (como alguns candidatos imaginam). É um recurso de leitura, não de revisão textual.
+        </div>
+
+        <h4>Selecionar Todo o Texto</h4>
+        <div class="card">
+            <p><strong>Atalho:</strong> <span class="destaque">Ctrl+T</span> (de TUDO)</p>
+            <p><strong>Atenção:</strong></p>
+            <ul>
+                <li>Ctrl+T = Selecionar TUDO</li>
+                <li>Ctrl+N = Negrito (formatação)</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <!-- 3.3 -->
+        <h3>3.3 Microsoft PowerPoint: Apresentações e Slides</h3>
+
+        <h4>Modo de Apresentação</h4>
+        <div class="card card-verde">
+            <p><strong>Atalho principal:</strong> <span class="destaque">F5</span> (inicia apresentação do início)</p>
+            <p><strong>Atalho alternativo:</strong> <span class="destaque">Shift + F5</span> (inicia apresentação do slide atual)</p>
+        </div>
+
+        <h4>Slides Ocultos</h4>
+        <p><strong>O que são:</strong> Slides que permanecem no arquivo, são visíveis no modo de edição, mas NÃO são exibidos durante a apresentação.</p>
+        <p><strong>Características dos slides ocultos:</strong></p>
+        <ul>
+            <li>Permanecem no arquivo</li>
+            <li>Podem ser editados normalmente no modo de edição</li>
+            <li>São ignorados na apresentação de slides</li>
+            <li>Não são exibidos com as teclas de navegação (Seta, Page Up/Down)</li>
+        </ul>
+        <p><strong>Como ocultar:</strong></p>
+        <ul>
+            <li>Selecione o slide</li>
+            <li>Clique com o botão direito</li>
+            <li>Selecione "Ocultar Slide"</li>
+        </ul>
+
+        <h4>Slide Mestre</h4>
+        <div class="card">
+            <p><strong>Definição:</strong> O slide superior em uma hierarquia que armazena informações sobre os layouts de tema e de slide de uma apresentação.</p>
+            <p><strong>O que é controlado pelo Slide Mestre:</strong></p>
+            <ul>
+                <li>Tela de fundo</li>
+                <li>Cores</li>
+                <li>Fontes</li>
+                <li>Efeitos</li>
+                <li>Tamanhos de espaço reservado</li>
+                <li>Posicionamento de elementos</li>
+            </ul>
+            <p><strong>Função principal:</strong> Serve como modelo base para os outros slides da apresentação, permitindo aplicar alterações globais rapidamente.</p>
+            <div class="observacao" style="margin-top:0.8rem;">
+                <strong>Atenção:</strong> O Slide Mestre <strong>NÃO</strong> é um slide que pode ser simplesmente "ocultado". Ele tem função estrutural na apresentação.
+            </div>
+        </div>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 4 -->
+    <!-- ============================================================ -->
+    <section id="cap4">
+        <h2>Capítulo 4: Microsoft Excel e Planilhas Eletrônicas</h2>
+
+        <!-- 4.1 -->
+        <h3>4.1 Estrutura Básica do Excel</h3>
+
+        <h4>Célula</h4>
+        <p><strong>Definição:</strong> Unidade estrutural da planilha, sendo a menor unidade onde dados podem ser inseridos, modificados ou armazenados.</p>
+        <p><strong>Identificação:</strong> Formada pela interseção de uma <strong>coluna</strong> (identificada por letra) e uma <strong>linha</strong> (identificada por número).</p>
+        <div class="card">
+            <p><strong>Exemplo:</strong> A célula <span class="destaque">B5</span> está na coluna B e na linha 5.</p>
+        </div>
+
+        <h4>Funcionalidades Nativas do Excel</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Recurso</th>
+                    <th>Nativo do Excel?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Criação de gráficos</td>
+                    <td><span style="color:#3fb950;">✓ SIM</span> (recurso principal)</td>
+                </tr>
+                <tr>
+                    <td>Organização de pastas</td>
+                    <td><span style="color:#f85149;">✗ NÃO</span> (função do sistema operacional)</td>
+                </tr>
+                <tr>
+                    <td>Visualização de imagens</td>
+                    <td><span style="color:#f85149;">✗ NÃO</span> (função de visualizadores)</td>
+                </tr>
+                <tr>
+                    <td>Edição de vídeos</td>
+                    <td><span style="color:#f85149;">✗ NÃO</span> (não é um editor de vídeo)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <!-- 4.2 -->
+        <h3>4.2 Fórmulas e Funções: Aprendendo na Prática</h3>
+
+        <h4>Função MÉDIA</h4>
+        <div class="card">
+            <p><strong>Sintaxe:</strong> <code>=MÉDIA(núm1; [núm2]; ...)</code></p>
+            <p><strong>Exemplo:</strong> <code>=MÉDIA(A1:A4)</code></p>
+            <p><strong>O que faz:</strong> Calcula a média aritmética dos valores no intervalo especificado.</p>
+        </div>
+        <ul>
+            <li><span class="destaque destaque-verde">Forma correta:</span> <code>=MÉDIA(A1:A4)</code></li>
+            <li><span class="destaque destaque-laranja">Forma incorreta:</span> <code>= MÉDIA(A1:A4)</code> (espaço antes da função)</li>
+            <li><span class="destaque destaque-vermelho">Forma incorreta:</span> <code>=A1:A4/MEDIA</code> (sintaxe totalmente errada)</li>
+        </ul>
+
+        <h4>Referências em Fórmulas</h4>
+        <div class="grid-cards">
+            <div class="card card-verde">
+                <h5 style="margin-top:0;">Referência Relativa (ex: B1)</h5>
+                <ul>
+                    <li>Muda quando copiada para outra célula</li>
+                    <li>Ajusta-se automaticamente à nova posição</li>
+                </ul>
+            </div>
+            <div class="card card-roxo">
+                <h5 style="margin-top:0;">Referência Absoluta (ex: $B$1)</h5>
+                <ul>
+                    <li>Não muda quando copiada</li>
+                    <li>Fica fixa, independente da posição</li>
+                </ul>
+            </div>
+            <div class="card card-laranja">
+                <h5 style="margin-top:0;">Referência Mista (ex: $B1 ou B$1)</h5>
+                <ul>
+                    <li>Mantém fixa apenas a parte precedida pelo cifrão ($)</li>
+                    <li>$B1: coluna fixa, linha variável</li>
+                    <li>B$1: linha fixa, coluna variável</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h5>Exemplo de Comportamento:</h5>
+            <p>Se você tem a fórmula <code>=B1+B2</code> na célula C1 e copia para C2:</p>
+            <ul>
+                <li>A fórmula se torna <code>=B2+B3</code> (referências relativas)</li>
+            </ul>
+            <p>Se você tem a fórmula <code>=$B$1+B2</code> na célula C1 e copia para C2:</p>
+            <ul>
+                <li>A fórmula se torna <code>=$B$1+B3</code> (B1 fixo, B2 ajustou)</li>
+            </ul>
+        </div>
+
+        <div class="observacao">
+            <strong>Pegadinha de Prova:</strong> Questões de Excel frequentemente perguntam "qual é o resultado da fórmula quando copiada de uma célula para outra"? Para responder, você precisa entender como as referências relativas, absolutas e mistas se comportam.
+        </div>
+
+        <hr>
+
+        <!-- 4.3 -->
+        <h3>4.3 LibreOffice Calc: Comportamento de Referências</h3>
+        <p>O LibreOffice Calc funciona de maneira semelhante ao Excel em relação às referências:</p>
+        <ul>
+            <li><strong>Referência Relativa (ex: B1):</strong> É alterada ao ser copiada para outra célula</li>
+            <li><strong>Referência Absoluta (ex: $B$1):</strong> Não muda, permanecendo fixa</li>
+            <li><strong>Referência Mista (ex: $B1 ou B$1):</strong> Mantém fixa apenas a parte precedida pelo cifrão ($)</li>
+        </ul>
+        <div class="card">
+            <p><strong>Para prever o resultado:</strong> Desloque a referência de acordo com o número de linhas e colunas movidas, aplicando a regra de fixação.</p>
+        </div>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 5 -->
+    <!-- ============================================================ -->
+    <section id="cap5">
+        <h2>Capítulo 5: Segurança da Informação</h2>
+
+        <!-- 5.1 -->
+        <h3>5.1 Princípios de Acesso e Permissões</h3>
+
+        <h4>Princípio do Menor Privilégio</h4>
+        <div class="card card-vermelho">
+            <p><strong>Definição fundamental:</strong> Cada usuário deve ter permissão para acessar os sistemas apenas de acordo com as necessidades do seu trabalho e suas atribuições.</p>
+            <p><strong>Implicações:</strong></p>
+            <ul>
+                <li>O usuário deve acessar SOMENTE as informações e ferramentas essenciais para o desempenho de suas funções</li>
+                <li>Nada além do necessário para realizar seu trabalho</li>
+            </ul>
+        </div>
+
+        <h4>Por que isso é importante?</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Situação Incorreta</th>
+                    <th>Risco</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Usuário comum com acesso a dados de todos os sistemas</td>
+                    <td>Exposição de dados sensíveis</td>
+                </tr>
+                <tr>
+                    <td>Funcionário com senhas de administração</td>
+                    <td>Ações maliciosas ou acidentais com consequências graves</td>
+                </tr>
+                <tr>
+                    <td>Acesso irrestrito a informações</td>
+                    <td>Vazamento de dados estratégicos</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Quem deve ter acesso a quê?</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Tipo de Acesso</th>
+                    <th>Quem pode ter</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dados de toda a organização</td>
+                    <td>Apenas administradores autorizados</td>
+                </tr>
+                <tr>
+                    <td>Senhas de administração</td>
+                    <td>Apenas administradores</td>
+                </tr>
+                <tr>
+                    <td>Dados específicos do setor</td>
+                    <td>Funcionários daquele setor</td>
+                </tr>
+                <tr>
+                    <td>Arquivos pessoais</td>
+                    <td>Apenas o proprietário</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="dica">
+            <strong>Macete para Memorizar:</strong> <span class="destaque destaque-verde">"Menos é mais"</span> - O acesso mínimo necessário é a prática mais segura.
+        </div>
+
+        <hr>
+
+        <!-- 5.2 -->
+        <h3>5.2 Boas Práticas de Segurança</h3>
+
+        <h4>Recomendações para Senhas</h4>
+        <div class="card card-verde">
+            <h5 style="margin-top:0;">1. Senhas fortes:</h5>
+            <ul>
+                <li>Mínimo de 8 caracteres</li>
+                <li>Combinação de letras maiúsculas e minúsculas</li>
+                <li>Números e caracteres especiais</li>
+                <li>Não usar palavras do dicionário</li>
+            </ul>
+        </div>
+        <div class="card card-laranja">
+            <h5 style="margin-top:0;">2. Senhas únicas:</h5>
+            <ul>
+                <li>Não reutilizar a mesma senha em diferentes sistemas</li>
+                <li>Senha diferente para cada serviço</li>
+            </ul>
+        </div>
+        <div class="card card-roxo">
+            <h5 style="margin-top:0;">3. Troca regular:</h5>
+            <ul>
+                <li>Alterar senhas periodicamente</li>
+                <li>Especialmente se houver suspeita de comprometimento</li>
+            </ul>
+        </div>
+
+        <h4>Cuidados com Phishing</h4>
+        <p><strong>O que é Phishing:</strong> Tentativa de obter informações pessoais (senhas, números de cartão) fazendo-se passar por uma entidade confiável.</p>
+        <p><strong>Como identificar:</strong></p>
+        <ul>
+            <li>E-mails com links suspeitos</li>
+            <li>URLs que não correspondem ao site oficial</li>
+            <li>Solicitações urgentes de dados pessoais</li>
+            <li>Erros de português ou formatação estranha</li>
+        </ul>
+        <p><strong>Como se proteger:</strong></p>
+        <ul>
+            <li>Verificar sempre o remetente</li>
+            <li>Não clicar em links de e-mails suspeitos</li>
+            <li>Digitar o endereço do site manualmente no navegador</li>
+            <li>Usar autenticação em dois fatores quando disponível</li>
+        </ul>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 6 -->
+    <!-- ============================================================ -->
+    <section id="cap6">
+        <h2>Capítulo 6: Conceitos Gerais</h2>
+
+        <!-- 6.1 -->
+        <h3>6.1 Suítes de Escritório e Editores</h3>
+
+        <h4>Microsoft Office 365</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Ferramenta</th>
+                    <th>Tipo</th>
+                    <th>Função Principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Word</td>
+                    <td>Editor de Texto</td>
+                    <td>Criação e edição de documentos</td>
+                </tr>
+                <tr>
+                    <td>Excel</td>
+                    <td>Planilha Eletrônica</td>
+                    <td>Cálculos, gráficos e análise de dados</td>
+                </tr>
+                <tr>
+                    <td>PowerPoint</td>
+                    <td>Editor de Apresentações</td>
+                    <td>Criação de slides para apresentações</td>
+                </tr>
+                <tr>
+                    <td>Outlook</td>
+                    <td>Cliente de E-mail</td>
+                    <td>Gerenciamento de e-mail e calendário</td>
+                </tr>
+                <tr>
+                    <td>OneNote</td>
+                    <td>Bloco de Notas Digital</td>
+                    <td>Anotações e organização</td>
+                </tr>
+                <tr>
+                    <td>Teams</td>
+                    <td>Comunicação Empresarial</td>
+                    <td>Chat, videoconferência e colaboração</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>LibreOffice</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Ferramenta</th>
+                    <th>Tipo</th>
+                    <th>Função Principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Writer</td>
+                    <td>Editor de Texto</td>
+                    <td>Processamento de texto</td>
+                </tr>
+                <tr>
+                    <td>Calc</td>
+                    <td>Planilha Eletrônica</td>
+                    <td>Cálculos e análises</td>
+                </tr>
+                <tr>
+                    <td>Impress</td>
+                    <td>Editor de Apresentações</td>
+                    <td>Criação de slides</td>
+                </tr>
+                <tr>
+                    <td>Base</td>
+                    <td>Banco de Dados</td>
+                    <td>Gerenciamento de dados</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <!-- 6.2 -->
+        <h3>6.2 Microsoft Teams: Canais</h3>
+
+        <h4>O que é um Canal?</h4>
+        <p>No Microsoft Teams, um canal é um recurso criado para agrupar conversas por assunto, formando um tópico de discussão específico dentro de uma equipe.</p>
+
+        <h4>Estrutura do Teams:</h4>
+        <div class="diagrama-svg">
+            <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+                <!-- Raiz -->
+                <rect x="250" y="10" width="100" height="40" rx="8" fill="#1f2937" stroke="#58a6ff" stroke-width="2"/>
+                <text x="300" y="36" text-anchor="middle" fill="#f0f6fc" font-size="14" font-weight="bold">Equipe</text>
+
+                <!-- Linhas -->
+                <line x1="300" y1="50" x2="300" y2="80" stroke="#30363d" stroke-width="2"/>
+                <line x1="300" y1="80" x2="100" y2="80" stroke="#30363d" stroke-width="2"/>
+                <line x1="300" y1="80" x2="500" y2="80" stroke="#30363d" stroke-width="2"/>
+                <line x1="100" y1="80" x2="100" y2="110" stroke="#30363d" stroke-width="2"/>
+                <line x1="300" y1="80" x2="300" y2="110" stroke="#30363d" stroke-width="2"/>
+                <line x1="500" y1="80" x2="500" y2="110" stroke="#30363d" stroke-width="2"/>
+
+                <!-- Filhos -->
+                <rect x="30" y="110" width="140" height="40" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+                <text x="100" y="136" text-anchor="middle" fill="#e6edf3" font-size="13">Canal Geral</text>
+
+                <rect x="220" y="110" width="160" height="40" rx="8" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+                <text x="300" y="136" text-anchor="middle" fill="#e6edf3" font-size="13">Canal de Projetos</text>
+
+                <rect x="420" y="110" width="160" height="40" rx="8" fill="#161b22" stroke="#d2a8ff" stroke-width="1.5"/>
+                <text x="500" y="136" text-anchor="middle" fill="#e6edf3" font-size="13">Canal Privado</text>
+
+                <!-- Descrições -->
+                <text x="100" y="175" text-anchor="middle" fill="#8b949e" font-size="11">público/padrão</text>
+                <text x="300" y="175" text-anchor="middle" fill="#8b949e" font-size="11">ex: Projeto X</text>
+                <text x="500" y="175" text-anchor="middle" fill="#8b949e" font-size="11">ex: RH</text>
+            </svg>
+        </div>
+
+        <h4>Tipos de Canais:</h4>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Característica</th>
+                    <th>Uso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Público</td>
+                    <td>Todos os membros da equipe podem acessar</td>
+                    <td>Comunicação geral</td>
+                </tr>
+                <tr>
+                    <td>Privado</td>
+                    <td>Apenas membros específicos têm acesso</td>
+                    <td>Discussões confidenciais</td>
+                </tr>
+                <tr>
+                    <td>Padrão</td>
+                    <td>Conversas e arquivos organizados</td>
+                    <td>Colaboração diária</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 7 -->
+    <!-- ============================================================ -->
+    <section id="cap7">
+        <h2>Capítulo 7: Navegadores e Pesquisas</h2>
+
+        <h3>7.1 Como Realizar uma Pesquisa na Internet</h3>
+
+        <h4>Passo a Passo:</h4>
+        <ol>
+            <li><strong>Abrir o navegador de Internet</strong>
+                <ul>
+                    <li>Exemplos: Google Chrome, Microsoft Edge, Mozilla Firefox</li>
+                </ul>
+            </li>
+            <li><strong>Digitar o URL do site de busca</strong>
+                <ul>
+                    <li>Exemplos: www.google.com, www.bing.com</li>
+                </ul>
+            </li>
+            <li><strong>Pressionar Enter</strong></li>
+            <li><strong>Inserir a palavra ou texto a ser pesquisado</strong>
+                <ul>
+                    <li>Na caixa de pesquisa do site</li>
+                </ul>
+            </li>
+            <li><strong>Clicar em "Pesquisar" ou pressionar Enter</strong></li>
+            <li><strong>Acessar os resultados</strong></li>
+        </ol>
+
+        <div class="observacao">
+            <strong>Atenção para Provas:</strong> A pesquisa NÃO é realizada em:
+            <ul>
+                <li>Word (editor de texto)</li>
+                <li>Excel (planilha)</li>
+                <li>PowerPoint (apresentações)</li>
+                <li>Bloco de Notas (editor de texto simples)</li>
+            </ul>
+        </div>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 8 -->
+    <!-- ============================================================ -->
+    <section id="cap8">
+        <h2>Capítulo 8: Resumo de Atalhos e Macetes</h2>
+
+        <h3>8.1 Atalhos Essenciais do Windows</h3>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Atalho</th>
+                    <th>Função</th>
+                    <th>Macete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="destaque">Windows + L</span></td>
+                    <td>Bloquear</td>
+                    <td><strong>L</strong>ock</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Windows + E</span></td>
+                    <td>Explorador de Arquivos</td>
+                    <td><strong>E</strong>xplorer</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Windows + D</span></td>
+                    <td>Mostrar Área de Trabalho</td>
+                    <td><strong>D</strong>esktop</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Windows + R</span></td>
+                    <td>Executar</td>
+                    <td><strong>R</strong>un</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Windows + S</span></td>
+                    <td>Pesquisar</td>
+                    <td><strong>S</strong>earch</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Windows + X</span></td>
+                    <td>Menu do usuário avançado</td>
+                    <td><strong>X</strong>tra opções</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + Alt + Del</span></td>
+                    <td>Tela de segurança</td>
+                    <td>"Três dedos"</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>8.2 Atalhos de Navegador</h3>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Atalho</th>
+                    <th>Função</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="destaque">Ctrl + T</span></td>
+                    <td>Nova aba</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + W</span></td>
+                    <td>Fechar aba</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + Shift + T</span></td>
+                    <td>Reabrir aba fechada</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">F5</span></td>
+                    <td>Atualizar página</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + F</span></td>
+                    <td>Localizar na página</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + D</span></td>
+                    <td>Adicionar aos favoritos</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>8.3 Atalhos do Word/Excel/PowerPoint</h3>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Atalho</th>
+                    <th>Função</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="destaque">Ctrl + C</span></td>
+                    <td>Copiar</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + X</span></td>
+                    <td>Recortar</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + V</span></td>
+                    <td>Colar</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + Z</span></td>
+                    <td>Desfazer</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + Y</span></td>
+                    <td>Refazer</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + N</span></td>
+                    <td>Negrito (Word) / Novo arquivo (geral)</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">Ctrl + S</span></td>
+                    <td>Salvar</td>
+                </tr>
+                <tr>
+                    <td><span class="destaque">F5</span></td>
+                    <td>Iniciar apresentação no PowerPoint</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CAPÍTULO 9 -->
+    <!-- ============================================================ -->
+    <section id="cap9">
+        <h2>Capítulo 9: Quadros Resumo para Fixação</h2>
+
+        <h3>9.1 Sistemas Operacionais e Arquivos</h3>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Windows</th>
+                    <th>Linux</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sistema de Arquivos Nativo</td>
+                    <td>NTFS</td>
+                    <td>EXT4, BtrFS</td>
+                </tr>
+                <tr>
+                    <td>Formatado ideal para compatibilidade</td>
+                    <td>FAT32</td>
+                    <td>FAT32</td>
+                </tr>
+                <tr>
+                    <td>Bloquear</td>
+                    <td>Windows + L</td>
+                    <td>(equivale ao Ctrl+Alt+L em algumas distros)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>9.2 Protocolos de Rede</h3>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Protocolo</th>
+                    <th>Porta Padrão</th>
+                    <th>Função</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTTP</td>
+                    <td>80</td>
+                    <td>Navegação web</td>
+                </tr>
+                <tr>
+                    <td>HTTPS</td>
+                    <td>443</td>
+                    <td>Navegação web segura</td>
+                </tr>
+                <tr>
+                    <td>SMTP</td>
+                    <td>25, 587</td>
+                    <td>Envio de e-mails</td>
+                </tr>
+                <tr>
+                    <td>POP3</td>
+                    <td>110</td>
+                    <td>Download de e-mails</td>
+                </tr>
+                <tr>
+                    <td>IMAP</td>
+                    <td>143, 993</td>
+                    <td>Sincronização de e-mails</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>9.3 Segurança</h3>
+        <table class="tabela-moderna">
+            <thead>
+                <tr>
+                    <th>Princípio</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Menor Privilégio</td>
+                    <td>Acesso mínimo necessário</td>
+                </tr>
+                <tr>
+                    <td>Autenticação</td>
+                    <td>Verificação de identidade (senha, biometria)</td>
+                </tr>
+                <tr>
+                    <td>Criptografia</td>
+                    <td>Dados codificados para segurança</td>
+                </tr>
+                <tr>
+                    <td>Backup</td>
+                    <td>Cópia de dados para recuperação</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- EXERCÍCIOS -->
+    <!-- ============================================================ -->
+    <section id="exercicios">
+        <h2>Exercícios de Fixação</h2>
+
+        <ol style="font-size:1.05rem; list-style-type:decimal; padding-left:1.5rem;">
+            <li style="margin-bottom:1.2rem;">
+                <p><strong>Se você está digitando um relatório e precisa ir ao banheiro, qual combinação de teclas protege seu computador sem fechar programas?</strong></p>
+                <div class="card" style="margin-top:0.3rem;">
+                    <p><strong>Resposta:</strong> Windows + L</p>
+                </div>
+            </li>
+            <li style="margin-bottom:1.2rem;">
+                <p><strong>Qual protocolo é usado para submeter um formulário de e-mail em um Webmail?</strong></p>
+                <div class="card" style="margin-top:0.3rem;">
+                    <p><strong>Resposta:</strong> HTTP</p>
+                </div>
+            </li>
+            <li style="margin-bottom:1.2rem;">
+                <p><strong>Para enviar um e-mail do servidor web para o servidor de e-mail do destinatário, qual protocolo é usado?</strong></p>
+                <div class="card" style="margin-top:0.3rem;">
+                    <p><strong>Resposta:</strong> SMTP</p>
+                </div>
+            </li>
+            <li style="margin-bottom:1.2rem;">
+                <p><strong>Qual sistema de arquivos é a melhor escolha para compatibilidade entre Windows e Linux?</strong></p>
+                <div class="card" style="margin-top:0.3rem;">
+                    <p><strong>Resposta:</strong> FAT32</p>
+                </div>
+            </li>
+            <li style="margin-bottom:1.2rem;">
+                <p><strong>Qual é a função principal do Slide Mestre no PowerPoint?</strong></p>
+                <div class="card" style="margin-top:0.3rem;">
+                    <p><strong>Resposta:</strong> Armazenar e controlar informações de layout, cores, fontes e posicionamento para toda a apresentação</p>
+                </div>
+            </li>
+            <li style="margin-bottom:1.2rem;">
+                <p><strong>Como se escreve corretamente o caminho completo para o arquivo "Carta.docx" na pasta "Pessoais" dentro de "Dados" na unidade F:?</strong></p>
+                <div class="card" style="margin-top:0.3rem;">
+                    <p><strong>Resposta:</strong> <code style="background:#1f2937;padding:0.2rem 0.8rem;border-radius:6px;">F:\Dados\Pessoais\Carta.docx</code></p>
+                </div>
+            </li>
+            <li style="margin-bottom:1.2rem;">
+                <p><strong>O que acontece com os programas abertos ao selecionar "Sair" no Windows?</strong></p>
+                <div class="card" style="margin-top:0.3rem;">
+                    <p><strong>Resposta:</strong> Todos os programas são fechados</p>
+                </div>
+            </li>
+            <li style="margin-bottom:1.2rem;">
+                <p><strong>Quem deve ter acesso a senhas de administração em uma organização?</strong></p>
+                <div class="card" style="margin-top:0.3rem;">
+                    <p><strong>Resposta:</strong> Apenas administradores com permissões apropriadas</p>
+                </div>
+            </li>
+        </ol>
+
+        <hr>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONSIDERAÇÕES FINAIS -->
+    <!-- ============================================================ -->
+    <section id="consideracoes">
+        <h2>Considerações Finais</h2>
+
+        <div class="card card-roxo" style="border-left-width:8px;">
+            <p style="font-size:1.1rem;">Esta apostila foi desenvolvida para proporcionar uma compreensão aprofundada dos principais tópicos de Informática cobrados em concursos públicos. Lembre-se:</p>
+            <ul class="lista-icones">
+                <li class="bullet"><strong>Estude com foco nos "porquês"</strong>, não apenas nos "comos"</li>
+                <li class="bullet"><strong>Pratique com questões de provas</strong> para fixar o conteúdo</li>
+                <li class="bullet"><strong>Crie seus próprios resumos</strong> e macetes</li>
+                <li class="bullet"><strong>Revise periodicamente</strong> os quadros-resumo</li>
+            </ul>
+            <p style="margin-top:1rem;">A Informática em concursos exige conhecimento prático e capacidade de interpretação. Compreender a lógica por trás das ferramentas e protocolos é fundamental para acertar as questões, especialmente aquelas que envolvem situações-problema e pegadinhas.</p>
+            <p style="font-size:1.2rem; margin-top:1.5rem; color:#58a6ff;"><strong>Bons estudos e sucesso na aprovação!</strong></p>
+        </div>
+
+        <div style="text-align:center; margin-top:2.5rem;">
+            <a href="#" class="voltar-topo">⬆ Voltar ao topo</a>
+        </div>
+    </section>
+
+    <!-- ===== RODAPÉ ===== -->
+    <footer style="margin-top:4rem; padding-top:2rem; border-top:2px solid #30363d; text-align:center; color:#8b949e; font-size:0.9rem;">
+        <p>Conteúdo 100% preservado — Apostila completa de Informática para Concursos</p>
+        <p style="margin-top:0.3rem;">Produzido com foco em leitura prolongada em tablet · Design moderno e acessível</p>
+    </footer>
+
+</body>
+</html>
