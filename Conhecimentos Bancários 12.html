@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apostila de Seguros – Conhecimentos Bancários</title>
+    <style>
+        /* ── Reset & Base ── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0b0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #162033;
+            --bg-card-hover: #1c2a44;
+            --bg-highlight: #1e2d4a;
+            --bg-code: #0d1524;
+            --text-primary: #e8edf5;
+            --text-secondary: #b6c8e0;
+            --text-muted: #8899bb;
+            --accent-gold: #e8b830;
+            --accent-gold-dim: #b8941e;
+            --accent-blue: #5b9cf5;
+            --accent-blue-dim: #3a7acc;
+            --accent-green: #4cbf7a;
+            --accent-orange: #f08c4a;
+            --accent-purple: #a87fd9;
+            --accent-coral: #e8637a;
+            --accent-teal: #4fc3b3;
+            --border-subtle: #1e2d44;
+            --border-medium: #2c3f5a;
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.55);
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --font-base: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+            --font-heading: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-base);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 2rem 1.5rem 4rem;
+            min-height: 100vh;
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 2.5rem 3rem 5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                padding: 3rem 4.5rem 6rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue-dim);
+        }
+
+        /* ── Tipografia ── */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 3.2rem;
+            }
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            margin: 2.8rem 0 1.2rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 3px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        h2 .badge {
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: var(--accent-blue-dim);
+            color: #fff;
+            padding: 0.1rem 0.7rem;
+            border-radius: 40px;
+            -webkit-text-fill-color: #fff;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            margin: 2rem 0 1rem;
+        }
+
+        h4 {
+            font-size: 1.15rem;
+            color: var(--accent-teal);
+            margin: 1.6rem 0 0.6rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        strong,
+        b {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Sumário ── */
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem 2rem 2rem;
+            margin: 1.8rem 0 2.8rem;
+            box-shadow: var(--shadow-card);
+        }
+        .toc-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .toc-title svg {
+            flex-shrink: 0;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 1.8rem;
+        }
+        @media (max-width: 600px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .toc-item:hover {
+            border-bottom-color: var(--accent-blue-dim);
+        }
+        .toc-item .num {
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.8rem;
+            min-width: 1.8rem;
+        }
+        .toc-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc-item a:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        /* ── Cards ── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.8rem;
+            margin: 1.2rem 0;
+            box-shadow: var(--shadow-card);
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+        .card:hover {
+            border-color: var(--border-medium);
+        }
+        .card-accent {
+            border-left: 5px solid var(--accent-blue);
+        }
+        .card-gold {
+            border-left: 5px solid var(--accent-gold);
+        }
+        .card-green {
+            border-left: 5px solid var(--accent-green);
+        }
+        .card-purple {
+            border-left: 5px solid var(--accent-purple);
+        }
+        .card-coral {
+            border-left: 5px solid var(--accent-coral);
+        }
+        .card-teal {
+            border-left: 5px solid var(--accent-teal);
+        }
+        .card-orange {
+            border-left: 5px solid var(--accent-orange);
+        }
+
+        /* ── Callouts / Boxes ── */
+        .callout {
+            padding: 1.2rem 1.6rem;
+            border-radius: var(--radius-md);
+            margin: 1.4rem 0;
+            border-left: 5px solid;
+            background: var(--bg-secondary);
+        }
+        .callout-tip {
+            border-color: var(--accent-green);
+        }
+        .callout-tip .callout-label {
+            color: var(--accent-green);
+        }
+        .callout-importante {
+            border-color: var(--accent-coral);
+        }
+        .callout-importante .callout-label {
+            color: var(--accent-coral);
+        }
+        .callout-observacao {
+            border-color: var(--accent-orange);
+        }
+        .callout-observacao .callout-label {
+            color: var(--accent-orange);
+        }
+        .callout-dica {
+            border-color: var(--accent-purple);
+        }
+        .callout-dica .callout-label {
+            color: var(--accent-purple);
+        }
+        .callout-label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Destaques (marca-texto) ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(232, 184, 48, 0.22) 0%, rgba(232, 184, 48, 0.22) 100%);
+            padding: 0.05rem 0.3rem;
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .hl-blue {
+            background: linear-gradient(120deg, rgba(91, 156, 245, 0.22) 0%, rgba(91, 156, 245, 0.22) 100%);
+            padding: 0.05rem 0.3rem;
+            border-radius: 4px;
+        }
+        .hl-green {
+            background: linear-gradient(120deg, rgba(76, 191, 122, 0.22) 0%, rgba(76, 191, 122, 0.22) 100%);
+            padding: 0.05rem 0.3rem;
+            border-radius: 4px;
+        }
+        .hl-coral {
+            background: linear-gradient(120deg, rgba(232, 99, 122, 0.22) 0%, rgba(232, 99, 122, 0.22) 100%);
+            padding: 0.05rem 0.3rem;
+            border-radius: 4px;
+        }
+        .hl-purple {
+            background: linear-gradient(120deg, rgba(168, 127, 217, 0.22) 0%, rgba(168, 127, 217, 0.22) 100%);
+            padding: 0.05rem 0.3rem;
+            border-radius: 4px;
+        }
+
+        /* ── Citações ── */
+        .quote {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent-gold);
+            padding: 1.2rem 1.8rem;
+            margin: 1.4rem 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        .quote::before {
+            content: "“";
+            font-size: 2.4rem;
+            color: var(--accent-gold);
+            line-height: 0.6;
+            display: inline-block;
+            margin-right: 0.2rem;
+            font-style: normal;
+        }
+        .quote::after {
+            content: "”";
+            font-size: 2.4rem;
+            color: var(--accent-gold);
+            line-height: 0.6;
+            display: inline-block;
+            margin-left: 0.1rem;
+            font-style: normal;
+        }
+
+        /* ── Listas ── */
+        ul,
+        ol {
+            padding-left: 1.6rem;
+            margin: 0.6rem 0 1.2rem;
+            color: var(--text-secondary);
+        }
+        li {
+            margin-bottom: 0.35rem;
+        }
+        ul li::marker {
+            color: var(--accent-gold);
+        }
+        ol li::marker {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .list-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.2rem 1.8rem;
+            padding-left: 0;
+            list-style: none;
+        }
+        @media (max-width: 600px) {
+            .list-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .list-grid li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            padding: 0.2rem 0;
+        }
+        .list-grid li::before {
+            content: "◆";
+            color: var(--accent-gold);
+            font-size: 0.7rem;
+            line-height: 1.7;
+            flex-shrink: 0;
+        }
+
+        /* ── Tabelas ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.4rem 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-secondary);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 480px;
+        }
+        thead {
+            background: var(--bg-card);
+            border-bottom: 2px solid var(--border-medium);
+        }
+        th {
+            text-align: left;
+            padding: 0.9rem 1.2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+        td {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: var(--bg-card-hover);
+        }
+        .table-highlight td {
+            background: rgba(232, 184, 48, 0.06);
+        }
+
+        /* ── Divisórias ── */
+        .divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, var(--border-subtle), var(--border-medium), var(--border-subtle));
+            margin: 2.8rem 0;
+        }
+        .divider-diamond {
+            border: none;
+            height: 0;
+            text-align: center;
+            margin: 2.4rem 0;
+            position: relative;
+        }
+        .divider-diamond::after {
+            content: "◇ ◆ ◇";
+            color: var(--accent-gold-dim);
+            font-size: 1.2rem;
+            letter-spacing: 1.2rem;
+            background: var(--bg-primary);
+            padding: 0 1.2rem;
+            display: inline-block;
+        }
+        .divider-diamond::before {
+            content: "";
+            display: block;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border-subtle), transparent);
+            position: relative;
+            top: 0.7rem;
+            z-index: -1;
+        }
+
+        /* ── SVGs ── */
+        .diagram-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1rem;
+            margin: 1.6rem 0;
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ── Tags / Badges ── */
+        .tag {
+            display: inline-block;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 40px;
+            padding: 0.1rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+        .tag-gold {
+            background: rgba(232, 184, 48, 0.15);
+            border-color: var(--accent-gold-dim);
+            color: var(--accent-gold);
+        }
+        .tag-blue {
+            background: rgba(91, 156, 245, 0.15);
+            border-color: var(--accent-blue-dim);
+            color: var(--accent-blue);
+        }
+        .tag-green {
+            background: rgba(76, 191, 122, 0.15);
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+        .tag-coral {
+            background: rgba(232, 99, 122, 0.15);
+            border-color: var(--accent-coral);
+            color: var(--accent-coral);
+        }
+
+        /* ── Capítulo / Seção ── */
+        .chapter-number {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: rgba(232, 184, 48, 0.10);
+            padding: 0.05rem 0.9rem;
+            border-radius: 40px;
+            border: 1px solid rgba(232, 184, 48, 0.20);
+            margin-bottom: 0.2rem;
+        }
+
+        /* ── Responsividade ── */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem 3rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            h3 {
+                font-size: 1.15rem;
+            }
+            .card {
+                padding: 1rem 1.2rem;
+            }
+            .toc {
+                padding: 1.2rem 1rem;
+            }
+            .callout {
+                padding: 0.9rem 1.2rem;
+            }
+            .diagram-container {
+                padding: 0.6rem 0.4rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Acessibilidade ── */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+
+        /* ── Print ── */
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+                padding: 1rem;
+            }
+            .card,
+            .toc,
+            .callout,
+            .diagram-container,
+            .table-wrap {
+                background: #f5f5f5;
+                border-color: #ccc;
+                box-shadow: none;
+            }
+            .toc-item a {
+                color: #222;
+            }
+            .hl,
+            .hl-blue,
+            .hl-green,
+            .hl-coral,
+            .hl-purple {
+                background: #e8e8e8;
+                color: #111;
+            }
+            h1 {
+                -webkit-text-fill-color: #b8860b;
+                background: none;
+                color: #b8860b;
+            }
+            h2 {
+                color: #1a5276;
+                border-bottom-color: #ccc;
+            }
+            h3 {
+                color: #b8860b;
+            }
+            h4 {
+                color: #1a7a6b;
+            }
+            .divider-diamond::after {
+                background: #fff;
+            }
+            .divider-diamond::before {
+                background: #ccc;
+            }
+            .quote {
+                border-left-color: #b8860b;
+                background: #f5f5f5;
+            }
+            .tag-gold {
+                background: #e8e8e8;
+                border-color: #b8860b;
+                color: #b8860b;
+            }
+        }
+
+        /* ── Ancoragem suave ── */
+        .anchor-offset {
+            scroll-margin-top: 1.2rem;
+        }
+
+        /* ── Estudo de caso ── */
+        .case-scenario {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1.8rem;
+            margin: 1.4rem 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+        }
+        .case-scenario h4 {
+            margin-top: 0;
+        }
+        .case-scenario .step {
+            display: flex;
+            gap: 0.8rem;
+            margin: 0.8rem 0;
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent-blue);
+        }
+        .case-scenario .step .num {
+            font-weight: 700;
+            color: var(--accent-gold);
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+        .case-scenario .step p {
+            margin: 0;
+        }
+        .case-conclusion {
+            background: rgba(76, 191, 122, 0.08);
+            border: 1px solid rgba(76, 191, 122, 0.25);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.6rem;
+            margin: 1rem 0 0;
+        }
+        .case-conclusion strong {
+            color: var(--accent-green);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ════════════════════ TÍTULO PRINCIPAL ════════════════════ -->
+    <header style="margin-bottom: 1.2rem;">
+        <span class="chapter-number">Capítulo 1</span>
+        <h1>Fundamentos e Operações de Seguros</h1>
+        <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 70ch; margin-top: 0.2rem;">
+            A Ciência do Risco e a Proteção Patrimonial — Apostila para concursos bancários
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem;">
+            <span class="tag tag-gold">Mutualismo</span>
+            <span class="tag tag-blue">Risco Segurável</span>
+            <span class="tag tag-green">Prêmio</span>
+            <span class="tag tag-coral">Franquia</span>
+            <span class="tag tag-gold">CDC</span>
+            <span class="tag tag-blue">PLD</span>
+        </div>
+    </header>
+
+    <hr class="divider" />
+
+    <!-- ════════════════════ SUMÁRIO ════════════════════ -->
+    <nav class="toc" aria-label="Sumário">
+        <div class="toc-title">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
+            Sumário
+        </div>
+        <div class="toc-grid">
+            <div class="toc-item"><span class="num">1.</span><a href="#sec-intro">Introdução</a></div>
+            <div class="toc-item"><span class="num">2.</span><a href="#sec-mutualismo">Princípio do Mutualismo</a></div>
+            <div class="toc-item"><span class="num">3.</span><a href="#sec-elementos">Elementos Essenciais</a></div>
+            <div class="toc-item"><span class="num">3.1</span><a href="#sec-risco">Risco Segurável</a></div>
+            <div class="toc-item"><span class="num">3.2</span><a href="#sec-aviso">Aviso de Sinistro &amp; Nexo Causal</a></div>
+            <div class="toc-item"><span class="num">4.</span><a href="#sec-precificacao">Precificação e Custo</a></div>
+            <div class="toc-item"><span class="num">4.1</span><a href="#sec-qar">QAR</a></div>
+            <div class="toc-item"><span class="num">4.2</span><a href="#sec-premio">Prêmio</a></div>
+            <div class="toc-item"><span class="num">4.3</span><a href="#sec-franquia">Franquia</a></div>
+            <div class="toc-item"><span class="num">5.</span><a href="#sec-operacionalizacao">Operacionalização</a></div>
+            <div class="toc-item"><span class="num">5.1</span><a href="#sec-inicio">Início da Cobertura</a></div>
+            <div class="toc-item"><span class="num">5.2</span><a href="#sec-verbal">Contratação Verbal</a></div>
+            <div class="toc-item"><span class="num">5.3</span><a href="#sec-cobranca">Cobrança e o Banco</a></div>
+            <div class="toc-item"><span class="num">6.</span><a href="#sec-indenizacao">Cálculo da Indenização</a></div>
+            <div class="toc-item"><span class="num">7.</span><a href="#sec-partes">Partes e Intermediários</a></div>
+            <div class="toc-item"><span class="num">7.1</span><a href="#sec-corretora">Corretora</a></div>
+            <div class="toc-item"><span class="num">7.2</span><a href="#sec-cdc">CDC</a></div>
+            <div class="toc-item"><span class="num">8.</span><a href="#sec-obrigatorios">Seguros Obrigatórios</a></div>
+            <div class="toc-item"><span class="num">8.1</span><a href="#sec-fraude">Fraude e PLD</a></div>
+            <div class="toc-item"><span class="num">9.</span><a href="#sec-comercial">Raciocínio Comercial</a></div>
+            <div class="toc-item"><span class="num">10.</span><a href="#sec-resumo">Quadro Resumo</a></div>
+            <div class="toc-item"><span class="num">11.</span><a href="#sec-caso">Estudo de Caso</a></div>
+        </div>
+    </nav>
+
+    <!-- ════════════════════ 1. INTRODUÇÃO ════════════════════ -->
+    <section id="sec-intro" class="anchor-offset">
+        <h2>1. Introdução <span class="badge">Pilar Econômico</span></h2>
+        <p>
+            No cerne da atividade bancária moderna, muito além da intermediação financeira tradicional, está a <strong>gestão de riscos</strong>. O escriturário ou agente comercial de uma instituição financeira não é apenas um vendedor de produtos, mas um <strong>consultor de proteção patrimonial</strong>. Compreender a fundo a lógica dos seguros é, portanto, uma competência que diferencia o profissional e blinda a instituição contra riscos operacionais e de <em>compliance</em>.
+        </p>
+        <p>
+            O seguro, em sua essência, é um mecanismo de <strong>transferência de riscos</strong>. Imagine uma comunidade de 1.000 pessoas, todas proprietárias de veículos e expostas ao mesmo risco de colisão. A probabilidade de que todas batam o carro no mesmo dia é ínfima, mas a de que uma ou outra sofra um sinistro é uma certeza estatística. O seguro transforma uma perda individual, potencialmente catastrófica, em um <strong>custo coletivo</strong>, pequeno e previsível para todos. Esta é a materialização do princípio do <strong>Mutualismo</strong>, a pedra angular de toda a ciência atuarial.
+        </p>
+        <p>
+            Este capítulo se propõe a desvendar não apenas os conceitos, mas a <em>lógica operacional</em> por trás deles, preparando você para a resolução de questões complexas e, mais importante, para a prática consultiva dentro de uma agência bancária. Veremos como cada definição legal se traduz em um procedimento, em uma obrigação e em uma oportunidade de negócio.
+        </p>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 2. MUTUALISMO ════════════════════ -->
+    <section id="sec-mutualismo" class="anchor-offset">
+        <h2>2. O Princípio do Mutualismo <span class="badge">Força da Coletividade</span></h2>
+        <p>Vamos nos aprofundar no conceito que inaugura nosso estudo.</p>
+
+        <div class="card card-gold">
+            <h4 style="margin-top:0; color:var(--accent-gold);">O quê</h4>
+            <p>O mutualismo é o princípio pelo qual um grupo de pessoas expostas a um mesmo tipo de risco (ex: incêndio residencial, colisão de veículos, morte prematura) contribui financeiramente para a formação de um <strong>fundo comum</strong>.</p>
+        </div>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">Porquê no contexto bancário</h4>
+            <p>O banco, através de sua seguradora parceira, atua como o <strong>gestor técnico</strong> desse fundo. Ele coleta as contribuições (prêmios) e as administra, pagando as indenizações aos membros do grupo que, de fato, sofrerem um sinistro. A lógica é simples: <em>eu pago um valor pequeno para que, se um evento raro, mas grave, acontecer comigo, eu não seja financeiramente destruído</em>.</p>
+        </div>
+
+        <div class="card card-teal">
+            <h4 style="margin-top:0; color:var(--accent-teal);">Como se aplica no dia a dia do agente comercial?</h4>
+            <p>Ao oferecer um seguro, o agente não está vendendo um custo, mas um <strong>direito de pertencimento</strong> a essa comunidade de proteção. A argumentação de vendas não deve focar no "e se acontecer", mas na tranquilidade de <em>"se acontecer com você, nós estaremos aqui"</em>. A Cesgranrio adora este conceito, associando-o à <span class="hl">"solidariedade entre segurados"</span> e à própria função social do contrato.</p>
+        </div>
+
+        <!-- SVG: Mutualismo -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama do princípio do mutualismo">
+                <defs>
+                    <linearGradient id="gradGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#e8b830" stop-opacity="0.25" />
+                        <stop offset="100%" stop-color="#e8b830" stop-opacity="0.05" />
+                    </linearGradient>
+                    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#5b9cf5" stop-opacity="0.20" />
+                        <stop offset="100%" stop-color="#5b9cf5" stop-opacity="0.05" />
+                    </linearGradient>
+                    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%">
+                        <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.4" />
+                    </filter>
+                </defs>
+                <!-- Fundo -->
+                <rect width="720" height="280" rx="14" fill="#111827" stroke="#1e2d44" stroke-width="1.5" />
+
+                <!-- Pessoas (segurados) -->
+                <g transform="translate(40, 70)">
+                    <circle cx="30" cy="18" r="18" fill="#2c3f5a" stroke="#4a6a8a" stroke-width="1.5" />
+                    <text x="30" y="24" text-anchor="middle" fill="#b6c8e0" font-size="11" font-weight="600">A</text>
+                    <rect x="8" y="38" width="44" height="44" rx="6" fill="#1e2d44" stroke="#3a5a7a" stroke-width="1.2" />
+                    <text x="30" y="63" text-anchor="middle" fill="#b6c8e0" font-size="11">R$</text>
+                </g>
+                <g transform="translate(140, 70)">
+                    <circle cx="30" cy="18" r="18" fill="#2c3f5a" stroke="#4a6a8a" stroke-width="1.5" />
+                    <text x="30" y="24" text-anchor="middle" fill="#b6c8e0" font-size="11" font-weight="600">B</text>
+                    <rect x="8" y="38" width="44" height="44" rx="6" fill="#1e2d44" stroke="#3a5a7a" stroke-width="1.2" />
+                    <text x="30" y="63" text-anchor="middle" fill="#b6c8e0" font-size="11">R$</text>
+                </g>
+                <g transform="translate(240, 70)">
+                    <circle cx="30" cy="18" r="18" fill="#2c3f5a" stroke="#4a6a8a" stroke-width="1.5" />
+                    <text x="30" y="24" text-anchor="middle" fill="#b6c8e0" font-size="11" font-weight="600">C</text>
+                    <rect x="8" y="38" width="44" height="44" rx="6" fill="#1e2d44" stroke="#3a5a7a" stroke-width="1.2" />
+                    <text x="30" y="63" text-anchor="middle" fill="#b6c8e0" font-size="11">R$</text>
+                </g>
+                <g transform="translate(340, 70)">
+                    <circle cx="30" cy="18" r="18" fill="#2c3f5a" stroke="#4a6a8a" stroke-width="1.5" />
+                    <text x="30" y="24" text-anchor="middle" fill="#b6c8e0" font-size="11" font-weight="600">D</text>
+                    <rect x="8" y="38" width="44" height="44" rx="6" fill="#1e2d44" stroke="#3a5a7a" stroke-width="1.2" />
+                    <text x="30" y="63" text-anchor="middle" fill="#b6c8e0" font-size="11">R$</text>
+                </g>
+
+                <!-- Setas → Fundo -->
+                <line x1="70" y1="100" x2="210" y2="170" stroke="#e8b830" stroke-width="2" stroke-dasharray="5,3" opacity="0.6" />
+                <line x1="170" y1="100" x2="290" y2="170" stroke="#e8b830" stroke-width="2" stroke-dasharray="5,3" opacity="0.6" />
+                <line x1="270" y1="100" x2="370" y2="170" stroke="#e8b830" stroke-width="2" stroke-dasharray="5,3" opacity="0.6" />
+                <line x1="370" y1="100" x2="450" y2="170" stroke="#e8b830" stroke-width="2" stroke-dasharray="5,3" opacity="0.6" />
+
+                <!-- Fundo Comum (caixa) -->
+                <rect x="220" y="170" width="270" height="70" rx="14" fill="url(#gradGold)" stroke="#e8b830" stroke-width="2" filter="url(#shadow)" />
+                <text x="355" y="202" text-anchor="middle" fill="#e8b830" font-size="18" font-weight="700">Fundo Comum</text>
+                <text x="355" y="225" text-anchor="middle" fill="#b6c8e0" font-size="12">(Prêmios coletados)</text>
+
+                <!-- Setas ← Fundo → Sinistrado -->
+                <line x1="490" y1="200" x2="580" y2="140" stroke="#4cbf7a" stroke-width="3" opacity="0.8" />
+                <polygon points="580,130 592,150 568,150" fill="#4cbf7a" opacity="0.8" />
+
+                <!-- Sinistrado (beneficiário) -->
+                <g transform="translate(580, 70)">
+                    <circle cx="30" cy="18" r="18" fill="#2c3f5a" stroke="#4cbf7a" stroke-width="2.5" />
+                    <text x="30" y="24" text-anchor="middle" fill="#4cbf7a" font-size="11" font-weight="700">E</text>
+                    <rect x="8" y="38" width="44" height="44" rx="6" fill="#1e2d44" stroke="#4cbf7a" stroke-width="2" />
+                    <text x="30" y="63" text-anchor="middle" fill="#4cbf7a" font-size="11" font-weight="600">IND</text>
+                </g>
+
+                <!-- Legenda -->
+                <text x="40" y="260" fill="#8899bb" font-size="11">◆ Contribuição (prêmio)</text>
+                <text x="310" y="260" fill="#8899bb" font-size="11">→ Indenização</text>
+            </svg>
+        </div>
+
+        <div class="callout callout-importante">
+            <span class="callout-label">⚠️ Dica de Prova Cesgranrio</span>
+            <p>O examinador tentará confundir <strong>mutualismo</strong> com poupança individual ou filantropia. O mutualismo é um <strong>pacto de rateio coletivo de perdas individuais</strong>, gerido por uma entidade com fins lucrativos, a seguradora.</p>
+        </div>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 3. ELEMENTOS ESSENCIAIS ════════════════════ -->
+    <section id="sec-elementos" class="anchor-offset">
+        <h2>3. Os Elementos Essenciais do Contrato de Seguro</h2>
+        <p>
+            Um contrato de seguro não se forma do nada. Sua validade depende de elementos e requisitos rigorosamente definidos. A banca examinadora frequentemente explora a literalidade destes conceitos.
+        </p>
+
+        <!-- 3.1 Risco Segurável -->
+        <h3 id="sec-risco" class="anchor-offset">3.1 O Risco Segurável <span class="tag tag-blue" style="font-size:0.65rem; margin-left:0.6rem;">Matéria-Prima</span></h3>
+        <p>O primeiro passo lógico é definir o que pode ser segurado. Um evento, para ser considerado um risco segurável, deve atender a um requisito fundamental e objetivo: <strong>ser independente da vontade das partes</strong>.</p>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">O quê</h4>
+            <p>O risco deve ser <strong>aleatório, incerto, futuro e involuntário</strong>. A ocorrência do evento não pode ser provocada intencionalmente pelo segurado ou pela seguradora. Se o elemento de incerteza desaparece (ex: um prédio que será implodido), o seguro perde o sentido.</p>
+        </div>
+
+        <div class="card card-coral">
+            <h4 style="margin-top:0; color:var(--accent-coral);">Porquê</h4>
+            <p>Se o segurado pudesse causar o sinistro para receber a indenização, a matemática atuarial (cálculo da probabilidade e do prêmio) ruiria, e o fundo mutual se tornaria inviável. É um contrato de <strong>boa-fé</strong>, que depende da imprevisibilidade do evento.</p>
+        </div>
+
+        <div class="callout callout-importante">
+            <span class="callout-label">🚨 Pegadinha da Banca</span>
+            <p>A Cesgranrio costuma incluir em questões um risco de <span class="hl-coral">"ocorrência certa"</span> ou um <span class="hl-coral">"ato doloso do segurado"</span> como risco segurável. Isso é <strong>falso</strong>. O dolo (intenção) do segurado sempre exclui a cobertura, pois quebra o pressuposto da aleatoriedade.</p>
+        </div>
+
+        <div class="card card-teal">
+            <h4 style="margin-top:0; color:var(--accent-teal);">Evento coberto, o Sinistro</h4>
+            <p>Por consequência lógica, o sinistro (evento coberto) deve ser <strong>súbito, involuntário e imprevisto</strong>. Um desgaste natural de uma peça de um carro ao longo dos anos não é súbito nem imprevisto; é uma certeza mecânica, portanto, via de regra, <strong>não é coberto</strong> por um seguro de automóvel. A cobertura securitária existe para eventos repentinos e acidentais.</p>
+        </div>
+
+        <!-- 3.2 Aviso de Sinistro -->
+        <h3 id="sec-aviso" class="anchor-offset">3.2 O Aviso de Sinistro e a Apuração do Nexo Causal</h3>
+        <p>Quando o evento ocorre, inicia-se um processo crítico. O segurado tem o dever de comunicar a seguradora. Este procedimento é chamado de <strong>Aviso de Sinistro</strong>.</p>
+
+        <div class="card card-orange">
+            <h4 style="margin-top:0; color:var(--accent-orange);">O quê</h4>
+            <p>É a <strong>comunicação imediata</strong> que o segurado faz à seguradora, informando a ocorrência do evento danoso.</p>
+        </div>
+
+        <div class="card card-gold">
+            <h4 style="margin-top:0; color:var(--accent-gold);">Quando e Como no dia a dia</h4>
+            <p>O agente comercial deve orientar o cliente, no momento da venda, sobre este procedimento. <em>"Guarde meu cartão; se algo acontecer, me ligue primeiro para eu ajudá-lo a fazer o aviso de sinistro."</em> Essa atitude de pós-venda <strong>fideliza o cliente</strong> e evita a perda de prazos contratuais.</p>
+        </div>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">O Efeito Prático: o Nexo de Causalidade</h4>
+            <p>Uma vez acionada, a seguradora enviará um perito. A função central do perito não é apenas orçar o prejuízo, mas estabelecer o <strong>nexo de causalidade</strong>. Trata-se da correlação direta entre a <strong>causa do evento</strong> e os <strong>danos alegados</strong>. Um para-brisa trincou (dano). Qual foi a causa? Uma pedra na estrada? Um defeito de fabricação? A cobertura será devida apenas se a causa for um risco coberto pela apólice. O perito busca essa relação lógica de causa e efeito para fundamentar o pagamento ou a negativa do sinistro.</p>
+        </div>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 4. PRECIFICAÇÃO ════════════════════ -->
+    <section id="sec-precificacao" class="anchor-offset">
+        <h2>4. A Precificação e o Custo do Seguro</h2>
+        <p>Agora que entendemos o risco, precisamos quantificá-lo. É aqui que o seguro se conecta profundamente com a realidade financeira e a rotina do bancário.</p>
+
+        <!-- 4.1 QAR -->
+        <h3 id="sec-qar" class="anchor-offset">4.1 Questionário de Avaliação de Riscos (QAR)</h3>
+
+        <div class="card card-purple">
+            <h4 style="margin-top:0; color:var(--accent-purple);">O quê</h4>
+            <p>A sigla QAR significa <strong>Questionário de Avaliação de Riscos</strong>. É um formulário detalhado, seja físico ou digital, utilizado no momento da cotação do seguro.</p>
+        </div>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">Porquê e sua Finalidade</h4>
+            <p>O QAR serve para reduzir a <strong>assimetria de informações</strong>. O segurado sabe muito mais sobre seu próprio risco do que a seguradora. Ele sabe se mora em uma rua que alaga, se seu filho recém-habilitado usa o carro à noite ou se sua empresa armazena material inflamável. O QAR coleta essas informações de forma estruturada para que a seguradora possa <strong>precificar corretamente o risco</strong>. Sem o QAR, o prêmio seria um valor médio único, o que afastaria os bons riscos (que achariam caro) e atrairia os maus riscos (que achariam barato), inviabilizando a operação (fenômeno conhecido como <strong>seleção adversa</strong>).</p>
+        </div>
+
+        <div class="card card-gold">
+            <h4 style="margin-top:0; color:var(--accent-gold);">Aplicação na Agência</h4>
+            <p>Preencher o QAR com o cliente é um ato de consultoria. <em>"Seu carro dorme em garagem? Isso reduz o risco de furto e o valor do seu seguro. Você tem alarme? Ótimo, isso também influencia."</em> O agente deve mostrar que informações completas e honestas resultam em um preço justo. <span class="hl-coral">Mentir no QAR é fraude</span> e pode levar à perda do direito à indenização.</p>
+        </div>
+
+        <!-- 4.2 Prêmio -->
+        <h3 id="sec-premio" class="anchor-offset">4.2 O Prêmio <span class="tag tag-gold" style="font-size:0.65rem; margin-left:0.6rem;">Preço do Risco</span></h3>
+
+        <div class="card card-gold">
+            <h4 style="margin-top:0; color:var(--accent-gold);">O quê</h4>
+            <p><strong>Prêmio é o valor pago pelo segurado à seguradora pela transferência do risco.</strong> É o preço do serviço de proteção. É a contrapartida financeira essencial do contrato.</p>
+        </div>
+
+        <div class="card card-coral">
+            <h4 style="margin-top:0; color:var(--accent-coral);">Obrigação Fundamental</h4>
+            <p>O pagamento do prêmio é a <strong>principal obrigação do segurado</strong>. Sem ele, o pacto mutual se quebra. A inadimplência tem consequências graves.</p>
+        </div>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">Pagamento do Prêmio e Cobertura em Caso de Sinistro</h4>
+            <p><span class="hl">Este é um dos pontos mais intricados e mais cobrados em prova.</span> Analise a seguinte situação: o boleto do seguro venceu, o cliente ainda não pagou, mas o prazo estipulado no boleto para pagamento ainda não expirou (ex: venceu dia 10, estamos no dia 8). Se o sinistro ocorrer neste intervalo, o cliente perde o direito à indenização?</p>
+            <p style="margin-top:0.6rem;"><strong>Resposta:</strong> <span class="hl-green">NÃO.</span> A cobertura securitária <strong>não fica prejudicada</strong> enquanto o débito puder ser quitado tempestivamente. Se o sinistro ocorre antes do pagamento, mas dentro do prazo de vencimento original, o segurado ainda pode pagar o prêmio e manter o direito à indenização. A lógica é que a obrigação de pagar ainda está vigente e pode ser adimplida.</p>
+            <p style="margin-top:0.4rem;"><strong>Entendimento avançado (Decreto nº 61.589/67):</strong> A base legal para isso é que o contrato não se extingue automaticamente. O risco assumido pela seguradora persiste durante a vigência do contrato, e o simples atraso, dentro do prazo de vencimento, não configura quebra contratual.</p>
+        </div>
+
+        <div class="callout callout-importante">
+            <span class="callout-label">⚠️ Consequência da Inadimplência Consumada</span>
+            <p>Se o prazo do boleto expira, o cliente não paga, e o sinistro ocorre, <strong>aí sim</strong>, o direito à indenização está perdido. A cobertura cessa com a inadimplência configurada.</p>
+        </div>
+
+        <div class="card card-coral">
+            <h4 style="margin-top:0; color:var(--accent-coral);">Cancelamento por Falta de Pagamento</h4>
+            <p><span class="hl-coral">Afirmação:</span> <em>"A falta de pagamento do prêmio importa em cancelamento automático do contrato de seguro."</em> <strong>Esta afirmação é FALSA.</strong></p>
+            <p><strong>Porquê:</strong> O cancelamento não é um passe de mágica. O Decreto nº 61.589/67 estabelece que o cancelamento depende de <strong>cláusula expressa</strong> prevista na proposta e na apólice. Se não houver uma cláusula que estabeleça o cancelamento como consequência da inadimplência, o contrato, embora com cobertura suspensa por falta de pagamento, pode não estar formalmente cancelado. A banca adora afirmar que é "automático" para testar o conhecimento do candidato.</p>
+        </div>
+
+        <!-- 4.3 Franquia -->
+        <h3 id="sec-franquia" class="anchor-offset">4.3 Franquia <span class="tag tag-green" style="font-size:0.65rem; margin-left:0.6rem;">Responsabilidade Compartilhada</span></h3>
+
+        <div class="card card-green">
+            <h4 style="margin-top:0; color:var(--accent-green);">O quê</h4>
+            <p>A franquia é o valor, previamente estipulado na apólice, que o segurado arca com seus próprios recursos em caso de sinistro. Se o prejuízo é de R$ 5.000 e a franquia é de R$ 1.000, a seguradora pagará R$ 4.000.</p>
+        </div>
+
+        <div class="card card-orange">
+            <h4 style="margin-top:0; color:var(--accent-orange);">Porquê e sua Finalidade Principal</h4>
+            <p><span class="hl">A banca tentará fazer você acreditar que a franquia serve para o segurado "fazer uma poupança" ou "para a seguradora lucrar mais".</span> A <strong>finalidade central</strong> é muito mais sutil e inteligente: <strong>incentivar o segurado a gerenciar melhor seus riscos e evitar sinistros.</strong> Se o segurado sabe que terá um custo direto (a franquia) em caso de acionamento, ele será naturalmente mais cuidadoso. Isso alinha os interesses de ambas as partes contra a ocorrência do sinistro, reduzindo pequenas perdas e, por tabela, o custo operacional da seguradora com a regulação de sinistros de pequeno valor.</p>
+        </div>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 5. OPERACIONALIZAÇÃO ════════════════════ -->
+    <section id="sec-operacionalizacao" class="anchor-offset">
+        <h2>5. A Operacionalização do Contrato</h2>
+        <p>O contrato de seguro possui um ciclo de vida claro, do início ao fim, que o agente comercial deve dominar.</p>
+
+        <!-- 5.1 Início -->
+        <h3 id="sec-inicio" class="anchor-offset">5.1 Início da Cobertura <span class="tag tag-blue" style="font-size:0.65rem; margin-left:0.6rem;">Aceitação da Proposta</span></h3>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">O quê</h4>
+            <p>O processo se inicia com o preenchimento da proposta pelo cliente. A cobertura do risco, no entanto, <strong>não começa com a proposta e nem com o pagamento</strong>. Ela se inicia com a <strong>aceitação da proposta pelo segurador</strong>.</p>
+        </div>
+
+        <div class="card card-coral">
+            <h4 style="margin-top:0; color:var(--accent-coral);">Como se aplica</h4>
+            <p>Um cliente fez uma proposta de seguro de vida. No dia seguinte, antes de a seguradora analisar a proposta, ele sofre um acidente. Há cobertura? <strong>Não</strong>, pois a aceitação ainda não havia ocorrido. A seguradora emite um documento central que formaliza tudo.</p>
+        </div>
+
+        <div class="card card-gold">
+            <h4 style="margin-top:0; color:var(--accent-gold);">A Apólice e o Endosso</h4>
+            <p><strong>Emissão da Apólice:</strong> Uma vez aceita a proposta, a seguradora tem o prazo de <span class="hl">15 dias para emitir a apólice</span>, o documento principal do contrato, que prova a cobertura e detalha os direitos e deveres. Esse prazo é uma literalidade do Decreto nº 60.459/67 e uma das informações mais quentes para prova. <span class="hl-coral">Não são 30 nem 60 dias.</span></p>
+            <p style="margin-top:0.4rem;"><strong>Endosso:</strong> A vida do cliente é dinâmica. Ele muda de endereço, compra um acessório para o carro, quer aumentar a cobertura. O documento utilizado para modificar a apólice original durante sua vigência é o <strong>Endosso</strong>. Ele é um aditivo contratual que formaliza as alterações acordadas entre as partes.</p>
+        </div>
+
+        <!-- 5.2 Contratação Verbal -->
+        <h3 id="sec-verbal" class="anchor-offset">5.2 A Contratação Verbal e a Boa-Fé</h3>
+
+        <div class="card card-purple">
+            <h4 style="margin-top:0; color:var(--accent-purple);">O quê</h4>
+            <p>O Decreto-Lei nº 73/1966 admite que o seguro seja contratado mediante simples <strong>solicitação verbal</strong>.</p>
+        </div>
+
+        <div class="card card-teal">
+            <h4 style="margin-top:0; color:var(--accent-teal);">Validade</h4>
+            <p>A emissão do <strong>bilhete de seguro</strong> com base na solicitação verbal é perfeitamente válida. Como prova, a lei presume a <strong>boa-fé</strong> da seguradora ao emitir o bilhete com base na palavra do segurado. Trata-se de uma <strong>presunção <em>juris tantum</em></strong> (relativa), ou seja, admite prova em contrário. Esse dispositivo legal existe para dar agilidade a contratações simples, frequentemente vistas em seguros de acidentes pessoais para grupos ou seguros de viagem.</p>
+        </div>
+
+        <!-- 5.3 Cobrança -->
+        <h3 id="sec-cobranca" class="anchor-offset">5.3 A Cobrança e o Papel do Banco</h3>
+
+        <div class="card card-gold">
+            <h4 style="margin-top:0; color:var(--accent-gold);">O quê</h4>
+            <p>Um ponto de intersecção direta com a carreira bancária: <strong>A cobrança do prêmio de seguro deve ser feita obrigatoriamente por instituição bancária.</strong> Isso é determinado pelo Decreto nº 60.459/67, seguindo instruções da SUSEP e do Bacen.</p>
+        </div>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">Porquê</h4>
+            <p>Essa regra exclui explicitamente a possibilidade de a própria corretora de seguros realizar a cobrança do prêmio. A função de cobrar é <strong>financeira</strong>, e não de corretagem. A corretora assessora, o banco arrecada. Isso garante rastreabilidade e segurança ao fluxo financeiro, prevenindo, inclusive, fraudes e desvios.</p>
+        </div>
+
+        <!-- SVG: Ciclo do contrato -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fluxo do ciclo de vida do contrato de seguro">
+                <defs>
+                    <linearGradient id="gradCycle" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#5b9cf5" stop-opacity="0.15" />
+                        <stop offset="100%" stop-color="#e8b830" stop-opacity="0.15" />
+                    </linearGradient>
+                    <filter id="shadowCycle" x="-4%" y="-4%" width="108%" height="108%">
+                        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.35" />
+                    </filter>
+                </defs>
+                <rect width="700" height="200" rx="14" fill="#111827" stroke="#1e2d44" stroke-width="1.5" />
+
+                <!-- Etapas -->
+                <rect x="30" y="50" width="120" height="70" rx="10" fill="#1e2d44" stroke="#5b9cf5" stroke-width="2" filter="url(#shadowCycle)" />
+                <text x="90" y="80" text-anchor="middle" fill="#5b9cf5" font-size="13" font-weight="700">Proposta</text>
+                <text x="90" y="102" text-anchor="middle" fill="#b6c8e0" font-size="11">Solicitação</text>
+
+                <rect x="190" y="50" width="120" height="70" rx="10" fill="#1e2d44" stroke="#e8b830" stroke-width="2" filter="url(#shadowCycle)" />
+                <text x="250" y="80" text-anchor="middle" fill="#e8b830" font-size="13" font-weight="700">Aceitação</text>
+                <text x="250" y="102" text-anchor="middle" fill="#b6c8e0" font-size="11">Seguradora</text>
+
+                <rect x="350" y="50" width="120" height="70" rx="10" fill="#1e2d44" stroke="#4cbf7a" stroke-width="2" filter="url(#shadowCycle)" />
+                <text x="410" y="80" text-anchor="middle" fill="#4cbf7a" font-size="13" font-weight="700">Apólice</text>
+                <text x="410" y="102" text-anchor="middle" fill="#b6c8e0" font-size="11">15 dias</text>
+
+                <rect x="510" y="50" width="120" height="70" rx="10" fill="#1e2d44" stroke="#f08c4a" stroke-width="2" filter="url(#shadowCycle)" />
+                <text x="570" y="80" text-anchor="middle" fill="#f08c4a" font-size="13" font-weight="700">Endosso</text>
+                <text x="570" y="102" text-anchor="middle" fill="#b6c8e0" font-size="11">Alterações</text>
+
+                <!-- Setas -->
+                <line x1="150" y1="85" x2="188" y2="85" stroke="#5b9cf5" stroke-width="2.5" marker-end="url(#arrowBlue)" />
+                <line x1="310" y1="85" x2="348" y2="85" stroke="#e8b830" stroke-width="2.5" marker-end="url(#arrowGold)" />
+                <line x1="470" y1="85" x2="508" y2="85" stroke="#4cbf7a" stroke-width="2.5" marker-end="url(#arrowGreen)" />
+
+                <defs>
+                    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 Z" fill="#5b9cf5" />
+                    </marker>
+                    <marker id="arrowGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 Z" fill="#e8b830" />
+                    </marker>
+                    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 Z" fill="#4cbf7a" />
+                    </marker>
+                </defs>
+
+                <!-- Legenda -->
+                <text x="40" y="175" fill="#8899bb" font-size="11">Fluxo: Proposta → Aceitação → Apólice (15 dias) → Endosso (alterações)</text>
+            </svg>
+        </div>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 6. CÁLCULO DA INDENIZAÇÃO ════════════════════ -->
+    <section id="sec-indenizacao" class="anchor-offset">
+        <h2>6. Cálculo da Indenização <span class="badge">Valor Atual vs. Valor de Novo</span></h2>
+        <p>Um dos pontos de maior confusão entre os iniciantes e uma mina de ouro para a Cesgranrio.</p>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">Regra Geral (Padrão Cesgranrio)</h4>
+            <p>A indenização é calculada com base no <strong>valor atual do bem na data do sinistro</strong>. Para automóveis, isso é materializado pela <strong>Tabela FIPE</strong> (valor médio de mercado). Se seu carro valia R$ 50.000 na data da batida, a indenização será calculada sobre esse valor, respeitada a franquia, e limitada ao valor da garantia contratada.</p>
+        </div>
+
+        <div class="card card-coral">
+            <h4 style="margin-top:0; color:var(--accent-coral);">O Erro Comum</h4>
+            <p>O candidato, ou o cliente leigo, acha que vai receber o valor de um carro zero-quilômetro, o chamado <strong>valor de novo</strong>. A não ser que uma cláusula contratual específica e explícita de "valor de novo" tenha sido contratada (pagando um prêmio extra por isso), a <strong>regra inquebrantável</strong> é o valor atual, que considera a depreciação do bem pelo uso, idade e estado de conservação.</p>
+        </div>
+
+        <!-- Tabela comparativa -->
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Critério</th>
+                        <th>Valor Atual (Regra Cesgranrio)</th>
+                        <th>Valor de Novo (Exceção Contratada)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Definição</strong></td>
+                        <td>Preço de mercado do bem no momento do sinistro, considerando a depreciação.</td>
+                        <td>Custo de reposição por um bem zero-quilômetro, sem depreciação.</td>
+                    </tr>
+                    <tr class="table-highlight">
+                        <td><strong>Exemplo (Automóvel)</strong></td>
+                        <td>Tabela FIPE. Um carro 2023 que valia R$ 60 mil. A indenização base será de R$ 60 mil.</td>
+                        <td>Preço de um carro idêntico, modelo 2026, na concessionária. Custa R$ 90 mil. A indenização será de R$ 90 mil.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Custo do Seguro</strong></td>
+                        <td><span class="hl-green">Mais barato.</span></td>
+                        <td><span class="hl-coral">Mais caro</span> (prêmio maior).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Armadilha de Prova</strong></td>
+                        <td>Dizer que a indenização é sempre pelo valor de nota fiscal de compra.</td>
+                        <td>Achar que é o padrão do mercado. Só se aplica se houver previsão contratual expressa.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 7. PARTES E INTERMEDIÁRIOS ════════════════════ -->
+    <section id="sec-partes" class="anchor-offset">
+        <h2>7. Partes, Intermediários e Relações de Consumo</h2>
+        <p>O universo do seguro vai além da relação segurado-seguradora.</p>
+
+        <!-- 7.1 Corretora -->
+        <h3 id="sec-corretora" class="anchor-offset">7.1 A Corretora de Seguros e seus Requisitos</h3>
+
+        <div class="card card-purple">
+            <h4 style="margin-top:0; color:var(--accent-purple);">O quê</h4>
+            <p>A corretora atua como intermediária, assessorando o cliente na busca pela melhor cobertura. Ela <strong>representa os interesses do segurado</strong>.</p>
+        </div>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">Registro (Decreto nº 60.459/67)</h4>
+            <p>Para operar, a corretora precisa de registro, o que exige, entre outros, a comprovação de habilitação técnico-profissional dos seus responsáveis e declaração de que não são falidos. É importante saber que uma corretora pode ser uma pessoa jurídica e pode atuar por meio de prepostos (representantes).</p>
+        </div>
+
+        <div class="card card-gold">
+            <h4 style="margin-top:0; color:var(--accent-gold);">Seguro Coletivo e o Estipulante</h4>
+            <p>Uma figura que gera dúvida é o <strong>Estipulante</strong>. Nos seguros coletivos (ex: seguro de vida contratado por uma empresa para seus funcionários), o estipulante é a pessoa jurídica (a empresa) que contrata a apólice coletiva. Qual sua função? Ele <strong>representa os segurados perante a seguradora</strong>, atuando na negociação e gestão do contrato. Ponto chave: ele <span class="hl-coral">não define prêmios</span> (isso é da seguradora), <span class="hl-coral">não define franquias</span> e <span class="hl-coral">não paga indenizações</span>. É um gestor contratual, um elo entre o grupo e a seguradora.</p>
+        </div>
+
+        <!-- 7.2 CDC -->
+        <h3 id="sec-cdc" class="anchor-offset">7.2 A Incidência do Código de Defesa do Consumidor (CDC)</h3>
+
+        <div class="card card-green">
+            <h4 style="margin-top:0; color:var(--accent-green);">Afirmação</h4>
+            <p><em>"O CDC se aplica aos contratos de seguro?"</em> <strong>SIM, de forma inquestionável.</strong></p>
+        </div>
+
+        <div class="card card-teal">
+            <h4 style="margin-top:0; color:var(--accent-teal);">Fundamento Lógico</h4>
+            <p>O segurado é o destinatário final do serviço de proteção securitária. Logo, é <strong>consumidor</strong>. A seguradora, ao oferecer o serviço no mercado, é a <strong>fornecedora</strong>. A presença de uma corretora como intermediária não descaracteriza essa relação de consumo. Isso significa que todas as proteções do CDC (contra cláusulas abusivas, direito à informação clara, inversão do ônus da prova em certos casos) são aplicáveis.</p>
+        </div>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 8. SEGUROS OBRIGATÓRIOS E FRAUDE ════════════════════ -->
+    <section id="sec-obrigatorios" class="anchor-offset">
+        <h2>8. Seguros Obrigatórios e a Conexão com a Prevenção a Fraudes</h2>
+
+        <h3 id="sec-obrigatorio-transporte" class="anchor-offset">8.1 Seguro Obrigatório de Transporte</h3>
+        <p>O ordenamento jurídico, em certas situações de grande risco e interesse social, impõe a contratação de seguros obrigatórios, conhecidos como DPVAT (hoje SPVAT) e outros. O Decreto nº 61.867/67 trata de um caso específico e recorrente em prova: o <strong>transporte aéreo de passageiros</strong>. Este tipo de transporte exige, sim, seguro obrigatório que garanta, no mínimo, danos pessoais a passageiros e suas bagagens, nos limites do Código Brasileiro do Ar. Transporte de cargas, via de regra, não possui essa obrigatoriedade geral e irrestrita.</p>
+
+        <!-- 8.2 Fraude -->
+        <h3 id="sec-fraude" class="anchor-offset">8.2 Fraude como Fase de Lavagem de Dinheiro (PLD)</h3>
+        <p>Uma intersecção moderna e fundamental entre a área de seguros e a rotina de <em>compliance</em> bancário.</p>
+
+        <div class="card card-coral">
+            <h4 style="margin-top:0; color:var(--accent-coral);">Cenário de Fraude</h4>
+            <p>Um indivíduo adquire um bem de alto valor (uma obra de arte, uma lancha, um imóvel) com recursos provenientes do tráfico de drogas. Ele então contrata um seguro para esse bem. Posteriormente, forja um sinistro (um roubo, um incêndio acidental) e aciona a seguradora para receber a indenização.</p>
+        </div>
+
+        <div class="card card-blue">
+            <h4 style="margin-top:0; color:var(--accent-blue);">Análise sob a Lei de Lavagem de Dinheiro (Lei nº 9.613/98)</h4>
+            <p>Este esquema se encaixa perfeitamente na <strong>Fase de Integração</strong> do ciclo da lavagem de dinheiro. O dinheiro "sujo" (recurso ilícito usado na compra do bem) é transformado em um pagamento aparentemente lícito de uma indenização de seguro. Ao receber o cheque da seguradora, o criminoso integrou o capital ilícito na economia formal com uma fachada de legalidade.</p>
+        </div>
+
+        <div class="card card-gold">
+            <h4 style="margin-top:0; color:var(--accent-gold);">O Papel do Agente Bancário</h4>
+            <p>O funcionário do banco, ao oferecer um seguro de alto valor, deve estar atento aos <strong>sinais de alerta</strong> (operações incompatíveis com a renda, pressa na contratação, desinteresse nas coberturas e foco no valor da indenização). Ele é um agente de linha de frente na prevenção à lavagem de dinheiro, e a compreensão desse mecanismo é crucial não só para a prova, mas para sua função.</p>
+        </div>
+
+        <!-- SVG: Fraude → PLD -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Esquema de fraude e lavagem de dinheiro">
+                <defs>
+                    <filter id="shadowFraud" x="-4%" y="-4%" width="108%" height="108%">
+                        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.35" />
+                    </filter>
+                    <marker id="arrowFraud" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 Z" fill="#e8637a" />
+                    </marker>
+                </defs>
+                <rect width="700" height="200" rx="14" fill="#111827" stroke="#1e2d44" stroke-width="1.5" />
+
+                <rect x="20" y="40" width="140" height="60" rx="10" fill="#2c1a1a" stroke="#e8637a" stroke-width="2" filter="url(#shadowFraud)" />
+                <text x="90" y="68" text-anchor="middle" fill="#e8637a" font-size="13" font-weight="700">Recursos Ilícitos</text>
+                <text x="90" y="88" text-anchor="middle" fill="#b6c8e0" font-size="10">(ex: tráfico)</text>
+
+                <line x1="160" y1="70" x2="205" y2="70" stroke="#e8637a" stroke-width="2.5" marker-end="url(#arrowFraud)" />
+
+                <rect x="210" y="40" width="140" height="60" rx="10" fill="#1e2d44" stroke="#f08c4a" stroke-width="2" filter="url(#shadowFraud)" />
+                <text x="280" y="68" text-anchor="middle" fill="#f08c4a" font-size="13" font-weight="700">Bem de Alto Valor</text>
+                <text x="280" y="88" text-anchor="middle" fill="#b6c8e0" font-size="10">(obra de arte, imóvel)</text>
+
+                <line x1="350" y1="70" x2="395" y2="70" stroke="#f08c4a" stroke-width="2.5" marker-end="url(#arrowFraud)" />
+
+                <rect x="400" y="40" width="140" height="60" rx="10" fill="#1e2d44" stroke="#5b9cf5" stroke-width="2" filter="url(#shadowFraud)" />
+                <text x="470" y="68" text-anchor="middle" fill="#5b9cf5" font-size="13" font-weight="700">Sinistro Fraudulento</text>
+                <text x="470" y="88" text-anchor="middle" fill="#b6c8e0" font-size="10">(roubo/incêndio forjado)</text>
+
+                <line x1="540" y1="70" x2="585" y2="70" stroke="#5b9cf5" stroke-width="2.5" marker-end="url(#arrowFraud)" />
+
+                <rect x="590" y="40" width="90" height="60" rx="10" fill="#1a2c1a" stroke="#4cbf7a" stroke-width="2" filter="url(#shadowFraud)" />
+                <text x="635" y="68" text-anchor="middle" fill="#4cbf7a" font-size="13" font-weight="700">Indenização</text>
+                <text x="635" y="88" text-anchor="middle" fill="#b6c8e0" font-size="10">(integração)</text>
+
+                <text x="40" y="175" fill="#8899bb" font-size="11">◆ Fase de Integração (Lei nº 9.613/98): recurso ilícito → bem → sinistro → indenização lícita</text>
+            </svg>
+        </div>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 9. RACIOCÍNIO COMERCIAL ════════════════════ -->
+    <section id="sec-comercial" class="anchor-offset">
+        <h2>9. Estrutura Lógica do Raciocínio Comercial</h2>
+        <p>Para o agente comercial, a sequência lógica para uma venda consultiva de seguros é:</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0;">
+            <div class="card card-blue" style="margin:0;">
+                <h4 style="margin-top:0; color:var(--accent-blue); font-size:1.05rem;">1. Identificação do Risco</h4>
+                <p><em>"No que você trabalha? Sua renda depende 100% de você? Como sua família ficaria se você se afastasse por um mês?"</em> (Seguro de vida, prestamista, acidentes pessoais).</p>
+            </div>
+            <div class="card card-gold" style="margin:0;">
+                <h4 style="margin-top:0; color:var(--accent-gold); font-size:1.05rem;">2. Mapeamento Patrimonial</h4>
+                <p><em>"Você tem carro? Mora em casa ou apartamento? Em que região?"</em> (Seguro auto, residencial).</p>
+            </div>
+            <div class="card card-teal" style="margin:0;">
+                <h4 style="margin-top:0; color:var(--accent-teal); font-size:1.05rem;">3. Precificação do Custo do Risco</h4>
+                <p>Uso do QAR para coletar informações e calcular um prêmio justo. Explicar o mutualismo: <em>"Muitos pagam um pouco para proteger o todo".</em></p>
+            </div>
+            <div class="card card-purple" style="margin:0;">
+                <h4 style="margin-top:0; color:var(--accent-purple); font-size:1.05rem;">4. Escolha da Cobertura e Franquia</h4>
+                <p>Explicar o <em>trade-off</em> entre custo e proteção. <em>"Uma franquia maior reduz o preço do seguro, mas você assume uma parte maior do risco no dia a dia. O que é melhor para você?"</em></p>
+            </div>
+        </div>
+
+        <div class="card card-coral" style="margin-top:0.4rem;">
+            <h4 style="margin-top:0; color:var(--accent-coral); font-size:1.05rem;">5. Formalização e Pós-venda</h4>
+            <p>Explicar o aviso de sinistro. <em>"A apólice chegará em 15 dias. Enquanto isso, aqui está meu contato para qualquer emergência."</em></p>
+        </div>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 10. QUADRO RESUMO ════════════════════ -->
+    <section id="sec-resumo" class="anchor-offset">
+        <h2>10. Quadro Resumo <span class="badge">Pegadinhas da Banca</span></h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="min-width:140px;">Tema</th>
+                        <th style="min-width:200px;">Afirmação Incorreta (Pegadinha)</th>
+                        <th>Correção (Fundamento)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Início de Cobertura</strong></td>
+                        <td>Começa com a assinatura da proposta ou pagamento do prêmio.</td>
+                        <td>Começa com a <span class="hl">aceitação</span> da proposta pela seguradora.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prazo da Apólice</strong></td>
+                        <td>A seguradora tem 30 ou 60 dias para emitir a apólice.</td>
+                        <td>O prazo é de <span class="hl">15 dias</span>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Franquia</strong></td>
+                        <td>Serve para criar uma reserva de poupança para o segurado.</td>
+                        <td>Finalidade de incentivar a <span class="hl">gestão de riscos</span> e evitar pequenos sinistros.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inadimplência</strong></td>
+                        <td>O contrato é cancelado automaticamente com o atraso.</td>
+                        <td>Depende de <span class="hl">cláusula expressa</span> na apólice. Não é automático.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pagamento do Prêmio</strong></td>
+                        <td>Se o sinistro ocorrer antes do pagamento do boleto (dentro do prazo), perde a indenização.</td>
+                        <td><span class="hl-green">Não perde</span>, desde que o pagamento seja feito dentro do prazo de vencimento.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Valor da Indenização</strong></td>
+                        <td>É sempre pelo valor de compra do bem (nota fiscal).</td>
+                        <td>É pelo <span class="hl">valor atual</span> de mercado na data do sinistro (Tabela FIPE).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contratação Verbal</strong></td>
+                        <td>Não é válida por falta de forma escrita.</td>
+                        <td>É <span class="hl-green">válida</span>, com emissão de bilhete de seguro, presumindo-se a boa-fé.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cobrança do Prêmio</strong></td>
+                        <td>Pode ser feita diretamente pela corretora de seguros.</td>
+                        <td>Deve ser feita obrigatoriamente por <span class="hl">instituição bancária</span>.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <hr class="divider-diamond" />
+
+    <!-- ════════════════════ 11. ESTUDO DE CASO ════════════════════ -->
+    <section id="sec-caso" class="anchor-offset">
+        <h2>11. Estudo de Caso Prático para Fixação</h2>
+
+        <div class="case-scenario">
+            <h4 style="color:var(--accent-gold); margin-top:0;">📋 Cenário</h4>
+            <p><strong>Maria</strong>, uma nova cliente do banco, financiou um automóvel. No financiamento, contratou um seguro de automóvel com franquia de R$ 2.000. O prêmio total foi parcelado em 12 vezes. No 3º mês, ela esqueceu de pagar o boleto que venceu no dia 10. Um dia <strong>antes</strong> do vencimento, no dia <strong>9</strong>, ela se envolveu em uma colisão que causou um prejuízo de R$ 8.000 em seu carro. Ela está desesperada, achando que perdeu tudo.</p>
+
+            <h4 style="color:var(--accent-blue); margin-top:1.4rem;">Análise do Agente Comercial (Você)</h4>
+            <p>Você precisa tranquilizar Maria, aplicando o conhecimento correto.</p>
+
+            <div class="step">
+                <span class="num">1.</span>
+                <div>
+                    <strong>Cobertura:</strong> O sinistro ocorreu no dia 9. O vencimento do boleto era dia 10. Apesar de não ter pago, ela ainda estava <strong>dentro do prazo</strong> para fazê-lo. Logo, a cobertura <span class="hl-green">não está prejudicada</span>. Você a orienta a pagar o boleto imediatamente para adimplir sua obrigação.
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="num">2.</span>
+                <div>
+                    <strong>Acionamento do Sinistro:</strong> Você a ajuda a fazer o <strong>aviso de sinistro</strong> à seguradora, por meio do aplicativo do banco ou da central de atendimento. O processo de regulação será iniciado.
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="num">3.</span>
+                <div>
+                    <strong>Indenização:</strong> O perito estabelecerá o <strong>nexo de causalidade</strong> (a batida foi a causa do dano) e apurará o valor do prejuízo (R$ 8.000). A indenização será calculada com base no <strong>valor atual</strong> do veículo na Tabela FIPE na data do acidente (suponhamos que seja R$ 45.000). Como o prejuízo (R$ 8.000) é inferior ao limite da garantia, a seguradora indenizará.
+                </div>
+            </div>
+
+            <div class="step">
+                <span class="num">4.</span>
+                <div>
+                    <strong>Custo da Cliente:</strong> Maria receberá <strong>R$ 6.000</strong> da seguradora (R$ 8.000 de prejuízo – R$ 2.000 de <strong>franquia</strong> de sua responsabilidade).
+                </div>
+            </div>
+
+            <div class="case-conclusion">
+                <p><strong>✅ Conclusão do Caso:</strong> A intervenção de um agente bem treinado transforma um momento de pânico em uma demonstração de segurança e consultoria de qualidade, fortalecendo o relacionamento com o cliente e cumprindo o contrato em sua plenitude.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ════════════════════ RODAPÉ ════════════════════ -->
+    <footer style="margin-top: 2.8rem; padding-top: 1.2rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; font-size: 0.85rem; color: var(--text-muted);">
+        <span>Apostila de Conhecimentos Bancários — Fundamentos e Operações de Seguros</span>
+        <span>Material para estudo em tablet · Conteúdo 100% preservado</span>
+    </footer>
+
+</body>
+</html>
