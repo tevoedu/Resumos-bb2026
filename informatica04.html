@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>Apostila Completa de Informática para Concursos</title>
+    <style>
+        /* ── Reset e base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #0b0d14;
+            color: #e6edf3;
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 4rem;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #11161f;
+            border-radius: 32px;
+            padding: 2.5rem 2.8rem 3.5rem;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+            border: 1px solid #262e3d;
+        }
+        @media (max-width: 700px) {
+            body {
+                padding: 1rem 0.8rem 2rem;
+                font-size: 15px;
+            }
+            .container {
+                padding: 1.5rem 1.2rem 2.5rem;
+                border-radius: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 0.6rem 0.4rem 1.5rem;
+                font-size: 14px;
+            }
+            .container {
+                padding: 1rem 0.9rem 1.8rem;
+                border-radius: 14px;
+            }
+        }
+
+        /* ── Scroll suave ── */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ── Tipografia ── */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-top: 0;
+            letter-spacing: -0.01em;
+        }
+        h1 {
+            font-size: 2.4rem;
+            margin-bottom: 0.5rem;
+            color: #f0f6fc;
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-size: 1.85rem;
+            margin: 2.6rem 0 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 3px solid #2d3a4f;
+            color: #f0f6fc;
+        }
+        h3 {
+            font-size: 1.45rem;
+            margin: 2rem 0 0.8rem;
+            color: #d4e1f0;
+        }
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.6rem 0 0.5rem;
+            color: #c9d8e8;
+        }
+        h5 {
+            font-size: 1.05rem;
+            margin: 1.2rem 0 0.4rem;
+            color: #b8c9dd;
+            font-weight: 600;
+        }
+        p {
+            margin: 0 0 1rem;
+        }
+        a {
+            color: #7aa9ff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        a:hover {
+            border-bottom-color: #7aa9ff;
+        }
+
+        /* ── Cabeçalho ── */
+        .header {
+            text-align: center;
+            padding: 0.8rem 0 1.8rem;
+            border-bottom: 2px solid #1f2a3a;
+            margin-bottom: 2.2rem;
+        }
+        .header .badge {
+            display: inline-block;
+            background: #1f2a3a;
+            color: #b8c9dd;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.25rem 1.2rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.6rem;
+            border: 1px solid #2d3a4f;
+        }
+        .header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 0.2rem;
+            background: linear-gradient(135deg, #f0f6fc 0%, #7aa9ff 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header .sub {
+            color: #8b949e;
+            font-size: 1.05rem;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        /* ── Sumário ── */
+        .toc {
+            background: #141c2b;
+            border-radius: 20px;
+            padding: 1.8rem 2rem 1.5rem;
+            margin: 2rem 0 2.8rem;
+            border: 1px solid #262e3d;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+        .toc h2 {
+            border: none;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            color: #f0f6fc;
+            padding-bottom: 0;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 2rem;
+        }
+        .toc-grid a {
+            display: block;
+            padding: 0.35rem 0;
+            color: #b8c9dd;
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.15s;
+            border-bottom: 1px solid transparent;
+        }
+        .toc-grid a:hover {
+            color: #7aa9ff;
+            border-bottom-color: #7aa9ff;
+        }
+        .toc-grid .toc-chap {
+            font-weight: 600;
+            color: #d4e1f0;
+        }
+        @media (max-width: 600px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+                gap: 0.1rem;
+            }
+            .toc {
+                padding: 1.2rem 1.2rem 1rem;
+            }
+        }
+
+        /* ── Cards / boxes ── */
+        .card {
+            background: #141c2b;
+            border-radius: 16px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.4rem 0;
+            border: 1px solid #262e3d;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+        .card h3,
+        .card h4 {
+            margin-top: 0;
+        }
+
+        .callout {
+            border-radius: 14px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.3rem 0;
+            border-left: 5px solid;
+            background: #111a28;
+        }
+        .callout-tip {
+            border-left-color: #3fb950;
+        }
+        .callout-tip .callout-title {
+            color: #3fb950;
+        }
+        .callout-warn {
+            border-left-color: #d29922;
+        }
+        .callout-warn .callout-title {
+            color: #d29922;
+        }
+        .callout-important {
+            border-left-color: #f0883e;
+        }
+        .callout-important .callout-title {
+            color: #f0883e;
+        }
+        .callout-info {
+            border-left-color: #58a6ff;
+        }
+        .callout-info .callout-title {
+            color: #58a6ff;
+        }
+        .callout .callout-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            margin-bottom: 0.2rem;
+        }
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box {
+            background: #1a2335;
+            border-radius: 14px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.2rem 0;
+            border: 1px solid #2d3a4f;
+        }
+
+        /* ── Destaque de texto (marca-texto) ── */
+        .hl {
+            background: linear-gradient(120deg, rgba(88, 166, 255, 0.2) 0%, rgba(88, 166, 255, 0.2) 100%);
+            padding: 0 0.3rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #b8d3ff;
+        }
+        .hl-gold {
+            background: linear-gradient(120deg, rgba(210, 153, 34, 0.25) 0%, rgba(210, 153, 34, 0.25) 100%);
+            padding: 0 0.3rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #f5c542;
+        }
+        .hl-green {
+            background: linear-gradient(120deg, rgba(63, 185, 80, 0.2) 0%, rgba(63, 185, 80, 0.2) 100%);
+            padding: 0 0.3rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #7ee08a;
+        }
+        .hl-pink {
+            background: linear-gradient(120deg, rgba(233, 69, 96, 0.2) 0%, rgba(233, 69, 96, 0.2) 100%);
+            padding: 0 0.3rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #f28b9e;
+        }
+
+        /* ── Tabelas modernas ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-radius: 14px;
+            border: 1px solid #262e3d;
+            background: #0f1622;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+        }
+        table th {
+            background: #1a2335;
+            color: #d4e1f0;
+            font-weight: 600;
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 2px solid #2d3a4f;
+        }
+        table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid #1f2a3a;
+            color: #d4e1f0;
+        }
+        table tr:last-child td {
+            border-bottom: none;
+        }
+        table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        table .highlight-row td {
+            background: rgba(88, 166, 255, 0.06);
+        }
+
+        /* ── Listas ── */
+        ul,
+        ol {
+            padding-left: 1.6rem;
+            margin: 0.6rem 0 1.2rem;
+        }
+        li {
+            margin-bottom: 0.3rem;
+        }
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-check li::before {
+            content: "✓ ";
+            color: #3fb950;
+            font-weight: 700;
+        }
+        .list-cross {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-cross li::before {
+            content: "✗ ";
+            color: #f0883e;
+            font-weight: 700;
+        }
+
+        /* ── Linha divisória elegante ── */
+        .divider {
+            margin: 2.8rem 0 2.2rem;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #2d3a4f, #4a5a78, #2d3a4f, transparent);
+            border: none;
+        }
+
+        /* ── Citações ── */
+        .quote {
+            background: #101826;
+            border-radius: 14px;
+            padding: 1.2rem 1.8rem;
+            margin: 1.4rem 0;
+            border-left: 4px solid #58a6ff;
+            font-style: italic;
+            color: #c9d8e8;
+        }
+        .quote .attr {
+            display: block;
+            margin-top: 0.4rem;
+            font-style: normal;
+            font-weight: 500;
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+
+        /* ── SVG container ── */
+        .svg-container {
+            background: #0f1622;
+            border-radius: 18px;
+            padding: 1.5rem 1rem;
+            margin: 1.8rem 0;
+            border: 1px solid #262e3d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+        }
+        .svg-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ── Grid de cards ── */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.4rem 0;
+        }
+        .card-grid .card {
+            margin: 0;
+        }
+        @media (max-width: 650px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Responsividade geral ── */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .header h1 {
+                font-size: 1.9rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+            .container {
+                padding: 1.2rem 0.9rem 2rem;
+            }
+            .card {
+                padding: 1rem 1.2rem;
+            }
+            .callout {
+                padding: 0.9rem 1.2rem;
+            }
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Utilitários ── */
+        .mt-0 {
+            margin-top: 0;
+        }
+        .mb-0 {
+            margin-bottom: 0;
+        }
+        .text-muted {
+            color: #8b949e;
+        }
+        .text-accent {
+            color: #7aa9ff;
+        }
+        .text-gold {
+            color: #f5c542;
+        }
+        .text-green {
+            color: #3fb950;
+        }
+        .text-pink {
+            color: #f28b9e;
+        }
+        .fw-600 {
+            font-weight: 600;
+        }
+        .small {
+            font-size: 0.9rem;
+        }
+
+        /* ── Ajuste para o sumário interno ── */
+        .toc a.toc-chap {
+            font-weight: 600;
+            color: #d4e1f0;
+        }
+        .toc a.toc-chap:hover {
+            color: #7aa9ff;
+        }
+
+        /* ── Âncoras ── */
+        .anchor {
+            display: block;
+            position: relative;
+            top: -1.5rem;
+            visibility: hidden;
+        }
+
+        /* ── Lista de definições (glossário) ── */
+        .glossary-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem 2rem;
+        }
+        .glossary-list .term {
+            font-weight: 600;
+            color: #d4e1f0;
+        }
+        .glossary-list .def {
+            color: #b8c9dd;
+            margin-bottom: 0.6rem;
+        }
+        @media (max-width: 600px) {
+            .glossary-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Botão de voltar ao topo ── */
+        .back-top {
+            display: inline-block;
+            margin-top: 2.5rem;
+            padding: 0.5rem 1.6rem;
+            background: #1a2335;
+            color: #b8c9dd;
+            border-radius: 40px;
+            border: 1px solid #2d3a4f;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            text-align: center;
+        }
+        .back-top:hover {
+            background: #262e3d;
+            color: #f0f6fc;
+            border-color: #4a5a78;
+        }
+        .back-top-wrap {
+            text-align: center;
+        }
+
+        /* ── Correção para tabelas em mobile ── */
+        @media (max-width: 500px) {
+            table {
+                font-size: 0.8rem;
+            }
+            table th,
+            table td {
+                padding: 0.4rem 0.5rem;
+            }
+        }
+
+        /* ── Código inline ── */
+        code {
+            background: #0f1622;
+            padding: 0.1rem 0.5rem;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.88em;
+            color: #f5c542;
+            border: 1px solid #1f2a3a;
+        }
+
+        /* ── Blocos de código ── */
+        .code-block {
+            background: #0b0f18;
+            border-radius: 12px;
+            padding: 1rem 1.4rem;
+            margin: 1rem 0;
+            border: 1px solid #1f2a3a;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.88rem;
+            color: #d4e1f0;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* ── Evitar quebras em títulos longos ── */
+        h2,
+        h3,
+        h4 {
+            word-break: break-word;
+        }
+
+        /* ── Ajuste para a lista de exercícios ── */
+        .exercise-list {
+            counter-reset: ex;
+            list-style: none;
+            padding-left: 0;
+        }
+        .exercise-list li {
+            counter-increment: ex;
+            padding: 0.5rem 0 0.5rem 2.2rem;
+            position: relative;
+            border-bottom: 1px solid #1a2335;
+        }
+        .exercise-list li::before {
+            content: counter(ex) ".";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: #7aa9ff;
+        }
+        .exercise-list li:last-child {
+            border-bottom: none;
+        }
+        .exercise-answer {
+            color: #3fb950;
+            font-weight: 500;
+            margin-top: 0.2rem;
+            font-size: 0.92rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ======== HEADER ======== -->
+        <header class="header">
+            <div class="badge">📘 Nível Avançado</div>
+            <h1>Apostila Completa de Informática<br>para Concursos Públicos</h1>
+            <p class="sub">Preparação para Cesgranrio · FCC · FGV · Cebraspe · Vunesp · IADES</p>
+        </header>
+
+        <!-- ======== SUMÁRIO ======== -->
+        <div class="toc" id="sumario">
+            <h2>Sumário</h2>
+            <div class="toc-grid">
+                <a href="#cap1" class="toc-chap">Capítulo 1: Excel</a>
+                <a href="#cap1-1">1.1 Gráficos e Visualização de Dados</a>
+                <a href="#cap1-2">1.2 Fórmulas e Referências Celulares</a>
+                <a href="#cap1-3">1.3 Funções Avançadas (PROCV, PROCH, CORRESP)</a>
+
+                <a href="#cap2" class="toc-chap">Capítulo 2: Word</a>
+                <a href="#cap2-1">2.1 Formatação Avançada e Colunas</a>
+                <a href="#cap2-2">2.2 Mala Direta e Recursos Administrativos</a>
+
+                <a href="#cap3" class="toc-chap">Capítulo 3: Windows 10/11</a>
+                <a href="#cap3-1">3.1 Atalhos de Teclado Essenciais</a>
+                <a href="#cap3-2">3.2 Gerenciamento de Arquivos e Pastas</a>
+                <a href="#cap3-3">3.3 Configurações e Ferramentas</a>
+
+                <a href="#cap4" class="toc-chap">Capítulo 4: Internet, Redes e Segurança</a>
+                <a href="#cap4-1">4.1 Conceitos Fundamentais de Redes</a>
+                <a href="#cap4-2">4.2 Navegadores e Ferramentas de Busca</a>
+                <a href="#cap4-3">4.3 Pilares da Segurança da Informação</a>
+                <a href="#cap4-4">4.4 Identificação, Autenticação e Autorização</a>
+                <a href="#cap4-5">4.5 Assinatura Digital e Envelopes Digitais</a>
+                <a href="#cap4-6">4.6 Backup e Gerenciamento de Dados</a>
+
+                <a href="#cap5" class="toc-chap">Capítulo 5: Comunicação e Colaboração</a>
+                <a href="#cap5-1">5.1 E-mail e Segurança</a>
+                <a href="#cap5-2">5.2 Redes Sociais e Networking</a>
+                <a href="#cap5-3">5.3 WhatsApp e Privacidade</a>
+
+                <a href="#anexo" class="toc-chap">Anexo: Estudos de Caso</a>
+                <a href="#glossario" class="toc-chap">Glossário</a>
+                <a href="#exercicios" class="toc-chap">Exercícios Propostos</a>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 1                                                     -->
+        <!-- ============================================================ -->
+        <span class="anchor" id="cap1"></span>
+        <h2>Capítulo 1: Ferramentas de Produtividade – Microsoft Excel</h2>
+
+        <span class="anchor" id="cap1-1"></span>
+        <h3>1.1 Gráficos e Visualização de Dados</h3>
+
+        <h4>1.1.1 Introdução à Visualização de Dados no Excel</h4>
+        <p>A visualização de dados é uma das competências mais valorizadas em cargos administrativos, fiscais e de gestão. O Excel oferece uma ampla variedade de tipos de gráficos, cada um com uma finalidade específica e adequado a diferentes naturezas de dados. A escolha incorreta do tipo de gráfico pode levar a interpretações equivocadas, comprometendo a tomada de decisão.</p>
+
+        <h4>1.1.2 Gráfico de Linha: A Ferramenta para Séries Temporais</h4>
+        <p><span class="hl">O quê?</span> O gráfico de linha é um tipo de visualização que conecta pontos de dados individuais por meio de segmentos de reta, formando uma linha contínua que representa a evolução de uma ou mais variáveis ao longo de um eixo contínuo (geralmente tempo).</p>
+        <p><span class="hl">Para quê?</span> Este gráfico é especialmente útil para:</p>
+        <ul>
+            <li>Identificar tendências (crescentes, decrescentes ou estáveis)</li>
+            <li>Detectar padrões sazonais e ciclos</li>
+            <li>Comparar o desempenho de múltiplas variáveis ao longo do mesmo período</li>
+            <li>Projetar comportamentos futuros com base em dados históricos</li>
+        </ul>
+        <p><span class="hl">Quando utilizar?</span> O gráfico de linha é a escolha ideal quando:</p>
+        <ul>
+            <li>Os dados são organizados em intervalos regulares de tempo (dias, meses, anos)</li>
+            <li>Há necessidade de enfatizar a continuidade e a direção dos dados</li>
+            <li>O número de pontos de dados é significativo (mais de 10 períodos)</li>
+            <li>Deseja-se analisar a taxa de variação entre períodos</li>
+        </ul>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Exemplo Prático</div>
+            <p>Um analista de desempenho precisa apresentar a evolução mensal de um indicador de produtividade ao longo de 24 meses. O gráfico de linha permitirá que a gestão visualize rapidamente:</p>
+            <ul>
+                <li>Períodos de crescimento e declínio</li>
+                <li>Sazonalidade (ex: queda em meses de férias)</li>
+                <li>Impacto de ações implementadas em determinados meses</li>
+                <li>Tendência geral do indicador</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-warn">
+            <div class="callout-title">Pegadinhas de Prova</div>
+            <ul class="list-cross">
+                <li><span class="hl-pink">Erro comum:</span> Utilizar gráfico de pizza para séries temporais. A pizza mostra proporções em um único momento, não evolução ao longo do tempo.</li>
+                <li><span class="hl-pink">Erro comum:</span> Utilizar gráfico de barras para séries temporais extensas. Embora possível, a visualização fica poluída e dificulta a percepção da tendência.</li>
+            </ul>
+            <p><span class="hl-gold">Dica:</span> Bancas como FCC e Cesgranrio frequentemente cobram a associação <span class="hl">"gráfico de linha = evolução temporal"</span> em questões de interpretação de cenários.</p>
+        </div>
+
+        <h4>1.1.3 Panorama dos Principais Tipos de Gráficos</h4>
+        <p>Para uma preparação completa, é fundamental conhecer as características e aplicações de cada tipo de gráfico disponível no Excel:</p>
+
+        <div class="card-grid">
+            <div class="card">
+                <h5 style="color:#58a6ff;">📊 Gráfico de Barras/Colunas</h5>
+                <p><strong>Finalidade:</strong> Comparar categorias distintas</p>
+                <p><strong>Quando usar:</strong> Dados categóricos, comparação entre itens (ex: vendas por região)</p>
+                <p><strong>Variações:</strong> Barras empilhadas (mostram composição), barras agrupadas (comparação múltipla)</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#3fb950;">📈 Gráfico de Linha</h5>
+                <p><strong>Finalidade:</strong> Mostrar tendências ao longo do tempo</p>
+                <p><strong>Quando usar:</strong> Séries temporais, evolução contínua</p>
+                <p><strong>Variações:</strong> Linhas com marcadores, linhas suavizadas</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#f5c542;">🥧 Gráfico de Pizza (Pie Chart)</h5>
+                <p><strong>Finalidade:</strong> Mostrar proporções de partes em relação a um todo</p>
+                <p><strong>Quando usar:</strong> Dados que somam 100%, poucas categorias (máx. 6–7 fatias)</p>
+                <p><strong>Limitação:</strong> Não é adequado para séries temporais</p>
+                <p><span class="hl-pink">Pegadinha:</span> O Excel permite criar gráfico de pizza com dados que não somam 100%, mas a interpretação fica comprometida</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#f0883e;">🔗 Gráfico em Rede</h5>
+                <p><strong>Finalidade:</strong> Mostrar relações complexas entre elementos interconectados</p>
+                <p><strong>Quando usar:</strong> Diagramas de fluxo, relações hierárquicas não lineares, conexões entre entidades</p>
+                <p><strong>Exemplo:</strong> Mapeamento de relacionamentos entre departamentos</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#7aa9ff;">🌳 Mapa de Árvore (Treemap)</h5>
+                <p><strong>Finalidade:</strong> Representar hierarquias de categorias por meio de retângulos proporcionais</p>
+                <p><strong>Quando usar:</strong> Dados hierárquicos onde o tamanho representa uma métrica (ex: vendas por categoria e subcategoria)</p>
+                <p><strong>Vantagem:</strong> Utiliza espaço de forma eficiente, permitindo visualizar muitos níveis</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#f28b9e;">🔥 Mapa de Calor (Heat Map)</h5>
+                <p><strong>Finalidade:</strong> Exibir intensidade ou densidade em uma matriz bidimensional</p>
+                <p><strong>Quando usar:</strong> Grandes conjuntos de dados, padrões de comportamento, dados geográficos</p>
+                <p><strong>Característica:</strong> Cores representam valores (do frio ao quente)</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#b8c9dd;">📊 Gráfico de Dispersão (Scatter Plot)</h5>
+                <p><strong>Finalidade:</strong> Mostrar relação entre duas variáveis numéricas</p>
+                <p><strong>Quando usar:</strong> Correlação entre variáveis, identificação de outliers</p>
+                <p><strong>Variação:</strong> Gráfico de bolhas (adiciona terceira dimensão)</p>
+            </div>
+        </div>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Quadro-Resumo: Tipos de Gráficos e Suas Aplicações</div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Tipo de Gráfico</th><th>Finalidade Principal</th><th>Quando Utilizar</th><th>Exemplo de Aplicação</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Linha</strong></td><td>Tendências temporais</td><td>Séries históricas, evolução contínua</td><td>Crescimento mensal de vendas</td></tr>
+                        <tr><td><strong>Barras/Colunas</strong></td><td>Comparação categórica</td><td>Comparar itens distintos</td><td>Vendas por região</td></tr>
+                        <tr><td><strong>Pizza</strong></td><td>Proporções de um todo</td><td>Dados que somam 100%, poucas categorias</td><td>Participação de mercado</td></tr>
+                        <tr><td><strong>Rede</strong></td><td>Relações complexas</td><td>Elementos interconectados</td><td>Mapa de relacionamentos</td></tr>
+                        <tr><td><strong>Mapa de Árvore</strong></td><td>Hierarquias proporcionais</td><td>Dados hierárquicos com métrica</td><td>Vendas por categoria/subcategoria</td></tr>
+                        <tr><td><strong>Mapa de Calor</strong></td><td>Intensidade/densidade</td><td>Matrizes bidimensionais</td><td>Concentração de ocorrências</td></tr>
+                        <tr><td><strong>Dispersão</strong></td><td>Correlação entre variáveis</td><td>Relação entre duas métricas</td><td>Idade × Salário</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap1-2"></span>
+        <h3>1.2 Fórmulas e Referências Celulares no Excel</h3>
+
+        <h4>1.2.1 Fundamentos das Fórmulas no Excel</h4>
+        <p>Toda fórmula no Excel deve obrigatoriamente começar com o sinal de igual (<code>=</code>). Este é um princípio fundamental que diferencia uma fórmula de um texto comum.</p>
+        <p><strong>Sintaxe Básica:</strong></p>
+        <div class="code-block">=FUNÇÃO(argumento1; argumento2; ...)</div>
+        <p><strong>Exemplo de Soma Simples:</strong></p>
+        <div class="code-block">=A1+B1+C1</div>
+        <p><strong>Passo a Passo para uma Soma Simples:</strong></p>
+        <ol>
+            <li>Selecione a célula onde deseja o resultado</li>
+            <li>Digite o sinal de igual (<code>=</code>)</li>
+            <li>Digite o primeiro valor ou referência de célula</li>
+            <li>Insira o operador (<code>+</code>)</li>
+            <li>Digite o segundo valor ou referência</li>
+            <li>Pressione Enter para confirmar</li>
+        </ol>
+        <div class="callout callout-warn">
+            <div class="callout-title">Pegadinha de Prova</div>
+            <p>Muitas questões afirmam que é possível iniciar uma fórmula com "<code>=</code>" ou "<code>+</code>" (antiga compatibilidade com Lotus). Embora o Excel aceite "<code>+</code>" no início, a prática recomendada e cobrada em provas é iniciar com "<code>=</code>".</p>
+        </div>
+
+        <h4>1.2.2 Referências Celulares: Absolutas, Relativas e Mistas</h4>
+        <p>Compreender o comportamento das referências ao copiar fórmulas é essencial para resolver questões de provas que envolvem arrastar a alça de preenchimento.</p>
+
+        <div class="card">
+            <h5 style="color:#58a6ff;">Referência Relativa (ex: A1, G1)</h5>
+            <ul>
+                <li><strong>Comportamento:</strong> Ajusta-se automaticamente ao ser copiada</li>
+                <li><strong>Funcionamento:</strong> A referência é interpretada como "célula na mesma posição relativa"</li>
+                <li><strong>Exemplo:</strong> Copiar <code>=A1</code> de B1 para B2 resulta em <code>=A2</code> (a linha incrementa)</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h5 style="color:#f5c542;">Referência Absoluta (ex: $A$1, $F$2)</h5>
+            <ul>
+                <li><strong>Comportamento:</strong> Permanece fixa ao ser copiada</li>
+                <li><strong>Funcionamento:</strong> A referência é travada, não importa onde a fórmula seja colada</li>
+                <li><strong>Exemplo:</strong> Copiar <code>=$A$1</code> de B1 para B2 resulta em <code>=$A$1</code></li>
+            </ul>
+        </div>
+        <div class="card">
+            <h5 style="color:#3fb950;">Referência Mista (ex: $A1, A$1, $F2, F$2)</h5>
+            <ul>
+                <li><strong>Comportamento:</strong> Uma parte fixa, outra parte relativa</li>
+                <li><strong>$A1:</strong> Coluna absoluta, linha relativa</li>
+                <li><strong>A$1:</strong> Linha absoluta, coluna relativa</li>
+            </ul>
+        </div>
+
+        <div class="callout callout-important">
+            <div class="callout-title">Exemplo Resolvido (Questão Típica de Concurso)</div>
+            <p><strong>Situação:</strong> Uma planilha contém a fórmula <code>=F$2+G1-$H2</code> na célula K2.</p>
+            <p><strong>Pergunta:</strong> Ao copiar esta fórmula para a célula K6 (4 linhas abaixo), qual será a fórmula resultante?</p>
+            <p><strong>Resolução:</strong></p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Componente</th><th>Original</th><th>Análise</th><th>Resultado</th></tr></thead>
+                    <tbody>
+                        <tr><td>F$2</td><td>F$2</td><td>Coluna F relativa, Linha 2 absoluta</td><td>F$2</td></tr>
+                        <tr><td>G1</td><td>G1</td><td>Coluna G relativa, Linha 1 relativa → avança 4</td><td>G5</td></tr>
+                        <tr><td>-$H2</td><td>-$H2</td><td>Coluna H absoluta, Linha 2 relativa → avança 4</td><td>-$H6</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Fórmula Final:</strong> <code>=F$2+G5-$H6</code></p>
+            <p><strong>Passo a Passo:</strong></p>
+            <ol>
+                <li><strong>F$2:</strong> O cifrão ($) antes do 2 trava a linha 2. A coluna F não tem cifrão, então permanece F. → <strong>F$2</strong></li>
+                <li><strong>G1:</strong> Nenhum cifrão, ambas as referências são relativas. Como a fórmula foi copiada para 4 linhas abaixo, ambas as linhas avançam 4: G1 → G5. → <strong>G5</strong></li>
+                <li><strong>$H2:</strong> O cifrão antes do H trava a coluna. A linha 2 não tem cifrão, portanto avança 4: → <strong>-$H6</strong></li>
+            </ol>
+        </div>
+
+        <h4>1.2.3 A Alça de Preenchimento e Seu Comportamento</h4>
+        <p>A alça de preenchimento (pequeno quadrado no canto inferior direito da célula selecionada) é uma ferramenta poderosa, mas seu comportamento varia conforme o contexto.</p>
+        <ul>
+            <li><strong>Comportamento ao Arrastar Verticalmente (linhas):</strong> Com sequência: continua a progressão (1,2,3 → 4,5,6). Com padrão: continua o padrão (Jan,Fev,Mar → Abr,Mai,Jun). Com valor único: copia o mesmo valor.</li>
+            <li><strong>Comportamento ao Arrastar Horizontalmente (colunas):</strong> Com sequência: continua a progressão na horizontal. Com padrão: continua o padrão na horizontal. Com valor único: copia o mesmo valor.</li>
+        </ul>
+        <div class="callout callout-warn">
+            <div class="callout-title">Exceção Importante (Pegadinha de Prova)</div>
+            <p><strong>Situação Específica:</strong> Ao selecionar um intervalo vertical (ex: A1:A4) contendo uma sequência e arrastar <strong>horizontalmente</strong> para outra coluna (ex: B1:B4):</p>
+            <ul>
+                <li>O Excel <span class="hl-pink">COPIA os valores originais</span></li>
+                <li><span class="hl-pink">Não continua a sequência</span></li>
+            </ul>
+            <p><strong>Exemplo:</strong> A1=2, A2=4, A3=6, A4=8. Seleciona A1:A4 e arrasta para B1:B4. Resultado: B1=2, B2=4, B3=6, B4=8.</p>
+            <p><span class="text-muted">Explicação:</span> O Excel entende que você está copiando um conjunto de valores para uma nova posição, não estendendo uma sequência.</p>
+        </div>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Quadro-Resumo: Comportamento da Alça de Preenchimento</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Ação</th><th>Comportamento</th><th>Resultado</th></tr></thead>
+                    <tbody>
+                        <tr><td>Arrastar vertical (sequência)</td><td>Continua a progressão</td><td>1,2,3,4 → 5,6,7,8</td></tr>
+                        <tr><td>Arrastar horizontal (sequência)</td><td>Continua a progressão</td><td>1,2,3 → 4,5,6</td></tr>
+                        <tr><td>Arrastar vertical (valor único)</td><td>Copia o valor</td><td>10 → 10,10,10</td></tr>
+                        <tr><td>Arrastar horizontal (valor único)</td><td>Copia o valor</td><td>10 → 10,10,10</td></tr>
+                        <tr class="highlight-row"><td><strong>Arrastar horizontal (intervalo vertical com sequência)</strong></td><td><span class="hl-pink">Copia os valores originais</span></td><td><span class="hl-pink">A1:A4 → B1:B4 com mesmos valores</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap1-3"></span>
+        <h3>1.3 Funções Avançadas do Excel</h3>
+
+        <h4>1.3.1 Função PROCV (Procura Vertical)</h4>
+        <p>A função PROCV é uma das mais cobradas em concursos e uma das mais mal compreendidas. O domínio completo desta função é diferencial em provas de alto nível.</p>
+        <p><span class="hl">O que é?</span> PROCV é uma função de busca e referência que procura um valor na primeira coluna de uma tabela e retorna um valor de outra coluna na mesma linha.</p>
+        <p><strong>Sintaxe Completa:</strong></p>
+        <div class="code-block">=PROCV(valor_procurado; matriz_tabela; núm_índice_coluna; [procurar_intervalo])</div>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Tabela Explicativa dos Argumentos</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Argumento</th><th>Obrigatório?</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>valor_procurado</strong></td><td>Sim</td><td>Valor a ser localizado na primeira coluna da tabela</td><td>"A123", 1001, A2</td></tr>
+                        <tr><td><strong>matriz_tabela</strong></td><td>Sim</td><td>Intervalo de células que contém a tabela de dados</td><td>A2:D100, Tabela1</td></tr>
+                        <tr><td><strong>núm_índice_coluna</strong></td><td>Sim</td><td>Número da coluna na tabela de onde extrair o valor (1 = primeira coluna)</td><td>3 (retorna valor da 3ª coluna)</td></tr>
+                        <tr><td><strong>[procurar_intervalo]</strong></td><td>Não</td><td>FALSO = busca exata; VERDADEIRO = busca aproximada</td><td>FALSO (padrão em provas)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h5>Exemplos Práticos</h5>
+        <p><strong>Exemplo 1: Busca de Preço de Produto</strong></p>
+        <div class="code-block">Planilha com dados:
+        A        B          C
+        Código   Produto    Preço
+        P001     Caneta     R$ 2,00
+        P002     Lápis      R$ 1,50
+        P003     Borracha   R$ 3,00</div>
+        <p><strong>Fórmula:</strong> <code>=PROCV("P002"; A2:C4; 3; FALSO)</code></p>
+        <p><strong>Resultado:</strong> R$ 1,50</p>
+
+        <p><strong>Exemplo 2: Busca em Planilha de Funcionários</strong></p>
+        <div class="code-block">A         B          C           D
+        Matrícula Nome       Cargo       Salário
+        101       Ana        Analista    R$ 5.000
+        102       Bruno      Gerente     R$ 8.000
+        103       Carla      Assistente  R$ 3.500</div>
+        <p><strong>Fórmula:</strong> <code>=PROCV(102; A2:D4; 4; FALSO)</code></p>
+        <p><strong>Resultado:</strong> R$ 8.000</p>
+
+        <div class="callout callout-warn">
+            <div class="callout-title">O 4º Argumento (procurar_intervalo): A Grande Pegadinha</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Valor</th><th>Significado</th><th>Uso</th><th>Risco</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>FALSO</strong> (ou 0)</td><td>Busca exata</td><td>Dados que devem corresponder exatamente</td><td>Procura linha a linha até encontrar (mais lento)</td></tr>
+                        <tr><td><strong>VERDADEIRO</strong> (ou 1)</td><td>Busca aproximada</td><td>Tabelas ordenadas, intervalos de valores</td><td>Retorna valor errado se dados não estiverem ordenados</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><span class="hl-pink">Pegadinha Clássica de Prova:</span></p>
+            <ul>
+                <li>Se o 4º argumento for omitido, o Excel assume VERDADEIRO (busca aproximada)</li>
+                <li>Isso pode levar a resultados inesperados se a tabela não estiver ordenada</li>
+                <li><span class="hl-gold">Regra de Ouro:</span> Sempre use FALSO para buscas de código, CPF, ou qualquer valor único</li>
+            </ul>
+        </div>
+
+        <h5>Erros Comuns e Suas Causas</h5>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Erro</th><th>Significado</th><th>Causa</th><th>Solução</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>#N/D</strong></td><td>Não Disponível</td><td>Valor não encontrado</td><td>Verificar se o valor existe; usar FALSO</td></tr>
+                    <tr><td><strong>#REF!</strong></td><td>Referência Inválida</td><td>Coluna de índice &gt; número de colunas</td><td>Verificar matriz_tabela</td></tr>
+                    <tr><td><strong>#VALOR!</strong></td><td>Valor Inválido</td><td>Argumento incorreto</td><td>Verificar tipos de dados</td></tr>
+                    <tr><td><strong>#NOME?</strong></td><td>Nome não reconhecido</td><td>Função digitada errado</td><td>Corrigir ortografia (PROCV, não "PROCURA")</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h5>Comparação: PROCV vs. PROCH vs. CORRESP</h5>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Função</th><th>O que faz</th><th>Quando usar</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>PROCV</strong></td><td>Busca vertical (na primeira coluna)</td><td>Dados organizados em colunas</td></tr>
+                    <tr><td><strong>PROCH</strong></td><td>Busca horizontal (na primeira linha)</td><td>Dados organizados em linhas</td></tr>
+                    <tr><td><strong>CORRESP</strong></td><td>Retorna a posição de um valor em um intervalo</td><td>Encontrar a linha/coluna de um valor</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><span class="hl-gold">Macete para Lembrar:</span></p>
+        <ul>
+            <li><strong>PROC-V</strong> = Vertical (colunas)</li>
+            <li><strong>PROC-H</strong> = Horizontal (linhas)</li>
+            <li><strong>CORRESP</strong> = "Correspondência" (posição)</li>
+        </ul>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Quadro-Resumo: PROCV em Provas</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>O que a banca cobra</th><th>O que você deve saber</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sintaxe correta</td><td><code>=PROCV(valor; matriz; índice; [intervalo])</code></td></tr>
+                        <tr><td>4º argumento</td><td>FALSO = busca exata; VERDADEIRO = aproximada</td></tr>
+                        <tr><td>Ordem da tabela</td><td>Primeira coluna = onde procurar</td></tr>
+                        <tr><td>Número do índice</td><td>1 = primeira coluna da matriz</td></tr>
+                        <tr><td>Erros</td><td>#N/D (não encontrou), #REF! (coluna inválida)</td></tr>
+                        <tr><td>Tipos de dado</td><td>Texto vs. Número (cuidado com formatação)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h4>1.3.2 Fórmulas de Soma no Excel</h4>
+        <p><strong>Soma Simples:</strong></p>
+        <div class="code-block">=A1+B1+C1</div>
+        <p><strong>Soma com Função SOMA:</strong></p>
+        <div class="code-block">=SOMA(A1:A10)</div>
+        <p><strong>Soma com Condição – SOMASE:</strong></p>
+        <div class="code-block">=SOMASE(A1:A10; "&gt;100"; B1:B10)</div>
+        <p>Soma valores em B1:B10 onde A1:A10 &gt; 100</p>
+        <p><strong>Soma com Múltiplas Condições – SOMASES (Excel 2010+):</strong></p>
+        <div class="code-block">=SOMASES(A1:A10; B1:B10; "&gt;5"; C1:C10; "&lt;10")</div>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 2                                                     -->
+        <!-- ============================================================ -->
+        <span class="anchor" id="cap2"></span>
+        <h2>Capítulo 2: Processamento de Texto – Microsoft Word</h2>
+
+        <span class="anchor" id="cap2-1"></span>
+        <h3>2.1 Formatação Avançada de Texto e Colunas</h3>
+
+        <h4>2.1.1 Recurso Colunas no Microsoft Word</h4>
+        <p>O recurso de colunas no Word permite dividir o texto de um documento em múltiplas colunas verticais, similar a um jornal ou revista.</p>
+        <p><strong>Para que serve?</strong></p>
+        <ul>
+            <li>Criar layouts de revistas e jornais</li>
+            <li>Organizar conteúdo em documentos extensos</li>
+            <li>Melhorar a legibilidade de textos longos</li>
+            <li>Criar formulários e panfletos</li>
+        </ul>
+        <p><strong>Como acessar?</strong></p>
+        <ol>
+            <li>Guia <strong>Layout</strong> (ou <strong>Layout da Página</strong> em versões anteriores)</li>
+            <li>Grupo <strong>Configurar Página</strong></li>
+            <li>Botão <strong>Colunas</strong></li>
+            <li>Opções: Uma, Duas, Três, Esquerda, Direita, Mais Colunas</li>
+        </ol>
+
+        <div class="callout callout-warn">
+            <div class="callout-title">Limitação Crítica (Pegadinha de Prova)</div>
+            <p><span class="hl-pink">Colunas NÃO podem ser aplicadas ao conteúdo dentro de formas retangulares (caixas de texto, formas geométricas).</span></p>
+            <ul>
+                <li>Colunas são aplicadas a parágrafos e texto contínuo do documento</li>
+                <li>Não funcionam em caixas de texto ou formas</li>
+                <li>Para texto dentro de formas, usa-se opções internas de formatação (não Colunas)</li>
+            </ul>
+            <p><strong>Exemplo de questão:</strong> "No Word, é possível criar colunas dentro de uma caixa de texto usando a opção Colunas." → <span class="hl-pink">FALSO</span></p>
+        </div>
+
+        <h5>Número Máximo de Colunas</h5>
+        <p><strong>Limite:</strong> 45 colunas</p>
+        <p><span class="hl-pink">Pegadinha:</span> Muitas pessoas acreditam que o limite é 9 (o que aparece no menu rápido). O menu "Mais Colunas" permite configurar até 45 colunas.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Opção no Menu</th><th>Número</th><th>Através de "Mais Colunas"</th></tr></thead>
+                <tbody>
+                    <tr><td>Uma, Duas, Três</td><td>1, 2, 3</td><td>Até 45 colunas</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><strong>Larguras das Colunas:</strong> É possível definir larguras diferentes para cada coluna! Acesse <strong>Colunas</strong> → <strong>Mais Colunas</strong>, desmarque "Largura igual" e defina a largura e o espaçamento individualmente. Exemplo: Coluna 1 com 5cm, Coluna 2 com 8cm, Coluna 3 com 5cm.</p>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Quadro-Resumo: Recurso Colunas</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Característica</th><th>Informação</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Onde se aplica</strong></td><td>Texto do documento (parágrafos)</td></tr>
+                        <tr><td><strong>Onde NÃO se aplica</strong></td><td>Caixas de texto, formas, objetos</td></tr>
+                        <tr><td><strong>Número máximo</strong></td><td>45 colunas</td></tr>
+                        <tr><td><strong>Larguras</strong></td><td>Podem ser iguais ou diferentes</td></tr>
+                        <tr><td><strong>Caminho</strong></td><td>Layout → Colunas → Mais Colunas</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap2-2"></span>
+        <h3>2.2 Mala Direta e Recursos Administrativos</h3>
+
+        <h4>2.2.1 Mala Direta no Microsoft Word</h4>
+        <p>A Mala Direta é um recurso que permite criar documentos personalizados em massa, como cartas, etiquetas e envelopes.</p>
+        <p><strong>Passo a Passo para Criar Mala Direta:</strong></p>
+        <ol>
+            <li><strong>Preparar a Fonte de Dados:</strong> Planilha Excel, Lista do Outlook, ou Arquivo de Texto. Campos: Nome, Endereço, Cidade, etc.</li>
+            <li><strong>Iniciar a Mala Direta:</strong> Guia <strong>Correspondências</strong> → <strong>Iniciar Mala Direta</strong> → <strong>Cartas</strong> (ou outro tipo).</li>
+            <li><strong>Selecionar Destinatários:</strong> <strong>Selecionar Destinatários</strong> → <strong>Usar uma Lista Existente</strong> → Navegar até o arquivo com os dados.</li>
+            <li><strong>Inserir Campos de Mesclagem:</strong> Posicionar o cursor onde deseja o campo → <strong>Inserir Campo de Mesclagem</strong> → Selecionar o campo desejado.</li>
+            <li><strong>Visualizar Resultados:</strong> <strong>Visualizar Resultados</strong> → Verificar se está correto.</li>
+            <li><strong>Concluir e Mesclar:</strong> <strong>Concluir e Mesclar</strong> → <strong>Editar Documentos Individuais</strong> ou <strong>Imprimir</strong>.</li>
+        </ol>
+
+        <h4>2.2.2 Recursos de Formatação Administrativa</h4>
+        <ul>
+            <li><strong>Marcadores e Numeração:</strong> Organização de listas e itens, numeração automática, personalização de marcadores.</li>
+            <li><strong>Tabelas:</strong> Inserção de tabelas para dados tabulares, formatação automática, classificação de dados.</li>
+            <li><strong>Cabeçalhos e Rodapés:</strong> Inserção de informações repetitivas, números de página, datas automáticas.</li>
+        </ul>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 3                                                     -->
+        <!-- ============================================================ -->
+        <span class="anchor" id="cap3"></span>
+        <h2>Capítulo 3: Sistema Operacional Windows 10/11</h2>
+
+        <span class="anchor" id="cap3-1"></span>
+        <h3>3.1 Atalhos de Teclado Essenciais</h3>
+
+        <h4>3.1.1 Atalhos com a Tecla Windows</h4>
+        <p>Os atalhos com a tecla Windows (⊞ Win) são fundamentais para navegação rápida no sistema. Dominá-los é essencial para provas de informática.</p>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Tabela Completa: Atalhos Windows + Letra</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Atalho</th><th>Função</th><th>Versão</th><th>Macete</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Windows + A</strong></td><td>Central de Ações (notificações)</td><td>Win 10/11</td><td><strong>A</strong>ções</td></tr>
+                        <tr><td><strong>Windows + B</strong></td><td>Área de notificação (barra de tarefas)</td><td>Win 10/11</td><td><strong>B</strong>arra</td></tr>
+                        <tr><td><strong>Windows + C</strong></td><td>Cortana (assistente)</td><td>Win 10</td><td><strong>C</strong>ortana</td></tr>
+                        <tr><td><strong>Windows + D</strong></td><td>Exibir/Ocultar área de trabalho</td><td>Win 10/11</td><td><strong>D</strong>esktop</td></tr>
+                        <tr><td><strong>Windows + E</strong></td><td>Explorador de Arquivos</td><td>Win 10/11</td><td><strong>E</strong>xplorador</td></tr>
+                        <tr><td><strong>Windows + I</strong></td><td>Configurações (Settings)</td><td>Win 10/11</td><td><strong>I</strong>nferior? (Settings)</td></tr>
+                        <tr><td><strong>Windows + L</strong></td><td>Bloquear PC</td><td>Win 10/11</td><td><strong>L</strong>ock</td></tr>
+                        <tr><td><strong>Windows + M</strong></td><td>Minimizar todas as janelas</td><td>Win 10/11</td><td><strong>M</strong>inimizar</td></tr>
+                        <tr><td><strong>Windows + P</strong></td><td>Menu Projetar (telas externas)</td><td>Win 10/11</td><td><strong>P</strong>rojetar</td></tr>
+                        <tr><td><strong>Windows + R</strong></td><td>Caixa Executar (Run)</td><td>Win 10/11</td><td><strong>R</strong>un</td></tr>
+                        <tr><td><strong>Windows + S</strong></td><td>Busca (Search)</td><td>Win 10/11</td><td><strong>S</strong>earch</td></tr>
+                        <tr><td><strong>Windows + T</strong></td><td>Alternar programas na barra de tarefas</td><td>Win 10/11</td><td><strong>T</strong>askbar</td></tr>
+                        <tr><td><strong>Windows + V</strong></td><td>Histórico da área de transferência</td><td>Win 10/11</td><td><strong>V</strong>iew (histórico)</td></tr>
+                        <tr><td><strong>Windows + X</strong></td><td>Menu Acesso Rápido (Win+X)</td><td>Win 10/11</td><td><strong>X</strong>tra (menu extra)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="callout callout-warn">
+            <div class="callout-title">Pegadinhas Comuns com Atalhos Windows</div>
+            <ul>
+                <li><strong>Windows + D vs Windows + M:</strong> <span class="hl">Windows + D</span> mostra/oculta a área de trabalho (alterna); <span class="hl-pink">Windows + M</span> minimiza todas as janelas (não alterna). Se a questão perguntar "qual atalho exibe a área de trabalho?", a resposta é <span class="hl">Windows + D</span>.</li>
+                <li><strong>Windows + B vs Windows + T:</strong> <span class="hl">Windows + B</span> foca na área de notificação; <span class="hl">Windows + T</span> alterna entre programas na barra de tarefas.</li>
+                <li><strong>Windows + V</strong> (histórico) vs <strong>Ctrl + V</strong> (colar): atalhos diferentes com funções diferentes. Windows + V só funciona se histórico estiver ativado.</li>
+            </ul>
+        </div>
+
+        <h4>3.1.2 Atalhos Universais com Ctrl</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Atalho</th><th>Função</th><th>Observação</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Ctrl + C</strong></td><td>Copiar</td><td>Copy (C)</td></tr>
+                    <tr><td><strong>Ctrl + V</strong></td><td>Colar</td><td></td></tr>
+                    <tr><td><strong>Ctrl + X</strong></td><td>Recortar</td><td>X = tesoura</td></tr>
+                    <tr><td><strong>Ctrl + Z</strong></td><td>Desfazer</td><td>Universal em todos os programas</td></tr>
+                    <tr><td><strong>Ctrl + Y</strong></td><td>Refazer</td><td>Re-fazer</td></tr>
+                    <tr><td><strong>Ctrl + A</strong></td><td>Selecionar tudo</td><td>All</td></tr>
+                    <tr><td><strong>Ctrl + S</strong></td><td>Salvar</td><td>Save</td></tr>
+                    <tr><td><strong>Ctrl + P</strong></td><td>Imprimir</td><td>Print</td></tr>
+                    <tr><td><strong>Ctrl + N</strong></td><td>Novo</td><td>New</td></tr>
+                    <tr><td><strong>Ctrl + O</strong></td><td>Abrir</td><td>Open</td></tr>
+                    <tr><td><strong>Ctrl + F</strong></td><td>Localizar</td><td>Find</td></tr>
+                    <tr><td><strong>Ctrl + H</strong></td><td>Substituir</td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><span class="hl-pink">Pegadinha:</span> Ctrl + Z é universal no Windows (desfaz ações no Explorador de Arquivos também), não é exclusivo do Word!</p>
+
+        <h4>3.1.3 Teclas de Função (F1–F12)</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tecla</th><th>Função Principal</th><th>Observação</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>F1</strong></td><td>Ajuda (Help)</td><td>Universal em programas</td></tr>
+                    <tr><td><strong>F2</strong></td><td>Renomear (arquivo/pasta)</td><td>Após selecionar</td></tr>
+                    <tr><td><strong>F3</strong></td><td>Buscar</td><td>Em alguns programas</td></tr>
+                    <tr><td><strong>F5</strong></td><td>Atualizar (Refresh)</td><td>No navegador e Explorer</td></tr>
+                    <tr><td><strong>F10</strong></td><td>Ativar menu</td><td>Em muitos programas</td></tr>
+                    <tr><td><strong>F11</strong></td><td>Tela cheia</td><td>Navegadores</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><span class="hl-pink">Pegadinha:</span> F1 abre ajuda, não F10. F10 ativa a barra de menus.</p>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Quadro-Resumo: Atalhos Mais Cobrados</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Atalho</th><th>Função</th><th>Banca que mais cobra</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Windows + E</strong></td><td>Explorador de Arquivos</td><td>Cesgranrio, FCC</td></tr>
+                        <tr><td><strong>Windows + L</strong></td><td>Bloquear PC</td><td>Todos</td></tr>
+                        <tr><td><strong>Windows + D</strong></td><td>Área de trabalho</td><td>FGV, Cebraspe</td></tr>
+                        <tr><td><strong>Ctrl + Z</strong></td><td>Desfazer</td><td>Todos</td></tr>
+                        <tr><td><strong>F2</strong></td><td>Renomear</td><td>Cesgranrio, FCC</td></tr>
+                        <tr><td><strong>Ctrl + C / Ctrl + V</strong></td><td>Copiar/Colar</td><td>Todos</td></tr>
+                        <tr><td><strong>Windows + R</strong></td><td>Executar</td><td>FCC, Vunesp</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap3-2"></span>
+        <h3>3.2 Gerenciamento de Arquivos e Pastas</h3>
+
+        <h4>3.2.1 Explorador de Arquivos</h4>
+        <p>O Explorador de Arquivos (Windows + E) é a ferramenta principal para gerenciar arquivos e pastas no Windows.</p>
+        <ul>
+            <li><strong>Funções Principais:</strong> Navegar por pastas e unidades, copiar, mover, renomear e excluir arquivos, criar novas pastas, pesquisar arquivos, visualizar propriedades.</li>
+        </ul>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Ação</th><th>Método</th><th>Resultado</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Renomear</strong></td><td>F2 ou clique com botão direito</td><td>Permite editar o nome</td></tr>
+                    <tr><td><strong>Copiar</strong></td><td>Ctrl + C ou botão direito → Copiar</td><td>Cria cópia na área de transferência</td></tr>
+                    <tr><td><strong>Colar</strong></td><td>Ctrl + V ou botão direito → Colar</td><td>Insere item copiado/recortado</td></tr>
+                    <tr><td><strong>Recortar</strong></td><td>Ctrl + X ou botão direito → Recortar</td><td>Move item para área de transferência</td></tr>
+                    <tr><td><strong>Excluir</strong></td><td>Delete ou Del</td><td>Envia para Lixeira</td></tr>
+                    <tr><td><strong>Excluir permanentemente</strong></td><td>Shift + Delete</td><td>Não vai para Lixeira</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>3.2.2 Lixeira</h4>
+        <ul>
+            <li>Arquivos excluídos vão para a Lixeira por padrão</li>
+            <li>É possível restaurar arquivos da Lixeira</li>
+            <li>Arquivos são permanentemente removidos quando a Lixeira é esvaziada</li>
+            <li>Shift + Delete exclui permanentemente (sem passar pela Lixeira)</li>
+        </ul>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap3-3"></span>
+        <h3>3.3 Configurações e Ferramentas do Sistema</h3>
+
+        <h4>3.3.1 Central de Ações (Windows + A)</h4>
+        <ul>
+            <li>Notificações do sistema e aplicativos</li>
+            <li>Botões de ações rápidas (Wi-Fi, Bluetooth, Modo Avião, etc.)</li>
+            <li>Ajustes rápidos de configurações</li>
+        </ul>
+
+        <h4>3.3.2 Explorador de Arquivos (Windows + E)</h4>
+        <ul>
+            <li><strong>Acesso Rápido:</strong> Pastas frequentemente usadas</li>
+            <li><strong>Este Computador:</strong> Unidades de disco</li>
+            <li><strong>Bibliotecas:</strong> Documentos, Imagens, Músicas, Vídeos</li>
+            <li><strong>Rede:</strong> Dispositivos em rede</li>
+        </ul>
+
+        <h4>3.3.3 Configurações (Windows + I)</h4>
+        <p>Substitui o Painel de Controle em versões mais recentes:</p>
+        <ul>
+            <li>Sistema e exibição, Dispositivos, Rede e Internet, Personalização, Aplicativos, Contas, Hora e idioma, Facilidade de acesso, Privacidade, Atualização e segurança.</li>
+        </ul>
+
+        <h4>3.3.4 Menu Acesso Rápido (Windows + X)</h4>
+        <ul>
+            <li>Gerenciador de Dispositivos, Gerenciador de Tarefas, Painel de Controle (em versões antigas), Configurações, Explorador de Arquivos, Executar, Desligar/Sair.</li>
+        </ul>
+
+        <h4>3.3.5 Caixa Executar (Windows + R)</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Comando</th><th>Abre</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>cmd</strong></td><td>Prompt de Comando</td></tr>
+                    <tr><td><strong>control</strong></td><td>Painel de Controle</td></tr>
+                    <tr><td><strong>msconfig</strong></td><td>Configuração do Sistema</td></tr>
+                    <tr><td><strong>services.msc</strong></td><td>Serviços</td></tr>
+                    <tr><td><strong>notepad</strong></td><td>Bloco de Notas</td></tr>
+                    <tr><td><strong>calc</strong></td><td>Calculadora</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>3.3.6 Microsoft Defender Antivírus</h4>
+        <p>O Microsoft Defender Antivírus (anteriormente Windows Defender) é o antivírus nativo integrado ao Windows 10/11.</p>
+        <ul>
+            <li>Proteção em tempo real contra vírus, ransomware e malwares</li>
+            <li>Integrado ao aplicativo <strong>Segurança do Windows</strong></li>
+            <li>Atualizações automáticas via Windows Update</li>
+            <li>Proteção contra ameaças de rede e navegadores</li>
+        </ul>
+        <p><strong>Acessar:</strong> Configurações → Atualização e Segurança → Segurança do Windows → Proteção contra vírus e ameaças</p>
+
+        <h4>3.3.7 Gerenciamento de Impressão</h4>
+        <p>O gerenciamento de impressão vai além da simples instalação de impressoras. Envolve: monitoramento do uso da impressora, gerenciamento de filas de impressão, definição de permissões de impressão, implementação de políticas para redução de desperdício, configuração de impressoras em rede, solução de problemas de impressão.</p>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 4                                                     -->
+        <!-- ============================================================ -->
+        <span class="anchor" id="cap4"></span>
+        <h2>Capítulo 4: Internet, Redes e Segurança da Informação</h2>
+
+        <span class="anchor" id="cap4-1"></span>
+        <h3>4.1 Conceitos Fundamentais de Redes</h3>
+
+        <h4>4.1.1 Internet, Intranet e Extranet</h4>
+        <p>Compreender as diferenças entre esses conceitos é essencial para provas de informática.</p>
+
+        <div class="card-grid">
+            <div class="card">
+                <h5 style="color:#58a6ff;">🌐 Internet</h5>
+                <ul>
+                    <li><strong>Definição:</strong> Rede global pública que conecta milhões de dispositivos mundialmente</li>
+                    <li><strong>Características:</strong> Acessível a qualquer pessoa com conexão</li>
+                    <li><strong>Protocolo principal:</strong> TCP/IP (Internet Protocol)</li>
+                    <li><strong>Exemplo:</strong> Qualquer site acessível publicamente (google.com, gov.br)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h5 style="color:#f5c542;">🏢 Intranet</h5>
+                <ul>
+                    <li><strong>Definição:</strong> Rede privada interna de uma organização</li>
+                    <li><strong>Características:</strong> Acesso restrito a membros da organização</li>
+                    <li><strong>Finalidade:</strong> Compartilhamento interno de informações, sistemas corporativos</li>
+                    <li><strong>Exemplo:</strong> Portal interno de uma empresa, sistema de RH interno</li>
+                </ul>
+            </div>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h5 style="color:#f0883e;">🔗 Extranet</h5>
+                <ul>
+                    <li><strong>Definição:</strong> Extensão da intranet que permite acesso controlado a parceiros externos</li>
+                    <li><strong>Características:</strong> Acesso restrito a parceiros autorizados (fornecedores, clientes)</li>
+                    <li><strong>Finalidade:</strong> Colaboração com parceiros de negócios</li>
+                    <li><strong>Exemplo:</strong> Portal de fornecedores, sistema de pedidos para clientes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Quadro Comparativo: Internet × Intranet × Extranet</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Característica</th><th>Internet</th><th>Intranet</th><th>Extranet</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Acesso</strong></td><td>Público</td><td>Privado (organização)</td><td>Controlado (parceiros)</td></tr>
+                        <tr><td><strong>Quem pode acessar</strong></td><td>Qualquer pessoa</td><td>Funcionários</td><td>Funcionários + parceiros</td></tr>
+                        <tr><td><strong>Finalidade</strong></td><td>Informação global</td><td>Comunicação interna</td><td>Colaboração externa</td></tr>
+                        <tr><td><strong>Segurança</strong></td><td>Básica</td><td>Alta</td><td>Média-Alta</td></tr>
+                        <tr><td><strong>Exemplo</strong></td><td>Site público</td><td>Portal do funcionário</td><td>Portal do fornecedor</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h4>4.1.2 Protocolo IP (Internet Protocol)</h4>
+        <p><span class="hl">O que é?</span> O Internet Protocol (IP) é o protocolo fundamental da camada de rede que permite a comunicação entre dispositivos na internet.</p>
+        <ul>
+            <li><strong>Funções:</strong> Endereçamento (atribui um endereço único a cada dispositivo), Roteamento (determina o caminho que os pacotes de dados devem seguir), Fragmentação (divide dados grandes em pacotes menores para transmissão).</li>
+            <li><strong>Características:</strong> Protocolo sem conexão (não estabelece conexão antes de enviar dados), não garante entrega (protocolo "best effort"), camada de rede do modelo OSI.</li>
+            <li><strong>IP vs TCP:</strong> IP é responsável pelo endereçamento e roteamento; TCP é responsável pela confiabilidade da entrega.</li>
+        </ul>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap4-2"></span>
+        <h3>4.2 Navegadores e Ferramentas de Busca</h3>
+
+        <h4>4.2.1 Navegadores Web</h4>
+        <p><strong>Google Chrome:</strong> Navegador mais utilizado mundialmente, desenvolvido pelo Google, baseado no Chromium.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Atalho</th><th>Função</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Ctrl + J</strong></td><td>Abrir página de downloads</td></tr>
+                    <tr><td><strong>Ctrl + D</strong></td><td>Salvar favorito</td></tr>
+                    <tr><td><strong>Ctrl + N</strong></td><td>Nova janela</td></tr>
+                    <tr><td><strong>Ctrl + T</strong></td><td>Nova guia</td></tr>
+                    <tr><td><strong>Ctrl + W</strong></td><td>Fechar guia</td></tr>
+                    <tr><td><strong>F11</strong></td><td>Tela cheia</td></tr>
+                    <tr><td><strong>Ctrl + Shift + N</strong></td><td>Nova janela anônima</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><span class="hl-pink">Pegadinha:</span> Ctrl + J abre downloads em nova guia, Ctrl + D salva favoritos, Ctrl + N abre nova janela (não guia).</p>
+
+        <h4>4.2.2 Sites de Busca</h4>
+        <ul>
+            <li><strong>Google:</strong> Site de busca mais utilizado, algoritmo baseado em relevância, oferece busca textual, imagens, vídeos, notícias.</li>
+            <li><strong>Outras Ferramentas:</strong> Wikipédia é enciclopédia online colaborativa (NÃO é site de busca). Word, Excel, PowerPoint são aplicativos da suíte Office (NÃO são sites de busca). MS-DOS é sistema operacional (NÃO é site de busca).</li>
+        </ul>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap4-3"></span>
+        <h3>4.3 Segurança da Informação – Pilares e Mecanismos</h3>
+
+        <h4>4.3.1 Os 5 Pilares da Segurança da Informação</h4>
+        <p>A segurança da informação é baseada em cinco pilares fundamentais, que podem ser memorizados pelo macete <span class="hl-gold">"CIDA + N"</span>:</p>
+
+        <div class="svg-container">
+            <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto; background:#0f1622; border-radius:16px;">
+                <!-- Fundo -->
+                <rect width="700" height="400" rx="16" fill="#0f1622"/>
+                <!-- Título -->
+                <text x="350" y="40" text-anchor="middle" fill="#d4e1f0" font-size="20" font-weight="600" font-family="Segoe UI, sans-serif">Pilares da Segurança da Informação</text>
+                <!-- Círculo central -->
+                <circle cx="350" cy="200" r="48" fill="#1a2335" stroke="#58a6ff" stroke-width="2"/>
+                <text x="350" y="195" text-anchor="middle" fill="#f0f6fc" font-size="16" font-weight="700" font-family="Segoe UI, sans-serif">CIDA+N</text>
+                <text x="350" y="215" text-anchor="middle" fill="#8b949e" font-size="11" font-family="Segoe UI, sans-serif">Macete</text>
+                <!-- Ramos -->
+                <!-- C - Confidencialidade (topo) -->
+                <line x1="350" y1="152" x2="350" y2="72" stroke="#58a6ff" stroke-width="2"/>
+                <rect x="270" y="10" width="160" height="52" rx="10" fill="#1a2335" stroke="#58a6ff" stroke-width="1.5"/>
+                <text x="350" y="32" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="700" font-family="Segoe UI, sans-serif">C – Confidencialidade</text>
+                <text x="350" y="50" text-anchor="middle" fill="#b8c9dd" font-size="11" font-family="Segoe UI, sans-serif">Criptografia · Controle de acesso</text>
+                <!-- I - Integridade (direita) -->
+                <line x1="398" y1="200" x2="530" y2="200" stroke="#3fb950" stroke-width="2"/>
+                <rect x="540" y="170" width="140" height="60" rx="10" fill="#1a2335" stroke="#3fb950" stroke-width="1.5"/>
+                <text x="610" y="192" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="700" font-family="Segoe UI, sans-serif">I – Integridade</text>
+                <text x="610" y="212" text-anchor="middle" fill="#b8c9dd" font-size="11" font-family="Segoe UI, sans-serif">Hashing · Assinatura digital</text>
+                <!-- D - Disponibilidade (baixo) -->
+                <line x1="350" y1="248" x2="350" y2="328" stroke="#f0883e" stroke-width="2"/>
+                <rect x="260" y="338" width="180" height="52" rx="10" fill="#1a2335" stroke="#f0883e" stroke-width="1.5"/>
+                <text x="350" y="360" text-anchor="middle" fill="#f0883e" font-size="14" font-weight="700" font-family="Segoe UI, sans-serif">D – Disponibilidade</text>
+                <text x="350" y="378" text-anchor="middle" fill="#b8c9dd" font-size="11" font-family="Segoe UI, sans-serif">Backup · Redundância</text>
+                <!-- A - Autenticação (esquerda) -->
+                <line x1="302" y1="200" x2="170" y2="200" stroke="#f5c542" stroke-width="2"/>
+                <rect x="20" y="170" width="140" height="60" rx="10" fill="#1a2335" stroke="#f5c542" stroke-width="1.5"/>
+                <text x="90" y="192" text-anchor="middle" fill="#f5c542" font-size="14" font-weight="700" font-family="Segoe UI, sans-serif">A – Autenticação</text>
+                <text x="90" y="212" text-anchor="middle" fill="#b8c9dd" font-size="11" font-family="Segoe UI, sans-serif">Senha · Biometria</text>
+                <!-- N - Não-repúdio (entre I e D) -->
+                <line x1="398" y1="230" x2="480" y2="290" stroke="#f28b9e" stroke-width="2"/>
+                <rect x="480" y="285" width="160" height="50" rx="10" fill="#1a2335" stroke="#f28b9e" stroke-width="1.5"/>
+                <text x="560" y="306" text-anchor="middle" fill="#f28b9e" font-size="13" font-weight="700" font-family="Segoe UI, sans-serif">N – Não-repúdio</text>
+                <text x="560" y="324" text-anchor="middle" fill="#b8c9dd" font-size="11" font-family="Segoe UI, sans-serif">Assinatura digital · Logs</text>
+            </svg>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <h5 style="color:#58a6ff;">🔒 Confidencialidade</h5>
+                <p><strong>Definição:</strong> Protege a informação contra acesso não autorizado, garantindo que apenas pessoas autorizadas possam visualizá-la.</p>
+                <p><strong>Mecanismos:</strong> Criptografia, controle de acesso, autenticação forte, classificação de dados.</p>
+                <p><strong>Exemplo de Prova:</strong> "Qual mecanismo impede que um usuário não autorizado leia um e-mail?" → Confidencialidade</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#3fb950;">✅ Integridade</h5>
+                <p><strong>Definição:</strong> Garante que os dados permaneçam exatos, completos e que não tenham sido alterados de forma não autorizada.</p>
+                <p><strong>Mecanismos:</strong> Hashing (SHA-256, MD5), checksums, assinatura digital, controle de versão, logs de auditoria.</p>
+                <p><strong>Exemplo de Prova:</strong> "Qual mecanismo garante que um arquivo não foi modificado durante a transmissão?" → Integridade</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#f0883e;">🌐 Disponibilidade</h5>
+                <p><strong>Definição:</strong> Garante que os recursos e informações estejam acessíveis quando necessário.</p>
+                <p><strong>Mecanismos:</strong> Backup e recuperação, redundância de sistemas, balanceamento de carga, planos de continuidade de negócio, firewalls e proteção contra DDoS.</p>
+                <p><strong>Exemplo de Prova:</strong> "Um servidor que fica fora do ar por horas viola qual pilar?" → Disponibilidade</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#f5c542;">🔐 Autenticação</h5>
+                <p><strong>Definição:</strong> Processo de verificar se a entidade é realmente quem afirma ser.</p>
+                <p><strong>Mecanismos:</strong> Senhas, biometria (digital, facial, íris), tokens (hardware ou software), certificados digitais, autenticação multifator (MFA).</p>
+                <p><strong>Fatores de Autenticação:</strong></p>
+                <ul>
+                    <li><strong>Algo que você sabe:</strong> Senha, PIN</li>
+                    <li><strong>Algo que você tem:</strong> Token, celular, cartão</li>
+                    <li><strong>Algo que você é:</strong> Biometria</li>
+                    <li><strong>Algo que você faz:</strong> Comportamento, localização</li>
+                </ul>
+                <p><strong>Exemplo de Prova:</strong> "Uma senha é um fator de autenticação baseado em..." → Algo que você sabe</p>
+            </div>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h5 style="color:#f28b9e;">📝 Não-Repúdio (Irretratabilidade)</h5>
+                <p><strong>Definição:</strong> Impede que uma entidade negue ter realizado uma ação, garantindo que a autoria de uma transação ou comunicação não possa ser contestada.</p>
+                <p><strong>Mecanismos:</strong> Assinatura digital (chave privada), logs de auditoria, registros de atividades, cadeia de custódia.</p>
+                <p><strong>Exemplo de Prova:</strong> "Qual mecanismo garante que um usuário não possa negar ter enviado um e-mail?" → Não-repúdio</p>
+            </div>
+        </div>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Quadro-Resumo: Pilares da Segurança da Informação</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Pilar</th><th>Pergunta que responde</th><th>Mecanismo principal</th><th>Pegadinha comum</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Confidencialidade</strong></td><td>Quem pode ver?</td><td>Criptografia</td><td>Confundir com autenticação</td></tr>
+                        <tr><td><strong>Integridade</strong></td><td>Foi alterado?</td><td>Hashing</td><td>Confundir com confidencialidade</td></tr>
+                        <tr><td><strong>Disponibilidade</strong></td><td>Está acessível?</td><td>Backup</td><td>Confundir com integridade</td></tr>
+                        <tr><td><strong>Autenticação</strong></td><td>Quem é você?</td><td>Senha, biometria</td><td>Confundir com autorização</td></tr>
+                        <tr><td><strong>Não-repúdio</strong></td><td>Quem fez?</td><td>Assinatura digital</td><td>Confundir com autenticação</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap4-4"></span>
+        <h3>4.4 Identificação, Autenticação e Autorização</h3>
+
+        <h4>4.4.1 A Tríade do Controle de Acesso</h4>
+        <p>É fundamental entender a diferença entre identificação, autenticação e autorização. Muitas questões de prova confundem esses conceitos.</p>
+
+        <div class="svg-container">
+            <svg viewBox="0 0 700 180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%; height:auto; background:#0f1622; border-radius:16px;">
+                <rect width="700" height="180" rx="16" fill="#0f1622"/>
+                <!-- Título -->
+                <text x="350" y="30" text-anchor="middle" fill="#d4e1f0" font-size="18" font-weight="600" font-family="Segoe UI, sans-serif">Tríade do Controle de Acesso</text>
+                <!-- Setas -->
+                <line x1="120" y1="105" x2="240" y2="105" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow1)"/>
+                <line x1="310" y1="105" x2="430" y2="105" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow2)"/>
+                <!-- Caixas -->
+                <rect x="10" y="65" width="110" height="80" rx="12" fill="#1a2335" stroke="#58a6ff" stroke-width="2"/>
+                <text x="65" y="98" text-anchor="middle" fill="#58a6ff" font-size="18" font-weight="700" font-family="Segoe UI, sans-serif">Identificação</text>
+                <text x="65" y="122" text-anchor="middle" fill="#b8c9dd" font-size="12" font-family="Segoe UI, sans-serif">"Quem você é?"</text>
+                <text x="65" y="138" text-anchor="middle" fill="#8b949e" font-size="10" font-family="Segoe UI, sans-serif">Login</text>
+
+                <rect x="245" y="65" width="65" height="80" rx="12" fill="#1a2335" stroke="#f5c542" stroke-width="2"/>
+                <text x="277" y="98" text-anchor="middle" fill="#f5c542" font-size="18" font-weight="700" font-family="Segoe UI, sans-serif">→</text>
+                <text x="277" y="122" text-anchor="middle" fill="#b8c9dd" font-size="10" font-family="Segoe UI, sans-serif">1º</text>
+
+                <rect x="440" y="65" width="110" height="80" rx="12" fill="#1a2335" stroke="#f5c542" stroke-width="2"/>
+                <text x="495" y="98" text-anchor="middle" fill="#f5c542" font-size="18" font-weight="700" font-family="Segoe UI, sans-serif">Autenticação</text>
+                <text x="495" y="122" text-anchor="middle" fill="#b8c9dd" font-size="12" font-family="Segoe UI, sans-serif">"É realmente você?"</text>
+                <text x="495" y="138" text-anchor="middle" fill="#8b949e" font-size="10" font-family="Segoe UI, sans-serif">Senha · Biometria</text>
+
+                <rect x="580" y="65" width="110" height="80" rx="12" fill="#1a2335" stroke="#3fb950" stroke-width="2"/>
+                <text x="635" y="98" text-anchor="middle" fill="#3fb950" font-size="18" font-weight="700" font-family="Segoe UI, sans-serif">Autorização</text>
+                <text x="635" y="122" text-anchor="middle" fill="#b8c9dd" font-size="12" font-family="Segoe UI, sans-serif">"O que pode fazer?"</text>
+                <text x="635" y="138" text-anchor="middle" fill="#8b949e" font-size="10" font-family="Segoe UI, sans-serif">Permissões</text>
+
+                <!-- marcadores de seta -->
+                <defs>
+                    <marker id="arrow1" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                        <path d="M0,0 L8,4 L0,8 Z" fill="#58a6ff"/>
+                    </marker>
+                    <marker id="arrow2" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+                        <path d="M0,0 L8,4 L0,8 Z" fill="#58a6ff"/>
+                    </marker>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="card-grid">
+            <div class="card">
+                <h5 style="color:#58a6ff;">🪪 Identificação</h5>
+                <p><strong>Definição:</strong> Mecanismo pelo qual uma entidade (usuário) se apresenta ao sistema.</p>
+                <p><strong>Exemplo:</strong> Informar o nome de usuário (login)</p>
+                <p><strong>Característica:</strong> A identificação é o <span class="hl">primeiro passo</span> no processo de acesso.</p>
+                <p><strong>Pergunta que responde:</strong> "Quem você é?"</p>
+            </div>
+            <div class="card">
+                <h5 style="color:#f5c542;">🔑 Autenticação</h5>
+                <p><strong>Definição:</strong> Processo de verificar se a entidade é realmente quem afirma ser.</p>
+                <p><strong>Exemplo:</strong> Digitar a senha correta</p>
+                <p><strong>Característica:</strong> A autenticação é o <span class="hl">segundo passo</span> (verificação da identidade).</p>
+                <p><strong>Pergunta que responde:</strong> "Você é realmente quem diz ser?"</p>
+            </div>
+            <div class="card" style="grid-column: 1 / -1;">
+                <h5 style="color:#3fb950;">🚪 Autorização</h5>
+                <p><strong>Definição:</strong> Mecanismo que define as ações que uma entidade pode executar e quais informações ela pode acessar.</p>
+                <p><strong>Exemplo:</strong> Um usuário comum não pode acessar a área administrativa</p>
+                <p><strong>Característica:</strong> A autorização é o <span class="hl">terceiro passo</span> (definição de permissões).</p>
+                <p><strong>Pergunta que responde:</strong> "O que você pode fazer?"</p>
+            </div>
+        </div>
+
+        <div class="callout callout-important">
+            <div class="callout-title">Exemplo Prático (Situação de Prova)</div>
+            <ol>
+                <li><strong>Identificação:</strong> "Servidor" → Informa o login "joao.silva"</li>
+                <li><strong>Autenticação:</strong> "Servidor" → Digita a senha correta</li>
+                <li><strong>Autorização:</strong> "Servidor" → Verifica que João é do RH, mas não tem acesso à folha de pagamento</li>
+            </ol>
+            <p><span class="hl-pink">Pegadinha:</span> Uma questão que pergunta "O que define quais ações um usuário pode realizar?" → A resposta é <span class="hl">Autorização</span>, não Autenticação.</p>
+        </div>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Quadro Comparativo: Identificação × Autenticação × Autorização</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th></th><th>Identificação</th><th>Autenticação</th><th>Autorização</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Pergunta</strong></td><td>Quem você é?</td><td>É realmente você?</td><td>O que você pode fazer?</td></tr>
+                        <tr><td><strong>Momento</strong></td><td>1º passo</td><td>2º passo</td><td>3º passo</td></tr>
+                        <tr><td><strong>Exemplo</strong></td><td>Login</td><td>Senha</td><td>Permissões</td></tr>
+                        <tr><td><strong>Resposta</strong></td><td>Nome de usuário</td><td>Comprovação</td><td>Direitos de acesso</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap4-5"></span>
+        <h3>4.5 Assinatura Digital e Envelopes Digitais</h3>
+
+        <h4>4.5.1 Assinatura Digital</h4>
+        <p><strong>Definição:</strong> Mecanismo que utiliza criptografia assimétrica (chave privada) para vincular um certificado digital a um documento.</p>
+        <p><strong>O que garante:</strong></p>
+        <ul>
+            <li><strong>Autenticidade:</strong> Identidade do signatário</li>
+            <li><strong>Autoria (Não-repúdio):</strong> Comprova que o documento foi assinado por quem detém a chave privada</li>
+            <li><strong>Integridade:</strong> Detecta qualquer alteração no documento após assinatura</li>
+        </ul>
+        <p><strong>Como funciona:</strong></p>
+        <ol>
+            <li>O signatário utiliza sua <strong>chave privada</strong> para assinar</li>
+            <li>Qualquer pessoa pode verificar com a <strong>chave pública</strong> do signatário</li>
+            <li>O documento assinado é considerado válido e juridicamente aceito</li>
+        </ol>
+        <p><strong>Exemplo Prático:</strong> Um contrato assinado digitalmente por ambas as partes não pode ser contestado (não-repúdio).</p>
+        <div class="callout callout-warn">
+            <div class="callout-title">Pegadinha</div>
+            <p>A assinatura digital garante autenticidade e não-repúdio, mas <span class="hl-pink">NÃO garante confidencialidade</span> (o documento assinado pode ser lido por qualquer pessoa).</p>
+        </div>
+
+        <h4>4.5.2 Envelope Digital</h4>
+        <p><strong>Definição:</strong> Recipiente seguro que combina criptografia simétrica e criptografia assimétrica para garantir confidencialidade e autenticidade.</p>
+        <p><strong>Como funciona:</strong></p>
+        <ol>
+            <li>A mensagem é cifrada com uma <strong>chave simétrica</strong> (rápida)</li>
+            <li>A chave simétrica é cifrada com a <strong>chave pública do destinatário</strong></li>
+            <li>O envelope contém: mensagem cifrada + chave cifrada</li>
+        </ol>
+        <p><strong>O que garante:</strong></p>
+        <ul>
+            <li><strong>Confidencialidade:</strong> A mensagem só pode ser lida pelo destinatário</li>
+            <li><strong>Autenticidade:</strong> O remetente é identificado</li>
+            <li><strong>Integridade:</strong> A mensagem não foi alterada</li>
+        </ul>
+
+        <div class="callout callout-info">
+            <div class="callout-title">Envelope Digital vs Assinatura Digital</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th></th><th>Assinatura Digital</th><th>Envelope Digital</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Objetivo</strong></td><td>Autenticação e não-repúdio</td><td>Confidencialidade</td></tr>
+                        <tr><td><strong>Chave</strong></td><td>Chave privada do signatário</td><td>Chave pública do destinatário</td></tr>
+                        <tr><td><strong>Criptografia</strong></td><td>Assimétrica</td><td>Simétrica + Assimétrica</td></tr>
+                        <tr><td><strong>Garante</strong></td><td>Quem assinou</td><td>Quem pode ler</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><span class="hl-pink">Pegadinha:</span> O envelope digital protege a mensagem durante a transmissão, mas não impede que o destinatário compartilhe o conteúdo.</p>
+        </div>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap4-6"></span>
+        <h3>4.6 Backup e Gerenciamento de Dados</h3>
+
+        <h4>4.6.1 Backup de Dados</h4>
+        <p><strong>Definição:</strong> Processo de criar cópias de dados importantes e armazená-las em um local seguro e separado do dispositivo original.</p>
+        <ul>
+            <li><strong>Prática Correta de Backup:</strong> Local separado (armazenar em dispositivo diferente ou local remoto), regularidade (realizar com frequência definida), verificação (testar periodicamente a restauração), Regra 3-2-1 (3 cópias, 2 mídias diferentes, 1 local externo).</li>
+        </ul>
+        <div class="callout callout-warn">
+            <div class="callout-title">Erro Grave (Pegadinha de Prova)</div>
+            <p>Armazenar backup no <span class="hl-pink">mesmo dispositivo</span> do arquivo original é ineficaz.</p>
+            <p><strong>Por quê?</strong></p>
+            <ul>
+                <li>Falha física do dispositivo → perde ambos</li>
+                <li>Ataque de ransomware → perde ambos</li>
+                <li>Incidente (incêndio, enchente) → perde ambos</li>
+            </ul>
+            <p><strong>Exemplo de Questão:</strong> "Um usuário faz backup de seus arquivos na mesma pasta do documento original." → Esta prática está <span class="hl-pink">INCORRETA</span>.</p>
+        </div>
+
+        <h5>Tipos de Backup</h5>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo</th><th>Descrição</th><th>Vantagem</th><th>Desvantagem</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Completo</strong></td><td>Cópia de todos os dados</td><td>Restauração simples</td><td>Armazenamento grande, demorado</td></tr>
+                    <tr><td><strong>Incremental</strong></td><td>Cópia das alterações desde o último backup (qualquer tipo)</td><td>Menor armazenamento</td><td>Restauração complexa</td></tr>
+                    <tr><td><strong>Diferencial</strong></td><td>Cópia das alterações desde o último backup completo</td><td>Restauração mais simples que incremental</td><td>Armazenamento maior que incremental</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>4.6.2 Classificação de Dispositivos</h4>
+        <p><strong>Periféricos de Entrada × Saída</strong></p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Tipo</th><th>Dispositivos</th><th>Função</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Entrada</strong></td><td>Mouse, Teclado, Scanner, Webcam</td><td>Enviam dados para o computador</td></tr>
+                    <tr><td><strong>Saída</strong></td><td>Monitor, Impressora, Caixas de som</td><td>Recebem dados do computador</td></tr>
+                    <tr><td><strong>Mistos</strong></td><td>Touchscreen, Impressoras multifuncionais</td><td>Ambos</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><span class="hl-pink">Pegadinha:</span> Scanner é entrada, impressora é saída. Não confunda!</p>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 5                                                     -->
+        <!-- ============================================================ -->
+        <span class="anchor" id="cap5"></span>
+        <h2>Capítulo 5: Ferramentas de Comunicação e Colaboração</h2>
+
+        <span class="anchor" id="cap5-1"></span>
+        <h3>5.1 E-mail e Segurança no Envio de Mensagens</h3>
+
+        <h4>5.1.1 Segurança em E-mails</h4>
+        <p><strong>Domínios de E-mail e Credibilidade</strong></p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Domínio</th><th>Tipo de Entidade</th><th>Exemplo</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>.com</strong></td><td>Empresas comerciais</td><td>empresa.com</td></tr>
+                    <tr><td><strong>.org</strong></td><td>Organizações não governamentais (ONGs)</td><td>ong.org</td></tr>
+                    <tr><td><strong>.gov</strong></td><td>Governos (EUA)</td><td>agencia.gov</td></tr>
+                    <tr><td><strong>.edu</strong></td><td>Instituições de ensino</td><td>universidade.edu</td></tr>
+                    <tr><td><strong>.br</strong></td><td>Brasil (genérico)</td><td>site.com.br</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p><span class="hl-pink">Pegadinha de Prova:</span> Um e-mail proveniente da ONU (organização intergovernamental) com domínio .com é <span class="hl-pink">SUSPEITO</span>. A ONU utiliza .org (ou .int).</p>
+
+        <p><strong>Indícios de E-mail Forjado (Phishing)</strong></p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Indício</th><th>Descrição</th><th>É prova de falsificação?</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Domínio incompatível</strong></td><td>ONU com .com em vez de .org</td><td>✅ Sim</td></tr>
+                    <tr><td><strong>Remetente genérico</strong></td><td>"Cliente", "Usuário"</td><td>❌ Não (pode ser legítimo)</td></tr>
+                    <tr><td><strong>Ausência de cadeado</strong></td><td>Site sem HTTPS</td><td>❌ Não (não garante autenticidade)</td></tr>
+                    <tr><td><strong>Título com domínio</strong></td><td>"Atualize sua conta Google"</td><td>❌ Não (pode ser phishing, mas não é prova)</td></tr>
+                    <tr><td><strong>Erros de ortografia</strong></td><td>Português incorreto, inglês estranho</td><td>✅ Sim (indício forte)</td></tr>
+                    <tr><td><strong>Urgência excessiva</strong></td><td>"Ação imediata necessária"</td><td>✅ Sim (indício forte)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p><strong>Boas Práticas de Segurança em E-mail</strong></p>
+        <ol>
+            <li>Não clicar em links suspeitos</li>
+            <li>Verificar o endereço do remetente</li>
+            <li>Não abrir anexos de remetentes desconhecidos</li>
+            <li>Utilizar autenticação em dois fatores (2FA)</li>
+            <li>Atualizar senhas regularmente</li>
+            <li>Cuidado com informações pessoais</li>
+        </ol>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap5-2"></span>
+        <h3>5.2 Redes Sociais e Networking Profissional</h3>
+
+        <h4>5.2.1 LinkedIn</h4>
+        <p><strong>Definição:</strong> Rede social voltada ao mundo profissional.</p>
+        <p><strong>Funcionalidades:</strong> Estabelecimento de conexões profissionais, divulgação de vagas de emprego, networking (relacionamentos comerciais), empresas encontram talentos, compartilhamento de conteúdo profissional, recrutamento e seleção.</p>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Ferramenta</th><th>Foco</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>LinkedIn</strong></td><td>Networking profissional</td></tr>
+                    <tr><td><strong>Skype</strong></td><td>Comunicação por voz/vídeo</td></tr>
+                    <tr><td><strong>Telegram</strong></td><td>Mensagens instantâneas</td></tr>
+                    <tr><td><strong>Google Meet</strong></td><td>Reuniões e videoconferências</td></tr>
+                    <tr><td><strong>YouTube Creators</strong></td><td>Criação de conteúdo em vídeo</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="divider">
+
+        <span class="anchor" id="cap5-3"></span>
+        <h3>5.3 WhatsApp e Configurações de Privacidade</h3>
+
+        <h4>5.3.1 Configurações de Privacidade no WhatsApp</h4>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Configuração</th><th>Descrição</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Mensagens temporárias</strong></td><td>Mensagens que desaparecem após 24h, 7 ou 90 dias</td><td>✅ Disponível</td></tr>
+                    <tr><td><strong>Criptografia de ponta a ponta</strong></td><td>Protege mensagens de leitura por terceiros</td><td>✅ Disponível (permanente)</td></tr>
+                    <tr><td><strong>Visto por último</strong></td><td>Controle quem vê quando esteve online</td><td>✅ Disponível</td></tr>
+                    <tr><td><strong>Foto de perfil</strong></td><td>Controle quem pode ver</td><td>✅ Disponível</td></tr>
+                    <tr><td><strong>Confirmação de leitura</strong></td><td>Controle quem vê se leu a mensagem</td><td>✅ Disponível (algumas)</td></tr>
+                    <tr><td><strong>Bloquear grupos por volume</strong></td><td>Bloquear grupos com muitas mensagens</td><td>❌ Não disponível</td></tr>
+                    <tr><td><strong>Visto por último com intervalo de horas</strong></td><td>Definir intervalo específico</td><td>❌ Não disponível</td></tr>
+                    <tr><td><strong>Desativar criptografia</strong></td><td>Desativar proteção de ponta a ponta</td><td>❌ Não disponível</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callout callout-warn">
+            <div class="callout-title">Pegadinhas sobre WhatsApp em Provas</div>
+            <ul>
+                <li><span class="hl">A criptografia de ponta a ponta NÃO pode ser desativada</span> – é permanente</li>
+                <li><span class="hl-pink">Não é possível bloquear grupos baseado em volume de mensagens</span></li>
+                <li><span class="hl-pink">Não é possível definir "visto por último" com intervalo de horas</span> (apenas opções específicas)</li>
+                <li><span class="hl">Mensagens temporárias são configurações de privacidade</span> (não criptografia)</li>
+            </ul>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- ANEXO                                                          -->
+        <!-- ============================================================ -->
+        <span class="anchor" id="anexo"></span>
+        <h2>Anexo: Respostas dos Estudos de Caso</h2>
+
+        <div class="card">
+            <h4 style="color:#f5c542;">Estudo de Caso 1: Phishing</h4>
+            <p><strong>Situação:</strong> Um servidor público recebe um e-mail supostamente do setor de RH com um link para "atualizar dados cadastrais". O remetente é "rh@empresa.com" e o link aponta para "empresa-update.xyz".</p>
+            <p><strong>Análise:</strong></p>
+            <ol>
+                <li>O domínio do remetente está correto (.com)</li>
+                <li>O link aponta para um domínio diferente (.xyz) → suspeito</li>
+                <li>Não há indicação de que seja uma comunicação oficial</li>
+            </ol>
+            <p><strong>Procedimento correto:</strong></p>
+            <ol>
+                <li>Não clicar no link</li>
+                <li>Verificar com o setor de RH por outro canal</li>
+                <li>Reportar o e-mail como phishing</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h4 style="color:#f0883e;">Estudo de Caso 2: Backup</h4>
+            <p><strong>Situação:</strong> Um usuário mantém todos os seus arquivos de trabalho em um pendrive e faz "backup" copiando os arquivos para uma pasta no mesmo pendrive.</p>
+            <p><strong>Análise:</strong></p>
+            <ul>
+                <li>A prática está <span class="hl-pink">ERRADA</span></li>
+                <li>Backup no mesmo dispositivo é ineficaz</li>
+                <li>Falha física do pendrive perderia ambos</li>
+            </ul>
+            <p><strong>Solução correta:</strong></p>
+            <ol>
+                <li>Armazenar backup em dispositivo diferente</li>
+                <li>Utilizar serviço em nuvem como complemento</li>
+                <li>Seguira regra 3-2-1</li>
+            </ol>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- GLOSSÁRIO                                                      -->
+        <!-- ============================================================ -->
+        <span class="anchor" id="glossario"></span>
+        <h2>Glossário</h2>
+        <div class="glossary-list">
+            <div><span class="term">Alça de preenchimento</span><br><span class="def">Ferramenta do Excel para copiar fórmulas/valores</span></div>
+            <div><span class="term">Assinatura digital</span><br><span class="def">Mecanismo que garante autenticidade e não-repúdio</span></div>
+            <div><span class="term">Autenticação</span><br><span class="def">Processo de verificar a identidade do usuário</span></div>
+            <div><span class="term">Autorização</span><br><span class="def">Definição de permissões de acesso</span></div>
+            <div><span class="term">Backup</span><br><span class="def">Cópia de dados para recuperação</span></div>
+            <div><span class="term">Confidencialidade</span><br><span class="def">Proteção contra acesso não autorizado</span></div>
+            <div><span class="term">Disponibilidade</span><br><span class="def">Garantia de acesso aos recursos</span></div>
+            <div><span class="term">Envelope digital</span><br><span class="def">Combinação de criptografia simétrica e assimétrica</span></div>
+            <div><span class="term">Extranet</span><br><span class="def">Rede privada com acesso a parceiros</span></div>
+            <div><span class="term">Identificação</span><br><span class="def">Apresentação do usuário ao sistema</span></div>
+            <div><span class="term">Integridade</span><br><span class="def">Proteção contra alterações não autorizadas</span></div>
+            <div><span class="term">Intranet</span><br><span class="def">Rede privada interna</span></div>
+            <div><span class="term">Mala Direta</span><br><span class="def">Recurso para criar documentos personalizados em massa</span></div>
+            <div><span class="term">Não-repúdio</span><br><span class="def">Impedir negação de autoria</span></div>
+            <div><span class="term">Phishing</span><br><span class="def">Tentativa de obter informações através de e-mails falsos</span></div>
+            <div><span class="term">PROCV</span><br><span class="def">Função de busca vertical no Excel</span></div>
+            <div><span class="term">Referência absoluta</span><br><span class="def">Célula fixa ($A$1)</span></div>
+            <div><span class="term">Referência mista</span><br><span class="def">Célula parcialmente fixa ($A1 ou A$1)</span></div>
+            <div><span class="term">Referência relativa</span><br><span class="def">Célula que se ajusta (A1)</span></div>
+        </div>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- EXERCÍCIOS                                                     -->
+        <!-- ============================================================ -->
+        <span class="anchor" id="exercicios"></span>
+        <h2>Exercícios Propostos</h2>
+        <ol class="exercise-list">
+            <li>
+                <strong>Qual tipo de gráfico é mais adequado para mostrar a evolução do preço de uma ação ao longo de 5 anos?</strong>
+                <div class="exercise-answer">Resposta: Gráfico de linha</div>
+            </li>
+            <li>
+                <strong>Complete a fórmula:</strong> =PROCV(1001; A2:D100; ___; FALSO). O que deve estar no espaço para retornar o valor da 3ª coluna?
+                <div class="exercise-answer">Resposta: 3</div>
+            </li>
+            <li>
+                <strong>Qual atalho do Windows abre o Explorador de Arquivos?</strong>
+                <div class="exercise-answer">Resposta: Windows + E</div>
+            </li>
+            <li>
+                <strong>Qual pilar da segurança da informação é violado quando um arquivo é alterado sem autorização?</strong>
+                <div class="exercise-answer">Resposta: Integridade</div>
+            </li>
+            <li>
+                <strong>Qual a diferença entre identificação e autenticação?</strong>
+                <div class="exercise-answer">Resposta: Identificação = apresentar-se (login), Autenticação = comprovar identidade (senha)</div>
+            </li>
+            <li>
+                <strong>Qual mecanismo de segurança garante que um usuário não possa negar ter enviado um documento?</strong>
+                <div class="exercise-answer">Resposta: Não-repúdio, geralmente via assinatura digital</div>
+            </li>
+        </ol>
+
+        <hr class="divider">
+
+        <!-- ============================================================ -->
+        <!-- RODAPÉ                                                         -->
+        <!-- ============================================================ -->
+        <div style="text-align:center; margin-top:2.5rem; color:#8b949e; font-size:0.9rem; border-top:1px solid #1f2a3a; padding-top:2rem;">
+            <p style="margin-bottom:0.2rem;"><em>Esta apostila foi desenvolvida para preparação em concursos públicos, com foco em aprofundamento teórico, aplicação prática e identificação de pegadinhas comuns em provas. O material segue os padrões dos melhores cursos preparatórios do país.</em></p>
+            <p style="margin-top:0.8rem; font-weight:500; color:#b8c9dd;">Bons estudos e sucesso na sua aprovação! 🎯</p>
+        </div>
+
+        <div class="back-top-wrap">
+            <a href="#sumario" class="back-top">↥ Voltar ao Sumário</a>
+        </div>
+
+    </div>
+    <!-- fim .container -->
+</body>
+</html>
