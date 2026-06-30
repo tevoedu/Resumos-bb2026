@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila de Conhecimentos Bancários Avançados</title>
+    <style>
+        /* ── RESET & BASE ── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0b0e14;
+            --bg-secondary: #121820;
+            --bg-card: #1a2330;
+            --bg-card-hover: #212d3e;
+            --bg-highlight: #1f2a3a;
+            --bg-code: #0f151e;
+            --text-primary: #e8edf2;
+            --text-secondary: #b0bac8;
+            --text-muted: #7a879a;
+            --gold: #d4a54a;
+            --gold-dim: #b58a3a;
+            --teal: #4a9e8e;
+            --teal-dim: #3a7e70;
+            --coral: #d4676a;
+            --coral-dim: #b85458;
+            --purple: #8b7db8;
+            --purple-dim: #6f5f9a;
+            --blue: #5b8cba;
+            --blue-dim: #4a7aa3;
+            --border-subtle: #2a3548;
+            --border-strong: #3d4a62;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            --radius: 12px;
+            --radius-sm: 6px;
+            --font-base: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --transition: 0.25s ease;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-base);
+            line-height: 1.7;
+            padding: 0 1.25rem 4rem;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #0b0e14;
+        }
+
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-strong);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-dim);
+        }
+
+        /* ── LAYOUT ── */
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 2rem 0 0;
+        }
+
+        /* ── HEADER / TITLE ── */
+        .doc-header {
+            text-align: center;
+            padding: 3rem 1.5rem 2.5rem;
+            border-bottom: 2px solid var(--border-subtle);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .doc-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--teal));
+            border-radius: 3px;
+        }
+        .doc-header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .doc-header h1 span {
+            color: var(--gold);
+        }
+        .doc-header .sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+        .doc-header .meta {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .doc-header .meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .doc-header .meta .badge {
+            background: var(--gold-dim);
+            color: #0b0e14;
+            padding: 0.1rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            letter-spacing: 0.03em;
+        }
+
+        /* ── TOC ── */
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 2rem 2rem 1.8rem;
+            margin-bottom: 3.5rem;
+            box-shadow: var(--shadow);
+        }
+        .toc-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .toc-title svg {
+            flex-shrink: 0;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem 1.8rem;
+        }
+        .toc-grid a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.2rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.92rem;
+            border-bottom: 1px solid transparent;
+            transition: color var(--transition), border-color var(--transition);
+        }
+        .toc-grid a:hover {
+            color: var(--text-primary);
+            border-bottom-color: var(--gold-dim);
+        }
+        .toc-grid a .num {
+            color: var(--gold);
+            font-weight: 600;
+            min-width: 2rem;
+            font-size: 0.85rem;
+        }
+        .toc-grid a .ch {
+            flex: 1;
+        }
+        @media (max-width: 640px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── CHAPTERS ── */
+        .chapter {
+            margin-bottom: 4rem;
+            padding-top: 0.5rem;
+        }
+
+        .chapter-number {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: rgba(212, 165, 74, 0.10);
+            padding: 0.2rem 1rem 0.2rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 165, 74, 0.20);
+            margin-bottom: 0.6rem;
+        }
+
+        .chapter h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+            line-height: 1.2;
+        }
+        .chapter h2 .accent {
+            color: var(--gold);
+        }
+
+        .chapter .subhead {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 1.8rem;
+            border-left: 3px solid var(--gold-dim);
+            padding-left: 1rem;
+        }
+
+        .chapter h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 2rem 0 0.8rem;
+            line-height: 1.3;
+        }
+        .chapter h3 .marker {
+            color: var(--gold);
+            margin-right: 0.3rem;
+        }
+
+        .chapter h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin: 1.6rem 0 0.5rem;
+        }
+
+        .chapter p {
+            color: var(--text-secondary);
+            margin-bottom: 1.1rem;
+            line-height: 1.8;
+        }
+        .chapter p strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .chapter p .highlight {
+            background: rgba(212, 165, 74, 0.15);
+            color: var(--gold);
+            padding: 0 0.3rem;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        /* ── LISTS ── */
+        .chapter ul,
+        .chapter ol {
+            color: var(--text-secondary);
+            padding-left: 1.6rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+        }
+        .chapter ul li,
+        .chapter ol li {
+            margin-bottom: 0.3rem;
+        }
+        .chapter ul li strong,
+        .chapter ol li strong {
+            color: var(--text-primary);
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+            margin: 2.5rem 0;
+        }
+        .divider-gold {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+            margin: 2rem 0;
+        }
+
+        /* ── CARDS ── */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 1.6rem 1.8rem;
+            margin: 1.4rem 0;
+            box-shadow: var(--shadow);
+            transition: border-color var(--transition);
+        }
+        .card:hover {
+            border-color: var(--border-strong);
+        }
+        .card-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card-title .icon {
+            flex-shrink: 0;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── CALLOUTS ── */
+        .callout {
+            border-left: 4px solid var(--gold);
+            background: rgba(212, 165, 74, 0.06);
+            padding: 1.2rem 1.6rem;
+            margin: 1.4rem 0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+        .callout-tip {
+            border-left-color: var(--teal);
+            background: rgba(74, 158, 142, 0.06);
+        }
+        .callout-tip .callout-label {
+            color: var(--teal);
+        }
+        .callout-warn {
+            border-left-color: var(--coral);
+            background: rgba(212, 103, 106, 0.06);
+        }
+        .callout-warn .callout-label {
+            color: var(--coral);
+        }
+        .callout-obs {
+            border-left-color: var(--purple);
+            background: rgba(139, 125, 184, 0.06);
+        }
+        .callout-obs .callout-label {
+            color: var(--purple);
+        }
+        .callout-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── QUOTE ── */
+        .quote {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--purple);
+            padding: 1.2rem 1.8rem;
+            margin: 1.4rem 0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        .quote .source {
+            display: block;
+            margin-top: 0.4rem;
+            font-style: normal;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.6rem 0;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-subtle);
+        }
+        .table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+        .table-wrap table thead {
+            background: var(--bg-card);
+        }
+        .table-wrap table th {
+            text-align: left;
+            padding: 0.8rem 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-strong);
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+        .table-wrap table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: top;
+        }
+        .table-wrap table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .table-wrap table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .table-wrap table td .tag {
+            display: inline-block;
+            padding: 0.05rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+        .tag-yes {
+            background: rgba(74, 158, 142, 0.20);
+            color: var(--teal);
+        }
+        .tag-no {
+            background: rgba(212, 103, 106, 0.20);
+            color: var(--coral);
+        }
+        .tag-gold {
+            background: rgba(212, 165, 74, 0.18);
+            color: var(--gold);
+        }
+
+        /* ── HIGHLIGHT BOX (marcador) ── */
+        .highlight-box {
+            background: rgba(212, 165, 74, 0.07);
+            border: 1px solid rgba(212, 165, 74, 0.20);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.4rem;
+            margin: 1.2rem 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0.3rem;
+        }
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+        .highlight-box .label {
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── SVG DIAGRAMS ── */
+        .diagram-container {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 1.5rem 1rem;
+            margin: 1.8rem 0;
+            overflow-x: auto;
+            text-align: center;
+        }
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .diagram-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.6rem;
+        }
+
+        /* ── INLINE SVG ICONS ── */
+        .icon-svg {
+            display: inline-block;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            body {
+                padding: 0 0.75rem 3rem;
+            }
+            .container {
+                padding-top: 0.5rem;
+            }
+            .doc-header h1 {
+                font-size: 1.8rem;
+            }
+            .doc-header .sub {
+                font-size: 0.95rem;
+            }
+            .chapter h2 {
+                font-size: 1.6rem;
+            }
+            .chapter h3 {
+                font-size: 1.15rem;
+            }
+            .toc {
+                padding: 1.2rem 1.2rem 1rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+            .callout {
+                padding: 1rem 1.2rem;
+            }
+            .table-wrap table {
+                font-size: 0.82rem;
+            }
+            .table-wrap table th,
+            .table-wrap table td {
+                padding: 0.5rem 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .doc-header h1 {
+                font-size: 1.4rem;
+            }
+            .chapter h2 {
+                font-size: 1.3rem;
+            }
+            .chapter .subhead {
+                font-size: 0.95rem;
+                padding-left: 0.7rem;
+            }
+            .toc-grid a {
+                font-size: 0.82rem;
+            }
+            .card {
+                padding: 0.9rem 1rem;
+            }
+            .callout {
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        /* ── PRINT / OFFLINE ── */
+        @media print {
+            body {
+                background: #0b0e14;
+                padding: 0;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0.5in;
+            }
+            .toc {
+                break-after: avoid;
+            }
+            .chapter {
+                break-inside: avoid;
+                page-break-after: always;
+            }
+            .chapter:last-child {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ─── HEADER ─── -->
+        <header class="doc-header">
+            <h1>📘 Conhecimentos <span>Bancários</span> Avançados</h1>
+            <p class="sub">Operações de Crédito · Produtos Financeiros · Regulamentação Bancária</p>
+            <div class="meta">
+                <span>🎯 Preparação completa para concursos da área bancária</span>
+                <span class="badge">Cesgranrio · FCC · FGV · Cebraspe</span>
+            </div>
+        </header>
+
+        <!-- ─── TOC ─── -->
+        <nav class="toc" aria-label="Sumário">
+            <div class="toc-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h12"/></svg>
+                Sumário
+            </div>
+            <div class="toc-grid">
+                <a href="#ch1"><span class="num">01</span><span class="ch">Desconto de Títulos</span></a>
+                <a href="#ch2"><span class="num">02</span><span class="ch">Crédito Rural</span></a>
+                <a href="#ch3"><span class="num">03</span><span class="ch">Fundos Constitucionais</span></a>
+                <a href="#ch4"><span class="num">04</span><span class="ch">BNDES Finame</span></a>
+                <a href="#ch5"><span class="num">05</span><span class="ch">Gestão de Riscos — Risco de Mercado</span></a>
+                <a href="#ch6"><span class="num">06</span><span class="ch">Instituições de Pagamento</span></a>
+                <a href="#ch7"><span class="num">07</span><span class="ch">PIX</span></a>
+                <a href="#ch8"><span class="num">08</span><span class="ch">Ética Bancária — Código BNB</span></a>
+                <a href="#ch9"><span class="num">09</span><span class="ch">Seguros — Automóvel</span></a>
+                <a href="#ch10"><span class="num">10</span><span class="ch">Responsabilidade Socioambiental</span></a>
+                <a href="#ch11"><span class="num">11</span><span class="ch">Rentabilidade de Investimentos</span></a>
+                <a href="#ch12"><span class="num">12</span><span class="ch">Regra de Ouro</span></a>
+                <a href="#mapa"><span class="num">✦</span><span class="ch">Mapa Mental Geral</span></a>
+            </div>
+        </nav>
+
+        <!-- ─── INTRO ─── -->
+        <div class="card" style="border-color:var(--gold-dim);margin-bottom:3rem;">
+            <p style="font-size:1.05rem;color:var(--text-secondary);">
+                <strong style="color:var(--text-primary);">Prezado aluno,</strong><br>
+                Este material foi meticulosamente elaborado para transformar conhecimentos fragmentados em uma compreensão sólida e aplicada do sistema financeiro nacional e da rotina bancária. Como futuro Técnico Bancário, você não precisa apenas decorar conceitos — precisa entender como cada produto, cada norma e cada procedimento se conecta ao seu dia a dia na agência, à satisfação do cliente e aos resultados da sua carteira.
+            </p>
+            <p style="color:var(--text-secondary);margin-top:0.6rem;">
+                Ao longo desta apostila, cada tema será explorado em profundidade, com exemplos práticos de atendimento, armadilhas de prova devidamente sinalizadas e esquemas visuais que facilitarão sua memorização. Prepare-se para dominar o conteúdo e enfrentar qualquer questão com segurança.
+            </p>
+            <p style="color:var(--gold);margin-top:0.6rem;font-weight:500;">Vamos juntos.</p>
+        </div>
+
+        <!-- ─── CAPÍTULO 1 ─── -->
+        <section class="chapter" id="ch1">
+            <div class="chapter-number">Capítulo 01</div>
+            <h2>Desconto de Títulos: <span class="accent">A Antecipação de Recebíveis como Instrumento de Capital de Giro</span></h2>
+
+            <h3>1.1 Conceito Fundamental e Natureza Jurídica da Operação</h3>
+            <p>O desconto de títulos representa uma das operações de crédito mais tradicionais e relevantes do sistema bancário brasileiro, especialmente para empresas que trabalham com vendas a prazo. Para compreendê-la adequadamente — e acertar as questões da Cesgranrio — é preciso partir de sua definição essencial.</p>
+
+            <div class="callout callout-obs">
+                <div class="callout-label">🔍 Definição</div>
+                <p><strong>O desconto de títulos é a concessão de um empréstimo pelo banco a uma empresa que vende a prazo seu produto, tendo como garantia um título comercial emitido pelo comprador do produto.</strong> Nesta operação, o banco antecipa o valor do título ao emitente (a empresa vendedora), descontando juros e taxas até a data de vencimento, de modo que a empresa recebe um valor menor que o valor nominal do título para obter liquidez imediata. O banco, por sua vez, assume o direito de receber o valor total do título na data de vencimento.</p>
+            </div>
+
+            <h4>Por que as empresas recorrem ao desconto de títulos?</h4>
+            <p>Imagine a situação concreta de uma indústria de móveis que vendeu R$ 100.000,00 em produtos para uma rede varejista, com pagamento em 60 dias por meio de duplicata mercantil. A indústria precisa de capital de giro agora para comprar matéria-prima, pagar funcionários e manter a produção. Ela não pode esperar 60 dias. Dirige-se então ao banco, entrega a duplicata e recebe, digamos, R$ 95.000,00 imediatamente. O banco reteve R$ 5.000,00 correspondentes a juros, taxas administrativas e outros encargos pelo período de 60 dias.</p>
+            <p><strong>Este é o cerne da operação: transformar um direito de crédito futuro em disponibilidade de caixa presente.</strong></p>
+
+            <h4>A garantia da operação: o título de crédito</h4>
+            <p>O título comercial (duplicata, nota promissória, cheque pré-datado em alguns casos) funciona como garantia real da operação. Entretanto — e aqui reside um ponto crucial para provas — <strong>a garantia não exime a empresa que descontou o título de sua responsabilidade</strong>. Diferentemente do que muitos candidatos imaginam, o desconto de títulos não é uma venda definitiva do direito de crédito ao banco.</p>
+
+            <div class="divider"></div>
+
+            <h3>1.2 A Responsabilidade da Empresa: O Ponto Mais Cobrado em Provas</h3>
+            <div class="callout callout-warn">
+                <div class="callout-label">⚠️ Atenção</div>
+                <p><strong>Este é, sem dúvida, o tema mais explorado pela Cesgranrio quando cobra desconto de títulos.</strong></p>
+            </div>
+            <p>O erro mais comum entre candidatos é confundir desconto de títulos com factoring ou com uma simples venda de direitos creditórios. A distinção é fundamental:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Aspecto</th><th>Desconto de Títulos (Operação Bancária)</th><th>Factoring</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Natureza da operação</strong></td><td>Empréstimo com garantia</td><td>Compra definitiva de direitos</td></tr>
+                        <tr><td><strong>Responsabilidade pelo não pagamento</strong></td><td>Continua sendo da empresa vendedora</td><td>Transfere-se para a empresa de factoring</td></tr>
+                        <tr><td><strong>Direito de regresso</strong></td><td>O banco pode cobrar da empresa</td><td>A factoring assume o risco do devedor</td></tr>
+                        <tr><td><strong>Regulamentação</strong></td><td>Instituições financeiras autorizadas pelo Bacen</td><td>Empresas comerciais (não financeiras)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>O que acontece se o comprador não pagar o título?</h4>
+            <p>Cenário prático: A Indústria Alfa descontou uma duplicata de R$ 50.000,00 no Banco Beta. Na data de vencimento, a rede varejista compradora não honrou o pagamento. O que o banco faz?</p>
+            <div class="callout callout-warn">
+                <div class="callout-label">⚡ Consequência</div>
+                <p><strong>O banco debitará compulsoriamente o valor da conta-corrente da Indústria Alfa.</strong> Se houver saldo disponível, o débito é imediato. Se não houver saldo suficiente, o valor <strong>migra para o cheque especial</strong> da empresa, incidindo os juros do crédito rotativo, que são substancialmente mais elevados.</p>
+            </div>
+            <p>Isso significa que, na prática, o desconto de títulos <strong>não transfere o risco de crédito ao banco</strong>. A operação é <em>pro solvendo</em> (com direito de regresso), e não <em>pro soluto</em> (sem direito de regresso). A empresa que descontou o título <strong>continua sendo a responsável final</strong> pelo pagamento.</p>
+
+            <div class="highlight-box">
+                <div class="label">📌 Pegadinha clássica da Cesgranrio</div>
+                <p>A banca costuma apresentar alternativas que descrevem o desconto de títulos como uma operação em que "o banco assume integralmente o risco de inadimplência do comprador" ou "a empresa transfere definitivamente seus direitos creditórios". <strong>Ambas estão erradas.</strong> O banco assume o direito de receber o título, mas não assume o risco de crédito de forma definitiva — a empresa permanece como codevedora.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>1.3 Desconto de Títulos vs. Outras Operações Bancárias</h3>
+            <p>A Cesgranrio frequentemente testa a capacidade do candidato de diferenciar o desconto de títulos de outras operações do mercado financeiro. Vamos estabelecer comparações claras:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Operação</th><th>Definição Essencial</th><th>Finalidade para o Cliente</th><th>Garantia Envolvida</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Desconto de Títulos</strong></td><td>Empréstimo com garantia de título comercial oriundo de venda a prazo</td><td>Capital de giro (antecipação de recebíveis)</td><td>Título comercial (duplicata)</td></tr>
+                        <tr><td><strong>Compra de Debêntures</strong></td><td>Investimento do banco em títulos de dívida emitidos por empresas (mercado primário)</td><td>Captação de recursos pela empresa emissora (não envolve cliente bancário direto)</td><td>Não se aplica (é investimento do banco)</td></tr>
+                        <tr><td><strong>Negociação de Dívidas</strong></td><td>Acordo entre credor e devedor para redução ou reescalonamento do valor devido</td><td>Regularização de situação de inadimplência</td><td>Não há garantia nova, mas renegociação</td></tr>
+                        <tr><td><strong>Venda de Títulos Públicos</strong></td><td>Operação no mercado de renda fixa (banco vende títulos do governo a investidores)</td><td>Investimento ou política monetária</td><td>Títulos públicos federais</td></tr>
+                        <tr><td><strong>Financiamento de Veículos</strong></td><td>Crédito para aquisição de bem com retenção de título de propriedade</td><td>Aquisição de veículo</td><td>Alienação fiduciária do veículo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">🔑 Chave de identificação na prova</div>
+                <p>Quando a questão da Cesgranrio apresentar uma situação em que uma empresa precisa de recursos imediatos para capital de giro e oferece títulos oriundos de suas vendas a prazo, com o banco antecipando o valor e mantendo o direito de regresso contra a empresa, <strong>você está diante de um desconto de títulos</strong>.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>1.4 Desconto de Duplicatas: A Modalidade Específica para Capital de Giro</h3>
+            <p>O desconto de duplicatas é a modalidade mais comum de desconto de títulos no mercado brasileiro. Trata-se de uma <strong>operação de crédito de curto prazo</strong> especificamente voltada para empresas que exercem atividade industrial, comercial ou de prestação de serviços e que estão comprometidas com vendas a prazo.</p>
+            <ul>
+                <li><strong>Finalidade precípua:</strong> fornecimento de recursos para capital de giro;</li>
+                <li><strong>Instrumento:</strong> duplicata mercantil (título de crédito emitido pelo vendedor com base na fatura de venda);</li>
+                <li><strong>Prazo:</strong> tipicamente curto prazo (30 a 180 dias);</li>
+                <li><strong>Responsabilidade:</strong> a empresa que desconta continua responsável pela existência e legitimidade da duplicata, bem como pela solvência do devedor.</li>
+            </ul>
+            <div class="highlight-box">
+                <div class="label">🧠 Questão de raciocínio na Cesgranrio</div>
+                <p>A banca costuma apresentar alternativas que mencionam "reforço de ativo fixo" ou "financiamento de longo prazo". O desconto de duplicatas é <strong>essencialmente uma operação de capital de giro de curto prazo</strong>, não se confundindo com linhas de investimento ou financiamento de longo prazo.</p>
+            </div>
+
+            <div class="divider-gold"></div>
+
+            <h3>1.5 Síntese Esquemática: Desconto de Títulos</h3>
+            <div class="diagram-container">
+                <svg viewBox="0 0 820 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: Desconto de Títulos">
+                    <defs>
+                        <style>
+                            .dt-box { fill: #1a2330; stroke: #3d4a62; stroke-width: 1.5; rx: 8; }
+                            .dt-box-gold { fill: #1f2a3a; stroke: #d4a54a; stroke-width: 1.8; rx: 8; }
+                            .dt-box-teal { fill: #1a2a30; stroke: #4a9e8e; stroke-width: 1.5; rx: 8; }
+                            .dt-box-coral { fill: #2a1a22; stroke: #d4676a; stroke-width: 1.5; rx: 8; }
+                            .dt-text { fill: #e8edf2; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .dt-text-sm { fill: #b0bac8; font-size: 11px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .dt-text-gold { fill: #d4a54a; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; font-weight:600; }
+                            .dt-line { stroke: #3d4a62; stroke-width: 1.5; fill: none; }
+                            .dt-arrow { fill: #3d4a62; }
+                        </style>
+                    </defs>
+                    <!-- Centro -->
+                    <rect x="290" y="20" width="240" height="48" class="dt-box-gold" />
+                    <text x="410" y="50" text-anchor="middle" class="dt-text-gold" font-size="15">OPERAÇÃO DE DESCONTO DE TÍTULOS</text>
+
+                    <!-- Ramos principais -->
+                    <path d="M340,68 L340,100 L140,100 L140,130" class="dt-line" />
+                    <path d="M410,68 L410,100" class="dt-line" />
+                    <path d="M480,68 L480,100 L680,100 L680,130" class="dt-line" />
+
+                    <!-- FINALIDADE -->
+                    <rect x="40" y="130" width="200" height="48" class="dt-box" />
+                    <text x="140" y="152" text-anchor="middle" class="dt-text">FINALIDADE</text>
+                    <text x="140" y="170" text-anchor="middle" class="dt-text-sm">Antecipação de recebíveis</text>
+
+                    <!-- NATUREZA -->
+                    <rect x="310" y="130" width="200" height="48" class="dt-box" />
+                    <text x="410" y="152" text-anchor="middle" class="dt-text">NATUREZA</text>
+                    <text x="410" y="170" text-anchor="middle" class="dt-text-sm">Empréstimo com garantia</text>
+
+                    <!-- GARANTIA -->
+                    <rect x="580" y="130" width="200" height="48" class="dt-box" />
+                    <text x="680" y="152" text-anchor="middle" class="dt-text">GARANTIA</text>
+                    <text x="680" y="170" text-anchor="middle" class="dt-text-sm">Título comercial</text>
+
+                    <!-- Conexões para baixo -->
+                    <path d="M140,178 L140,210 L140,240" class="dt-line" />
+                    <path d="M410,178 L410,210" class="dt-line" />
+                    <path d="M680,178 L680,210 L680,240" class="dt-line" />
+
+                    <!-- RESPONSABILIDADE (grande) -->
+                    <rect x="40" y="240" width="300" height="100" class="dt-box-coral" />
+                    <text x="190" y="264" text-anchor="middle" class="dt-text" font-weight="600">RESPONSABILIDADE</text>
+                    <text x="190" y="284" text-anchor="middle" class="dt-text-sm">Empresa que descontou</text>
+                    <text x="190" y="302" text-anchor="middle" class="dt-text-sm">CONTINUA responsável</text>
+                    <text x="190" y="320" text-anchor="middle" class="dt-text-sm">Banco tem direito de regresso</text>
+
+                    <!-- DIFERENÇA FACTORING -->
+                    <rect x="380" y="240" width="400" height="100" class="dt-box-teal" />
+                    <text x="580" y="264" text-anchor="middle" class="dt-text" font-weight="600">DIFERENÇA CRUCIAL</text>
+                    <text x="580" y="286" text-anchor="middle" class="dt-text-sm">Factoring = venda definitiva (sem regresso)</text>
+                    <text x="580" y="306" text-anchor="middle" class="dt-text-sm">Desconto bancário = empréstimo com garantia (com regresso)</text>
+                    <text x="580" y="326" text-anchor="middle" class="dt-text-sm" fill="#d4a54a">⚠️ Não confundir!</text>
+
+                    <!-- Pegadinhas -->
+                    <path d="M190,340 L190,380 L190,400" class="dt-line" />
+                    <path d="M580,340 L580,380 L580,400" class="dt-line" />
+
+                    <rect x="40" y="400" width="300" height="100" class="dt-box" style="stroke:#d4676a;" />
+                    <text x="190" y="424" text-anchor="middle" class="dt-text-gold">PEGADINHAS CESGRANRIO</text>
+                    <text x="190" y="446" text-anchor="middle" class="dt-text-sm">❌ "Banco assume risco" → ERRADO</text>
+                    <text x="190" y="464" text-anchor="middle" class="dt-text-sm">❌ "Venda definitiva" → ERRADO</text>
+                    <text x="190" y="482" text-anchor="middle" class="dt-text-sm">❌ "Equivale ao factoring" → ERRADO</text>
+
+                    <rect x="380" y="400" width="400" height="100" class="dt-box" style="stroke:#d4676a;" />
+                    <text x="580" y="424" text-anchor="middle" class="dt-text-gold">MAIS PEGADINHAS</text>
+                    <text x="580" y="446" text-anchor="middle" class="dt-text-sm">❌ "Financiamento de longo prazo" → ERRADO</text>
+                    <text x="580" y="464" text-anchor="middle" class="dt-text-sm">❌ "É curto prazo" → CORRETO</text>
+                    <text x="580" y="482" text-anchor="middle" class="dt-text-sm">❌ "Sempre com recurso X" → ERRADO</text>
+                </svg>
+                <div class="diagram-caption">Esquema síntese: Desconto de Títulos — pontos-chave para a prova</div>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 2 ─── -->
+        <section class="chapter" id="ch2">
+            <div class="chapter-number">Capítulo 02</div>
+            <h2>Crédito Rural: <span class="accent">O Sistema Nacional de Financiamento do Agronegócio</span></h2>
+
+            <h3>2.1 Estrutura e Fontes de Recursos do Crédito Rural</h3>
+            <p>O Sistema Nacional de Crédito Rural (SNCR) é um dos pilares da política agrícola brasileira, destinado a prover recursos para custeio, investimento e comercialização da produção agropecuária. Para o concurseiro, compreender a diferenciação entre recursos controlados e não controlados é absolutamente essencial — a Cesgranrio explora intensamente esse tópico.</p>
+
+            <h4>Recursos Controlados (Juros Predeterminados)</h4>
+            <p>Os recursos controlados são aqueles cujas taxas de juros são <strong>predeterminadas pelo governo federal</strong>, geralmente por meio do Conselho Monetário Nacional (CMN). São recursos mais baratos, frequentemente subsidiados, destinados a estimular a produção agrícola e garantir segurança alimentar.</p>
+            <ul>
+                <li><strong>Fontes:</strong> Exigibilidades bancárias, poupança rural, Fundos Constitucionais (FNO, FNE, FCO), BNDES, dotações orçamentárias da União.</li>
+                <li><strong>Característica principal:</strong> Taxas de juros <strong>menores</strong> que as de mercado, definidas pelo governo.</li>
+            </ul>
+
+            <h4>Recursos Não Controlados (Juros Livremente Pactuados)</h4>
+            <p>Os recursos não controlados são oriundos de fontes privadas, captados pelos bancos no mercado a taxas de mercado, e emprestados aos produtores rurais com <strong>juros livremente pactuados</strong> entre as partes. Não há subsídio governamental.</p>
+            <ul>
+                <li><strong>Fontes:</strong> Recursos próprios das instituições financeiras, captações no mercado financeiro, operações com recursos externos.</li>
+                <li><strong>Característica principal:</strong> Taxas de juros <strong>maiores</strong> que as controladas, definidas pelo mercado.</li>
+            </ul>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Aspecto</th><th>Recursos Controlados</th><th>Recursos Não Controlados</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Taxa de juros</strong></td><td>Predeterminada pelo governo</td><td>Livremente pactuada</td></tr>
+                        <tr><td><strong>Custo para o produtor</strong></td><td>Menor (subsidiado)</td><td>Maior (mercado)</td></tr>
+                        <tr><td><strong>Origem</strong></td><td>Exigibilidades, fundos, orçamento</td><td>Recursos próprios dos bancos, mercado</td></tr>
+                        <tr><td><strong>Objetivo</strong></td><td>Política agrícola, subsídio</td><td>Complementação da oferta de crédito</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>2.2 Os Três Tipos de Crédito Rural e a Pegadinha do "Sempre"</h3>
+            <p>O crédito rural classifica-se em três modalidades, conforme sua finalidade:</p>
+
+            <div class="card">
+                <div class="card-title"><span style="color:var(--gold);font-weight:700;">①</span> Crédito de Custeio</div>
+                <p>Destina-se a cobrir as despesas do ciclo produtivo: compra de sementes, fertilizantes, defensivos, ração, medicamentos veterinários, combustível, mão de obra temporária, entre outros. É o crédito que <strong>financia o dia a dia da produção</strong>.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span style="color:var(--gold);font-weight:700;">②</span> Crédito de Investimento</div>
+                <p>Voltado para a aquisição de bens de capital: máquinas, equipamentos, construções, benfeitorias, formação de lavouras permanentes, aquisição de animais para reprodução. É o crédito que <strong>amplia a capacidade produtiva</strong>.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span style="color:var(--gold);font-weight:700;">③</span> Crédito de Comercialização</div>
+                <p>Destinado a financiar as despesas da fase de comercialização da produção: armazenamento, transporte, beneficiamento. Permite que o produtor <strong>não seja forçado a vender a produção imediatamente após a colheita</strong> (quando os preços tendem a estar mais baixos), podendo aguardar melhores condições de mercado.</p>
+            </div>
+
+            <div class="callout callout-warn">
+                <div class="callout-label">🚨 A GRANDE PEGADINHA DA CESGRANRIO</div>
+                <p><strong>Afirmação incorreta 1:</strong> "O crédito de custeio é sempre concedido com recursos controlados."</p>
+                <p><strong>Afirmação incorreta 2:</strong> "O crédito de investimento utiliza apenas recursos não controlados."</p>
+                <p><strong>Afirmação incorreta 3:</strong> "Os recursos não controlados são sempre mais baratos que os controlados."</p>
+                <p style="margin-top:0.6rem;"><strong>Por que estão erradas?</strong> A legislação do crédito rural <strong>permite que os três tipos de crédito (custeio, investimento e comercialização) sejam concedidos tanto com recursos controlados quanto com recursos não controlados</strong>. O uso da palavra "sempre" torna a afirmação absoluta e, portanto, incorreta.</p>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">⚠️ Atenção</div>
+                <p><strong>Nunca, em hipótese alguma, aceite uma alternativa que utilize "sempre", "nunca", "apenas" ou "exclusivamente" para associar um tipo de crédito a uma única fonte de recursos.</strong> A Cesgranrio constrói alternativas tentadoras exatamente com essas palavras absolutas.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>2.3 O Pronaf: Inclusão Produtiva da Agricultura Familiar</h3>
+            <p>O Programa Nacional de Fortalecimento da Agricultura Familiar (Pronaf) merece atenção especial, pois é tema recorrente em provas da Cesgranrio e outras bancas.</p>
+
+            <h4>Público-Alvo do Pronaf</h4>
+            <p>O Pronaf destina-se exclusivamente aos <strong>agricultores familiares</strong>, assim definidos pela Lei da Agricultura Familiar (Lei nº 11.326/2006). São beneficiários:</p>
+            <ul>
+                <li>Agricultores familiares que explorem estabelecimento rural;</li>
+                <li>Assentados da reforma agrária;</li>
+                <li>Aquicultores;</li>
+                <li>Extrativistas;</li>
+                <li>Pescadores artesanais;</li>
+                <li>Indígenas;</li>
+                <li>Quilombolas;</li>
+                <li>Comunidades tradicionais.</li>
+            </ul>
+            <div class="callout callout-warn">
+                <div class="callout-label">🚫 Quem NÃO é atendido pelo Pronaf</div>
+                <ul style="margin-bottom:0;">
+                    <li>Grandes produtores rurais;</li>
+                    <li>Empresas agropecuárias de grande porte;</li>
+                    <li>Produtores que não se enquadram nos critérios da agricultura familiar.</li>
+                </ul>
+            </div>
+
+            <h4>Atividades Apoiadas pelo Pronaf</h4>
+            <div class="callout callout-warn">
+                <div class="callout-label">⚠️ Pegadinha clássica da Cesgranrio</div>
+                <p>Afirmar que o Pronaf apoia <strong>apenas</strong> atividades agrícolas.</p>
+            </div>
+            <p>Na verdade, o Pronaf apoia tanto <strong>atividades agrícolas quanto não agrícolas</strong>, desde que desenvolvidas no estabelecimento rural ou em aglomerado rural próximo. São exemplos de atividades não agrícolas apoiadas:</p>
+            <ul>
+                <li>Turismo rural;</li>
+                <li>Artesanato;</li>
+                <li>Agroindústria familiar;</li>
+                <li>Serviços relacionados ao meio rural.</li>
+            </ul>
+
+            <h4>Características das Linhas de Crédito do Pronaf</h4>
+            <ul>
+                <li>Taxas de juros subsidiadas (as menores do mercado de crédito rural);</li>
+                <li>Prazos adequados a cada atividade;</li>
+                <li>Bônus de adimplência (descontos para pagamento em dia);</li>
+                <li>Assistência técnica obrigatória em muitas linhas.</li>
+            </ul>
+
+            <div class="divider-gold"></div>
+
+            <h3>2.4 Síntese Esquemática: Crédito Rural</h3>
+            <div class="diagram-container">
+                <svg viewBox="0 0 860 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: Crédito Rural">
+                    <defs>
+                        <style>
+                            .cr-box { fill: #1a2330; stroke: #3d4a62; stroke-width: 1.5; rx: 8; }
+                            .cr-box-gold { fill: #1f2a3a; stroke: #d4a54a; stroke-width: 1.8; rx: 8; }
+                            .cr-box-teal { fill: #1a2a30; stroke: #4a9e8e; stroke-width: 1.5; rx: 8; }
+                            .cr-box-coral { fill: #2a1a22; stroke: #d4676a; stroke-width: 1.5; rx: 8; }
+                            .cr-text { fill: #e8edf2; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .cr-text-sm { fill: #b0bac8; font-size: 11px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .cr-text-gold { fill: #d4a54a; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; font-weight:600; }
+                            .cr-line { stroke: #3d4a62; stroke-width: 1.5; fill: none; }
+                        </style>
+                    </defs>
+                    <!-- Título -->
+                    <rect x="230" y="16" width="400" height="44" class="cr-box-gold" />
+                    <text x="430" y="44" text-anchor="middle" class="cr-text-gold" font-size="15">SISTEMA NACIONAL DE CRÉDITO RURAL (SNCR)</text>
+
+                    <!-- Linhas para RECURSOS e MODALIDADES -->
+                    <path d="M340,60 L340,96 L140,96 L140,124" class="cr-line" />
+                    <path d="M430,60 L430,96" class="cr-line" />
+                    <path d="M520,60 L520,96 L720,96 L720,124" class="cr-line" />
+
+                    <!-- RECURSOS -->
+                    <rect x="40" y="124" width="200" height="44" class="cr-box-gold" />
+                    <text x="140" y="150" text-anchor="middle" class="cr-text-gold">RECURSOS</text>
+
+                    <!-- MODALIDADES -->
+                    <rect x="330" y="124" width="200" height="44" class="cr-box-gold" />
+                    <text x="430" y="150" text-anchor="middle" class="cr-text-gold">MODALIDADES</text>
+
+                    <!-- PRONAF -->
+                    <rect x="620" y="124" width="200" height="44" class="cr-box-gold" />
+                    <text x="720" y="150" text-anchor="middle" class="cr-text-gold">PRONAF</text>
+
+                    <!-- Subitens RECURSOS -->
+                    <path d="M140,168 L140,196 L80,196 L80,220" class="cr-line" />
+                    <path d="M140,168 L140,196 L200,196 L200,220" class="cr-line" />
+
+                    <rect x="20" y="220" width="120" height="80" class="cr-box-teal" />
+                    <text x="80" y="244" text-anchor="middle" class="cr-text" font-weight="600">Controlados</text>
+                    <text x="80" y="264" text-anchor="middle" class="cr-text-sm">Juros predeterm.</text>
+                    <text x="80" y="282" text-anchor="middle" class="cr-text-sm">Taxas menores</text>
+
+                    <rect x="140" y="220" width="120" height="80" class="cr-box-coral" />
+                    <text x="200" y="244" text-anchor="middle" class="cr-text" font-weight="600">Não Controlados</text>
+                    <text x="200" y="264" text-anchor="middle" class="cr-text-sm">Juros livremente</text>
+                    <text x="200" y="282" text-anchor="middle" class="cr-text-sm">Taxas maiores</text>
+
+                    <!-- Subitens MODALIDADES -->
+                    <path d="M430,168 L430,196 L330,196 L330,220" class="cr-line" />
+                    <path d="M430,168 L430,196" class="cr-line" />
+                    <path d="M430,168 L430,196 L530,196 L530,220" class="cr-line" />
+
+                    <rect x="270" y="220" width="120" height="80" class="cr-box" />
+                    <text x="330" y="244" text-anchor="middle" class="cr-text" font-weight="600">Custeio</text>
+                    <text x="330" y="264" text-anchor="middle" class="cr-text-sm">Despesas do</text>
+                    <text x="330" y="282" text-anchor="middle" class="cr-text-sm">ciclo produtivo</text>
+
+                    <rect x="390" y="220" width="120" height="80" class="cr-box" />
+                    <text x="450" y="244" text-anchor="middle" class="cr-text" font-weight="600">Investimento</text>
+                    <text x="450" y="264" text-anchor="middle" class="cr-text-sm">Bens de capital</text>
+                    <text x="450" y="282" text-anchor="middle" class="cr-text-sm">Amplia produção</text>
+
+                    <rect x="510" y="220" width="120" height="80" class="cr-box" />
+                    <text x="570" y="244" text-anchor="middle" class="cr-text" font-weight="600">Comercialização</text>
+                    <text x="570" y="264" text-anchor="middle" class="cr-text-sm">Armazenamento</text>
+                    <text x="570" y="282" text-anchor="middle" class="cr-text-sm">Transporte</text>
+
+                    <!-- Subitens PRONAF -->
+                    <path d="M720,168 L720,196 L720,220" class="cr-line" />
+
+                    <rect x="620" y="220" width="200" height="140" class="cr-box" style="stroke:#4a9e8e;" />
+                    <text x="720" y="244" text-anchor="middle" class="cr-text-gold">PRONAF</text>
+                    <text x="720" y="266" text-anchor="middle" class="cr-text-sm">Público: agricultores</text>
+                    <text x="720" y="284" text-anchor="middle" class="cr-text-sm">familiares, assentados,</text>
+                    <text x="720" y="302" text-anchor="middle" class="cr-text-sm">aquicultores, extrativistas</text>
+                    <text x="720" y="322" text-anchor="middle" class="cr-text-sm">⚠️ NÃO atende grandes</text>
+                    <text x="720" y="340" text-anchor="middle" class="cr-text-sm">Atividades agrícolas E não agrícolas</text>
+
+                    <!-- Pegadinhas -->
+                    <rect x="20" y="340" width="720" height="44" class="cr-box-coral" />
+                    <text x="380" y="366" text-anchor="middle" class="cr-text" font-weight="600">⚠️ PEGADINHAS CESGRANRIO: "SEMPRE" com recurso X → ERRADO  |  "APENAS" agrícolas no Pronaf → ERRADO</text>
+                </svg>
+                <div class="diagram-caption">Esquema síntese: Crédito Rural — estrutura, modalidades e pegadinhas</div>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 3 ─── -->
+        <section class="chapter" id="ch3">
+            <div class="chapter-number">Capítulo 03</div>
+            <h2>Fundos Constitucionais de Financiamento: <span class="accent">Desenvolvimento Regional</span></h2>
+
+            <h3>3.1 A Base Constitucional e Legal</h3>
+            <p>Os Fundos Constitucionais de Financiamento foram criados pela Constituição Federal de 1988, em seu artigo 159, inciso I, alínea "c", e regulamentados pela Lei nº 7.827/1989. Representam o principal instrumento de política pública federal para redução das desigualdades regionais, canalizando recursos para as regiões historicamente menos desenvolvidas do país.</p>
+            <p>São três os Fundos Constitucionais:</p>
+            <ol>
+                <li><strong>Fundo Constitucional de Financiamento do Norte (FNO)</strong></li>
+                <li><strong>Fundo Constitucional de Financiamento do Nordeste (FNE)</strong></li>
+                <li><strong>Fundo Constitucional de Financiamento do Centro-Oeste (FCO)</strong></li>
+            </ol>
+
+            <div class="divider"></div>
+
+            <h3>3.2 A Fonte dos Recursos: 3% da Arrecadação do IR e IPI</h3>
+            <div class="callout callout-obs">
+                <div class="callout-label">📌 Ponto de cobrança literal</div>
+                <p><strong>3% da arrecadação do Imposto de Renda (IR) e do Imposto sobre Produtos Industrializados (IPI).</strong></p>
+            </div>
+            <p>A distribuição desse percentual entre os três fundos é a seguinte:</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Fundo</th><th>Região Prioritária</th><th>Percentual</th><th>Instituição Operadora</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>FNE</strong></td><td>Nordeste</td><td>1,8%</td><td>Banco do Nordeste (BNB)</td></tr>
+                        <tr><td><strong>FNO</strong></td><td>Norte</td><td>0,6%</td><td>Banco da Amazônia (BASA)</td></tr>
+                        <tr><td><strong>FCO</strong></td><td>Centro-Oeste</td><td>0,6%</td><td>Banco do Brasil (BB)</td></tr>
+                        <tr><td><strong>Total</strong></td><td></td><td><strong>3,0%</strong></td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">⚠️ Pegadinha de prova: ICMS</div>
+                <p>A Cesgranrio e outras bancas frequentemente incluem alternativas que mencionam o ICMS (Imposto sobre Circulação de Mercadorias e Serviços) como fonte dos Fundos Constitucionais. <strong>Isso está ERRADO.</strong> O ICMS é imposto estadual, enquanto os Fundos Constitucionais são alimentados exclusivamente por impostos federais (IR e IPI).</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>3.3 O Fundo Constitucional de Financiamento do Nordeste (FNE) em Detalhe</h3>
+            <p>O FNE merece atenção especial, especialmente para candidatos que prestam concursos do Banco do Nordeste. Suas características são detalhadamente cobradas.</p>
+
+            <h4>Área de Abrangência: Além do Nordeste</h4>
+            <div class="callout callout-warn">
+                <div class="callout-label">⚠️ Pegadinha clássica</div>
+                <p>"O FNE é restrito aos estados da região Nordeste." — Essa afirmação é <strong>incorreta</strong>.</p>
+            </div>
+            <p>O FNE abrange, além dos nove estados do Nordeste (Maranhão, Piauí, Ceará, Rio Grande do Norte, Paraíba, Pernambuco, Alagoas, Sergipe e Bahia), também:</p>
+            <ul>
+                <li>Municípios do <strong>norte de Minas Gerais</strong> incluídos na área de atuação da SUDENE;</li>
+                <li>Municípios do <strong>norte do Espírito Santo</strong> incluídos na área de atuação da SUDENE.</li>
+            </ul>
+
+            <h4>Área Prioritária: o Semiárido</h4>
+            <p>Dentro de sua área de abrangência, o FNE tem como <strong>área prioritária o semiárido nordestino</strong>, região que concentra os maiores índices de pobreza e os menores indicadores de desenvolvimento do país.</p>
+
+            <h4>Tratamento Preferencial</h4>
+            <p>O FNE confere <strong>tratamento preferencial</strong> a:</p>
+            <ul>
+                <li>Atividades produtivas de <strong>pequenos e miniprodutores rurais</strong>;</li>
+                <li><strong>Pequenas e microempresas</strong>;</li>
+                <li>Atividades que utilizem intensivamente <strong>matéria-prima e mão de obra locais</strong>;</li>
+                <li>Projetos de <strong>irrigação</strong>;</li>
+                <li>Atividades que contribuam para a <strong>preservação ambiental</strong>.</li>
+            </ul>
+
+            <h4>Operacionalização</h4>
+            <p>O FNE é operacionalizado exclusivamente pelo <strong>Banco do Nordeste do Brasil (BNB)</strong>, que atua como administrador do fundo e agente financeiro.</p>
+
+            <div class="divider-gold"></div>
+
+            <h3>3.4 Síntese Esquemática: Fundos Constitucionais</h3>
+            <div class="diagram-container">
+                <svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: Fundos Constitucionais">
+                    <defs>
+                        <style>
+                            .fc-box { fill: #1a2330; stroke: #3d4a62; stroke-width: 1.5; rx: 8; }
+                            .fc-box-gold { fill: #1f2a3a; stroke: #d4a54a; stroke-width: 1.8; rx: 8; }
+                            .fc-box-teal { fill: #1a2a30; stroke: #4a9e8e; stroke-width: 1.5; rx: 8; }
+                            .fc-box-coral { fill: #2a1a22; stroke: #d4676a; stroke-width: 1.5; rx: 8; }
+                            .fc-text { fill: #e8edf2; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .fc-text-sm { fill: #b0bac8; font-size: 11px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .fc-text-gold { fill: #d4a54a; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; font-weight:600; }
+                            .fc-line { stroke: #3d4a62; stroke-width: 1.5; fill: none; }
+                        </style>
+                    </defs>
+                    <rect x="230" y="12" width="400" height="44" class="fc-box-gold" />
+                    <text x="430" y="40" text-anchor="middle" class="fc-text-gold" font-size="15">FUNDOS CONSTITUCIONAIS DE FINANCIAMENTO</text>
+
+                    <path d="M340,56 L340,90 L140,90 L140,118" class="fc-line" />
+                    <path d="M430,56 L430,90" class="fc-line" />
+                    <path d="M520,56 L520,90 L720,90 L720,118" class="fc-line" />
+
+                    <!-- FONTE -->
+                    <rect x="40" y="118" width="200" height="72" class="fc-box-teal" />
+                    <text x="140" y="142" text-anchor="middle" class="fc-text" font-weight="600">FONTE DE RECURSOS</text>
+                    <text x="140" y="162" text-anchor="middle" class="fc-text-sm">3% da arrecadação do</text>
+                    <text x="140" y="180" text-anchor="middle" class="fc-text-sm">IR e IPI (impostos FEDERAIS)</text>
+
+                    <!-- DISTRIBUIÇÃO -->
+                    <rect x="290" y="118" width="280" height="72" class="fc-box" style="stroke:#4a9e8e;" />
+                    <text x="430" y="142" text-anchor="middle" class="fc-text" font-weight="600">DISTRIBUIÇÃO</text>
+                    <text x="430" y="162" text-anchor="middle" class="fc-text-sm">FNE (Nordeste) → 1,8% → BNB</text>
+                    <text x="430" y="180" text-anchor="middle" class="fc-text-sm">FNO (Norte) → 0,6% → BASA  |  FCO (CO) → 0,6% → BB</text>
+
+                    <!-- FNE DETALHE -->
+                    <rect x="620" y="118" width="200" height="72" class="fc-box" style="stroke:#d4a54a;" />
+                    <text x="720" y="142" text-anchor="middle" class="fc-text-gold">FNE — DETALHE</text>
+                    <text x="720" y="162" text-anchor="middle" class="fc-text-sm">Área: NE + norte de MG + norte de ES</text>
+                    <text x="720" y="180" text-anchor="middle" class="fc-text-sm">Prioritário: semiárido</text>
+
+                    <!-- Linha para pegadinhas -->
+                    <path d="M430,190 L430,220 L430,240" class="fc-line" />
+
+                    <!-- PEGADINHAS -->
+                    <rect x="60" y="240" width="740" height="56" class="fc-box-coral" />
+                    <text x="430" y="264" text-anchor="middle" class="fc-text" font-weight="600">⚠️ PEGADINHAS CESGRANRIO</text>
+                    <text x="430" y="284" text-anchor="middle" class="fc-text-sm">❌ "ICMS compõe os fundos" → ERRADO  |  ❌ "FNE restrito ao Nordeste" → ERRADO  |  ❌ "Percentual é 5%" → ERRADO (é 3%)</text>
+                </svg>
+                <div class="diagram-caption">Esquema síntese: Fundos Constitucionais — fontes, distribuição e pegadinhas</div>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 4 ─── -->
+        <section class="chapter" id="ch4">
+            <div class="chapter-number">Capítulo 04</div>
+            <h2>O BNDES e a Linha Finame: <span class="accent">Financiamento de Máquinas e Equipamentos</span></h2>
+
+            <h3>4.1 Contexto: O Papel do BNDES no Desenvolvimento Nacional</h3>
+            <p>O Banco Nacional de Desenvolvimento Econômico e Social (BNDES) é a principal instituição de fomento de longo prazo do Brasil. Diferentemente dos bancos comerciais, que focam em operações de curto e médio prazo, o BNDES atua no financiamento de investimentos estratégicos para o desenvolvimento do país, com linhas que abrangem infraestrutura, indústria, inovação, exportação e inclusão socioambiental.</p>
+
+            <div class="divider"></div>
+
+            <h3>4.2 O BNDES Finame: Definição e Objetivo</h3>
+            <div class="callout callout-obs">
+                <div class="callout-label">🏭 BNDES Finame</div>
+                <p><strong>O BNDES Finame (Financiamento de Máquinas e Equipamentos) é uma linha de crédito específica do BNDES voltada para o financiamento da produção e aquisição de máquinas e equipamentos nacionais credenciados no BNDES.</strong></p>
+            </div>
+            <p>Em outras palavras, o Finame apoia a indústria brasileira de bens de capital, viabilizando:</p>
+            <ul>
+                <li>A <strong>produção</strong> de máquinas e equipamentos por fabricantes nacionais;</li>
+                <li>A <strong>aquisição</strong> desses bens por empresas que desejam modernizar seu parque industrial, expandir sua capacidade produtiva ou iniciar novas atividades.</li>
+            </ul>
+
+            <h4>A Restrição Fundamental: Equipamentos Nacionais Credenciados</h4>
+            <div class="callout callout-warn">
+                <div class="callout-label">🚨 Atenção</div>
+                <p><strong>A linha não financia equipamentos importados que não tenham similar nacional credenciado.</strong></p>
+            </div>
+            <p>O credenciamento dos equipamentos junto ao BNDES é um procedimento que verifica o <strong>índice de nacionalização</strong> (conteúdo local) dos bens. Para ser credenciado, o equipamento deve atender a critérios mínimos de conteúdo nacional, definidos pelo BNDES, como forma de apoiar a indústria doméstica e gerar empregos no Brasil.</p>
+
+            <div class="highlight-box">
+                <div class="label">📌 Pegadinha clássica da Cesgranrio</div>
+                <p>Apresentar uma alternativa em que o Finame aparece como uma linha que "financia máquinas e equipamentos nacionais ou importados" ou "financia qualquer tipo de máquina, independentemente da origem". <strong>Ambas estão erradas.</strong> O Finame é restrito a equipamentos nacionais credenciados.</p>
+            </div>
+
+            <h4>Objetivo Estratégico</h4>
+            <ul>
+                <li>Fortalecer a indústria nacional de máquinas e equipamentos;</li>
+                <li>Estimular a cadeia produtiva doméstica;</li>
+                <li>Gerar empregos no setor industrial brasileiro;</li>
+                <li>Aumentar a competitividade da indústria nacional;</li>
+                <li>Reduzir a dependência de tecnologia estrangeira em setores estratégicos.</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <h3>4.3 Tabela Comparativa: Finame x Outras Linhas do BNDES</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Característica</th><th>BNDES Finame</th><th>BNDES Finem</th><th>BNDES Automático</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Finalidade</strong></td><td>Máquinas e equipamentos nacionais</td><td>Grandes projetos de investimento</td><td>Projetos de menor porte</td></tr>
+                        <tr><td><strong>Origem dos bens</strong></td><td>Exclusivamente nacionais credenciados</td><td>Nacional ou importado (conforme projeto)</td><td>Nacional ou importado (conforme projeto)</td></tr>
+                        <tr><td><strong>Valor do financiamento</strong></td><td>Até 100% do bem (com limites)</td><td>Acima de R$ 20 milhões (porte)</td><td>Até R$ 20 milhões (porte)</td></tr>
+                        <tr><td><strong>Operacionalização</strong></td><td>Bancos credenciados (repasses)</td><td>Diretamente pelo BNDES</td><td>Bancos credenciados (repasses)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="divider-gold"></div>
+
+            <h3>4.4 Síntese Esquemática: BNDES Finame</h3>
+            <div class="diagram-container">
+                <svg viewBox="0 0 780 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: BNDES Finame">
+                    <defs>
+                        <style>
+                            .bf-box { fill: #1a2330; stroke: #3d4a62; stroke-width: 1.5; rx: 8; }
+                            .bf-box-gold { fill: #1f2a3a; stroke: #d4a54a; stroke-width: 1.8; rx: 8; }
+                            .bf-box-teal { fill: #1a2a30; stroke: #4a9e8e; stroke-width: 1.5; rx: 8; }
+                            .bf-box-coral { fill: #2a1a22; stroke: #d4676a; stroke-width: 1.5; rx: 8; }
+                            .bf-text { fill: #e8edf2; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .bf-text-sm { fill: #b0bac8; font-size: 11px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .bf-text-gold { fill: #d4a54a; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; font-weight:600; }
+                            .bf-line { stroke: #3d4a62; stroke-width: 1.5; fill: none; }
+                        </style>
+                    </defs>
+                    <rect x="190" y="12" width="400" height="44" class="bf-box-gold" />
+                    <text x="390" y="40" text-anchor="middle" class="bf-text-gold" font-size="15">BNDES FINAME</text>
+
+                    <path d="M300,56 L300,90 L120,90 L120,118" class="bf-line" />
+                    <path d="M390,56 L390,90" class="bf-line" />
+                    <path d="M480,56 L480,90 L660,90 L660,118" class="bf-line" />
+
+                    <rect x="20" y="118" width="200" height="56" class="bf-box-teal" />
+                    <text x="120" y="142" text-anchor="middle" class="bf-text" font-weight="600">OBJETIVO</text>
+                    <text x="120" y="162" text-anchor="middle" class="bf-text-sm">Financiar máquinas e</text>
+                    <text x="120" y="178" text-anchor="middle" class="bf-text-sm">equipamentos nacionais</text>
+
+                    <rect x="240" y="118" width="300" height="56" class="bf-box-coral" />
+                    <text x="390" y="142" text-anchor="middle" class="bf-text" font-weight="600">RESTRIÇÃO PRINCIPAL</text>
+                    <text x="390" y="162" text-anchor="middle" class="bf-text-sm">EQUIPAMENTOS NACIONAIS CREDENCIADOS</text>
+                    <text x="390" y="178" text-anchor="middle" class="bf-text-sm">NÃO financia equipamentos importados</text>
+
+                    <rect x="580" y="118" width="180" height="56" class="bf-box" style="stroke:#4a9e8e;" />
+                    <text x="670" y="142" text-anchor="middle" class="bf-text" font-weight="600">PEGADINHA</text>
+                    <text x="670" y="162" text-anchor="middle" class="bf-text-sm">❌ "Financia importados"</text>
+                    <text x="670" y="178" text-anchor="middle" class="bf-text-sm">→ ERRADO</text>
+                </svg>
+                <div class="diagram-caption">Esquema síntese: BNDES Finame — objetivo, restrição e pegadinha</div>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 5 ─── -->
+        <section class="chapter" id="ch5">
+            <div class="chapter-number">Capítulo 05</div>
+            <h2>Gestão de Riscos nas Instituições Financeiras: <span class="accent">O Risco de Mercado</span></h2>
+
+            <h3>5.1 O Framework de Gestão Integrada de Riscos (ERM)</h3>
+            <p>As instituições financeiras operam em um ambiente de múltiplos riscos que precisam ser identificados, mensurados, monitorados e mitigados continuamente. A Gestão Integrada de Riscos (Enterprise Risk Management - ERM) é a abordagem que permite ao banco gerenciar todos os seus riscos de forma holística, em conformidade com as normas do Banco Central (especialmente a Resolução CMN nº 4.557/2017).</p>
+            <p>Os principais riscos enfrentados por uma instituição financeira são:</p>
+            <ol>
+                <li><strong>Risco de Crédito</strong></li>
+                <li><strong>Risco de Mercado</strong></li>
+                <li><strong>Risco Operacional</strong></li>
+                <li><strong>Risco de Liquidez</strong></li>
+                <li><strong>Risco Sistêmico</strong></li>
+                <li><strong>Risco Legal</strong></li>
+                <li><strong>Risco de Reputação</strong></li>
+            </ol>
+            <p>Neste capítulo, focaremos no Risco de Mercado, que é o mais cobrado pela Cesgranrio quando o tema é gestão de riscos.</p>
+
+            <div class="divider"></div>
+
+            <h3>5.2 Risco de Mercado: Definição e Características</h3>
+            <div class="callout callout-obs">
+                <div class="callout-label">📈 Definição</div>
+                <p><strong>O risco de mercado é o risco de desvalorização de uma carteira de ativos financeiros em função da variação adversa nos preços de mercado desses ativos.</strong></p>
+            </div>
+            <p>Em termos práticos, imagine a carteira de investimentos de um banco composta por ações, títulos de renda fixa, commodities e derivativos. Se o mercado de ações sofrer uma queda generalizada, o valor das ações na carteira diminui. Se a taxa de juros subir, o valor dos títulos de renda fixa prefixados cai. Se o preço do petróleo despencar, as posições em commodities são afetadas. Todos esses são exemplos de <strong>perdas decorrentes do risco de mercado</strong>.</p>
+
+            <h4>Fatores de Risco de Mercado</h4>
+            <ul>
+                <li><strong>Taxas de juros</strong> (risco de taxa de juros);</li>
+                <li><strong>Taxas de câmbio</strong> (risco cambial);</li>
+                <li><strong>Preços de ações</strong> (risco de renda variável);</li>
+                <li><strong>Preços de commodities</strong> (risco de commodity);</li>
+                <li><strong>Índices de inflação</strong> (risco de indexador).</li>
+            </ul>
+
+            <h4>Mitigação do Risco de Mercado: Diversificação</h4>
+            <p>A principal ferramenta para <strong>controle</strong> (não eliminação) do risco de mercado é a <strong>diversificação da carteira</strong>. Ao distribuir os investimentos entre diferentes classes de ativos, setores, emissores e geografias, o gestor reduz o impacto de movimentos adversos em um único ativo ou segmento.</p>
+            <div class="highlight-box">
+                <div class="label">⚠️ Atenção</div>
+                <p><strong>A diversificação REDUZ, mas NÃO ELIMINA o risco de mercado.</strong> Esta é uma distinção crucial para provas.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>5.3 Diferenciando Risco de Mercado dos Demais Riscos</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Tipo de Risco</th><th>Definição</th><th>Exemplo Prático</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Risco de Mercado</strong></td><td>Perdas por variação adversa nos preços de ativos financeiros</td><td>Banco tem carteira de títulos prefixados e a Selic sobe → valor cai</td></tr>
+                        <tr><td><strong>Risco de Crédito</strong></td><td>Perdas por incapacidade do devedor de honrar suas obrigações (calote)</td><td>Empresa tomadora de empréstimo não paga as parcelas</td></tr>
+                        <tr><td><strong>Risco Operacional</strong></td><td>Perdas decorrentes de falhas em processos internos, pessoas, sistemas ou eventos externos</td><td>Fraude interna, erro de sistema, assalto</td></tr>
+                        <tr><td><strong>Risco de Liquidez</strong></td><td>Incapacidade de honrar obrigações financeiras no vencimento</td><td>Banco não tem caixa para cobrir saques de clientes</td></tr>
+                        <tr><td><strong>Risco Sistêmico</strong></td><td>Risco de perturbações generalizadas no sistema financeiro</td><td>Crise bancária que se espalha por todo o sistema</td></tr>
+                        <tr><td><strong>Risco Legal</strong></td><td>Perdas por inadequação ou deficiência em contratos, questionamentos judiciais</td><td>Banco processado por cláusula contratual abusiva</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">🔑 Chave para resolver questões</div>
+                <p>Quando a questão mencionar <strong>"variação de preços de ativos financeiros"</strong>, <strong>"flutuações adversas nos preços de mercado"</strong>, <strong>"desvalorização de carteira"</strong> em contexto de ações, títulos, câmbio ou commodities, você está diante de uma questão sobre <strong>Risco de Mercado</strong>.</p>
+            </div>
+
+            <div class="divider-gold"></div>
+
+            <h3>5.5 Síntese Esquemática: Risco de Mercado</h3>
+            <div class="diagram-container">
+                <svg viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: Risco de Mercado">
+                    <defs>
+                        <style>
+                            .rm-box { fill: #1a2330; stroke: #3d4a62; stroke-width: 1.5; rx: 8; }
+                            .rm-box-gold { fill: #1f2a3a; stroke: #d4a54a; stroke-width: 1.8; rx: 8; }
+                            .rm-box-teal { fill: #1a2a30; stroke: #4a9e8e; stroke-width: 1.5; rx: 8; }
+                            .rm-box-coral { fill: #2a1a22; stroke: #d4676a; stroke-width: 1.5; rx: 8; }
+                            .rm-text { fill: #e8edf2; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .rm-text-sm { fill: #b0bac8; font-size: 11px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .rm-text-gold { fill: #d4a54a; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; font-weight:600; }
+                            .rm-line { stroke: #3d4a62; stroke-width: 1.5; fill: none; }
+                        </style>
+                    </defs>
+                    <rect x="230" y="12" width="400" height="44" class="rm-box-gold" />
+                    <text x="430" y="40" text-anchor="middle" class="rm-text-gold" font-size="15">RISCO DE MERCADO</text>
+
+                    <path d="M340,56 L340,90 L140,90 L140,118" class="rm-line" />
+                    <path d="M430,56 L430,90" class="rm-line" />
+                    <path d="M520,56 L520,90 L720,90 L720,118" class="rm-line" />
+
+                    <rect x="30" y="118" width="220" height="72" class="rm-box-teal" />
+                    <text x="140" y="142" text-anchor="middle" class="rm-text" font-weight="600">FATORES DE RISCO</text>
+                    <text x="140" y="162" text-anchor="middle" class="rm-text-sm">Taxas de juros</text>
+                    <text x="140" y="180" text-anchor="middle" class="rm-text-sm">Câmbio · Ações · Commodities</text>
+
+                    <rect x="280" y="118" width="300" height="72" class="rm-box-coral" />
+                    <text x="430" y="142" text-anchor="middle" class="rm-text" font-weight="600">MITIGAÇÃO</text>
+                    <text x="430" y="162" text-anchor="middle" class="rm-text-sm">Diversificação da carteira</text>
+                    <text x="430" y="180" text-anchor="middle" class="rm-text-sm">REDUZ, mas NÃO ELIMINA o risco</text>
+
+                    <rect x="620" y="118" width="200" height="72" class="rm-box" style="stroke:#d4a54a;" />
+                    <text x="720" y="142" text-anchor="middle" class="rm-text-gold">CHAVE</text>
+                    <text x="720" y="162" text-anchor="middle" class="rm-text-sm">"Variação de preços"</text>
+                    <text x="720" y="180" text-anchor="middle" class="rm-text-sm">→ Risco de Mercado</text>
+
+                    <path d="M430,190 L430,220 L430,240" class="rm-line" />
+
+                    <rect x="60" y="240" width="740" height="56" class="rm-box" style="stroke:#4a9e8e;" />
+                    <text x="430" y="264" text-anchor="middle" class="rm-text" font-weight="600">⚠️ DIFERENCIAÇÃO (PEGADINHAS)</text>
+                    <text x="430" y="284" text-anchor="middle" class="rm-text-sm">Risco de Mercado ≠ Risco de Crédito (calote)  |  ≠ Risco Operacional (falhas)  |  ≠ Risco de Liquidez (falta de caixa)</text>
+                </svg>
+                <div class="diagram-caption">Esquema síntese: Risco de Mercado — definição, fatores e diferenciação</div>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 6 ─── -->
+        <section class="chapter" id="ch6">
+            <div class="chapter-number">Capítulo 06</div>
+            <h2>Instituições de Pagamento: <span class="accent">O Novo Paradigma do Sistema de Pagamentos Brasileiro</span></h2>
+
+            <h3>6.1 O Surgimento das IPs no Ecossistema Financeiro</h3>
+            <p>As Instituições de Pagamento (IPs) foram introduzidas no ordenamento jurídico brasileiro pela Lei nº 12.865/2013 e regulamentadas pelo Banco Central por meio de diversas circulares e resoluções. Elas representam uma inovação significativa no Sistema de Pagamentos Brasileiro (SPB), permitindo que novos agentes ofereçam serviços de pagamento sem necessariamente se constituírem como instituições financeiras tradicionais.</p>
+
+            <div class="divider"></div>
+
+            <h3>6.2 O que as Instituições de Pagamento Podem Fazer</h3>
+            <div class="card">
+                <div class="card-title"><span style="color:var(--teal);font-weight:700;">📱</span> Emissão de Moeda Eletrônica</div>
+                <p>As IPs emissoras de moeda eletrônica gerenciam contas de pagamento pré-pagas, onde os recursos são depositados previamente pelo usuário e convertidos em moeda eletrônica. Exemplos incluem:</p>
+                <ul>
+                    <li>Cartões de vale-refeição e vale-alimentação;</li>
+                    <li>Contas de pagamento de fintechs;</li>
+                    <li>Cartões pré-pagos diversos.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span style="color:var(--gold);font-weight:700;">💳</span> Emissão de Instrumentos de Pagamento Pós-Pagos</div>
+                <p>As IPs emissoras de instrumentos pós-pagos emitem cartões de crédito, realizando a cobrança posterior dos valores utilizados.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-title"><span style="color:var(--purple);font-weight:700;">🏪</span> Credenciamento de Estabelecimentos</div>
+                <p>As IPs credenciadoras ("adquirentes" ou "subadquirentes") realizam a captura e liquidação de transações de pagamento para estabelecimentos comerciais.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>6.3 O que as Instituições de Pagamento NÃO Podem Fazer</h3>
+            <div class="callout callout-warn">
+                <div class="callout-label">🚫 Atividades VEDADAS às IPs</div>
+                <ol style="margin-bottom:0;">
+                    <li><strong>Conceder empréstimos ou financiamentos:</strong> As IPs não podem realizar operações de crédito.</li>
+                    <li><strong>Disponibilizar conta-corrente ou conta-poupança:</strong> As IPs oferecem contas de pagamento, que são juridicamente distintas.</li>
+                    <li><strong>Emitir papel-moeda:</strong> A emissão de moeda física é competência exclusiva do Banco Central.</li>
+                    <li><strong>Captar depósitos do público:</strong> As IPs não podem captar recursos sob a forma de depósito.</li>
+                </ol>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Atividade</th><th>Instituição Financeira (Banco)</th><th>Instituição de Pagamento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Conta-corrente</strong></td><td><span class="tag tag-yes">Sim</span></td><td><span class="tag tag-no">Não</span> (conta de pagamento)</td></tr>
+                        <tr><td><strong>Poupança</strong></td><td><span class="tag tag-yes">Sim</span></td><td><span class="tag tag-no">Não</span></td></tr>
+                        <tr><td><strong>Concessão de empréstimos</strong></td><td><span class="tag tag-yes">Sim</span></td><td><span class="tag tag-no">Não</span></td></tr>
+                        <tr><td><strong>Emissão de cartão de crédito</strong></td><td><span class="tag tag-yes">Sim</span></td><td><span class="tag tag-yes">Sim</span> (IP pós-paga)</td></tr>
+                        <tr><td><strong>Credenciamento de estabelecimentos</strong></td><td><span class="tag tag-yes">Sim</span></td><td><span class="tag tag-yes">Sim</span></td></tr>
+                        <tr><td><strong>Emissão de moeda eletrônica</strong></td><td><span class="tag tag-yes">Sim</span></td><td><span class="tag tag-yes">Sim</span></td></tr>
+                        <tr><td><strong>Captação de depósitos</strong></td><td><span class="tag tag-yes">Sim</span></td><td><span class="tag tag-no">Não</span></td></tr>
+                        <tr><td><strong>Acesso ao FGC</strong></td><td><span class="tag tag-yes">Sim</span> (para depósitos)</td><td><span class="tag tag-no">Não</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">📌 Pegadinha Cesgranrio</div>
+                <p>Diferenciar funções das IPs das funções de IFs tradicionais. <strong>"IP concede empréstimo" → ERRADO</strong> | <strong>"IP oferece conta-corrente" → ERRADO</strong></p>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 7 ─── -->
+        <section class="chapter" id="ch7">
+            <div class="chapter-number">Capítulo 07</div>
+            <h2>O PIX: <span class="accent">O Sistema de Pagamentos Instantâneos Brasileiro</span></h2>
+
+            <h3>7.1 Contextualização e Relevância</h3>
+            <p>O PIX, criado e regulamentado pelo Banco Central do Brasil, revolucionou o sistema de pagamentos brasileiro desde seu lançamento em novembro de 2020. Trata-se de um sistema de pagamentos instantâneos que permite transferências de recursos e pagamentos 24 horas por dia, 7 dias por semana, incluindo feriados, com liquidação em tempo real.</p>
+
+            <div class="divider"></div>
+
+            <h3>7.2 Contas que Permitem Realizar o PIX</h3>
+            <div class="callout callout-obs">
+                <div class="callout-label">✅ Contas permitidas</div>
+                <p>De acordo com o regulamento do Banco Central, o PIX pode ser realizado a partir de <strong>qualquer um</strong> dos seguintes tipos de conta:</p>
+                <ol style="margin-bottom:0;">
+                    <li><strong>Conta-corrente</strong> (contas de depósito à vista em bancos);</li>
+                    <li><strong>Conta-poupança</strong> (contas de depósito de poupança em bancos);</li>
+                    <li><strong>Conta de pagamento pré-paga</strong> (contas mantidas em Instituições de Pagamento emissoras de moeda eletrônica).</li>
+                </ol>
+            </div>
+
+            <div class="callout callout-warn">
+                <div class="callout-label">🚨 A Pegadinha Clássica da Cesgranrio</div>
+                <p>A banca frequentemente apresenta alternativas que excluem uma ou duas dessas modalidades. São exemplos de alternativas incorretas:</p>
+                <ul style="margin-bottom:0;">
+                    <li>"O PIX pode ser realizado apenas a partir de conta-corrente" → <strong>ERRADO</strong></li>
+                    <li>"Apenas contas-corrente e poupança permitem PIX" → <strong>ERRADO</strong></li>
+                    <li>"O PIX é restrito a contas bancárias tradicionais" → <strong>ERRADO</strong></li>
+                </ul>
+            </div>
+            <div class="highlight-box">
+                <div class="label">✅ Resposta correta</div>
+                <p><strong>A resposta correta será sempre aquela que englobar as três modalidades</strong>, pois o sistema foi desenhado para ser inclusivo e abrangente.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>7.3 Fundamentos Operacionais do PIX</h3>
+            <div class="card">
+                <div class="card-title"><span style="color:var(--gold);">🔑</span> Chave PIX</div>
+                <p>O identificador que vincula a conta do usuário ao sistema. Opções: CPF/CNPJ, E-mail, Número de celular, Chave aleatória.</p>
+            </div>
+            <div class="card">
+                <div class="card-title"><span style="color:var(--teal);">🔄</span> Tipos de Transação</div>
+                <ul>
+                    <li><strong>PIX de Transferência:</strong> entre contas de mesma ou diferentes titularidades;</li>
+                    <li><strong>PIX de Pagamento:</strong> para pagar produtos e serviços (com ou sem QR Code);</li>
+                    <li><strong>PIX Saque e PIX Troco:</strong> saque de dinheiro em estabelecimentos comerciais.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-title"><span style="color:var(--coral);">⏰</span> Limites de Valor</div>
+                <ul>
+                    <li><strong>Período diurno:</strong> limites definidos pelo usuário ou pela instituição;</li>
+                    <li><strong>Período noturno (20h às 6h):</strong> limites mais restritivos por segurança (padrão de R$ 1.000,00).</li>
+                </ul>
+            </div>
+
+            <div class="divider-gold"></div>
+
+            <h3>7.5 Síntese Esquemática: PIX</h3>
+            <div class="diagram-container">
+                <svg viewBox="0 0 860 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: PIX">
+                    <defs>
+                        <style>
+                            .px-box { fill: #1a2330; stroke: #3d4a62; stroke-width: 1.5; rx: 8; }
+                            .px-box-gold { fill: #1f2a3a; stroke: #d4a54a; stroke-width: 1.8; rx: 8; }
+                            .px-box-teal { fill: #1a2a30; stroke: #4a9e8e; stroke-width: 1.5; rx: 8; }
+                            .px-box-coral { fill: #2a1a22; stroke: #d4676a; stroke-width: 1.5; rx: 8; }
+                            .px-text { fill: #e8edf2; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .px-text-sm { fill: #b0bac8; font-size: 11px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .px-text-gold { fill: #d4a54a; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; font-weight:600; }
+                            .px-line { stroke: #3d4a62; stroke-width: 1.5; fill: none; }
+                        </style>
+                    </defs>
+                    <rect x="230" y="12" width="400" height="44" class="px-box-gold" />
+                    <text x="430" y="40" text-anchor="middle" class="px-text-gold" font-size="15">PIX — SISTEMA DE PAGAMENTOS INSTANTÂNEOS</text>
+
+                    <path d="M280,56 L280,90 L140,90 L140,118" class="px-line" />
+                    <path d="M430,56 L430,90" class="px-line" />
+                    <path d="M580,56 L580,90 L720,90 L720,118" class="px-line" />
+
+                    <rect x="20" y="118" width="240" height="72" class="px-box-teal" />
+                    <text x="140" y="142" text-anchor="middle" class="px-text" font-weight="600">CONTAS PERMITIDAS</text>
+                    <text x="140" y="162" text-anchor="middle" class="px-text-sm">✅ Conta-corrente</text>
+                    <text x="140" y="178" text-anchor="middle" class="px-text-sm">✅ Poupança  |  ✅ Conta de pagamento</text>
+
+                    <rect x="290" y="118" width="280" height="72" class="px-box" style="stroke:#d4a54a;" />
+                    <text x="430" y="142" text-anchor="middle" class="px-text-gold">CARACTERÍSTICAS</text>
+                    <text x="430" y="162" text-anchor="middle" class="px-text-sm">Disponível 24h / 7 dias</text>
+                    <text x="430" y="178" text-anchor="middle" class="px-text-sm">Liquidação instantânea · Irrevogável</text>
+
+                    <rect x="620" y="118" width="200" height="72" class="px-box-coral" />
+                    <text x="720" y="142" text-anchor="middle" class="px-text" font-weight="600">PEGADINHA</text>
+                    <text x="720" y="162" text-anchor="middle" class="px-text-sm">❌ Excluir conta de</text>
+                    <text x="720" y="178" text-anchor="middle" class="px-text-sm">pagamento → ERRADO</text>
+                </svg>
+                <div class="diagram-caption">Esquema síntese: PIX — contas permitidas, características e pegadinha</div>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 8 ─── -->
+        <section class="chapter" id="ch8">
+            <div class="chapter-number">Capítulo 08</div>
+            <h2>Ética Bancária e Conduta Profissional: <span class="accent">O Código de Conduta do BNB</span></h2>
+
+            <h3>8.1 A Importância da Ética nas Instituições Financeiras</h3>
+            <p>O Código de Conduta Ética e Integridade de uma instituição financeira não é mero documento formal. Ele representa o conjunto de princípios e regras que orientam o comportamento dos colaboradores, protegendo tanto a instituição quanto os clientes, o mercado e a sociedade.</p>
+
+            <div class="divider"></div>
+
+            <h3>8.2 Recebimento de Brindes, Presentes e Hospitalidades</h3>
+            <p>Este é um dos temas mais sensíveis e mais cobrados. O Código de Conduta estabelece regras claras sobre o que é permitido e o que é vedado.</p>
+
+            <h4>Situações de VIOLAÇÃO ao Código</h4>
+
+            <div class="callout callout-warn">
+                <div class="callout-label">🚫 1. Aceitar brindes da mesma pessoa em intervalos menores que doze meses</div>
+                <p>O código estabelece uma <strong>periodicidade mínima anual</strong> para o recebimento de brindes de uma mesma fonte.</p>
+                <p><strong>Exemplo (caso "J" da prova):</strong> José recebeu em março um brinde de uma empresa parceira e em setembro do mesmo ano recebeu outro brinde da mesma empresa. <strong>Isso viola o código</strong>, pois o intervalo foi inferior a doze meses.</p>
+            </div>
+
+            <div class="callout callout-warn">
+                <div class="callout-label">🚫 2. Aceitar hospitalidade em troca de favores futuros</div>
+                <p>O recebimento de hospitalidade (hospedagem, passagens, refeições, ingressos) <strong>nunca pode estar condicionado a contrapartidas ou favores futuros</strong>.</p>
+                <p><strong>Exemplo (caso "M" da prova):</strong> Maria aceitou hospedagem em resort oferecida por um cliente com projeto em análise, com expectativa de que ela "ajudasse" na aprovação. <strong>Isso viola o código</strong>.</p>
+            </div>
+
+            <div class="callout callout-warn">
+                <div class="callout-label">🚫 3. Receber remuneração de terceiros para palestrar em congressos de interesse institucional</div>
+                <p>Se o evento tem relação com as atividades do banco e o convite decorre do cargo ocupado, o colaborador <strong>não pode</strong> receber remuneração de terceiros.</p>
+                <p><strong>Exemplo (caso "R" da prova):</strong> Roberto palestrou sobre crédito rural e recebeu R$ 5.000,00 da associação sem comunicar ao banco. <strong>Isso viola o código</strong>.</p>
+            </div>
+
+            <h4>Situação PERMITIDA pelo Código</h4>
+            <div class="callout callout-tip">
+                <div class="callout-label">✅ Aceitar brinde sem valor comercial, recebido uma única vez ao ano, a título de propaganda</div>
+                <p>O código permite o recebimento de <strong>brindes promocionais</strong> (canetas, agendas, calendários) que:</p>
+                <ul style="margin-bottom:0;">
+                    <li>Não tenham valor comercial significativo;</li>
+                    <li>Sejam distribuídos a título de propaganda;</li>
+                    <li>Sejam recebidos uma única vez ao ano da mesma fonte.</li>
+                </ul>
+                <p><strong>Exemplo (caso "P" da prova):</strong> Pedro recebeu uma agenda e uma caneta personalizadas de uma instituição parceira, itens sem valor comercial expressivo. <strong>Isso é permitido</strong>.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>8.3 Quadro-Resumo: Brindes e Hospitalidades no Código do BNB</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Situação</th><th>Permitido ou Vedado?</th><th>Condição</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Brinde sem valor comercial (1x por ano)</td><td><span class="tag tag-yes">Permitido</span></td><td>A título de propaganda</td></tr>
+                        <tr><td>Brinde com valor comercial significativo</td><td><span class="tag tag-no">Vedado</span></td><td>Independentemente da periodicidade</td></tr>
+                        <tr><td>Brindes da mesma fonte em intervalo &lt; 12 meses</td><td><span class="tag tag-no">Vedado</span></td><td>Viola a regra de periodicidade anual</td></tr>
+                        <tr><td>Hospitalidade em troca de favores futuros</td><td><span class="tag tag-no">Vedado</span></td><td>Configura conflito de interesses</td></tr>
+                        <tr><td>Remuneração de terceiros para palestras de interesse institucional</td><td><span class="tag tag-no">Vedado</span></td><td>Deve ser tratado via banco</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">🔑 Chave para prova Cesgranrio</div>
+                <p>Identificar a <strong>SITUAÇÃO CONCRETA</strong> e aplicar a regra. Atenção à literalidade do código. Distinguir permissões de vedações.</p>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 9 ─── -->
+        <section class="chapter" id="ch9">
+            <div class="chapter-number">Capítulo 09</div>
+            <h2>Seguros: <span class="accent">Coberturas e Exclusões no Seguro de Automóvel</span></h2>
+
+            <h3>9.1 Princípios Fundamentais do Contrato de Seguro</h3>
+            <ul>
+                <li><strong>Boa-fé objetiva:</strong> Ambas as partes devem agir com transparência e honestidade;</li>
+                <li><strong>Mutualismo:</strong> Os segurados contribuem para um fundo comum;</li>
+                <li><strong>Risco:</strong> Evento futuro e incerto cuja ocorrência gera a obrigação de indenizar;</li>
+                <li><strong>Nexo causal:</strong> Relação de causa e efeito entre o evento e o dano;</li>
+                <li><strong>Indenização:</strong> Limitada ao valor do prejuízo efetivo e ao limite máximo garantido.</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <h3>9.2 Exclusões de Cobertura no Seguro de Automóvel</h3>
+            <div class="callout callout-warn">
+                <div class="callout-label">⚠️ Ponto de cobrança CESGRANRIO</div>
+                <p><strong>O prejuízo ao motor decorrente de falta de óleo de lubrificação é geralmente excluído</strong> das condições gerais do seguro de automóvel.</p>
+            </div>
+            <p><strong>Por quê?</strong> O seguro cobre eventos <strong>súbitos, imprevistos e externos</strong> (colisão, furto, incêndio, enchente). A falta de óleo lubrificante:</p>
+            <ul>
+                <li>É considerada <strong>falta de manutenção</strong> do veículo;</li>
+                <li>É um evento <strong>previsível e evitável</strong> pelo proprietário diligente;</li>
+                <li>Decorre de <strong>negligência</strong> do segurado;</li>
+                <li>É um dano de natureza <strong>mecânica</strong> (e não acidental).</li>
+            </ul>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Evento</th><th>Cobertura?</th><th>Fundamento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Danos ao motor por colisão</td><td><span class="tag tag-yes">Sim</span></td><td>Evento súbito e imprevisto (acidente)</td></tr>
+                        <tr><td>Danos ao motor por furto ou roubo</td><td><span class="tag tag-yes">Sim</span></td><td>Risco expressamente coberto</td></tr>
+                        <tr><td>Danos ao motor por incêndio da parte elétrica</td><td><span class="tag tag-yes">Sim</span></td><td>Evento súbito e imprevisto</td></tr>
+                        <tr><td>Danos ao motor por falta de óleo lubrificante</td><td><span class="tag tag-no">Não</span></td><td>Falta de manutenção / negligência</td></tr>
+                        <tr><td>Danos ao motor por desgaste natural</td><td><span class="tag tag-no">Não</span></td><td>Desgaste pelo uso (não é risco)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">📌 Pegadinhas de Prova em Seguros</div>
+                <ul style="margin-bottom:0;">
+                    <li>"O seguro cobre qualquer dano ao veículo" → <strong>ERRADO</strong></li>
+                    <li>"Danos por falta de manutenção são cobertos se o segurado não foi avisado" → <strong>ERRADO</strong></li>
+                    <li>"O seguro cobre desgaste natural de peças" → <strong>ERRADO</strong></li>
+                    <li>"Basta o evento ser imprevisto para ter cobertura" → <strong>ERRADO</strong></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 10 ─── -->
+        <section class="chapter" id="ch10">
+            <div class="chapter-number">Capítulo 10</div>
+            <h2>Responsabilidade Socioambiental na Atividade Bancária: <span class="accent">A Política do BNB</span></h2>
+
+            <h3>10.1 O Paradigma ASG no Sistema Financeiro</h3>
+            <p>A agenda ASG (Ambiental, Social e Governança, ou ESG em inglês) tornou-se um dos pilares estratégicos das instituições financeiras em todo o mundo. No Brasil, o Banco Central editou a Resolução CMN nº 4.945/2021, que estabelece a obrigatoriedade de as instituições financeiras implementarem Políticas de Responsabilidade Social, Ambiental e Climática (PRSAC).</p>
+
+            <div class="divider"></div>
+
+            <h3>10.2 A Diretriz Fundamental da Política de Responsabilidade Socioambiental do BNB</h3>
+            <div class="callout callout-obs">
+                <div class="callout-label">🌱 Diretriz central</div>
+                <p><strong>Incorporar critérios sociais e ambientais ao processo de análise e concessão de financiamentos, e não apenas critérios econômico-financeiros.</strong></p>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">⚠️ Pegadinha da Cesgranrio</div>
+                <p>A banca costuma apresentar alternativas que limitam a análise de crédito a aspectos "exclusivamente econômico-financeiros" ou que sugerem que a responsabilidade socioambiental é uma "atividade acessória". <strong>Ambas estão erradas.</strong></p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>10.3 A Estratégia ASG do BNB: Dois Eixos de Atuação</h3>
+
+            <div class="card" style="border-left:4px solid var(--teal);">
+                <div class="card-title"><span style="color:var(--teal);font-weight:700;">🌍</span> Eixo 1: Atuação Finalística</div>
+                <p><strong>Sustentabilidade Social e Ambiental e Transição para Economia de Baixo Carbono</strong></p>
+                <p>Voltado para <strong>fora do banco</strong>, ou seja, para o impacto que o BNB gera na sociedade por meio de sua atividade principal: o crédito e o fomento ao desenvolvimento regional.</p>
+                <ul>
+                    <li>Concessão de crédito para projetos de energia renovável (eólica, solar);</li>
+                    <li>Financiamento de agricultura de baixo carbono;</li>
+                    <li>Apoio a projetos de eficiência energética;</li>
+                    <li>Crédito para saneamento básico e gestão de resíduos;</li>
+                    <li>Inclusão de critérios socioambientais na análise de risco de crédito.</li>
+                </ul>
+            </div>
+
+            <div class="card" style="border-left:4px solid var(--gold);">
+                <div class="card-title"><span style="color:var(--gold);font-weight:700;">🏢</span> Eixo 2: Atuação Institucional</div>
+                <p><strong>Operação Ecoeficiente e Socialmente Responsável</strong></p>
+                <p>Voltado para <strong>dentro do banco</strong>, ou seja, para a gestão interna da empresa, seus processos e seu relacionamento com stakeholders.</p>
+                <ul>
+                    <li>Redução do consumo de água, energia e papel nas agências;</li>
+                    <li>Gestão de resíduos sólidos e coleta seletiva;</li>
+                    <li>Programas de qualidade de vida e saúde dos funcionários;</li>
+                    <li>Diversidade e inclusão no quadro de colaboradores;</li>
+                    <li>Compras sustentáveis;</li>
+                    <li>Transparência e prestação de contas à sociedade.</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">⚠️ Pegadinha da Cesgranrio sobre os Eixos</div>
+                <ul style="margin-bottom:0;">
+                    <li>Misturam ações dos dois eixos de forma incorreta → <strong>ERRADO</strong></li>
+                    <li>Falam em "propor recomendações" sem dividir em dois eixos → <strong>ERRADO</strong></li>
+                    <li>Atribuem todas as ações a um único eixo → <strong>ERRADO</strong></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 11 ─── -->
+        <section class="chapter" id="ch11">
+            <div class="chapter-number">Capítulo 11</div>
+            <h2>Rentabilidade de Investimentos: <span class="accent">Cálculo e Comparação com Tributação</span></h2>
+
+            <h3>11.1 O Contexto: Por que Saber Calcular Rentabilidade Líquida?</h3>
+            <p>Como Técnico Bancário, você será constantemente questionado por clientes sobre qual é o "melhor investimento". A resposta nunca é simples e depende de múltiplos fatores: prazo, valor, objetivo, perfil de risco e, fundamentalmente, a <strong>tributação aplicável</strong>.</p>
+
+            <div class="divider"></div>
+
+            <h3>11.2 Tributação de Renda Fixa para Pessoa Física: A Tabela Regressiva de IR</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Prazo da Aplicação</th><th>Alíquota de IR sobre o Rendimento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Até 180 dias</td><td>22,5%</td></tr>
+                        <tr><td>De 181 a 360 dias</td><td>20,0%</td></tr>
+                        <tr><td>De 361 a 720 dias</td><td>17,5%</td></tr>
+                        <tr><td>Acima de 720 dias</td><td>15,0%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="highlight-box">
+                <div class="label">📌 Regra fundamental</div>
+                <p><strong>O IR incide apenas sobre o RENDIMENTO (lucro), NÃO sobre o valor total investido.</strong> Esta é uma pegadinha comum em provas.</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>11.3 Investimentos Isentos de IR para Pessoa Física</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Produto</th><th>Tributação IRPF</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Poupança</strong></td><td><span class="tag tag-yes">Isento</span></td></tr>
+                        <tr><td><strong>LCA (Letra de Crédito do Agronegócio)</strong></td><td><span class="tag tag-yes">Isento</span></td></tr>
+                        <tr><td><strong>LCI (Letra de Crédito Imobiliário)</strong></td><td><span class="tag tag-yes">Isento</span></td></tr>
+                        <tr><td><strong>CRI / CRA</strong></td><td><span class="tag tag-yes">Isento</span></td></tr>
+                        <tr><td><strong>Debêntures incentivadas</strong></td><td><span class="tag tag-yes">Isento</span></td></tr>
+                        <tr><td><strong>CDB, RDB, Fundos de Renda Fixa</strong></td><td><span class="tag tag-no">Tributado</span> (tabela regressiva)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>11.4 Caso Prático de Cálculo: CDB, LCA e LCI</h3>
+            <div class="callout callout-obs">
+                <div class="callout-label">📊 Situação hipotética</div>
+                <p>Investidor com R$ 10.000,00 para aplicar por 450 dias (alíquota de IR de 17,5% para produtos tributados).</p>
+                <ul style="margin-bottom:0;">
+                    <li><strong>CDB:</strong> 12% ao ano (tributado)</li>
+                    <li><strong>LCA:</strong> 9,5% ao ano (isento)</li>
+                    <li><strong>LCI:</strong> 8,7% ao ano (isento)</li>
+                </ul>
+            </div>
+
+            <div class="card" style="border-left:4px solid var(--gold);">
+                <div class="card-title"><span style="color:var(--gold);">🧮</span> Cálculo</div>
+                <p><strong>CDB:</strong> 12% × (1 − 0,175) = 12% × 0,825 = <strong>9,9% a.a.</strong></p>
+                <p><strong>LCA:</strong> 9,5% a.a. (isento) = <strong>9,5% a.a.</strong></p>
+                <p><strong>LCI:</strong> 8,7% a.a. (isento) = <strong>8,7% a.a.</strong></p>
+                <p style="margin-top:0.6rem;color:var(--gold);font-weight:600;">✅ Melhor opção: CDB (9,9% > 9,5% > 8,7%)</p>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">⚠️ Erro Comum de Candidatos</div>
+                <p>Aplicar a alíquota de IR sobre o valor total (principal + rendimento) em vez de aplicar apenas sobre o rendimento. <strong>A base de cálculo do IR é exclusivamente o rendimento (lucro), não o montante total.</strong></p>
+            </div>
+
+            <div class="divider-gold"></div>
+
+            <h3>11.7 Tabela Comparativa Completa: Produtos de Renda Fixa</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Produto</th><th>Emissor</th><th>Garantia</th><th>Tributação IRPF</th><th>Perfil de Risco</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Poupança</strong></td><td>Bancos</td><td>FGC</td><td>Isento</td><td>Muito baixo</td></tr>
+                        <tr><td><strong>CDB</strong></td><td>Bancos</td><td>FGC</td><td>Tabela regressiva</td><td>Baixo a moderado</td></tr>
+                        <tr><td><strong>LCA</strong></td><td>Bancos</td><td>FGC</td><td>Isento</td><td>Baixo</td></tr>
+                        <tr><td><strong>LCI</strong></td><td>Bancos</td><td>FGC</td><td>Isento</td><td>Baixo</td></tr>
+                        <tr><td><strong>Tesouro Selic</strong></td><td>Tesouro Nacional</td><td>Governo Federal</td><td>Tabela regressiva</td><td>Muito baixo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ─── CAPÍTULO 12 ─── -->
+        <section class="chapter" id="ch12">
+            <div class="chapter-number">Capítulo 12</div>
+            <h2>Orçamento Público: <span class="accent">A Regra de Ouro Constitucional</span></h2>
+
+            <h3>12.1 Contextualização</h3>
+            <p>A "Regra de Ouro" é um princípio constitucional de disciplina fiscal que estabelece limites para o endividamento público. Prevista no artigo 167, inciso III, da Constituição Federal, ela visa impedir que o governo utilize operações de crédito (empréstimos) para financiar despesas correntes.</p>
+
+            <div class="divider"></div>
+
+            <h3>12.2 O Texto Constitucional</h3>
+            <div class="quote">
+                <p>"A realização de operações de crédito que excedam o montante das despesas de capital, ressalvadas as autorizadas mediante créditos adicionais suplementares ou especiais aprovados pelo Poder Legislativo por maioria absoluta."</p>
+                <span class="source">— Art. 167, III da Constituição Federal</span>
+            </div>
+            <p>Em linguagem clara: <strong>o governo não pode contrair empréstimos (operações de crédito) que superem o valor das despesas de capital (investimentos), a menos que haja autorização legislativa especial por maioria absoluta.</strong></p>
+
+            <div class="divider"></div>
+
+            <h3>12.3 Explicação Detalhada</h3>
+            <div class="card">
+                <div class="card-title"><span style="color:var(--gold);">💰</span> O que são Operações de Crédito?</div>
+                <p>Empréstimos contraídos pelo governo, seja por meio da emissão de títulos públicos (dívida mobiliária) ou por contratos de financiamento com instituições financeiras (dívida contratual). Incluem também as operações de antecipação de receita orçamentária (ARO).</p>
+            </div>
+            <div class="card">
+                <div class="card-title"><span style="color:var(--teal);">🏗️</span> O que são Despesas de Capital?</div>
+                <p>Gastos públicos que contribuem para a formação ou aquisição de bens de capital: <strong>investimentos</strong> (obras, equipamentos), <strong>inversões financeiras</strong> (imóveis, títulos), <strong>amortização da dívida pública</strong>.</p>
+            </div>
+            <div class="card">
+                <div class="card-title"><span style="color:var(--coral);">📋</span> O que são Despesas Correntes?</div>
+                <p>Gastos para manutenção da máquina pública: <strong>pessoal e encargos</strong>, <strong>juros da dívida</strong>, <strong>custeio administrativo</strong>, <strong>programas sociais</strong>.</p>
+            </div>
+
+            <div class="highlight-box">
+                <div class="label">🧠 O Raciocínio da Regra de Ouro</div>
+                <p>A lógica é simples e intuitiva: <strong>o governo só pode se endividar para investir, não para custear despesas correntes.</strong></p>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3>12.5 Pegadinhas da Cesgranrio</h3>
+            <div class="callout callout-warn">
+                <div class="callout-label">🚨 Pegadinha 1</div>
+                <p><strong>"A LOA não exige autorização prévia para operações de crédito"</strong> — <strong>ERRADO.</strong> A Lei Orçamentária Anual deve observar a Regra de Ouro.</p>
+            </div>
+            <div class="callout callout-warn">
+                <div class="callout-label">🚨 Pegadinha 2</div>
+                <p><strong>"A operação de crédito pode ser usada para cobrir insuficiência de caixa sem qualquer restrição"</strong> — <strong>ERRADO.</strong> É exatamente o que a Regra de Ouro visa impedir.</p>
+            </div>
+            <div class="callout callout-warn">
+                <div class="callout-label">🚨 Pegadinha 3</div>
+                <p><strong>"As operações de crédito não podem superar as despesas correntes"</strong> — <strong>ERRADO</strong> (pegadinha sutil). A Regra de Ouro estabelece que as operações de crédito não podem superar as <strong>despesas de CAPITAL</strong>.</p>
+            </div>
+
+            <div class="divider-gold"></div>
+
+            <h3>12.7 Síntese Esquemática: Regra de Ouro</h3>
+            <div class="diagram-container">
+                <svg viewBox="0 0 860 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: Regra de Ouro">
+                    <defs>
+                        <style>
+                            .ro-box { fill: #1a2330; stroke: #3d4a62; stroke-width: 1.5; rx: 8; }
+                            .ro-box-gold { fill: #1f2a3a; stroke: #d4a54a; stroke-width: 1.8; rx: 8; }
+                            .ro-box-teal { fill: #1a2a30; stroke: #4a9e8e; stroke-width: 1.5; rx: 8; }
+                            .ro-box-coral { fill: #2a1a22; stroke: #d4676a; stroke-width: 1.5; rx: 8; }
+                            .ro-text { fill: #e8edf2; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .ro-text-sm { fill: #b0bac8; font-size: 11px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .ro-text-gold { fill: #d4a54a; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; font-weight:600; }
+                            .ro-line { stroke: #3d4a62; stroke-width: 1.5; fill: none; }
+                        </style>
+                    </defs>
+                    <rect x="230" y="12" width="400" height="44" class="ro-box-gold" />
+                    <text x="430" y="40" text-anchor="middle" class="ro-text-gold" font-size="15">REGRA DE OURO — Art. 167, III</text>
+
+                    <path d="M280,56 L280,90 L140,90 L140,118" class="ro-line" />
+                    <path d="M430,56 L430,90" class="ro-line" />
+                    <path d="M580,56 L580,90 L720,90 L720,118" class="ro-line" />
+
+                    <rect x="40" y="118" width="200" height="72" class="ro-box-teal" />
+                    <text x="140" y="142" text-anchor="middle" class="ro-text" font-weight="600">REGRA GERAL</text>
+                    <text x="140" y="162" text-anchor="middle" class="ro-text-sm">Op. crédito NÃO podem</text>
+                    <text x="140" y="178" text-anchor="middle" class="ro-text-sm">superar despesas de capital</text>
+
+                    <rect x="270" y="118" width="320" height="72" class="ro-box" style="stroke:#d4a54a;" />
+                    <text x="430" y="142" text-anchor="middle" class="ro-text-gold">EXCEÇÃO</text>
+                    <text x="430" y="162" text-anchor="middle" class="ro-text-sm">Créditos adicionais suplementares</text>
+                    <text x="430" y="178" text-anchor="middle" class="ro-text-sm">Aprovados por MAIORIA ABSOLUTA</text>
+
+                    <rect x="630" y="118" width="190" height="72" class="ro-box-coral" />
+                    <text x="725" y="142" text-anchor="middle" class="ro-text" font-weight="600">PEGADINHAS</text>
+                    <text x="725" y="162" text-anchor="middle" class="ro-text-sm">❌ "despesas correntes"</text>
+                    <text x="725" y="178" text-anchor="middle" class="ro-text-sm">→ ERRADO</text>
+
+                    <path d="M430,190 L430,220 L430,240" class="ro-line" />
+                    <rect x="60" y="240" width="740" height="32" class="ro-box" style="stroke:#4a9e8e;" />
+                    <text x="430" y="262" text-anchor="middle" class="ro-text-sm">⚠️ Finalidade: impedir que o governo se endivide para pagar despesas correntes. Endividamento deve ser destinado a INVESTIMENTOS.</text>
+                </svg>
+                <div class="diagram-caption">Esquema síntese: Regra de Ouro — regra geral, exceção e pegadinhas</div>
+            </div>
+        </section>
+
+        <!-- ─── MAPA MENTAL GERAL ─── -->
+        <section class="chapter" id="mapa">
+            <div class="chapter-number">✦ Mapa Mental</div>
+            <h2>Interconexões dos Temas Bancários <span class="accent">para Prova</span></h2>
+
+            <div class="diagram-container" style="padding:2rem 1rem;">
+                <svg viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa mental geral dos temas bancários">
+                    <defs>
+                        <style>
+                            .mm-box { fill: #1a2330; stroke: #3d4a62; stroke-width: 1.5; rx: 10; }
+                            .mm-box-gold { fill: #1f2a3a; stroke: #d4a54a; stroke-width: 2; rx: 10; }
+                            .mm-box-teal { fill: #1a2a30; stroke: #4a9e8e; stroke-width: 1.8; rx: 10; }
+                            .mm-box-coral { fill: #2a1a22; stroke: #d4676a; stroke-width: 1.8; rx: 10; }
+                            .mm-box-purple { fill: #1f1a2a; stroke: #8b7db8; stroke-width: 1.8; rx: 10; }
+                            .mm-text { fill: #e8edf2; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .mm-text-sm { fill: #b0bac8; font-size: 10px; font-family: 'Segoe UI',Arial,sans-serif; }
+                            .mm-text-gold { fill: #d4a54a; font-size: 13px; font-family: 'Segoe UI',Arial,sans-serif; font-weight:600; }
+                            .mm-line { stroke: #3d4a62; stroke-width: 1.5; fill: none; }
+                            .mm-line-gold { stroke: #d4a54a; stroke-width: 1.8; fill: none; opacity:0.6; }
+                        </style>
+                    </defs>
+
+                    <!-- CENTRO -->
+                    <rect x="300" y="20" width="300" height="48" class="mm-box-gold" />
+                    <text x="450" y="50" text-anchor="middle" class="mm-text-gold" font-size="16">SISTEMA FINANCEIRO NACIONAL</text>
+
+                    <!-- Ramos principais -->
+                    <path d="M380,68 L380,110 L160,110 L160,148" class="mm-line" />
+                    <path d="M450,68 L450,110" class="mm-line" />
+                    <path d="M520,68 L520,110 L740,110 L740,148" class="mm-line" />
+
+                    <!-- CRÉDITO -->
+                    <rect x="60" y="148" width="200" height="48" class="mm-box-teal" />
+                    <text x="160" y="178" text-anchor="middle" class="mm-text" font-weight="600" font-size="15">CRÉDITO</text>
+
+                    <!-- INVESTIMENTOS -->
+                    <rect x="350" y="148" width="200" height="48" class="mm-box-purple" />
+                    <text x="450" y="178" text-anchor="middle" class="mm-text" font-weight="600" font-size="15">INVESTIMENTOS</text>
+
+                    <!-- SERVIÇOS -->
+                    <rect x="640" y="148" width="200" height="48" class="mm-box-coral" />
+                    <text x="740" y="178" text-anchor="middle" class="mm-text" font-weight="600" font-size="15">SERVIÇOS</text>
+
+                    <!-- Subitens CRÉDITO -->
+                    <path d="M160,196 L160,230 L90,230 L90,264" class="mm-line" />
+                    <path d="M160,196 L160,230 L210,230 L210,264" class="mm-line" />
+                    <path d="M160,196 L160,230 L160,264" class="mm-line" />
+
+                    <rect x="20" y="264" width="140" height="48" class="mm-box" />
+                    <text x="90" y="284" text-anchor="middle" class="mm-text-sm">Desconto Títulos</text>
+                    <text x="90" y="302" text-anchor="middle" class="mm-text-sm">(com regresso)</text>
+
+                    <rect x="160" y="264" width="100" height="48" class="mm-box" />
+                    <text x="210" y="284" text-anchor="middle" class="mm-text-sm">Crédito Rural</text>
+                    <text x="210" y="302" text-anchor="middle" class="mm-text-sm">(controlados/não)</text>
+
+                    <rect x="290" y="264" width="130" height="48" class="mm-box" />
+                    <text x="355" y="284" text-anchor="middle" class="mm-text-sm">BNDES Finame</text>
+                    <text x="355" y="302" text-anchor="middle" class="mm-text-sm">(máq. nacionais)</text>
+
+                    <!-- Subitens INVESTIMENTOS -->
+                    <path d="M450,196 L450,230 L370,230 L370,264" class="mm-line" />
+                    <path d="M450,196 L450,230 L450,264" class="mm-line" />
+                    <path d="M450,196 L450,230 L530,230 L530,264" class="mm-line" />
+
+                    <rect x="300" y="264" width="140" height="48" class="mm-box" />
+                    <text x="370" y="284" text-anchor="middle" class="mm-text-sm">CDB / LCA / LCI</text>
+                    <text x="370" y="302" text-anchor="middle" class="mm-text-sm">(tributação)</text>
+
+                    <rect x="440" y="264" width="110" height="48" class="mm-box" />
+                    <text x="495" y="284" text-anchor="middle" class="mm-text-sm">Poupança</text>
+                    <text x="495" y="302" text-anchor="middle" class="mm-text-sm">(isenta)</text>
+
+                    <rect x="580" y="264" width="140" height="48" class="mm-box" />
+                    <text x="650" y="284" text-anchor="middle" class="mm-text-sm">Fundos</text>
+                    <text x="650" y="302" text-anchor="middle" class="mm-text-sm">(renda fixa)</text>
+
+                    <!-- Subitens SERVIÇOS -->
+                    <path d="M740,196 L740,230 L650,230 L650,264" class="mm-line" />
+                    <path d="M740,196 L740,230 L740,264" class="mm-line" />
+                    <path d="M740,196 L740,230 L830,230 L830,264" class="mm-line" />
+
+                    <rect x="590" y="264" width="120" height="48" class="mm-box" />
+                    <text x="650" y="284" text-anchor="middle" class="mm-text-sm">PIX</text>
+                    <text x="650" y="302" text-anchor="middle" class="mm-text-sm">(contas permitidas)</text>
+
+                    <rect x="710" y="264" width="120" height="48" class="mm-box" />
+                    <text x="770" y="284" text-anchor="middle" class="mm-text-sm">Seguros</text>
+                    <text x="770" y="302" text-anchor="middle" class="mm-text-sm">(auto — exclusões)</text>
+
+                    <rect x="830" y="264" width="60" height="48" class="mm-box" />
+                    <text x="860" y="284" text-anchor="middle" class="mm-text-sm">IPs</text>
+                    <text x="860" y="302" text-anchor="middle" class="mm-text-sm">(funções)</text>
+
+                    <!-- REGULAÇÃO E GOVERNANÇA (parte inferior) -->
+                    <path d="M450,330 L450,380 L450,400" class="mm-line" />
+
+                    <rect x="300" y="400" width="300" height="44" class="mm-box-gold" />
+                    <text x="450" y="428" text-anchor="middle" class="mm-text-gold" font-size="15">REGULAÇÃO E GOVERNANÇA</text>
+
+                    <path d="M370,444 L370,480 L160,480 L160,514" class="mm-line" />
+                    <path d="M450,444 L450,480" class="mm-line" />
+                    <path d="M530,444 L530,480 L740,480 L740,514" class="mm-line" />
+
+                    <!-- RISCOS -->
+                    <rect x="60" y="514" width="200" height="48" class="mm-box-coral" />
+                    <text x="160" y="544" text-anchor="middle" class="mm-text" font-weight="600" font-size="15">RISCOS</text>
+
+                    <!-- ÉTICA -->
+                    <rect x="350" y="514" width="200" height="48" class="mm-box-purple" />
+                    <text x="450" y="544" text-anchor="middle" class="mm-text" font-weight="600" font-size="15">ÉTICA</text>
+
+                    <!-- FISCAIS -->
+                    <rect x="640" y="514" width="200" height="48" class="mm-box-teal" />
+                    <text x="740" y="544" text-anchor="middle" class="mm-text" font-weight="600" font-size="15">FISCAIS</text>
+
+                    <!-- Subitens RISCOS -->
+                    <path d="M160,562 L160,590 L100,590 L100,624" class="mm-line" />
+                    <path d="M160,562 L160,590 L160,624" class="mm-line" />
+                    <path d="M160,562 L160,590 L220,590 L220,624" class="mm-line" />
+
+                    <rect x="40" y="624" width="120" height="48" class="mm-box" />
+                    <text x="100" y="644" text-anchor="middle" class="mm-text-sm">Mercado</text>
+                    <text x="100" y="662" text-anchor="middle" class="mm-text-sm">(variação preços)</text>
+
+                    <rect x="160" y="624" width="100" height="48" class="mm-box" />
+                    <text x="210" y="644" text-anchor="middle" class="mm-text-sm">Crédito</text>
+                    <text x="210" y="662" text-anchor="middle" class="mm-text-sm">(calote)</text>
+
+                    <rect x="260" y="624" width="130" height="48" class="mm-box" />
+                    <text x="325" y="644" text-anchor="middle" class="mm-text-sm">Operacional</text>
+                    <text x="325" y="662" text-anchor="middle" class="mm-text-sm">(falhas)</text>
+
+                    <!-- Subitens ÉTICA -->
+                    <path d="M450,562 L450,590 L410,590 L410,624" class="mm-line" />
+                    <path d="M450,562 L450,590 L450,624" class="mm-line" />
+                    <path d="M450,562 L450,590 L490,590 L490,624" class="mm-line" />
+
+                    <rect x="350" y="624" width="120" height="48" class="mm-box" />
+                    <text x="410" y="644" text-anchor="middle" class="mm-text-sm">Brindes</text>
+                    <text x="410" y="662" text-anchor="middle" class="mm-text-sm">(intervalo &lt; 12m)</text>
+
+                    <rect x="470" y="624" width="100" height="48" class="mm-box" />
+                    <text x="520" y="644" text-anchor="middle" class="mm-text-sm">Hospitalidade</text>
+                    <text x="520" y="662" text-anchor="middle" class="mm-text-sm">(troca favor)</text>
+
+                    <rect x="570" y="624" width="130" height="48" class="mm-box" />
+                    <text x="635" y="644" text-anchor="middle" class="mm-text-sm">Remuneração</text>
+                    <text x="635" y="662" text-anchor="middle" class="mm-text-sm">(palestras)</text>
+
+                    <!-- Subitens FISCAIS -->
+                    <path d="M740,562 L740,590 L700,590 L700,624" class="mm-line" />
+                    <path d="M740,562 L740,590 L740,624" class="mm-line" />
+                    <path d="M740,562 L740,590 L780,590 L780,624" class="mm-line" />
+
+                    <rect x="640" y="624" width="120" height="48" class="mm-box" />
+                    <text x="700" y="644" text-anchor="middle" class="mm-text-sm">Regra de Ouro</text>
+                    <text x="700" y="662" text-anchor="middle" class="mm-text-sm">(op. crédito ≤ desp. capital)</text>
+
+                    <rect x="760" y="624" width="100" height="48" class="mm-box" />
+                    <text x="810" y="644" text-anchor="middle" class="mm-text-sm">Fundos Const.</text>
+                    <text x="810" y="662" text-anchor="middle" class="mm-text-sm">(3% IR/IPI)</text>
+
+                    <rect x="860" y="624" width="40" height="48" class="mm-box" />
+                    <text x="880" y="644" text-anchor="middle" class="mm-text-sm">PRSAC</text>
+                    <text x="880" y="662" text-anchor="middle" class="mm-text-sm">(BNB)</text>
+                </svg>
+                <div class="diagram-caption">Mapa mental geral: interconexões dos temas bancários para a prova</div>
+            </div>
+        </section>
+
+        <!-- ─── CONSIDERAÇÕES FINAIS ─── -->
+        <section style="margin-top:4rem;padding:2rem 1.5rem;background:var(--bg-secondary);border-radius:var(--radius);border:1px solid var(--border-subtle);">
+            <h3 style="color:var(--gold);font-size:1.5rem;margin-bottom:0.8rem;">Considerações Finais</h3>
+            <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;">
+                Prezado aluno, chegamos ao final deste módulo abrangente de Conhecimentos Bancários. O conteúdo aqui apresentado foi cuidadosamente estruturado para transformar informações fragmentadas em conhecimento sólido e aplicável, tanto para as provas quanto para sua futura rotina profissional.
+            </p>
+            <p style="color:var(--text-secondary);line-height:1.8;margin-top:0.8rem;">
+                Lembre-se de que o aprendizado efetivo não vem da leitura passiva, mas do envolvimento ativo com o material. Sugiro que você:
+            </p>
+            <ol style="color:var(--text-secondary);line-height:2;padding-left:1.8rem;">
+                <li><strong style="color:var(--text-primary);">Leia cada capítulo com atenção</strong>, fazendo anotações e grifos;</li>
+                <li><strong style="color:var(--text-primary);">Resolva questões</strong> da Cesgranrio e outras bancas sobre cada tema;</li>
+                <li><strong style="color:var(--text-primary);">Revise periodicamente</strong>, utilizando os quadros-resumo e esquemas;</li>
+                <li><strong style="color:var(--text-primary);">Relacione os temas</strong> entre si, identificando as conexões que a banca costuma explorar;</li>
+                <li><strong style="color:var(--text-primary);">Pratique o cálculo de rentabilidade</strong> até se tornar automático;</li>
+                <li><strong style="color:var(--text-primary);">Memorize as pegadinhas</strong> destacadas ao longo da apostila.</li>
+            </ol>
+            <p style="color:var(--text-secondary);line-height:1.8;margin-top:0.8rem;">
+                Este material será seu companheiro de estudos até a aprovação. Consulte-o sempre que surgir uma dúvida conceitual ou quando precisar revisar um tema específico.
+            </p>
+            <p style="color:var(--gold);font-weight:500;margin-top:1.2rem;font-size:1.1rem;">Bons estudos e sucesso em sua jornada rumo à carreira bancária!</p>
+            <p style="color:var(--text-muted);font-size:0.85rem;margin-top:1.5rem;border-top:1px solid var(--border-subtle);padding-top:1.2rem;">
+                <em>Material didático elaborado para preparação de candidatos a cargos de Técnico Bancário, com foco nas bancas Cesgranrio, FCC, FGV e Cebraspe. Conteúdo baseado nos padrões de cobrança das principais bancas organizadoras de concursos da área bancária.</em>
+            </p>
+        </section>
+
+    </div>
+</body>
+</html>
