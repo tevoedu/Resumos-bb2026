@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Completa de Conhecimentos Bancários</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0f1219;
+            --bg-secondary: #1a1f2b;
+            --bg-card: #232a38;
+            --bg-card-hover: #2c3445;
+            --bg-highlight: #2a1f2e;
+            --bg-code: #1a1f2b;
+            --text-primary: #e6e9f0;
+            --text-secondary: #b6c0d4;
+            --text-muted: #8590a8;
+            --text-light: #f0f2f8;
+            --accent-gold: #d4a853;
+            --accent-gold-dim: #b8923f;
+            --accent-blue: #5b8fc9;
+            --accent-blue-dim: #3d6f9e;
+            --accent-green: #5fa87f;
+            --accent-green-dim: #3d7a5c;
+            --accent-coral: #c9756b;
+            --accent-coral-dim: #a85a50;
+            --accent-plum: #a87fb8;
+            --accent-plum-dim: #856294;
+            --accent-teal: #5ba8a0;
+            --accent-orange: #d49a5b;
+            --border-subtle: #2e3648;
+            --border-medium: #3f4a62;
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --radius: 12px;
+            --radius-sm: 6px;
+            --font-base: 'Georgia', 'Times New Roman', serif;
+            --font-heading: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --font-mono: 'Courier New', monospace;
+            --transition: 0.2s ease;
+        }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-base);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 0.5rem;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--text-light);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            letter-spacing: -0.02em;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.8rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 3px solid var(--accent-blue-dim);
+            color: var(--accent-blue);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            color: var(--accent-teal);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin-top: 1.6rem;
+            color: var(--accent-plum);
+        }
+
+        h5 {
+            font-size: 1.05rem;
+            margin-top: 1.4rem;
+            color: var(--accent-coral);
+        }
+
+        h6 {
+            font-size: 0.95rem;
+            margin-top: 1.2rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        strong,
+        b {
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        em,
+        i {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-gold);
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+            margin: 2.8rem 0;
+        }
+
+        /* ===== HEADER / TITLE SECTION ===== */
+        .document-header {
+            text-align: center;
+            padding: 2.5rem 1.5rem 2rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-subtle);
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .document-header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .document-header .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-family: var(--font-heading);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+        }
+
+        .document-header .meta {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-family: var(--font-heading);
+        }
+
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-subtle);
+            padding: 1.8rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .toc-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toc-title svg {
+            flex-shrink: 0;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem 1.5rem;
+            font-family: var(--font-heading);
+            font-size: 0.92rem;
+        }
+
+        .toc-grid a {
+            color: var(--text-secondary);
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            padding: 0.2rem 0;
+            border-bottom: 1px solid transparent;
+            transition: color var(--transition), border-color var(--transition);
+        }
+
+        .toc-grid a:hover {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold-dim);
+            text-decoration: none;
+        }
+
+        .toc-grid .toc-chapter {
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-right: 0.2rem;
+        }
+
+        @media (max-width: 640px) {
+            .toc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== BLOCKQUOTE / CALLOUT ===== */
+        blockquote {
+            background: var(--bg-card);
+            border-left: 5px solid var(--accent-gold);
+            padding: 1.2rem 1.6rem;
+            margin: 1.4rem 0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-style: italic;
+            color: var(--text-secondary);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        blockquote p {
+            margin-bottom: 0;
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: normal;
+            font-family: var(--font-heading);
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.5rem 1.8rem;
+            margin: 1.4rem 0;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+            transition: background var(--transition), border-color var(--transition);
+        }
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-medium);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .card-title svg {
+            flex-shrink: 0;
+        }
+
+        .card-gold .card-title {
+            color: var(--accent-gold);
+        }
+        .card-gold {
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .card-blue .card-title {
+            color: var(--accent-blue);
+        }
+        .card-blue {
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .card-green .card-title {
+            color: var(--accent-green);
+        }
+        .card-green {
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .card-coral .card-title {
+            color: var(--accent-coral);
+        }
+        .card-coral {
+            border-left: 4px solid var(--accent-coral);
+        }
+
+        .card-plum .card-title {
+            color: var(--accent-plum);
+        }
+        .card-plum {
+            border-left: 4px solid var(--accent-plum);
+        }
+
+        .card-teal .card-title {
+            color: var(--accent-teal);
+        }
+        .card-teal {
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .card-orange .card-title {
+            color: var(--accent-orange);
+        }
+        .card-orange {
+            border-left: 4px solid var(--accent-orange);
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== HIGHLIGHT / MARK ===== */
+        .highlight {
+            background: rgba(212, 168, 83, 0.2);
+            color: var(--accent-gold);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .highlight-blue {
+            background: rgba(91, 143, 201, 0.2);
+            color: var(--accent-blue);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .highlight-green {
+            background: rgba(95, 168, 127, 0.2);
+            color: var(--accent-green);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        .highlight-coral {
+            background: rgba(201, 117, 107, 0.2);
+            color: var(--accent-coral);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        /* ===== TABLES ===== */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.4rem 0;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+            box-shadow: var(--shadow-card);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: var(--font-heading);
+            font-size: 0.92rem;
+        }
+
+        thead {
+            background: var(--bg-secondary);
+            border-bottom: 2px solid var(--border-medium);
+        }
+
+        thead th {
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-align: left;
+            padding: 0.9rem 1.2rem;
+            letter-spacing: 0.03em;
+        }
+
+        tbody td {
+            padding: 0.7rem 1.2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .table-compact td,
+        .table-compact th {
+            padding: 0.5rem 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        /* ===== LISTS ===== */
+        ul,
+        ol {
+            margin: 0.6rem 0 1rem 1.6rem;
+            color: var(--text-secondary);
+        }
+
+        ul li,
+        ol li {
+            margin-bottom: 0.3rem;
+        }
+
+        ul ul,
+        ol ul,
+        ul ol,
+        ol ol {
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .list-check {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-check li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .list-check li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .list-cross {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-cross li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .list-cross li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: var(--accent-coral);
+            font-weight: 700;
+        }
+
+        .list-arrow {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-arrow li {
+            padding-left: 1.6rem;
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+
+        .list-arrow li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.4rem 0;
+            color: var(--text-muted);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-subtle));
+        }
+
+        .divider::after {
+            background: linear-gradient(90deg, var(--border-subtle), transparent);
+        }
+
+        /* ===== SVG DIAGRAMS ===== */
+        .diagram-wrapper {
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-subtle);
+            padding: 1.5rem 1rem;
+            margin: 1.6rem 0;
+            box-shadow: var(--shadow-card);
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .diagram-wrapper svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .diagram-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+        }
+
+        /* ===== TWO-COLUMN LAYOUT ===== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.2rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== CODE / INLINE ===== */
+        .inline-code {
+            font-family: var(--font-mono);
+            background: var(--bg-code);
+            color: var(--accent-gold);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            html {
+                font-size: 16px;
+            }
+            body {
+                padding: 1rem 0.5rem;
+            }
+            .document-header h1 {
+                font-size: 1.8rem;
+            }
+            .document-header .subtitle {
+                font-size: 1rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
+            .card {
+                padding: 1rem 1.2rem;
+            }
+            blockquote {
+                padding: 0.8rem 1.2rem;
+            }
+            .toc {
+                padding: 1.2rem 1.2rem;
+            }
+            .toc-grid {
+                font-size: 0.85rem;
+            }
+            table {
+                font-size: 0.82rem;
+            }
+            thead th,
+            tbody td {
+                padding: 0.5rem 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 15px;
+            }
+            .document-header h1 {
+                font-size: 1.5rem;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body {
+                background: #fff;
+                color: #111;
+                padding: 0.5in;
+            }
+            .container {
+                max-width: 100%;
+            }
+            .card,
+            .toc,
+            .document-header,
+            .diagram-wrapper,
+            .table-wrapper {
+                background: #f5f5f5;
+                border-color: #ccc;
+                box-shadow: none;
+            }
+            .card:hover {
+                background: #f5f5f5;
+            }
+            .document-header h1 {
+                color: #1a1a1a;
+            }
+            .toc-title {
+                color: #1a1a1a;
+            }
+            h2 {
+                color: #1a1a1a;
+                border-bottom-color: #aaa;
+            }
+            h3 {
+                color: #1a1a1a;
+            }
+            h4 {
+                color: #1a1a1a;
+            }
+            blockquote {
+                border-left-color: #888;
+                background: #f0f0f0;
+            }
+            .highlight {
+                background: #f0e6c0;
+                color: #1a1a1a;
+            }
+            .highlight-blue {
+                background: #d0e0f0;
+                color: #1a1a1a;
+            }
+            .highlight-green {
+                background: #d0f0d0;
+                color: #1a1a1a;
+            }
+            .highlight-coral {
+                background: #f0d0d0;
+                color: #1a1a1a;
+            }
+            thead {
+                background: #e0e0e0;
+            }
+            thead th {
+                color: #1a1a1a;
+            }
+            tbody td {
+                color: #222;
+            }
+            tbody tr:hover {
+                background: #f0f0f0;
+            }
+            .card-title {
+                color: #1a1a1a !important;
+            }
+            .card-gold {
+                border-left-color: #b8943f;
+            }
+            .card-blue {
+                border-left-color: #3d6f9e;
+            }
+            .card-green {
+                border-left-color: #3d7a5c;
+            }
+            .card-coral {
+                border-left-color: #a85a50;
+            }
+            .card-plum {
+                border-left-color: #856294;
+            }
+            .card-teal {
+                border-left-color: #3d7a7a;
+            }
+            .card-orange {
+                border-left-color: #b8843f;
+            }
+            .divider {
+                color: #888;
+            }
+            .divider::before,
+            .divider::after {
+                background: #ccc;
+            }
+            .toc-grid a {
+                color: #1a1a1a;
+            }
+            .toc-grid a:hover {
+                color: #1a1a1a;
+                border-bottom-color: #888;
+            }
+            .toc-grid .toc-chapter {
+                color: #3d6f9e;
+            }
+            .diagram-wrapper svg text {
+                fill: #1a1a1a !important;
+            }
+            .diagram-wrapper svg rect,
+            .diagram-wrapper svg polygon {
+                stroke: #555 !important;
+                fill: #e8e8e8 !important;
+            }
+            .diagram-wrapper svg line,
+            .diagram-wrapper svg path {
+                stroke: #555 !important;
+            }
+            .inline-code {
+                background: #eee;
+                border-color: #ccc;
+                color: #1a1a1a;
+            }
+            .list-check li::before {
+                color: #2a7a4a;
+            }
+            .list-cross li::before {
+                color: #a85a50;
+            }
+            .list-arrow li::before {
+                color: #3d6f9e;
+            }
+            .card p,
+            p,
+            ul li,
+            ol li,
+            blockquote {
+                color: #222;
+            }
+            blockquote cite {
+                color: #555;
+            }
+            .text-muted {
+                color: #666;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== HEADER ===== -->
+        <header class="document-header">
+            <h1>📘 Conhecimentos Bancários</h1>
+            <p class="subtitle">Apostila Completa para Concursos — Técnico Bancário</p>
+            <p class="meta">Material didático • Escriturário • Agente Comercial</p>
+        </header>
+
+        <!-- ===== TABLE OF CONTENTS ===== -->
+        <nav class="toc" aria-label="Sumário">
+            <div class="toc-title">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="18" x2="14" y2="18" />
+                    <circle cx="18" cy="18" r="3" />
+                </svg>
+                Sumário
+            </div>
+            <div class="toc-grid">
+                <a href="#cap1"><span class="toc-chapter">1.</span> PLD/FT — Lei 9.613/1998</a>
+                <a href="#cap2"><span class="toc-chapter">2.</span> Autorregulação &amp; FGC</a>
+                <a href="#cap3"><span class="toc-chapter">3.</span> Câmbio &amp; Mercado de Capitais</a>
+                <a href="#cap4"><span class="toc-chapter">4.</span> Previdência &amp; Seguros</a>
+                <a href="#cap5"><span class="toc-chapter">5.</span> Regulação — CVM, SUSEP, BCB</a>
+                <a href="#cap6"><span class="toc-chapter">6.</span> Instituições Financeiras</a>
+                <a href="#cap7"><span class="toc-chapter">7.</span> Ouvidoria &amp; Segmentação</a>
+                <a href="#cap8"><span class="toc-chapter">8.</span> Macetes &amp; Pegadinhas</a>
+                <a href="#cap9"><span class="toc-chapter">9.</span> Exercícios de Fixação</a>
+                <a href="#cap10"><span class="toc-chapter">10.</span> Síntese &amp; Mapas</a>
+            </div>
+        </nav>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 1 -->
+        <!-- ============================================================ -->
+        <section id="cap1">
+            <h2>Capítulo 1 — Prevenção à Lavagem de Dinheiro e Financiamento do Terrorismo (PLD/FT)</h2>
+
+            <h3>1.1 Fundamentos da Lei 9.613/1998</h3>
+            <p>A Lei nº 9.613/1998, conhecida como a "Lei de Lavagem de Dinheiro", representa um dos pilares mais importantes do sistema financeiro nacional e internacional. Esta legislação estabelece mecanismos essenciais para prevenir e combater a ocultação de recursos provenientes de atividades ilícitas, um tema recorrente em provas de concursos bancários e absolutamente central para a rotina de qualquer instituição financeira.</p>
+
+            <h4>1.1.1 O Sigilo das Comunicações ao COAF</h4>
+            <p>Um dos aspectos mais relevantes e frequentemente cobrados em provas diz respeito ao sigilo das comunicações de operações suspeitas ao Conselho de Controle de Atividades Financeiras (COAF). Conforme determina a Lei 9.613/1998:</p>
+
+            <blockquote>
+                As comunicações de operações suspeitas ao COAF devem ser sigilosas, sendo vedado às instituições financeiras informar o cliente sobre a existência de qualquer suspeita ou sobre o envio de comunicação aos órgãos competentes.
+            </blockquote>
+
+            <p>Esta vedação é conhecida no mercado financeiro como <span class="highlight">"tipping-off"</span> – termo em inglês que significa "dar o aviso" ou "soprar" algo a alguém. O banco não pode, sob nenhuma hipótese, alertar o cliente de que suas operações estão sendo monitoradas ou que uma comunicação foi enviada ao COAF.</p>
+
+            <div class="card card-blue">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="12" x2="12" y2="16" />
+                        <line x1="12" y1="8" x2="12.01" y2="8" />
+                    </svg>
+                    Aplicação Prática na Agência
+                </div>
+                <p>Imagine que um cliente realiza uma série de depósitos fracionados em valores elevados e, logo em seguida, faz saques em espécie. O analista de compliance identifica essa movimentação como atípica e decide comunicar ao COAF. O que o funcionário do banco <strong>NÃO</strong> pode fazer? Exatamente: não pode ligar para o cliente dizendo "Sr. João, o senhor precisa justificar essas movimentações porque vamos comunicar ao COAF". Isso configuraria tipping-off e sujeitaria a instituição a graves sanções.</p>
+            </div>
+
+            <h4>1.1.2 Consequências do Descumprimento</h4>
+            <p>O descumprimento das normas de PLD/FT pode acarretar sanções severas para a instituição financeira e seus administradores:</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Sanção</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Multa</strong></td>
+                            <td>Valores significativos que podem comprometer o resultado da instituição</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inabilitação de Administradores</strong></td>
+                            <td>Impedimento para exercer cargos de administração em instituições financeiras</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cassação/Suspensão</strong></td>
+                            <td>Possibilidade de cassação ou suspensão da autorização para funcionamento da instituição</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>1.1.3 Proporcionalidade na Regulação</h4>
+            <p>A regulação de PLD/FT adota o princípio da <span class="highlight">proporcionalidade</span>, que na prática significa que bancos menores podem adotar controles internos menos complexos que grandes instituições. Isso porque o risco de lavagem de dinheiro varia conforme o porte, a complexidade e o perfil de atuação de cada instituição.</p>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca costuma cobrar a vedação ao aviso ao cliente como pegadinha. A afirmativa "As comunicações ao COAF devem ser sigilosas" está correta, mas a banca pode tentar induzir o candidato a acreditar que é permitido informar o cliente sobre a comunicação.</p>
+            </div>
+
+            <hr>
+
+            <h3>1.2 Operações Suspeitas e Indícios de Lavagem de Dinheiro</h3>
+            <p>A identificação de operações suspeitas requer atenção a padrões comportamentais que fogem à normalidade do mercado. As instituições financeiras devem tratar como suspeitas determinadas situações que, embora possam ter explicações legítimas, apresentam características típicas de ocultação de recursos.</p>
+
+            <h4>1.2.1 Indícios de Lavagem de Dinheiro</h4>
+
+            <div class="card card-coral">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                        <polyline points="2 17 12 22 22 17" />
+                        <polyline points="2 12 12 17 22 12" />
+                    </svg>
+                    Operações de Exportação com Preço Abaixo do Mercado
+                </div>
+                <p>Quando uma empresa exporta produtos por valores muito inferiores ao praticado internacionalmente (exemplo: 40% do preço internacional), isso pode indicar a intenção de receber recursos no exterior em montantes menores, enquanto o "restante" do valor é recebido por outros meios não declarados.</p>
+                <p><strong>Exemplo Prático:</strong> Uma empresa brasileira de calçados exporta 10 mil pares de sapatos para uma empresa no exterior. O preço médio internacional é de US$ 50 por par. Se a nota fiscal de exportação registra US$ 20 por par (40% do valor de mercado), isso gera uma "perda" de US$ 30 por par – recurso que pode estar sendo enviado ao exterior por canais não oficiais ou utilizado para pagamentos paralelos.</p>
+            </div>
+
+            <div class="card card-coral">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v4M12 18v4M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2" />
+                        <path d="M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                    Depósitos Fracionados Seguidos de Saques em Espécie
+                </div>
+                <p>Padrões de depósitos fracionados de diversas origens, seguidos de saques em espécie em curto período, configuram um clássico indício de operações suspeitas.</p>
+                <p><strong>Exemplo Prático:</strong> Um cliente realiza 20 depósitos de R$ 5.000,00 em contas diferentes ao longo de uma semana (totalizando R$ 100.000,00), provenientes de pessoas físicas e jurídicas diversas. Na semana seguinte, realiza três saques em espécie no valor de R$ 30.000,00, R$ 40.000,00 e R$ 30.000,00. Esse padrão sugere "estruturação" de valores para evitar o monitoramento de grandes transações.</p>
+            </div>
+
+            <h4>1.2.2 Pessoa Politicamente Exposta (PEP)</h4>
+            <p>Um conceito fundamental em PLD/FT é o de <span class="highlight">Pessoa Politicamente Exposta (PEP)</span>. É importante destacar que:</p>
+
+            <blockquote>
+                Ser diretor presidente de grande empresa privada não caracteriza, por si só, pessoa politicamente exposta (PEP). A condição de PEP exige o exercício de cargo público relevante nos últimos 5 anos.
+            </blockquote>
+
+            <p><strong>Quem são as PEPs?</strong></p>
+            <ul class="list-arrow">
+                <li>Chefes de Poder (Presidente da República, Governadores, Prefeitos)</li>
+                <li>Parlamentares (Senadores, Deputados Federais e Estaduais, Vereadores)</li>
+                <li>Ministros de Estado e Secretários de Governo</li>
+                <li>Magistrados e Membros do Ministério Público</li>
+                <li>Dirigentes de autarquias e empresas públicas</li>
+                <li>Parentes até segundo grau dessas pessoas</li>
+            </ul>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca explora a distinção entre PEP e cliente de alto patrimônio. Muitos candidatos confundem "pessoa rica" com "pessoa politicamente exposta". Uma pessoa pode ter patrimônio bilionário e não ser PEP, desde que não ocupe ou tenha ocupado cargo público relevante.</p>
+            </div>
+
+            <hr>
+
+            <h3>1.3 Estudo de Caso: Identificação de Operação Suspeita</h3>
+
+            <div class="card card-teal">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    Cenário
+                </div>
+                <p>Maria, gerente de uma agência bancária, observa que um cliente que possui uma pequena padaria na região tem movimentado valores muito superiores à sua capacidade operacional. O cliente recebeu em sua conta corrente, nos últimos 30 dias, transferências de 15 pessoas físicas distintas, no valor total de R$ 450.000,00. Cada transferência foi feita em valores abaixo de R$ 30.000,00 (evitando o limite de R$ 30.000,00 que exige identificação do depositante). Além disso, o cliente fez três saques em espécie de R$ 150.000,00 cada, com intervalos de 3 dias entre eles.</p>
+            </div>
+
+            <div class="card card-plum">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    Pergunta para reflexão
+                </div>
+                <ol>
+                    <li>Essas movimentações configuram indícios de lavagem de dinheiro? Justifique.</li>
+                    <li>O que Maria deve fazer? Ela pode avisar o cliente sobre a suspeita?</li>
+                </ol>
+            </div>
+
+            <div class="card card-green">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    Resolução esperada
+                </div>
+                <p>Sim, configuram indícios de lavagem de dinheiro, pois os depósitos fracionados de diversas origens seguidas de saques em espécie em curto período são padrões típicos de ocultação de recursos. Maria deve comunicar ao COAF através dos canais internos da instituição, sem avisar o cliente sobre a comunicação, sob pena de configurar tipping-off.</p>
+            </div>
+
+            <hr>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 2 -->
+        <!-- ============================================================ -->
+        <section id="cap2">
+            <h2>Capítulo 2 — Autorregulação Bancária e FGC</h2>
+
+            <h3>2.1 Autorregulação Bancária</h3>
+            <p>A autorregulação bancária é um sistema complementar à regulação estatal, no qual as próprias instituições financeiras estabelecem regras e padrões de conduta para o setor. Este tema é frequentemente cobrado em provas, especialmente quando se confunde autorregulação com supervisão governamental.</p>
+
+            <h4>2.1.1 Conceito e Condução da Autorregulação</h4>
+
+            <blockquote>
+                A autorregulação bancária é conduzida pela FEBRABAN (Federação Brasileira de Bancos), e NÃO pelo Banco Central do Brasil.
+            </blockquote>
+
+            <p>Essa distinção é fundamental: o Banco Central exerce a supervisão e regulação estatal, enquanto a FEBRABAN coordena a autorregulação voluntária do setor privado.</p>
+
+            <p><strong>Estrutura do Sistema de Autorregulação:</strong></p>
+            <ol>
+                <li><strong>Código de Conduta Ética e Autorregulação</strong>
+                    <ul>
+                        <li>Adesão obrigatória para bancos associados à FEBRABAN</li>
+                        <li>Estabelece princípios fundamentais de conduta</li>
+                        <li>Aplica-se a todas as áreas de atuação dos bancos</li>
+                    </ul>
+                </li>
+                <li><strong>Eixos Normativos Voluntários</strong>
+                    <ul>
+                        <li>Relacionamento com o consumidor</li>
+                        <li>Prevenção a ilícitos (PLD/FT)</li>
+                        <li>Responsabilidade socioambiental</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>2.1.2 Por que a Autorregulação Existe?</h4>
+            <p>A autorregulação complementa a regulação estatal por diversas razões:</p>
+            <ul class="list-arrow">
+                <li><span class="highlight">Agilidade:</span> O setor privado pode atualizar regras mais rapidamente que o poder público</li>
+                <li><span class="highlight-blue">Especificidade:</span> Regras mais adequadas à realidade prática do setor</li>
+                <li><span class="highlight-green">Redução de custos:</span> Menos necessidade de intervenção estatal direta</li>
+                <li><span class="highlight-coral">Autoconsciência:</span> O setor assume responsabilidade por suas práticas</li>
+            </ul>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca costuma confundir autorregulação com supervisão do BCB. As afirmativas que dizem "a autorregulação é supervisionada pelo Banco Central" são incorretas. A autorregulação é conduzida pela FEBRABAN.</p>
+            </div>
+
+            <hr>
+
+            <h3>2.2 Fundo Garantidor de Crédito (FGC)</h3>
+            <p>O Fundo Garantidor de Crédito (FGC) é uma instituição privada, sem fins lucrativos, que tem como objetivo proteger os depositantes e investidores de instituições financeiras em caso de intervenção, liquidação extrajudicial ou falência. Entender o que é coberto pelo FGC é essencial para provas e para o atendimento a clientes.</p>
+
+            <h4>2.2.1 Aplicações Financeiras Cobertas pelo FGC</h4>
+
+            <div class="two-col">
+                <div class="card card-green">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        Coberto pelo FGC
+                    </div>
+                    <ul class="list-check">
+                        <li>Depósitos à vista</li>
+                        <li>Depósitos em poupança</li>
+                        <li>Certificados de Depósito Bancário (CDB)</li>
+                        <li>Recibos de Depósito Bancário (RDB)</li>
+                        <li>Letras de Câmbio</li>
+                        <li>Letras de Crédito Imobiliário (LCI)</li>
+                        <li>Letras de Crédito do Agronegócio (LCA)</li>
+                        <li>Letras Hipotecárias</li>
+                    </ul>
+                </div>
+
+                <div class="card card-coral">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="15" y1="9" x2="9" y2="15" />
+                            <line x1="9" y1="9" x2="15" y2="15" />
+                        </svg>
+                        Não Coberto pelo FGC
+                    </div>
+                    <ul class="list-cross">
+                        <li>Fundos de investimento</li>
+                        <li>Ações</li>
+                        <li>Debêntures</li>
+                        <li>Certificados de Recebíveis Imobiliários (CRI)</li>
+                        <li>Certificados de Recebíveis do Agronegócio (CRA)</li>
+                        <li>Letras Financeiras (LF)</li>
+                        <li>Letras de Crédito Imobiliário Garantidas (LIG)</li>
+                        <li>Certificados de Operações Estruturadas (COE)</li>
+                        <li>Tesouro Direto (garantia soberana)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>2.2.2 Limites de Cobertura do FGC</h4>
+            <p>O FGC estabelece limites claros para a garantia:</p>
+
+            <blockquote>
+                <strong>Limite por CPF/instituição:</strong> R$ 250.000,00 (duzentos e cinquenta mil reais)<br>
+                <strong>Teto global:</strong> R$ 1.000.000,00 (um milhão de reais) a cada 4 (quatro) anos
+            </blockquote>
+
+            <p><strong>Explicação dos limites:</strong></p>
+            <ul>
+                <li><span class="highlight">Limite por CPF/instituição:</span> Se um cliente tem R$ 500.000,00 em CDB no Banco X e R$ 300.000,00 em poupança no mesmo Banco X, apenas R$ 250.000,00 estão garantidos (o somatório excede o limite de cobertura por instituição).</li>
+                <li><span class="highlight-blue">Teto global:</span> Se um cliente tem R$ 300.000,00 no Banco X, R$ 300.000,00 no Banco Y e R$ 400.000,00 no Banco Z (total de R$ 1.000.000,00), está no limite máximo de cobertura. Se tiver mais de R$ 1.000.000,00 distribuídos em diferentes instituições, o excesso não está garantido.</li>
+            </ul>
+
+            <h4>2.2.3 Tesouro Direto e a Garantia Soberana</h4>
+            <p>É importante esclarecer que o Tesouro Direto <strong>não</strong> é coberto pelo FGC, mas conta com a <span class="highlight">garantia soberana</span> da União. Isso significa que o governo federal garante o pagamento dos títulos públicos, sendo considerado o investimento mais seguro do país (risco soberano).</p>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca explora a exceção dos fundos de investimento. Muitos candidatos acreditam que fundos de investimento são cobertos pelo FGC, mas a resposta correta é que não são. A garantia do FGC é para produtos de renda fixa de emissão de instituições financeiras, não para fundos.</p>
+            </div>
+
+            <h4>2.2.4 Estudo de Caso: Cobertura do FGC</h4>
+
+            <div class="card card-teal">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    Cenário
+                </div>
+                <p>Um cliente possui os seguintes investimentos:</p>
+                <ul>
+                    <li>Conta corrente no Banco A: R$ 50.000,00</li>
+                    <li>Poupança no Banco A: R$ 100.000,00</li>
+                    <li>CDB no Banco A: R$ 150.000,00</li>
+                    <li>CDB no Banco B: R$ 200.000,00</li>
+                    <li>Fundo de investimento no Banco B: R$ 300.000,00</li>
+                </ul>
+                <p><strong>Pergunta:</strong> Quanto está coberto pelo FGC?</p>
+            </div>
+
+            <div class="card card-green">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    Resolução
+                </div>
+                <ul>
+                    <li><strong>Banco A:</strong> R$ 50.000 + R$ 100.000 + R$ 150.000 = R$ 300.000,00 → coberto até R$ 250.000,00</li>
+                    <li><strong>Banco B:</strong> CDB de R$ 200.000,00 → coberto (R$ 200.000,00)</li>
+                    <li><strong>Banco B:</strong> Fundo de investimento R$ 300.000,00 → <span class="highlight-coral">NÃO</span> coberto</li>
+                </ul>
+                <p><strong>Total coberto:</strong> R$ 450.000,00 (R$ 250.000,00 no Banco A + R$ 200.000,00 no Banco B)</p>
+            </div>
+
+            <hr>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 3 -->
+        <!-- ============================================================ -->
+        <section id="cap3">
+            <h2>Capítulo 3 — Mercado de Câmbio e Mercado de Capitais</h2>
+
+            <h3>3.1 Mercado de Câmbio Brasileiro</h3>
+            <p>O mercado de câmbio é o ambiente onde são realizadas as operações de compra e venda de moedas estrangeiras. Este mercado é fundamental para o comércio internacional e para a economia como um todo.</p>
+
+            <h4>3.1.1 Características do Mercado de Câmbio</h4>
+            <p><strong>Taxas de Câmbio:</strong></p>
+            <blockquote>
+                As taxas de compra e venda de moedas estrangeiras são livremente pactuadas entre as partes (comprador e vendedor), observada a legislação e as normas do Banco Central.
+            </blockquote>
+            <p>Isso significa que não há tabelamento oficial de preços no mercado de câmbio. A taxa é resultado da oferta e demanda no mercado, com os agentes negociando livremente os valores.</p>
+
+            <h4>3.1.2 Regulação e Fiscalização do Mercado de Câmbio</h4>
+            <blockquote>
+                O mercado de câmbio é regulado e fiscalizado exclusivamente pelo Banco Central do Brasil, com diretrizes estabelecidas pelo Conselho Monetário Nacional (CMN).
+            </blockquote>
+
+            <p><strong>Ponto crítico para provas:</strong></p>
+            <ul>
+                <li><span class="highlight-blue">BCB:</span> Regula e fiscaliza o mercado de câmbio</li>
+                <li><span class="highlight-coral">CVM:</span> Regula e fiscaliza o mercado de capitais (ações, valores mobiliários)</li>
+            </ul>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca cobra a distinção de competências: BCB no câmbio, CVM no mercado de capitais. Afirmativas que atribuem à CVM competência sobre câmbio são incorretas.</p>
+            </div>
+
+            <h4>3.1.3 Quem Pode Operar no Mercado de Câmbio?</h4>
+            <blockquote>
+                Pessoas físicas e jurídicas podem operar no mercado de câmbio sem limite de valor, observada a legislação e as normas do Banco Central.
+            </blockquote>
+            <p>Isso significa que não há limite máximo para operações de câmbio para pessoas físicas ou jurídicas. O que existe são limites para certas operações específicas (como viagens internacionais) e a necessidade de declaração para valores acima de determinados montantes, mas não há vedação à realização de operações de qualquer valor.</p>
+            <p><strong>Exemplo Prático:</strong> Uma pessoa física que deseja investir US$ 1 milhão no exterior pode fazê-lo, desde que observe as regras do Banco Central sobre transferências internacionais e declarações cambiais.</p>
+
+            <hr>
+
+            <h3>3.2 Mercado de Capitais — Títulos Patrimoniais e de Dívida</h3>
+            <p>O mercado de capitais é o ambiente onde são negociados títulos de longo prazo, como ações e debêntures. É fundamental entender a diferença entre títulos patrimoniais e títulos de dívida.</p>
+
+            <h4>3.2.1 Títulos Patrimoniais (Ações)</h4>
+            <blockquote>
+                Títulos patrimoniais (ações) representam participação societária, NÃO relação de crédito.
+            </blockquote>
+
+            <p><strong>Características das Ações:</strong></p>
+            <ul class="list-arrow">
+                <li>O investidor torna-se sócio da empresa</li>
+                <li>Não há relação de crédito e débito entre tomador e poupador</li>
+                <li>O investidor não pode resgatar ações diretamente com a empresa</li>
+                <li>A negociação ocorre no mercado secundário (Bolsa de Valores)</li>
+                <li>O retorno vem de dividendos e valorização do papel</li>
+            </ul>
+
+            <p><strong>Diferença Crucial:</strong></p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Ações</th>
+                            <th>Debêntures/CDB</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Natureza</strong></td>
+                            <td>Participação societária</td>
+                            <td>Relação de crédito/dívida</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Resgate</strong></td>
+                            <td>Não há resgate direto pela empresa</td>
+                            <td>Há resgate na data de vencimento</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Garantia</strong></td>
+                            <td>Não há garantia de retorno</td>
+                            <td>Geralmente há garantia (FGC ou garantias da empresa)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Negociação</strong></td>
+                            <td>Mercado secundário</td>
+                            <td>Mercado primário e secundário</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>3.2.2 Intermediação no Mercado de Capitais</h4>
+            <blockquote>
+                Os investidores podem adquirir títulos indiretamente por meio de intermediários (corretoras, fundos).
+            </blockquote>
+            <p>Isso significa que o investidor não precisa ir diretamente à empresa para comprar ações ou outros títulos. Ele pode utilizar:</p>
+            <ul>
+                <li><span class="highlight">Corretoras de valores:</span> Intermediam a compra e venda de títulos no mercado</li>
+                <li><span class="highlight-blue">Distribuidoras de títulos:</span> Distribuem títulos no mercado primário</li>
+                <li><span class="highlight-green">Fundos de investimento:</span> Investem em nome dos cotistas</li>
+            </ul>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca explora a diferença entre títulos de dívida e de capital. Questões que confundem relação de crédito com participação societária são comuns.</p>
+            </div>
+
+            <hr>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 4 -->
+        <!-- ============================================================ -->
+        <section id="cap4">
+            <h2>Capítulo 4 — Previdência Complementar e Seguros</h2>
+
+            <h3>4.1 PGBL x VGBL — Tributação e Características</h3>
+            <p>A previdência privada é um tema recorrente em concursos bancários, especialmente em relação à tributação dos planos PGBL e VGBL.</p>
+
+            <h4>4.1.1 Conceitos Básicos</h4>
+
+            <div class="two-col">
+                <div class="card card-blue">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                        </svg>
+                        PGBL (Plano Gerador de Benefício Livre)
+                    </div>
+                    <ul>
+                        <li>Mais adequado para quem faz a declaração completa do Imposto de Renda</li>
+                        <li>As contribuições são dedutíveis da base de cálculo do IR até o limite de 12% da renda bruta tributável</li>
+                        <li>Indicado para quem busca reduzir a carga tributária anual</li>
+                    </ul>
+                </div>
+
+                <div class="card card-green">
+                    <div class="card-title">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <polyline points="9 12 11 14 15 10" />
+                        </svg>
+                        VGBL (Vida Gerador de Benefício Livre)
+                    </div>
+                    <ul>
+                        <li>Mais adequado para quem faz a declaração simplificada do IR</li>
+                        <li>As contribuições NÃO são dedutíveis da base de cálculo do IR</li>
+                        <li>Indicado para quem não quer ou não pode deduzir as contribuições</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h4>4.1.2 Tributação no Resgate</h4>
+            <p>A tributação é o ponto central da diferença entre os dois planos:</p>
+
+            <blockquote>
+                <strong>NO PGBL:</strong> O Imposto de Renda incide sobre o valor total resgatado (contribuições + rendimentos)<br>
+                <strong>NO VGBL:</strong> O Imposto de Renda incide apenas sobre os rendimentos
+            </blockquote>
+
+            <p><strong>Por que isso acontece?</strong></p>
+            <p>No PGBL, como as contribuições foram deduzidas da base de cálculo do IR ano a ano (reduzindo o imposto pago na fonte), elas não podem ser isentas no resgate. Portanto, todo o valor resgatado (contribuições + rendimentos) é tributado.</p>
+            <p>No VGBL, como as contribuições NÃO foram deduzidas do IR (foram pagas com recursos já tributados), apenas os rendimentos gerados são tributados no resgate.</p>
+
+            <p><strong>Exemplo Prático:</strong></p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Plano</th>
+                            <th>Contribuição</th>
+                            <th>Rendimento</th>
+                            <th>Total Resgatado</th>
+                            <th>Base de Cálculo IR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>PGBL</strong></td>
+                            <td>R$ 50.000</td>
+                            <td>R$ 30.000</td>
+                            <td>R$ 80.000</td>
+                            <td><span class="highlight">R$ 80.000</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>VGBL</strong></td>
+                            <td>R$ 50.000</td>
+                            <td>R$ 30.000</td>
+                            <td>R$ 80.000</td>
+                            <td><span class="highlight-blue">R$ 30.000</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova
+                </div>
+                <p>Cuidado com a inversão! Muitos candidatos confundem qual plano incide sobre o valor total e qual incide apenas sobre rendimentos. A regra é: <span class="highlight">PGBL = tudo</span> (contribuição + rendimento); <span class="highlight-blue">VGBL = só rendimento</span>.</p>
+            </div>
+
+            <hr>
+
+            <h3>4.2 Planos de Previdência — Benefício Definido x Contribuição Definida</h3>
+            <p>Os fundos de pensão (entidades fechadas de previdência complementar) podem adotar diferentes modelos de planos.</p>
+
+            <h4>4.2.1 Plano de Benefício Definido (BD)</h4>
+            <blockquote>
+                No plano BD, o valor do benefício futuro é pré-determinado.
+            </blockquote>
+            <ul class="list-arrow">
+                <li>O participante sabe antecipadamente qual será seu benefício (ex: "vou receber R$ 10.000,00 por mês na aposentadoria")</li>
+                <li>O risco é do patrocinador (quem paga as contribuições)</li>
+                <li>O valor das contribuições pode ser ajustado ao longo do tempo para garantir o benefício</li>
+                <li>Mais comum em planos antigos e em empresas estatais</li>
+            </ul>
+
+            <h4>4.2.2 Plano de Contribuição Definida (CD)</h4>
+            <blockquote>
+                No plano CD, o benefício futuro NÃO é assegurado, pois depende do montante acumulado e do desempenho dos investimentos.
+            </blockquote>
+            <ul class="list-arrow">
+                <li>O participante sabe apenas quanto vai contribuir, não quanto vai receber</li>
+                <li>O risco é do participante</li>
+                <li>O benefício final depende do saldo acumulado na data da aposentadoria</li>
+                <li>Mais comum em planos modernos e em empresas privadas</li>
+            </ul>
+
+            <p><strong>Comparação:</strong></p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspecto</th>
+                            <th>Plano BD</th>
+                            <th>Plano CD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Benefício</strong></td>
+                            <td>Pré-determinado</td>
+                            <td>Variável</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Risco</strong></td>
+                            <td>Do patrocinador</td>
+                            <td>Do participante</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contribuição</strong></td>
+                            <td>Pode variar</td>
+                            <td>Fixa ou variável (definida)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Previsibilidade</strong></td>
+                            <td>Alta</td>
+                            <td>Baixa</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca costuma cobrar a diferença entre CD e BD. Questão típica: "Nos planos de contribuição definida (CD), o valor do benefício futuro é assegurado?" A resposta é <span class="highlight-coral">NÃO</span>.</p>
+            </div>
+
+            <hr>
+
+            <h3>4.3 Seguros — Disposições Gerais</h3>
+            <p>O seguro é um contrato pelo qual a seguradora se obriga a indenizar o segurado em caso de ocorrência do sinistro previsto no contrato. Algumas regras específicas são frequentemente cobradas em provas.</p>
+
+            <h4>4.3.1 Comunicação do Sinistro</h4>
+            <blockquote>
+                É vedada a fixação de prazo máximo para comunicação de sinistro, conforme Código de Defesa do Consumidor.
+            </blockquote>
+            <p>Isso significa que a seguradora não pode estabelecer um prazo limite (ex: "o sinistro deve ser comunicado em até 48 horas") após o qual perde o direito à cobertura. O segurado pode comunicar o sinistro a qualquer tempo, embora seja recomendável comunicar o mais rápido possível para facilitar a apuração.</p>
+            <p><strong>Fundamento:</strong> O CDC protege o consumidor contra cláusulas abusivas que limitem seu direito à cobertura. Prazos máximos para comunicação de sinistro são considerados abusivos.</p>
+
+            <h4>4.3.2 Suicídio em Seguros de Vida</h4>
+            <blockquote>
+                O suicídio é equiparado a acidente pessoal.
+            </blockquote>
+            <p>Isso significa que, para efeitos de cobertura, o suicídio é tratado da mesma forma que um acidente. A seguradora não pode excluir a cobertura por suicídio, desde que respeitado o prazo de carência legal (geralmente 2 anos).</p>
+
+            <h4>4.3.3 Seguro Prestamista</h4>
+            <blockquote>
+                O seguro prestamista NÃO cobre desemprego voluntário.
+            </blockquote>
+            <p>O seguro prestamista é aquele contratado para quitar uma dívida em caso de morte ou invalidez do devedor. O desemprego voluntário (pedido de demissão) não gera direito à cobertura, apenas o desemprego involuntário (dispensa sem justa causa) pode ser coberto, se previsto no contrato.</p>
+
+            <h4>4.3.4 Seguro de Automóvel</h4>
+            <blockquote>
+                O seguro de automóvel com valor de mercado referenciado paga o valor de mercado na data do sinistro (NÃO valor fixo).
+            </blockquote>
+            <p>Isso significa que a indenização será o valor de mercado do veículo no dia do sinistro, e não o valor que estava no contrato ou o valor de compra. O veículo se desvaloriza com o tempo, então a indenização reflete essa desvalorização.</p>
+
+            <h4>4.3.5 Microsseguro x Seguro Popular</h4>
+            <blockquote>
+                <strong>Microsseguro:</strong> Produto destinado a pessoas de baixa renda, com prêmios acessíveis e coberturas simplificadas.<br>
+                <strong>Seguro Popular:</strong> Seguro de pequeno valor (baixo prêmio) para qualquer consumidor, independentemente da renda.
+            </blockquote>
+
+            <p><strong>Diferença Crucial:</strong></p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspecto</th>
+                            <th>Microsseguro</th>
+                            <th>Seguro Popular</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Público-alvo</strong></td>
+                            <td>Pessoas de baixa renda</td>
+                            <td>Qualquer consumidor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Prêmio</strong></td>
+                            <td>Acessível à baixa renda</td>
+                            <td>Baixo valor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Característica</strong></td>
+                            <td>Coberturas simplificadas</td>
+                            <td>Pequeno valor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Restrição</strong></td>
+                            <td>Foco em inclusão financeira</td>
+                            <td>Sem restrição de renda</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca explora a diferença entre esses conceitos. "Microsseguro" não é sinônimo de "seguro popular".</p>
+            </div>
+
+            <hr>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 5 -->
+        <!-- ============================================================ -->
+        <section id="cap5">
+            <h2>Capítulo 5 — Regulação do Sistema Financeiro</h2>
+
+            <h3>5.1 CVM x SUSEP — Competências Regulatórias</h3>
+            <p>É fundamental entender a divisão de competências entre os órgãos reguladores do sistema financeiro.</p>
+
+            <h4>5.1.1 Comissão de Valores Mobiliários (CVM)</h4>
+            <blockquote>
+                A CVM regula e fiscaliza o mercado de valores mobiliários, incluindo bolsas de valores, fundos de investimento, auditores independentes e agências de classificação de risco (rating).
+            </blockquote>
+
+            <p><strong>Competências da CVM:</strong></p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Área de Atuação</th>
+                            <th>Exemplos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bolsas de valores</td>
+                            <td>B3</td>
+                        </tr>
+                        <tr>
+                            <td>Fundos de investimento</td>
+                            <td>Fundos de ações, multimercados, etc.</td>
+                        </tr>
+                        <tr>
+                            <td>Auditores independentes</td>
+                            <td>Empresas de auditoria</td>
+                        </tr>
+                        <tr>
+                            <td>Agências de rating</td>
+                            <td>Standard &amp; Poor's, Moody's, Fitch</td>
+                        </tr>
+                        <tr>
+                            <td>Ofertas públicas</td>
+                            <td>IPOs, ofertas de debêntures</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>5.1.2 Superintendência de Seguros Privados (SUSEP)</h4>
+            <blockquote>
+                A SUSEP regula e fiscaliza as sociedades de capitalização, seguros privados e previdência complementar aberta.
+            </blockquote>
+
+            <p><strong>Competências da SUSEP:</strong></p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Área de Atuação</th>
+                            <th>Exemplos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Seguros privados</td>
+                            <td>Seguro de vida, automóvel, residencial</td>
+                        </tr>
+                        <tr>
+                            <td>Previdência complementar aberta</td>
+                            <td>PGBL, VGBL</td>
+                        </tr>
+                        <tr>
+                            <td>Capitalização</td>
+                            <td>Títulos de capitalização</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>5.1.3 Estrutura de Supervisão</h4>
+            <blockquote>
+                A SUSEP é supervisionada pelo CNSP (Conselho Nacional de Seguros Privados), NÃO pelo CMN.
+            </blockquote>
+
+            <p>Esta é uma pegadinha clássica:</p>
+            <ul>
+                <li><span class="highlight-blue">CMN (Conselho Monetário Nacional):</span> Supervisiona o BCB e a CVM</li>
+                <li><span class="highlight">CNSP (Conselho Nacional de Seguros Privados):</span> Supervisiona a SUSEP</li>
+            </ul>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca cobra essa distinção, confundindo com seguros e capitalização. Afirmativas como "A CVM regula sociedades de capitalização" ou "A SUSEP é supervisionada pelo CMN" são incorretas.</p>
+            </div>
+
+            <hr>
+
+            <h3>5.2 Banco Central — Autonomia e Missão</h3>
+            <p>A autonomia do Banco Central foi estabelecida pela Lei Complementar 179/2021, mas com limites claros.</p>
+
+            <h4>5.2.1 Autonomia do BCB</h4>
+            <blockquote>
+                O BCB não tem autonomia para contratar servidores e definir salários; a contratação de servidores é feita por concurso público.
+            </blockquote>
+
+            <p><strong>O que a autonomia do BCB permite:</strong></p>
+            <ul class="list-check">
+                <li>Definir metas de inflação (em conjunto com o CMN)</li>
+                <li>Estabelecer política monetária</li>
+                <li>Regular o sistema financeiro</li>
+            </ul>
+
+            <p><strong>O que a autonomia NÃO permite:</strong></p>
+            <ul class="list-cross">
+                <li>Contratar servidores por regime próprio</li>
+                <li>Definir salários livremente</li>
+                <li>Atuar fora da lei orçamentária</li>
+            </ul>
+
+            <h4>5.2.2 Missão do Banco Central</h4>
+            <blockquote>
+                A missão do BCB é:<br>
+                1. Garantir a estabilidade do poder de compra da moeda<br>
+                2. Zelar por um sistema financeiro sólido e eficiente<br>
+                3. Fomentar o bem-estar econômico
+            </blockquote>
+
+            <p><strong>Explicação dos Pilares:</strong></p>
+            <ol>
+                <li><span class="highlight">Estabilidade do poder de compra:</span> Controlar a inflação para que o dinheiro mantenha seu valor ao longo do tempo</li>
+                <li><span class="highlight-blue">Sistema financeiro sólido:</span> Garantir que os bancos sejam seguros e que os depósitos estejam protegidos</li>
+                <li><span class="highlight-green">Bem-estar econômico:</span> Contribuir para o crescimento econômico e a geração de empregos</li>
+            </ol>
+
+            <h4>5.2.3 Auditoria do BCB</h4>
+            <blockquote>
+                O BCB se submete a auditoria independente.
+            </blockquote>
+            <p>Isso significa que o Banco Central é auditado por entidades externas para garantir a correção de suas contas e a adequação de seus procedimentos. A auditoria independente é um mecanismo de controle externo que assegura a transparência da instituição.</p>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca cobra os limites da autonomia e as atribuições. Afirmativas como "o BCB pode contratar servidores diretamente, sem concurso" são incorretas. Afirmativas como "o BCB tem como missão garantir a estabilidade da moeda" estão corretas.</p>
+            </div>
+
+            <hr>
+
+            <h3>5.3 CMN x Copom — Competências e Objetivos</h3>
+            <p>O sistema financeiro nacional possui órgãos com competências distintas, sendo o CMN o órgão máximo de regulação.</p>
+
+            <h4>5.3.1 Conselho Monetário Nacional (CMN)</h4>
+            <blockquote>
+                Os objetivos do CMN incluem estabilidade da moeda e desenvolvimento econômico-social.
+            </blockquote>
+
+            <p><strong>Composição do CMN:</strong></p>
+            <ul class="list-arrow">
+                <li>Ministro da Fazenda (Presidente)</li>
+                <li>Ministro do Planejamento e Orçamento</li>
+                <li>Presidente do Banco Central</li>
+            </ul>
+
+            <p><strong>Atribuições do CMN:</strong></p>
+            <ul class="list-arrow">
+                <li>Estabelecer diretrizes da política monetária</li>
+                <li>Fixar metas de inflação</li>
+                <li>Regular o sistema financeiro nacional</li>
+                <li>Autorizar emissão de moeda</li>
+                <li>Definir limites para a dívida pública</li>
+            </ul>
+
+            <h4>5.3.2 Comitê de Política Monetária (Copom)</h4>
+            <blockquote>
+                O Copom, composto por membros do BCB, define a meta da taxa Selic.
+            </blockquote>
+
+            <p><strong>Composição do Copom:</strong></p>
+            <ul class="list-arrow">
+                <li>Presidente do BCB</li>
+                <li>Diretores do BCB</li>
+            </ul>
+
+            <p><strong>Atribuições do Copom:</strong></p>
+            <ul class="list-arrow">
+                <li>Definir a meta da taxa Selic</li>
+                <li>Estabelecer a política monetária no curto prazo</li>
+                <li>Reunir-se a cada 45 dias para definir a taxa de juros</li>
+            </ul>
+
+            <h4>5.3.3 Estrutura de Supervisão</h4>
+            <blockquote>
+                O CMN supervisiona BCB e CVM.
+            </blockquote>
+
+            <div class="card card-blue">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                        <line x1="3" y1="9" x2="21" y2="9" />
+                        <line x1="3" y1="15" x2="21" y2="15" />
+                        <line x1="9" y1="21" x2="9" y2="9" />
+                    </svg>
+                    Estrutura completa do SFN
+                </div>
+                <pre style="font-family:var(--font-mono);font-size:0.85rem;color:var(--text-secondary);background:var(--bg-code);padding:1rem;border-radius:6px;overflow-x:auto;white-space:pre;line-height:1.6;">
+                    CMN (Conselho Monetário Nacional)
+                    ├── BCB (Banco Central do Brasil)
+                    │   └── Copom (Comitê de Política Monetária)
+                    ├── CVM (Comissão de Valores Mobiliários)
+                    │
+                    CNSP (Conselho Nacional de Seguros Privados)
+                    └── SUSEP (Superintendência de Seguros Privados)</pre>
+            </div>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca explora a estrutura do SFN. Questões que confundem as competências (ex: "o Copom define a meta da inflação" ou "o CMN define a Selic") são comuns. Lembre-se: <span class="highlight">CMN = diretrizes gerais</span>; <span class="highlight-blue">Copom = Selic</span>.</p>
+            </div>
+
+            <hr>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 6 -->
+        <!-- ============================================================ -->
+        <section id="cap6">
+            <h2>Capítulo 6 — Instituições Financeiras</h2>
+
+            <h3>6.1 Banco Múltiplo — Requisitos Essenciais</h3>
+            <p>O banco múltiplo é uma instituição financeira que pode atuar em diversas carteiras, mas com um requisito mínimo.</p>
+
+            <h4>6.1.1 Classificação como Banco Múltiplo</h4>
+            <blockquote>
+                Para ser classificado como banco múltiplo, a instituição deve possuir pelo menos duas carteiras, sendo uma delas obrigatoriamente a carteira comercial ou a carteira de investimento.
+            </blockquote>
+
+            <p><strong>Carteiras facultativas:</strong></p>
+            <ul>
+                <li>Crédito imobiliário</li>
+                <li>Arrendamento mercantil</li>
+                <li>Financiamento</li>
+                <li>Outras</li>
+            </ul>
+
+            <p><strong>Exemplo Prático:</strong> Um banco que possui carteira comercial e carteira de crédito imobiliário é um banco múltiplo. Um banco que possui apenas carteira comercial também é um banco múltiplo (comercial + investimento, que é implícito). Um banco que possui apenas carteira de arrendamento mercantil <span class="highlight-coral">NÃO</span> é um banco múltiplo.</p>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca cobra esse requisito essencial. Afirmativas como "para ser banco múltiplo, a instituição deve possuir carteira de câmbio" são incorretas. O essencial é: <span class="highlight">carteira comercial</span> OU <span class="highlight-blue">carteira de investimento</span>.</p>
+            </div>
+
+            <hr>
+
+            <h3>6.2 Instituições Bancárias — Regra 3B/2C</h3>
+            <p>Uma forma fácil de lembrar as instituições bancárias é através da regra 3B/2C.</p>
+
+            <h4>6.2.1 Instituições Bancárias</h4>
+            <blockquote>
+                São instituições bancárias:<br>
+                <strong>B</strong>ancos comerciais<br>
+                <strong>B</strong>ancos múltiplos (com carteira comercial)<br>
+                <strong>B</strong>ancos cooperativos<br>
+                <strong>C</strong>aixas econômicas<br>
+                <strong>C</strong>ooperativas de crédito
+            </blockquote>
+            <p><strong>Regra 3B/2C:</strong> 3 B's (Bancos comerciais, Bancos múltiplos, Bancos cooperativos) e 2 C's (Caixas econômicas, Cooperativas de crédito).</p>
+
+            <h4>6.2.2 Instituições Não Bancárias</h4>
+            <blockquote>
+                Não são instituições bancárias:<br>
+                - Sociedades de crédito, financiamento e investimento<br>
+                - Sociedades de crédito imobiliário<br>
+                - Sociedades de arrendamento mercantil
+            </blockquote>
+            <p><strong>Dica de memorização:</strong> Instituições não bancárias são aquelas que NÃO captam depósitos à vista, que é a atividade típica dos bancos.</p>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca cobra a classificação. Questão típica: "A Caixa Econômica Federal é considerada uma instituição bancária?" A resposta é <span class="highlight">SIM</span>, assim como bancos comerciais, múltiplos, cooperativos e cooperativas de crédito.</p>
+            </div>
+
+            <hr>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 7 -->
+        <!-- ============================================================ -->
+        <section id="cap7">
+            <h2>Capítulo 7 — Ouvidoria Bancária e Segmentação de Mercado</h2>
+
+            <h3>7.1 Ouvidoria — Resolução CMN 4.860/2020</h3>
+            <p>A ouvidoria é um canal de atendimento ao cliente para reclamações não resolvidas nos canais convencionais.</p>
+
+            <h4>7.1.1 Requisitos da Resolução CMN 4.860/2020</h4>
+            <blockquote>
+                O estatuto da instituição financeira deve conter:<br>
+                1. Finalidade da ouvidoria<br>
+                2. Critérios de designação e destituição do ouvidor<br>
+                3. Tempo de duração do mandato do ouvidor, fixado em meses
+            </blockquote>
+
+            <p><strong>Explicação:</strong></p>
+            <ul>
+                <li><span class="highlight">Finalidade:</span> A ouvidoria deve atuar como canal de última instância para resolução de conflitos</li>
+                <li><span class="highlight-blue">Designação e destituição:</span> O ouvidor deve ser nomeado por critérios objetivos e pode ser destituído por justa causa</li>
+                <li><span class="highlight-green">Mandato:</span> O mandato deve ser fixado em meses (ex: 24 meses), garantindo estabilidade para o ouvidor</li>
+            </ul>
+
+            <h4>7.1.2 Importância da Ouvidoria</h4>
+            <p>A ouvidoria é importante porque:</p>
+            <ul class="list-check">
+                <li>Garante um canal independente para reclamações</li>
+                <li>Identifica problemas sistêmicos na instituição</li>
+                <li>Contribui para a melhoria contínua do atendimento</li>
+                <li>Atende às exigências regulatórias</li>
+            </ul>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca cobra literalidade da norma. Questões que confundem os requisitos da ouvidoria são comuns.</p>
+            </div>
+
+            <hr>
+
+            <h3>7.2 Segmentação de Mercado</h3>
+            <p>A segmentação de mercado é uma ferramenta fundamental para entender e atender melhor os clientes.</p>
+
+            <h4>7.2.1 Tipos de Segmentação</h4>
+
+            <div class="card card-blue">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                    </svg>
+                    Segmentação Geográfica
+                </div>
+                <ul>
+                    <li>Baseada em localização (região, cidade, bairro)</li>
+                    <li>Exemplo: Clientes da região Sul têm características diferentes da região Nordeste</li>
+                </ul>
+            </div>
+
+            <div class="card card-green">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    Segmentação Demográfica
+                </div>
+                <ul>
+                    <li>Baseada em idade, renda, gênero, escolaridade</li>
+                    <li>Exemplo: Clientes jovens têm maior propensão a produtos digitais</li>
+                </ul>
+            </div>
+
+            <div class="card card-plum">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a10 10 0 1010 10 10 10 0 00-10-10z" />
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                        <line x1="9" y1="9" x2="9.01" y2="9" />
+                        <line x1="15" y1="9" x2="15.01" y2="9" />
+                    </svg>
+                    Segmentação Psicográfica
+                </div>
+                <ul>
+                    <li><span class="highlight">Foca em aspectos psicológicos e de estilo de vida:</span> hábitos, hobbies, estilo de vida, valores e opiniões.</li>
+                    <li>Exemplo: Clientes preocupados com sustentabilidade preferem produtos verdes</li>
+                </ul>
+            </div>
+
+            <div class="card card-coral">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
+                    </svg>
+                    Segmentação Comportamental
+                </div>
+                <ul>
+                    <li><span class="highlight-blue">Foca em ações do consumidor:</span> lealdade, envolvimento e benefícios procurados.</li>
+                    <li>Exemplo: Clientes que usam frequentemente serviços digitais são mais propensos a aceitar inovações</li>
+                </ul>
+            </div>
+
+            <h4>7.2.2 Aplicação Prática na Agência</h4>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Segmentação</th>
+                            <th>Exemplo de Uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Geográfica</strong></td>
+                            <td>Oferecer produtos específicos para clientes de áreas litorâneas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Demográfica</strong></td>
+                            <td>Produtos para terceira idade (contas com tarifas reduzidas)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Psicográfica</strong></td>
+                            <td>Produtos para clientes preocupados com meio ambiente</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Comportamental</strong></td>
+                            <td>Clubes de fidelidade para clientes mais leais</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card card-gold">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Dica de Prova — Cesgranrio
+                </div>
+                <p>A banca cobra a distinção entre esses modelos. Questões que confundem segmentação psicográfica com comportamental são comuns.</p>
+            </div>
+
+            <hr>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 8 -->
+        <!-- ============================================================ -->
+        <section id="cap8">
+            <h2>Capítulo 8 — Resolução de Provas — Macetes e Pegadinhas</h2>
+
+            <h3>8.1 Armadilhas Comuns da Cesgranrio</h3>
+            <p>Com base na experiência, as principais armadilhas da Cesgranrio em conhecimentos bancários são:</p>
+
+            <div class="card card-coral">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    1. Troca de Competências
+                </div>
+                <ul class="list-cross">
+                    <li>"A CVM regula o mercado de câmbio" → <span class="highlight-coral">FALSO</span> (é o BCB)</li>
+                    <li>"O CMN define a taxa Selic" → <span class="highlight-coral">FALSO</span> (é o Copom)</li>
+                    <li>"A SUSEP é supervisionada pelo CMN" → <span class="highlight-coral">FALSO</span> (é pelo CNSP)</li>
+                </ul>
+            </div>
+
+            <div class="card card-coral">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    2. Confusão de Conceitos
+                </div>
+                <ul class="list-cross">
+                    <li>"PEP é qualquer pessoa de alto patrimônio" → <span class="highlight-coral">FALSO</span></li>
+                    <li>"Microsseguro é sinônimo de seguro popular" → <span class="highlight-coral">FALSO</span></li>
+                    <li>"FGC cobre fundos de investimento" → <span class="highlight-coral">FALSO</span></li>
+                </ul>
+            </div>
+
+            <div class="card card-coral">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    3. Exceções e Limites
+                </div>
+                <ul class="list-cross">
+                    <li>"Comunicação ao COAF pode ser informada ao cliente" → <span class="highlight-coral">FALSO</span></li>
+                    <li>"No PGBL o IR incide apenas sobre rendimentos" → <span class="highlight-coral">FALSO</span></li>
+                    <li>"O banco múltiplo precisa ter carteira de arrendamento" → <span class="highlight-coral">FALSO</span></li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <h3>8.2 Dicas para Memorização</h3>
+
+            <div class="card card-green">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    Associações mentais
+                </div>
+                <ul class="list-arrow">
+                    <li><span class="highlight">Selic Over → "Noite"</span> : Operações compromissadas de 1 dia (overnight)</li>
+                    <li><span class="highlight">PGBL → "P" de "Pago tudo"</span> : O IR incide sobre o valor total</li>
+                    <li><span class="highlight-blue">VGBL → "V" de "Valeu, só rendimento"</span> : O IR incide apenas sobre rendimentos</li>
+                    <li><span class="highlight">CDB → "C" de "Coberto"</span> : Coberto pelo FGC</li>
+                    <li><span class="highlight-coral">Fundo de Investimento → "Não é coberto"</span> : Não tem FGC</li>
+                </ul>
+            </div>
+
+            <hr>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 9 -->
+        <!-- ============================================================ -->
+        <section id="cap9">
+            <h2>Capítulo 9 — Exercícios de Fixação</h2>
+
+            <h3>9.1 Questões de Múltipla Escolha</h3>
+
+            <div class="card card-teal">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    Questão 1
+                </div>
+                <p><strong>(Cesgranrio) De acordo com a Lei 9.613/1998, as comunicações de operações suspeitas ao COAF:</strong></p>
+                <ol type="a">
+                    <li>Devem ser públicas e acessíveis a todos</li>
+                    <li>Devem ser sigilosas, sendo vedado informar o cliente</li>
+                    <li>Devem ser comunicadas ao cliente antes do envio</li>
+                    <li>Podem ser divulgadas após 30 dias</li>
+                </ol>
+                <p><strong>Resposta:</strong> <span class="highlight">b) Devem ser sigilosas, sendo vedado informar o cliente</span></p>
+            </div>
+
+            <div class="card card-teal">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    Questão 2
+                </div>
+                <p><strong>(Cesgranrio) O Fundo Garantidor de Crédito (FGC) cobre, entre outros:</strong></p>
+                <ol type="a">
+                    <li>Fundos de investimento e ações</li>
+                    <li>CDB, LCI e poupança</li>
+                    <li>Debêntures e CRI</li>
+                    <li>Tesouro Direto e COE</li>
+                </ol>
+                <p><strong>Resposta:</strong> <span class="highlight">b) CDB, LCI e poupança</span></p>
+            </div>
+
+            <div class="card card-teal">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    Questão 3
+                </div>
+                <p><strong>(Cesgranrio) No plano PGBL, o Imposto de Renda incide sobre:</strong></p>
+                <ol type="a">
+                    <li>Apenas os rendimentos</li>
+                    <li>O valor total resgatado (contribuições + rendimentos)</li>
+                    <li>Apenas as contribuições</li>
+                    <li>Nenhum dos valores</li>
+                </ol>
+                <p><strong>Resposta:</strong> <span class="highlight">b) O valor total resgatado (contribuições + rendimentos)</span></p>
+            </div>
+
+            <div class="card card-teal">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    Questão 4
+                </div>
+                <p><strong>(Cesgranrio) Quem regula e fiscaliza as sociedades de capitalização?</strong></p>
+                <ol type="a">
+                    <li>CVM</li>
+                    <li>BCB</li>
+                    <li>SUSEP</li>
+                    <li>FEBRABAN</li>
+                </ol>
+                <p><strong>Resposta:</strong> <span class="highlight">c) SUSEP</span></p>
+            </div>
+
+            <hr>
+
+            <h3>9.2 Estudo de Caso Integrado</h3>
+
+            <div class="card card-blue">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    Cenário Integrado
+                </div>
+                <p>Um banco múltiplo de médio porte recebe um cliente que deseja aplicar R$ 1.000.000,00. O cliente é diretor financeiro de uma empresa privada e quer segurança para seu investimento. O banco oferece CDB e fundo de investimento.</p>
+            </div>
+
+            <div class="card card-plum">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                    Questões
+                </div>
+                <ol>
+                    <li>O banco múltiplo precisa ter qual carteira obrigatória?</li>
+                    <li>Quanto do CDB está coberto pelo FGC?</li>
+                    <li>O cliente é considerado PEP?</li>
+                    <li>Se o cliente resgatar um PGBL, sobre o que incide o IR?</li>
+                </ol>
+            </div>
+
+            <div class="card card-green">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                    Resolução
+                </div>
+                <ol>
+                    <li>O banco múltiplo deve ter carteira comercial ou carteira de investimento</li>
+                    <li>O CDB está coberto até R$ 250.000,00 (limite por CPF/instituição)</li>
+                    <li>Não, pois PEP exige cargo público relevante, não cargo em empresa privada</li>
+                    <li>O IR incide sobre o valor total resgatado (contribuições + rendimentos)</li>
+                </ol>
+            </div>
+
+            <hr>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- CAPÍTULO 10 -->
+        <!-- ============================================================ -->
+        <section id="cap10">
+            <h2>Capítulo 10 — Síntese para Revisão</h2>
+
+            <h3>10.1 Mapa Mental do Sistema Financeiro Nacional</h3>
+
+            <div class="diagram-wrapper">
+                <svg viewBox="0 0 880 520" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:'Segoe UI',Arial,sans-serif;">
+                    <!-- Fundo -->
+                    <rect width="880" height="520" rx="12" fill="#1a1f2b" />
+
+                    <!-- Título -->
+                    <text x="440" y="38" text-anchor="middle" fill="#d4a853" font-size="20" font-weight="700" letter-spacing="0.5">SISTEMA FINANCEIRO NACIONAL (SFN)</text>
+
+                    <!-- Linha principal -->
+                    <line x1="440" y1="52" x2="440" y2="78" stroke="#3f4a62" stroke-width="2" />
+
+                    <!-- Caixa CMN -->
+                    <rect x="100" y="80" width="200" height="48" rx="8" fill="#2c3445" stroke="#5b8fc9" stroke-width="2" />
+                    <text x="200" y="106" text-anchor="middle" fill="#5b8fc9" font-size="16" font-weight="700">CMN</text>
+                    <text x="200" y="122" text-anchor="middle" fill="#b6c0d4" font-size="11">Conselho Monetário Nacional</text>
+
+                    <!-- Linhas do CMN -->
+                    <line x1="200" y1="128" x2="200" y2="160" stroke="#3f4a62" stroke-width="1.5" />
+                    <line x1="200" y1="160" x2="140" y2="190" stroke="#3f4a62" stroke-width="1.5" />
+                    <line x1="200" y1="160" x2="200" y2="190" stroke="#3f4a62" stroke-width="1.5" />
+                    <line x1="200" y1="160" x2="260" y2="190" stroke="#3f4a62" stroke-width="1.5" />
+
+                    <!-- BCB -->
+                    <rect x="60" y="192" width="160" height="48" rx="8" fill="#2c3445" stroke="#5b8fc9" stroke-width="2" />
+                    <text x="140" y="216" text-anchor="middle" fill="#5b8fc9" font-size="15" font-weight="700">BCB</text>
+                    <text x="140" y="232" text-anchor="middle" fill="#b6c0d4" font-size="11">Banco Central do Brasil</text>
+
+                    <!-- CVM -->
+                    <rect x="300" y="192" width="160" height="48" rx="8" fill="#2c3445" stroke="#5b8fc9" stroke-width="2" />
+                    <text x="380" y="216" text-anchor="middle" fill="#5b8fc9" font-size="15" font-weight="700">CVM</text>
+                    <text x="380" y="232" text-anchor="middle" fill="#b6c0d4" font-size="11">Comissão de Valores Mobiliários</text>
+
+                    <!-- CNSP -->
+                    <rect x="560" y="80" width="200" height="48" rx="8" fill="#2c3445" stroke="#a87fb8" stroke-width="2" />
+                    <text x="660" y="106" text-anchor="middle" fill="#a87fb8" font-size="16" font-weight="700">CNSP</text>
+                    <text x="660" y="122" text-anchor="middle" fill="#b6c0d4" font-size="11">Conselho Nacional de Seguros Privados</text>
+
+                    <!-- Linha CNSP -->
+                    <line x1="660" y1="128" x2="660" y2="160" stroke="#3f4a62" stroke-width="1.5" />
+                    <line x1="660" y1="160" x2="660" y2="190" stroke="#3f4a62" stroke-width="1.5" />
+
+                    <!-- SUSEP -->
+                    <rect x="560" y="192" width="200" height="48" rx="8" fill="#2c3445" stroke="#a87fb8" stroke-width="2" />
+                    <text x="660" y="216" text-anchor="middle" fill="#a87fb8" font-size="15" font-weight="700">SUSEP</text>
+                    <text x="660" y="232" text-anchor="middle" fill="#b6c0d4" font-size="11">Superintendência de Seguros Privados</text>
+
+                    <!-- Copom dentro do BCB -->
+                    <rect x="75" y="258" width="130" height="36" rx="6" fill="#1a1f2b" stroke="#5ba8a0" stroke-width="1.5" stroke-dasharray="4" />
+                    <text x="140" y="280" text-anchor="middle" fill="#5ba8a0" font-size="13" font-weight="600">Copom</text>
+
+                    <!-- CONRE / PREVIC (extra) -->
+                    <rect x="300" y="320" width="200" height="44" rx="8" fill="#2c3445" stroke="#d49a5b" stroke-width="1.5" stroke-dasharray="4" />
+                    <text x="400" y="342" text-anchor="middle" fill="#d49a5b" font-size="14" font-weight="600">CONRE / PREVIC</text>
+                    <text x="400" y="358" text-anchor="middle" fill="#b6c0d4" font-size="10">Previdência Complementar</text>
+
+                    <!-- Setas CONRE -->
+                    <line x1="380" y1="240" x2="380" y2="310" stroke="#3f4a62" stroke-width="1.5" stroke-dasharray="4" />
+                    <line x1="380" y1="310" x2="400" y2="320" stroke="#3f4a62" stroke-width="1.5" stroke-dasharray="4" />
+
+                    <!-- Legenda -->
+                    <rect x="60" y="380" width="340" height="120" rx="8" fill="#1a1f2b" stroke="#2e3648" stroke-width="1" />
+                    <text x="80" y="406" fill="#e6e9f0" font-size="14" font-weight="600">Legenda</text>
+                    <rect x="80" y="420" width="16" height="16" rx="3" fill="#2c3445" stroke="#5b8fc9" stroke-width="1.5" />
+                    <text x="104" y="434" fill="#b6c0d4" font-size="13">Órgãos normativos / supervisores</text>
+                    <rect x="80" y="444" width="16" height="16" rx="3" fill="#1a1f2b" stroke="#5ba8a0" stroke-width="1.5" stroke-dasharray="4" />
+                    <text x="104" y="458" fill="#b6c0d4" font-size="13">Comitês / subordinados</text>
+                    <rect x="80" y="468" width="16" height="16" rx="3" fill="#2c3445" stroke="#d49a5b" stroke-width="1.5" stroke-dasharray="4" />
+                    <text x="104" y="482" fill="#b6c0d4" font-size="13">Outros órgãos reguladores</text>
+                </svg>
+            </div>
+
+            <hr>
+
+            <h3>10.2 Quadro Resumo — Principais Distinções</h3>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Conceito A</th>
+                            <th>Conceito B</th>
+                            <th>Diferença</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>PGBL</strong></td>
+                            <td><strong>VGBL</strong></td>
+                            <td>IR sobre tudo (PGBL) vs. IR só rendimentos (VGBL)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Plano BD</strong></td>
+                            <td><strong>Plano CD</strong></td>
+                            <td>Benefício pré-determinado vs. Benefício variável</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FGC</strong></td>
+                            <td><strong>Tesouro Direto</strong></td>
+                            <td>FGC: garantia privada vs. Tesouro: garantia soberana</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Microsseguro</strong></td>
+                            <td><strong>Seguro Popular</strong></td>
+                            <td>Baixa renda vs. Qualquer consumidor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autorregulação</strong></td>
+                            <td><strong>Supervisão</strong></td>
+                            <td>FEBRABAN vs. BCB</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CVM</strong></td>
+                            <td><strong>SUSEP</strong></td>
+                            <td>Mercado de capitais vs. Seguros</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CMN</strong></td>
+                            <td><strong>Copom</strong></td>
+                            <td>Diretrizes vs. Selic</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <hr>
+
+            <div class="card card-gold" style="margin-top:2rem;">
+                <div class="card-title">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                    Considerações Finais
+                </div>
+                <p>Esta apostila foi elaborada para fornecer uma base sólida e aprofundada sobre os conhecimentos bancários mais cobrados em concursos públicos. Os temas aqui abordados são recorrentes em provas da Cesgranrio, FCC, FGV e Cebraspe, com ênfase na aplicação prática e na identificação de pegadinhas comuns.</p>
+                <p>Para um estudo eficiente, recomenda-se:</p>
+                <ol>
+                    <li><strong>Leitura atenta do conteúdo</strong>, com foco na compreensão dos conceitos</li>
+                    <li><strong>Revisão dos quadros comparativos e mapas mentais</strong> para fixação</li>
+                    <li><strong>Resolução de exercícios</strong> para testar a aplicação do conhecimento</li>
+                    <li><strong>Estudo de casos práticos</strong> para entender a aplicação no dia a dia bancário</li>
+                </ol>
+                <p>Lembre-se: o conhecimento bancário não é apenas para a prova, mas para a vida profissional. Cada conceito aprendido aqui será aplicado no atendimento a clientes, na análise de produtos e na tomada de decisões no ambiente bancário.</p>
+                <p style="margin-top:0.8rem;font-weight:600;color:var(--accent-gold);">Bons estudos e sucesso na sua aprovação!</p>
+            </div>
+
+            <div class="divider">Fim do material</div>
+
+            <p style="text-align:center;font-size:0.85rem;color:var(--text-muted);font-family:var(--font-heading);">
+                Material didático produzido para concursos públicos da área bancária.<br>
+                Elaborado com base na legislação vigente, normativos do CMN e BCB, e experiência em provas de bancas como Cesgranrio, FCC, FGV e Cebraspe.<br>
+                Atualizado conforme Resoluções e Leis aplicáveis à data de produção.
+            </p>
+
+        </section>
+
+    </div>
+    <!-- fim .container -->
+
+</body>
+</html>
