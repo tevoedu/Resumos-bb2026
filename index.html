@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub de Estudos — Concurso</title>
 
-    <!-- Fabric.js (CDN) para gerenciamento do canvas -->
+    <!-- Fabric.js (CDN) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js">
     </script>
 
     <style>
         /* ============================================================
-               VARIÁVEIS CSS — Tema Dark Moderno
-               ============================================================ */
+           VARIÁVEIS CSS — Tema Dark Moderno
+           ============================================================ */
         :root {
             --bg-primary: #0d0d17;
             --bg-secondary: #141428;
@@ -46,11 +46,12 @@
             --font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
             --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
             --toolbar-btn-size: 44px;
+            --fab-size: 56px;
         }
 
         /* ============================================================
-               RESET & BASE
-               ============================================================ */
+           RESET & BASE
+           ============================================================ */
         *,
         *::before,
         *::after {
@@ -81,8 +82,8 @@
         }
 
         /* ============================================================
-               SCROLLBAR PERSONALIZADO (SIDEBAR)
-               ============================================================ */
+           SCROLLBAR PERSONALIZADO (SIDEBAR)
+           ============================================================ */
         ::-webkit-scrollbar {
             width: 5px;
             height: 5px;
@@ -104,8 +105,8 @@
         }
 
         /* ============================================================
-               LAYOUT PRINCIPAL
-               ============================================================ */
+           LAYOUT PRINCIPAL
+           ============================================================ */
         #app-container {
             display: flex;
             width: 100%;
@@ -115,8 +116,8 @@
         }
 
         /* ============================================================
-               SIDEBAR
-               ============================================================ */
+           SIDEBAR
+           ============================================================ */
         #sidebar {
             width: var(--sidebar-width);
             min-width: var(--sidebar-width);
@@ -417,8 +418,8 @@
         }
 
         /* ============================================================
-               MAIN AREA
-               ============================================================ */
+           MAIN AREA
+           ============================================================ */
         #main-area {
             flex: 1;
             display: flex;
@@ -431,8 +432,8 @@
         }
 
         /* ============================================================
-               TOP BAR
-               ============================================================ */
+           TOP BAR
+           ============================================================ */
         #topbar {
             display: flex;
             align-items: center;
@@ -550,8 +551,8 @@
         }
 
         /* ============================================================
-               CONTENT AREA (iframe + welcome + annotation)
-               ============================================================ */
+           CONTENT AREA (iframe + welcome + annotation)
+           ============================================================ */
         #content-area {
             flex: 1;
             position: relative;
@@ -676,16 +677,16 @@
         }
 
         /* ============================================================
-               ANOTAÇÕES — CAMADA FLUTUANTE
-               ============================================================ */
+           ANOTAÇÕES — CAMADA FLUTUANTE
+           ============================================================ */
         #annotation-container {
             position: absolute;
             inset: 0;
             z-index: 20;
             pointer-events: none;
-            /* container não bloqueia cliques, mas os canvas internos terão pointer-events:auto */
+            /* container não bloqueia, mas os filhos com auto recebem eventos */
             display: none;
-            /* mostrado via JS */
+            /* controlado via JS */
         }
 
         #annotation-container.active {
@@ -697,16 +698,60 @@
             width: 100%;
             height: 100%;
             pointer-events: auto;
-            /* captura eventos de desenho */
             touch-action: none;
-            /* impede scroll/pinch no canvas */
             cursor: crosshair;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* ============================================================
+           BOLHA FLUTUANTE (FAB)
+           ============================================================ */
+        #annotation-fab {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            width: var(--fab-size);
+            height: var(--fab-size);
+            border-radius: 50%;
+            background: var(--bg-accent);
+            color: #fff;
+            border: none;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            pointer-events: auto;
+            z-index: 25;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        #annotation-fab:hover {
+            background: var(--bg-accent-hover);
+            transform: scale(1.05);
+        }
+        #annotation-fab:active {
+            transform: scale(0.92);
+        }
+        #annotation-fab svg {
+            width: 28px;
+            height: 28px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        #annotation-fab.hidden-fab {
+            display: none;
         }
 
         /* Toolbar flutuante */
         #annotation-toolbar {
             position: absolute;
-            bottom: 24px;
+            bottom: 90px;
+            /* acima da bolha */
             right: 24px;
             background: var(--bg-card);
             border-radius: var(--radius-lg);
@@ -721,6 +766,14 @@
             max-width: 90vw;
             backdrop-filter: blur(4px);
             background: rgba(28, 28, 54, 0.92);
+            z-index: 26;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            transform-origin: bottom right;
+        }
+        #annotation-toolbar.collapsed-toolbar {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
         }
 
         #annotation-toolbar .tool-group {
@@ -826,8 +879,8 @@
         }
 
         /* ============================================================
-               OVERLAY (mobile)
-               ============================================================ */
+           OVERLAY (mobile)
+           ============================================================ */
         #sidebar-overlay {
             display: none;
             position: fixed;
@@ -844,8 +897,8 @@
         }
 
         /* ============================================================
-               RESPONSIVIDADE
-               ============================================================ */
+           RESPONSIVIDADE
+           ============================================================ */
         @media (max-width: 768px) {
             #sidebar {
                 position: fixed;
@@ -880,8 +933,18 @@
             .welcome-stat-value {
                 font-size: 1.4rem;
             }
+            #annotation-fab {
+                bottom: 16px;
+                right: 16px;
+                width: 48px;
+                height: 48px;
+            }
+            #annotation-fab svg {
+                width: 24px;
+                height: 24px;
+            }
             #annotation-toolbar {
-                bottom: 12px;
+                bottom: 76px;
                 right: 12px;
                 padding: 8px 10px;
                 gap: 4px;
@@ -920,7 +983,6 @@
             <!-- Header da Sidebar -->
             <div class="sidebar-header">
                 <div class="sidebar-logo">
-                    <!-- Ícone: Livro + Graduação -->
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
@@ -958,7 +1020,6 @@
         <div id="main-area">
             <!-- Top Bar -->
             <header id="topbar">
-                <!-- Botão toggle sidebar -->
                 <button class="topbar-btn tooltip" id="btn-toggle-sidebar" data-tooltip="Mostrar/Ocultar Sidebar" aria-label="Toggle sidebar">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="3" width="7" height="18" rx="1.5"/>
@@ -966,14 +1027,12 @@
                     </svg>
                 </button>
 
-                <!-- Botão Voltar / Home -->
                 <button class="topbar-btn tooltip" id="btn-back" data-tooltip="Voltar ao início" aria-label="Voltar">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
                     </svg>
                 </button>
 
-                <!-- Breadcrumb -->
                 <div id="breadcrumb-container">
                     <span class="breadcrumb-home" id="breadcrumb-home" title="Início">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -984,10 +1043,8 @@
                     <span class="breadcrumb-item current" id="breadcrumb-text">Nenhum resumo selecionado</span>
                 </div>
 
-                <!-- Espaçador -->
                 <div class="topbar-spacer"></div>
 
-                <!-- Botão Tela Cheia -->
                 <button class="topbar-btn tooltip" id="btn-fullscreen" data-tooltip="Tela Cheia" aria-label="Tela cheia">
                     <svg id="icon-fullscreen-enter" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/>
@@ -1026,9 +1083,16 @@
                 </div>
 
                 <!-- ============================================================
-                CAMADA DE ANOTAÇÕES (nova)
+                CAMADA DE ANOTAÇÕES
                 ============================================================ -->
                 <div id="annotation-container">
+                    <!-- BOLHA FLUTUANTE (FAB) -->
+                    <button id="annotation-fab" class="annotation-fab" aria-label="Abrir ferramentas de anotação">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+                        </svg>
+                    </button>
+
                     <!-- Canvas gerenciado pelo Fabric.js -->
                     <canvas id="annotation-canvas"></canvas>
 
@@ -1036,46 +1100,30 @@
                     <div id="annotation-toolbar">
                         <!-- Ferramentas -->
                         <div class="tool-group">
-                            <button class="toolbar-btn active" data-tool="pen" title="Caneta">
+                            <button class="toolbar-btn active" data-tool="pen" title="Caneta (P)">
                                 <svg viewBox="0 0 24 24"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
                             </button>
-                            <button class="toolbar-btn" data-tool="highlighter" title="Marca-texto">
+                            <button class="toolbar-btn" data-tool="highlighter" title="Marca-texto (H)">
                                 <svg viewBox="0 0 24 24"><path d="M15 4l5 5-9 9-5-5 9-9z"/><path d="M6 15l-3 3 3 3 3-3"/></svg>
                             </button>
-                            <button class="toolbar-btn" data-tool="eraser" title="Borracha">
+                            <button class="toolbar-btn" data-tool="eraser" title="Borracha (E)">
                                 <svg viewBox="0 0 24 24"><path d="M7 21h10M4 18l10-10 4 4-10 10-4-4z"/></svg>
                             </button>
-                            <button class="toolbar-btn" data-tool="ruler" title="Régua (linha reta)">
+                            <button class="toolbar-btn" data-tool="ruler" title="Régua (R)">
                                 <svg viewBox="0 0 24 24"><line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="21" x2="3" y2="3"/><line x1="9" y1="21" x2="9" y2="12"/><line x1="15" y1="21" x2="15" y2="6"/><line x1="21" y1="21" x2="21" y2="15"/></svg>
                             </button>
                         </div>
 
-                        <!-- Cores (paleta) -->
+                        <!-- Cores -->
                         <div class="tool-group" id="color-palette">
-                            <button class="toolbar-btn" data-color="#ffffff" title="Branco">
-                                <span class="color-dot" style="background:#ffffff;"></span>
-                            </button>
-                            <button class="toolbar-btn" data-color="#ff6b6b" title="Vermelho">
-                                <span class="color-dot" style="background:#ff6b6b;"></span>
-                            </button>
-                            <button class="toolbar-btn" data-color="#ffd93d" title="Amarelo">
-                                <span class="color-dot" style="background:#ffd93d;"></span>
-                            </button>
-                            <button class="toolbar-btn active" data-color="#4ecdc4" title="Verde água">
-                                <span class="color-dot active-dot" style="background:#4ecdc4;"></span>
-                            </button>
-                            <button class="toolbar-btn" data-color="#6c5ce7" title="Roxo">
-                                <span class="color-dot" style="background:#6c5ce7;"></span>
-                            </button>
-                            <button class="toolbar-btn" data-color="#fd79a8" title="Rosa">
-                                <span class="color-dot" style="background:#fd79a8;"></span>
-                            </button>
-                            <button class="toolbar-btn" data-color="#fdcb6e" title="Laranja">
-                                <span class="color-dot" style="background:#fdcb6e;"></span>
-                            </button>
-                            <button class="toolbar-btn" data-color="#a29bfe" title="Lavanda">
-                                <span class="color-dot" style="background:#a29bfe;"></span>
-                            </button>
+                            <button class="toolbar-btn" data-color="#ffffff" title="Branco"><span class="color-dot" style="background:#ffffff;"></span></button>
+                            <button class="toolbar-btn" data-color="#ff6b6b" title="Vermelho"><span class="color-dot" style="background:#ff6b6b;"></span></button>
+                            <button class="toolbar-btn" data-color="#ffd93d" title="Amarelo"><span class="color-dot" style="background:#ffd93d;"></span></button>
+                            <button class="toolbar-btn active" data-color="#4ecdc4" title="Verde água"><span class="color-dot active-dot" style="background:#4ecdc4;"></span></button>
+                            <button class="toolbar-btn" data-color="#6c5ce7" title="Roxo"><span class="color-dot" style="background:#6c5ce7;"></span></button>
+                            <button class="toolbar-btn" data-color="#fd79a8" title="Rosa"><span class="color-dot" style="background:#fd79a8;"></span></button>
+                            <button class="toolbar-btn" data-color="#fdcb6e" title="Laranja"><span class="color-dot" style="background:#fdcb6e;"></span></button>
+                            <button class="toolbar-btn" data-color="#a29bfe" title="Lavanda"><span class="color-dot" style="background:#a29bfe;"></span></button>
                         </div>
 
                         <!-- Espessura -->
@@ -1086,17 +1134,13 @@
 
                         <!-- Desfazer / Refazer -->
                         <div class="tool-group">
-                            <button class="toolbar-btn" id="undo-btn" title="Desfazer">
-                                <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 0-8"/></svg>
-                            </button>
-                            <button class="toolbar-btn" id="redo-btn" title="Refazer">
-                                <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1 0-8"/></svg>
-                            </button>
+                            <button class="toolbar-btn" id="undo-btn" title="Desfazer (Ctrl+Z)"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 0-8"/></svg></button>
+                            <button class="toolbar-btn" id="redo-btn" title="Refazer (Ctrl+Y)"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1 0-8"/></svg></button>
                         </div>
 
-                        <!-- Fechar anotações (toggle) -->
+                        <!-- Minimizar (antigo X) -->
                         <div class="tool-group">
-                            <button class="toolbar-btn" id="toggle-annotation-btn" title="Ocultar anotações">
+                            <button class="toolbar-btn" id="minimize-annotation-btn" title="Minimizar ferramentas">
                                 <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                             </button>
                         </div>
@@ -1158,7 +1202,6 @@
                         ],
                     }, ],
                 },
-                // --- Novos decks solicitados ---
                 {
                     id: 'deck-adm',
                     name: 'Administração',
@@ -1351,7 +1394,6 @@
                         deckGroup.classList.add('expanded');
                     }
 
-                    // Header do Deck
                     const deckHeader = document.createElement('div');
                     deckHeader.className = 'deck-header';
                     deckHeader.innerHTML = `
@@ -1366,7 +1408,6 @@
                     });
                     deckGroup.appendChild(deckHeader);
 
-                    // Container de categorias
                     const categoriesContainer = document.createElement('div');
                     categoriesContainer.className = 'deck-categories';
 
@@ -1378,7 +1419,6 @@
                             catGroup.classList.add('expanded');
                         }
 
-                        // Header da Categoria
                         const catHeader = document.createElement('div');
                         catHeader.className = 'category-header';
                         catHeader.innerHTML = `
@@ -1393,7 +1433,6 @@
                         });
                         catGroup.appendChild(catHeader);
 
-                        // Itens
                         const itemsContainer = document.createElement('div');
                         itemsContainer.className = 'category-items';
 
@@ -1409,7 +1448,6 @@
                                 <span class="item-icon">${ICONS.document(14)}</span>
                                 <span>${escapeHTML(item.name)}</span>
                             `;
-                            // Verificar se é o item ativo
                             if (
                                 state.activeResume &&
                                 state.activeResume.deckId === deck.id &&
@@ -1433,7 +1471,6 @@
                     $sidebarDecksList.appendChild(deckGroup);
                 });
 
-                // Aplicar filtro de pesquisa se houver
                 if (state.searchQuery.trim()) {
                     applySearchFilter(state.searchQuery);
                 }
@@ -1481,8 +1518,11 @@
                 renderSidebar();
             }
 
+            // ============================================================
+            // openResume e goBackToWelcome (integrados com anotações)
+            // ============================================================
             function openResume(deck, catIndex, itemIndex, cat, item) {
-                // Salva anotações do resumo anterior, se houver
+                // Salva anotações do resumo anterior
                 if (state.activeResume && state.activeResume.fileName) {
                     AnnotationModule.save(state.activeResume.fileName);
                 }
@@ -1502,9 +1542,9 @@
                 renderSidebar();
                 loadIframe(item.file);
 
-                // Carregar anotações do novo resumo
+                // Carregar anotações do novo resumo e expandir
                 AnnotationModule.load(item.file);
-                AnnotationModule.show();
+                AnnotationModule.expand();
 
                 updateBreadcrumb(deck.name, cat.name, item.name);
                 showIframe();
@@ -1517,11 +1557,9 @@
             }
 
             function goBackToWelcome() {
-                // Salva anotações do resumo atual
                 if (state.activeResume && state.activeResume.fileName) {
                     AnnotationModule.save(state.activeResume.fileName);
                 }
-
                 state.activeResume = null;
                 persistState();
                 renderSidebar();
@@ -1737,17 +1775,17 @@
             }
 
             // ============================================================
-            // MÓDULO DE ANOTAÇÕES (AnnotationModule)
+            // MÓDULO DE ANOTAÇÕES (CORRIGIDO)
             // ============================================================
             const AnnotationModule = (function() {
                 // Referências DOM
                 const container = document.getElementById('annotation-container');
                 const canvasEl = document.getElementById('annotation-canvas');
                 const toolbar = document.getElementById('annotation-toolbar');
+                const fab = document.getElementById('annotation-fab');
                 const widthSlider = document.getElementById('brush-width');
                 const widthLabel = document.getElementById('width-label');
 
-                // Estado interno
                 let canvas = null;
                 let currentTool = 'pen';
                 let currentColor = '#4ecdc4';
@@ -1756,20 +1794,19 @@
                 let rulerStart = null;
                 let rulerLine = null;
 
-                // Histórico (desfazer/refazer)
                 const MAX_HISTORY = 30;
                 let history = [];
                 let historyIndex = -1;
                 let isRestoring = false;
 
-                // Arquivo atual (para saber qual anotação está em exibição)
+                // Estado da UI: 'hidden', 'collapsed', 'expanded'
+                let uiState = 'hidden';
                 let currentFile = null;
 
                 // ============================================================
                 // INICIALIZAÇÃO
                 // ============================================================
                 function init() {
-                    // Configurar o canvas do Fabric
                     canvas = new fabric.Canvas(canvasEl, {
                         selection: false,
                         renderOnAddRemove: true,
@@ -1778,43 +1815,41 @@
                         fireMiddleClick: false,
                     });
 
-                    // Ajustar tamanho ao container
                     resizeCanvas();
                     window.addEventListener('resize', resizeCanvas);
 
-                    // Configurar o brush padrão (caneta)
                     const brush = new fabric.PencilBrush(canvas);
                     brush.color = currentColor;
                     brush.width = currentWidth;
                     canvas.freeDrawingBrush = brush;
                     canvas.isDrawingMode = true;
 
-                    // Eventos para capturar mudanças e atualizar histórico
                     canvas.on('object:added', onObjectChange);
                     canvas.on('object:modified', onObjectChange);
                     canvas.on('object:removed', onObjectChange);
 
-                    // Configurar eventos da toolbar
                     setupToolbarEvents();
 
-                    // Inicialmente oculto
                     hide();
-
                     console.log('✅ AnnotationModule inicializado.');
                 }
 
                 // ============================================================
-                // REDIMENSIONAMENTO
+                // REDIMENSIONAMENTO (sem DPR)
                 // ============================================================
                 function resizeCanvas() {
                     if (!canvas) return;
                     const rect = container.getBoundingClientRect();
-                    const dpr = window.devicePixelRatio || 1;
-                    canvas.setWidth(rect.width * dpr);
-                    canvas.setHeight(rect.height * dpr);
-                    canvas.setViewportTransform([1, 0, 0, 1, 0, 0]);
-                    canvas.calcOffset();
-                    canvas.renderAll();
+                    const width = rect.width;
+                    const height = rect.height;
+                    if (width > 0 && height > 0) {
+                        canvas.setDimensions({
+                            width: width,
+                            height: height
+                        });
+                        canvas.calcOffset();
+                        canvas.renderAll();
+                    }
                 }
 
                 // ============================================================
@@ -1823,7 +1858,6 @@
                 function saveHistory() {
                     if (isRestoring) return;
                     const json = JSON.stringify(canvas.toJSON(['id']));
-                    // Remove estados futuros se estiver no meio do histórico
                     if (historyIndex < history.length - 1) {
                         history = history.slice(0, historyIndex + 1);
                     }
@@ -1872,7 +1906,6 @@
                         rulerStart = null;
                     }
 
-                    // Atualizar UI dos botões
                     document.querySelectorAll('[data-tool]').forEach(btn => {
                         btn.classList.toggle('active', btn.dataset.tool === tool);
                     });
@@ -1892,14 +1925,12 @@
                             hlBrush.color = currentColor;
                             hlBrush.width = currentWidth * 1.5;
                             hlBrush.opacity = 0.3;
-                            // Tenta usar blend mode se suportado
                             hlBrush.blendMode = 'multiply';
                             canvas.freeDrawingBrush = hlBrush;
                             break;
                         case 'eraser':
                             canvas.isDrawingMode = true;
                             const eraserBrush = new fabric.PencilBrush(canvas);
-                            // Usa a cor de fundo (branco) para simular borracha
                             eraserBrush.color = '#ffffff';
                             eraserBrush.width = currentWidth * 1.5;
                             eraserBrush.opacity = 1;
@@ -1909,34 +1940,27 @@
                             canvas.isDrawingMode = false;
                             isRulerMode = true;
                             canvas.selection = false;
-                            // Adiciona listeners para desenhar linha
                             break;
                         default:
                             canvas.isDrawingMode = true;
                     }
-
-                    // Atualizar cursor
                     canvas.selection = false;
                     canvas.renderAll();
                 }
 
                 function setColor(color) {
                     currentColor = color;
-                    // Atualizar UI dos dots
                     document.querySelectorAll('#color-palette .color-dot').forEach(dot => {
-                        dot.classList.toggle('active-dot', dot.style.backgroundColor === color || dot
-                            .parentElement.dataset.color === color);
+                        const parentBtn = dot.closest('.toolbar-btn');
+                        const isActive = parentBtn && parentBtn.dataset.color === color;
+                        dot.classList.toggle('active-dot', isActive);
                     });
-                    // Atualizar brush se for caneta ou marca-texto
                     if (currentTool === 'pen' || currentTool === 'highlighter') {
                         const brush = canvas.freeDrawingBrush;
                         if (brush) {
                             brush.color = color;
-                            if (currentTool === 'highlighter') {
-                                brush.opacity = 0.3;
-                            } else {
-                                brush.opacity = 1;
-                            }
+                            if (currentTool === 'highlighter') brush.opacity = 0.3;
+                            else brush.opacity = 1;
                         }
                     }
                 }
@@ -1947,23 +1971,17 @@
                     if (currentTool === 'pen' || currentTool === 'highlighter' || currentTool === 'eraser') {
                         const brush = canvas.freeDrawingBrush;
                         if (brush) {
-                            if (currentTool === 'highlighter') {
-                                brush.width = currentWidth * 1.5;
-                            } else if (currentTool === 'eraser') {
-                                brush.width = currentWidth * 1.5;
-                            } else {
-                                brush.width = currentWidth;
-                            }
+                            if (currentTool === 'highlighter') brush.width = currentWidth * 1.5;
+                            else if (currentTool === 'eraser') brush.width = currentWidth * 1.5;
+                            else brush.width = currentWidth;
                         }
                     }
                 }
 
                 // ============================================================
-                // RÉGUA (linha reta)
+                // RÉGUA
                 // ============================================================
                 function handleRulerEvents() {
-                    if (!canvas) return;
-
                     canvas.on('mouse:down', function(opt) {
                         if (!isRulerMode) return;
                         const pointer = canvas.getPointer(opt.e);
@@ -1996,34 +2014,64 @@
                         canvas.renderAll();
                     });
 
-                    canvas.on('mouse:up', function(opt) {
+                    canvas.on('mouse:up', function() {
                         if (!isRulerMode || !rulerStart) return;
-                        // Finaliza a linha
                         rulerStart = null;
                         if (rulerLine) {
-                            // Tornar a linha selecionável/evented para futuras interações?
                             rulerLine.selectable = false;
                             rulerLine.evented = false;
                             rulerLine = null;
                         }
                         canvas.renderAll();
-                        // Salvar histórico
                         saveHistory();
                     });
                 }
 
                 // ============================================================
-                // SHOW / HIDE
+                // CONTROLE DE ESTADO DA UI
                 // ============================================================
-                function show() {
-                    container.classList.add('active');
-                    container.style.display = 'block';
-                    resizeCanvas();
+                function setUIState(newState) {
+                    uiState = newState;
+                    switch (newState) {
+                        case 'hidden':
+                            container.classList.remove('active');
+                            fab.classList.add('hidden-fab');
+                            toolbar.classList.add('collapsed-toolbar');
+                            canvasEl.style.pointerEvents = 'none';
+                            break;
+                        case 'collapsed':
+                            container.classList.add('active');
+                            fab.classList.remove('hidden-fab');
+                            toolbar.classList.add('collapsed-toolbar');
+                            canvasEl.style.pointerEvents = 'none';
+                            break;
+                        case 'expanded':
+                            container.classList.add('active');
+                            fab.classList.remove('hidden-fab');
+                            toolbar.classList.remove('collapsed-toolbar');
+                            canvasEl.style.pointerEvents = 'auto';
+                            resizeCanvas();
+                            break;
+                    }
+                }
+
+                function expand() {
+                    if (uiState === 'hidden') return;
+                    setUIState('expanded');
+                    setTool(currentTool);
+                }
+
+                function collapse() {
+                    if (uiState === 'hidden') return;
+                    setUIState('collapsed');
                 }
 
                 function hide() {
-                    container.classList.remove('active');
-                    container.style.display = 'none';
+                    setUIState('hidden');
+                }
+
+                function show() {
+                    expand();
                 }
 
                 // ============================================================
@@ -2034,13 +2082,10 @@
                 }
 
                 function save(fileName) {
-                    if (!canvas) return;
-                    if (!fileName) return;
+                    if (!canvas || !fileName) return;
                     try {
                         const json = canvas.toJSON(['id']);
-                        const data = JSON.stringify(json);
-                        localStorage.setItem(getStorageKey(fileName), data);
-                        // console.log(`✅ Anotações salvas para ${fileName}`);
+                        localStorage.setItem(getStorageKey(fileName), JSON.stringify(json));
                     } catch (e) {
                         console.warn('Erro ao salvar anotações:', e);
                     }
@@ -2056,19 +2101,15 @@
                             canvas.clear();
                             canvas.loadFromJSON(json, () => {
                                 canvas.renderAll();
-                                // Limpa histórico e adiciona estado atual
                                 history = [];
                                 historyIndex = -1;
                                 saveHistory();
-                                // console.log(`✅ Anotações carregadas para ${fileName}`);
                             });
                         } else {
-                            // Nenhuma anotação salva: limpa canvas
                             canvas.clear();
                             history = [];
                             historyIndex = -1;
                             saveHistory();
-                            // console.log(`ℹ️ Nenhuma anotação para ${fileName}`);
                         }
                     } catch (e) {
                         console.warn('Erro ao carregar anotações:', e);
@@ -2077,13 +2118,14 @@
                 }
 
                 // ============================================================
-                // CONFIGURAÇÃO DA TOOLBAR
+                // CONFIGURAÇÃO DA TOOLBAR E BOLHA
                 // ============================================================
                 function setupToolbarEvents() {
                     // Botões de ferramenta
                     document.querySelectorAll('[data-tool]').forEach(btn => {
                         btn.addEventListener('click', () => {
                             setTool(btn.dataset.tool);
+                            if (uiState === 'collapsed') expand();
                         });
                     });
 
@@ -2102,20 +2144,23 @@
                         setWidth(this.value);
                     });
 
-                    // Desfazer / Refazer
+                    // Desfazer/Refazer
                     document.getElementById('undo-btn').addEventListener('click', undo);
                     document.getElementById('redo-btn').addEventListener('click', redo);
 
-                    // Alternar visibilidade da camada de anotações (ocultar/mostrar)
-                    document.getElementById('toggle-annotation-btn').addEventListener('click', function() {
-                        if (container.style.display === 'none') {
-                            show();
-                        } else {
-                            hide();
+                    // Minimizar (colapsar)
+                    document.getElementById('minimize-annotation-btn').addEventListener('click', collapse);
+
+                    // Bolha flutuante: alterna collapsed/expanded
+                    fab.addEventListener('click', () => {
+                        if (uiState === 'collapsed') {
+                            expand();
+                        } else if (uiState === 'expanded') {
+                            collapse();
                         }
                     });
 
-                    // Atalhos de teclado para ferramentas
+                    // Atalhos de teclado
                     document.addEventListener('keydown', function(e) {
                         if (e.ctrlKey || e.metaKey) return;
                         if (document.activeElement?.tagName === 'INPUT') return;
@@ -2129,6 +2174,7 @@
                         if (key in toolMap) {
                             e.preventDefault();
                             setTool(toolMap[key]);
+                            if (uiState === 'collapsed') expand();
                         }
                         if (e.ctrlKey && e.key === 'z') {
                             e.preventDefault();
@@ -2140,17 +2186,13 @@
                         }
                     });
 
-                    // Inicializar com caneta
                     setTool('pen');
-                    // Definir cor inicial ativa
                     setColor(currentColor);
-
-                    // Configurar eventos da régua
                     handleRulerEvents();
 
-                    // Salvar automaticamente a cada 5 segundos
+                    // Autosave a cada 5s
                     setInterval(() => {
-                        if (currentFile && container.style.display !== 'none') {
+                        if (currentFile && uiState !== 'hidden') {
                             save(currentFile);
                         }
                     }, 5000);
@@ -2163,6 +2205,8 @@
                     init,
                     show,
                     hide,
+                    expand,
+                    collapse,
                     save,
                     load,
                     setTool,
@@ -2175,7 +2219,7 @@
             })();
 
             // ============================================================
-            // EVENT LISTENERS
+            // EVENT LISTENERS (navegação, teclado, fullscreen, etc.)
             // ============================================================
             $btnToggleSidebar.addEventListener('click', toggleSidebar);
             $btnCloseSidebar.addEventListener('click', () => setSidebarVisible(false));
@@ -2268,7 +2312,7 @@
                 }
             });
 
-            // Salvar anotações antes de fechar/recarregar
+            // Salvar anotações antes de fechar
             window.addEventListener('beforeunload', function() {
                 if (state.activeResume && state.activeResume.fileName) {
                     AnnotationModule.save(state.activeResume.fileName);
@@ -2290,7 +2334,6 @@
                 renderSidebar();
                 updateWelcomeStats();
 
-                // Inicializar o módulo de anotações
                 AnnotationModule.init();
 
                 if (state.activeResume && state.activeResume.fileName) {
@@ -2302,9 +2345,10 @@
                     state.expandedCategories.add(`${ar.deckId}|${ar.categoryIndex}`);
                     persistState();
                     renderSidebar();
-                    // Carregar anotações
+
                     AnnotationModule.load(ar.fileName);
-                    AnnotationModule.show();
+                    AnnotationModule.expand();
+
                     setTimeout(() => {
                         const activeItem = $sidebarDecksList.querySelector('.resume-item.active');
                         if (activeItem) {
@@ -2319,19 +2363,17 @@
 
                 updateFullscreenUI(!!document.fullscreenElement || !!document.webkitFullscreenElement);
 
-                console.log('%c🚀 Hub de Estudos (com anotações) inicializado com sucesso!',
+                console.log('%c🚀 Hub de Estudos (com anotações corrigidas) inicializado!',
                     'color: #a78bfa; font-size: 1.1rem; font-weight: bold;');
-                console.log('%c📚 Decks: ' + DECKS.length + ' | Categorias: ' + DECKS.reduce((acc, d) => acc + d
-                    .categories.length, 0) + ' | Resumos: ' + DECKS.reduce((acc, d) => acc + d.categories.reduce(
-                        (a, c) => a + c.items.length, 0), 0),
-                    'color: #b0b0c8;');
-                console.log('%c✏️ Anotações: use as ferramentas na toolbar para rabiscar sobre os resumos.',
+                console.log('%c✏️ Anotações: toque na bolha para abrir as ferramentas.',
                     'color: #7878a0; font-style: italic;');
                 console.log('%c💡 Atalhos: P (caneta), H (marca-texto), E (borracha), R (régua), Ctrl+Z (desfazer), Ctrl+Y (refazer)',
                     'color: #7878a0;');
-                console.log('%c💡 Dica: Use Ctrl+B para alternar a sidebar, / para pesquisar.',
-                    'color: #7878a0; font-style: italic;');
             }
+
+            // Expor funções e API
+            window.openResume = openResume;
+            window.goBackToWelcome = goBackToWelcome;
 
             init();
 
@@ -2350,8 +2392,8 @@
                 getStats: () => ({
                     decks: DECKS.length,
                     categories: DECKS.reduce((acc, d) => acc + d.categories.length, 0),
-                    items: DECKS.reduce((acc, d) => acc + d.categories.reduce((a, c) => a + c.items
-                        .length, 0), 0),
+                    items: DECKS.reduce((acc, d) => acc + d.categories.reduce((a, c) => a + c.items.length, 0),
+                        0),
                 }),
             };
 
